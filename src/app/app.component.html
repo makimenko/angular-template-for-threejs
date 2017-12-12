@@ -1,3 +1,27 @@
-<h1>
-  Welcome to {{title}}!
-</h1>
+<three-orbit-contols [rotateSpeed]=1 [zoomSpeed]=1.2>
+  <three-renderer #mainRenderer>
+
+    <three-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></three-perspective-camera>
+
+    <three-scene>
+      <three-axes-helper size=200></three-axes-helper>
+      <three-grid-helper size=100 divisions=10></three-grid-helper>
+
+      <three-point-light color="white" intensity="1" distance="1000" translateX=50 translateY=50 translateZ=50></three-point-light>
+      <three-point-light color="#FAFA00" intensity="1" distance="1000" translateX=-50 translateY=50 translateZ=20></three-point-light>
+
+
+      <three-collada-loader model="assets/model/tableAndChair.dae" translateX=-20 rotateY="{{45 | degree}}" [renderer]="mainRenderer">
+        <three-axes-helper size=10></three-axes-helper>
+      </three-collada-loader>
+
+
+      <div *ngFor="let z of [-10, -5, 0, 5, 10]">
+        <three-object-loader *ngFor="let x of [0,5,10,15,20]" model="assets/model/Server.json" [translateX]="x" [translateZ]="z"
+          [renderer]="mainRenderer">
+        </three-object-loader>
+      </div>
+
+    </three-scene>
+  </three-renderer>
+</three-orbit-contols>
