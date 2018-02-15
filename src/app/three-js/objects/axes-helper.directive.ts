@@ -6,7 +6,7 @@ import { AbstractObject3D } from './abstract-object-3d';
   selector: 'three-axes-helper',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => AxesHelperDirective) }]
 })
-export class AxesHelperDirective extends AbstractObject3D<THREE.AxisHelper> {
+export class AxesHelperDirective extends AbstractObject3D<THREE.AxesHelper> {
 
   @Input() size: number;
 
@@ -15,9 +15,9 @@ export class AxesHelperDirective extends AbstractObject3D<THREE.AxisHelper> {
     console.log("AxesHelperDirective.constructor");
   }
 
-  protected newObject3DInstance(): THREE.AxisHelper {
+  protected newObject3DInstance(): THREE.AxesHelper {
     console.log("AxesHelperDirective.newObject3DInstance");
-    return new THREE.AxisHelper(this.size);
+    return new THREE.AxesHelper(this.size);
   }
 
   protected afterInit(): void {
