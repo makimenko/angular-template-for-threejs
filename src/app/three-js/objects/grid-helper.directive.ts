@@ -6,7 +6,7 @@ import { AbstractObject3D } from './abstract-object-3d';
   selector: 'three-grid-helper',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => GridHelperDirective) }]
 })
-export class GridHelperDirective extends AbstractObject3D<THREE.AxisHelper> {
+export class GridHelperDirective extends AbstractObject3D<THREE.AxesHelper> {
 
   @Input() size: number;
   @Input() divisions: number;
@@ -16,7 +16,7 @@ export class GridHelperDirective extends AbstractObject3D<THREE.AxisHelper> {
     console.log("GridHelperDirective.constructor");
   }
 
-  protected newObject3DInstance(): THREE.AxisHelper {
+  protected newObject3DInstance(): THREE.AxesHelper {
     console.log("GridHelperDirective.newObject3DInstance");
     return new THREE.GridHelper(this.size, this.divisions)
   }
