@@ -1,2 +1,2 @@
-export * from "./abstract-camera";
-export * from "./perspective-camera.directive";
+export * from './abstract-camera';
+export * from './perspective-camera.directive';

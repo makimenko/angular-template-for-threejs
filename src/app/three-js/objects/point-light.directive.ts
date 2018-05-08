@@ -14,16 +14,16 @@ export class PointLightDirective extends AbstractObject3D<THREE.PointLight> {
 
   constructor() {
     super();
-    console.log("PointLightDirective.constructor");
+    console.log('PointLightDirective.constructor');
   }
 
   protected newObject3DInstance(): THREE.PointLight {
-    console.log("PointLightDirective.newObject3DInstance");
-    return new THREE.PointLight(this.color, this.intensity, this.distance)
+    console.log('PointLightDirective.newObject3DInstance');
+    return new THREE.PointLight(this.color, this.intensity, this.distance);
   }
 
   protected afterInit(): void {
-    console.log("PointLightDirective.afterInit");
+    console.log('PointLightDirective.afterInit');
     // none
   }
 

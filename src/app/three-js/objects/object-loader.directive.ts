@@ -15,23 +15,23 @@ export class ObjectLoaderDirective extends AbstractObject3D<THREE.Object3D> {
 
   constructor() {
     super();
-    console.log("ObjectLoaderDirective.constructor");
+    console.log('ObjectLoaderDirective.constructor');
   }
 
   protected newObject3DInstance(): THREE.Object3D {
-    console.log("ObjectLoaderDirective.newObject3DInstance");
+    console.log('ObjectLoaderDirective.newObject3DInstance');
     return new THREE.Object3D();
   }
 
   protected afterInit(): void {
-    console.log("ObjectLoaderDirective.afterInit");
-    var loader = new THREE.ObjectLoader();
+    console.log('ObjectLoaderDirective.afterInit');
+    const loader = new THREE.ObjectLoader();
     loader.load(this.model, this.onObjectLoaded.bind(this));
 
   }
 
   private onObjectLoaded(object: THREE.Object3D) {
-    console.log("ObjectLoaderDirective.onObjectLoaded")
+    console.log('ObjectLoaderDirective.onObjectLoaded');
     this.addChild(object);
     this.renderer.render();
   }

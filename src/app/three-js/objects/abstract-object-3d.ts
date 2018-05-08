@@ -16,16 +16,16 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   private object: T;
 
   public ngAfterViewInit(): void {
-    console.log("AbstractObject3D.ngAfterViewInit");
+    console.log('AbstractObject3D.ngAfterViewInit');
     this.object = this.newObject3DInstance();
-        
+
     this.applyTranslation();
     this.applyRotation();
 
-    if (this.childNodes != undefined && this.childNodes.length > 1) {
-      this.childNodes.filter(i => i != this && i.getObject() != undefined).forEach(i => {
-        //console.log("Add child for " + this.constructor.name);
-        //console.log(i);
+    if (this.childNodes !== undefined && this.childNodes.length > 1) {
+      this.childNodes.filter(i => i !== this && i.getObject() !== undefined).forEach(i => {
+        // console.log("Add child for " + this.constructor.name);
+        // console.log(i);
         this.addChild(i.getObject());
       });
     } else {
@@ -36,15 +36,15 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   private applyRotation(): void {
-    if (this.rotateX != undefined) this.object.rotateX(this.rotateX);
-    if (this.rotateY != undefined) this.object.rotateY(this.rotateY);
-    if (this.rotateZ != undefined) this.object.rotateZ(this.rotateZ);
+    if (this.rotateX !== undefined) { this.object.rotateX(this.rotateX); }
+    if (this.rotateY !== undefined) { this.object.rotateY(this.rotateY); }
+    if (this.rotateZ !== undefined) { this.object.rotateZ(this.rotateZ); }
   }
 
   private applyTranslation(): void {
-    if (this.translateX != undefined) this.object.translateX(this.translateX);
-    if (this.translateY != undefined) this.object.translateY(this.translateY);
-    if (this.translateZ != undefined) this.object.translateZ(this.translateZ);
+    if (this.translateX !== undefined) { this.object.translateX(this.translateX); }
+    if (this.translateY !== undefined) { this.object.translateY(this.translateY); }
+    if (this.translateZ !== undefined) { this.object.translateZ(this.translateZ); }
   }
 
   protected addChild(object: THREE.Object3D): void {

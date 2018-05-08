@@ -1,8 +1,8 @@
 import { Directive, AfterViewInit, Input, forwardRef, Output, EventEmitter } from '@angular/core';
 import * as THREE from 'three';
 import { AbstractObject3D } from './abstract-object-3d';
-import "../js/EnableThreeExamples";
-import "three/examples/js/loaders/ColladaLoader";
+import '../js/EnableThreeExamples';
+import 'three/examples/js/loaders/ColladaLoader';
 import { RendererComponent } from '../renderer/renderer.component';
 
 @Directive({
@@ -16,23 +16,23 @@ export class ColladaLoaderDirective extends AbstractObject3D<THREE.Object3D> {
 
   constructor() {
     super();
-    console.log("ColladaLoaderDirective.constructor");
+    console.log('ColladaLoaderDirective.constructor');
   }
 
   protected newObject3DInstance(): THREE.Object3D {
-    console.log("ColladaLoaderDirective.newObject3DInstance");
+    console.log('ColladaLoaderDirective.newObject3DInstance');
     return new THREE.Object3D();
   }
 
   protected afterInit(): void {
-    console.log("ColladaLoaderDirective.afterInit");
-    var loader = new THREE.ColladaLoader();
-    
+    console.log('ColladaLoaderDirective.afterInit');
+    const loader = new THREE.ColladaLoader();
+
     loader.load(this.model, this.onModelLoadingCompleted.bind(this));
   }
 
   private onModelLoadingCompleted(collada: THREE.ColladaModel) {
-    console.log("ColladaLoaderDirective.onModelLoadingCompleted")
+    console.log('ColladaLoaderDirective.onModelLoadingCompleted');
     this.addChild(collada.scene);
     this.renderer.render();
   }
