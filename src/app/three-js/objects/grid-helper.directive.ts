@@ -13,16 +13,16 @@ export class GridHelperDirective extends AbstractObject3D<THREE.AxesHelper> {
 
   constructor() {
     super();
-    console.log("GridHelperDirective.constructor");
+    console.log('GridHelperDirective.constructor');
   }
 
   protected newObject3DInstance(): THREE.AxesHelper {
-    console.log("GridHelperDirective.newObject3DInstance");
-    return new THREE.GridHelper(this.size, this.divisions)
+    console.log('GridHelperDirective.newObject3DInstance');
+    return new THREE.GridHelper(this.size, this.divisions);
   }
 
   protected afterInit(): void {
-    console.log("GridHelperDirective.afterInit");
+    console.log('GridHelperDirective.afterInit');
     // none
   }
 

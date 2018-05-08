@@ -6,11 +6,11 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements AfterVie
   camera: T;
 
   constructor() {
-    console.log("AbstractCamera.constructor");
+    console.log('AbstractCamera.constructor');
   }
 
   public ngAfterViewInit(): void {
-    console.log("AbstractCamera.ngAfterViewInit");
+    console.log('AbstractCamera.ngAfterViewInit');
     this.afterInit();
   }
 
