@@ -40,6 +40,26 @@ export class RendererComponent implements AfterViewInit {
     this.startRendering();
   }
 
+  /**
+   * The render pane on which the scene is rendered.
+   * Currently, only the WebGL renderer with a canvas is used in this
+   * implementation, so this property will always be an ElementRef to the
+   * underlying <canvas> element.
+   *
+   * @example This property can be used to restrict the orbit controls (i.e. the
+   * area which is listened for mouse move and zoom events) to the rendering pane:
+   * ```
+   * <three-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
+   *   <three-renderer #mainRenderer>
+   *     ...
+   *   </three-renderer>
+   * </three-orbit-controls>
+   * ```
+   */
+  public get renderPane(): ElementRef {
+    return this.canvasRef;
+  }
+
   private get canvas(): HTMLCanvasElement {
     return this.canvasRef.nativeElement;
   }
