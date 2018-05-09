@@ -51,6 +51,10 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     this.object.add(object);
   }
 
+  protected removeChild(object: THREE.Object3D): void {
+    this.object.remove(object);
+  }
+
   public getObject(): T {
     return this.object;
   }

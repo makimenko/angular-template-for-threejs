@@ -1,39 +1,25 @@
-import { Directive, AfterViewInit, Input, forwardRef, Output, EventEmitter } from '@angular/core';
-import * as THREE from 'three';
+import { Directive, forwardRef } from '@angular/core';
+
 import { AbstractObject3D } from './abstract-object-3d';
-import { RendererComponent } from '../renderer/renderer.component';
-import { Object3D } from 'three';
+import { ModelLoaderDirective } from './model-loader.directive';
+
+import * as THREE from 'three';
 
 @Directive({
   selector: 'three-object-loader',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjectLoaderDirective) }]
 })
-export class ObjectLoaderDirective extends AbstractObject3D<THREE.Object3D> {
+export class ObjectLoaderDirective extends ModelLoaderDirective {
+  private loader = new THREE.ObjectLoader();
 
-  @Input() model: string;
-  @Input() renderer: RendererComponent;
-
-  constructor() {
-    super();
-    console.log('ObjectLoaderDirective.constructor');
+  protected async loadModelObject() {
+    return new Promise<THREE.Object3D>((resolve, reject) => {
+      this.loader.load(this.model, model => {
+          resolve(model);
+        },
+        undefined,
+        reject
+      );
+    });
   }
-
-  protected newObject3DInstance(): THREE.Object3D {
-    console.log('ObjectLoaderDirective.newObject3DInstance');
-    return new THREE.Object3D();
-  }
-
-  protected afterInit(): void {
-    console.log('ObjectLoaderDirective.afterInit');
-    const loader = new THREE.ObjectLoader();
-    loader.load(this.model, this.onObjectLoaded.bind(this));
-
-  }
-
-  private onObjectLoaded(object: THREE.Object3D) {
-    console.log('ObjectLoaderDirective.onObjectLoaded');
-    this.addChild(object);
-    this.renderer.render();
-  }
-
 }
