@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { ThreeJsModule } from './three-js/three-js.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ThreeJsModule
   ],
   providers: [],
