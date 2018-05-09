@@ -1,4 +1,4 @@
-import { Directive, Input, AfterViewInit, ContentChildren, QueryList } from '@angular/core';
+import { Directive, Input, AfterViewInit, ContentChildren, QueryList, OnChanges, SimpleChanges } from '@angular/core';
 import * as THREE from 'three';
 import { AbstractCamera } from '../cameras/index';
 import { RendererComponent } from '../renderer/renderer.component';
@@ -8,7 +8,7 @@ import 'three/examples/js/controls/OrbitControls';
 @Directive({
   selector: 'three-orbit-contols'
 })
-export class OrbitControlsDirective implements AfterViewInit {
+export class OrbitControlsDirective implements AfterViewInit, OnChanges {
 
   @ContentChildren(AbstractCamera, { descendants: true }) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
   @ContentChildren(RendererComponent, { descendants: true }) childRenderers: QueryList<RendererComponent>;
@@ -20,6 +20,22 @@ export class OrbitControlsDirective implements AfterViewInit {
 
   constructor() {
     console.log('OrbitControlsDirective.constructor');
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // If the THREE.js OrbitControls are not set up yet, we do not need to update
+    // anything as they will pick the new values from the @Input properties automatically
+    // upon creation.
+    if (!this.controls) {
+      return;
+    }
+
+    if (changes['rotateSpeed']) {
+      this.controls.rotateSpeed = changes['rotateSpeed'].currentValue;
+    }
+    if (changes['zoomSpeed']) {
+      this.controls.zoomSpeed = changes['zoomSpeed'].currentValue;
+    }
   }
 
   ngAfterViewInit(): void {
