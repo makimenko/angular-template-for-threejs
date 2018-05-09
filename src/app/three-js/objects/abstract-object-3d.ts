@@ -12,8 +12,19 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   @ContentChildren(AbstractObject3D, { descendants: false }) childNodes: QueryList<AbstractObject3D<THREE.Object3D>>;
 
+  /**
+   * Rotation in Euler angles (radians) with order X, Y, Z.
+   */
   @Input() rotateX: number;
+
+  /**
+   * Rotation in Euler angles (radians) with order X, Y, Z.
+   */
   @Input() rotateY: number;
+
+  /**
+   * Rotation in Euler angles (radians) with order X, Y, Z.
+   */
   @Input() rotateZ: number;
 
   @Input() translateX: number;
@@ -76,7 +87,8 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     this.object.rotation.set(
       this.rotateX || 0,
       this.rotateY || 0,
-      this.rotateZ || 0
+      this.rotateZ || 0,
+      'XYZ'
     );
   }
 
