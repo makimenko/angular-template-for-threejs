@@ -19,6 +19,7 @@ import * as THREE from 'three';
 export abstract class ModelLoaderDirective extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
 
   private _model: string;
+  private _renderer: RendererComponent;
 
   /**
    * Flag to signal whether the parent class instance AbstractObject3D called the
@@ -54,6 +55,9 @@ export abstract class ModelLoaderDirective extends AbstractObject3D<THREE.Object
   @Input()
   public set model(newModelUrl: string) {
     this._model = newModelUrl;
+
+    // Delay model loading until the parent has been initialized,
+    // so that we can call addChild().
     if (!this.parentInitialized) {
       return;
     }
@@ -81,23 +85,32 @@ export abstract class ModelLoaderDirective extends AbstractObject3D<THREE.Object
 
   @Input()
   public set renderer(newRenderer: RendererComponent) {
-    if (!this.parentInitialized) {
-      return;
-    }
+    this._renderer = newRenderer;
+    this._renderer.render();
+  }
 
-    newRenderer.render();
+  public get renderer() {
+    return this._renderer;
   }
 
   protected afterInit() {
     this.parentInitialized = true;
 
-    // Trigger loading and rendering
-    this.model = this._model;
+    // Trigger model acquisition now that the parent has been initialized.
+    this.model = this.model;
   }
 
   ngOnDestroy(): void {
     if (this.currentLoadedModelObject) {
       this.removeChild(this.currentLoadedModelObject);
+    }
+  }
+
+  protected rerender() {
+    super.rerender();
+
+    if (this.renderer) {
+      this.renderer.render();
     }
   }
 

@@ -23,6 +23,7 @@ import { SceneDirective } from '../objects/scene.directive';
 export class RendererComponent implements AfterViewInit {
 
   private renderer: THREE.WebGLRenderer;
+  private viewInitialized = false;
 
   @ViewChild('canvas')
   private canvasRef: ElementRef; // NOTE: say bye-bye to server-side rendering ;)
@@ -37,6 +38,7 @@ export class RendererComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     console.log('RendererComponent.ngAfterViewInit');
+    this.viewInitialized = true;
     this.startRendering();
   }
 
@@ -85,12 +87,14 @@ export class RendererComponent implements AfterViewInit {
   public render() {
     // if (this.sceneComponents != undefined && this.sceneComponents.length == 1 &&
     //     this.cameraComponents != undefined && this.cameraComponents.length == 1) {
+    if (this.viewInitialized) {
       const sceneComponent = this.sceneComponents.first;
       const cameraComponent = this.cameraComponents.first;
       // console.log("render");
       // console.log(scene.getObject());
       // console.log(camera.camera);
       this.renderer.render(sceneComponent.getObject(), cameraComponent.camera);
+    }
     // }
   }
 

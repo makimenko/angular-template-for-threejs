@@ -1,7 +1,14 @@
-import { AfterViewInit, Input, QueryList, ContentChildren } from '@angular/core';
+import {
+  AfterViewInit,
+  ContentChildren,
+  Input,
+  OnChanges,
+  QueryList,
+  SimpleChanges
+} from '@angular/core';
 import * as THREE from 'three';
 
-export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit {
+export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit, OnChanges {
 
   @ContentChildren(AbstractObject3D, { descendants: false }) childNodes: QueryList<AbstractObject3D<THREE.Object3D>>;
 
@@ -14,6 +21,30 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   @Input() translateZ: number;
 
   private object: T;
+
+  protected rerender() {
+  }
+
+  public ngOnChanges(changes: SimpleChanges) {
+    if (!this.object) {
+      return;
+    }
+
+    let mustRerender = false;
+
+    if (['rotateX', 'rotateY', 'rotateZ'].some(propName => propName in changes)) {
+      this.applyRotation();
+      mustRerender = true;
+    }
+    if (['translateX', 'translateY', 'translateZ'].some(propName => propName in changes)) {
+      this.applyTranslation();
+      mustRerender = true;
+    }
+
+    if (mustRerender) {
+      this.rerender();
+    }
+  }
 
   public ngAfterViewInit(): void {
     console.log('AbstractObject3D.ngAfterViewInit');
@@ -36,15 +67,25 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   private applyRotation(): void {
-    if (this.rotateX !== undefined) { this.object.rotateX(this.rotateX); }
-    if (this.rotateY !== undefined) { this.object.rotateY(this.rotateY); }
-    if (this.rotateZ !== undefined) { this.object.rotateZ(this.rotateZ); }
+    const angles = [
+      this.rotateX,
+      this.rotateY,
+      this.rotateZ
+    ].map(angle => angle || 0);
+
+    this.object.rotation.set(
+      this.rotateX || 0,
+      this.rotateY || 0,
+      this.rotateZ || 0
+    );
   }
 
   private applyTranslation(): void {
-    if (this.translateX !== undefined) { this.object.translateX(this.translateX); }
-    if (this.translateY !== undefined) { this.object.translateY(this.translateY); }
-    if (this.translateZ !== undefined) { this.object.translateZ(this.translateZ); }
+    this.object.position.set(
+      this.translateX || 0,
+      this.translateY || 0,
+      this.translateZ || 0
+    );
   }
 
   protected addChild(object: THREE.Object3D): void {
