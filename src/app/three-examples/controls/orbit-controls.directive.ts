@@ -10,8 +10,7 @@ import {
   QueryList
 } from '@angular/core';
 import * as THREE from 'three';
-import { AbstractCamera } from '../cameras/index';
-import { RendererComponent } from '../renderer/renderer.component';
+import { AbstractCamera, RendererComponent } from 'three-wrapper';
 import '../js/EnableThreeExamples';
 import 'three/examples/js/controls/OrbitControls';
 

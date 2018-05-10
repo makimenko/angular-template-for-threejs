@@ -11,8 +11,8 @@ import {
   AfterViewInit
 } from '@angular/core';
 import * as THREE from 'three';
-import { AbstractCamera } from '../cameras';
 import { SceneDirective } from '../objects/scene.directive';
+import { AbstractCamera } from '../cameras/abstract-camera';
 
 
 @Component({

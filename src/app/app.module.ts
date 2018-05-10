@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ThreeJsModule } from './three-js/three-js.module';
-
+import { ThreeExamplesModule } from './three-examples/three-examples.module';
+import { ThreeWrapperModule } from 'three-wrapper';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,8 @@ import { ThreeJsModule } from './three-js/three-js.module';
   imports: [
     BrowserModule,
     FormsModule,
-    ThreeJsModule
+    ThreeExamplesModule,
+    ThreeWrapperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
