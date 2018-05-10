@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AxesHelperDirective, ColladaLoaderDirective, SceneDirective } from './objects';
-import { DegreePipe } from './pipes/degree.pipe';
+import { DegreesToRadiansPipe } from './pipes/degrees-to-radians.pipe';
+import { RadiansToDegreePipe } from './pipes/radians-to-degree.pipe';
 import { RendererComponent } from './renderer/renderer.component';
 import { PerspectiveCameraDirective } from './cameras';
 import { OrbitControlsDirective } from './controls/orbit-controls.directive';
@@ -19,7 +20,8 @@ import { PointLightDirective } from './objects/point-light.directive';
     AxesHelperDirective,
     GridHelperDirective,
     ColladaLoaderDirective,
-    DegreePipe,
+    DegreesToRadiansPipe,
+    RadiansToDegreePipe,
     PerspectiveCameraDirective,
     OrbitControlsDirective,
     ObjectLoaderDirective,
@@ -31,7 +33,8 @@ import { PointLightDirective } from './objects/point-light.directive';
     AxesHelperDirective,
     GridHelperDirective,
     ColladaLoaderDirective,
-    DegreePipe,
+    DegreesToRadiansPipe,
+    RadiansToDegreePipe,
     PerspectiveCameraDirective,
     OrbitControlsDirective,
     ObjectLoaderDirective,

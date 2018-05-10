@@ -23,6 +23,7 @@ import { SceneDirective } from '../objects/scene.directive';
 export class RendererComponent implements AfterViewInit {
 
   private renderer: THREE.WebGLRenderer;
+  private viewInitialized = false;
 
   @ViewChild('canvas')
   private canvasRef: ElementRef; // NOTE: say bye-bye to server-side rendering ;)
@@ -37,7 +38,28 @@ export class RendererComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     console.log('RendererComponent.ngAfterViewInit');
+    this.viewInitialized = true;
     this.startRendering();
+  }
+
+  /**
+   * The render pane on which the scene is rendered.
+   * Currently, only the WebGL renderer with a canvas is used in this
+   * implementation, so this property will always be an ElementRef to the
+   * underlying <canvas> element.
+   *
+   * @example This property can be used to restrict the orbit controls (i.e. the
+   * area which is listened for mouse move and zoom events) to the rendering pane:
+   * ```
+   * <three-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
+   *   <three-renderer #mainRenderer>
+   *     ...
+   *   </three-renderer>
+   * </three-orbit-controls>
+   * ```
+   */
+  public get renderPane(): ElementRef {
+    return this.canvasRef;
   }
 
   private get canvas(): HTMLCanvasElement {
@@ -65,12 +87,14 @@ export class RendererComponent implements AfterViewInit {
   public render() {
     // if (this.sceneComponents != undefined && this.sceneComponents.length == 1 &&
     //     this.cameraComponents != undefined && this.cameraComponents.length == 1) {
+    if (this.viewInitialized) {
       const sceneComponent = this.sceneComponents.first;
       const cameraComponent = this.cameraComponents.first;
       // console.log("render");
       // console.log(scene.getObject());
       // console.log(camera.camera);
       this.renderer.render(sceneComponent.getObject(), cameraComponent.camera);
+    }
     // }
   }
 
