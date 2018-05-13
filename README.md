@@ -39,33 +39,6 @@ Base project extended by:
 
 See [diffs](https://github.com/makimenko/angular-template-for-dummies/compare/threejs)
 
-## [universal](https://github.com/makimenko/angular-template-for-dummies/tree/universal)
-
-<a href="https://github.com/angular/universal"><img align="right" width="150" padding="5" src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-dummies/images/universal.jpg"/></a>
-
-Base project extended by:
-- [Angular Universal](https://github.com/angular/universal) - server side rendering (or pre-rendering) of Angular applications
-- [Express Server](https://github.com/expressjs/express) - fast, unopinionated, minimalist web framework for node.
-- As example taken excellent [article](https://medium.com/@evertonrobertoauler/angular-5-universal-with-transfer-state-using-angular-cli-19fe1e1d352c) (excluding Transfer State) with demo code hosted posted on GitHub [universal-demo-v5](https://github.com/evertonrobertoauler/universal-demo-v5) repository
-- To build and execute express server:  
-_npm run build_  
-_node dist/server.js_  
-
-See [diffs](https://github.com/makimenko/angular-template-for-dummies/compare/universal)
-
-## [auth0](https://github.com/makimenko/angular-template-for-dummies/tree/auth0)
-
-<a href="https://auth0.com"><img align="right" width="150" padding="5" src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-dummies/images/auth0.png"/></a>
-
-Base project extended by:
-- [Auth0](https://auth0.com) - Authentication via social networks, simple email/password etc.
-- Example includes two authentications: Google and email/password
-- Callback of authentication goto: http://localhost:4200/callback
-- More examples in GitHub [auth0-angular-samples](https://github.com/auth0-samples/auth0-angular-samples) repository
-
-See [diffs](https://github.com/makimenko/angular-template-for-dummies/compare/auth0)
-
-
 # Functional Branches
 These branches are based on two or more core branches with business functionality template like admin ui, geospatial data, weather forecast etc.
 
