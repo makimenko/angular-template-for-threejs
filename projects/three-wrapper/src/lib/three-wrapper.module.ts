@@ -3,6 +3,7 @@ import { RadiansToDegreePipe } from './pipes/radians-to-degree.pipe';
 import { DegreesToRadiansPipe } from './pipes/degrees-to-radians.pipe';
 import { PointLightDirective } from './objects/point-light.directive';
 import { ObjectLoaderDirective } from './objects/object-loader.directive';
+import { ObjLoaderDirective } from './objects/obj-loader.directive';
 import { GridHelperDirective } from './objects/grid-helper.directive';
 import { RendererComponent } from './renderer/renderer.component';
 import { PerspectiveCameraDirective } from './cameras/perspective-camera.directive';
@@ -21,6 +22,7 @@ import { AxesHelperDirective } from './objects/axes-helper.directive';
     AxesHelperDirective,
     GridHelperDirective,
     ObjectLoaderDirective,
+    ObjLoaderDirective,
     PointLightDirective
   ],
   exports: [
@@ -32,6 +34,7 @@ import { AxesHelperDirective } from './objects/axes-helper.directive';
     AxesHelperDirective,
     GridHelperDirective,
     ObjectLoaderDirective,
+    ObjLoaderDirective,
     PointLightDirective
   ]
 })
