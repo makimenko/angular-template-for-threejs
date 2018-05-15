@@ -21,7 +21,7 @@ Z rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]=
 Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="translationY"> {{ translationY }}
 
 <hr>
-<three-orbit-contols [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
+<three-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
   <three-renderer #mainRenderer>
 
     <three-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></three-perspective-camera>
@@ -52,4 +52,4 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
 
     </three-scene>
   </three-renderer>
-</three-orbit-contols>
+</three-orbit-controls>
