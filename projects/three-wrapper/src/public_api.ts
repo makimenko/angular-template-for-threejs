@@ -15,6 +15,5 @@ export * from './lib/objects/scene.directive';
 export * from './lib/objects/model-loader.directive';
 export * from './lib/objects/grid-helper.directive';
 export * from './lib/objects/object-loader.directive';
-export * from './lib/objects/obj-loader.directive';
 export * from './lib/objects/point-light.directive';
 

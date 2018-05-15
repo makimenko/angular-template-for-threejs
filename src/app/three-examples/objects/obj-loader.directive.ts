@@ -1,9 +1,10 @@
 import { Directive, forwardRef } from '@angular/core';
 
-import { AbstractObject3D } from './abstract-object-3d';
-import { ModelLoaderDirective } from './model-loader.directive';
+import { AbstractObject3D, ModelLoaderDirective } from 'three-wrapper';
 
 import * as THREE from 'three';
+import '../js/EnableThreeExamples';
+import 'three/examples/js/loaders/OBJLoader';
 
 /**
  * Directive for employing THREE.OBJLoader to load [Wavefront *.obj files][1].
