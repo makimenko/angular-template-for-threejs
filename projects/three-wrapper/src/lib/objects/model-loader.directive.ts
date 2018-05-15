@@ -67,7 +67,9 @@ export abstract class ModelLoaderDirective extends AbstractObject3D<THREE.Object
         this.removeChild(this.currentLoadedModelObject);
       }
 
+      this.currentLoadedModelObject = newModel;
       this.addChild(newModel);
+
       if (this.renderer) {
         this.renderer.render();
       }
