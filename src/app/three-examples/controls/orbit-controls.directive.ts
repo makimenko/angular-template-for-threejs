@@ -15,7 +15,7 @@ import '../js/EnableThreeExamples';
 import 'three/examples/js/controls/OrbitControls';
 
 @Directive({
-  selector: 'three-orbit-contols'
+  selector: 'three-orbit-controls'
 })
 export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestroy {
 
