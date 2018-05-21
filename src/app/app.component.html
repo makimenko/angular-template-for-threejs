@@ -31,13 +31,19 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
       <three-grid-helper size=100 divisions=10></three-grid-helper>
 
       <three-point-light color="white" intensity="1" distance="1000" translateX=50 translateY=50 translateZ=50></three-point-light>
-      <three-point-light color="#FAFA00" intensity="1" distance="1000" translateX=-50 translateY=50 translateZ=20></three-point-light>
+      <three-point-light color="#FAFAF0" intensity="1" distance="1000" translateX=-50 translateY=50 translateZ=20></three-point-light>
 
 
       <three-collada-loader model="assets/model/tableAndChair.dae" translateX=-20 rotateY="{{45 | deg2rad}}" [renderer]="mainRenderer">
         <three-axes-helper size=10></three-axes-helper>
       </three-collada-loader>
 
+      <three-obj-loader 
+        model="assets/model/smiley/smiley.obj" 
+        material='assets/model/smiley/smiley.mtl' 
+        texturePath="assets/model/smiley/" 
+        rotateX={{-90|deg2rad}}>
+      </three-obj-loader>
 
       <div *ngFor="let z of [-10, -5, 0, 5, 10]">
         <three-object-loader *ngFor="let x of [0,5,10,15,20]" model="assets/model/Server.json" [translateX]="x" [translateZ]="z"
