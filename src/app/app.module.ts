@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ThreeExamplesModule } from './three-examples/three-examples.module';
-import { ThreeWrapperModule } from 'three-wrapper';
 
 @NgModule({
   declarations: [
@@ -13,8 +12,7 @@ import { ThreeWrapperModule } from 'three-wrapper';
   imports: [
     BrowserModule,
     FormsModule,
-    ThreeExamplesModule,
-    ThreeWrapperModule
+    ThreeExamplesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,6 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
-import { ThreeWrapperModule } from 'three-wrapper';
 import { ThreeExamplesModule } from './three-examples/three-examples.module';
 
 describe('AppComponent', () => {
@@ -13,8 +12,7 @@ describe('AppComponent', () => {
       ],
       imports: [
         FormsModule,
-        ThreeExamplesModule,
-        ThreeWrapperModule
+        ThreeExamplesModule
       ]
     }).compileComponents();
   }));

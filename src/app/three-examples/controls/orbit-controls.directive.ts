@@ -10,9 +10,10 @@ import {
   QueryList
 } from '@angular/core';
 import * as THREE from 'three';
-import { AbstractCamera, RendererComponent } from 'three-wrapper';
 import '../js/EnableThreeExamples';
 import 'three/examples/js/controls/OrbitControls';
+import { RendererComponent } from '../renderer/renderer.component';
+import { AbstractCamera } from '../cameras/abstract-camera';
 
 @Directive({
   selector: 'three-orbit-controls'

@@ -1,10 +1,11 @@
 import { Directive, forwardRef } from '@angular/core';
 
-import { AbstractObject3D, ModelLoaderDirective} from 'three-wrapper';
 
 import * as THREE from 'three';
 import '../js/EnableThreeExamples';
 import 'three/examples/js/loaders/ColladaLoader';
+import { ModelLoaderDirective } from './model-loader.directive';
+import { AbstractObject3D } from './abstract-object-3d';
 
 @Directive({
   selector: 'three-collada-loader',
