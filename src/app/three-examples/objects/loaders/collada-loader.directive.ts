@@ -2,16 +2,16 @@ import { Directive, forwardRef } from '@angular/core';
 
 
 import * as THREE from 'three';
-import '../js/EnableThreeExamples';
+import '../../js/EnableThreeExamples';
 import 'three/examples/js/loaders/ColladaLoader';
-import { ModelLoaderDirective } from './model-loader.directive';
-import { AbstractObject3D } from './abstract-object-3d';
+import { AbstractModelLoader } from './abstract-model-loader';
+import { AbstractObject3D } from '../abstract-object-3d';
 
 @Directive({
   selector: 'three-collada-loader',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ColladaLoaderDirective) }]
 })
-export class ColladaLoaderDirective extends ModelLoaderDirective {
+export class ColladaLoaderDirective extends AbstractModelLoader {
   private loader = new THREE.ColladaLoader();
 
   protected async loadModelObject() {

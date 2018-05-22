@@ -5,8 +5,8 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import { AbstractObject3D } from './abstract-object-3d';
-import { RendererComponent } from '../renderer/renderer.component';
+import { AbstractObject3D } from '../abstract-object-3d';
+import { WebGLRendererComponent } from '../../renderer/webgl-renderer.component';
 
 import * as THREE from 'three';
 
@@ -14,12 +14,13 @@ import * as THREE from 'three';
  * Helper parent class for model loader directives.
  *
  * @see ObjectLoaderDirective
+ * @see ObjLoaderDirective
  * @see ColladaLoaderDirective
  */
-export abstract class ModelLoaderDirective extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
+export abstract class AbstractModelLoader extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
 
   private _model: string;
-  private _renderer: RendererComponent;
+  private _renderer: WebGLRendererComponent;
 
   /**
    * Flag to signal whether the parent class instance AbstractObject3D called the
@@ -86,7 +87,7 @@ export abstract class ModelLoaderDirective extends AbstractObject3D<THREE.Object
   }
 
   @Input()
-  public set renderer(newRenderer: RendererComponent) {
+  public set renderer(newRenderer: WebGLRendererComponent) {
     this._renderer = newRenderer;
     this._renderer.render();
   }

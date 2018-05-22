@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'deg2rad'
 })
-export class DegreesToRadiansPipe implements PipeTransform {
+export class Deg2RadPipe implements PipeTransform {
 
   /**
    * Converts degrees to radians

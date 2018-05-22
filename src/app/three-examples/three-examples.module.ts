@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrbitControlsDirective } from './controls/orbit-controls.directive';
-import { ColladaLoaderDirective } from './objects/collada-loader.directive';
-import { ObjLoaderDirective } from './objects/obj-loader.directive';
-import { RadiansToDegreePipe } from './pipes/radians-to-degree.pipe';
-import { DegreesToRadiansPipe } from './pipes/degrees-to-radians.pipe';
+import { ColladaLoaderDirective } from './objects/loaders/collada-loader.directive';
+import { ObjLoaderDirective } from './objects/loaders/obj-loader.directive';
+import { Rad2DegPipe } from './pipes/rad2deg.pipe';
+import { Deg2RadPipe } from './pipes/deg2rad.pipe';
 import { PerspectiveCameraDirective } from './cameras/perspective-camera.directive';
-import { RendererComponent } from './renderer/renderer.component';
+import { WebGLRendererComponent } from './renderer/webgl-renderer.component';
 import { SceneDirective } from './objects/scene.directive';
-import { AxesHelperDirective } from './objects/axes-helper.directive';
-import { GridHelperDirective } from './objects/grid-helper.directive';
-import { ObjectLoaderDirective } from './objects/object-loader.directive';
-import { PointLightDirective } from './objects/point-light.directive';
+import { AxesHelperDirective } from './objects/helpers/axes-helper.directive';
+import { GridHelperDirective } from './objects/helpers/grid-helper.directive';
+import { ObjectLoaderDirective } from './objects/loaders/object-loader.directive';
+import { PointLightDirective } from './objects/light/point-light.directive';
 
 // TODO: Ideally move all to three-wrapper library. But can't move js/EnableThreeExamples.js to library :(
 @NgModule({
@@ -22,10 +22,10 @@ import { PointLightDirective } from './objects/point-light.directive';
     OrbitControlsDirective,
     ColladaLoaderDirective,
     ObjLoaderDirective,
-    RadiansToDegreePipe,
-    DegreesToRadiansPipe,
+    Rad2DegPipe,
+    Deg2RadPipe,
     PerspectiveCameraDirective,
-    RendererComponent,
+    WebGLRendererComponent,
     SceneDirective,
     AxesHelperDirective,
     GridHelperDirective,
@@ -36,10 +36,10 @@ import { PointLightDirective } from './objects/point-light.directive';
     OrbitControlsDirective,
     ColladaLoaderDirective,
     ObjLoaderDirective,
-    RadiansToDegreePipe,
-    DegreesToRadiansPipe,
+    Rad2DegPipe,
+    Deg2RadPipe,
     PerspectiveCameraDirective,
-    RendererComponent,
+    WebGLRendererComponent,
     SceneDirective,
     AxesHelperDirective,
     GridHelperDirective,

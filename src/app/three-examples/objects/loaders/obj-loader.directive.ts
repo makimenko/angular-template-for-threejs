@@ -1,9 +1,9 @@
 import { Directive, forwardRef, Input } from '@angular/core';
 import * as THREE from 'three';
-import { AbstractObject3D } from './abstract-object-3d';
-import { ModelLoaderDirective } from './model-loader.directive';
+import { AbstractObject3D } from '../abstract-object-3d';
+import { AbstractModelLoader } from './abstract-model-loader';
 
-import '../js/EnableThreeExamples';
+import '../../js/EnableThreeExamples';
 import 'three/examples/js/loaders/OBJLoader';
 import 'three/examples/js/loaders/MTLLoader';
 
@@ -16,7 +16,7 @@ import 'three/examples/js/loaders/MTLLoader';
   selector: 'three-obj-loader',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjLoaderDirective) }]
 })
-export class ObjLoaderDirective extends ModelLoaderDirective {
+export class ObjLoaderDirective extends AbstractModelLoader {
   private loader = new THREE.OBJLoader();
   private mtlLoader = new THREE.MTLLoader();
 

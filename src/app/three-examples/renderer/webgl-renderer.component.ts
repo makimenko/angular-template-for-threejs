@@ -16,11 +16,11 @@ import { AbstractCamera } from '../cameras/abstract-camera';
 
 
 @Component({
-  selector: 'three-renderer',
-  templateUrl: './renderer.component.html',
-  styleUrls: ['./renderer.component.scss']
+  selector: 'three-webgl-renderer',
+  templateUrl: './webgl-renderer.component.html',
+  styleUrls: ['./webgl-renderer.component.scss']
 })
-export class RendererComponent implements AfterViewInit {
+export class WebGLRendererComponent implements AfterViewInit {
 
   private renderer: THREE.WebGLRenderer;
   private viewInitialized = false;

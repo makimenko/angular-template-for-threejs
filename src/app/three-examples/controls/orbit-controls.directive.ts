@@ -12,7 +12,7 @@ import {
 import * as THREE from 'three';
 import '../js/EnableThreeExamples';
 import 'three/examples/js/controls/OrbitControls';
-import { RendererComponent } from '../renderer/renderer.component';
+import { WebGLRendererComponent } from '../renderer/webgl-renderer.component';
 import { AbstractCamera } from '../cameras/abstract-camera';
 
 @Directive({
@@ -21,7 +21,7 @@ import { AbstractCamera } from '../cameras/abstract-camera';
 export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestroy {
 
   @ContentChildren(AbstractCamera, { descendants: true }) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
-  @ContentChildren(RendererComponent, { descendants: true }) childRenderers: QueryList<RendererComponent>;
+  @ContentChildren(WebGLRendererComponent, { descendants: true }) childRenderers: QueryList<WebGLRendererComponent>;
   /**
    * The element on whose native element the orbit controls will listen for mouse events.
    *
