@@ -10,6 +10,9 @@ The goals of this Git repository:
 The repository includes multiple branches and each branch represents set of functionalities. 
 Such approach allows seeing what has changed (using Git branch diffs) in order to make it work. In addition to Git diff, it is possible to use Git patch, cherry pick etc to combine multiple starters.  
 
+# Demo
+[DEMO](https://makimenko.github.io/angular-template-for-dummies)
+
 # Core Branches
 Each core branch is focusing on a single technology. Shows what has to be done to include a specific technology into the project.
 
