@@ -8,71 +8,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style type="text/css">
+    .loader,
+    .loader:before,
+    .loader:after {
+      background:#CFD8DC;
+      -webkit-animation: load1 1s infinite ease-in-out;
+      animation: load1 1s infinite ease-in-out;
+      width: 1em;
+      height: 4em;
+    }
     .loader {
-      font-size: 10px;
-      margin: 300px auto;
+      color: #78909C;
       text-indent: -9999em;
-      width: 11em;
-      height: 11em;
-      border-radius: 50%;
-      background: #CFD8DC;
-      background: -moz-linear-gradient(left, #CFD8DC 10%, rgba(123, 187, 251, 0) 42%);
-      background: -webkit-linear-gradient(left, #CFD8DC 10%, rgba(123, 187, 251, 0) 42%);
-      background: -o-linear-gradient(left, #CFD8DC 10%, rgba(123, 187, 251, 0) 42%);
-      background: -ms-linear-gradient(left, #CFD8DC 10%, rgba(123, 187, 251, 0) 42%);
-      background: linear-gradient(to right, #CFD8DC 10%, rgba(123, 187, 251, 0) 42%);
+      margin: 88px auto;
       position: relative;
-      -webkit-animation: load3 1.4s infinite linear;
-      animation: load3 1.4s infinite linear;
+      font-size: 11px;
       -webkit-transform: translateZ(0);
       -ms-transform: translateZ(0);
       transform: translateZ(0);
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
     }
-
-    .loader:before {
-      width: 50%;
-      height: 50%;
-      background: #CFD8DC;
-      border-radius: 100% 0 0 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      content: '';
-    }
-
+    .loader:before,
     .loader:after {
-      background: #CFD8DC;
-      width: 75%;
-      height: 75%;
-      border-radius: 50%;
-      content: '';
-      margin: auto;
       position: absolute;
       top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
+      content: '';
     }
-
-    @-webkit-keyframes load3 {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
+    .loader:before {
+      left: -1.5em;
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+    }
+    .loader:after {
+      left: 1.5em;
+    }
+    @-webkit-keyframes load1 {
+      0%,
+      80%,
       100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
+        box-shadow: 0 0;
+        height: 4em;
+      }
+      40% {
+        box-shadow: 0 -2em;
+        height: 5em;
       }
     }
-
-    @keyframes load3 {
-      0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
+    @keyframes load1 {
+      0%,
+      80%,
       100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
+        box-shadow: 0 0;
+        height: 4em;
+      }
+      40% {
+        box-shadow: 0 -2em;
+        height: 5em;
       }
     }
   </style>
@@ -80,8 +72,8 @@
 
 <body>
   <app-root>
-    <div class="loader">Loading...</div>
+      <div class="loader">Loading...</div>
   </app-root>
-<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.e3633a42d1123afc5fc9.js"></script><script type="text/javascript" src="main.5e0d02347b60999d0d00.js"></script></body>
+<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.f7b4152d51d43acdf001.js"></script><script type="text/javascript" src="vendor.ecd7b95cda0271f0116a.js"></script><script type="text/javascript" src="main.51f42724fb579fc9a726.js"></script></body>
 
 </html>
