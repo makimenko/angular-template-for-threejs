@@ -67,8 +67,7 @@ Combination of [material-admin] + [threejs]:
 - Showcase of repository features
 - Compiled version is regularly published to the [gh-pages](https://github.com/makimenko/angular-template-for-dummies/tree/gh-pages) branch
 
-
-See [diffs](https://github.com/makimenko/angular-template-for-dummies/compare/material-admin)
+See [diffs](https://github.com/makimenko/angular-template-for-dummies/compare/demo)
 
 # Mixed Branches
 If you want to create Admin UI starter application (based on Material Design with basic Admin facade and 3D engine Three.js), then just merge multiple branches and get necessary functionality:
