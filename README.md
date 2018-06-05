@@ -3,7 +3,7 @@
 The goals of this Git repository:
 - simplify new startup projects development
 - try to keep it simple (focus on single feature/technology in each branch)
-- learn and pre-create projects with frequently used technologies
+- learn and pre-create projects with frequently used, modern, futuristic and beautiful tech stack
 - create an advanced project startup via combining of two or more branches into single (use git rebase/merge/cherry pick etc features)
 - see what has changed in order to enable required functionality (via branch diffs)
 
@@ -59,7 +59,18 @@ These branches are based on two or more core branches with business functionalit
 
 See [diffs](https://github.com/makimenko/angular-template-for-dummies/compare/material-admin)
 
+## [demo](https://github.com/makimenko/angular-template-for-dummies/tree/demo)
+
+<a href="https://makimenko.github.io/angular-template-for-dummies"><img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-dummies/images/demo.gif" align="right" width="250" padding="5" ></a>
+
+Combination of [material-admin] + [threejs]:
+- Showcase of repository features
+- Compiled version is regularly published to the [gh-pages](https://github.com/makimenko/angular-template-for-dummies/tree/gh-pages) branch
+
+
+See [diffs](https://github.com/makimenko/angular-template-for-dummies/compare/material-admin)
+
 # Mixed Branches
 If you want to create Admin UI starter application (based on Material Design with basic Admin facade and 3D engine Three.js), then just merge multiple branches and get necessary functionality:
 <a href="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-dummies/images/branches.png"><img align="right" padding="5" src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-dummies/images/branches.png"></a>  
-NOTE: In case of updates, just do rebase your functional branch
+NOTE: In case of updates, just do rebase of your functional branch
