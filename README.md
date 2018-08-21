@@ -11,7 +11,7 @@ The repository includes multiple branches and each branch represents set of func
 Such approach allows seeing what has changed (using Git branch diffs) in order to make it work. In addition to Git diff, it is possible to use Git patch, cherry pick etc to combine multiple starters.  
 
 # Demo
-Click below to see demo in Web browser:
+Click below to see demo in Web browser:<br>
 <a href="https://makimenko.github.io/angular-template-for-dummies"><img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-dummies/images/demo.gif"></a>
 
 # Core Branches
