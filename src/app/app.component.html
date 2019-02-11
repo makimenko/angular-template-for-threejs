@@ -56,6 +56,22 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
         </three-object-loader>
       </div>
 
+      <three-spheremesh radius='2' 
+        widthSegments='10' hightSegments='10'
+	material="lamb"
+	materialcolor=0xff0000
+	scaleX="2"
+        translateY='20'
+	translateZ='20'>
+      </three-spheremesh>
+
+      <three-cylindermesh radiustop='2' radiusbottom='3' cylheight='10'
+        radialSegments='36' hightSegments='1'
+	material="lamb"
+        translateY='10'
+	translateZ='10'>
+      </three-cylindermesh>
+
     </three-scene>
   </three-webgl-renderer>
 </three-orbit-controls>
