@@ -18,8 +18,9 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
     let rmaterial: THREE.MeshMaterialType;
     let appliedColor: number = 0xffff00; 
     if (this.materialcolor !== undefined ) { 
-      appliedColor = this.materialcolor;
+      appliedColor = this.materialcolor*1;
     }
+    console.log('AbstractMesh.getMaterial.appliedColor: ', appliedColor);
 
     if (this.material === "lamb" ) {
       rmaterial = new THREE.MeshLambertMaterial({color: appliedColor});
