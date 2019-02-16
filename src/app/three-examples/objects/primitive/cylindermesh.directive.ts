@@ -33,7 +33,7 @@ export class CylindermeshDirective extends AbstractMesh {
   }
 
   protected afterInit(): void {
-    console.log('SpheremeshDirective.afterInit');
+    console.log('CylindermeshDirective.afterInit');
     // none
   }
 }

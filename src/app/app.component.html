@@ -73,6 +73,14 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
 	translateZ='10'>
       </three-cylindermesh>
 
+      <three-torusmesh radius=10 tube=3 radialSegments=16 tubularSegments=100 arc=6.28
+	material="lamb"
+	materialcolor=0x0000ff
+	rotateX=1.6
+        translateX='30'
+	translateZ='-30'>
+      </three-torusmesh>
+
     </three-scene>
   </three-webgl-renderer>
 </three-orbit-controls>
