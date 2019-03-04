@@ -10,16 +10,16 @@ import { AbstractObject3D } from '../abstract-object-3d';
 export class TorusmeshDirective extends AbstractMesh {
   //  - Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
   @Input()
-  radius: number; 
+  radius: number;
   //  — Radius of the tube. Default is 0.4.
   @Input()
-  tube: number; 
+  tube: number;
   @Input()
   radialSegments: number; //  — Default is 8
   @Input()
   tubularSegments: number; //  — Default is 6.
   @Input()
-  arc: number; // — Central angle. Default is Math.PI * 2. 
+  arc: number; // — Central angle. Default is Math.PI * 2.
 
   constructor() { 
     super();
@@ -33,7 +33,7 @@ export class TorusmeshDirective extends AbstractMesh {
     this.tubularSegments *= 1;
 
     console.log('TorusmeshDirective.newObject3DInstance', this.radius, this.tube, 
-    	this.radialSegments, this.tubularSegments, this.arc );
+      this.radialSegments, this.tubularSegments, this.arc );
 
     const geometry = new THREE.TorusGeometry(this.radius, this.tube, 
       this.radialSegments, this.tubularSegments);  //, this.arc

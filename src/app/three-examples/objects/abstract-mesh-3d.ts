@@ -8,15 +8,15 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
   @Input()
   materialColor: number;
 
-  constructor() { 
+  constructor() {
     super();
     console.log('AbstractMesh.constructor');
   }
 
 
   public getMaterial(): THREE.MeshMaterialType {
-    let appliedColor = 0xffff00; 
-    if (this.materialColor !== undefined ) { 
+    let appliedColor = 0xffff00;
+    if (this.materialColor !== undefined ) {
       appliedColor = this.materialColor * 1;
     }
     console.log('AbstractMesh.getMaterial.appliedColor: ', appliedColor);
@@ -25,6 +25,6 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
       return new THREE.MeshLambertMaterial({color: appliedColor});
     } else {
       return new THREE.MeshBasicMaterial({color: appliedColor});
-    } 
+    }
   }
 }
