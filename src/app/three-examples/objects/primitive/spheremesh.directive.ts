@@ -22,8 +22,8 @@ export class SpheremeshDirective extends AbstractMesh {
 
   protected newObject3DInstance(): THREE.Mesh {
     console.log('SpheremeshDirective.newObject3DInstance');
-    var geometry = new THREE.SphereGeometry(this.radius, this.widthSegments, this.hightSegments);
-    let material: THREE.MeshMaterialType = this.getMaterial();
+    const geometry = new THREE.SphereGeometry(this.radius, this.widthSegments, this.hightSegments);
+    const material: THREE.MeshMaterialType = this.getMaterial();
     return new THREE.Mesh(geometry, material);
   }
 

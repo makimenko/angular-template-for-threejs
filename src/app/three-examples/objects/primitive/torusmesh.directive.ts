@@ -27,17 +27,17 @@ export class TorusmeshDirective extends AbstractMesh {
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-    this.radius*=1;
-    this.tube*=1;
-    this.radialSegments*=1;
-    this.tubularSegments*=1;
+    this.radius *= 1;
+    this.tube *= 1;
+    this.radialSegments *= 1;
+    this.tubularSegments *= 1;
 
     console.log('TorusmeshDirective.newObject3DInstance', this.radius, this.tube, 
     	this.radialSegments, this.tubularSegments, this.arc );
 
-    var geometry = new THREE.TorusGeometry(this.radius, this.tube, 
+    const geometry = new THREE.TorusGeometry(this.radius, this.tube, 
       this.radialSegments, this.tubularSegments);  //, this.arc
-    let material: THREE.MeshMaterialType = this.getMaterial();
+    const material: THREE.MeshMaterialType = this.getMaterial();
     return new THREE.Mesh(geometry, material);
   }
 

@@ -26,9 +26,9 @@ export class CylindermeshDirective extends AbstractMesh {
 
   protected newObject3DInstance(): THREE.Mesh {
     console.log('CylindermeshDirective.newObject3DInstance');
-    var geometry = new THREE.CylinderGeometry(this.radiustop, this.radiusbottom, 
+    const geometry = new THREE.CylinderGeometry(this.radiustop, this.radiusbottom, 
     	this.cylheight, this.radialSegments, this.hightSegments);
-    let material: THREE.MeshMaterialType = this.getMaterial();
+    const material: THREE.MeshMaterialType = this.getMaterial();
     return new THREE.Mesh(geometry, material);
   }
 
