@@ -40,7 +40,7 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
 
       <three-obj-loader 
         model="assets/model/smiley/smiley.obj" 
-        material='assets/model/smiley/smiley.mtl' 
+        material="assets/model/smiley/smiley.mtl" 
         texturePath="assets/model/smiley/" 
         rotateX={{-90|deg2rad}}>
       </three-obj-loader>
@@ -55,6 +55,31 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
           >
         </three-object-loader>
       </div>
+
+      <three-spheremesh radius="2" 
+        widthSegments="10" hightSegments="10"
+	material="lamb"
+	materialColor="0xff0000"
+	scaleX="2"
+        translateY="20"
+	translateZ="20">
+      </three-spheremesh>
+
+      <three-cylindermesh radiustop="2" radiusbottom="3" cylheight="10"
+        radialSegments="36" hightSegments="1"
+	material="lamb"
+	materialColor="0x00ff00"
+        translateY="10"
+	translateZ="10">
+      </three-cylindermesh>
+
+      <three-torusmesh radius="10" tube="3" radialSegments="16" tubularSegments="100" arc="6.28"
+	material="lamb"
+	materialColor="0x0000ff"
+	rotateX="1.6"
+        translateX="30"
+	translateZ="-30">
+      </three-torusmesh>
 
     </three-scene>
   </three-webgl-renderer>
