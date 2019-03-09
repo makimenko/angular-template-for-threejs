@@ -15,7 +15,7 @@ import { PointLightDirective } from './objects/light/point-light.directive';
 import { SpheremeshDirective } from './objects/primitive/spheremesh.directive';
 import { CylindermeshDirective } from './objects/primitive/cylindermesh.directive';
 import { TorusmeshDirective } from './objects/primitive/torusmesh.directive';
-import { TubemeshDirective } from './objects/primitive/tubemesh.directive';
+//import { TubemeshDirective } from './objects/primitive/tubemesh.directive';
 
 // TODO: Ideally move all to three-wrapper library. But can't move js/EnableThreeExamples.js to library :(
 @NgModule({
@@ -36,7 +36,7 @@ import { TubemeshDirective } from './objects/primitive/tubemesh.directive';
     ObjectLoaderDirective,
     PointLightDirective,
     CylindermeshDirective,
-    TubemeshDirective,
+    //TubemeshDirective,
     TorusmeshDirective,
     SpheremeshDirective
   ],
@@ -54,7 +54,7 @@ import { TubemeshDirective } from './objects/primitive/tubemesh.directive';
     ObjectLoaderDirective,
     PointLightDirective,
     CylindermeshDirective,
-    TubemeshDirective,
+    //TubemeshDirective,
     TorusmeshDirective,
     SpheremeshDirective
   ]
