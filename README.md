@@ -8,7 +8,7 @@ The goals of this Git repository:
 
 # Demo
 Click below to see demo in Web browser:<br>
-<a href="https://makimenko.github.io/angular-template-for-threejs"><img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-dummies/images/demo.gif"></a>
+<a href="https://makimenko.github.io/angular-template-for-threejs"><img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/demo.gif"></a>
 
 
 # Usage

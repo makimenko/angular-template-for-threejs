@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-template-for-dummies": {
+    "angular-template-for-threejs": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-template-for-dummies",
+            "outputPath": "dist/angular-template-for-threejs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -54,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-template-for-dummies:build"
+            "browserTarget": "angular-template-for-threejs:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-template-for-dummies:build:production"
+              "browserTarget": "angular-template-for-threejs:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-template-for-dummies:build"
+            "browserTarget": "angular-template-for-threejs:build"
           }
         },
         "test": {
@@ -99,7 +99,7 @@
         }
       }
     },
-    "angular-template-for-dummies-e2e": {
+    "angular-template-for-threejs-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -107,7 +107,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-template-for-dummies:serve"
+            "devServerTarget": "angular-template-for-threejs:serve"
           }
         },
         "lint": {
@@ -122,5 +122,5 @@
       }
     }
   },
-  "defaultProject": "angular-template-for-dummies"
+  "defaultProject": "angular-template-for-threejs"
 }

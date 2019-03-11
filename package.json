@@ -1,5 +1,5 @@
 {
-  "name": "angular-template-for-dummies",
+  "name": "angular-template-for-threejs",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -8,7 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "publish": "ng build --prod --base-href \"https://makimenko.github.io/angular-template-for-threejs/\" & angular-cli-ghpages -S -d dist/angular-template-for-threejs"
   },
   "private": true,
   "dependencies": {
