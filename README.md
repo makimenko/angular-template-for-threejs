@@ -15,7 +15,7 @@ Click below to see demo in Web browser:<br>
 
 ### Clone Repository
 ```
-git clone https://makimenko.github.io/angular-template-for-threejs
+git clone https://github.com/makimenko/angular-template-for-threejs.git
 cd angular-template-for-threejs
 ```
 
