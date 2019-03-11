@@ -36,8 +36,8 @@ export class TorusmeshDirective extends AbstractMesh {
       this.radialSegments, this.tubularSegments, this.arc );
 
     const geometry = new THREE.TorusGeometry(this.radius, this.tube, 
-      this.radialSegments, this.tubularSegments);  //, this.arc
-    const material: THREE.MeshMaterialType = this.getMaterial();
+      this.radialSegments, this.tubularSegments);
+    const material: THREE.MeshBasicMaterial = this.getMaterial();
     return new THREE.Mesh(geometry, material);
   }
 
