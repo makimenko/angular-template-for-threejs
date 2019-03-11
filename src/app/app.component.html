@@ -1,20 +1,86 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!--
+  We are explicitly using [(ngModel)] bindings here!
 
+  Especially
+    <input type="range" ... #rotationX>
+  and later writing
+    <three-object-loader ... [rotateX]=rotationX.value>
+  somehow fails to propagate values instantaneously.
+  Instead one has to click multiple times and trigger mouse move events for the updates
+  to take place.
+-->
+X rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationX">
+{{ rotationX | rad2deg | number:'1.1-2'}} °<br>
+
+Y rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationY">
+{{ rotationY | rad2deg | number:'1.1-2'}} °<br>
+
+Z rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationZ">
+{{ rotationZ | rad2deg | number:'1.1-2'}} °<br>
+
+Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="translationY"> {{ translationY }}
+
+<hr>
+<three-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
+  <three-webgl-renderer #mainRenderer>
+
+    <three-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></three-perspective-camera>
+
+    <three-scene>
+      <three-axes-helper size=200></three-axes-helper>
+      <three-grid-helper size=100 divisions=10></three-grid-helper>
+
+      <three-point-light color="white" intensity="1" distance="1000" translateX=50 translateY=50 translateZ=50></three-point-light>
+      <three-point-light color="#FAFAF0" intensity="1" distance="1000" translateX=-50 translateY=50 translateZ=20></three-point-light>
+
+
+      <three-collada-loader model="assets/model/tableAndChair.dae" translateX=-20 rotateY="{{45 | deg2rad}}" [renderer]="mainRenderer">
+        <three-axes-helper size=10></three-axes-helper>
+      </three-collada-loader>
+
+      <three-obj-loader 
+        model="assets/model/smiley/smiley.obj" 
+        material="assets/model/smiley/smiley.mtl" 
+        texturePath="assets/model/smiley/" 
+        rotateX={{-90|deg2rad}}>
+      </three-obj-loader>
+
+      <div *ngFor="let z of [-10, -5, 0, 5, 10]">
+        <three-object-loader *ngFor="let x of [0,5,10,15,20]" model="assets/model/Server.json" [translateX]="x" [translateZ]="z"
+          [renderer]="mainRenderer"
+          [rotateX]="rotationX"
+          [rotateY]="rotationY"
+          [rotateZ]="rotationZ"
+          [translateY]="translationY"
+          >
+        </three-object-loader>
+      </div>
+
+      <three-spheremesh radius="2" 
+        widthSegments="10" hightSegments="10"
+	material="lamb"
+	materialColor="0xff0000"
+	scaleX="2"
+        translateY="20"
+	translateZ="20">
+      </three-spheremesh>
+
+      <three-cylindermesh radiustop="2" radiusbottom="3" cylheight="10"
+        radialSegments="36" hightSegments="1"
+	material="lamb"
+	materialColor="0x00ff00"
+        translateY="10"
+	translateZ="10">
+      </three-cylindermesh>
+
+      <three-torusmesh radius="10" tube="3" radialSegments="16" tubularSegments="100" arc="6.28"
+	material="lamb"
+	materialColor="0x0000ff"
+	rotateX="1.6"
+        translateX="30"
+	translateZ="-30">
+      </three-torusmesh>
+
+    </three-scene>
+  </three-webgl-renderer>
+</three-orbit-controls>
