@@ -28,5 +28,3 @@ npm install
 ```
 ng serve --open
 ```
-
-<meta name="google-site-verification" content="g8y7B0DHteCYZiEcWtQv-0IlD1T1mFhdIj4QSc4oqs8" />
