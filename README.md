@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/travis/makimenko/angular-template-for-threejs.svg)](https://travis-ci.com/makimenko/angular-template-for-threejs)
+[![Build Status](https://api.travis-ci.com/makimenko/angular-template-for-threejs.svg)](https://travis-ci.com/makimenko/angular-template-for-threejs)
 [![Greenkeeper badge](https://badges.greenkeeper.io/makimenko/angular-template-for-threejs.svg)](https://greenkeeper.io/)
 
 # Angular Template For Dummies
