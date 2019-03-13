@@ -20,6 +20,18 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly'],
       fixWebpackSourcePaths: true
     },
+
+    // Fix for Chrome on Travis CI, see
+    // https://github.com/karma-runner/karma/issues/1144#issuecomment-53633076
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
+    browsers: process.env.TRAVIS ? ['Chrome_travis_ci'] : ['Chrome', 'ChromeCanary'],
+    // End fix
+
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
