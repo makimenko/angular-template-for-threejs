@@ -1,0 +1,38 @@
+branches:
+  only:
+    - master
+    - /^greenkeeper/.*$/
+
+language: node_js
+node_js:
+  - node
+os:
+  - linux
+
+before_install:
+  # Google Chrome
+  #
+  # https://github.com/travis-ci/travis-ci/issues/272#issuecomment-14402117
+  # http://stackoverflow.com/questions/19255976/how-to-make-travis-execute-angular-tests-on-chrome-please-set-env-variable-chr
+  #
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  # Non-Chrome-related:
+  - npm install -g greenkeeper-lockfile
+
+install: npm install
+
+script: ng test --watch=false
+
+before_deploy: npm run publish
+
+deploy:
+  provider: pages
+  local-dir: dist/angular-template-for-threejs
+  skip-cleanup: true
+  github-token: $GITHUB_PAGES_DEPLOYMENT_TOKEN
+  keep-history: true
+  on:
+    branch: master
+  target-branch: gh-pages
