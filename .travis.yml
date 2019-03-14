@@ -20,6 +20,7 @@ before_install:
   - sh -e /etc/init.d/xvfb start
   # Non-Chrome-related:
   - npm install -g greenkeeper-lockfile
+  - npm install -g codecov
 
 install: npm install
 
@@ -27,7 +28,7 @@ script: ng test --watch=false
 
 after_success:
   - codecov
-  
+
 before_deploy: npm run publish
 
 deploy:
