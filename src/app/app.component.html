@@ -26,12 +26,12 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
 
     <three-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></three-perspective-camera>
 
-    <three-scene>
+    <three-scene>      
       <three-axes-helper size=200></three-axes-helper>
       <three-grid-helper size=100 divisions=10></three-grid-helper>
 
-      <three-point-light color="white" intensity="1" distance="1000" translateX=50 translateY=50 translateZ=50></three-point-light>
-      <three-point-light color="#FAFAF0" intensity="1" distance="1000" translateX=-50 translateY=50 translateZ=20></three-point-light>
+      <three-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50 translateZ=50></three-point-light>
+      <three-point-light color="#FAFAFA" intensity="0.5" distance="1000" translateX=-50 translateY=50 translateZ=20></three-point-light>
 
 
       <three-collada-loader model="assets/model/tableAndChair.dae" translateX=-20 rotateY="{{45 | deg2rad}}" [renderer]="mainRenderer">
@@ -42,7 +42,9 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
         model="assets/model/smiley/smiley.obj" 
         material="assets/model/smiley/smiley.mtl" 
         texturePath="assets/model/smiley/" 
-        rotateX={{-90|deg2rad}}>
+        rotateX={{-90|deg2rad}}
+        translateX=-20
+        translateY=3>
       </three-obj-loader>
 
       <div *ngFor="let z of [-10, -5, 0, 5, 10]">
@@ -56,30 +58,17 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
         </three-object-loader>
       </div>
 
-      <three-spheremesh radius="2" 
-        widthSegments="10" hightSegments="10"
-	material="lamb"
-	materialColor="0xff0000"
-	scaleX="2"
-        translateY="20"
-	translateZ="20">
-      </three-spheremesh>
-
-      <three-cylindermesh radiustop="2" radiusbottom="3" cylheight="10"
-        radialSegments="36" hightSegments="1"
-	material="lamb"
-	materialColor="0x00ff00"
-        translateY="10"
-	translateZ="10">
-      </three-cylindermesh>
-
-      <three-torusmesh radius="10" tube="3" radialSegments="16" tubularSegments="100" arc="6.28"
-	material="lamb"
-	materialColor="0x0000ff"
-	rotateX="1.6"
-        translateX="30"
-	translateZ="-30">
-      </three-torusmesh>
+      <three-empty translateZ=-50>
+        <three-spheremesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000" 
+          translateX=10 translateY=5 translateZ="20" scaleX="2">
+        </three-spheremesh>
+        <three-cylindermesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
+          material="lamb" materialColor="0x00ff00" translateY="5" translateZ="10">
+        </three-cylindermesh>
+        <three-torusmesh radius="5" tube="2" radialSegments="16" tubularSegments="100" arc="6.28" material="lamb"
+          materialColor="0x0000ff" rotateX="1.6" translateX="-10" translateY="2" translateZ="-5">
+        </three-torusmesh>
+      </three-empty>
 
     </three-scene>
   </three-webgl-renderer>
