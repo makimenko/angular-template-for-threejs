@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.com/makimenko/angular-template-for-threejs.svg)](https://travis-ci.com/makimenko/angular-template-for-threejs)
+[![Build Status](https://api.travis-ci.com/makimenko/angular-template-for-threejs.svg?branch=master)](https://travis-ci.com/makimenko/angular-template-for-threejs)
 
 # Angular Template For Dummies
 
