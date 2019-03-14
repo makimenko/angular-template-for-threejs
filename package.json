@@ -24,7 +24,7 @@
     "@angular/router": "^7.2.8",
     "core-js": "^2.6.5",
     "rxjs": "^6.4.0",
-    "three": "^0.102.1",
+    "three": "^0.93.0",
     "zone.js": "^0.8.29"
   },
   "devDependencies": {
@@ -50,6 +50,6 @@
     "tsickle": "^0.34.3",
     "tslib": "^1.9.3",
     "tslint": "~5.14.0",
-    "typescript": "~3.3.3333"
+    "typescript": "3.2.4"
   }
 }
