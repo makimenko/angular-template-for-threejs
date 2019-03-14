@@ -40,3 +40,4 @@ testem.log
 Thumbs.db
 
 # Other
+/.nyc_output

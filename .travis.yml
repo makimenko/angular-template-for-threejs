@@ -25,6 +25,9 @@ install: npm install
 
 script: ng test --watch=false
 
+after_success:
+  - codecov
+  
 before_deploy: npm run publish
 
 deploy:
