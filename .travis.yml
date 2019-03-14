@@ -21,12 +21,14 @@ before_install:
   # Non-Chrome-related:
   - npm install -g greenkeeper-lockfile
   - npm install -g codecov
+  - npm install -g nyc  
 
 install: npm install
 
 script: ng test --watch=false
 
 after_success:
+  - nyc report --reporter=json > coverage/coverage.json
   - codecov
 
 before_deploy: npm run publish
