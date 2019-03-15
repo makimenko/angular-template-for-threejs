@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish": "ng build --prod --base-href \"https://makimenko.github.io/angular-template-for-threejs/\""
+    "publish": "ng build --prod"
   },
   "private": true,
   "dependencies": {
