@@ -35,7 +35,7 @@
     "@types/jasmine": "~3.3.9",
     "@types/jasminewd2": "~2.0.6",
     "@types/node": "~11.11.3",
-    "@types/three": "0.93.26",
+    "@types/three": "0.93.27",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~3.3.0",
     "jasmine-spec-reporter": "~4.2.1",
