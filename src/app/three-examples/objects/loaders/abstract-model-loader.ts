@@ -15,7 +15,6 @@ import * as THREE from 'three';
  *
  * @see ObjectLoaderDirective
  * @see ObjLoaderDirective
- * @see ColladaLoaderDirective
  */
 export abstract class AbstractModelLoader extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
 

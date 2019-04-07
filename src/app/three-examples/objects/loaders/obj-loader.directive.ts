@@ -3,9 +3,9 @@ import * as THREE from 'three';
 import { AbstractObject3D } from '../abstract-object-3d';
 import { AbstractModelLoader } from './abstract-model-loader';
 
-import '../../js/EnableThreeExamples';
-import 'three/examples/js/loaders/OBJLoader';
-import 'three/examples/js/loaders/MTLLoader';
+import * as THREE_OBJ from 'three/examples/jsm/loaders/OBJLoader';
+import * as THREE_MTL from 'three/examples/jsm/loaders/MTLLoader';
+
 
 /**
  * Directive for employing THREE.OBJLoader to load [Wavefront *.obj files][1].
@@ -17,8 +17,8 @@ import 'three/examples/js/loaders/MTLLoader';
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjLoaderDirective) }]
 })
 export class ObjLoaderDirective extends AbstractModelLoader {
-  private loader = new THREE.OBJLoader();
-  private mtlLoader = new THREE.MTLLoader();
+  private loader = new THREE_OBJ.OBJLoader;
+  private mtlLoader = new THREE_MTL.MTLLoader();
 
   @Input()
   material: string;
@@ -42,9 +42,10 @@ export class ObjLoaderDirective extends AbstractModelLoader {
         if (this.texturePath !== undefined) {
           this.mtlLoader.setTexturePath(this.texturePath);
         }
-        this.mtlLoader.load(this.material, material => {
-          material.preload();
-          this.loader.setMaterials(material);
+        this.mtlLoader.load(this.material, materialCreator => {
+          materialCreator.preload();          
+          var x:any = materialCreator;// seems wrong type in js module ts. Hack (as any)
+          this.loader.setMaterials(x); 
           this.loader.load(this.model, model => {
             resolve(model);
           },
