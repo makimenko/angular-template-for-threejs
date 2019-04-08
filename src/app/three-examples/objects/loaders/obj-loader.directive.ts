@@ -2,10 +2,8 @@ import { Directive, forwardRef, Input } from '@angular/core';
 import * as THREE from 'three';
 import { AbstractObject3D } from '../abstract-object-3d';
 import { AbstractModelLoader } from './abstract-model-loader';
-
-import * as THREE_OBJ from 'three/examples/jsm/loaders/OBJLoader';
-import * as THREE_MTL from 'three/examples/jsm/loaders/MTLLoader';
-
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 
 /**
  * Directive for employing THREE.OBJLoader to load [Wavefront *.obj files][1].
@@ -17,8 +15,8 @@ import * as THREE_MTL from 'three/examples/jsm/loaders/MTLLoader';
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjLoaderDirective) }]
 })
 export class ObjLoaderDirective extends AbstractModelLoader {
-  private loader = new THREE_OBJ.OBJLoader;
-  private mtlLoader = new THREE_MTL.MTLLoader();
+  private loader = new OBJLoader();
+  private mtlLoader = new MTLLoader();
 
   @Input()
   material: string;
@@ -44,14 +42,8 @@ export class ObjLoaderDirective extends AbstractModelLoader {
         }
         this.mtlLoader.load(this.material, materialCreator => {
           materialCreator.preload();          
-          var x:any = materialCreator;// seems wrong type in js module ts. Hack (as any)
-          this.loader.setMaterials(x); 
-          this.loader.load(this.model, model => {
-            resolve(model);
-          },
-            undefined,
-            reject
-          );
+          this.loader.setMaterials(materialCreator as any); 
+          this.loader.load(this.model, resolve);
         });
       });
     }
