@@ -78,13 +78,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ThreeExamplesModule.html" data-type="entity-link">ThreeExamplesModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' : 'data-target="#xs-components-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' }>
+                                            'data-target="#components-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' : 'data-target="#xs-components-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' :
-                                            'id="xs-components-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' :
+                                            'id="xs-components-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
                                             <li class="link">
                                                 <a href="components/WebGLRendererComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">WebGLRendererComponent</a>
@@ -93,20 +93,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' : 'data-target="#xs-directives-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' }>
+                                        'data-target="#directives-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' : 'data-target="#xs-directives-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' :
-                                        'id="xs-directives-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' :
+                                        'id="xs-directives-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
                                         <li class="link">
                                             <a href="directives/AxesHelperDirective.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules">AxesHelperDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/ColladaLoaderDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">ColladaLoaderDirective</a>
                                         </li>
                                         <li class="link">
                                             <a href="directives/CylindermeshDirective.html"
@@ -156,13 +152,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#pipes-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' : 'data-target="#xs-pipes-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' }>
+                                            'data-target="#pipes-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' : 'data-target="#xs-pipes-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
                                             <span class="icon ion-md-add"></span>
                                             <span>Pipes</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' :
-                                            'id="xs-pipes-links-module-ThreeExamplesModule-a5e2d82b5ff46271b92ed90aba037dc3"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' :
+                                            'id="xs-pipes-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
                                             <li class="link">
                                                 <a href="pipes/Deg2RadPipe.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">Deg2RadPipe</a>

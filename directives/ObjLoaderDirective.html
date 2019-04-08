@@ -175,7 +175,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/three-examples/objects/loaders/obj-loader.directive.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/three-examples/objects/loaders/obj-loader.directive.ts:22</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -196,7 +196,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/three-examples/objects/loaders/obj-loader.directive.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/three-examples/objects/loaders/obj-loader.directive.ts:25</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -235,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/three-examples/objects/loaders/obj-loader.directive.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/three-examples/objects/loaders/obj-loader.directive.ts:27</a></div>
                 </td>
             </tr>
 
@@ -273,12 +273,12 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new THREE.OBJLoader()</code>
+                            <i>Default value : </i><code>new OBJLoader()</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/three-examples/objects/loaders/obj-loader.directive.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/three-examples/objects/loaders/obj-loader.directive.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -300,12 +300,12 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new THREE.MTLLoader()</code>
+                            <i>Default value : </i><code>new MTLLoader()</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/three-examples/objects/loaders/obj-loader.directive.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/three-examples/objects/loaders/obj-loader.directive.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -323,10 +323,8 @@
 import * as THREE from &#x27;three&#x27;;
 import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
 import { AbstractModelLoader } from &#x27;./abstract-model-loader&#x27;;
-
-import &#x27;../../js/EnableThreeExamples&#x27;;
-import &#x27;three/examples/js/loaders/OBJLoader&#x27;;
-import &#x27;three/examples/js/loaders/MTLLoader&#x27;;
+import { OBJLoader } from &#x27;three/examples/jsm/loaders/OBJLoader&#x27;;
+import { MTLLoader } from &#x27;three/examples/jsm/loaders/MTLLoader&#x27;;
 
 /**
  * Directive for employing THREE.OBJLoader to load [Wavefront *.obj files][1].
@@ -338,8 +336,8 @@ import &#x27;three/examples/js/loaders/MTLLoader&#x27;;
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; ObjLoaderDirective) }]
 })
 export class ObjLoaderDirective extends AbstractModelLoader {
-  private loader &#x3D; new THREE.OBJLoader();
-  private mtlLoader &#x3D; new THREE.MTLLoader();
+  private loader &#x3D; new OBJLoader();
+  private mtlLoader &#x3D; new MTLLoader();
 
   @Input()
   material: string;
@@ -363,15 +361,10 @@ export class ObjLoaderDirective extends AbstractModelLoader {
         if (this.texturePath !&#x3D;&#x3D; undefined) {
           this.mtlLoader.setTexturePath(this.texturePath);
         }
-        this.mtlLoader.load(this.material, material &#x3D;&gt; {
-          material.preload();
-          this.loader.setMaterials(material);
-          this.loader.load(this.model, model &#x3D;&gt; {
-            resolve(model);
-          },
-            undefined,
-            reject
-          );
+        this.mtlLoader.load(this.material, materialCreator &#x3D;&gt; {
+          materialCreator.preload();          
+          this.loader.setMaterials(materialCreator as any); 
+          this.loader.load(this.model, resolve);
         });
       });
     }
