@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrbitControlsDirective } from './controls/orbit-controls.directive';
-import { ColladaLoaderDirective } from './objects/loaders/collada-loader.directive';
 import { ObjLoaderDirective } from './objects/loaders/obj-loader.directive';
 import { Rad2DegPipe } from './pipes/rad2deg.pipe';
 import { Deg2RadPipe } from './pipes/deg2rad.pipe';
@@ -25,7 +24,6 @@ import { EmptyDirective } from './objects/helpers/empty.directive';
   ],
   declarations: [
     OrbitControlsDirective,
-    ColladaLoaderDirective,
     ObjLoaderDirective,
     Rad2DegPipe,
     Deg2RadPipe,
@@ -43,7 +41,6 @@ import { EmptyDirective } from './objects/helpers/empty.directive';
   ],
   exports: [
     OrbitControlsDirective,
-    ColladaLoaderDirective,
     ObjLoaderDirective,
     Rad2DegPipe,
     Deg2RadPipe,

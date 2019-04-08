@@ -2,10 +2,8 @@ import { Directive, forwardRef, Input } from '@angular/core';
 import * as THREE from 'three';
 import { AbstractObject3D } from '../abstract-object-3d';
 import { AbstractModelLoader } from './abstract-model-loader';
-
-import '../../js/EnableThreeExamples';
-import 'three/examples/js/loaders/OBJLoader';
-import 'three/examples/js/loaders/MTLLoader';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 
 /**
  * Directive for employing THREE.OBJLoader to load [Wavefront *.obj files][1].
@@ -17,8 +15,8 @@ import 'three/examples/js/loaders/MTLLoader';
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjLoaderDirective) }]
 })
 export class ObjLoaderDirective extends AbstractModelLoader {
-  private loader = new THREE.OBJLoader();
-  private mtlLoader = new THREE.MTLLoader();
+  private loader = new OBJLoader();
+  private mtlLoader = new MTLLoader();
 
   @Input()
   material: string;
@@ -42,15 +40,10 @@ export class ObjLoaderDirective extends AbstractModelLoader {
         if (this.texturePath !== undefined) {
           this.mtlLoader.setTexturePath(this.texturePath);
         }
-        this.mtlLoader.load(this.material, material => {
-          material.preload();
-          this.loader.setMaterials(material);
-          this.loader.load(this.model, model => {
-            resolve(model);
-          },
-            undefined,
-            reject
-          );
+        this.mtlLoader.load(this.material, materialCreator => {
+          materialCreator.preload();          
+          this.loader.setMaterials(materialCreator as any); 
+          this.loader.load(this.model, resolve);
         });
       });
     }
