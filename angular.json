@@ -75,8 +75,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": [
-            ],
+            "styles": [],
             "scripts": [],
             "assets": [
               "src/favicon.ico",
@@ -113,6 +112,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "atft": {
+      "root": "projects/atft",
+      "sourceRoot": "projects/atft/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/atft/tsconfig.lib.json",
+            "project": "projects/atft/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/atft/src/test.ts",
+            "tsConfig": "projects/atft/tsconfig.spec.json",
+            "karmaConfig": "projects/atft/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/atft/tsconfig.lib.json",
+              "projects/atft/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

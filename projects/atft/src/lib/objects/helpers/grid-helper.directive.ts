@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 @Directive({
-  selector: 'three-grid-helper',
+  selector: 'atft-grid-helper',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => GridHelperDirective) }]
 })
 export class GridHelperDirective extends AbstractObject3D<THREE.AxesHelper> {

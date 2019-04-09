@@ -3,7 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ThreeExamplesModule } from './three-examples/three-examples.module';
+import { AtftModule } from 'atft';
+// For development (code watch): import { AtftModule } from 'projects/atft/src/lib/atft.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { ThreeExamplesModule } from './three-examples/three-examples.module';
   imports: [
     BrowserModule,
     FormsModule,
-    ThreeExamplesModule
+    AtftModule
   ],
   providers: [],
   bootstrap: [AppComponent]

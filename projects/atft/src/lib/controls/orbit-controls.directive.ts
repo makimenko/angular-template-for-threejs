@@ -15,7 +15,7 @@ import { WebGLRendererComponent } from '../renderer/webgl-renderer.component';
 import { AbstractCamera } from '../cameras/abstract-camera';
 
 @Directive({
-  selector: 'three-orbit-controls'
+  selector: 'atft-orbit-controls'
 })
 export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestroy {
 

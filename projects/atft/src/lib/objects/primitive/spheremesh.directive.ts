@@ -4,7 +4,7 @@ import { AbstractMesh } from '../abstract-mesh-3d';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 @Directive({
-  selector: 'three-spheremesh',
+  selector: 'atft-spheremesh',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => SpheremeshDirective) }]
 })
 export class SpheremeshDirective extends AbstractMesh {

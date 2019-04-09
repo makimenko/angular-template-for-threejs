@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 @Directive({
-  selector: 'three-empty',
+  selector: 'atft-empty',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => EmptyDirective) }]
 })
 export class EmptyDirective extends AbstractObject3D<THREE.Object3D> {

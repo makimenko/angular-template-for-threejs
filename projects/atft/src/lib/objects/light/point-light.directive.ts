@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 @Directive({
-  selector: 'three-point-light',
+  selector: 'atft-point-light',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => PointLightDirective) }]
 })
 export class PointLightDirective extends AbstractObject3D<THREE.PointLight> {

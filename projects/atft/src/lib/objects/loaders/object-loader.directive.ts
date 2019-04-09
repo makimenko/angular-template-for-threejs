@@ -5,7 +5,7 @@ import { AbstractModelLoader } from './abstract-model-loader';
 import * as THREE from 'three';
 
 @Directive({
-  selector: 'three-object-loader',
+  selector: 'atft-object-loader',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjectLoaderDirective) }]
 })
 export class ObjectLoaderDirective extends AbstractModelLoader {

@@ -17,10 +17,8 @@ import { TorusmeshDirective } from './objects/primitive/torusmesh.directive';
 import { EmptyDirective } from './objects/helpers/empty.directive';
 
 
-// TODO: Ideally move all to three-wrapper library. But can't move js/EnableThreeExamples.js to library :(
 @NgModule({
   imports: [
-    CommonModule
   ],
   declarations: [
     OrbitControlsDirective,
@@ -57,4 +55,4 @@ import { EmptyDirective } from './objects/helpers/empty.directive';
     EmptyDirective
   ]
 })
-export class ThreeExamplesModule { }
+export class AtftModule { }
