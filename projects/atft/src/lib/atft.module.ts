@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { OrbitControlsDirective } from './controls/orbit-controls.directive';
 import { ObjLoaderDirective } from './objects/loaders/obj-loader.directive';
 import { Rad2DegPipe } from './pipes/rad2deg.pipe';
