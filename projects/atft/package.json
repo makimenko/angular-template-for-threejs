@@ -1,7 +1,7 @@
 {  
   "name": "atft",
   "version": "0.0.1",
-  "description": "Ready-to-use Angular components for Three.js, see https: //makimenko.github.io/angular-template-for-threejs/.",
+  "description": "Ready-to-use Angular components for Three.js, see https://makimenko.github.io/angular-template-for-threejs/.",
   "keywords": [
     "threejs",
     "3d",
@@ -11,25 +11,25 @@
     "components"
   ],
   "license": "MIT",
-  "homepage": "https: //makimenko.github.io/angular-template-for-threejs/",
+  "homepage": "https://makimenko.github.io/angular-template-for-threejs/",
   "repository": {
     "type": "git",
-    "url": "https: //github.com/makimenko/angular-template-for-threejs.git",
+    "url": "https://github.com/makimenko/angular-template-for-threejs.git",
     "directory": "projects/atft"
   },
-  "bugs": "https: //github.com/makimenko/angular-template-for-threejs/issues",
+  "bugs": "https://github.com/makimenko/angular-template-for-threejs/issues",
   "author": {
     "name": "Mihails Akimenko",
-    "url": "https: //github.com/makimenko"
+    "url": "https://github.com/makimenko"
   },
   "contributors": [
     {
       "name": "Mihails Akimenko",
-      "url": "https: //github.com/makimenko"
+      "url": "https://github.com/makimenko"
     },
     {
       "name": "ComFreek",
-      "url": "https: //github.com/ComFreek"
+      "url": "https://github.com/ComFreek"
     }
   ],
   "peerDependencies": {
