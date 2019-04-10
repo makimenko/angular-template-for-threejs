@@ -30,8 +30,20 @@ npm install
 
 ### Build and Run
 ```
+ng build atft
 ng serve --open
 ```
+
+### Build and Watch
+To build and watch "atft" library, please change imports in "app.module.ts" from:
+```
+import { AtftModule } from 'atft';
+```
+to:
+```
+import { AtftModule } from 'projects/atft/src/lib/atft.module';
+```
+
 
 # API Documentation
 For mode details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)

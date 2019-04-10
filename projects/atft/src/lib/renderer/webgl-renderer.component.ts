@@ -16,7 +16,7 @@ import { AbstractCamera } from '../cameras/abstract-camera';
 
 
 @Component({
-  selector: 'three-webgl-renderer',
+  selector: 'atft-webgl-renderer',
   templateUrl: './webgl-renderer.component.html',
   styleUrls: ['./webgl-renderer.component.scss']
 })

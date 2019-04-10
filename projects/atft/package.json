@@ -1,0 +1,44 @@
+{  
+  "name": "atft",
+  "version": "0.0.1",
+  "description": "Ready-to-use Angular components for Three.js, see https: //makimenko.github.io/angular-template-for-threejs/.",
+  "keywords": [
+    "threejs",
+    "3d",
+    "angular",
+    "typescript",
+    "angular6",
+    "components"
+  ],
+  "license": "MIT",
+  "homepage": "https: //makimenko.github.io/angular-template-for-threejs/",
+  "repository": {
+    "type": "git",
+    "url": "https: //github.com/makimenko/angular-template-for-threejs.git",
+    "directory": "projects/atft"
+  },
+  "bugs": "https: //github.com/makimenko/angular-template-for-threejs/issues",
+  "author": {
+    "name": "Mihails Akimenko",
+    "url": "https: //github.com/makimenko"
+  },
+  "contributors": [
+    {
+      "name": "Mihails Akimenko",
+      "url": "https: //github.com/makimenko"
+    },
+    {
+      "name": "ComFreek",
+      "url": "https: //github.com/ComFreek"
+    }
+  ],
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0",
+    "three": "^0.103.0"
+  },
+  "dependencies": {},
+  "engines": {
+    "node":  "*"
+  }
+}

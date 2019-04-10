@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "atft": [
+        "dist/atft"
+      ],
+      "atft/*": [
+        "dist/atft/*"
+      ]
+    }
   }
 }

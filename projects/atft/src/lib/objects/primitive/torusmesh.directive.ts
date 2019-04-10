@@ -4,7 +4,7 @@ import { AbstractMesh } from '../abstract-mesh-3d';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 @Directive({
-  selector: 'three-torusmesh',
+  selector: 'atft-torusmesh',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => TorusmeshDirective) }]
 })
 export class TorusmeshDirective extends AbstractMesh {
@@ -21,7 +21,7 @@ export class TorusmeshDirective extends AbstractMesh {
   @Input()
   arc: number; // — Central angle. Default is Math.PI * 2.
 
-  constructor() { 
+  constructor() {
     super();
     console.log('TorusmeshDirective.constructor');
   }
@@ -32,10 +32,10 @@ export class TorusmeshDirective extends AbstractMesh {
     this.radialSegments *= 1;
     this.tubularSegments *= 1;
 
-    console.log('TorusmeshDirective.newObject3DInstance', this.radius, this.tube, 
-      this.radialSegments, this.tubularSegments, this.arc );
+    console.log('TorusmeshDirective.newObject3DInstance', this.radius, this.tube,
+      this.radialSegments, this.tubularSegments, this.arc);
 
-    const geometry = new THREE.TorusGeometry(this.radius, this.tube, 
+    const geometry = new THREE.TorusGeometry(this.radius, this.tube,
       this.radialSegments, this.tubularSegments);
     const material: THREE.MeshBasicMaterial = this.getMaterial();
     return new THREE.Mesh(geometry, material);

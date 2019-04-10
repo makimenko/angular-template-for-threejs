@@ -2,7 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
-import { ThreeExamplesModule } from './three-examples/three-examples.module';
+import { AtftModule } from 'atft';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,7 +12,7 @@ describe('AppComponent', () => {
       ],
       imports: [
         FormsModule,
-        ThreeExamplesModule
+        AtftModule
       ]
     }).compileComponents();
   }));

@@ -11,7 +11,7 @@ import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
  * [1]: https://en.wikipedia.org/wiki/Wavefront_.obj_file
  */
 @Directive({
-  selector: 'three-obj-loader',
+  selector: 'atft-obj-loader',
   providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjLoaderDirective) }]
 })
 export class ObjLoaderDirective extends AbstractModelLoader {
@@ -41,8 +41,8 @@ export class ObjLoaderDirective extends AbstractModelLoader {
           this.mtlLoader.setTexturePath(this.texturePath);
         }
         this.mtlLoader.load(this.material, materialCreator => {
-          materialCreator.preload();          
-          this.loader.setMaterials(materialCreator as any); 
+          materialCreator.preload();
+          this.loader.setMaterials(materialCreator as any);
           this.loader.load(this.model, resolve);
         });
       });

@@ -4,7 +4,7 @@
   Especially
     <input type="range" ... #rotationX>
   and later writing
-    <three-object-loader ... [rotateX]=rotationX.value>
+    <atft-object-loader ... [rotateX]=rotationX.value>
   somehow fails to propagate values instantaneously.
   Instead one has to click multiple times and trigger mouse move events for the updates
   to take place.
@@ -21,50 +21,50 @@ Z rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]=
 Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="translationY"> {{ translationY }}
 
 <hr>
-<three-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
-  <three-webgl-renderer #mainRenderer>
+<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
+  <atft-webgl-renderer #mainRenderer>
 
-    <three-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></three-perspective-camera>
+    <atft-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></atft-perspective-camera>
 
-    <three-scene>      
-      <three-axes-helper size=200></three-axes-helper>
-      <three-grid-helper size=100 divisions=10></three-grid-helper>
+    <atft-scene>      
+      <atft-axes-helper size=200></atft-axes-helper>
+      <atft-grid-helper size=100 divisions=10></atft-grid-helper>
 
-      <three-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50 translateZ=50></three-point-light>
-      <three-point-light color="#FAFAFA" intensity="0.5" distance="1000" translateX=-50 translateY=50 translateZ=20></three-point-light>
+      <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50 translateZ=50></atft-point-light>
+      <atft-point-light color="#FAFAFA" intensity="0.5" distance="1000" translateX=-50 translateY=50 translateZ=20></atft-point-light>
 
-      <three-obj-loader 
+      <atft-obj-loader 
         model="assets/model/smiley/smiley.obj" 
         material="assets/model/smiley/smiley.mtl" 
         texturePath="assets/model/smiley/" 
         rotateX={{-90|deg2rad}}
         translateX=-20
         translateY=3>
-      </three-obj-loader>
+      </atft-obj-loader>
 
       <div *ngFor="let z of [-10, -5, 0, 5, 10]">
-        <three-object-loader *ngFor="let x of [0,5,10,15,20]" model="assets/model/Server.json" [translateX]="x" [translateZ]="z"
+        <atft-object-loader *ngFor="let x of [0,5,10,15,20]" model="assets/model/Server.json" [translateX]="x" [translateZ]="z"
           [renderer]="mainRenderer"
           [rotateX]="rotationX"
           [rotateY]="rotationY"
           [rotateZ]="rotationZ"
           [translateY]="translationY"
           >
-        </three-object-loader>
+        </atft-object-loader>
       </div>
 
-      <three-empty translateZ=-50>
-        <three-spheremesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000" 
+      <atft-empty translateZ=-50>
+        <atft-spheremesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000" 
           translateX=10 translateY=5 translateZ="20" scaleX="2">
-        </three-spheremesh>
-        <three-cylindermesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
+        </atft-spheremesh>
+        <atft-cylindermesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
           material="lamb" materialColor="0x00ff00" translateY="5" translateZ="10">
-        </three-cylindermesh>
-        <three-torusmesh radius="5" tube="2" radialSegments="16" tubularSegments="100" arc="6.28" material="lamb"
+        </atft-cylindermesh>
+        <atft-torusmesh radius="5" tube="2" radialSegments="16" tubularSegments="100" arc="6.28" material="lamb"
           materialColor="0x0000ff" rotateX="1.6" translateX="-10" translateY="2" translateZ="-5">
-        </three-torusmesh>
-      </three-empty>
+        </atft-torusmesh>
+      </atft-empty>
 
-    </three-scene>
-  </three-webgl-renderer>
-</three-orbit-controls>
+    </atft-scene>
+  </atft-webgl-renderer>
+</atft-orbit-controls>

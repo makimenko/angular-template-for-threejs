@@ -3,7 +3,7 @@ import { AbstractCamera } from './abstract-camera';
 import * as THREE from 'three';
 
 @Directive({
-  selector: 'three-perspective-camera',
+  selector: 'atft-perspective-camera',
   providers: [{ provide: AbstractCamera, useExisting: forwardRef(() => PerspectiveCameraDirective) }]
 })
 export class PerspectiveCameraDirective extends AbstractCamera<THREE.PerspectiveCamera> {

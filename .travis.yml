@@ -24,7 +24,9 @@ before_install:
 
 install: npm install
 
-script: ng test --watch=false --code-coverage
+script: 
+  - ng build atft
+  - ng test --watch=false --code-coverage
 
 after_success:
   - codecov
@@ -33,7 +35,7 @@ before_deploy:
   # Setup files to be deploy to gh-pages in ./dist/gh-pagey-deploy
 
   # 1. Compile, minify and deploy Angular application
-  - npm run publish -- --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
+  - ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
 
   # 2. Generate API documentation
   - npm install -g @compodoc/compodoc
