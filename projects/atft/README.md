@@ -19,19 +19,27 @@ Add and install npm dependency to Angular project
 ```
 npm i atft --save
 ```
+Improt AtftModule into your module
+```
+import { AtftModule } from 'atft';
+...
+imports: [
+    ...
+    AtftModule
+]
+```
+
 
 ## Usage
 Sample of Three.js scene with OrbitControls, WebGL renderer, Grid and Axes helpers:
 ```
 <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
   <atft-webgl-renderer #mainRenderer>
-
     <atft-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></atft-perspective-camera>
-
     <atft-scene>
       <atft-axes-helper size=200></atft-axes-helper>
       <atft-grid-helper size=100 divisions=10></atft-grid-helper>
-    <atft-scene>
+    </atft-scene>
   </atft-webgl-renderer>
 </atft-orbit-controls>
 ```
