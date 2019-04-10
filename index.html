@@ -50,7 +50,13 @@ cd angular-template-for-threejs</code></p>
 <h3 id="install-dependencies">Install Dependencies</h3>
 <p><code>npm install</code></p>
 <h3 id="build-and-run">Build and Run</h3>
-<p><code>ng serve --open</code></p>
+<p><code>ng build atft
+ng serve --open</code></p>
+<h3 id="build-and-watch">Build and Watch</h3>
+<p>To build and watch &quot;atft&quot; library, please change imports in &quot;app.module.ts&quot; from:
+<code>import { AtftModule } from &#39;atft&#39;;</code>
+to:
+<code>import { AtftModule } from &#39;projects/atft/src/lib/atft.module&#39;;</code></p>
 <h1 id="api-documentation">API Documentation</h1>
 <p>For mode details see <a href="https://makimenko.github.io/angular-template-for-threejs">API documentation</a></p>
 

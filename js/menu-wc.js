@@ -60,13 +60,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-a5833888eaefb4cf712e3e65492f40a3"' : 'data-target="#xs-components-links-module-AppModule-a5833888eaefb4cf712e3e65492f40a3"' }>
+                                            'data-target="#components-links-module-AppModule-bb603e782659bc08bea6161f8f440800"' : 'data-target="#xs-components-links-module-AppModule-bb603e782659bc08bea6161f8f440800"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-a5833888eaefb4cf712e3e65492f40a3"' :
-                                            'id="xs-components-links-module-AppModule-a5833888eaefb4cf712e3e65492f40a3"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-bb603e782659bc08bea6161f8f440800"' :
+                                            'id="xs-components-links-module-AppModule-bb603e782659bc08bea6161f8f440800"' }>
                                             <li class="link">
                                                 <a href="components/AppComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -74,126 +74,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </ul>
                                     </li>
                             </li>
-                            <li class="link">
-                                <a href="modules/ThreeExamplesModule.html" data-type="entity-link">ThreeExamplesModule</a>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' : 'data-target="#xs-components-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
-                                            <span class="icon ion-md-cog"></span>
-                                            <span>Components</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' :
-                                            'id="xs-components-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
-                                            <li class="link">
-                                                <a href="components/WebGLRendererComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">WebGLRendererComponent</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' : 'data-target="#xs-directives-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
-                                        <span class="icon ion-md-code-working"></span>
-                                        <span>Directives</span>
-                                        <span class="icon ion-ios-arrow-down"></span>
-                                    </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' :
-                                        'id="xs-directives-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
-                                        <li class="link">
-                                            <a href="directives/AxesHelperDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">AxesHelperDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/CylindermeshDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">CylindermeshDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/EmptyDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">EmptyDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/GridHelperDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">GridHelperDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/ObjLoaderDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">ObjLoaderDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/ObjectLoaderDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">ObjectLoaderDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/OrbitControlsDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">OrbitControlsDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/PerspectiveCameraDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">PerspectiveCameraDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/PointLightDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">PointLightDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/SceneDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">SceneDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/SpheremeshDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">SpheremeshDirective</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="directives/TorusmeshDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">TorusmeshDirective</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#pipes-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' : 'data-target="#xs-pipes-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
-                                            <span class="icon ion-md-add"></span>
-                                            <span>Pipes</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' :
-                                            'id="xs-pipes-links-module-ThreeExamplesModule-28b63764c5827b75c68321be4f0a47f6"' }>
-                                            <li class="link">
-                                                <a href="pipes/Deg2RadPipe.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">Deg2RadPipe</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="pipes/Rad2DegPipe.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">Rad2DegPipe</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                            </li>
                 </ul>
                 </li>
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#classes-links"' :
-                            'data-target="#xs-classes-links"' }>
-                            <span class="icon ion-ios-paper"></span>
-                            <span>Classes</span>
-                            <span class="icon ion-ios-arrow-down"></span>
-                        </div>
-                        <ul class="links collapse" ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
-                            <li class="link">
-                                <a href="classes/AbstractCamera.html" data-type="entity-link">AbstractCamera</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractMesh.html" data-type="entity-link">AbstractMesh</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractModelLoader.html" data-type="entity-link">AbstractModelLoader</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractObject3D.html" data-type="entity-link">AbstractObject3D</a>
-                            </li>
-                        </ul>
-                    </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#miscellaneous-links"'
                             : 'data-target="#xs-miscellaneous-links"' }>
