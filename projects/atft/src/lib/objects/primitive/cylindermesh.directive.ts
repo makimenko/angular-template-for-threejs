@@ -19,7 +19,7 @@ export class CylindermeshDirective extends AbstractMesh {
   @Input()
   hightSegments: number;
 
-  constructor() { 
+  constructor() {
     super();
     console.log('CylindermeshDirective.constructor');
   }

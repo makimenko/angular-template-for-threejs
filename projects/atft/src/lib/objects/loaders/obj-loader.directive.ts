@@ -41,8 +41,8 @@ export class ObjLoaderDirective extends AbstractModelLoader {
           this.mtlLoader.setTexturePath(this.texturePath);
         }
         this.mtlLoader.load(this.material, materialCreator => {
-          materialCreator.preload();          
-          this.loader.setMaterials(materialCreator as any); 
+          materialCreator.preload();
+          this.loader.setMaterials(materialCreator as any);
           this.loader.load(this.model, resolve);
         });
       });

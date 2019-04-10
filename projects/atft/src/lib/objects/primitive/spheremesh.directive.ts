@@ -15,7 +15,7 @@ export class SpheremeshDirective extends AbstractMesh {
   @Input()
   hightSegments: number;
 
-  constructor() { 
+  constructor() {
     super();
     console.log('SpheremeshDirective.constructor');
   }
