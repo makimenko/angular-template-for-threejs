@@ -26,7 +26,8 @@ install: npm install
 
 script: 
   - ng build atft
-  - ng test --watch=false --code-coverage
+  - ng lint
+  - ng test --watch=false --code-coverage  
 
 after_success:
   - codecov
