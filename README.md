@@ -15,7 +15,7 @@ The goals of this Git repository:
 
 
 # Demo
-Click below to see demo in Web browser:<br>
+Click below to see demo in web browser:<br>
 <a href="https://makimenko.github.io/angular-template-for-threejs/demo"><img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/demo.gif"></a>
 
 # Usage
