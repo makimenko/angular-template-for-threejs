@@ -1,4 +1,4 @@
-[GitHub: makimenko/angular-template-for-threejs](https://github.com/makimenko/angular-template-for-threejs) [![Build Status](https://api.travis-ci.com/makimenko/angular-template-for-threejs.svg?branch=master)](https://travis-ci.com/makimenko/angular-template-for-threejs)
+[GitHub repo](https://github.com/makimenko/angular-template-for-threejs) ┃ [![Build Status](https://api.travis-ci.com/makimenko/angular-template-for-threejs.svg?branch=master)](https://travis-ci.com/makimenko/angular-template-for-threejs)
 [![Greenkeeper badge](https://badges.greenkeeper.io/makimenko/angular-template-for-threejs.svg)](https://greenkeeper.io/)
 [![codecov](https://codecov.io/gh/makimenko/angular-template-for-threejs/branch/master/graph/badge.svg)](https://codecov.io/gh/makimenko/angular-template-for-threejs)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/94e8d8689ae546d7a3e077ff3b5c5192)](https://app.codacy.com/app/mihails.akimenko/angular-template-for-threejs?utm_source=github.com&utm_medium=referral&utm_content=makimenko/angular-template-for-threejs&utm_campaign=Badge_Grade_Dashboard)
@@ -18,10 +18,9 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple direct
   </atft-webgl-renderer>
 </atft-orbit-controls>
 ```
+<!-- Result: ![Animated gif showing the result of the code above](https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/grid.gif) -->
 
-Result: ![Animated gif showing the result of the code above](https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/grid.gif)
-
-## Demo
+## Full Demo
 
 Click below to see demo in web browser:<br>
 <a href="https://makimenko.github.io/angular-template-for-threejs/demo"><img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/demo.gif"></a>
