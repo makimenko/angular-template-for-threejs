@@ -23,10 +23,10 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple direct
 </atft-orbit-controls>
 ```
 
-- **atft library**: Reusable Angular library, published as [atft on NPM](https://www.npmjs.com/package/atft)
-  - SceneComponent with basic usage of scene, camera, lights, axis helper, raytracer, renderer and OBJ/MTL model
-  - Demonstrated three.js examples (eg OrbitControls, ObjLoader. MtlLoader).
-- **this repository**: Template and demo showing how to use atft. Use it as a template for *your project* to get quickly started!
+- [**atft library**](https://www.npmjs.com/package/atft): Reusable Angular library giving you all the Three.js bindings
+  - SceneComponent with basic usage of scene, camera, lights, axis helper, raytracer, renderer
+  - Integrated Three.js examples as directives (e.g. OrbitControls, OBJLoader. MTLLoader)
+- [**_this_ template repository**](https://github.com/makimenko/angular-template-for-threejs): Template and demo showing how to use atft. Use it as a template for *your project* to get quickly started!
 
 
 ## Full Demo
@@ -57,3 +57,8 @@ import { AtftModule } from 'projects/atft/src/lib/atft.module';
 ## API Documentation
 
 For mode details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
+
+## Contributors (sorted alphabetically)
+
+- [<img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek](https://github.com/ComFreek)
+- [<img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> Mihails Akimenko](https://github.com/makimenko)

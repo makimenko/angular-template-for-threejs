@@ -33,7 +33,7 @@ Demo source: https://github.com/makimenko/angular-template-for-threejs
 
 ## Installation
 
-1. `npm i atft three --save`
+1. `npm install atft three --save`
 2. In the module you want to use ATFT (e.g. `app.module.ts`), import atft:
    ```typescript
    import { AtftModule } from 'atft';
@@ -48,7 +48,7 @@ Demo source: https://github.com/makimenko/angular-template-for-threejs
 ## API Documentation & Usage
 
 - Check out the [demo source](https://github.com/makimenko/angular-template-for-threejs/tree/master/src/app) for sample usage
-- For mode details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
+- For more details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
 
 ## Contributors (sorted alphabetically)
 
