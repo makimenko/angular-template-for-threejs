@@ -8,9 +8,12 @@
 Leverage [Three.js](https://threejs.org) in your Angular app using simple directives:
 
 ```html
-<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
-  <atft-webgl-renderer #mainRenderer>
-    <atft-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></atft-perspective-camera>
+<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
+  <atft-webgl-renderer>
+    <atft-perspective-camera
+      [fov]=60 [near]=1 [far]=1100
+      positionX=20 positionY=50 positionZ=50>
+    </atft-perspective-camera>
     <atft-scene>
       <atft-axes-helper size=200></atft-axes-helper>
       <atft-grid-helper size=100 divisions=10></atft-grid-helper>
@@ -18,6 +21,7 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple direct
   </atft-webgl-renderer>
 </atft-orbit-controls>
 ```
+
 <!-- Result: ![Animated gif showing the result of the code above](https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/grid.gif) -->
 
 ## Full Demo
@@ -25,7 +29,7 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple direct
 Click below to see demo in web browser:<br>
 <a href="https://makimenko.github.io/angular-template-for-threejs/demo"><img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/demo.gif"></a>
 
-Demo source: https://github.com/makimenko/angular-template-for-threejs
+Demo source: <https://github.com/makimenko/angular-template-for-threejs>
 
 ## Installation
 
@@ -38,13 +42,13 @@ Demo source: https://github.com/makimenko/angular-template-for-threejs
        ...
        AtftModule
      ]
-	 ...
-   ```
+    ...
+    ```
 
 ## API Documentation & Usage
 
 - Check out the [demo source](https://github.com/makimenko/angular-template-for-threejs/tree/master/src/app) for sample usage
-- For mode details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
+- For more details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
 
 ## Contributors (sorted alphabetically)
 
