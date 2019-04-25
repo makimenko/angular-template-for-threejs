@@ -10,7 +10,10 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple direct
 ```html
 <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
   <atft-webgl-renderer #mainRenderer>
-    <atft-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></atft-perspective-camera>
+    <atft-perspective-camera
+      [fov]=60 [near]=1 [far]=1100
+      positionX=20 positionY=50 positionZ=50>
+    </atft-perspective-camera>
     <atft-scene>
       <atft-axes-helper size=200></atft-axes-helper>
       <atft-grid-helper size=100 divisions=10></atft-grid-helper>
@@ -18,6 +21,7 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple direct
   </atft-webgl-renderer>
 </atft-orbit-controls>
 ```
+
 <!-- Result: ![Animated gif showing the result of the code above](https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/grid.gif) -->
 
 ## Full Demo
