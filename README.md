@@ -23,26 +23,29 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple direct
 </atft-orbit-controls>
 ```
 
-- [**atft library**](https://www.npmjs.com/package/atft): Reusable Angular library giving you all the Three.js bindings
-  - SceneComponent with basic usage of scene, camera, lights, axis helper, raytracer, renderer
-  - Integrated Three.js examples as directives (e.g. OrbitControls, OBJLoader. MTLLoader)
-- [**_this_ template repository**](https://github.com/makimenko/angular-template-for-threejs): Template and demo showing how to use atft. Use it as a template for *your project* to get quickly started!
+  - [**atft library**](https://www.npmjs.com/package/atft): Reusable Angular library giving you all the Three.js bindings
+    - SceneComponent with basic usage of scene, camera, lights, axis helper, raytracer, renderer
+    - Integrated Three.js examples as directives (e.g. OrbitControls, OBJLoader. MTLLoader)
 
+  - [**_this_ template repository**](https://github.com/makimenko/angular-template-for-threejs): Template and demo showing how to use atft. Use it as a template for _your project_ to get quickly started!
 
 ## Full Demo
 
 Click below to see demo in web browser:<br>
 <a href="https://makimenko.github.io/angular-template-for-threejs/demo"><img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/demo.gif"></a>
 
-Demo source: https://github.com/makimenko/angular-template-for-threejs
+Demo source: <https://github.com/makimenko/angular-template-for-threejs>
 
 ## Usage
 
-1. `git clone https://github.com/makimenko/angular-template-for-threejs.git`
-2. `npm install`
-3. `ng build atft`<br>
-   Build the `atft` library, must only be run once.
-4. `ng serve --open`
+  1. `git clone https://github.com/makimenko/angular-template-for-threejs.git`
+
+  2. `npm install`
+
+  3. `ng build atft`<br>
+     Build the `atft` library, must only be run once.
+
+  4. `ng serve --open`
 
 To build and watch "atft" library, please change imports in "app.module.ts" from:
 ```typescript
@@ -53,12 +56,11 @@ to:
 import { AtftModule } from 'projects/atft/src/lib/atft.module';
 ```
 
-
 ## API Documentation
 
 For mode details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
 
 ## Contributors (sorted alphabetically)
 
-- [<img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek](https://github.com/ComFreek)
-- [<img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> Mihails Akimenko](https://github.com/makimenko)
+  - [<img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek](https://github.com/ComFreek)
+  - [<img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> Mihails Akimenko](https://github.com/makimenko)
