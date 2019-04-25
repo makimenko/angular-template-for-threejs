@@ -33,25 +33,24 @@ Demo source: <https://github.com/makimenko/angular-template-for-threejs>
 
 ## Installation
 
-  1. `npm install atft three --save`
-
-  2. In the module you want to use ATFT (e.g. `app.module.ts`), import atft:
-     ```typescript
-     import { AtftModule } from 'atft';
-     ...
-       imports: [
-         ...
-         AtftModule
-       ]
-      ...
-      ```
+1. `npm i atft three --save`
+2. In the module you want to use ATFT (e.g. `app.module.ts`), import atft:
+   ```typescript
+   import { AtftModule } from 'atft';
+   ...
+     imports: [
+       ...
+       AtftModule
+     ]
+    ...
+    ```
 
 ## API Documentation & Usage
 
-  - Check out the [demo source](https://github.com/makimenko/angular-template-for-threejs/tree/master/src/app) for sample usage
-  - For more details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
+- Check out the [demo source](https://github.com/makimenko/angular-template-for-threejs/tree/master/src/app) for sample usage
+- For more details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
 
 ## Contributors (sorted alphabetically)
 
-  - [<img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek](https://github.com/ComFreek)
-  - [<img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> Mihails Akimenko](https://github.com/makimenko)
+- [<img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek](https://github.com/ComFreek)
+- [<img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> Mihails Akimenko](https://github.com/makimenko)

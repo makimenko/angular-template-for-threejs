@@ -9,6 +9,11 @@ node_js:
 os:
   - linux
 
+cache:
+  npm: true
+  override:
+    - npm ci
+
 before_install:
   # Google Chrome
   #
@@ -21,8 +26,6 @@ before_install:
   # Non-Chrome-related:
   - npm install -g greenkeeper-lockfile
   - npm install -g codecov
-
-install: npm install
 
 script: 
   - ng build atft
