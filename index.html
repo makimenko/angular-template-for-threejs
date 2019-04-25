@@ -35,31 +35,54 @@
 <a href="https://codecov.io/gh/makimenko/angular-template-for-threejs"><img src="https://codecov.io/gh/makimenko/angular-template-for-threejs/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a>
 <a href="https://app.codacy.com/app/mihails.akimenko/angular-template-for-threejs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=makimenko/angular-template-for-threejs&amp;utm_campaign=Badge_Grade_Dashboard"><img src="https://api.codacy.com/project/badge/Grade/94e8d8689ae546d7a3e077ff3b5c5192" alt="Codacy Badge" class="img-responsive"></a>
 <a href="https://badge.fury.io/js/atft"><img src="https://badge.fury.io/js/atft.svg" alt="npm version" class="img-responsive"></a></p>
-<h1 id="angular-template-for-dummies">Angular Template For Dummies</h1>
-<p>The goals of this Git repository:
-- Simplify new web project development with Angular and modern 3D engine <a href="https://threejs.org">Three.js</a>
-- This template project can be quickly used as base instead of wasting hours of going through building instructions
-- SceneComponent with basic usage of scene, camera, lights, axis helper, raytracer, renderer and OBJ/MTL model
-- Demonstrated three.js examples (eg OrbitControls, ObjLoader. MtlLoader).
-- Reusable code is published as public npm library: <a href="https://www.npmjs.com/package/atft">atft</a></p>
-<h1 id="demo">Demo</h1>
+<h1 id="angular-template-for-dummies-atft-library--full-demo">Angular Template For Dummies: atft library + full demo</h1>
+<p>Leverage <a href="https://threejs.org">Three.js</a> in your Angular app using simple directives:</p>
+<p><code>html
+&lt;atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2&gt;
+  &lt;atft-webgl-renderer&gt;
+    &lt;atft-perspective-camera
+      [fov]=60 [near]=1 [far]=1100
+      positionX=20 positionY=50 positionZ=50&gt;
+    &lt;/atft-perspective-camera&gt;
+    &lt;atft-scene&gt;
+      &lt;atft-axes-helper size=200&gt;&lt;/atft-axes-helper&gt;
+      &lt;atft-grid-helper size=100 divisions=10&gt;&lt;/atft-grid-helper&gt;
+    &lt;/atft-scene&gt;
+  &lt;/atft-webgl-renderer&gt;
+&lt;/atft-orbit-controls&gt;</code></p>
+<ul>
+<li><a href="https://www.npmjs.com/package/atft"><strong>atft library</strong></a>: Reusable Angular library giving you all the Three.js bindings<ul>
+<li>SceneComponent with basic usage of scene, camera, lights, axis helper, raytracer, renderer</li>
+<li>Integrated Three.js examples as directives (e.g. OrbitControls, OBJLoader. MTLLoader)</li>
+</ul>
+</li>
+<li><a href="https://github.com/makimenko/angular-template-for-threejs"><strong><em>this</em> template repository</strong></a>: Template and demo showing how to use atft. Use it as a template for <em>your project</em> to get quickly started!</li>
+</ul>
+<h2 id="full-demo">Full Demo</h2>
 <p>Click below to see demo in web browser:<br>
 <a href="https://makimenko.github.io/angular-template-for-threejs/demo"><img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/demo.gif"></a></p>
-<h1 id="usage">Usage</h1>
-<p>Clone Repository
-<code>git clone https://github.com/makimenko/angular-template-for-threejs.git
-cd angular-template-for-threejs</code></p>
-<p>Install Dependencies
-<code>npm install</code></p>
-<p>Build and Run
-<code>ng build atft
-ng serve --open</code></p>
+<p>Demo source: <a href="https://github.com/makimenko/angular-template-for-threejs">https://github.com/makimenko/angular-template-for-threejs</a></p>
+<h2 id="usage">Usage</h2>
+<ol>
+<li><code>git clone https://github.com/makimenko/angular-template-for-threejs.git</code></li>
+<li><code>npm install</code></li>
+<li><code>ng build atft</code><br>
+Build the <code>atft</code> library, must only be run once.</li>
+<li><code>ng serve --open</code></li>
+</ol>
 <p>To build and watch &quot;atft&quot; library, please change imports in &quot;app.module.ts&quot; from:
-<code>import { AtftModule } from &#39;atft&#39;;</code>
+<code>typescript
+import { AtftModule } from &#39;atft&#39;;</code>
 to:
-<code>import { AtftModule } from &#39;projects/atft/src/lib/atft.module&#39;;</code></p>
-<h1 id="api-documentation">API Documentation</h1>
+<code>typescript
+import { AtftModule } from &#39;projects/atft/src/lib/atft.module&#39;;</code></p>
+<h2 id="api-documentation">API Documentation</h2>
 <p>For mode details see <a href="https://makimenko.github.io/angular-template-for-threejs">API documentation</a></p>
+<h2 id="contributors-sorted-alphabetically">Contributors (sorted alphabetically)</h2>
+<ul>
+<li><a href="https://github.com/ComFreek"><img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek</a></li>
+<li><a href="https://github.com/makimenko"><img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> Mihails Akimenko</a></li>
+</ul>
 
 
 
