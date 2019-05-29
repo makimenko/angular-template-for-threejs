@@ -25,7 +25,7 @@ export class WebGLRendererComponent implements AfterViewInit {
   private renderer: THREE.WebGLRenderer;
   private viewInitialized = false;
 
-  @ViewChild('canvas')
+  @ViewChild('canvas', { static: true })
   private canvasRef: ElementRef; // NOTE: say bye-bye to server-side rendering ;)
 
   @ContentChildren(SceneDirective) sceneComponents: QueryList<SceneDirective>; // TODO: Multiple scenes
