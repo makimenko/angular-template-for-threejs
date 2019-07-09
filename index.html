@@ -37,8 +37,7 @@
 <a href="https://badge.fury.io/js/atft"><img src="https://badge.fury.io/js/atft.svg" alt="npm version" class="img-responsive"></a></p>
 <h1 id="angular-template-for-dummies-atft-library--full-demo">Angular Template For Dummies: atft library + full demo</h1>
 <p>Leverage <a href="https://threejs.org">Three.js</a> in your Angular app using simple directives:</p>
-<p><code>html
-&lt;atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2&gt;
+<div><pre class="line-numbers"><code class="language-html">&lt;atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2&gt;
   &lt;atft-webgl-renderer&gt;
     &lt;atft-perspective-camera
       [fov]=60 [near]=1 [far]=1100
@@ -49,8 +48,7 @@
       &lt;atft-grid-helper size=100 divisions=10&gt;&lt;/atft-grid-helper&gt;
     &lt;/atft-scene&gt;
   &lt;/atft-webgl-renderer&gt;
-&lt;/atft-orbit-controls&gt;</code></p>
-<ul>
+&lt;/atft-orbit-controls&gt;</code></pre></div><ul>
 <li><a href="https://www.npmjs.com/package/atft"><strong>atft library</strong></a>: Reusable Angular library giving you all the Three.js bindings<ul>
 <li>SceneComponent with basic usage of scene, camera, lights, axis helper, raytracer, renderer</li>
 <li>Integrated Three.js examples as directives (e.g. OrbitControls, OBJLoader. MTLLoader)</li>
@@ -70,13 +68,9 @@
 Build the <code>atft</code> library, must only be run once.</li>
 <li><code>ng serve --open</code></li>
 </ol>
-<p>To build and watch &quot;atft&quot; library, please change imports in &quot;app.module.ts&quot; from:
-<code>typescript
-import { AtftModule } from &#39;atft&#39;;</code>
-to:
-<code>typescript
-import { AtftModule } from &#39;projects/atft/src/lib/atft.module&#39;;</code></p>
-<h2 id="api-documentation">API Documentation</h2>
+<p>To build and watch &quot;atft&quot; library, please change imports in &quot;app.module.ts&quot; from:</p>
+<div><pre class="line-numbers"><code class="language-typescript">import { AtftModule } from &#39;atft&#39;;</code></pre></div><p>to:</p>
+<div><pre class="line-numbers"><code class="language-typescript">import { AtftModule } from &#39;projects/atft/src/lib/atft.module&#39;;</code></pre></div><h2 id="api-documentation">API Documentation</h2>
 <p>For mode details see <a href="https://makimenko.github.io/angular-template-for-threejs">API documentation</a></p>
 <h2 id="contributors-sorted-alphabetically">Contributors (sorted alphabetically)</h2>
 <ul>
@@ -97,6 +91,7 @@ import { AtftModule } from &#39;projects/atft/src/lib/atft.module&#39;;</code></
 
 
 
+                   
 
 
 
