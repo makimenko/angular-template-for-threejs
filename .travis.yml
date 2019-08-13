@@ -1,6 +1,6 @@
 branches:
-  except:
-    - gh-pages
+  only:
+    - master
 
 language: node_js
 node_js:
