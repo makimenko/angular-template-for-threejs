@@ -1,11 +1,10 @@
 branches:
-  only:
-    - master
-    - /^greenkeeper/.*$/
+  except:
+    - gh-pages
 
 language: node_js
 node_js:
-  - node
+  - 10
 os:
   - linux
 
@@ -13,6 +12,10 @@ cache:
   npm: true
   override:
     - npm ci
+
+dist: xenial
+services:
+  - xvfb
 
 before_install:
   # Google Chrome
