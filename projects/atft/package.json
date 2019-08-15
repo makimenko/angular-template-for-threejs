@@ -1,4 +1,4 @@
-{  
+{
   "name": "atft",
   "version": "0.1.0",
   "description": "Ready-to-use Angular components for Three.js, see https://makimenko.github.io/angular-template-for-threejs/.",
@@ -33,12 +33,12 @@
     }
   ],
   "peerDependencies": {
-    "@angular/common": "^8.2.0",
-    "@angular/core": "^8.2.0",
+    "@angular/common": "^8.2.2",
+    "@angular/core": "^8.2.2",
     "three": "^0.107.0"
   },
   "dependencies": {},
   "engines": {
-    "node":  "*"
+    "node": "*"
   }
 }
