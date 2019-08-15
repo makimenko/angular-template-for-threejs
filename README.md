@@ -56,6 +56,11 @@ import { AtftModule } from 'projects/atft/src/lib/atft.module';
 
 For mode details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
 
+## Testing
+
+- Watch mode (preferred for development): `npm test`
+- Non-watch mode: `npm test -- --watch=false`
+
 ## Contributors (sorted alphabetically)
 
 - [<img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek](https://github.com/ComFreek)
