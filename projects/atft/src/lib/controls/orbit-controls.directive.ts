@@ -71,7 +71,9 @@ export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestr
   }
 
   ngOnDestroy() {
-    this.controls.dispose();
+    if (this.controls) {
+      this.controls.dispose();
+    }
   }
 
   private setUpOrbitControls() {
