@@ -19,24 +19,28 @@ Z rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]=
 {{ rotationZ | rad2deg | number:'1.1-2'}} °<br>
 
 Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="translationY"> {{ translationY }}
+<br>
+
+Camera positionX: <input type="range" min="-50" max="50" step="1" [(ngModel)]="cameraPositionX"> {{ cameraPositionX }}
 
 <hr>
-<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
-  <atft-webgl-renderer #mainRenderer>
+<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
+    <atft-webgl-renderer #mainRenderer>
 
-    <atft-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></atft-perspective-camera>
+      <atft-perspective-camera (render)="mainRenderer.render()" [fov]=60 [near]=1 [far]=1100 [positionX]=cameraPositionX positionY=50 positionZ=50></atft-perspective-camera>
 
-    <atft-scene>      
+    <atft-scene>
       <atft-axes-helper size=200></atft-axes-helper>
       <atft-grid-helper size=100 divisions=10></atft-grid-helper>
 
       <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50 translateZ=50></atft-point-light>
       <atft-point-light color="#FAFAFA" intensity="0.5" distance="1000" translateX=-50 translateY=50 translateZ=20></atft-point-light>
 
-      <atft-obj-loader 
-        model="assets/model/smiley/smiley.obj" 
-        material="assets/model/smiley/smiley.mtl" 
-        texturePath="assets/model/smiley/" 
+      <atft-obj-loader
+        (render)="mainRenderer.render()"
+        model="assets/model/smiley/smiley.obj"
+        material="assets/model/smiley/smiley.mtl"
+        texturePath="assets/model/smiley/"
         rotateX={{-90|deg2rad}}
         translateX=-20
         translateY=3>
@@ -44,7 +48,7 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
 
       <div *ngFor="let z of [-10, -5, 0, 5, 10]">
         <atft-object-loader *ngFor="let x of [0,5,10,15,20]" model="assets/model/Server.json" [translateX]="x" [translateZ]="z"
-          [renderer]="mainRenderer"
+          (render)="mainRenderer.render()"
           [rotateX]="rotationX"
           [rotateY]="rotationY"
           [rotateZ]="rotationZ"
@@ -54,7 +58,7 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
       </div>
 
       <atft-empty translateZ=-50>
-        <atft-spheremesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000" 
+        <atft-spheremesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000"
           translateX=10 translateY=5 translateZ="20" scaleX="2">
         </atft-spheremesh>
         <atft-cylindermesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"

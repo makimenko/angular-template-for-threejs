@@ -1,8 +1,8 @@
 import {
   AfterViewInit,
-  ContentChildren,
+  ContentChildren, EventEmitter,
   Input,
-  OnChanges,
+  OnChanges, Output,
   QueryList,
   SimpleChanges
 } from '@angular/core';
@@ -31,10 +31,9 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   @Input() translateY: number;
   @Input() translateZ: number;
 
-  private object: T;
+  @Output() render = new EventEmitter<void>();
 
-  protected rerender() {
-  }
+  private object: T;
 
   public ngOnChanges(changes: SimpleChanges) {
     if (!this.object) {
@@ -53,7 +52,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     }
 
     if (mustRerender) {
-      this.rerender();
+      this.render.emit();
     }
   }
 

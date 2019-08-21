@@ -14,10 +14,6 @@ export class PerspectiveCameraDirective extends AbstractCamera<THREE.Perspective
   @Input() near: number;
   @Input() far: number;
 
-  @Input() positionX: number;
-  @Input() positionY: number;
-  @Input() positionZ: number;
-
 
   constructor() {
     console.log('PerspectiveCameraDirective.constructor');
@@ -34,11 +30,7 @@ export class PerspectiveCameraDirective extends AbstractCamera<THREE.Perspective
       this.far
     );
 
-    // Set position and look at
-    this.camera.position.x = this.positionX;
-    this.camera.position.y = this.positionY;
-    this.camera.position.z = this.positionZ;
-    this.camera.updateProjectionMatrix();
+    this.applyPosition();
   }
 
   public updateAspectRatio(aspect: number) {
@@ -46,6 +38,5 @@ export class PerspectiveCameraDirective extends AbstractCamera<THREE.Perspective
     this.camera.aspect = aspect;
     this.camera.updateProjectionMatrix();
   }
-
 
 }
