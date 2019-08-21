@@ -19,7 +19,6 @@ import * as THREE from 'three';
 export abstract class AbstractModelLoader extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
 
   private _model: string;
-  private _renderer: WebGLRendererComponent;
 
   /**
    * Flag to signal whether the parent class instance AbstractObject3D called the
@@ -70,9 +69,7 @@ export abstract class AbstractModelLoader extends AbstractObject3D<THREE.Object3
       this.currentLoadedModelObject = newModel;
       this.addChild(newModel);
 
-      if (this.renderer) {
-        this.renderer.render();
-      }
+      this.render.emit();
     }).catch(err => {
       console.error(err);
     });
@@ -85,16 +82,6 @@ export abstract class AbstractModelLoader extends AbstractObject3D<THREE.Object3
     return this._model;
   }
 
-  @Input()
-  public set renderer(newRenderer: WebGLRendererComponent) {
-    this._renderer = newRenderer;
-    this._renderer.render();
-  }
-
-  public get renderer() {
-    return this._renderer;
-  }
-
   protected afterInit() {
     this.parentInitialized = true;
 
@@ -105,14 +92,6 @@ export abstract class AbstractModelLoader extends AbstractObject3D<THREE.Object3
   ngOnDestroy(): void {
     if (this.currentLoadedModelObject) {
       this.removeChild(this.currentLoadedModelObject);
-    }
-  }
-
-  protected rerender() {
-    super.rerender();
-
-    if (this.renderer) {
-      this.renderer.render();
     }
   }
 

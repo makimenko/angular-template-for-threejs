@@ -14,6 +14,7 @@ export class ObjectLoaderDirective extends AbstractModelLoader {
   protected async loadModelObject() {
     return new Promise<THREE.Object3D>((resolve, reject) => {
       this.loader.load(this.model, model => {
+          // TODO: it seems that some textures loaded after last render (and model has black texture instead)
           resolve(model);
         },
         undefined,

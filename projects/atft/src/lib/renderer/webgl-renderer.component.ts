@@ -8,11 +8,13 @@ import {
   QueryList,
   EventEmitter,
   Output,
-  AfterViewInit
+  AfterViewInit, Input, OnDestroy
 } from '@angular/core';
 import * as THREE from 'three';
 import { SceneDirective } from '../objects/scene.directive';
 import { AbstractCamera } from '../cameras/abstract-camera';
+import {Observable, Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 
 @Component({
@@ -20,16 +22,20 @@ import { AbstractCamera } from '../cameras/abstract-camera';
   templateUrl: './webgl-renderer.component.html',
   styleUrls: ['./webgl-renderer.component.scss']
 })
-export class WebGLRendererComponent implements AfterViewInit {
+export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   private renderer: THREE.WebGLRenderer;
   private viewInitialized = false;
+  private readonly onDestroy = new Subject<void>();
 
   @ViewChild('canvas', { static: true })
   private canvasRef: ElementRef; // NOTE: say bye-bye to server-side rendering ;)
 
   @ContentChildren(SceneDirective) sceneComponents: QueryList<SceneDirective>; // TODO: Multiple scenes
   @ContentChildren(AbstractCamera) cameraComponents: QueryList<AbstractCamera<THREE.Camera>>; // TODO: Multiple cameras
+
+  @Input()
+  renderQueue: Observable<void>; // TODO: add example of rendering via queue
 
   constructor() {
     console.log('RendererComponent.constructor');
@@ -40,6 +46,13 @@ export class WebGLRendererComponent implements AfterViewInit {
     console.log('RendererComponent.ngAfterViewInit');
     this.viewInitialized = true;
     this.startRendering();
+
+    if (this.renderQueue) {
+      // TODO: optimize performance and skip too frequent events in between?
+      this.renderQueue
+        .pipe(takeUntil(this.onDestroy))
+        .subscribe(() => this.render());
+    }
   }
 
   /**
@@ -129,5 +142,9 @@ export class WebGLRendererComponent implements AfterViewInit {
     console.log("onKeyPress: " + event.key);
   }
 */
+
+  ngOnDestroy(): void {
+    this.onDestroy.next();
+  }
 
 }

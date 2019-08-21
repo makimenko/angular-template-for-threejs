@@ -7,11 +7,10 @@ import {
   OnChanges,
   OnDestroy,
   SimpleChanges,
-  QueryList
+  QueryList, Output, EventEmitter
 } from '@angular/core';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { WebGLRendererComponent } from '../renderer/webgl-renderer.component';
 import { AbstractCamera } from '../cameras/abstract-camera';
 
 @Directive({
@@ -20,7 +19,7 @@ import { AbstractCamera } from '../cameras/abstract-camera';
 export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestroy {
 
   @ContentChildren(AbstractCamera, { descendants: true }) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
-  @ContentChildren(WebGLRendererComponent, { descendants: true }) childRenderers: QueryList<WebGLRendererComponent>;
+
   /**
    * The element on whose native element the orbit controls will listen for mouse events.
    *
@@ -41,6 +40,8 @@ export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestr
 
   @Input() rotateSpeed = 1.0;
   @Input() zoomSpeed = 1.2;
+
+  @Output() render = new EventEmitter<void>();
 
   private controls: OrbitControls;
 
@@ -83,17 +84,20 @@ export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestr
     );
     this.controls.rotateSpeed = this.rotateSpeed;
     this.controls.zoomSpeed = this.zoomSpeed;
-    this.controls.addEventListener('change', this.childRenderers.first.render);
-    this.childRenderers.first.render();
+
+    this.requestRender = this.requestRender.bind(this);
+    this.controls.addEventListener('change', this.requestRender);
+    this.requestRender();
+  }
+
+  private requestRender() {
+    this.render.emit();
   }
 
   ngAfterViewInit(): void {
     console.log('OrbitControlsDirective.ngAfterViewInit');
     if (this.childCameras === undefined || this.childCameras.first === undefined) {
       throw new Error('Camera is not found');
-    }
-    if (this.childRenderers === undefined || this.childRenderers.first === undefined) {
-      throw new Error('Renderer is not found');
     }
 
     this.setUpOrbitControls();

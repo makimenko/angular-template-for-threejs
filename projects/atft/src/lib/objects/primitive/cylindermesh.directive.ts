@@ -1,6 +1,6 @@
 import { Directive, Input, AfterViewInit, forwardRef } from '@angular/core';
 import * as THREE from 'three';
-import { AbstractMesh } from '../abstract-mesh-3d';
+import { AbstractMesh } from './abstract-mesh-3d';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 @Directive({

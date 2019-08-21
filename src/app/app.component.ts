@@ -13,4 +13,7 @@ export class AppComponent {
   public rotationZ = 0.0;
 
   public translationY = 0.0;
+
+  public cameraPositionX = 20.0;
+
 }
