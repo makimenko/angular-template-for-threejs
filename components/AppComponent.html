@@ -125,6 +125,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#cameraPositionX">cameraPositionX</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#rotationX">rotationX</a>
                             </li>
                             <li>
@@ -166,6 +170,39 @@
         <h3 id="inputs">
             Properties
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cameraPositionX"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            cameraPositionX</b>
+                            <a href="#cameraPositionX"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>20.0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -351,6 +388,9 @@ export class AppComponent {
   public rotationZ &#x3D; 0.0;
 
   public translationY &#x3D; 0.0;
+
+  public cameraPositionX &#x3D; 20.0;
+
 }
 </code></pre>
     </div>
@@ -377,24 +417,28 @@ Z rotation: &lt;input type&#x3D;&quot;range&quot; min&#x3D;&quot;-3.141&quot; ma
 {{ rotationZ | rad2deg | number:&#x27;1.1-2&#x27;}} °&lt;br&gt;
 
 Y translation: &lt;input type&#x3D;&quot;range&quot; min&#x3D;&quot;-50&quot; max&#x3D;&quot;50&quot; step&#x3D;&quot;1&quot; [(ngModel)]&#x3D;&quot;translationY&quot;&gt; {{ translationY }}
+&lt;br&gt;
+
+Camera positionX: &lt;input type&#x3D;&quot;range&quot; min&#x3D;&quot;-50&quot; max&#x3D;&quot;50&quot; step&#x3D;&quot;1&quot; [(ngModel)]&#x3D;&quot;cameraPositionX&quot;&gt; {{ cameraPositionX }}
 
 &lt;hr&gt;
-&lt;atft-orbit-controls [rotateSpeed]&#x3D;1 [zoomSpeed]&#x3D;1.2 [listeningControlElement]&#x3D;mainRenderer.renderPane&gt;
-  &lt;atft-webgl-renderer #mainRenderer&gt;
+&lt;atft-orbit-controls [rotateSpeed]&#x3D;1 [zoomSpeed]&#x3D;1.2 [listeningControlElement]&#x3D;mainRenderer.renderPane (render)&#x3D;&quot;mainRenderer.render()&quot;&gt;
+    &lt;atft-webgl-renderer #mainRenderer&gt;
 
-    &lt;atft-perspective-camera [fov]&#x3D;60 [near]&#x3D;1 [far]&#x3D;1100 positionX&#x3D;20 positionY&#x3D;50 positionZ&#x3D;50&gt;&lt;/atft-perspective-camera&gt;
+      &lt;atft-perspective-camera (render)&#x3D;&quot;mainRenderer.render()&quot; [fov]&#x3D;60 [near]&#x3D;1 [far]&#x3D;1100 [positionX]&#x3D;cameraPositionX positionY&#x3D;50 positionZ&#x3D;50&gt;&lt;/atft-perspective-camera&gt;
 
-    &lt;atft-scene&gt;      
+    &lt;atft-scene&gt;
       &lt;atft-axes-helper size&#x3D;200&gt;&lt;/atft-axes-helper&gt;
       &lt;atft-grid-helper size&#x3D;100 divisions&#x3D;10&gt;&lt;/atft-grid-helper&gt;
 
       &lt;atft-point-light color&#x3D;&quot;white&quot; intensity&#x3D;&quot;0.9&quot; distance&#x3D;&quot;1000&quot; translateX&#x3D;50 translateY&#x3D;50 translateZ&#x3D;50&gt;&lt;/atft-point-light&gt;
       &lt;atft-point-light color&#x3D;&quot;#FAFAFA&quot; intensity&#x3D;&quot;0.5&quot; distance&#x3D;&quot;1000&quot; translateX&#x3D;-50 translateY&#x3D;50 translateZ&#x3D;20&gt;&lt;/atft-point-light&gt;
 
-      &lt;atft-obj-loader 
-        model&#x3D;&quot;assets/model/smiley/smiley.obj&quot; 
-        material&#x3D;&quot;assets/model/smiley/smiley.mtl&quot; 
-        texturePath&#x3D;&quot;assets/model/smiley/&quot; 
+      &lt;atft-obj-loader
+        (render)&#x3D;&quot;mainRenderer.render()&quot;
+        model&#x3D;&quot;assets/model/smiley/smiley.obj&quot;
+        material&#x3D;&quot;assets/model/smiley/smiley.mtl&quot;
+        texturePath&#x3D;&quot;assets/model/smiley/&quot;
         rotateX&#x3D;{{-90|deg2rad}}
         translateX&#x3D;-20
         translateY&#x3D;3&gt;
@@ -402,7 +446,7 @@ Y translation: &lt;input type&#x3D;&quot;range&quot; min&#x3D;&quot;-50&quot; ma
 
       &lt;div *ngFor&#x3D;&quot;let z of [-10, -5, 0, 5, 10]&quot;&gt;
         &lt;atft-object-loader *ngFor&#x3D;&quot;let x of [0,5,10,15,20]&quot; model&#x3D;&quot;assets/model/Server.json&quot; [translateX]&#x3D;&quot;x&quot; [translateZ]&#x3D;&quot;z&quot;
-          [renderer]&#x3D;&quot;mainRenderer&quot;
+          (render)&#x3D;&quot;mainRenderer.render()&quot;
           [rotateX]&#x3D;&quot;rotationX&quot;
           [rotateY]&#x3D;&quot;rotationY&quot;
           [rotateZ]&#x3D;&quot;rotationZ&quot;
@@ -412,7 +456,7 @@ Y translation: &lt;input type&#x3D;&quot;range&quot; min&#x3D;&quot;-50&quot; ma
       &lt;/div&gt;
 
       &lt;atft-empty translateZ&#x3D;-50&gt;
-        &lt;atft-spheremesh radius&#x3D;&quot;4&quot; widthSegments&#x3D;&quot;20&quot; hightSegments&#x3D;&quot;20&quot; material&#x3D;&quot;lamb&quot; materialColor&#x3D;&quot;0xff0000&quot; 
+        &lt;atft-spheremesh radius&#x3D;&quot;4&quot; widthSegments&#x3D;&quot;20&quot; hightSegments&#x3D;&quot;20&quot; material&#x3D;&quot;lamb&quot; materialColor&#x3D;&quot;0xff0000&quot;
           translateX&#x3D;10 translateY&#x3D;5 translateZ&#x3D;&quot;20&quot; scaleX&#x3D;&quot;2&quot;&gt;
         &lt;/atft-spheremesh&gt;
         &lt;atft-cylindermesh radiustop&#x3D;&quot;2&quot; radiusbottom&#x3D;&quot;3&quot; cylheight&#x3D;&quot;10&quot; radialSegments&#x3D;&quot;36&quot; hightSegments&#x3D;&quot;1&quot;
@@ -461,7 +505,7 @@ Y translation: &lt;input type&#x3D;&quot;range&quot; min&#x3D;&quot;-50&quot; ma
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!--  We are explicitly using [(ngModel)] bindings here!  Especially    <input type="range" ... #rotationX>  and later writing    <atft-object-loader ... [rotateX]=rotationX.value>  somehow fails to propagate values instantaneously.  Instead one has to click multiple times and trigger mouse move events for the updates  to take place.-->X rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationX">{{ rotationX | rad2deg | number:\'1.1-2\'}} °<br>Y rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationY">{{ rotationY | rad2deg | number:\'1.1-2\'}} °<br>Z rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationZ">{{ rotationZ | rad2deg | number:\'1.1-2\'}} °<br>Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="translationY"> {{ translationY }}<hr><atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>  <atft-webgl-renderer #mainRenderer>    <atft-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></atft-perspective-camera>    <atft-scene>            <atft-axes-helper size=200></atft-axes-helper>      <atft-grid-helper size=100 divisions=10></atft-grid-helper>      <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50 translateZ=50></atft-point-light>      <atft-point-light color="#FAFAFA" intensity="0.5" distance="1000" translateX=-50 translateY=50 translateZ=20></atft-point-light>      <atft-obj-loader         model="assets/model/smiley/smiley.obj"         material="assets/model/smiley/smiley.mtl"         texturePath="assets/model/smiley/"         rotateX={{-90|deg2rad}}        translateX=-20        translateY=3>      </atft-obj-loader>      <div *ngFor="let z of [-10, -5, 0, 5, 10]">        <atft-object-loader *ngFor="let x of [0,5,10,15,20]" model="assets/model/Server.json" [translateX]="x" [translateZ]="z"          [renderer]="mainRenderer"          [rotateX]="rotationX"          [rotateY]="rotationY"          [rotateZ]="rotationZ"          [translateY]="translationY"          >        </atft-object-loader>      </div>      <atft-empty translateZ=-50>        <atft-spheremesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000"           translateX=10 translateY=5 translateZ="20" scaleX="2">        </atft-spheremesh>        <atft-cylindermesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"          material="lamb" materialColor="0x00ff00" translateY="5" translateZ="10">        </atft-cylindermesh>        <atft-torusmesh radius="5" tube="2" radialSegments="16" tubularSegments="100" arc="6.28" material="lamb"          materialColor="0x0000ff" rotateX="1.6" translateX="-10" translateY="2" translateZ="-5">        </atft-torusmesh>      </atft-empty>    </atft-scene>  </atft-webgl-renderer></atft-orbit-controls></div>'
+        var COMPONENT_TEMPLATE = '<div><!--  We are explicitly using [(ngModel)] bindings here!  Especially    <input type="range" ... #rotationX>  and later writing    <atft-object-loader ... [rotateX]=rotationX.value>  somehow fails to propagate values instantaneously.  Instead one has to click multiple times and trigger mouse move events for the updates  to take place.-->X rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationX">{{ rotationX | rad2deg | number:\'1.1-2\'}} °<br>Y rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationY">{{ rotationY | rad2deg | number:\'1.1-2\'}} °<br>Z rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationZ">{{ rotationZ | rad2deg | number:\'1.1-2\'}} °<br>Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="translationY"> {{ translationY }}<br>Camera positionX: <input type="range" min="-50" max="50" step="1" [(ngModel)]="cameraPositionX"> {{ cameraPositionX }}<hr><atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">    <atft-webgl-renderer #mainRenderer>      <atft-perspective-camera (render)="mainRenderer.render()" [fov]=60 [near]=1 [far]=1100 [positionX]=cameraPositionX positionY=50 positionZ=50></atft-perspective-camera>    <atft-scene>      <atft-axes-helper size=200></atft-axes-helper>      <atft-grid-helper size=100 divisions=10></atft-grid-helper>      <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50 translateZ=50></atft-point-light>      <atft-point-light color="#FAFAFA" intensity="0.5" distance="1000" translateX=-50 translateY=50 translateZ=20></atft-point-light>      <atft-obj-loader        (render)="mainRenderer.render()"        model="assets/model/smiley/smiley.obj"        material="assets/model/smiley/smiley.mtl"        texturePath="assets/model/smiley/"        rotateX={{-90|deg2rad}}        translateX=-20        translateY=3>      </atft-obj-loader>      <div *ngFor="let z of [-10, -5, 0, 5, 10]">        <atft-object-loader *ngFor="let x of [0,5,10,15,20]" model="assets/model/Server.json" [translateX]="x" [translateZ]="z"          (render)="mainRenderer.render()"          [rotateX]="rotationX"          [rotateY]="rotationY"          [rotateZ]="rotationZ"          [translateY]="translationY"          >        </atft-object-loader>      </div>      <atft-empty translateZ=-50>        <atft-spheremesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000"          translateX=10 translateY=5 translateZ="20" scaleX="2">        </atft-spheremesh>        <atft-cylindermesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"          material="lamb" materialColor="0x00ff00" translateY="5" translateZ="10">        </atft-cylindermesh>        <atft-torusmesh radius="5" tube="2" radialSegments="16" tubularSegments="100" arc="6.28" material="lamb"          materialColor="0x0000ff" rotateX="1.6" translateX="-10" translateY="2" translateZ="-5">        </atft-torusmesh>      </atft-empty>    </atft-scene>  </atft-webgl-renderer></atft-orbit-controls></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
