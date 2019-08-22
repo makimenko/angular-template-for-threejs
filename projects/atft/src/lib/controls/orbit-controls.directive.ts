@@ -85,12 +85,9 @@ export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestr
     this.controls.rotateSpeed = this.rotateSpeed;
     this.controls.zoomSpeed = this.zoomSpeed;
 
-    this.requestRender = this.requestRender.bind(this);
-    this.controls.addEventListener('change', this.requestRender);
-    this.requestRender();
-  }
-
-  private requestRender() {
+    this.controls.addEventListener('change', () => {
+      this.render.emit();
+    });
     this.render.emit();
   }
 
