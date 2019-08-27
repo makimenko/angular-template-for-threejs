@@ -1,13 +1,15 @@
-import { Directive, Input, AfterViewInit, forwardRef } from '@angular/core';
+import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
-import { AbstractMesh } from './abstract-mesh-3d';
-import { AbstractObject3D } from '../abstract-object-3d';
+import {AbstractMesh} from './abstract-mesh-3d';
+import {AbstractObject3D} from '../abstract-object-3d';
 
-@Directive({
+@Component({
   selector: 'atft-cylindermesh',
-  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => CylindermeshDirective) }]
+  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => CylindermeshComponent) }],
+  template: '<ng-content></ng-content>'
 })
-export class CylindermeshDirective extends AbstractMesh {
+export class CylindermeshComponent extends AbstractMesh {
+
   @Input()
   radiustop: number;
   @Input()
@@ -21,18 +23,18 @@ export class CylindermeshDirective extends AbstractMesh {
 
   constructor() {
     super();
-    console.log('CylindermeshDirective.constructor');
+    console.log('CylindermeshComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-    console.log('CylindermeshDirective.newObject3DInstance');
+    console.log('CylindermeshComponent.newObject3DInstance');
     const geometry = new THREE.CylinderGeometry(this.radiustop, this.radiusbottom, this.cylheight, this.radialSegments, this.hightSegments);
     const material: THREE.MeshBasicMaterial = this.getMaterial();
     return new THREE.Mesh(geometry, material);
   }
 
   protected afterInit(): void {
-    console.log('CylindermeshDirective.afterInit');
+    console.log('CylindermeshComponent.afterInit');
     // none
   }
 }

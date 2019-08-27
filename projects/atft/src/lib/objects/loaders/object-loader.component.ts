@@ -1,14 +1,15 @@
-import { Directive, forwardRef } from '@angular/core';
-import { AbstractObject3D } from '../abstract-object-3d';
-import { AbstractModelLoader } from './abstract-model-loader';
+import {Component, forwardRef} from '@angular/core';
+import {AbstractObject3D} from '../abstract-object-3d';
+import {AbstractModelLoader} from './abstract-model-loader';
 
 import * as THREE from 'three';
 
-@Directive({
+@Component({
   selector: 'atft-object-loader',
-  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjectLoaderDirective) }]
+  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjectLoaderComponent) }],
+  template: '<ng-content></ng-content>'
 })
-export class ObjectLoaderDirective extends AbstractModelLoader {
+export class ObjectLoaderComponent extends AbstractModelLoader {
   private loader = new THREE.ObjectLoader();
 
   protected async loadModelObject() {
