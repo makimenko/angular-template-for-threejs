@@ -1,2 +1,2 @@
-export * from './obj-loader.directive';
-export * from './object-loader.directive';
+export * from './obj-loader.component';
+export * from './object-loader.component';

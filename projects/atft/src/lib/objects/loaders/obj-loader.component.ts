@@ -1,20 +1,22 @@
-import { Directive, forwardRef, Input } from '@angular/core';
+import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
-import { AbstractObject3D } from '../abstract-object-3d';
-import { AbstractModelLoader } from './abstract-model-loader';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
-import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
+import {AbstractObject3D} from '../abstract-object-3d';
+import {AbstractModelLoader} from './abstract-model-loader';
+import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader';
+import {MTLLoader} from 'three/examples/jsm/loaders/MTLLoader';
 
 /**
- * Directive for employing THREE.OBJLoader to load [Wavefront *.obj files][1].
+ * Component for employing THREE.OBJLoader to load [Wavefront *.obj files][1].
  *
  * [1]: https://en.wikipedia.org/wiki/Wavefront_.obj_file
  */
-@Directive({
+@Component({
   selector: 'atft-obj-loader',
-  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjLoaderDirective) }]
+  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjLoaderComponent) }],
+  template: '<ng-content></ng-content>'
 })
-export class ObjLoaderDirective extends AbstractModelLoader {
+export class ObjLoaderComponent extends AbstractModelLoader {
+
   private loader = new OBJLoader();
   private mtlLoader = new MTLLoader();
 

@@ -11,7 +11,7 @@ import {
   AfterViewInit, Input, OnDestroy
 } from '@angular/core';
 import * as THREE from 'three';
-import { SceneDirective } from '../objects/scene.directive';
+import { SceneComponent } from '../objects/scene.component';
 import { AbstractCamera } from '../cameras/abstract-camera';
 import {Observable, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -31,7 +31,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   @ViewChild('canvas', { static: true })
   private canvasRef: ElementRef; // NOTE: say bye-bye to server-side rendering ;)
 
-  @ContentChildren(SceneDirective) sceneComponents: QueryList<SceneDirective>; // TODO: Multiple scenes
+  @ContentChildren(SceneComponent) sceneComponents: QueryList<SceneComponent>; // TODO: Multiple scenes
   @ContentChildren(AbstractCamera) cameraComponents: QueryList<AbstractCamera<THREE.Camera>>; // TODO: Multiple cameras
 
   @Input()

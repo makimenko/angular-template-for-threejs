@@ -1,22 +1,25 @@
 import {
   AfterViewInit,
+  Component,
   ContentChildren,
-  Directive,
   ElementRef,
+  EventEmitter,
   Input,
   OnChanges,
   OnDestroy,
-  SimpleChanges,
-  QueryList, Output, EventEmitter
+  Output,
+  QueryList,
+  SimpleChanges
 } from '@angular/core';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { AbstractCamera } from '../cameras/abstract-camera';
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+import {AbstractCamera} from '../cameras/abstract-camera';
 
-@Directive({
-  selector: 'atft-orbit-controls'
+@Component({
+  selector: 'atft-orbit-controls',
+  template: `<ng-content></ng-content>`
 })
-export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestroy {
+export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   @ContentChildren(AbstractCamera, { descendants: true }) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
 
@@ -46,7 +49,7 @@ export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestr
   private controls: OrbitControls;
 
   constructor() {
-    console.log('OrbitControlsDirective.constructor');
+    console.log('OrbitControlsComponent.constructor');
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -92,7 +95,7 @@ export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestr
   }
 
   ngAfterViewInit(): void {
-    console.log('OrbitControlsDirective.ngAfterViewInit');
+    console.log('OrbitControlsComponent.ngAfterViewInit');
     if (this.childCameras === undefined || this.childCameras.first === undefined) {
       throw new Error('Camera is not found');
     }

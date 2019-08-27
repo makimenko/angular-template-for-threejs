@@ -5,7 +5,7 @@
 
 # ATFT (Angular Template for Threejs) Library
 
-Leverage [Three.js](https://threejs.org) in your Angular app using simple directives:
+Leverage [Three.js](https://threejs.org) in your Angular app using simple components:
 
 ```html
 <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>

@@ -1,13 +1,14 @@
-import { Directive, Input, AfterViewInit, forwardRef } from '@angular/core';
+import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
-import { AbstractMesh } from './abstract-mesh-3d';
-import { AbstractObject3D } from '../abstract-object-3d';
+import {AbstractMesh} from './abstract-mesh-3d';
+import {AbstractObject3D} from '../abstract-object-3d';
 
-@Directive({
+@Component({
   selector: 'atft-torusmesh',
-  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => TorusmeshDirective) }]
+  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => TorusmeshComponent) }],
+  template: '<ng-content></ng-content>'
 })
-export class TorusmeshDirective extends AbstractMesh {
+export class TorusmeshComponent extends AbstractMesh {
   //  - Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
   @Input()
   radius: number;
@@ -23,7 +24,7 @@ export class TorusmeshDirective extends AbstractMesh {
 
   constructor() {
     super();
-    console.log('TorusmeshDirective.constructor');
+    console.log('TorusmeshComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.Mesh {
@@ -32,7 +33,7 @@ export class TorusmeshDirective extends AbstractMesh {
     this.radialSegments *= 1;
     this.tubularSegments *= 1;
 
-    console.log('TorusmeshDirective.newObject3DInstance', this.radius, this.tube,
+    console.log('TorusmeshComponent.newObject3DInstance', this.radius, this.tube,
       this.radialSegments, this.tubularSegments, this.arc);
 
     const geometry = new THREE.TorusGeometry(this.radius, this.tube,
@@ -42,7 +43,7 @@ export class TorusmeshDirective extends AbstractMesh {
   }
 
   protected afterInit(): void {
-    console.log('TorusmeshDirective.afterInit');
+    console.log('TorusmeshComponent.afterInit');
     // none
   }
 }

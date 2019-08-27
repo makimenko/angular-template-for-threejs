@@ -6,7 +6,7 @@
 
 # Angular Template For Dummies: atft library + full demo
 
-Leverage [Three.js](https://threejs.org) in your Angular app using simple directives:
+Leverage [Three.js](https://threejs.org) in your Angular app using simple components:
 
 ```html
 <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
@@ -25,7 +25,7 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple direct
 
 - [**atft library**](https://www.npmjs.com/package/atft): Reusable Angular library giving you all the Three.js bindings
   - SceneComponent with basic usage of scene, camera, lights, axis helper, raytracer, renderer
-  - Integrated Three.js examples as directives (e.g. OrbitControls, OBJLoader. MTLLoader)
+  - Integrated Three.js examples as components (e.g. OrbitControls, OBJLoader. MTLLoader)
 - [**_this_ template repository**](https://github.com/makimenko/angular-template-for-threejs): Template and demo showing how to use atft. Use it as a template for _your project_ to get quickly started!
 
 ## Full Demo
