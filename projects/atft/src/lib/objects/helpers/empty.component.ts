@@ -9,8 +9,6 @@ import {AbstractObject3D} from '../abstract-object-3d';
 })
 export class EmptyComponent extends AbstractObject3D<THREE.Object3D> {
 
-  @Input() size: number;
-
   constructor() {
     super();
     console.log('EmptyComponent.constructor');
@@ -18,7 +16,7 @@ export class EmptyComponent extends AbstractObject3D<THREE.Object3D> {
 
   protected newObject3DInstance(): THREE.Object3D {
     console.log('EmptyComponent.newObject3DInstance');
-    return new THREE.AxesHelper(this.size);
+    return new THREE.Object3D();
   }
 
   protected afterInit(): void {
