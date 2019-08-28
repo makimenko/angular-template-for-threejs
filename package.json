@@ -24,7 +24,7 @@
     "@angular/router": "^8.2.2",
     "core-js": "^3.2.1",
     "rxjs": "^6.5.2",
-    "three": "^0.107.0",
+    "three": "^0.108.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
