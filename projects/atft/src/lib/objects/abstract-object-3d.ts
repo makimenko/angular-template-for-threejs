@@ -4,13 +4,15 @@ import {
   Input,
   OnChanges, Output,
   QueryList,
-  SimpleChanges
+  SimpleChanges, ViewChildren
 } from '@angular/core';
 import * as THREE from 'three';
 
 export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit, OnChanges {
 
   @ContentChildren(AbstractObject3D, { descendants: false }) childNodes: QueryList<AbstractObject3D<THREE.Object3D>>;
+
+  @ViewChildren(AbstractObject3D) viewChilds: QueryList<AbstractObject3D<THREE.Object3D>>;
 
   /**
    * Rotation in Euler angles (radians) with order X, Y, Z.
@@ -65,8 +67,16 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
     if (this.childNodes !== undefined && this.childNodes.length > 1) {
       this.childNodes.filter(i => i !== this && i.getObject() !== undefined).forEach(i => {
-        // console.log("Add child for " + this.constructor.name);
-        // console.log(i);
+        // console.log("Add childNodes for ", this.constructor.name, i);
+        this.addChild(i.getObject());
+      });
+    } else {
+      // console.log("No child Object3D for: " + this.constructor.name);
+    }
+
+    if (this.viewChilds !== undefined && this.viewChilds.length > 0) {
+      this.viewChilds.filter(i => i !== this && i.getObject() !== undefined).forEach(i => {
+        // console.log("Add viewChilds for ", this.constructor.name, i);
         this.addChild(i.getObject());
       });
     } else {
