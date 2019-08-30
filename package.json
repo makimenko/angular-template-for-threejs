@@ -24,11 +24,11 @@
     "@angular/router": "^8.2.2",
     "core-js": "^3.2.1",
     "rxjs": "^6.5.2",
-    "three": "^0.107.0",
+    "three": "^0.108.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.802.2",
+    "@angular-devkit/build-angular": "~0.803.2",
     "@angular-devkit/build-ng-packagr": "~0.803.0",
     "@angular/cli": "^8.2.2",
     "@angular/compiler-cli": "^8.2.2",
