@@ -1,8 +1,8 @@
-import { SpheremeshComponent } from './spheremesh.component';
+import { SphereMeshComponent } from './sphere-mesh.component';
 
 describe('SpheremeshComponent', () => {
   it('should create an instance', () => {
-    const comp = new SpheremeshComponent();
+    const comp = new SphereMeshComponent();
     expect(comp).toBeTruthy();
   });
 });

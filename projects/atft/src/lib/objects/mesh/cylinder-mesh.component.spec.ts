@@ -1,8 +1,8 @@
-import { CylindermeshComponent } from './cylindermesh.component';
+import { CylinderMeshComponent } from './cylinder-mesh.component';
 
 describe('CylindermeshComponent', () => {
   it('should create an instance', () => {
-    const comp = new CylindermeshComponent();
+    const comp = new CylinderMeshComponent();
     expect(comp).toBeTruthy();
   });
 });

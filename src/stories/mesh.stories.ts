@@ -4,53 +4,46 @@ import {Component, forwardRef} from '@angular/core';
 import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 import {EmptyComponent} from '../../projects/atft/src/lib/objects/helpers';
 import {AbstractObject3D} from '../../projects/atft/src/lib/objects/abstract-object-3d';
+import {StorybookContainerComponent} from './common/storybook-container.component';
 
-
-@Component({
-  selector: 'storybook-container',
-  template: `
-      <atft-orbit-controls rotateSpeed=1 zoomSpeed=1.2 [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
-          <atft-webgl-renderer #mainRenderer>
-              <atft-perspective-camera (render)="mainRenderer.render()" positionX=10 positionY=50 positionZ=50></atft-perspective-camera>
-              <atft-scene>
-                  <atft-axes-helper size=200></atft-axes-helper>
-                  <atft-grid-helper size=100 divisions=10></atft-grid-helper>
-                  <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50
-                                    translateZ=50></atft-point-light>
-                  <storybook-sample></storybook-sample>
-              </atft-scene>
-          </atft-webgl-renderer>
-      </atft-orbit-controls>
-  `
-})
-class StorybookContainerComponent {
-
-}
 
 @Component({
   selector: 'storybook-sample',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookCylindermeshComponent)}],
+  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookCylinderMeshComponent)}],
   template: `
-      <atft-cylindermesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
-                         material="lamb" materialColor="0x00ff00">
-      </atft-cylindermesh>
+      <atft-cylinder-mesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
+                          material="lamb" materialColor="0x00ff00">
+      </atft-cylinder-mesh>
   `
 })
-class StorybookCylindermeshComponent extends EmptyComponent {
+class StorybookCylinderMeshComponent extends EmptyComponent {
 
 }
 
 
 @Component({
   selector: 'storybook-sample',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookSpheremeshComponent)}],
+  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookSphereMeshComponent)}],
   template: `
-      <atft-spheremesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000"
-                       scaleX="2">
-      </atft-spheremesh>
+      <atft-sphere-mesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000"
+                        scaleX="2">
+      </atft-sphere-mesh>
   `
 })
-class StorybookSpheremeshComponent extends EmptyComponent {
+class StorybookSphereMeshComponent extends EmptyComponent {
+
+}
+
+@Component({
+  selector: 'storybook-sample',
+  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookTorusMeshComponent)}],
+  template: `
+      <atft-torus-mesh radius="5" tube="2" radialSegments="16" tubularSegments="100" arc="6.28" material="lamb"
+                       materialColor="0x0000ff">
+      </atft-torus-mesh>
+  `
+})
+class StorybookTorusMeshComponent extends EmptyComponent {
 
 }
 
@@ -62,32 +55,26 @@ storiesOf('Mesh', module)
         AtftModule
       ],
       declarations: [
-        StorybookContainerComponent,
-        StorybookCylindermeshComponent
+        StorybookContainerComponent
       ]
     }),
   )
-  .add('cylindermesh', () => ({
-    component: StorybookContainerComponent,
-    props: {},
-  }))
-;
-
-storiesOf('Mesh', module)
-  .addDecorator(
-    moduleMetadata({
-      imports: [
-        AtftModule
-      ],
-      declarations: [
-        StorybookContainerComponent,
-        StorybookSpheremeshComponent
-      ]
+  .add('cylinder', () => ({
+    moduleMetadata: ({
+      declarations: [StorybookCylinderMeshComponent]
     }),
-  )
-  .add('spheremesh', () => ({
-    component: StorybookContainerComponent,
-    props: {},
+    component: StorybookContainerComponent
+  }))
+  .add('sphere', () => ({
+    moduleMetadata: ({
+      declarations: [StorybookSphereMeshComponent]
+    }),
+    component: StorybookContainerComponent
+  }))
+  .add('torus', () => ({
+    moduleMetadata: ({
+      declarations: [StorybookTorusMeshComponent]
+    }),
+    component: StorybookContainerComponent
   }))
 ;
-

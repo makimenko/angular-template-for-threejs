@@ -4,11 +4,11 @@ import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
 
 @Component({
-  selector: 'atft-cylindermesh',
-  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => CylindermeshComponent) }],
+  selector: 'atft-cylinder-mesh',
+  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => CylinderMeshComponent) }],
   template: '<ng-content></ng-content>'
 })
-export class CylindermeshComponent extends AbstractMesh {
+export class CylinderMeshComponent extends AbstractMesh {
 
   @Input()
   radiustop: number;
@@ -23,18 +23,18 @@ export class CylindermeshComponent extends AbstractMesh {
 
   constructor() {
     super();
-    console.log('CylindermeshComponent.constructor');
+    console.log('CylinderMeshComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-    console.log('CylindermeshComponent.newObject3DInstance');
+    console.log('CylinderMeshComponent.newObject3DInstance');
     const geometry = new THREE.CylinderGeometry(this.radiustop, this.radiusbottom, this.cylheight, this.radialSegments, this.hightSegments);
     const material: THREE.MeshBasicMaterial = this.getMaterial();
     return new THREE.Mesh(geometry, material);
   }
 
   protected afterInit(): void {
-    console.log('CylindermeshComponent.afterInit');
+    console.log('CylinderMeshComponent.afterInit');
     // none
   }
 }

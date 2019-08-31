@@ -10,9 +10,9 @@ import {AbstractObject3D} from '../../projects/atft/src/lib/objects/abstract-obj
   selector: 'storybook-sample',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookSampleComponent)}],
   template: `
-      <atft-cylindermesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
-                         material="lamb" materialColor="0x00ff00" translateZ="10">
-      </atft-cylindermesh>
+      <atft-cylinder-mesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
+                          material="lamb" materialColor="0x00ff00" translateZ="10">
+      </atft-cylinder-mesh>
   `
 })
 class StorybookSampleComponent extends EmptyComponent {
@@ -68,9 +68,9 @@ class StorybookWrapperComponent {
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookSample2Component)}],
   template: `
       <storybook-wrapper>
-          <atft-cylindermesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
-                             material="lamb" materialColor="0xff0000" translateZ="10">
-          </atft-cylindermesh>
+          <atft-cylinder-mesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
+                              material="lamb" materialColor="0xff0000" translateZ="10">
+          </atft-cylinder-mesh>
       </storybook-wrapper>
   `
 })
