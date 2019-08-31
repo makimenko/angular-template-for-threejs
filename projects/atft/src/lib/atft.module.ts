@@ -11,9 +11,9 @@ import { AxesHelperComponent } from './objects/helpers/axes-helper.component';
 import { GridHelperComponent } from './objects/helpers/grid-helper.component';
 import { ObjectLoaderComponent } from './objects/loaders/object-loader.component';
 import { PointLightComponent } from './objects/light/point-light.component';
-import { SpheremeshComponent } from './objects/primitive/spheremesh.component';
-import { CylindermeshComponent } from './objects/primitive/cylindermesh.component';
-import { TorusmeshComponent } from './objects/primitive/torusmesh.component';
+import { SphereMeshComponent } from './objects/mesh/sphere-mesh.component';
+import { CylinderMeshComponent } from './objects/mesh/cylinder-mesh.component';
+import { TorusMeshComponent } from './objects/mesh/torus-mesh.component';
 import { EmptyComponent } from './objects/helpers/empty.component';
 
 
@@ -32,9 +32,9 @@ import { EmptyComponent } from './objects/helpers/empty.component';
     GridHelperComponent,
     ObjectLoaderComponent,
     PointLightComponent,
-    CylindermeshComponent,
-    TorusmeshComponent,
-    SpheremeshComponent,
+    CylinderMeshComponent,
+    TorusMeshComponent,
+    SphereMeshComponent,
     EmptyComponent
   ],
   exports: [
@@ -49,9 +49,9 @@ import { EmptyComponent } from './objects/helpers/empty.component';
     GridHelperComponent,
     ObjectLoaderComponent,
     PointLightComponent,
-    CylindermeshComponent,
-    TorusmeshComponent,
-    SpheremeshComponent,
+    CylinderMeshComponent,
+    TorusMeshComponent,
+    SphereMeshComponent,
     EmptyComponent
   ]
 })

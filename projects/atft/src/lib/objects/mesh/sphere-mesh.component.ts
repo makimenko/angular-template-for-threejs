@@ -4,11 +4,11 @@ import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
 
 @Component({
-  selector: 'atft-spheremesh',
-  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => SpheremeshComponent) }],
+  selector: 'atft-sphere-mesh',
+  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => SphereMeshComponent) }],
   template: '<ng-content></ng-content>'
 })
-export class SpheremeshComponent extends AbstractMesh {
+export class SphereMeshComponent extends AbstractMesh {
   @Input()
   radius: number;
   @Input()
@@ -18,18 +18,18 @@ export class SpheremeshComponent extends AbstractMesh {
 
   constructor() {
     super();
-    console.log('SpheremeshComponent.constructor');
+    console.log('SphereMeshComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-    console.log('SpheremeshComponent.newObject3DInstance');
+    console.log('SphereMeshComponent.newObject3DInstance');
     const geometry = new THREE.SphereGeometry(this.radius, this.widthSegments, this.hightSegments);
     const material: THREE.MeshBasicMaterial = this.getMaterial();
     return new THREE.Mesh(geometry, material);
   }
 
   protected afterInit(): void {
-    console.log('SpheremeshComponent.afterInit');
+    console.log('SphereMeshComponent.afterInit');
     // none
   }
 }
