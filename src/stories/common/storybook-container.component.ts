@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'storybook-container',
   template: `
       <atft-orbit-controls rotateSpeed=1 zoomSpeed=1.2 [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
