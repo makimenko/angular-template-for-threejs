@@ -58,15 +58,15 @@ Camera positionX: <input type="range" min="-50" max="50" step="1" [(ngModel)]="c
       </div>
 
       <atft-empty translateZ=-50>
-        <atft-spheremesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000"
+        <atft-sphere-mesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000"
           translateX=10 translateY=5 translateZ="20" scaleX="2">
-        </atft-spheremesh>
-        <atft-cylindermesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
+        </atft-sphere-mesh>
+        <atft-cylinder-mesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
           material="lamb" materialColor="0x00ff00" translateY="5" translateZ="10">
-        </atft-cylindermesh>
-        <atft-torusmesh radius="5" tube="2" radialSegments="16" tubularSegments="100" arc="6.28" material="lamb"
+        </atft-cylinder-mesh>
+        <atft-torus-mesh radius="5" tube="2" radialSegments="16" tubularSegments="100" arc="6.28" material="lamb"
           materialColor="0x0000ff" rotateX="1.6" translateX="-10" translateY="2" translateZ="-5">
-        </atft-torusmesh>
+        </atft-torus-mesh>
       </atft-empty>
 
     </atft-scene>
