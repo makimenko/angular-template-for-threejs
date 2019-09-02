@@ -9,6 +9,8 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements AfterVie
   @Input() positionY: number;
   @Input() positionZ: number;
 
+  @Input() zAxisUp = false;
+
   @Output() render = new EventEmitter<void>();
 
   constructor() {
@@ -17,10 +19,13 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements AfterVie
 
   public ngAfterViewInit(): void {
     console.log('AbstractCamera.ngAfterViewInit');
-    this.afterInit();
+    this.createCamera();
+
+    this.applyZAxisUp();
+    this.applyPosition();
   }
 
-  protected abstract afterInit(): void;
+  protected abstract createCamera(): void;
 
   public abstract updateAspectRatio(aspect: number);
 
@@ -45,6 +50,13 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements AfterVie
         this.positionY || 0,
         this.positionZ || 0,
       );
+    }
+  }
+
+  protected applyZAxisUp() {
+    if (this.camera && this.zAxisUp) {
+      // Z axis up (similarly to 3D Creation Software: Blender, 3DS Max)
+      this.camera.up.set(0, 0, 1);
     }
   }
 
