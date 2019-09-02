@@ -28,10 +28,7 @@ class StorybookObjectLoaderComponent extends EmptyComponent {
               model="assets/model/smiley/smiley.obj"
               material="assets/model/smiley/smiley.mtl"
               texturePath="assets/model/smiley/"
-              rotateX={{-90|deg2rad}}
-              translateX=-50
-              translateZ=40
-              translateY=3>
+              translateX="-60" translateY="-40">
           >
       </atft-obj-loader>
   `
