@@ -16,7 +16,8 @@ import {Component} from '@angular/core';
               </atft-scene>
           </atft-webgl-renderer>
       </atft-orbit-controls>
-  `
+  `,
+  styleUrls: ['storybook-container.component.scss']
 })
 export class StorybookContainerComponent {
 

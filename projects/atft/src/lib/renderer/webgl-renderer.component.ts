@@ -121,13 +121,16 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   @HostListener('window:resize', ['$event'])
   public onResize(event: Event) {
+
     this.canvas.style.width = '100%';
     this.canvas.style.height = '100%';
-    console.log('RendererComponent.onResize: ' + this.canvas.clientWidth + ', ' + this.canvas.clientHeight);
+    const width = this.canvas.clientWidth;
+    const height = this.canvas.clientHeight;
 
+    console.log('RendererComponent.onResize: ' + width + ', ' + height);
+
+    this.renderer.setSize(width, height, false);
     this.updateChildCamerasAspectRatio();
-
-    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
     this.render();
   }
 
