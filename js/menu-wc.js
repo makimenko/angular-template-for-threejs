@@ -79,6 +79,28 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </ul>
                                     </li>
                             </li>
+                            <li class="link">
+                                <a href="modules/StorybookModule.html" data-type="entity-link">StorybookModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-StorybookModule-3231fed0d7dffe616eb4009955b3ac82"' : 'data-target="#xs-components-links-module-StorybookModule-3231fed0d7dffe616eb4009955b3ac82"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-StorybookModule-3231fed0d7dffe616eb4009955b3ac82"' :
+                                            'id="xs-components-links-module-StorybookModule-3231fed0d7dffe616eb4009955b3ac82"' }>
+                                            <li class="link">
+                                                <a href="components/StorybookContainerComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">StorybookContainerComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/StorybookEmptyComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">StorybookEmptyComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
                 </ul>
                 </li>
                     <li class="chapter">
