@@ -1,8 +1,8 @@
-import {Component, forwardRef} from '@angular/core';
-import {AbstractObject3D} from '../../../projects/atft/src/lib/objects/abstract-object-3d';
+import {Component} from '@angular/core';
 import {EmptyComponent} from '../../../projects/atft/src/lib/objects/helpers';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'storybook-sample',
   template: ``
 })
