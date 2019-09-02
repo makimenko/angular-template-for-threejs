@@ -17,7 +17,8 @@ import {AbstractCamera} from '../cameras/abstract-camera';
 
 @Component({
   selector: 'atft-orbit-controls',
-  template: `<ng-content></ng-content>`
+  template: `<ng-content></ng-content>`,
+  styleUrls: ['orbit-controls.component.scss']
 })
 export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestroy {
 

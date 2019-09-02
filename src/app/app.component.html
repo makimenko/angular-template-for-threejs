@@ -1,29 +1,19 @@
-<!--
-  We are explicitly using [(ngModel)] bindings here!
+<div class="wrapper">
+  <div class="top">
+  X rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationX">
+  {{ rotationX | rad2deg | number:'1.1-2'}} °<br>
 
-  Especially
-    <input type="range" ... #rotationX>
-  and later writing
-    <atft-object-loader ... [rotateX]=rotationX.value>
-  somehow fails to propagate values instantaneously.
-  Instead one has to click multiple times and trigger mouse move events for the updates
-  to take place.
--->
-X rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationX">
-{{ rotationX | rad2deg | number:'1.1-2'}} °<br>
+  Y rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationY">
+  {{ rotationY | rad2deg | number:'1.1-2'}} °<br>
 
-Y rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationY">
-{{ rotationY | rad2deg | number:'1.1-2'}} °<br>
+  Z rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationZ">
+  {{ rotationZ | rad2deg | number:'1.1-2'}} °<br>
 
-Z rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationZ">
-{{ rotationZ | rad2deg | number:'1.1-2'}} °<br>
+  Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="translationY"> {{ translationY }}<br>
 
-Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="translationY"> {{ translationY }}
-<br>
+  Camera positionX: <input type="range" min="-50" max="50" step="1" [(ngModel)]="cameraPositionX"> {{ cameraPositionX }}
+  </div>
 
-Camera positionX: <input type="range" min="-50" max="50" step="1" [(ngModel)]="cameraPositionX"> {{ cameraPositionX }}
-
-<hr>
 <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
     <atft-webgl-renderer #mainRenderer>
 
@@ -72,3 +62,4 @@ Camera positionX: <input type="range" min="-50" max="50" step="1" [(ngModel)]="c
     </atft-scene>
   </atft-webgl-renderer>
 </atft-orbit-controls>
+</div>
