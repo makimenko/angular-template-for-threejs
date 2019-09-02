@@ -1,18 +1,7 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  ContentChildren,
-  HostListener,
-  QueryList,
-  EventEmitter,
-  Output,
-  AfterViewInit, Input, OnDestroy
-} from '@angular/core';
+import {AfterViewInit, Component, ContentChildren, ElementRef, HostListener, Input, OnDestroy, QueryList, ViewChild} from '@angular/core';
 import * as THREE from 'three';
-import { SceneComponent } from '../objects/scene.component';
-import { AbstractCamera } from '../cameras/abstract-camera';
+import {SceneComponent} from '../objects/scene.component';
+import {AbstractCamera} from '../cameras/abstract-camera';
 import {Observable, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 
@@ -28,7 +17,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   private viewInitialized = false;
   private readonly onDestroy = new Subject<void>();
 
-  @ViewChild('canvas', { static: true })
+  @ViewChild('canvas', {static: true})
   private canvasRef: ElementRef; // NOTE: say bye-bye to server-side rendering ;)
 
   @ContentChildren(SceneComponent) sceneComponents: QueryList<SceneComponent>; // TODO: Multiple scenes
@@ -86,7 +75,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
       antialias: true
     });
     this.renderer.setPixelRatio(devicePixelRatio);
-    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
+    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight, false);
 
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -121,15 +110,19 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   @HostListener('window:resize', ['$event'])
   public onResize(event: Event) {
+    // strange, but single 100% resizing has unexpected behaviour with flex CSS
+    // as workaround - resettling to 100 pixels, then to 100%
+    this.resize('100px');
+    this.resize('100%');
+  }
 
-    this.canvas.style.width = '100%';
-    this.canvas.style.height = '100%';
+  private resize(size: string) {
+    this.canvas.style.width = size;
+    this.canvas.style.height = size;
     const width = this.canvas.clientWidth;
     const height = this.canvas.clientHeight;
 
-    console.log('RendererComponent.onResize: ' + width + ', ' + height);
-
-    this.renderer.setSize(width, height, false);
+    this.renderer.setSize(width, height, true);
     this.updateChildCamerasAspectRatio();
     this.render();
   }
