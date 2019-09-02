@@ -11,7 +11,7 @@ import {StorybookContainerComponent} from './common/storybook-container.componen
   selector: 'storybook-sample',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookObjectLoaderComponent)}],
   template: `
-      <atft-object-loader model="assets/model/Server.json">
+      <atft-object-loader model="assets/model/Server.json" (render)="render.emit()">
       </atft-object-loader>
   `
 })
@@ -24,7 +24,7 @@ class StorybookObjectLoaderComponent extends EmptyComponent {
   selector: 'storybook-sample',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookObjLoaderComponent)}],
   template: `
-      <atft-obj-loader
+      <atft-obj-loader (render)="render.emit()"
               model="assets/model/smiley/smiley.obj"
               material="assets/model/smiley/smiley.mtl"
               texturePath="assets/model/smiley/"
