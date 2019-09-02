@@ -4,7 +4,7 @@ import * as THREE from 'three';
 
 @Component({
   selector: 'atft-perspective-camera',
-  providers: [{ provide: AbstractCamera, useExisting: forwardRef(() => PerspectiveCameraComponent) }],
+  providers: [{provide: AbstractCamera, useExisting: forwardRef(() => PerspectiveCameraComponent)}],
   template: '<ng-content></ng-content>'
 })
 export class PerspectiveCameraComponent extends AbstractCamera<THREE.PerspectiveCamera> {
@@ -13,14 +13,13 @@ export class PerspectiveCameraComponent extends AbstractCamera<THREE.Perspective
   @Input() near: number;
   @Input() far: number;
 
-
   constructor() {
     console.log('PerspectiveCameraComponent.constructor');
     super();
   }
 
-  protected afterInit(): void {
-    console.log('PerspectiveCameraComponent.afterInit');
+  protected createCamera(): void {
+    console.log('PerspectiveCameraComponent.createCamera');
     // let aspectRatio = undefined; // Updated later
     this.camera = new THREE.PerspectiveCamera(
       this.fov,
@@ -28,8 +27,6 @@ export class PerspectiveCameraComponent extends AbstractCamera<THREE.Perspective
       this.near,
       this.far
     );
-
-    this.applyPosition();
   }
 
   public updateAspectRatio(aspect: number) {
