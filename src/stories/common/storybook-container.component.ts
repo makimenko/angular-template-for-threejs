@@ -11,7 +11,7 @@ import {Component} from '@angular/core';
                   <atft-grid-helper size=100 divisions=10></atft-grid-helper>
                   <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50
                                     translateZ=50></atft-point-light>
-                  <storybook-sample></storybook-sample>
+                  <storybook-sample (render)="mainRenderer.render()"></storybook-sample>
               </atft-scene>
           </atft-webgl-renderer>
       </atft-orbit-controls>

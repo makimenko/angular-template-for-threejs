@@ -4,6 +4,7 @@ import {Component, forwardRef} from '@angular/core';
 import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 import {EmptyComponent} from '../../projects/atft/src/lib/objects/helpers';
 import {AbstractObject3D} from '../../projects/atft/src/lib/objects/abstract-object-3d';
+import {StorybookContainerComponent} from './common/storybook-container.component';
 
 
 @Component({
@@ -11,35 +12,13 @@ import {AbstractObject3D} from '../../projects/atft/src/lib/objects/abstract-obj
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookSampleComponent)}],
   template: `
       <atft-cylinder-mesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
-                          material="lamb" materialColor="0x00ff00" translateZ="10">
+                          material="lamb" materialColor="0x00ff00">
       </atft-cylinder-mesh>
   `
 })
 class StorybookSampleComponent extends EmptyComponent {
 
 }
-
-@Component({
-  selector: 'storybook-container',
-  template: `
-      <atft-orbit-controls rotateSpeed=1 zoomSpeed=1.2 [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
-          <atft-webgl-renderer #mainRenderer>
-              <atft-perspective-camera (render)="mainRenderer.render()" positionX=10 positionY=50 positionZ=50></atft-perspective-camera>
-              <atft-scene>
-                  <atft-axes-helper size=200></atft-axes-helper>
-                  <atft-grid-helper size=100 divisions=10></atft-grid-helper>
-                  <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50
-                                    translateZ=50></atft-point-light>
-                  <storybook-sample></storybook-sample>
-              </atft-scene>
-          </atft-webgl-renderer>
-      </atft-orbit-controls>
-  `
-})
-class StorybookContainerComponent {
-
-}
-
 
 @Component({
   selector: 'storybook-wrapper',
