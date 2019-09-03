@@ -11,15 +11,21 @@ import {AbstractObject3D} from '../abstract-object-3d';
 export class CylinderMeshComponent extends AbstractMesh {
 
   @Input()
-  radiustop: number;
+  radiusTop = 1.0;
   @Input()
-  radiusbottom: number;
+  radiusBottom = 1.0;
   @Input()
-  cylheight: number;
+  height = 1.0;
   @Input()
-  radialSegments: number;
+  radialSegments = 8;
   @Input()
-  hightSegments: number;
+  heightSegments = 1;
+  @Input()
+  openEnded: boolean = false;
+  @Input()
+  thetaStart = 0.0;
+  @Input()
+  thetaLength = 2 * Math.PI;
 
   constructor() {
     super();
@@ -28,7 +34,7 @@ export class CylinderMeshComponent extends AbstractMesh {
 
   protected newObject3DInstance(): THREE.Mesh {
     console.log('CylinderMeshComponent.newObject3DInstance');
-    const geometry = new THREE.CylinderGeometry(this.radiustop, this.radiusbottom, this.cylheight, this.radialSegments, this.hightSegments);
+    const geometry = new THREE.CylinderGeometry(this.radiusTop, this.radiusBottom, this.height, this.radialSegments, this.heightSegments, this.openEnded, this.thetaStart, this.thetaLength);
     const material: THREE.MeshBasicMaterial = this.getMaterial();
     return new THREE.Mesh(geometry, material);
   }

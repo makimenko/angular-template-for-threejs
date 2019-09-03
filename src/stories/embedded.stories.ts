@@ -11,7 +11,7 @@ import {StorybookContainerComponent} from './common/storybook-container.componen
   selector: 'storybook-sample',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookSampleComponent)}],
   template: `
-      <atft-cylinder-mesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
+      <atft-cylinder-mesh [radiusTop]="2" [radiusBottom]="3" [height]="10" [radialSegments]="36" [heightSegments]="1"
                           material="lamb" materialColor="0x00ff00">
       </atft-cylinder-mesh>
   `
@@ -47,8 +47,8 @@ class StorybookWrapperComponent {
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookSample2Component)}],
   template: `
       <storybook-wrapper>
-          <atft-cylinder-mesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
-                              material="lamb" materialColor="0xff0000" translateZ="10">
+          <atft-cylinder-mesh [radiusTop]="2" [radiusBottom]="3" [height]="10" [radialSegments]="36" [heightSegments]="1"
+                              material="lamb" materialColor="0xff0000" [translateZ]="10">
           </atft-cylinder-mesh>
       </storybook-wrapper>
   `
@@ -77,7 +77,7 @@ storiesOf('Embedded', module)
     component: StorybookContainerComponent,
     props: {},
   }))
-  .add('as NgContent', () => ({
+  .add('as NgContent (#87)', () => ({
     component: StorybookSample2Component,
     props: {},
   }))

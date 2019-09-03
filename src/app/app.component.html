@@ -48,14 +48,14 @@
       </div>
 
       <atft-empty translateZ=-50>
-        <atft-sphere-mesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000"
-          translateX=10 translateY=5 translateZ="20" scaleX="2">
+        <atft-sphere-mesh [radius]="4" [widthSegments]="20" [hightSegments]="20" material="lamb" materialColor="0xff0000"
+          [translateX]=10 [translateY]=5 [translateZ]="20">
         </atft-sphere-mesh>
-        <atft-cylinder-mesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
-          material="lamb" materialColor="0x00ff00" translateY="5" translateZ="10">
+        <atft-cylinder-mesh [radiusTop]="2" [radiusBottom]="3" [height]="10" [radialSegments]="36" [heightSegments]="1"
+          material="lamb" materialColor="0x00ff00" [translateY]="5" [translateZ]="10">
         </atft-cylinder-mesh>
-        <atft-torus-mesh radius="5" tube="2" radialSegments="16" tubularSegments="100" arc="6.28" material="lamb"
-          materialColor="0x0000ff" rotateX="1.6" translateX="-10" translateY="2" translateZ="-5">
+        <atft-torus-mesh [radius]="5" [tube]="2" [radialSegments]="16" [tubularSegments]="100" [arc]="6.28" material="lamb"
+          materialColor="0x0000ff" [rotateX]="1.6" [translateX]="-10" [translateY]="2" [translateZ]="-5">
         </atft-torus-mesh>
       </atft-empty>
 
