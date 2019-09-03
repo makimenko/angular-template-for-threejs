@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,7 +10,7 @@ import {Component} from '@angular/core';
                                        positionZ=50></atft-perspective-camera>
               <atft-scene>
                   <atft-axes-helper size=200></atft-axes-helper>
-                  <atft-grid-helper size=100 divisions=10 [rotateX]="90 | deg2rad"></atft-grid-helper>
+                  <atft-grid-helper [size]=200 [divisions]=10 [rotateX]="90 | deg2rad" [translateX]=[gridTranslateX] (render)="mainRenderer.render()"></atft-grid-helper>
                   <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50
                                     translateZ=50></atft-point-light>
                   <storybook-sample (render)="mainRenderer.render()"></storybook-sample>
@@ -21,5 +21,8 @@ import {Component} from '@angular/core';
   styleUrls: ['storybook-container.component.scss']
 })
 export class StorybookContainerComponent {
+
+  @Input()
+  gridTranslateX = 0;
 
 }
