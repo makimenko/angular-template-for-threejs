@@ -1,6 +1,12 @@
-
+/**
+ * Default Storybook 3D scene wrapper includes light, camera, orbit controls, Z axus up, grid and axis helpers.
+ * Such template allows to focus on storybook inputs/knobs and actions testing.
+ *
+ * @param content content template
+ */
 export const defaultSceneWrapper = (content: string) => `
-      <atft-orbit-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2 [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
+      <atft-orbit-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2
+        [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
           <atft-webgl-renderer #mainRenderer>
               <atft-perspective-camera (render)="mainRenderer.render()" [zAxisUp]="true" positionX=50 positionY=-20
                                        positionZ=50></atft-perspective-camera>
