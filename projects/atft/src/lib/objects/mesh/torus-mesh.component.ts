@@ -9,18 +9,26 @@ import {AbstractObject3D} from '../abstract-object-3d';
   template: '<ng-content></ng-content>'
 })
 export class TorusMeshComponent extends AbstractMesh {
-  //  - Radius of the torus, from the center of the torus to the center of the tube. Default is 1.
-  @Input()
-  radius: number;
-  //  — Radius of the tube. Default is 0.4.
+
+  /**
+   * Radius of the torus, from the center of the torus to the center of the tube
+   */
+  @Input() radius = 0.4;
+
+  /**
+   * Radius of the tube.
+   */
   @Input()
   tube: number;
+
   @Input()
-  radialSegments: number; //  — Default is 8
+  radialSegments = 8;
+
   @Input()
-  tubularSegments: number; //  — Default is 6.
+  tubularSegments = 6;
+
   @Input()
-  arc: number; // — Central angle. Default is Math.PI * 2.
+  arc: number = Math.PI * 2;
 
   constructor() {
     super();
