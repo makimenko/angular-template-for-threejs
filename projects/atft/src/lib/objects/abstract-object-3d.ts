@@ -18,21 +18,19 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
    * Rotation in Euler angles (radians) with order X, Y, Z.
    */
   @Input() rotateX: number;
-
-  /**
-   * Rotation in Euler angles (radians) with order X, Y, Z.
-   */
   @Input() rotateY: number;
-
-  /**
-   * Rotation in Euler angles (radians) with order X, Y, Z.
-   */
   @Input() rotateZ: number;
 
+  /**
+   * Translate the geometry. This is typically done as a one time operation, and not during a loop.
+   */
   @Input() translateX: number;
   @Input() translateY: number;
   @Input() translateZ: number;
 
+  /**
+   * Notify parent component, that scene rendering is required
+   */
   @Output() render = new EventEmitter<void>();
 
   private object: T;
@@ -87,12 +85,6 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   private applyRotation(): void {
-    const angles = [
-      this.rotateX,
-      this.rotateY,
-      this.rotateZ
-    ].map(angle => angle || 0);
-
     this.object.rotation.set(
       this.rotateX || 0,
       this.rotateY || 0,

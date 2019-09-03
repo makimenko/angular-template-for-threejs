@@ -4,24 +4,10 @@ import {Component, forwardRef} from '@angular/core';
 import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 import {EmptyComponent} from '../../projects/atft/src/lib/objects/helpers';
 import {AbstractObject3D} from '../../projects/atft/src/lib/objects/abstract-object-3d';
-import {StorybookContainerComponent} from './common/storybook-container.component';
 
 
 @Component({
-  selector: 'storybook-sample',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookSampleComponent)}],
-  template: `
-      <atft-cylinder-mesh [radiusTop]="2" [radiusBottom]="3" [height]="10" [radialSegments]="36" [heightSegments]="1"
-                          material="lamb" materialColor="0x00ff00">
-      </atft-cylinder-mesh>
-  `
-})
-class StorybookSampleComponent extends EmptyComponent {
-
-}
-
-@Component({
-  selector: 'storybook-wrapper',
+  selector: 'app-storybook-wrapper',
   template: `
       <atft-orbit-controls rotateSpeed=1 zoomSpeed=1.2 [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
           <atft-webgl-renderer #mainRenderer>
@@ -43,17 +29,17 @@ class StorybookWrapperComponent {
 }
 
 @Component({
-  selector: 'storybook-sample2',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookSample2Component)}],
+  selector: 'app-storybook-embedded',
+  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookEmbeddedComponent)}],
   template: `
-      <storybook-wrapper>
+      <app-storybook-wrapper>
           <atft-cylinder-mesh [radiusTop]="2" [radiusBottom]="3" [height]="10" [radialSegments]="36" [heightSegments]="1"
                               material="lamb" materialColor="0xff0000" [translateZ]="10">
           </atft-cylinder-mesh>
-      </storybook-wrapper>
+      </app-storybook-wrapper>
   `
 })
-class StorybookSample2Component extends EmptyComponent {
+class StorybookEmbeddedComponent extends EmptyComponent {
   // TODO: Why @ContentChildren is not woring, with ng-content?
 
 }
@@ -66,19 +52,12 @@ storiesOf('Embedded', module)
         AtftModule
       ],
       declarations: [
-        StorybookContainerComponent,
         StorybookWrapperComponent,
-        StorybookSampleComponent,
-        StorybookSample2Component
+        StorybookEmbeddedComponent
       ]
     }),
   )
-  .add('as Component', () => ({
-    component: StorybookContainerComponent,
-    props: {},
-  }))
   .add('as NgContent (#87)', () => ({
-    component: StorybookSample2Component,
-    props: {},
+    component: StorybookEmbeddedComponent
   }))
 ;
