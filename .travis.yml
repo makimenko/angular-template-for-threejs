@@ -27,20 +27,23 @@ before_install:
 script: 
   - ng build atft
   - ng lint
-  - ng test --watch=false --code-coverage  
+  - ng test --watch=false --code-coverage
 
 after_success:
   - codecov
 
 before_deploy:
-  # Setup files to be deploy to gh-pages in ./dist/gh-pagey-deploy
+  # Setup files to be deploy to gh-pages in ./dist/gh-pages-deploy
 
-  # 1. Compile, minify and deploy Angular application
+  # 1. Compile, minify and deploy Angular demo application
   - ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
 
   # 2. Generate API documentation
   - npm install -g @compodoc/compodoc
   - compodoc -p src/tsconfig.app.json -d dist/gh-pages-deploy
+
+  # 3. Generate Storybook
+  - npx build-storybook -c .storybook -o ./dist/gh-pages-deploy/storybook
 
 deploy:
   provider: pages

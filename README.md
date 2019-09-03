@@ -53,7 +53,10 @@ import { AtftModule } from 'projects/atft/src/lib/atft.module';
 
 ## Storybook
 
-Visually explore provided Angular components with [Storybook.js](https://storybook.js.org/): `npm run storybook`
+Visually explore provided Angular components with [Storybook.js](https://storybook.js.org/)!
+
+- Deployed instance: <https://makimenko.github.io/angular-template-for-threejs/storybook>
+- Locally: `npm run storybook`
 
 ## API Documentation
 
