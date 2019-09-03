@@ -11,7 +11,7 @@ import {StorybookContainerComponent} from './common/storybook-container.componen
   selector: 'storybook-sample',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookCylinderMeshComponent)}],
   template: `
-      <atft-cylinder-mesh radiustop="2" radiusbottom="3" cylheight="10" radialSegments="36" hightSegments="1"
+      <atft-cylinder-mesh [radiusTop]="2.0" [radiusBottom]="7.0" [height]="10" [radialSegments]="36" [heightSegments]="1"
                           material="lamb" materialColor="0x00ff00">
       </atft-cylinder-mesh>
   `
@@ -25,8 +25,7 @@ class StorybookCylinderMeshComponent extends EmptyComponent {
   selector: 'storybook-sample',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookSphereMeshComponent)}],
   template: `
-      <atft-sphere-mesh radius="4" widthSegments="20" hightSegments="20" material="lamb" materialColor="0xff0000"
-                        scaleX="2">
+      <atft-sphere-mesh [radius]="4" [widthSegments]="20" [hightSegments]="20" material="lamb" materialColor="0xff0000">
       </atft-sphere-mesh>
   `
 })
@@ -38,7 +37,7 @@ class StorybookSphereMeshComponent extends EmptyComponent {
   selector: 'storybook-sample',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookTorusMeshComponent)}],
   template: `
-      <atft-torus-mesh radius="5" tube="2" radialSegments="16" tubularSegments="100" arc="6.28" material="lamb"
+      <atft-torus-mesh [radius]="5" [tube]="2" [radialSegments]="16" [tubularSegments]="100" [arc]="6.28" material="lamb"
                        materialColor="0x0000ff">
       </atft-torus-mesh>
   `
