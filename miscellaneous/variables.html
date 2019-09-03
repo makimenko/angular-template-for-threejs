@@ -61,6 +61,9 @@
                             <a href="#context" title="src/test.ts"><b>context</b>&nbsp;&nbsp;&nbsp;(src/.../test.ts)</a>
                         </li>
                         <li>
+                            <a href="#defaultSceneWrapper" title="src/stories/common/default-scene-wrapper.ts"><b>defaultSceneWrapper</b>&nbsp;&nbsp;&nbsp;(src/.../default-scene-wrapper.ts)</a>
+                        </li>
+                        <li>
                             <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
                         </li>
                         <li>
@@ -118,6 +121,52 @@
                         </td>
                     </tr>
 
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/stories/common/default-scene-wrapper.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultSceneWrapper"></a>
+                        <span class="name">
+                            <b>
+                            defaultSceneWrapper</b>
+                            <a href="#defaultSceneWrapper"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(content: string) &#x3D;&gt; &#x60;
+      &lt;atft-orbit-controls style&#x3D;&quot;height:100%&quot; rotateSpeed&#x3D;1 zoomSpeed&#x3D;1.2
+        [listeningControlElement]&#x3D;mainRenderer.renderPane (render)&#x3D;&quot;mainRenderer.render()&quot;&gt;
+          &lt;atft-webgl-renderer #mainRenderer&gt;
+              &lt;atft-perspective-camera (render)&#x3D;&quot;mainRenderer.render()&quot; [zAxisUp]&#x3D;&quot;true&quot; positionX&#x3D;50 positionY&#x3D;-20
+                                       positionZ&#x3D;50&gt;&lt;/atft-perspective-camera&gt;
+              &lt;atft-scene&gt;
+                  &lt;atft-axes-helper size&#x3D;200&gt;&lt;/atft-axes-helper&gt;
+                  &lt;atft-grid-helper [size]&#x3D;200 [divisions]&#x3D;10 [rotateX]&#x3D;&quot;90 | deg2rad&quot; (render)&#x3D;&quot;mainRenderer.render()&quot;&gt;&lt;/atft-grid-helper&gt;
+                  &lt;atft-point-light color&#x3D;&quot;white&quot; intensity&#x3D;&quot;0.9&quot; distance&#x3D;&quot;1000&quot; translateX&#x3D;50 translateY&#x3D;50
+                                    translateZ&#x3D;50&gt;&lt;/atft-point-light&gt;
+                  ${content}
+              &lt;/atft-scene&gt;
+          &lt;/atft-webgl-renderer&gt;
+      &lt;/atft-orbit-controls&gt;
+&#x60;</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Default Storybook 3D scene wrapper includes light, camera, orbit controls, Z axus up, grid and axis helpers.
+Such template allows to focus on storybook inputs/knobs and actions testing.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
