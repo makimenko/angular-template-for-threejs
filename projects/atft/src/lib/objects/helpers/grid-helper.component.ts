@@ -22,9 +22,4 @@ export class GridHelperComponent extends AbstractObject3D<THREE.AxesHelper> {
     return new THREE.GridHelper(this.size, this.divisions);
   }
 
-  protected afterInit(): void {
-    console.log('GridHelperComponent.afterInit');
-    // none
-  }
-
 }

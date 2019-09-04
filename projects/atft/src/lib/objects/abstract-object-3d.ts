@@ -113,8 +113,10 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     return this.object;
   }
 
+  protected afterInit() {
+  }
+
   protected abstract newObject3DInstance(): T;
 
-  protected abstract afterInit(): void;
 
 }

@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
+
   @Input()
   material: string;
   @Input()
@@ -15,6 +16,7 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
 
 
   public getMaterial(): THREE.MeshBasicMaterial {
+    // TODO: Extract to directive (or component)
     let appliedColor = 0xffff00;
     if (this.materialColor !== undefined ) {
       appliedColor = this.materialColor * 1;
@@ -27,4 +29,6 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
       return new THREE.MeshBasicMaterial({color: appliedColor});
     }
   }
+
+
 }

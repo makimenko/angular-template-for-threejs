@@ -40,8 +40,4 @@ export class CylinderMeshComponent extends AbstractMesh {
     return new THREE.Mesh(geometry, material);
   }
 
-  protected afterInit(): void {
-    console.log('CylinderMeshComponent.afterInit');
-    // none
-  }
 }

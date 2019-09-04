@@ -76,6 +76,7 @@ export abstract class AbstractModelLoader extends AbstractObject3D<THREE.Object3
   }
 
   protected afterInit() {
+    super.afterInit();
     this.parentInitialized = true;
 
     // Trigger model acquisition now that the parent has been initialized.

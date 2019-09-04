@@ -28,8 +28,4 @@ export class SphereMeshComponent extends AbstractMesh {
     return new THREE.Mesh(geometry, material);
   }
 
-  protected afterInit(): void {
-    console.log('SphereMeshComponent.afterInit');
-    // none
-  }
 }

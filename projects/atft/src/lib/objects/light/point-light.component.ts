@@ -23,9 +23,4 @@ export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
     return new THREE.PointLight(this.color, this.intensity, this.distance);
   }
 
-  protected afterInit(): void {
-    console.log('PointLightComponent.afterInit');
-    // none
-  }
-
 }

@@ -19,9 +19,4 @@ export class EmptyComponent extends AbstractObject3D<THREE.Object3D> {
     return new THREE.Object3D();
   }
 
-  protected afterInit(): void {
-    console.log('EmptyComponent.afterInit');
-    // none
-  }
-
 }
