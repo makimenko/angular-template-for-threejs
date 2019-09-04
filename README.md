@@ -27,10 +27,8 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple compon
 ## Storybook
 Click below to see the demo in a web browser:<br>
 <a href="https://makimenko.github.io/angular-template-for-threejs/storybook">
-<img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/demo.gif">
+<img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/storybook.gif">
 </a>
-
-
 
 ## Goals of _this_ repo
 - Implement npm [**atft**](https://www.npmjs.com/package/atft) library
@@ -39,11 +37,10 @@ Click below to see the demo in a web browser:<br>
   - Integrated Three.js examples as components (e.g. OrbitControls, OBJLoader, ObjectLoader)
 - Develop and test library components in isolation via [**Storybook**](https://makimenko.github.io/angular-template-for-threejs/storybook)
 
+## Usage in your project
 
-## Usage
-
-1. `npm i three atft --save`
-3. In the module you want to use componrents, import atft:
+1. Install dependencies: `npm i three atft --save`
+3. Import library into your module:
    ```typescript
    import { AtftModule } from 'atft';
    ...
