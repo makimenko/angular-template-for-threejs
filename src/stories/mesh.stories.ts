@@ -42,12 +42,25 @@ class StorybookTorusMeshComponent {
 }
 
 @Component({
-  selector: 'app-storybook-torus-mesh',
+  selector: 'app-storybook-box-mesh',
   template: defaultSceneWrapper(`
   <atft-box-mesh height="10" width="10" depth="10" material="lamb" materialColor="0xffffff"></atft-box-mesh>
   `)
 })
 class StorybookBoxMeshComponent {
+
+}
+
+@Component({
+  selector: 'app-storybook-text-mesh',
+  template: defaultSceneWrapper(`
+  <atft-text-mesh text="Hello World! :)" 
+    material="lamb" materialColor="0xffffff"
+    [translateX]="-50"
+  ></atft-text-mesh>
+  `)
+})
+class StorybookTextMeshComponent {
 
 }
 
@@ -76,6 +89,9 @@ storiesOf('Mesh', module)
   }))
   .add('torus', () => ({
     component: StorybookTorusMeshComponent
+  }))
+  .add('text', () => ({
+    component: StorybookTextMeshComponent
   }))
 ;
 
