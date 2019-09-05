@@ -3,7 +3,7 @@ import {Component, Input} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 import {defaultSceneWrapper} from './common/default-scene-wrapper';
-import {withKnobs} from '@storybook/addon-knobs';
+import {withKnobs, number} from '@storybook/addon-knobs';
 
 @Component({
   selector: 'app-storybook-cylinder-mesh',
@@ -54,13 +54,29 @@ class StorybookBoxMeshComponent {
 @Component({
   selector: 'app-storybook-text-mesh',
   template: defaultSceneWrapper(`
-  <atft-text-mesh text="Hello World! :)" 
+  <atft-text-mesh text="Hello World! :)"
     material="lamb" materialColor="0xffffff"
     [translateX]="-50"
   ></atft-text-mesh>
   `)
 })
 class StorybookTextMeshComponent {
+
+}
+
+@Component({
+  selector: 'app-storybook-connector-mesh',
+  template: defaultSceneWrapper(`
+  <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
+    #a translateY="50" translateX="-10" [translateZ]="translateZ">
+  </atft-sphere-mesh>
+  <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
+    #b translateY="-50" translateX="10" translateZ="+10">
+  </atft-sphere-mesh>
+  <atft-connector-mesh [source]="a" [target]="b" (render)="mainRenderer.render()"></atft-connector-mesh>
+  `)
+})
+class StorybookConnectorMeshComponent {
 
 }
 
@@ -74,7 +90,8 @@ storiesOf('Mesh', module)
       declarations: [
         StorybookCylinderMeshComponent,
         StorybookSphereMeshComponent,
-        StorybookTorusMeshComponent
+        StorybookTorusMeshComponent,
+        StorybookConnectorMeshComponent
       ]
     }),
   )
@@ -92,6 +109,12 @@ storiesOf('Mesh', module)
   }))
   .add('text', () => ({
     component: StorybookTextMeshComponent
+  }))
+  .add('connector', () => ({
+    component: StorybookConnectorMeshComponent,
+    props: {
+      translateZ: number('translateZ', -10, {range: true, min: -10, max: 100, step: 1})
+    }
   }))
 ;
 
