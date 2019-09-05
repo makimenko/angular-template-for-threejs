@@ -26,7 +26,7 @@ export class ObjLoaderComponent extends AbstractModelLoader {
   @Input()
   texturePath: string;
 
-  protected async loadModelObject() {
+  protected async loadLazyObject() {
     // TODO: make it nicer
     if (this.material === undefined) {
       return new Promise<THREE.Object3D>((resolve, reject) => {

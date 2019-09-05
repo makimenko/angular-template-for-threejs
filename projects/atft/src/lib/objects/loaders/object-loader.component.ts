@@ -12,10 +12,10 @@ import * as THREE from 'three';
 export class ObjectLoaderComponent extends AbstractModelLoader {
   private loader = new THREE.ObjectLoader();
 
-  protected async loadModelObject() {
+  protected async loadLazyObject() {
     return new Promise<THREE.Object3D>((resolve, reject) => {
       this.loader.load(this.model, model => {
-          // TODO: it seems that some textures loaded after last render (and model has black texture instead)
+          // BUG #95: it seems that some textures loaded after last render (and model has black texture instead)
           resolve(model);
         },
         undefined,
@@ -23,4 +23,5 @@ export class ObjectLoaderComponent extends AbstractModelLoader {
       );
     });
   }
+
 }
