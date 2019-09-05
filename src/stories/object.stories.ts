@@ -5,6 +5,7 @@ import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 import {defaultSceneWrapper} from './common/default-scene-wrapper';
 import {withKnobs, number} from '@storybook/addon-knobs';
 
+import markdownNotes from './object.stories.md';
 
 @Component({
   selector: 'app-storybook-sphere-mesh',
@@ -56,7 +57,10 @@ storiesOf('Object', module)
       rotateY: number('rotateY rad', 0, {range: true, min: 0, max: 6.28, step: 0.1}),
       rotateZ: number('rotateZ rad', 0, {range: true, min: 0, max: 6.28, step: 0.1})
     }
-  }))
+  }), {
+    notes: { markdown: markdownNotes }
+    }
+  )
 ;
 
 

@@ -3,6 +3,9 @@
   "compilerOptions": {
     "types": [
       "node"
+    ],
+    "typeRoots": [
+      "../src/typings.d.ts"
     ]
   },
   "exclude": [
@@ -15,6 +18,6 @@
     "../projects/**/*"
   ],
   "files": [
-    "./typings.d.ts"
+    "../src/typings.d.ts"
   ]
 }

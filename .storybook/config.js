@@ -15,8 +15,8 @@ addParameters({
     enableShortcuts: true,
     isToolshown: true,
     theme: undefined,
-    name: 'Angular Template for Threejs',
-    url: 'https://github.com/makimenko/angular-template-for-threejs'
+    brandTitle: 'Angular Template for Three.js',
+    brandUrl: 'https://github.com/makimenko/angular-template-for-threejs'
   },
 });
 
