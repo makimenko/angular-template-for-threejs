@@ -24,16 +24,10 @@ before_install:
   - npm install -g greenkeeper-lockfile
   - npm install -g codecov
 
-script: 
+script:
   - ng build atft
   - ng lint
   - ng test --watch=false --code-coverage
-
-after_success:
-  - codecov
-
-before_deploy:
-  # Setup files to be deploy to gh-pages in ./dist/gh-pages-deploy
 
   # 1. Compile, minify and deploy Angular demo application
   - ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
@@ -44,6 +38,9 @@ before_deploy:
 
   # 3. Generate Storybook
   - npx build-storybook -c .storybook -o ./dist/gh-pages-deploy/storybook
+
+after_success:
+  - codecov
 
 deploy:
   provider: pages

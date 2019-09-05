@@ -15,7 +15,8 @@ import { SphereMeshComponent } from './objects/mesh/sphere-mesh.component';
 import { CylinderMeshComponent } from './objects/mesh/cylinder-mesh.component';
 import { TorusMeshComponent } from './objects/mesh/torus-mesh.component';
 import { EmptyComponent } from './objects/helpers/empty.component';
-import {BoxMeshComponent, TextMeshComponent} from './objects/mesh';
+import { BoxMeshComponent } from './objects/mesh/box-mesh.component';
+import { TextMeshComponent } from './objects/mesh/text-mesh.component';
 
 
 @NgModule({
