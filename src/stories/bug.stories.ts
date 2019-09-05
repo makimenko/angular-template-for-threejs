@@ -5,6 +5,8 @@ import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 import {EmptyComponent} from '../../projects/atft/src/lib/objects/helpers';
 import {AbstractObject3D} from '../../projects/atft/src/lib/objects/abstract-object-3d';
 
+import markdownNotes from './bug.stories.md';
+
 
 @Component({
   selector: 'app-storybook-wrapper',
@@ -45,7 +47,7 @@ class StorybookEmbeddedComponent extends EmptyComponent {
 }
 
 
-storiesOf('Embedded', module)
+storiesOf('Bugs', module)
   .addDecorator(
     moduleMetadata({
       imports: [
@@ -57,7 +59,9 @@ storiesOf('Embedded', module)
       ]
     }),
   )
-  .add('as NgContent (#87)', () => ({
+  .add('#87', () => ({
     component: StorybookEmbeddedComponent
-  }))
+  }), {
+    notes: { markdown: markdownNotes }
+  })
 ;
