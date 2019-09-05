@@ -3,7 +3,7 @@ import {Component, Input} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 import {defaultSceneWrapper} from './common/default-scene-wrapper';
-import {withKnobs, number} from '@storybook/addon-knobs';
+import {withKnobs} from '@storybook/addon-knobs';
 
 @Component({
   selector: 'app-storybook-cylinder-mesh',
@@ -41,6 +41,29 @@ class StorybookTorusMeshComponent {
 
 }
 
+@Component({
+  selector: 'app-storybook-box-mesh',
+  template: defaultSceneWrapper(`
+  <atft-box-mesh height="10" width="10" depth="10" material="lamb" materialColor="0xffffff"></atft-box-mesh>
+  `)
+})
+class StorybookBoxMeshComponent {
+
+}
+
+@Component({
+  selector: 'app-storybook-text-mesh',
+  template: defaultSceneWrapper(`
+  <atft-text-mesh text="Hello World! :)" 
+    material="lamb" materialColor="0xffffff"
+    [translateX]="-50"
+  ></atft-text-mesh>
+  `)
+})
+class StorybookTextMeshComponent {
+
+}
+
 storiesOf('Mesh', module)
   .addDecorator(withKnobs)
   .addDecorator(
@@ -55,6 +78,9 @@ storiesOf('Mesh', module)
       ]
     }),
   )
+  .add('box', () => ({
+    component: StorybookBoxMeshComponent
+  }))
   .add('cylinder', () => ({
     component: StorybookCylinderMeshComponent
   }))
@@ -63,6 +89,9 @@ storiesOf('Mesh', module)
   }))
   .add('torus', () => ({
     component: StorybookTorusMeshComponent
+  }))
+  .add('text', () => ({
+    component: StorybookTextMeshComponent
   }))
 ;
 

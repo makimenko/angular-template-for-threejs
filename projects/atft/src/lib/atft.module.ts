@@ -15,6 +15,7 @@ import { SphereMeshComponent } from './objects/mesh/sphere-mesh.component';
 import { CylinderMeshComponent } from './objects/mesh/cylinder-mesh.component';
 import { TorusMeshComponent } from './objects/mesh/torus-mesh.component';
 import { EmptyComponent } from './objects/helpers/empty.component';
+import {BoxMeshComponent, TextMeshComponent} from './objects/mesh';
 
 
 @NgModule({
@@ -35,7 +36,9 @@ import { EmptyComponent } from './objects/helpers/empty.component';
     CylinderMeshComponent,
     TorusMeshComponent,
     SphereMeshComponent,
-    EmptyComponent
+    EmptyComponent,
+    BoxMeshComponent,
+    TextMeshComponent
   ],
   exports: [
     OrbitControlsComponent,
@@ -52,7 +55,9 @@ import { EmptyComponent } from './objects/helpers/empty.component';
     CylinderMeshComponent,
     TorusMeshComponent,
     SphereMeshComponent,
-    EmptyComponent
+    EmptyComponent,
+    BoxMeshComponent,
+    TextMeshComponent
   ]
 })
 export class AtftModule { }

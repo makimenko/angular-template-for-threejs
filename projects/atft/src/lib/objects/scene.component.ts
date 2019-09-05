@@ -14,10 +14,6 @@ export class SceneComponent extends AbstractObject3D<THREE.Scene> {
     super();
   }
 
-  protected afterInit(): void {
-    console.log('SceneComponent.afterInit');
-  }
-
   protected newObject3DInstance(): THREE.Scene {
     console.log('SceneComponent.newObject3DInstance');
     return new THREE.Scene();

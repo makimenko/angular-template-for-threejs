@@ -50,8 +50,4 @@ export class TorusMeshComponent extends AbstractMesh {
     return new THREE.Mesh(geometry, material);
   }
 
-  protected afterInit(): void {
-    console.log('TorusMeshComponent.afterInit');
-    // none
-  }
 }
