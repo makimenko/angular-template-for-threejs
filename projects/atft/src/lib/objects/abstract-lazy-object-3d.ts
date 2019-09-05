@@ -36,6 +36,7 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
   protected startLoading() {
     // Trigger model acquisition now that the parent has been initialized.
     this.loadLazyObject().then(obj => {
+      console.log('AbstractLazyObject3D loaded')
       // remove old if exists
       if (this.lazyObject) {
         super.removeChild(this.lazyObject);

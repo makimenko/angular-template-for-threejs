@@ -16,7 +16,7 @@ import { CylinderMeshComponent } from './objects/mesh/cylinder-mesh.component';
 import { TorusMeshComponent } from './objects/mesh/torus-mesh.component';
 import { EmptyComponent } from './objects/helpers/empty.component';
 import { BoxMeshComponent } from './objects/mesh/box-mesh.component';
-import { TextMeshComponent } from './objects/mesh/text-mesh.component';
+import { TextMeshComponent } from './objects/text/text-mesh.component';
 import {MeshLineConnectorComponent} from './objects/connector/mesh-line-connector.component';
 
 

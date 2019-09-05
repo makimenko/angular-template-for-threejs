@@ -18,13 +18,13 @@ export class MeshLineConnectorComponent extends AbstractConnector {
   transparent = true;
 
   @Input()
-  opacity = 0.9;
+  opacity = 0.5;
 
   @Input()
-  lineWidth = 1;
+  lineWidth = 0.5;
 
   @Input()
-  depthWrite = false;
+  depthWrite = true;
 
   @Input()
   depthTest = true;
