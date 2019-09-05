@@ -30,11 +30,13 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<p><a href="https://travis-ci.com/makimenko/angular-template-for-threejs"><img src="https://api.travis-ci.com/makimenko/angular-template-for-threejs.svg?branch=master" alt="Build Status" class="img-responsive"></a>
+<p><a href="https://github.com/makimenko/angular-template-for-threejs"><img src="https://img.shields.io/github/stars/makimenko/angular-template-for-threejs?label=GitHub&style=social" alt="GitHub repo" class="img-responsive"></a> 
+<a href="https://travis-ci.com/makimenko/angular-template-for-threejs"><img src="https://api.travis-ci.com/makimenko/angular-template-for-threejs.svg?branch=master" alt="Travis CI build status" class="img-responsive"></a>
 <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/makimenko/angular-template-for-threejs.svg" alt="Greenkeeper badge" class="img-responsive"></a>
-<a href="https://codecov.io/gh/makimenko/angular-template-for-threejs"><img src="https://codecov.io/gh/makimenko/angular-template-for-threejs/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a>
-<a href="https://badge.fury.io/js/atft"><img src="https://badge.fury.io/js/atft.svg" alt="npm version" class="img-responsive"></a></p>
-<h1 id="angular-template-for-dummies-atft-library--full-demo">Angular Template For Dummies: atft library + full demo</h1>
+<a href="https://codecov.io/gh/makimenko/angular-template-for-threejs"><img src="https://codecov.io/gh/makimenko/angular-template-for-threejs/branch/master/graph/badge.svg" alt="Code coverage by codecov.io" class="img-responsive"></a>
+<a href="https://badge.fury.io/js/atft"><img src="https://badge.fury.io/js/atft.svg" alt="npm version" class="img-responsive"></a>
+<a href="https://makimenko.github.io/angular-template-for-threejs/storybook"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg?sanitize=true" alt="Storybook link" class="img-responsive"></a></p>
+<h1 id="angular-template-for-threejs-atft">Angular Template For Three.js (atft)</h1>
 <p>Leverage <a href="https://threejs.org">Three.js</a> in your Angular app using simple components:</p>
 <div><pre class="line-numbers"><code class="language-html">&lt;atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2&gt;
   &lt;atft-webgl-renderer&gt;
@@ -47,46 +49,63 @@
       &lt;atft-grid-helper size=100 divisions=10&gt;&lt;/atft-grid-helper&gt;
     &lt;/atft-scene&gt;
   &lt;/atft-webgl-renderer&gt;
-&lt;/atft-orbit-controls&gt;</code></pre></div><ul>
-<li><a href="https://www.npmjs.com/package/atft"><strong>atft library</strong></a>: Reusable Angular library giving you all the Three.js bindings<ul>
-<li>SceneComponent with basic usage of scene, camera, lights, axis helper, raytracer, renderer</li>
-<li>Integrated Three.js examples as components (e.g. OrbitControls, OBJLoader. MTLLoader)</li>
+&lt;/atft-orbit-controls&gt;</code></pre></div><h2 id="storybook">Storybook</h2>
+<p><em>Explore provided Angular components in isolation!</em></p>
+<p>Click below to see the demo in a web browser:<br>
+<a href="https://makimenko.github.io/angular-template-for-threejs/storybook">
+<img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/storybook.gif">
+</a></p>
+<h2 id="goals-of-this-repo">Goals of <em>this</em> repo</h2>
+<ul>
+<li>Implement npm <a href="https://www.npmjs.com/package/atft"><strong>atft</strong></a> library<ul>
+<li>Bindings for Three.js</li>
+<li>SceneComponent with basic usage of scene, camera, lights, helpers, renderer</li>
+<li>Integrated Three.js examples as components (e.g. OrbitControls, OBJLoader, ObjectLoader)</li>
 </ul>
 </li>
-<li><a href="https://github.com/makimenko/angular-template-for-threejs"><strong><em>this</em> template repository</strong></a>: Template and demo showing how to use atft. Use it as a template for <em>your project</em> to get quickly started!</li>
+<li>Develop and test library components in isolation via <a href="https://makimenko.github.io/angular-template-for-threejs/storybook"><strong>Storybook</strong></a></li>
 </ul>
-<h2 id="full-demo">Full Demo</h2>
-<p>Click below to see demo in web browser:<br>
-<a href="https://makimenko.github.io/angular-template-for-threejs/demo"><img src="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/images/demo.gif"></a></p>
-<p>Demo source: <a href="https://github.com/makimenko/angular-template-for-threejs">https://github.com/makimenko/angular-template-for-threejs</a></p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage-in-your-angular-project">Usage in your Angular project</h2>
+<ol>
+<li>Set up an Angular project and install dependencies: <code>npm i three atft --save</code></li>
+<li>Import library into your module:<div><pre class="line-numbers"><code class="language-typescript">import { AtftModule } from &#39;atft&#39;;
+...
+  imports: [
+    ...
+    AtftModule
+  ]
+ ...</code></pre></div></li>
+<li>Use atft library components in a declarative way:<div><pre class="line-numbers"><code class="language-html"> &lt;atft-webgl-renderer&gt;
+   &lt;atft-perspective-camera
+    [fov]=60 [near]=1 [far]=1100
+     positionX=20 positionY=50 positionZ=50&gt;
+   &lt;/atft-perspective-camera&gt;
+   &lt;atft-scene&gt;
+     &lt;atft-axes-helper size=200&gt;&lt;/atft-axes-helper&gt;
+     &lt;atft-grid-helper size=100 divisions=10&gt;&lt;/atft-grid-helper&gt;
+   &lt;/atft-scene&gt;
+ &lt;/atft-webgl-renderer&gt;</code></pre></div></li>
+</ol>
+<h2 id="development">Development</h2>
+<h3 id="build-library">Build Library</h3>
 <ol>
 <li><code>git clone https://github.com/makimenko/angular-template-for-threejs.git</code></li>
 <li><code>npm install</code></li>
-<li><code>ng build atft</code><br>
-Build the <code>atft</code> library, must only be run once.</li>
-<li><code>ng serve --open</code></li>
+<li><code>ng build atft</code><br></li>
 </ol>
-<p>To build and watch &quot;atft&quot; library, please change imports in &quot;app.module.ts&quot; from:</p>
-<div><pre class="line-numbers"><code class="language-typescript">import { AtftModule } from &#39;atft&#39;;</code></pre></div><p>to:</p>
-<div><pre class="line-numbers"><code class="language-typescript">import { AtftModule } from &#39;projects/atft/src/lib/atft.module&#39;;</code></pre></div><h2 id="storybook">Storybook</h2>
-<p>Visually explore provided Angular components with <a href="https://storybook.js.org/">Storybook.js</a>!</p>
-<ul>
-<li>Deployed instance: <a href="https://makimenko.github.io/angular-template-for-threejs/storybook">https://makimenko.github.io/angular-template-for-threejs/storybook</a></li>
-<li>Locally: <code>npm run storybook</code></li>
-</ul>
-<h2 id="api-documentation">API Documentation</h2>
+<h3 id="run-storybook">Run Storybook</h3>
+<p>Run and watch locally: <code>npm run storybook</code></p>
+<p>Our storybook config is in <a href="./.storybook"><code>./storybook</code></a> and our stories in <a href="./src/stories"><code>./src/stories</code></a>.
+See the official <a href="https://storybook.js.org">Storybook.js documentation</a> for more information.</p>
+<h3 id="api-documentation">API Documentation</h3>
 <p>For mode details see <a href="https://makimenko.github.io/angular-template-for-threejs">API documentation</a></p>
-<h2 id="testing">Testing</h2>
-<ul>
-<li>Watch mode (preferred for development): <code>npm test</code></li>
-<li>Non-watch mode: <code>npm test -- --watch=false</code></li>
-</ul>
-<h2 id="contributors-sorted-alphabetically">Contributors (sorted alphabetically)</h2>
+<h3 id="contributors">Contributors</h3>
 <ul>
 <li><a href="https://github.com/ComFreek"><img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek</a></li>
-<li><a href="https://github.com/makimenko"><img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> Mihails Akimenko</a></li>
+<li><a href="https://github.com/makimenko"><img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> makimenko</a></li>
+<li>Supported by <a href="https://www.jetbrains.com/?from=AngularThreejsTemplateForDummies">JetBrains</a></li>
 </ul>
+<p><em>Feel free to join us! Just submit your ideas via pull-requests :)</em> </p>
 
 
 
