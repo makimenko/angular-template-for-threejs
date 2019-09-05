@@ -16,6 +16,24 @@ export class ConnectorMeshComponent extends AbstractObject3D<THREE.Mesh> {
   @Input()
   target: AbstractObject3D<THREE.Object3D>;
 
+  @Input()
+  materialColor = 0xff0000;
+
+  @Input()
+  transparent = true;
+
+  @Input()
+  opacity = 0.9;
+
+  @Input()
+  lineWidth = 1;
+
+  @Input()
+  depthWrite = false;
+
+  @Input()
+  depthTest = true;
+
 
   private geometry: THREE.Geometry;
   private line: MeshLine;
@@ -34,15 +52,21 @@ export class ConnectorMeshComponent extends AbstractObject3D<THREE.Mesh> {
     this.line = new MeshLine();
     this.line.setGeometry(this.geometry);
 
+    let appliedColor = 0xffff00;
+    if (this.materialColor !== undefined ) {
+      appliedColor = this.materialColor * 1;
+    }
+
     const material = new MeshLineMaterial({
       // TODO: dynamic parameters
-      color: 0xff0000,
-      transparent: true,
-      opacity: 0.3,
-      lineWidth: 2,
-      depthWrite: false,
-      depthTest: false,
-      useMap: false
+      color: appliedColor,
+      transparent: this.transparent,
+      opacity: this.opacity,
+      lineWidth: this.lineWidth,
+      depthWrite: this.depthWrite,
+      depthTest: this.depthTest,
+      side: THREE.DoubleSide,
+      blending: THREE.NormalBlending
     });
     const mesh = new THREE.Mesh(this.line.geometry, material);
     this.watchObjectsChanges();
@@ -61,6 +85,9 @@ export class ConnectorMeshComponent extends AbstractObject3D<THREE.Mesh> {
 
   private getGeometry(): THREE.Geometry {
     const geo = new THREE.Geometry();
+    if (!this.source || !this.target) {
+      throw new Error('ConnectorMeshComponent: source or target inputs are missing!');
+    }
     geo.vertices.push(this.source.getObject().position);
     geo.vertices.push(this.target.getObject().position);
     return geo;

@@ -17,13 +17,13 @@ import {AbstractObject3D} from '../../projects/atft/src/lib/objects/abstract-obj
           </atft-box-mesh>
           <atft-text-mesh [text]="name" [size]="2" [bevelEnabled]="false"
                           material="lamb" materialColor="0xffffff"
-                          [translateX]="-7" [translateY]="-10"
+                          [translateX]="-7" [translateY]="-8"
           ></atft-text-mesh>
       </atft-empty>
   `
 })
 class ServerActorComponent extends EmptyComponent {
-
+  // TODO: text align to center: dynamically calculate translateY
   @Input()
   name: string;
 }
@@ -37,18 +37,31 @@ class ServerActorComponent extends EmptyComponent {
 })
 class StorybookServerComponent {
 
-
 }
 
 @Component({
   selector: 'app-storybook-box-mesh',
   template: defaultSceneWrapper(`
-    <app-storybook-server-actor name="Server RX10"></app-storybook-server-actor>
-    <app-storybook-server-actor name="Server Z001" translateY="30"></app-storybook-server-actor>
+    <atft-box-mesh height="150" width="150" depth="1" material="lamb" materialColor="0xD4E6F1">
+        <atft-empty translateZ="1" translateY="-20">
+            <!-- Nodes: -->
+            <app-storybook-server-actor #rx10 name="Server RX10"></app-storybook-server-actor>
+            <app-storybook-server-actor #z001 name="Server Z001" translateY="70" translateX="20"></app-storybook-server-actor>
+            <app-storybook-server-actor #tx71 name="Server TX71" translateY="70" translateX="-20"></app-storybook-server-actor>
+
+            <!-- Edges: -->
+            <atft-connector-mesh [source]="rx10" [target]="z001" materialColor="0x00AA00" (render)="mainRenderer.render()">
+            </atft-connector-mesh>
+            <atft-connector-mesh [source]="rx10" [target]="tx71" materialColor="0xAA0000" (render)="mainRenderer.render()">
+            </atft-connector-mesh>
+            <atft-connector-mesh [source]="z001" [target]="tx71" [transparent]="false" materialColor="0xAA0000"
+                (render)="mainRenderer.render()">
+            </atft-connector-mesh>
+        </atft-empty>
+    </atft-box-mesh>
   `)
 })
 class StorybookSceneComponent {
-
 
 }
 
@@ -73,7 +86,6 @@ storiesOf('Actor', module)
   .add('scene', () => ({
     component: StorybookSceneComponent
   }))
-
 ;
 
 
