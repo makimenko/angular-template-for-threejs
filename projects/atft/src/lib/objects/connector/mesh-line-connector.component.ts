@@ -2,19 +2,14 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {MeshLine, MeshLineMaterial} from 'three.meshline';
+import {AbstractConnector} from './abstract-connector';
 
 @Component({
-  selector: 'atft-connector-mesh',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => ConnectorMeshComponent)}],
+  selector: 'atft-mesh-line-connector',
+  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => MeshLineConnectorComponent)}],
   template: '<ng-content></ng-content>'
 })
-export class ConnectorMeshComponent extends AbstractObject3D<THREE.Mesh> {
-
-  @Input()
-  source: AbstractObject3D<THREE.Object3D>;
-
-  @Input()
-  target: AbstractObject3D<THREE.Object3D>;
+export class MeshLineConnectorComponent extends AbstractConnector {
 
   @Input()
   materialColor = 0xff0000;
@@ -38,22 +33,14 @@ export class ConnectorMeshComponent extends AbstractObject3D<THREE.Mesh> {
   private geometry: THREE.Geometry;
   private line: MeshLine;
 
-
-  constructor() {
-    super();
-    console.log('ConnectorMeshComponent.constructor');
-  }
-
-  protected newObject3DInstance(): THREE.Mesh {
-    console.log('ConnectorMeshComponent.newObject3DInstance');
-
-    this.geometry = this.getGeometry();
+  createConnectorMesh(): THREE.Mesh {
+    this.geometry = this.getLineGeometry();
 
     this.line = new MeshLine();
     this.line.setGeometry(this.geometry);
 
     let appliedColor = 0xffff00;
-    if (this.materialColor !== undefined ) {
+    if (this.materialColor !== undefined) {
       appliedColor = this.materialColor * 1;
     }
 
@@ -68,32 +55,20 @@ export class ConnectorMeshComponent extends AbstractObject3D<THREE.Mesh> {
       side: THREE.DoubleSide,
       blending: THREE.NormalBlending
     });
-    const mesh = new THREE.Mesh(this.line.geometry, material);
-    this.watchObjectsChanges();
-    return mesh;
+    return new THREE.Mesh(this.line.geometry, material);
   }
 
-  private watchObjectsChanges() {
-    this.source.render.subscribe(item => {
-      this.updateLineGeometry();
-    });
-
-    this.target.render.subscribe(item => {
-      this.updateLineGeometry();
-    });
-  }
-
-  private getGeometry(): THREE.Geometry {
+  private getLineGeometry(): THREE.Geometry {
     const geo = new THREE.Geometry();
     if (!this.source || !this.target) {
-      throw new Error('ConnectorMeshComponent: source or target inputs are missing!');
+      throw new Error('MeshLineConnectorComponent: source or target inputs are missing!');
     }
     geo.vertices.push(this.source.getObject().position);
     geo.vertices.push(this.target.getObject().position);
     return geo;
   }
 
-  private updateLineGeometry(): void {
+  updateLineGeometry(): void {
     // https://github.com/spite/THREE.MeshLine/issues/51#issuecomment-379579926
     this.line.setGeometry(this.geometry);
     this.render.emit();

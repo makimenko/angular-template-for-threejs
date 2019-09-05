@@ -50,13 +50,13 @@ class StorybookServerComponent {
             <app-storybook-server-actor #tx71 name="Server TX71" translateY="70" translateX="-20"></app-storybook-server-actor>
 
             <!-- Edges: -->
-            <atft-connector-mesh [source]="rx10" [target]="z001" materialColor="0x00AA00" (render)="mainRenderer.render()">
-            </atft-connector-mesh>
-            <atft-connector-mesh [source]="rx10" [target]="tx71" materialColor="0xAA0000" (render)="mainRenderer.render()">
-            </atft-connector-mesh>
-            <atft-connector-mesh [source]="z001" [target]="tx71" [transparent]="false" materialColor="0xAA0000"
+            <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0x00AA00" (render)="mainRenderer.render()">
+            </atft-mesh-line-connector>
+            <atft-mesh-line-connector [source]="rx10" [target]="tx71" materialColor="0xAA0000" (render)="mainRenderer.render()">
+            </atft-mesh-line-connector>
+            <atft-mesh-line-connector [source]="z001" [target]="tx71" [transparent]="false" materialColor="0xAA0000"
                 (render)="mainRenderer.render()">
-            </atft-connector-mesh>
+            </atft-mesh-line-connector>
         </atft-empty>
     </atft-box-mesh>
   `)
