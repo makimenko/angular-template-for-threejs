@@ -150,8 +150,10 @@
               &lt;atft-scene&gt;
                   &lt;atft-axes-helper size&#x3D;200&gt;&lt;/atft-axes-helper&gt;
                   &lt;atft-grid-helper [size]&#x3D;200 [divisions]&#x3D;10 [rotateX]&#x3D;&quot;90 | deg2rad&quot; (render)&#x3D;&quot;mainRenderer.render()&quot;&gt;&lt;/atft-grid-helper&gt;
-                  &lt;atft-point-light color&#x3D;&quot;white&quot; intensity&#x3D;&quot;0.9&quot; distance&#x3D;&quot;1000&quot; translateX&#x3D;50 translateY&#x3D;50
-                                    translateZ&#x3D;50&gt;&lt;/atft-point-light&gt;
+                  &lt;atft-point-light color&#x3D;&quot;white&quot; intensity&#x3D;&quot;0.5&quot; distance&#x3D;&quot;1000&quot; translateX&#x3D;90 translateY&#x3D;90
+                                    translateZ&#x3D;90&gt;&lt;/atft-point-light&gt;
+                  &lt;atft-point-light color&#x3D;&quot;white&quot; intensity&#x3D;&quot;0.8&quot; distance&#x3D;&quot;1000&quot; [translateX]&#x3D;&quot;-60&quot; [translateY]&#x3D;&quot;-60&quot;
+                                    [translateZ]&#x3D;&quot;50&quot;&gt;&lt;/atft-point-light&gt;
                   ${content}
               &lt;/atft-scene&gt;
           &lt;/atft-webgl-renderer&gt;
