@@ -43,6 +43,9 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   @Input()
   bevelSegments = 1;
 
+  @Input()
+  fontUrl = './assets/font/helvetiker_regular.typeface.json';
+
   constructor() {
     super();
     console.log('TextMeshComponent.constructor');
@@ -69,7 +72,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
 
     return new Promise<THREE.Object3D>(resolve => {
       const loader = new THREE.FontLoader();
-      loader.load('/assets/font/helvetiker_regular.typeface.json', font => {
+      loader.load(this.fontUrl, font => {
 
         const geometry = new THREE.TextGeometry(this.text, {
           font: font,
