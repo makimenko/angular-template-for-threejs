@@ -83,10 +83,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
           bevelSegments: this.bevelOffset
         });
         const material: THREE.MeshBasicMaterial = this.getMaterial();
-        setTimeout(function () {
-          resolve(new THREE.Mesh(geometry, material));
-        }, 1000);
-
+        resolve(new THREE.Mesh(geometry, material));
       });
     });
 

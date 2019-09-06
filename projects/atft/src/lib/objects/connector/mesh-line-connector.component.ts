@@ -9,7 +9,7 @@ import {AbstractConnector} from './abstract-connector';
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => MeshLineConnectorComponent)}],
   template: '<ng-content></ng-content>'
 })
-export class MeshLineConnectorComponent extends AbstractConnector {
+export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
 
   @Input()
   materialColor = 0xff0000;
@@ -33,7 +33,7 @@ export class MeshLineConnectorComponent extends AbstractConnector {
   private geometry: THREE.Geometry;
   private line: MeshLine;
 
-  createConnectorMesh(): THREE.Mesh {
+  createConnectorObject(): THREE.Mesh {
     this.geometry = this.getLineGeometry();
 
     this.line = new MeshLine();
@@ -58,15 +58,6 @@ export class MeshLineConnectorComponent extends AbstractConnector {
     return new THREE.Mesh(this.line.geometry, material);
   }
 
-  private getLineGeometry(): THREE.Geometry {
-    const geo = new THREE.Geometry();
-    if (!this.source || !this.target) {
-      throw new Error('MeshLineConnectorComponent: source or target inputs are missing!');
-    }
-    geo.vertices.push(this.source.getObject().position);
-    geo.vertices.push(this.target.getObject().position);
-    return geo;
-  }
 
   updateLineGeometry(): void {
     // https://github.com/spite/THREE.MeshLine/issues/51#issuecomment-379579926

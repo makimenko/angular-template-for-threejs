@@ -18,6 +18,7 @@ import { EmptyComponent } from './objects/helpers/empty.component';
 import { BoxMeshComponent } from './objects/mesh/box-mesh.component';
 import { TextMeshComponent } from './objects/text/text-mesh.component';
 import {MeshLineConnectorComponent} from './objects/connector/mesh-line-connector.component';
+import {LineConnectorComponent} from './objects/connector';
 
 
 @NgModule({
@@ -41,8 +42,9 @@ import {MeshLineConnectorComponent} from './objects/connector/mesh-line-connecto
     EmptyComponent,
     BoxMeshComponent,
     TextMeshComponent,
-    MeshLineConnectorComponent
-  ],
+    MeshLineConnectorComponent,
+    LineConnectorComponent
+],
   exports: [
     OrbitControlsComponent,
     ObjLoaderComponent,
@@ -61,7 +63,8 @@ import {MeshLineConnectorComponent} from './objects/connector/mesh-line-connecto
     EmptyComponent,
     BoxMeshComponent,
     TextMeshComponent,
-    MeshLineConnectorComponent
+    MeshLineConnectorComponent,
+    LineConnectorComponent
   ]
 })
 export class AtftModule { }
