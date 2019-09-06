@@ -13,8 +13,10 @@ export const defaultSceneWrapper = (content: string) => `
               <atft-scene>
                   <atft-axes-helper size=200></atft-axes-helper>
                   <atft-grid-helper [size]=200 [divisions]=10 [rotateX]="90 | deg2rad" (render)="mainRenderer.render()"></atft-grid-helper>
-                  <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50
-                                    translateZ=50></atft-point-light>
+                  <atft-point-light color="white" intensity="0.5" distance="1000" translateX=90 translateY=90
+                                    translateZ=90></atft-point-light>
+                  <atft-point-light color="white" intensity="0.8" distance="1000" [translateX]="-60" [translateY]="-60"
+                                    [translateZ]="50"></atft-point-light>
                   ${content}
               </atft-scene>
           </atft-webgl-renderer>

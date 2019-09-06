@@ -17,7 +17,7 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
 
   public getMaterial(): THREE.MeshBasicMaterial {
     // TODO: Extract to directive (or component)
-    let appliedColor = 0xffff00;
+    let appliedColor = 0x5DADE2;
     if (this.materialColor !== undefined ) {
       appliedColor = this.materialColor * 1;
     }
