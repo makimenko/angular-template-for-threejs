@@ -70,7 +70,13 @@
                             <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
+                            <a href="#minimalisticSceneWrapper" title="src/stories/common/minimalistic-scene-wrapper.ts"><b>minimalisticSceneWrapper</b>&nbsp;&nbsp;&nbsp;(src/.../minimalistic-scene-wrapper.ts)</a>
+                        </li>
+                        <li>
                             <a href="#require" title="src/test.ts"><b>require</b>&nbsp;&nbsp;&nbsp;(src/.../test.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#worldSceneWrapper" title="src/stories/common/world-scene-wrapper.ts"><b>worldSceneWrapper</b>&nbsp;&nbsp;&nbsp;(src/.../world-scene-wrapper.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -142,22 +148,22 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>(content: string) &#x3D;&gt; &#x60;
-      &lt;atft-orbit-controls style&#x3D;&quot;height:100%&quot; rotateSpeed&#x3D;1 zoomSpeed&#x3D;1.2
-        [listeningControlElement]&#x3D;mainRenderer.renderPane (render)&#x3D;&quot;mainRenderer.render()&quot;&gt;
-          &lt;atft-webgl-renderer #mainRenderer&gt;
-              &lt;atft-perspective-camera (render)&#x3D;&quot;mainRenderer.render()&quot; [zAxisUp]&#x3D;&quot;true&quot; positionX&#x3D;50 positionY&#x3D;-20
-                                       positionZ&#x3D;50&gt;&lt;/atft-perspective-camera&gt;
-              &lt;atft-scene&gt;
-                  &lt;atft-axes-helper size&#x3D;200&gt;&lt;/atft-axes-helper&gt;
-                  &lt;atft-grid-helper [size]&#x3D;200 [divisions]&#x3D;10 [rotateX]&#x3D;&quot;90 | deg2rad&quot; (render)&#x3D;&quot;mainRenderer.render()&quot;&gt;&lt;/atft-grid-helper&gt;
-                  &lt;atft-point-light color&#x3D;&quot;white&quot; intensity&#x3D;&quot;0.5&quot; distance&#x3D;&quot;1000&quot; translateX&#x3D;90 translateY&#x3D;90
-                                    translateZ&#x3D;90&gt;&lt;/atft-point-light&gt;
-                  &lt;atft-point-light color&#x3D;&quot;white&quot; intensity&#x3D;&quot;0.8&quot; distance&#x3D;&quot;1000&quot; [translateX]&#x3D;&quot;-60&quot; [translateY]&#x3D;&quot;-60&quot;
-                                    [translateZ]&#x3D;&quot;50&quot;&gt;&lt;/atft-point-light&gt;
-                  ${content}
-              &lt;/atft-scene&gt;
-          &lt;/atft-webgl-renderer&gt;
-      &lt;/atft-orbit-controls&gt;
+  &lt;atft-orbit-controls style&#x3D;&quot;height:100%&quot; rotateSpeed&#x3D;1 zoomSpeed&#x3D;1.2
+    [listeningControlElement]&#x3D;mainRenderer.renderPane (render)&#x3D;&quot;mainRenderer.render()&quot;&gt;
+      &lt;atft-webgl-renderer #mainRenderer&gt;
+          &lt;atft-perspective-camera (render)&#x3D;&quot;mainRenderer.render()&quot; [zAxisUp]&#x3D;&quot;true&quot; positionX&#x3D;50 positionY&#x3D;-20
+                                   positionZ&#x3D;50&gt;&lt;/atft-perspective-camera&gt;
+          &lt;atft-scene&gt;
+              &lt;atft-axes-helper size&#x3D;200&gt;&lt;/atft-axes-helper&gt;
+              &lt;atft-grid-helper [size]&#x3D;200 [divisions]&#x3D;10 [rotateX]&#x3D;&quot;90 | deg2rad&quot; (render)&#x3D;&quot;mainRenderer.render()&quot;&gt;&lt;/atft-grid-helper&gt;
+              &lt;atft-point-light intensity&#x3D;&quot;0.5&quot; distance&#x3D;&quot;1000&quot; translateX&#x3D;90 translateY&#x3D;90
+                                translateZ&#x3D;90&gt;&lt;/atft-point-light&gt;
+              &lt;atft-point-light intensity&#x3D;&quot;0.8&quot; distance&#x3D;&quot;1000&quot; [translateX]&#x3D;&quot;-60&quot; [translateY]&#x3D;&quot;-60&quot;
+                                [translateZ]&#x3D;&quot;50&quot;&gt;&lt;/atft-point-light&gt;
+              ${content}
+          &lt;/atft-scene&gt;
+      &lt;/atft-webgl-renderer&gt;
+  &lt;/atft-orbit-controls&gt;
 &#x60;</code>
                         </td>
                     </tr>
@@ -233,6 +239,104 @@ Such template allows to focus on storybook inputs/knobs and actions testing.</p>
                         </td>
                     </tr>
 
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/stories/common/minimalistic-scene-wrapper.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="minimalisticSceneWrapper"></a>
+                        <span class="name">
+                            <b>
+                            minimalisticSceneWrapper</b>
+                            <a href="#minimalisticSceneWrapper"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(content: string) &#x3D;&gt; &#x60;
+  &lt;atft-orbit-controls style&#x3D;&quot;height:100%&quot; rotateSpeed&#x3D;1 zoomSpeed&#x3D;1.2
+    [listeningControlElement]&#x3D;mainRenderer.renderPane (render)&#x3D;&quot;mainRenderer.render()&quot;&gt;
+      &lt;atft-webgl-renderer #mainRenderer&gt;
+          &lt;atft-perspective-camera (render)&#x3D;&quot;mainRenderer.render()&quot; [zAxisUp]&#x3D;&quot;true&quot; positionX&#x3D;150 positionY&#x3D;50
+                                   positionZ&#x3D;50&gt;&lt;/atft-perspective-camera&gt;
+          &lt;atft-scene&gt;
+              &lt;atft-point-light intensity&#x3D;&quot;0.5&quot; distance&#x3D;&quot;1000&quot; translateX&#x3D;90 translateY&#x3D;90
+                                translateZ&#x3D;90&gt;&lt;/atft-point-light&gt;
+              &lt;atft-point-light intensity&#x3D;&quot;0.7&quot; distance&#x3D;&quot;1000&quot; [translateX]&#x3D;&quot;-60&quot; [translateY]&#x3D;&quot;-60&quot;
+                                [translateZ]&#x3D;&quot;50&quot;&gt;&lt;/atft-point-light&gt;
+              ${content}
+          &lt;/atft-scene&gt;
+      &lt;/atft-webgl-renderer&gt;
+  &lt;/atft-orbit-controls&gt;
+&#x60;</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Minimalistic Storybook 3D scene wrapper includes light, camera and orbit controls.
+Such template allows to focus on storybook models testing.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/stories/common/world-scene-wrapper.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="worldSceneWrapper"></a>
+                        <span class="name">
+                            <b>
+                            worldSceneWrapper</b>
+                            <a href="#worldSceneWrapper"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(content: string) &#x3D;&gt; &#x60;
+  &lt;atft-orbit-controls style&#x3D;&quot;height:100%&quot; rotateSpeed&#x3D;1 zoomSpeed&#x3D;1.2
+    [listeningControlElement]&#x3D;mainRenderer.renderPane (render)&#x3D;&quot;mainRenderer.render()&quot;&gt;
+      &lt;atft-webgl-renderer #mainRenderer&gt;
+          &lt;atft-perspective-camera (render)&#x3D;&quot;mainRenderer.render()&quot; [zAxisUp]&#x3D;&quot;true&quot; positionX&#x3D;20 positionY&#x3D;-80
+                                   positionZ&#x3D;30&gt;&lt;/atft-perspective-camera&gt;
+          &lt;atft-scene background&#x3D;&quot;0xa0a0a0&quot; [fog]&#x3D;&quot;true&quot; fogColor&#x3D;&quot;0xa0a0a0&quot; fogNear&#x3D;&quot;40&quot; fogFar&#x3D;&quot;500&quot;&gt;
+          &lt;atft-plane-mesh height&#x3D;&quot;2000&quot; width&#x3D;&quot;2000&quot; materialColor&#x3D;&quot;0x999999&quot; [depthWrite]&#x3D;&quot;false&quot; [castShadow]&#x3D;&quot;false&quot;
+            [receiveShadow]&#x3D;&quot;true&quot; heightSegments&#x3D;&quot;10&quot; widthSegments&#x3D;&quot;10&quot;&gt;
+            &lt;/atft-plane-mesh&gt;
+              &lt;!--atft-axes-helper size&#x3D;1000&gt;&lt;/atft-axes-helper--&gt;
+              &lt;&lt;atft-hemisphere-light skyColor&#x3D;&quot;0xffffff&quot; groundColor&#x3D;&quot;0xffffff&quot;  intensity&#x3D;&quot;0.3&quot;
+                translateX&#x3D;&quot;-20&quot; translateY&#x3D;&quot;-20&quot; translateZ&#x3D;&quot;100&quot;&gt;
+              &lt;/atft-hemisphere-light&gt;
+              &lt;!--&lt;atft-directional-light color&#x3D;&quot;0xffffff&quot; intensity&#x3D;&quot;0.7&quot; translateX&#x3D;&quot;20&quot; translateY&#x3D;&quot;-50&quot; translateZ&#x3D;&quot;50&quot;&gt;
+              &lt;/atft-directional-light&gt; --&gt;
+              &lt;atft-point-light intensity&#x3D;&quot;1&quot; translateX&#x3D;&quot;20&quot; translateY&#x3D;&quot;-50&quot; translateZ&#x3D;&quot;50&quot;&gt;&lt;/atft-point-light&gt;
+              ${content}
+          &lt;/atft-scene&gt;
+      &lt;/atft-webgl-renderer&gt;
+  &lt;/atft-orbit-controls&gt;
+&#x60;</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Minimalistic Storybook 3D scene wrapper includes light, camera and orbit controls.
+Such template allows to focus on storybook models testing.</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
