@@ -1,8 +1,8 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 import {Component} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../projects/atft/src/lib/atft.module';
-import {defaultSceneWrapper} from './common/default-scene-wrapper';
+import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
+import {defaultSceneWrapper} from '../common/default-scene-wrapper';
 import {number, withKnobs} from '@storybook/addon-knobs';
 
 

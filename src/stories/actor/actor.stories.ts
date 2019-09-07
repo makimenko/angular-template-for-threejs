@@ -1,11 +1,11 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../projects/atft/src/lib/atft.module';
-import {defaultSceneWrapper} from './common/default-scene-wrapper';
+import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
+import {defaultSceneWrapper} from '../common/default-scene-wrapper';
 import {withKnobs} from '@storybook/addon-knobs';
-import {EmptyComponent} from '../../projects/atft/src/lib/objects/helpers';
-import {AbstractObject3D} from '../../projects/atft/src/lib/objects/abstract-object-3d';
+import {EmptyComponent} from '../../../projects/atft/src/lib/objects/helpers';
+import {AbstractObject3D} from '../../../projects/atft/src/lib/objects/abstract-object-3d';
 
 
 @Component({

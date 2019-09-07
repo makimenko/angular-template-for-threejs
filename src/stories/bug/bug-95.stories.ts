@@ -1,22 +1,12 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {Component} from '@angular/core';
+import {Component, forwardRef} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../projects/atft/src/lib/atft.module';
-import {EmptyComponent} from '../../projects/atft/src/lib/objects/helpers';
-import {defaultSceneWrapper} from './common/default-scene-wrapper';
+import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
+import {EmptyComponent} from '../../../projects/atft/src/lib/objects/helpers';
+import {AbstractObject3D} from '../../../projects/atft/src/lib/objects/abstract-object-3d';
 
-
-@Component({
-  selector: 'app-storybook-object-loader',
-  template: defaultSceneWrapper(`
-      <atft-object-loader model="assets/model/Server.json" (render)="mainRenderer.render()">
-      </atft-object-loader>
-  `)
-})
-class StorybookObjectLoaderComponent {
-
-}
-
+import markdownNotes from './bug-95.stories.md';
+import {defaultSceneWrapper} from '../common/default-scene-wrapper';
 
 @Component({
   selector: 'app-storybook-obj-loader',
@@ -35,22 +25,20 @@ class StorybookObjLoaderComponent {
 }
 
 
-storiesOf('Loader', module)
+storiesOf('Bugs', module)
   .addDecorator(
     moduleMetadata({
       imports: [
         AtftModule
       ],
       declarations: [
-        StorybookObjectLoaderComponent,
         StorybookObjLoaderComponent
       ]
     }),
   )
-  .add('object (json)', () => ({
-    component: StorybookObjectLoaderComponent
-  }))
-  .add('obj (+mtl)', () => ({
+  .add('#95', () => ({
     component: StorybookObjLoaderComponent
-  }))
+  }), {
+    notes: { markdown: markdownNotes }
+  })
 ;
