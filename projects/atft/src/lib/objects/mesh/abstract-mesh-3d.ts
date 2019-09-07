@@ -11,7 +11,7 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
 
   constructor() {
     super();
-    console.log('AbstractMesh.constructor');
+    // console.log('AbstractMesh.constructor');
   }
 
 
@@ -21,7 +21,7 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
     if (this.materialColor !== undefined ) {
       appliedColor = this.materialColor * 1;
     }
-    console.log('AbstractMesh.getMaterial.appliedColor: ', appliedColor);
+    // console.log('AbstractMesh.getMaterial.appliedColor: ', appliedColor);
 
     if (this.material === 'lamb' ) {
       return new THREE.MeshLambertMaterial({color: appliedColor});

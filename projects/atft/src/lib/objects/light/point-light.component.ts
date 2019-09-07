@@ -15,11 +15,11 @@ export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
 
   constructor() {
     super();
-    console.log('PointLightComponent.constructor');
+    // console.log('PointLightComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.PointLight {
-    console.log('PointLightComponent.newObject3DInstance');
+    // console.log('PointLightComponent.newObject3DInstance');
     return new THREE.PointLight(this.color, this.intensity, this.distance);
   }
 

@@ -29,11 +29,11 @@ export class CylinderMeshComponent extends AbstractMesh {
 
   constructor() {
     super();
-    console.log('CylinderMeshComponent.constructor');
+    // console.log('CylinderMeshComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-    console.log('CylinderMeshComponent.newObject3DInstance');
+    // console.log('CylinderMeshComponent.newObject3DInstance');
     const geometry = new THREE.CylinderGeometry(this.radiusTop, this.radiusBottom, this.height, this.radialSegments, this.heightSegments,
       this.openEnded, this.thetaStart, this.thetaLength);
     const material: THREE.MeshBasicMaterial = this.getMaterial();

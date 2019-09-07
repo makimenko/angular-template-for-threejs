@@ -14,11 +14,11 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements AfterVie
   @Output() render = new EventEmitter<void>();
 
   constructor() {
-    console.log('AbstractCamera.constructor');
+    // console.log('AbstractCamera.constructor');
   }
 
   public ngAfterViewInit(): void {
-    console.log('AbstractCamera.ngAfterViewInit');
+    // console.log('AbstractCamera.ngAfterViewInit');
     this.createCamera();
 
     this.applyZAxisUp();

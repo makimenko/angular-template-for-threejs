@@ -13,6 +13,7 @@ export class ObjectLoaderComponent extends AbstractModelLoader {
   private loader = new THREE.ObjectLoader();
 
   protected async loadLazyObject() {
+    // console.log('ObjectLoaderComponent.loadLazyObject');
     return new Promise<THREE.Object3D>((resolve, reject) => {
       this.loader.load(this.model, model => {
           // BUG #95: it seems that some textures loaded after last render (and model has black texture instead)

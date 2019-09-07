@@ -13,11 +13,11 @@ export class AxesHelperComponent extends AbstractObject3D<THREE.AxesHelper> {
 
   constructor() {
     super();
-    console.log('AxesHelperComponent.constructor');
+    // console.log('AxesHelperComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.AxesHelper {
-    console.log('AxesHelperComponent.newObject3DInstance');
+    // console.log('AxesHelperComponent.newObject3DInstance');
     return new THREE.AxesHelper(this.size);
   }
 

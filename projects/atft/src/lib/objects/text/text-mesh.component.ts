@@ -48,7 +48,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
 
   constructor() {
     super();
-    console.log('TextMeshComponent.constructor');
+    // console.log('TextMeshComponent.constructor');
   }
 
 
@@ -58,7 +58,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
     if (this.materialColor !== undefined) {
       appliedColor = this.materialColor * 1;
     }
-    console.log('AbstractMesh.getMaterial.appliedColor: ', appliedColor);
+    // console.log('AbstractMesh.getMaterial.appliedColor: ', appliedColor);
 
     if (this.material === 'lamb') {
       return new THREE.MeshLambertMaterial({color: appliedColor});
@@ -68,7 +68,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   }
 
   protected async loadLazyObject(): Promise<THREE.Object3D> {
-    console.log('TextMeshComponent.loadLazyObject');
+    // console.log('TextMeshComponent.loadLazyObject');
 
     return new Promise<THREE.Object3D>(resolve => {
       const loader = new THREE.FontLoader();

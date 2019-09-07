@@ -11,11 +11,11 @@ export class EmptyComponent extends AbstractObject3D<THREE.Object3D> {
 
   constructor() {
     super();
-    console.log('EmptyComponent.constructor');
+    // console.log('EmptyComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.Object3D {
-    console.log('EmptyComponent.newObject3DInstance');
+    // console.log('EmptyComponent.newObject3DInstance');
     return new THREE.Object3D();
   }
 

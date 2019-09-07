@@ -49,11 +49,11 @@ export class BoxMeshComponent extends AbstractMesh {
 
   constructor() {
     super();
-    console.log('CylinderMeshComponent.constructor');
+    // console.log('CylinderMeshComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-    console.log('BoxMeshComponent.newObject3DInstance');
+    // console.log('BoxMeshComponent.newObject3DInstance');
     const geometry = new THREE.BoxGeometry(this.width, this.height, this.depth,
       this.widthSegments, this.heightSegments, this.depthSegments);
     const material: THREE.MeshBasicMaterial = this.getMaterial();

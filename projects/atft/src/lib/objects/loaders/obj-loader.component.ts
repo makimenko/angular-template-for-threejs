@@ -27,8 +27,10 @@ export class ObjLoaderComponent extends AbstractModelLoader {
   texturePath: string;
 
   protected async loadLazyObject() {
+    // console.log('ObjLoaderComponent.loadLazyObject');
     // TODO: make it nicer
     if (this.material === undefined) {
+      // console.log('ObjLoaderComponent.loadLazyObject without materials');
       return new Promise<THREE.Object3D>((resolve, reject) => {
         this.loader.load(this.model, model => {
           resolve(model);
@@ -38,13 +40,14 @@ export class ObjLoaderComponent extends AbstractModelLoader {
         );
       });
     } else {
+      // console.log('ObjLoaderComponent.loadLazyObject with materials');
       return new Promise<THREE.Object3D>((resolve, reject) => {
         if (this.texturePath !== undefined) {
           this.mtlLoader.setTexturePath(this.texturePath);
         }
         this.mtlLoader.load(this.material, materialCreator => {
           materialCreator.preload();
-          this.loader.setMaterials(materialCreator as any);
+          this.loader.setMaterials(materialCreator);
           this.loader.load(this.model, resolve);
         });
       });

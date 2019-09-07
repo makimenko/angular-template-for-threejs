@@ -50,7 +50,7 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
   private controls: OrbitControls;
 
   constructor() {
-    console.log('OrbitControlsComponent.constructor');
+    // console.log('OrbitControlsComponent.constructor');
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -96,7 +96,7 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
   }
 
   ngAfterViewInit(): void {
-    console.log('OrbitControlsComponent.ngAfterViewInit');
+    // console.log('OrbitControlsComponent.ngAfterViewInit');
     if (this.childCameras === undefined || this.childCameras.first === undefined) {
       throw new Error('Camera is not found');
     }

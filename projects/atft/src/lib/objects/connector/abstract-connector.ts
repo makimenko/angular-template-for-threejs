@@ -12,11 +12,11 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
 
   constructor() {
     super();
-    console.log('AbstractConnector.constructor');
+    // console.log('AbstractConnector.constructor');
   }
 
   protected newObject3DInstance(): T {
-    console.log('AbstractConnector.newObject3DInstance');
+    // console.log('AbstractConnector.newObject3DInstance');
     const mesh = this.createConnectorObject();
     this.watchObjects();
     return mesh;

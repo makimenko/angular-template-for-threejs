@@ -57,7 +57,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public ngAfterViewInit(): void {
-    console.log('AbstractObject3D.ngAfterViewInit');
+    // console.log('AbstractObject3D.ngAfterViewInit');
     this.object = this.newObject3DInstance();
 
     this.applyTranslation();

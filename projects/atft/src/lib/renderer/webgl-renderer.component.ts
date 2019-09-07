@@ -27,12 +27,12 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   renderQueue: Observable<void>; // TODO: add example of rendering via queue
 
   constructor() {
-    console.log('RendererComponent.constructor');
+    // console.log('RendererComponent.constructor');
     this.render = this.render.bind(this);
   }
 
   ngAfterViewInit() {
-    console.log('RendererComponent.ngAfterViewInit');
+    // console.log('RendererComponent.ngAfterViewInit');
     this.viewInitialized = true;
     this.startRendering();
 
@@ -69,7 +69,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   }
 
   private startRendering() {
-    console.log('RendererComponent.startRendering');
+    // console.log('RendererComponent.startRendering');
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
       antialias: true

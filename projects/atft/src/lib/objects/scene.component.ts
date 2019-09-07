@@ -10,12 +10,12 @@ import {AbstractObject3D} from './abstract-object-3d';
 export class SceneComponent extends AbstractObject3D<THREE.Scene> {
 
   constructor() {
-    console.log('SceneComponent.constructor');
+    // console.log('SceneComponent.constructor');
     super();
   }
 
   protected newObject3DInstance(): THREE.Scene {
-    console.log('SceneComponent.newObject3DInstance');
+    // console.log('SceneComponent.newObject3DInstance');
     return new THREE.Scene();
   }
 

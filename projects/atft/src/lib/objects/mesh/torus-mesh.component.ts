@@ -32,7 +32,7 @@ export class TorusMeshComponent extends AbstractMesh {
 
   constructor() {
     super();
-    console.log('TorusMeshComponent.constructor');
+    // console.log('TorusMeshComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.Mesh {
@@ -40,9 +40,6 @@ export class TorusMeshComponent extends AbstractMesh {
     this.tube *= 1;
     this.radialSegments *= 1;
     this.tubularSegments *= 1;
-
-    console.log('TorusMeshComponent.newObject3DInstance', this.radius, this.tube,
-      this.radialSegments, this.tubularSegments, this.arc);
 
     const geometry = new THREE.TorusGeometry(this.radius, this.tube,
       this.radialSegments, this.tubularSegments);

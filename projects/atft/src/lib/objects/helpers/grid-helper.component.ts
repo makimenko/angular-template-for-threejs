@@ -14,11 +14,11 @@ export class GridHelperComponent extends AbstractObject3D<THREE.AxesHelper> {
 
   constructor() {
     super();
-    console.log('GridHelperComponent.constructor');
+    // console.log('GridHelperComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.AxesHelper {
-    console.log('GridHelperComponent.newObject3DInstance');
+    // console.log('GridHelperComponent.newObject3DInstance');
     return new THREE.GridHelper(this.size, this.divisions);
   }
 

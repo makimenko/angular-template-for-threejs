@@ -18,11 +18,11 @@ export class SphereMeshComponent extends AbstractMesh {
 
   constructor() {
     super();
-    console.log('SphereMeshComponent.constructor');
+    // console.log('SphereMeshComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-    console.log('SphereMeshComponent.newObject3DInstance');
+    // console.log('SphereMeshComponent.newObject3DInstance');
     const geometry = new THREE.SphereGeometry(this.radius, this.widthSegments, this.hightSegments);
     const material: THREE.MeshBasicMaterial = this.getMaterial();
     return new THREE.Mesh(geometry, material);

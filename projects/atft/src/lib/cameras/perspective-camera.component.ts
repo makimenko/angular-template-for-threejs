@@ -14,12 +14,12 @@ export class PerspectiveCameraComponent extends AbstractCamera<THREE.Perspective
   @Input() far: number;
 
   constructor() {
-    console.log('PerspectiveCameraComponent.constructor');
+    // console.log('PerspectiveCameraComponent.constructor');
     super();
   }
 
   protected createCamera(): void {
-    console.log('PerspectiveCameraComponent.createCamera');
+    // console.log('PerspectiveCameraComponent.createCamera');
     // let aspectRatio = undefined; // Updated later
     this.camera = new THREE.PerspectiveCamera(
       this.fov,
@@ -30,7 +30,7 @@ export class PerspectiveCameraComponent extends AbstractCamera<THREE.Perspective
   }
 
   public updateAspectRatio(aspect: number) {
-    console.log('PerspectiveCameraComponent.updateAspectRatio: ' + aspect);
+    // console.log('PerspectiveCameraComponent.updateAspectRatio: ' + aspect);
     this.camera.aspect = aspect;
     this.camera.updateProjectionMatrix();
   }
