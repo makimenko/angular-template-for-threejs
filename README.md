@@ -11,8 +11,9 @@
 Leverage [Three.js](https://threejs.org) in your Angular app using simple components:
 
 ```html
-<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
-  <atft-webgl-renderer>
+<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 
+  (render)="mainRenderer.render()">
+  <atft-webgl-renderer #mainRenderer>
     <atft-perspective-camera
       [fov]=60 [near]=1 [far]=1100
       positionX=20 positionY=50 positionZ=50>
@@ -44,8 +45,9 @@ Click below to see the demo in a web browser:<br>
 
 ## Usage in your Angular project
 
-1. Set up an Angular project and install dependencies: `npm i three atft --save`
-3. Import library into your module:
+1. Set up an Angular project and install dependencies:  
+   `npm i three three.meshline atft --save`
+2. Import library into your module:
    ```typescript
    import { AtftModule } from 'atft';
    ...
@@ -55,18 +57,37 @@ Click below to see the demo in a web browser:<br>
      ]
     ...
    ```
-4. Use atft library components in a declarative way:
+3. Use atft library components in `src/app.app.component.html`:
     ```html
-    <atft-webgl-renderer>
-      <atft-perspective-camera
-       [fov]=60 [near]=1 [far]=1100
-        positionX=20 positionY=50 positionZ=50>
-      </atft-perspective-camera>
-      <atft-scene>
-        <atft-axes-helper size=200></atft-axes-helper>
-        <atft-grid-helper size=100 divisions=10></atft-grid-helper>
-      </atft-scene>
-    </atft-webgl-renderer>
+    <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 
+      (render)="mainRenderer.render()">
+      <atft-webgl-renderer #mainRenderer>
+        <atft-perspective-camera
+          [fov]=60 [near]=1 [far]=1100
+          positionX=20 positionY=50 positionZ=50>
+        </atft-perspective-camera>
+        <atft-scene>
+          <atft-axes-helper size=200></atft-axes-helper>
+          <atft-grid-helper size=100 divisions=10></atft-grid-helper>
+        </atft-scene>
+      </atft-webgl-renderer>
+    </atft-orbit-controls>
+    ```
+4. (optionally) if you want to fit 3D scene canvas into entire screen (horizontally and vertically):
+
+   in `src/styles.css`:
+   ```css
+    html, body {
+        height: 100%;
+        margin: 0;
+    }  
+    ```
+   in `src/app/app.component.css`:
+   ```css
+    :host {
+        height: 100%;
+        display: flex;
+    } 
     ```
 
 ## Development
