@@ -13,20 +13,21 @@ export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
   @Input() color = 0xffffff;
   @Input() intensity = 1;
   @Input() distance = 500;
-  @Input() castShadow = true;
+  @Input() castShadow = false;
 
   protected newObject3DInstance() {
     const light = new THREE.PointLight(appliedColor(this.color), this.intensity, this.distance);
 
-    /* TODO: Glitch with shadow casting
-    light.castShadow = this.castShadow;
-    light.shadow.mapSize.width = 500;
-    light.shadow.mapSize.height = 500;
-    light.shadow.camera.near = 1;
-    light.shadow.camera.far = 5000;
-    light.intensity = 2;
-    // light.shadow.radius = 20;
-    */
+    if (this.castShadow === true) {
+      light.castShadow = this.castShadow;
+      // TODO: props
+      light.shadow.mapSize.width = 1024;
+      light.shadow.mapSize.height = 1024;
+      light.shadow.camera.near = 0.5;
+      light.shadow.camera.far = 500;
+      light.shadow.bias = -0.001;
+      light.shadow.radius = 1;
+    }
 
     return light;
   }

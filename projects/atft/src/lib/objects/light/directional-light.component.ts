@@ -24,17 +24,20 @@ export class DirectionalLightComponent extends AbstractObject3D<THREE.Directiona
     );
 
     light.target = this.target;
-    light.castShadow = this.castShadow;
 
-    // TODO: props
-    light.shadow.camera.top = 100;
-    light.shadow.camera.bottom = -100;
-    light.shadow.camera.left = -100;
-    light.shadow.camera.right = 100;
-    light.shadow.camera.near = 0.1;
-    light.shadow.camera.far = 500;
-    light.shadow.mapSize.set(1024, 1024);
+    if (this.castShadow === true) {
+      light.castShadow = this.castShadow;
+      // TODO: props
+      light.shadow.camera.top = 100;
+      light.shadow.camera.bottom = -100;
+      light.shadow.camera.left = -100;
+      light.shadow.camera.right = 100;
+      light.shadow.camera.near = 0.1;
+      light.shadow.camera.far = 500;
+      light.shadow.mapSize.set(1024, 1024);
+      light.shadow.bias = -0.001;
 
+    }
     return light;
 
   }

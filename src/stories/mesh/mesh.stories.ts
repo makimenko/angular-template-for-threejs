@@ -9,7 +9,7 @@ import {withKnobs} from '@storybook/addon-knobs';
   selector: 'app-storybook-cylinder-mesh',
   template: defaultSceneWrapper(`
       <atft-cylinder-mesh [radiusTop]="2.0" [radiusBottom]="7.0" [height]="10" [radialSegments]="36" [heightSegments]="1"
-                          material="lamb" materialColor="0x00ff00">
+                          material="phong" materialColor="0x00ff00">
       </atft-cylinder-mesh>
   `)
 })
@@ -20,7 +20,7 @@ class StorybookCylinderMeshComponent {
 @Component({
   selector: 'app-storybook-sphere-mesh',
   template: defaultSceneWrapper(`
-      <atft-sphere-mesh [radius]="4" [widthSegments]="20" [hightSegments]="20" material="lamb" materialColor="0xff0000">
+      <atft-sphere-mesh [radius]="4" [widthSegments]="20" [hightSegments]="20" material="phong" materialColor="0xff0000">
       </atft-sphere-mesh>
   `)
 })
@@ -32,7 +32,7 @@ class StorybookSphereMeshComponent {
 @Component({
   selector: 'app-storybook-torus-mesh',
   template: defaultSceneWrapper(`
-  <atft-torus-mesh [radius]="5" [tube]="2" [radialSegments]="16" [tubularSegments]="100" [arc]="6.28" material="lamb"
+  <atft-torus-mesh [radius]="5" [tube]="2" [radialSegments]="16" [tubularSegments]="100" [arc]="6.28" material="phong"
         materialColor="0x0000ff">
   </atft-torus-mesh>
   `)
@@ -44,7 +44,7 @@ class StorybookTorusMeshComponent {
 @Component({
   selector: 'app-storybook-box-mesh',
   template: defaultSceneWrapper(`
-  <atft-box-mesh height="10" width="10" depth="10" material="lamb" materialColor="0xffffff"></atft-box-mesh>
+  <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff"></atft-box-mesh>
   `)
 })
 class StorybookBoxMeshComponent {
