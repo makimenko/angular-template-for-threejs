@@ -6,6 +6,7 @@ import {defaultSceneWrapper} from '../common/default-scene-wrapper';
 import {withKnobs} from '@storybook/addon-knobs';
 import {EmptyComponent} from '../../../projects/atft/src/lib/objects/helpers';
 import {AbstractObject3D} from '../../../projects/atft/src/lib/objects/abstract-object-3d';
+import {worldSceneWrapper} from '../common/world-scene-wrapper';
 
 
 @Component({
@@ -13,11 +14,11 @@ import {AbstractObject3D} from '../../../projects/atft/src/lib/objects/abstract-
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => ServerActorComponent)}],
   template: `
       <atft-empty>
-          <atft-box-mesh height="10" width="10" depth="14" material="lamb" materialColor="0xffffff" [translateZ]="7">
+          <atft-box-mesh height="10" width="10" depth="14" material="x" materialColor="0xffffff" [translateZ]="7">
           </atft-box-mesh>
-          <atft-text-mesh [text]="name" [size]="2" [bevelEnabled]="false"
-                          material="base" materialColor="0xDFDFDF"
-                          [translateX]="-7" [translateY]="-8"
+          <atft-text-mesh [text]="name" [size]="2" [bevelEnabled]="false" height="0"
+                          material="basic"
+                          [translateX]="-7" [translateY]="-8" [translateZ]="0.2"
                           (render)="render.emit()"
           ></atft-text-mesh>
       </atft-empty>
@@ -36,7 +37,7 @@ class ServerActorComponent extends EmptyComponent {
 
 @Component({
   selector: 'app-storybook-box-mesh',
-  template: defaultSceneWrapper(`
+  template: worldSceneWrapper(`
     <app-storybook-server-actor name="Server RX10" (render)="mainRenderer.render()"></app-storybook-server-actor>
   `)
 })
@@ -46,26 +47,21 @@ class StorybookServerComponent {
 
 @Component({
   selector: 'app-storybook-box-mesh',
-  template: defaultSceneWrapper(`
-    <atft-box-mesh height="150" width="150" depth="1" material="lamb" materialColor="0xD4E6F1">
-        <atft-empty translateZ="1" translateY="-20">
-            <!-- Nodes: -->
-            <app-storybook-server-actor #rx10 name="Server RX10" (render)="mainRenderer.render()"></app-storybook-server-actor>
-            <app-storybook-server-actor #z001 name="Server Z001" translateY="70" translateX="20"></app-storybook-server-actor>
-            <app-storybook-server-actor #tx71 name="Server TX71" translateY="70" translateX="-20"></app-storybook-server-actor>
+  template: worldSceneWrapper(`
+    <atft-empty translateZ="0.1" translateY="-20">
+        <!-- Nodes: -->
+        <app-storybook-server-actor #rx10 name="Server RX10" (render)="mainRenderer.render()"></app-storybook-server-actor>
+        <app-storybook-server-actor #z001 name="Server Z001" translateX="-30"></app-storybook-server-actor>
+        <app-storybook-server-actor #tx71 name="Server TX71" translateX="-30" translateY="50"></app-storybook-server-actor>
 
-            <!-- Edges: -->
-            <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0x00AA00"
-                (render)="mainRenderer.render()">
-            </atft-mesh-line-connector>
-            <atft-mesh-line-connector [source]="rx10" [target]="tx71" materialColor="0xAA0000"
-                (render)="mainRenderer.render()">
-            </atft-mesh-line-connector>
-            <atft-mesh-line-connector [source]="z001" [target]="tx71" [transparent]="false" materialColor="0xAA0000"
-                (render)="mainRenderer.render()">
-            </atft-mesh-line-connector>
-        </atft-empty>
-    </atft-box-mesh>
+        <!-- Edges: -->
+        <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0x00AA00" [lineWidth]="1"
+            (render)="mainRenderer.render()">
+        </atft-mesh-line-connector>
+        <atft-mesh-line-connector [source]="z001" [target]="tx71" materialColor="0xAA0000" [lineWidth]="1"
+            (render)="mainRenderer.render()">
+        </atft-mesh-line-connector>
+    </atft-empty>
   `)
 })
 class StorybookSceneComponent {

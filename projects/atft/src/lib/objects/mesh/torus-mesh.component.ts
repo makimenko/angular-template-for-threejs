@@ -43,8 +43,10 @@ export class TorusMeshComponent extends AbstractMesh {
 
     const geometry = new THREE.TorusGeometry(this.radius, this.tube,
       this.radialSegments, this.tubularSegments);
-    const material: THREE.MeshBasicMaterial = this.getMaterial();
-    return new THREE.Mesh(geometry, material);
+    const material = this.getMaterial();
+    const mesh = new THREE.Mesh(geometry, material);
+    this.applyShadowProps(mesh);
+    return mesh;
   }
 
 }

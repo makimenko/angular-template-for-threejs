@@ -1,31 +1,32 @@
-import { Input } from '@angular/core';
+import {Input} from '@angular/core';
 import * as THREE from 'three';
-import { AbstractObject3D } from '../abstract-object-3d';
-import {appliedColor} from '../../utils/applied-color';
+import {AbstractObject3D} from '../abstract-object-3d';
+import {appliedMaterial} from '../../utils';
 
 export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
 
   @Input()
   material: string;
+
   @Input()
   materialColor = 0x5DADE2;
 
-  constructor() {
-    super();
-    // console.log('AbstractMesh.constructor');
+  @Input()
+  castShadow = true;
+
+  @Input()
+  receiveShadow = true;
+
+  @Input()
+  depthWrite = true;
+
+  protected getMaterial(): THREE.Material {
+    return appliedMaterial(this.materialColor, this.material, this.depthWrite);
   }
 
-
-  public getMaterial(): THREE.MeshBasicMaterial {
-    // TODO: Extract to directive (or component)
-    // console.log('AbstractMesh.getMaterial.appliedColor: ', appliedColor);
-
-    if (this.material === 'lamb' ) {
-      return new THREE.MeshLambertMaterial({color: appliedColor(this.materialColor)});
-    } else {
-      return new THREE.MeshBasicMaterial({color: appliedColor(this.materialColor)});
-    }
+  protected applyShadowProps(mesh: THREE.Mesh) {
+    mesh.castShadow = this.castShadow;
+    mesh.receiveShadow = this.receiveShadow;
   }
-
 
 }

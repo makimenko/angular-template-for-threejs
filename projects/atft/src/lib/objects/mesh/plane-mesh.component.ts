@@ -2,13 +2,14 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
+import {appliedColor} from '../../utils/applied-color';
 
 @Component({
-  selector: 'atft-box-mesh',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => BoxMeshComponent)}],
+  selector: 'atft-plane-mesh',
+  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => PlaneMeshComponent)}],
   template: '<ng-content></ng-content>'
 })
-export class BoxMeshComponent extends AbstractMesh {
+export class PlaneMeshComponent extends AbstractMesh {
 
   /**
    * Width; that is, the length of the edges parallel to the X axis. Optional; defaults to 1.
@@ -22,11 +23,6 @@ export class BoxMeshComponent extends AbstractMesh {
   @Input()
   height = 1.0;
 
-  /**
-   * Depth; that is, the length of the edges parallel to the Z axis. Optional; defaults to 1.
-   */
-  @Input()
-  depth = 1.0;
 
   /**
    * Number of segmented rectangular faces along the width of the sides. Optional; defaults to 1.
@@ -40,26 +36,12 @@ export class BoxMeshComponent extends AbstractMesh {
   @Input()
   heightSegments = 1;
 
-  /**
-   * Number of segmented rectangular faces along the depth of the sides. Optional; defaults to 1.
-   */
-  @Input()
-  depthSegments = 1;
-
-  constructor() {
-    super();
-    // console.log('CylinderMeshComponent.constructor');
-  }
-
-  protected newObject3DInstance() {
-    // console.log('BoxMeshComponent.newObject3DInstance');
-    const geometry = new THREE.BoxGeometry(this.width, this.height, this.depth,
-      this.widthSegments, this.heightSegments, this.depthSegments);
+  protected newObject3DInstance(): THREE.Mesh {
+    const geometry = new THREE.PlaneBufferGeometry(this.width, this.height, this.widthSegments, this.heightSegments);
     const material = this.getMaterial();
     const mesh = new THREE.Mesh(geometry, material);
     this.applyShadowProps(mesh);
     return mesh;
   }
-
 
 }

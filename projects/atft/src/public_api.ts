@@ -8,3 +8,4 @@ export * from './lib/controls';
 export * from './lib/objects';
 export * from './lib/pipes';
 export * from './lib/renderer';
+export * from './lib/utils';

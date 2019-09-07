@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
 import {appliedColor} from '../../utils/applied-color';
+import {appliedMaterial} from '../../utils';
 
 @Component({
   selector: 'atft-text-mesh',
@@ -12,10 +13,10 @@ import {appliedColor} from '../../utils/applied-color';
 export class TextMeshComponent extends AbstractLazyObject3D {
 
   @Input()
-  material: string;
+  material = 'basic';
 
   @Input()
-  materialColor: number;
+  materialColor = 0xDADADA;
 
   @Input()
   text = 'Text';
@@ -47,20 +48,18 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   @Input()
   fontUrl = './assets/font/helvetiker_regular.typeface.json';
 
-  constructor() {
-    super();
-    // console.log('TextMeshComponent.constructor');
-  }
+  @Input()
+  castShadow = true;
+
+  @Input()
+  receiveShadow = true;
+
+  @Input()
+  depthWrite = true;
 
 
-  public getMaterial(): THREE.MeshBasicMaterial {
-    // console.log('AbstractMesh.getMaterial.appliedColor: ', appliedColor);
-    // TODO: Extract to directive (or component)
-    if (this.material === 'lamb') {
-      return new THREE.MeshLambertMaterial({color: appliedColor(this.materialColor)});
-    } else {
-      return new THREE.MeshBasicMaterial({color: appliedColor(this.materialColor)});
-    }
+  public getMaterial(): THREE.Material {
+    return appliedMaterial(this.materialColor, this.material, this.depthWrite);
   }
 
   protected async loadLazyObject(): Promise<THREE.Object3D> {
@@ -81,8 +80,11 @@ export class TextMeshComponent extends AbstractLazyObject3D {
           bevelOffset: this.bevelOffset,
           bevelSegments: this.bevelOffset
         });
-        const material: THREE.MeshBasicMaterial = this.getMaterial();
-        resolve(new THREE.Mesh(geometry, material));
+        const material = this.getMaterial();
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.castShadow = this.castShadow;
+        // mesh.receiveShadow = this.receiveShadow;
+        resolve(mesh);
       });
     });
 

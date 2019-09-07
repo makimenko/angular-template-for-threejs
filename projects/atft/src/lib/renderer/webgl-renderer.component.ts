@@ -78,9 +78,10 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight, false);
 
     this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.autoUpdate = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    this.renderer.setClearColor(0xffffff, 1);
-    this.renderer.autoClear = true;
+    // this.renderer.setClearColor(0xffffff, 1);
+    // this.renderer.autoClear = true;
 
     this.updateChildCamerasAspectRatio();
     this.render();

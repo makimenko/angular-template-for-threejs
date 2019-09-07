@@ -17,7 +17,7 @@ import markdownNotes from './bug-87.stories.md';
               <atft-scene>
                   <atft-axes-helper size=200></atft-axes-helper>
                   <atft-grid-helper size=100 divisions=10></atft-grid-helper>
-                  <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50
+                  <atft-point-light intensity="0.9" distance="1000" translateX=50 translateY=50
                                     translateZ=50></atft-point-light>
                   <!-- Why it's not working? -->
                   <ng-content></ng-content>

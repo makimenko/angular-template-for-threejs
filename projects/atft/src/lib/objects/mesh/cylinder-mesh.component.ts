@@ -36,8 +36,10 @@ export class CylinderMeshComponent extends AbstractMesh {
     // console.log('CylinderMeshComponent.newObject3DInstance');
     const geometry = new THREE.CylinderGeometry(this.radiusTop, this.radiusBottom, this.height, this.radialSegments, this.heightSegments,
       this.openEnded, this.thetaStart, this.thetaLength);
-    const material: THREE.MeshBasicMaterial = this.getMaterial();
-    return new THREE.Mesh(geometry, material);
+    const material = this.getMaterial();
+    const mesh = new THREE.Mesh(geometry, material);
+    this.applyShadowProps(mesh);
+    return mesh;
   }
 
 }

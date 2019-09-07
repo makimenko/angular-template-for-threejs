@@ -4,6 +4,7 @@ import {Component} from '@angular/core';
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {defaultSceneWrapper} from '../common/default-scene-wrapper';
 import {minimalisticSceneWrapper} from '../common/minimalistic-scene-wrapper';
+import {worldSceneWrapper} from '../common/world-scene-wrapper';
 
 
 @Component({
@@ -22,12 +23,12 @@ const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angu
 
 @Component({
   selector: 'app-storybook-obj-loader',
-  template: minimalisticSceneWrapper(`
+  template: worldSceneWrapper(`
       <atft-obj-loader (render)="mainRenderer.render()"
               model="${modelPath}/SampleArchitecture.obj"
               material="${modelPath}/SampleArchitecture.mtl"
               texturePath="${modelPath}/"
-              translateX="-60" translateY="-40">
+              translateX="-60" translateY="-40" translateZ="0.5">
           >
       </atft-obj-loader>
   `)
