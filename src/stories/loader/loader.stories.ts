@@ -2,8 +2,8 @@ import {moduleMetadata, storiesOf} from '@storybook/angular';
 import {Component} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {EmptyComponent} from '../../../projects/atft/src/lib/objects/helpers';
 import {defaultSceneWrapper} from '../common/default-scene-wrapper';
+import {minimalisticSceneWrapper} from '../common/minimalistic-scene-wrapper';
 
 
 @Component({
@@ -18,12 +18,11 @@ class StorybookObjectLoaderComponent {
 }
 
 
-
-
 const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/SampleArchitecture';
+
 @Component({
   selector: 'app-storybook-obj-loader',
-  template: defaultSceneWrapper(`
+  template: minimalisticSceneWrapper(`
       <atft-obj-loader (render)="mainRenderer.render()"
               model="${modelPath}/SampleArchitecture.obj"
               material="${modelPath}/SampleArchitecture.mtl"

@@ -2,6 +2,7 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
+import {appliedColor} from '../../utils/applied-color';
 
 @Component({
   selector: 'atft-text-mesh',
@@ -53,17 +54,12 @@ export class TextMeshComponent extends AbstractLazyObject3D {
 
 
   public getMaterial(): THREE.MeshBasicMaterial {
-    // TODO: Extract to directive (or component)
-    let appliedColor = 0x5DADE2;
-    if (this.materialColor !== undefined) {
-      appliedColor = this.materialColor * 1;
-    }
     // console.log('AbstractMesh.getMaterial.appliedColor: ', appliedColor);
-
+    // TODO: Extract to directive (or component)
     if (this.material === 'lamb') {
-      return new THREE.MeshLambertMaterial({color: appliedColor});
+      return new THREE.MeshLambertMaterial({color: appliedColor(this.materialColor)});
     } else {
-      return new THREE.MeshBasicMaterial({color: appliedColor});
+      return new THREE.MeshBasicMaterial({color: appliedColor(this.materialColor)});
     }
   }
 

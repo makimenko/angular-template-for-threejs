@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {MeshLine, MeshLineMaterial} from 'three.meshline';
 import {AbstractConnector} from './abstract-connector';
+import {appliedColor} from '../../utils/applied-color';
 
 @Component({
   selector: 'atft-mesh-line-connector',
@@ -12,7 +13,7 @@ import {AbstractConnector} from './abstract-connector';
 export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
 
   @Input()
-  materialColor = 0xff0000;
+  materialColor = 0xffff00;
 
   @Input()
   transparent = true;
@@ -39,14 +40,9 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
     this.line = new MeshLine();
     this.line.setGeometry(this.geometry);
 
-    let appliedColor = 0xffff00;
-    if (this.materialColor !== undefined) {
-      appliedColor = this.materialColor * 1;
-    }
-
     const material = new MeshLineMaterial({
       // TODO: dynamic parameters
-      color: appliedColor,
+      color: appliedColor(this.materialColor),
       transparent: this.transparent,
       opacity: this.opacity,
       lineWidth: this.lineWidth,

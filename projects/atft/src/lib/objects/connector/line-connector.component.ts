@@ -2,6 +2,7 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractConnector} from './abstract-connector';
+import {appliedColor} from '../../utils/applied-color';
 
 @Component({
   selector: 'atft-line-connector',
@@ -11,7 +12,7 @@ import {AbstractConnector} from './abstract-connector';
 export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
 
   @Input()
-  materialColor = 0xff0000;
+  materialColor = 0xffff00;
 
   // TODO: move to abstract?
   private geometry: THREE.Geometry;
@@ -19,13 +20,8 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
   public createConnectorObject(): THREE.Line {
     this.geometry = this.getLineGeometry();
 
-    // TODO: move to utils
-    let appliedColor = 0xffff00;
-    if (this.materialColor !== undefined) {
-      appliedColor = this.materialColor * 1;
-    }
     const material = new THREE.LineBasicMaterial({
-      color: appliedColor,
+      color: appliedColor(this.materialColor),
       /**
        * NOTE: linewidth=1: Due to limitations of the OpenGL Core Profile
        * with the WebGL renderer on most platforms linewidth will always be 1
