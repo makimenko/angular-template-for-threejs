@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[1.0.2] - 2019-09-07](https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.0.2)
+### Added
+- Integrate Storybook.js for isolated component exploration and development
+- New demo scenes
+- New components for
+  - shadow
+  - direct light
+  - connector
+  - plane
+  - box meshes
+### Changed
+- Switch from Angular directives to components
+- New abstractions
+
 ## [[0.1.0] - 2019-04-18](https://github.com/makimenko/angular-template-for-threejs/releases/tag/v0.1.0)
 Same as [0.0.3], see [0.0.3] for the reasons it was yanked.
 
