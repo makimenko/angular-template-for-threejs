@@ -83,7 +83,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
         const material = this.getMaterial();
         const mesh = new THREE.Mesh(geometry, material);
         mesh.castShadow = this.castShadow;
-        // mesh.receiveShadow = this.receiveShadow;
+        mesh.receiveShadow = this.receiveShadow;
         resolve(mesh);
       });
     });

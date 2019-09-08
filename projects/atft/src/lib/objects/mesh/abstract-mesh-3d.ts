@@ -1,9 +1,9 @@
-import {Input} from '@angular/core';
+import {Input, OnChanges, SimpleChanges} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {appliedMaterial} from '../../utils';
 
-export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
+export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> implements OnChanges {
 
   @Input()
   material: string;
@@ -28,5 +28,24 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> {
     mesh.castShadow = this.castShadow;
     mesh.receiveShadow = this.receiveShadow;
   }
+
+  public ngOnChanges(changes: SimpleChanges) {
+    super.ngOnChanges(changes);
+    if (!this.getObject()) {
+      return;
+    }
+
+    let mustRerender = false;
+
+    if (['material', 'materialColor'].some(propName => propName in changes)) {
+      this.getObject().material = this.getMaterial();
+      mustRerender = true;
+    }
+
+    if (mustRerender) {
+      this.render.emit();
+    }
+  }
+
 
 }

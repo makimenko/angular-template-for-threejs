@@ -46,11 +46,6 @@ export class BoxMeshComponent extends AbstractMesh {
   @Input()
   depthSegments = 1;
 
-  constructor() {
-    super();
-    // console.log('CylinderMeshComponent.constructor');
-  }
-
   protected newObject3DInstance() {
     // console.log('BoxMeshComponent.newObject3DInstance');
     const geometry = new THREE.BoxGeometry(this.width, this.height, this.depth,
@@ -60,6 +55,5 @@ export class BoxMeshComponent extends AbstractMesh {
     this.applyShadowProps(mesh);
     return mesh;
   }
-
 
 }

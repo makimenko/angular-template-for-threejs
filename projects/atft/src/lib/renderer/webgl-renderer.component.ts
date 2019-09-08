@@ -16,6 +16,8 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   private renderer: THREE.WebGLRenderer;
   private viewInitialized = false;
   private readonly onDestroy = new Subject<void>();
+  private raycaster: THREE.Raycaster;
+  private selectedObject: THREE.Object3D;
 
   @ViewChild('canvas', {static: true})
   private canvasRef: ElementRef; // NOTE: say bye-bye to server-side rendering ;)
@@ -25,6 +27,9 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   @Input()
   renderQueue: Observable<void>; // TODO: add example of rendering via queue
+
+  @Input()
+  enableRaycaster = false;
 
   constructor() {
     // console.log('RendererComponent.constructor');
@@ -82,6 +87,8 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     // this.renderer.setClearColor(0xffffff, 1);
     // this.renderer.autoClear = true;
+
+    this.raycaster = new THREE.Raycaster();
 
     this.updateChildCamerasAspectRatio();
     this.render();
@@ -142,6 +149,44 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.onDestroy.next();
+  }
+
+
+  @HostListener('window:mousemove', ['$event'])
+  public onDocumentMouseMove(event) {
+    if (!this.enableRaycaster) {
+      return;
+    }
+
+    event.preventDefault();
+    const intersects = this.getIntersects(event.layerX, event.layerY);
+    if (intersects.length > 0) {
+      const res = intersects.filter((i) => {
+        return i && i.object;
+      })[0];
+      if (res && res.object) {
+        if (!this.selectedObject || this.selectedObject !== res.object) {
+          if (this.selectedObject) {
+            this.selectedObject.dispatchEvent({type: 'mouseExit'});
+            this.selectedObject = null;
+          }
+          this.selectedObject = res.object;
+          this.selectedObject.dispatchEvent({type: 'mouseEnter'});
+        }
+        // this.selectedObject.material.color.set('#ff0000');
+      }
+    }
+  }
+
+  private getIntersects(x, y): Array<THREE.Intersection> {
+    x = (x / window.innerWidth) * 2 - 1;
+    y = -(y / window.innerHeight) * 2 + 1;
+    const mouseVector = new THREE.Vector3(x, y, 0.5);
+    const cameraComponent = this.cameraComponents.first;
+    const sceneComponent = this.sceneComponents.first;
+    this.raycaster.setFromCamera(mouseVector, cameraComponent.camera);
+    const objs = this.raycaster.intersectObject(sceneComponent.getObject(), true);
+    return objs;
   }
 
 }
