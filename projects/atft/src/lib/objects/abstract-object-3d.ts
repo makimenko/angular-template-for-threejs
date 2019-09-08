@@ -38,6 +38,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   @Output() mouseEnter = new EventEmitter<void>();
   @Output() mouseExit = new EventEmitter<void>();
+  @Output() mouseDown = new EventEmitter<void>();
 
   private object: T;
 
@@ -93,6 +94,10 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
     this.object.addEventListener('mouseEnter', () => {
       this.mouseEnter.emit();
+    });
+
+    this.object.addEventListener('mouseDown', () => {
+      this.mouseDown.emit();
     });
 
     this.afterInit();

@@ -14,7 +14,7 @@ import {worldSceneWrapper} from '../common/world-scene-wrapper';
   template: `
       <atft-empty>
           <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="raise"
-                         (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (render)="render.emit()">
+                         (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()" (render)="render.emit()">
           </atft-box-mesh>
           <atft-text-mesh [text]="name" [size]="2" [bevelEnabled]="false" height="0"
                           material="basic"
@@ -52,6 +52,9 @@ class ServerActorComponent extends EmptyComponent {
     this.color = 0xffffff;
   }
 
+  public onClick() {
+    this.color = 0xffa0a0;
+  }
 }
 
 

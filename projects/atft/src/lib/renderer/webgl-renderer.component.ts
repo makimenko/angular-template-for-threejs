@@ -154,10 +154,31 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   @HostListener('window:mousemove', ['$event'])
   public onDocumentMouseMove(event) {
+    const i = this.getIntersected(event);
+    if (i) {
+      if (!this.selectedObject || this.selectedObject !== i) {
+        if (this.selectedObject) {
+          this.selectedObject.dispatchEvent({type: 'mouseExit'});
+          this.selectedObject = null;
+        }
+        this.selectedObject = i;
+        this.selectedObject.dispatchEvent({type: 'mouseEnter'});
+      }
+    }
+  }
+
+  @HostListener('window:mousedown', ['$event'])
+  public onDocumentMouseDown(event) {
+    const i = this.getIntersected(event);
+    if (i) {
+      i.dispatchEvent({type: 'mouseDown'});
+    }
+  }
+
+  private getIntersected(event): THREE.Object3D {
     if (!this.enableRaycaster) {
       return;
     }
-
     event.preventDefault();
     const intersects = this.getIntersects(event.layerX, event.layerY);
     if (intersects.length > 0) {
@@ -165,17 +186,10 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
         return i && i.object;
       })[0];
       if (res && res.object) {
-        if (!this.selectedObject || this.selectedObject !== res.object) {
-          if (this.selectedObject) {
-            this.selectedObject.dispatchEvent({type: 'mouseExit'});
-            this.selectedObject = null;
-          }
-          this.selectedObject = res.object;
-          this.selectedObject.dispatchEvent({type: 'mouseEnter'});
-        }
-        // this.selectedObject.material.color.set('#ff0000');
+        return res.object;
       }
     }
+    return;
   }
 
   private getIntersects(x, y): Array<THREE.Intersection> {
@@ -188,5 +202,6 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     const objs = this.raycaster.intersectObject(sceneComponent.getObject(), true);
     return objs;
   }
+
 
 }
