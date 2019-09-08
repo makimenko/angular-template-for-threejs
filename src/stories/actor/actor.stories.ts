@@ -113,11 +113,11 @@ storiesOf('Actor', module)
       ]
     }),
   )
+  .add('actors', () => ({
+    component: StorybookSceneComponent
+  }))
   .add('server', () => ({
     component: StorybookServerComponent
-  }))
-  .add('scene', () => ({
-    component: StorybookSceneComponent
   }))
 ;
 
