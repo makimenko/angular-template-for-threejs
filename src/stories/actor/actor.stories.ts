@@ -17,10 +17,12 @@ import {worldSceneWrapper} from '../common/world-scene-wrapper';
                          (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()" (render)="render.emit()">
           </atft-box-mesh>
           <atft-text-mesh [text]="name" [size]="2" [bevelEnabled]="false" height="0"
-                          material="basic"
-                          [translateX]="-7" [translateY]="-8" [translateZ]="0.2"
+                          material="basic" materialColor="0xDADADA"
+                          [translateX]="-7" [translateY]="-12" [translateZ]="0.2"
                           (render)="render.emit()"
           ></atft-text-mesh>
+          <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="15" [translateZ]="0.5" material="basic" materialColor="0xDADADA">
+          </atft-frame-mesh>
       </atft-empty>
   `
 })
@@ -43,7 +45,7 @@ class ServerActorComponent extends EmptyComponent {
   color = 0xffffff;
 
   public onSelected() {
-    this.raise = 7.5;
+    this.raise = 7.2;
     this.color = 0xfff0f0;
   }
 
