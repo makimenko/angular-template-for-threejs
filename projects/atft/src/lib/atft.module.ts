@@ -22,6 +22,7 @@ import {LineConnectorComponent} from './objects/connector/line-connector.compone
 import {HemisphereLightComponent} from './objects/light/hemisphere-light.component';
 import {DirectionalLightComponent} from './objects/light/directional-light.component';
 import {PlaneMeshComponent} from './objects/mesh/plane-mesh.component';
+import {FrameMeshComponent} from './objects/mesh/frame-mesh.component';
 
 // NOTE: In case of "ERROR in Unexpected value 'undefined' exported by the module 'AtftModule" fix imports (do not import index.ts)
 
@@ -49,7 +50,8 @@ import {PlaneMeshComponent} from './objects/mesh/plane-mesh.component';
     LineConnectorComponent,
     HemisphereLightComponent,
     DirectionalLightComponent,
-    PlaneMeshComponent
+    PlaneMeshComponent,
+    FrameMeshComponent
   ],
   exports: [
     OrbitControlsComponent,
@@ -73,7 +75,8 @@ import {PlaneMeshComponent} from './objects/mesh/plane-mesh.component';
     LineConnectorComponent,
     HemisphereLightComponent,
     DirectionalLightComponent,
-    PlaneMeshComponent
+    PlaneMeshComponent,
+    FrameMeshComponent
   ]
 })
 export class AtftModule {

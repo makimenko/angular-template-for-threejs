@@ -65,17 +65,27 @@ class StorybookTextMeshComponent {
 }
 
 
+@Component({
+  selector: 'app-storybook-frame-mesh',
+  template: defaultSceneWrapper(`
+  <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="20" [translateZ]="0.5" material="basic" materialColor="0xff0000">
+  </atft-frame-mesh>
+  `)
+})
+class StorybookFrameMeshComponent {
+
+}
+
+
+
+
+
 storiesOf('Mesh', module)
   .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
       imports: [
         AtftModule
-      ],
-      declarations: [
-        StorybookCylinderMeshComponent,
-        StorybookSphereMeshComponent,
-        StorybookTorusMeshComponent
       ]
     }),
   )
@@ -93,6 +103,9 @@ storiesOf('Mesh', module)
   }))
   .add('text', () => ({
     component: StorybookTextMeshComponent
+  }))
+  .add('frame', () => ({
+    component: StorybookFrameMeshComponent
   }))
 ;
 

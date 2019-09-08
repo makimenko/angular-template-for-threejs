@@ -44,10 +44,6 @@ storiesOf('Connector', module)
     moduleMetadata({
       imports: [
         AtftModule
-      ],
-      declarations: [
-        StorybookMeshLineComponent,
-        StorybookLineComponent
       ]
     }),
   )

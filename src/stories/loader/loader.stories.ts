@@ -43,10 +43,6 @@ storiesOf('Loader', module)
     moduleMetadata({
       imports: [
         AtftModule
-      ],
-      declarations: [
-        StorybookObjectLoaderComponent,
-        StorybookObjLoaderComponent
       ]
     }),
   )

@@ -30,9 +30,6 @@ storiesOf('Bugs', module)
     moduleMetadata({
       imports: [
         AtftModule
-      ],
-      declarations: [
-        StorybookObjLoaderComponent
       ]
     }),
   )

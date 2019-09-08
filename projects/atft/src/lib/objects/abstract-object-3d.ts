@@ -1,16 +1,19 @@
 import {
   AfterViewInit,
-  ContentChildren, EventEmitter,
+  ContentChildren,
+  EventEmitter,
   Input,
-  OnChanges, Output,
+  OnChanges,
+  Output,
   QueryList,
-  SimpleChanges, ViewChildren
+  SimpleChanges,
+  ViewChildren
 } from '@angular/core';
 import * as THREE from 'three';
 
 export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit, OnChanges {
 
-  @ContentChildren(AbstractObject3D, { descendants: false }) childNodes: QueryList<AbstractObject3D<THREE.Object3D>>;
+  @ContentChildren(AbstractObject3D, {descendants: false}) childNodes: QueryList<AbstractObject3D<THREE.Object3D>>;
 
   @ViewChildren(AbstractObject3D) viewChilds: QueryList<AbstractObject3D<THREE.Object3D>>;
 
@@ -32,6 +35,10 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
    * Notify parent component, that scene rendering is required
    */
   @Output() render = new EventEmitter<void>();
+
+  @Output() mouseEnter = new EventEmitter<void>();
+  @Output() mouseExit = new EventEmitter<void>();
+  @Output() mouseDown = new EventEmitter<void>();
 
   private object: T;
 
@@ -80,6 +87,18 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     } else {
       // console.log("No child Object3D for: " + this.constructor.name);
     }
+
+    this.object.addEventListener('mouseExit', () => {
+      this.mouseExit.emit();
+    });
+
+    this.object.addEventListener('mouseEnter', () => {
+      this.mouseEnter.emit();
+    });
+
+    this.object.addEventListener('mouseDown', () => {
+      this.mouseDown.emit();
+    });
 
     this.afterInit();
   }
