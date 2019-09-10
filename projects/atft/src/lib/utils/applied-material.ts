@@ -9,10 +9,10 @@ import {appliedColor} from './applied-color';
  * @param materialName material name as string
  * @param depthWrite enable depth write
  */
-export function appliedMaterial(materialColor: number, materialName?: string, depthWrite?: boolean): THREE.Material {
+export function appliedMaterial(materialColor: number | THREE.Color, materialName?: string, depthWrite?: boolean): THREE.Material {
 
   const props = {
-    color: appliedColor(materialColor),
+    color: (materialColor instanceof THREE.Color ? materialColor : appliedColor(materialColor) ),
     side: THREE.DoubleSide,
     depthWrite: (depthWrite ? depthWrite : true)
   };
