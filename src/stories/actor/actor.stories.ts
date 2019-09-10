@@ -81,10 +81,12 @@ class StorybookServerComponent {
         </app-storybook-server-actor>
 
         <!-- Edges: -->
-        <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0x00AA00" [lineWidth]="1"
+        <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0xffffff" [lineWidth]="1"
+            [transparent]="true" opacity="0.2"
             (render)="mainRenderer.render()">
         </atft-mesh-line-connector>
-        <atft-mesh-line-connector [source]="z001" [target]="tx71" materialColor="0xAA0000" [lineWidth]="1"
+        <atft-mesh-line-connector [source]="z001" [target]="tx71" materialColor="0xffffff" [lineWidth]="1"
+            [transparent]="true" opacity="0.2"
             (render)="mainRenderer.render()">
         </atft-mesh-line-connector>
     </atft-empty>
