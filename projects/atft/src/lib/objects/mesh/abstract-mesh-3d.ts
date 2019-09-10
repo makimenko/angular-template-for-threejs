@@ -36,15 +36,18 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> implemen
     }
 
     let mustRerender = false;
-
     if (['material', 'materialColor'].some(propName => propName in changes)) {
-      this.getObject().material = this.getMaterial();
+      this.applyMaterial();
       mustRerender = true;
     }
 
     if (mustRerender) {
       this.render.emit();
     }
+  }
+
+  public applyMaterial() {
+    this.getObject().material = this.getMaterial();
   }
 
 
