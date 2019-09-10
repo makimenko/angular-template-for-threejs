@@ -13,8 +13,12 @@ import {worldSceneWrapper} from '../common/world-scene-wrapper';
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => ServerActorComponent)}],
   template: `
       <atft-empty>
-          <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="raise"
+          <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7"
                          (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()" (render)="render.emit()">
+              <atft-svg-loader (render)="render.emit()" [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
+                               material="basic" maxX="8" maxY="8" [translateZ]="7" [depthWrite]="false"
+                               translateY="-5.1" [rotateX]="(90 | deg2rad)"
+              ></atft-svg-loader>
           </atft-box-mesh>
           <atft-text-mesh [text]="name" [size]="2" [bevelEnabled]="false" height="0"
                           material="basic" materialColor="0xDADADA"
@@ -40,17 +44,17 @@ class ServerActorComponent extends EmptyComponent {
   @Output()
   deselected = new EventEmitter<void>();
 
+  @Input()
+  svgName = 'grid-world.svg';
 
-  raise = 7;
+
   color = 0xffffff;
 
   public onSelected() {
-    this.raise = 7.2;
     this.color = 0xfff0f0;
   }
 
   public onDeselected() {
-    this.raise = 7;
     this.color = 0xffffff;
   }
 
