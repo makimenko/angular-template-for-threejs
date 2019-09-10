@@ -38,6 +38,21 @@ class StorybookObjLoaderComponent {
 }
 
 
+@Component({
+  selector: 'app-storybook-svg-loader',
+  template: defaultSceneWrapper(`
+      <atft-svg-loader (render)="mainRenderer.render()" model="./assets/svg/worldwide.svg" maxX="15" maxY="15">
+      </atft-svg-loader>
+      <atft-svg-loader (render)="mainRenderer.render()" model="./assets/svg/grid-world.svg" overrideMaterialColor="0x0000ff"
+        maxX="10" maxY="10"  translateZ="2">
+      </atft-svg-loader>
+  `)
+})
+class StorybookSVGLoaderComponent {
+
+}
+
+
 storiesOf('Loader', module)
   .addDecorator(
     moduleMetadata({
@@ -51,5 +66,8 @@ storiesOf('Loader', module)
   }))
   .add('Wavefront obj+mtl', () => ({
     component: StorybookObjLoaderComponent
+  }))
+  .add('svg', () => ({
+    component: StorybookSVGLoaderComponent
   }))
 ;

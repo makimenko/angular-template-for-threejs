@@ -23,6 +23,7 @@ import {HemisphereLightComponent} from './objects/light/hemisphere-light.compone
 import {DirectionalLightComponent} from './objects/light/directional-light.component';
 import {PlaneMeshComponent} from './objects/mesh/plane-mesh.component';
 import {FrameMeshComponent} from './objects/mesh/frame-mesh.component';
+import {SVGLoaderComponent} from './objects/loaders/svg-loader.component';
 
 // NOTE: In case of "ERROR in Unexpected value 'undefined' exported by the module 'AtftModule" fix imports (do not import index.ts)
 
@@ -51,7 +52,8 @@ import {FrameMeshComponent} from './objects/mesh/frame-mesh.component';
     HemisphereLightComponent,
     DirectionalLightComponent,
     PlaneMeshComponent,
-    FrameMeshComponent
+    FrameMeshComponent,
+    SVGLoaderComponent
   ],
   exports: [
     OrbitControlsComponent,
@@ -76,7 +78,8 @@ import {FrameMeshComponent} from './objects/mesh/frame-mesh.component';
     HemisphereLightComponent,
     DirectionalLightComponent,
     PlaneMeshComponent,
-    FrameMeshComponent
+    FrameMeshComponent,
+    SVGLoaderComponent
   ]
 })
 export class AtftModule {

@@ -5,7 +5,7 @@
  */
 export function appliedColor(color: number, defaultColor?: number): number {
   let resultColor = (defaultColor ? defaultColor : 0xffffff);
-  if (color !== undefined) {
+  if (color !== undefined  ) {
     resultColor = color * 1;
   }
   return resultColor;

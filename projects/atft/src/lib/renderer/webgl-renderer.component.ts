@@ -182,6 +182,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     event.preventDefault();
     const intersects = this.getIntersects(event.layerX, event.layerY);
     if (intersects.length > 0) {
+      // TODO: Select parent group by default
       const res = intersects.filter((i) => {
         return i && i.object;
       })[0];
