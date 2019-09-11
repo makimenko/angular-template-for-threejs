@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
-import {AbstractCamera} from '../cameras/abstract-camera';
+import {AbstractCamera} from '../camera/abstract-camera';
 
 @Component({
   selector: 'atft-orbit-controls',
@@ -25,19 +25,19 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
   @ContentChildren(AbstractCamera, { descendants: true }) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
 
   /**
-   * The element on whose native element the orbit controls will listen for mouse events.
+   * The element on whose native element the orbit control will listen for mouse events.
    *
    * Note that keyboard events are still listened for on the global window object, this is
    * a known issue from Three.js: https://github.com/mrdoob/three.js/pull/10315
    *
-   * @example This property can be used to restrict the orbit controls (i.e. the
+   * @example This property can be used to restrict the orbit control (i.e. the
    * area which is listened for mouse move and zoom events) to the rendering pane:
    * ```
-   * <three-orbit-controls [listeningControlElement]=mainRenderer.renderPane>
+   * <three-orbit-control [listeningControlElement]=mainRenderer.renderPane>
    *   <three-renderer #mainRenderer>
    *     ...
    *   </three-renderer>
-   * </three-orbit-controls>
+   * </three-orbit-control>
    * ```
    */
   @Input() listeningControlElement: ElementRef | undefined = undefined;

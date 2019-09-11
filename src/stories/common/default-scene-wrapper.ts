@@ -1,5 +1,5 @@
 /**
- * Default Storybook 3D scene wrapper includes light, camera, orbit controls, Z axus up, grid and axis helpers.
+ * Default Storybook 3D scene wrapper includes light, camera, orbit control, Z axus up, grid and axis helper.
  * Such template allows to focus on storybook inputs/knobs and actions testing.
  *
  * @param content content template

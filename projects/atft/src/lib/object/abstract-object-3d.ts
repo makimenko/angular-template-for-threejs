@@ -1,7 +1,7 @@
 import {
   AfterViewInit,
   ContentChildren,
-  EventEmitter,
+  EventEmitter, Injectable,
   Input,
   OnChanges,
   Output,
@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import * as THREE from 'three';
 
+@Injectable()
 export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit, OnChanges {
 
   @ContentChildren(AbstractObject3D, {descendants: false}) childNodes: QueryList<AbstractObject3D<THREE.Object3D>>;

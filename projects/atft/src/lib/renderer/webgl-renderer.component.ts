@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ContentChildren, ElementRef, HostListener, Input, OnDestroy, QueryList, ViewChild} from '@angular/core';
 import * as THREE from 'three';
-import {SceneComponent} from '../objects/scene.component';
-import {AbstractCamera} from '../cameras/abstract-camera';
+import {SceneComponent} from '../object/scene.component';
+import {AbstractCamera} from '../camera/abstract-camera';
 import {Observable, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 
@@ -23,7 +23,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   private canvasRef: ElementRef; // NOTE: say bye-bye to server-side rendering ;)
 
   @ContentChildren(SceneComponent) sceneComponents: QueryList<SceneComponent>; // TODO: Multiple scenes
-  @ContentChildren(AbstractCamera) cameraComponents: QueryList<AbstractCamera<THREE.Camera>>; // TODO: Multiple cameras
+  @ContentChildren(AbstractCamera) cameraComponents: QueryList<AbstractCamera<THREE.Camera>>; // TODO: Multiple camera
 
   @Input()
   renderQueue: Observable<void>; // TODO: add example of rendering via queue
@@ -55,14 +55,14 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
    * implementation, so this property will always be an ElementRef to the
    * underlying <canvas> element.
    *
-   * @example This property can be used to restrict the orbit controls (i.e. the
+   * @example This property can be used to restrict the orbit control (i.e. the
    * area which is listened for mouse move and zoom events) to the rendering pane:
    * ```
-   * <three-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
+   * <three-orbit-control [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
    *   <three-renderer #mainRenderer>
    *     ...
    *   </three-renderer>
-   * </three-orbit-controls>
+   * </three-orbit-control>
    * ```
    */
   public get renderPane(): ElementRef {

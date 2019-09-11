@@ -34,7 +34,7 @@ script:
 
   # 2. Generate API documentation
   - npm install -g @compodoc/compodoc
-  - compodoc -p src/tsconfig.app.json -d dist/gh-pages-deploy
+  - compodoc -p projects/atft/tsconfig.lib.json -d dist/gh-pages-deploy
 
   # 3. Generate Storybook
   - npx build-storybook -c .storybook -o ./dist/gh-pages-deploy/storybook
