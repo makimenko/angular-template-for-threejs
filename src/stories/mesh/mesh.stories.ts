@@ -55,8 +55,8 @@ class StorybookBoxMeshComponent {
   selector: 'app-storybook-text-mesh',
   template: defaultSceneWrapper(`
   <atft-text-mesh text="Hello World! :)"
-    material="phong" materialColor="0x0000FF" [bevelEnabled]="true" curveSegments="20"
-    [translateX]="-50" (render)="mainRenderer.render()"
+    material="phong" materialColor="0x0000FF" [bevelEnabled]="true" curveSegments="20" [centered]="true"
+     (render)="mainRenderer.render()"
   ></atft-text-mesh>
   `)
 })
