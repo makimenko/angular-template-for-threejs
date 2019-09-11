@@ -89,19 +89,22 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
       // console.log("No child Object3D for: " + this.constructor.name);
     }
 
-    this.object.addEventListener('mouseExit', () => {
+    this.listenMouseEvents(this.object);
+    this.afterInit();
+  }
+
+  protected listenMouseEvents(object: THREE.Object3D) {
+    object.addEventListener('mouseExit', () => {
       this.mouseExit.emit();
     });
 
-    this.object.addEventListener('mouseEnter', () => {
+    object.addEventListener('mouseEnter', () => {
       this.mouseEnter.emit();
     });
 
-    this.object.addEventListener('mouseDown', () => {
+    object.addEventListener('mouseDown', () => {
       this.mouseDown.emit();
     });
-
-    this.afterInit();
   }
 
   private applyRotation(): void {

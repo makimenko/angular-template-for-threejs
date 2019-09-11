@@ -5,11 +5,8 @@ import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader';
 
 import * as THREE from 'three';
 import {appliedColor, appliedMaterial} from '../../util';
-
-interface Boundaries {
-  sizeX: number;
-  sizeY: number;
-}
+import {fixCenter} from '../../util/fix-center';
+import {scaleToFit} from '../../util/scale-to-fit';
 
 @Component({
   selector: 'atft-svg-loader',
@@ -56,42 +53,26 @@ export class SVGLoaderComponent extends AbstractModelLoader {
               const geometry = new THREE.ShapeBufferGeometry(shape);
               const mesh = new THREE.Mesh(geometry, material);
               group.add(mesh);
+
+              // TODO: Make it nicer (raycast parent group of objects?)
+              this.listenMouseEvents(mesh);
             }
           }
 
           if (this.maxX || this.maxY) {
-            this.resize(group);
+            scaleToFit(group, new THREE.Vector3(this.maxX, this.maxY, 0));
           }
           if (this.centered) {
-            this.fixCenter(group);
+            fixCenter(group);
           }
+
+
 
           resolve(group);
         },
         undefined,
         reject);
     });
-  }
-
-  private getBoundaries(group: THREE.Object3D): Boundaries {
-    const box = new THREE.Box3().setFromObject(group);
-    return {
-      sizeX: box.max.x - box.min.x,
-      sizeY: box.max.y - box.min.y
-    };
-  }
-
-  private resize(group: THREE.Object3D) {
-    const box = this.getBoundaries(group);
-    const scaleX = this.maxX / box.sizeX;
-    const scaleY = this.maxY / box.sizeY;
-    group.scale.set((scaleX < 1 ? scaleX : 1), (scaleY < 1 ? scaleY : 1), 1);
-  }
-
-  private fixCenter(group: THREE.Object3D) {
-    const box = this.getBoundaries(group);
-    group.translateX(-box.sizeX / 2);
-    group.translateY(-box.sizeY / 2);
   }
 
 
