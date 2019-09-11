@@ -1,7 +1,7 @@
 import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from './abstract-object-3d';
-import {appliedColor} from '../utils/applied-color';
+import {appliedColor} from '../util/applied-color';
 
 @Component({
   selector: 'atft-scene',

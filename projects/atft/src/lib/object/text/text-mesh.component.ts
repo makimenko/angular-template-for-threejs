@@ -2,8 +2,8 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
-import {appliedColor} from '../../utils/applied-color';
-import {appliedMaterial} from '../../utils';
+import {appliedColor} from '../../util/applied-color';
+import {appliedMaterial} from '../../util';
 
 @Component({
   selector: 'atft-text-mesh',

@@ -1,7 +1,7 @@
 import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
-import {appliedColor} from '../../utils';
+import {appliedColor} from '../../util';
 
 @Component({
   selector: 'atft-point-light',

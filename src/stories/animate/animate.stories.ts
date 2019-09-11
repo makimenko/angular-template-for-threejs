@@ -4,7 +4,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {withKnobs} from '@storybook/addon-knobs';
 import {defaultSceneWrapper} from '../common/default-scene-wrapper';
-import {BoxMeshComponent} from '../../../projects/atft/src/lib/objects/mesh';
+import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh';
 import * as THREE from 'three';
 
 @Component({

@@ -4,7 +4,7 @@ import {AbstractModelLoader} from './abstract-model-loader';
 import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader';
 
 import * as THREE from 'three';
-import {appliedColor, appliedMaterial} from '../../utils';
+import {appliedColor, appliedMaterial} from '../../util';
 
 interface Boundaries {
   sizeX: number;

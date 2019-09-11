@@ -23,8 +23,8 @@
       <atft-axes-helper size=200></atft-axes-helper>
       <atft-grid-helper size=100 divisions=10></atft-grid-helper>
 
-      <atft-point-light color="white" intensity="0.9" distance="1000" translateX=50 translateY=50 translateZ=50></atft-point-light>
-      <atft-point-light color="#FAFAFA" intensity="0.5" distance="1000" translateX=-50 translateY=50 translateZ=20></atft-point-light>
+      <atft-point-light color="0xffffff" intensity="0.9" distance="1000" translateX=50 translateY=50 translateZ=50></atft-point-light>
+      <atft-point-light color="0xffffff" intensity="0.1" distance="1000" translateX=-50 translateY=50 translateZ=20></atft-point-light>
 
       <atft-obj-loader
         (render)="mainRenderer.render()"
@@ -48,7 +48,7 @@
       </div>
 
       <atft-empty translateZ=-50>
-        <atft-sphere-mesh [radius]="4" [widthSegments]="20" [hightSegments]="20" material="lamb" materialColor="0xff0000"
+        <atft-sphere-mesh [radius]="4" [widthSegments]="20" [hightSegments]="20" material="phong" materialColor="0xff0000"
           [translateX]=10 [translateY]=5 [translateZ]="20">
         </atft-sphere-mesh>
         <atft-cylinder-mesh [radiusTop]="2" [radiusBottom]="3" [height]="10" [radialSegments]="36" [heightSegments]="1"

@@ -1,7 +1,7 @@
 export * from './scene.component';
 
-export * from './helpers';
+export * from './helper';
 export * from './light';
-export * from './loaders';
+export * from './loader';
 export * from './mesh';
 export * from './connector';

@@ -3,9 +3,9 @@
  */
 
 export * from './lib/atft.module';
-export * from './lib/cameras';
-export * from './lib/controls';
-export * from './lib/objects';
-export * from './lib/pipes';
+export * from './lib/camera';
+export * from './lib/control';
+export * from './lib/object';
+export * from './lib/pipe';
 export * from './lib/renderer';
-export * from './lib/utils';
+export * from './lib/util';

@@ -1,7 +1,7 @@
 import {Input, OnChanges, SimpleChanges} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
-import {appliedMaterial} from '../../utils';
+import {appliedMaterial} from '../../util';
 
 export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> implements OnChanges {
 

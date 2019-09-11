@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {MeshLine, MeshLineMaterial} from 'three.meshline';
 import {AbstractConnector} from './abstract-connector';
-import {appliedColor} from '../../utils/applied-color';
+import {appliedColor} from '../../util/applied-color';
 
 @Component({
   selector: 'atft-mesh-line-connector',

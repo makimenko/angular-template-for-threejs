@@ -1,5 +1,5 @@
 /**
- * Minimalistic Storybook 3D scene wrapper includes light, camera and orbit controls.
+ * Minimalistic Storybook 3D scene wrapper includes light, camera and orbit control.
  * Such template allows to focus on storybook models testing.
  *
  * @param content content template
