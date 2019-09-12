@@ -30,9 +30,15 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
   @Input()
   depthTest = true;
 
+  @Input()
+  animated = false;
+
+  @Input() animationIncrement = 0.001;
 
   private geometry: THREE.Geometry;
   private line: MeshLine;
+  private lineMaterial: MeshLineMaterial;
+
 
   createConnectorObject(): THREE.Mesh {
     this.geometry = this.getLineGeometry();
@@ -40,18 +46,45 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
     this.line = new MeshLine();
     this.line.setGeometry(this.geometry);
 
-    const material = new MeshLineMaterial({
-      // TODO: dynamic parameters
-      color: appliedColor(this.materialColor),
-      transparent: this.transparent,
-      opacity: this.opacity,
-      lineWidth: this.lineWidth,
-      depthWrite: this.depthWrite,
-      depthTest: this.depthTest,
-      side: THREE.DoubleSide,
-      blending: THREE.NormalBlending
-    });
-    return new THREE.Mesh(this.line.geometry, material);
+    this.lineMaterial = (this.animated ?
+        new MeshLineMaterial({
+          color: appliedColor(this.materialColor),
+          transparent: this.transparent,
+          opacity: this.opacity,
+          lineWidth: this.lineWidth,
+          depthWrite: this.depthWrite,
+          depthTest: this.depthTest,
+          side: THREE.DoubleSide,
+          blending: THREE.NormalBlending,
+          // TODO: props
+          dashArray: 0.05,
+          dashOffset: 0.1,
+          dashRatio: 0.1
+        })
+        : new MeshLineMaterial({
+          color: appliedColor(this.materialColor),
+          transparent: this.transparent,
+          opacity: this.opacity,
+          lineWidth: this.lineWidth,
+          depthWrite: this.depthWrite,
+          depthTest: this.depthTest,
+          side: THREE.DoubleSide,
+          blending: THREE.NormalBlending
+        })
+    );
+
+    const mesh = new THREE.Mesh(this.line.geometry, this.lineMaterial);
+    if (this.animated) {
+      this.animate = this.animate.bind(this);
+      this.animate();
+    }
+    return mesh;
+  }
+
+  private animate() {
+    requestAnimationFrame(this.animate);
+    this.lineMaterial.uniforms.dashOffset.value += this.animationIncrement;
+    this.render.emit();
   }
 
 

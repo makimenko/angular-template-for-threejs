@@ -22,16 +22,16 @@ import {worldSceneWrapper} from '../common/world-scene-wrapper';
               ></atft-svg-loader>
           </atft-box-mesh>
           <atft-text-mesh [text]="name" [size]="2" [bevelEnabled]="false" height="0" [centered]="true" (render)="render.emit()"
-            material="basic" materialColor="0xDADADA" [translateY]="-12" [translateZ]="0.2">
+                          material="basic" materialColor="0xDADADA" [translateY]="-12" [translateZ]="0.2">
           </atft-text-mesh>
           <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="15" [translateZ]="0.5" material="basic" [materialColor]="color"
-                           (render)="render.emit()" (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()" >
+                           (render)="render.emit()" (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
           </atft-frame-mesh>
       </atft-empty>
   `
 })
 class ServerActorComponent extends EmptyComponent {
-  // TODO: text align to center: dynamically calculate translateY
+
   @Input()
   name: string;
 
@@ -64,6 +64,46 @@ class ServerActorComponent extends EmptyComponent {
 
 
 @Component({
+  selector: 'app-storybook-layer-actor',
+  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => LayerActorComponent)}],
+  template: `
+      <atft-plane-mesh [width]="width" [height]="height" [materialColor]="color"
+                       (mouseEnter)="onSelected()" (mouseExit)="onDeselected()"
+      >
+          <atft-text-mesh [centered]="true" [text]="name" size="5" translateX="40" [rotateZ]="(90 | deg2rad)"
+                          materialColor="0xE0E0E0" (render)="render.emit()"
+                          (mouseEnter)="onSelected()" (mouseExit)="onDeselected()"
+          >
+          </atft-text-mesh>
+      </atft-plane-mesh>
+  `
+})
+class LayerActorComponent extends EmptyComponent {
+  @Input() name: string;
+  @Input() width: number;
+  @Input() height: number;
+
+  @Output() render = new EventEmitter<void>();
+  @Output() selected = new EventEmitter<void>();
+  @Output() deselected = new EventEmitter<void>();
+
+  color = 0xA0A0A0;
+
+  public onSelected() {
+    this.color = 0xA4A4A4;
+  }
+
+  public onDeselected() {
+    this.color = 0xA0A0A0;
+  }
+
+  public onClick() {
+    this.color = 0xA0A0A0;
+  }
+}
+
+
+@Component({
   selector: 'app-storybook-box-mesh',
   template: worldSceneWrapper(`
     <app-storybook-server-actor name="Server RX10" (render)="mainRenderer.render()"></app-storybook-server-actor>
@@ -78,16 +118,12 @@ class StorybookServerComponent {
   template: worldSceneWrapper(`
     <atft-empty>
 
-        <atft-plane-mesh width="100" height="40" [translateZ]="0.5" [translateY]="-20" materialColor="0xA0A0A0">
-            <atft-text-mesh [centered]="true" text="Servers A" size="5" translateX="40" [rotateZ]="(90 | deg2rad)"
-                materialColor="0xE0E0E0" (render)="mainRenderer.render()">
-            </atft-text-mesh>
-        </atft-plane-mesh>
-        <atft-plane-mesh width="100" height="50" [translateZ]="0.4" [translateY]="30" materialColor="0xA0A0A0">
-            <atft-text-mesh [centered]="true" text="Servers B" size="5" translateX="40" [rotateZ]="(90 | deg2rad)"
-                materialColor="0xE0E0E0" (render)="mainRenderer.render()">
-            </atft-text-mesh>
-        </atft-plane-mesh>
+        <app-storybook-layer-actor width="100" height="40" [translateZ]="0.5" [translateY]="-20" name="Servers A"
+           (render)="mainRenderer.render()">
+        </app-storybook-layer-actor>
+        <app-storybook-layer-actor width="100" height="50" [translateZ]="0.5" [translateY]="30" name="Servers B"
+           (render)="mainRenderer.render()">
+        </app-storybook-layer-actor>
 
         <atft-empty translateZ="0.5">
           <!-- Nodes: -->
@@ -102,11 +138,11 @@ class StorybookServerComponent {
           <!-- Edges: -->
           <atft-empty translateZ="0.1">
             <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0xffffff" [lineWidth]="1"
-                [transparent]="true" opacity="0.2"
+                [transparent]="true" opacity="0.2" [animated]="true" [animationIncrement]="0.001"
                 (render)="mainRenderer.render()">
             </atft-mesh-line-connector> -->
             <atft-mesh-line-connector [source]="z001" [target]="tx71" materialColor="0xffffff" [lineWidth]="1"
-                [transparent]="true" opacity="0.2"
+                [transparent]="true" opacity="0.2" [animated]="true" [animationIncrement]="-0.001"
                 (render)="mainRenderer.render()">
              </atft-mesh-line-connector>
            </atft-empty>
@@ -133,7 +169,8 @@ storiesOf('Actor', module)
       declarations: [
         ServerActorComponent,
         StorybookServerComponent,
-        StorybookSceneComponent
+        StorybookSceneComponent,
+        LayerActorComponent
       ]
     }),
   )

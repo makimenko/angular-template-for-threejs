@@ -38,6 +38,28 @@ class StorybookLineComponent {
 
 }
 
+
+@Component({
+  selector: 'app-storybook-animated-mesh-line',
+  template: defaultSceneWrapper(`
+  <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
+    #a translateY="50" translateX="-10" [translateZ]="translateZ">
+  </atft-sphere-mesh>
+  <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
+    #b translateY="-50" translateX="10" translateZ="+10">
+  </atft-sphere-mesh>
+
+  <atft-mesh-line-connector [source]="a" [target]="b" (render)="mainRenderer.render()" materialColor="0xff0000"
+  [animated]="true"
+  >
+  </atft-mesh-line-connector>
+  `)
+})
+class StorybookAnimatedMeshLineComponent {
+
+}
+
+
 storiesOf('Connector', module)
   .addDecorator(withKnobs)
   .addDecorator(
@@ -55,6 +77,12 @@ storiesOf('Connector', module)
   }))
   .add('line', () => ({
     component: StorybookLineComponent,
+    props: {
+      translateZ: number('translateZ', -10, {range: true, min: -10, max: 100, step: 1})
+    }
+  }))
+  .add('animated-mesh-line', () => ({
+    component: StorybookAnimatedMeshLineComponent,
     props: {
       translateZ: number('translateZ', -10, {range: true, min: -10, max: 100, step: 1})
     }
