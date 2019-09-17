@@ -10,7 +10,7 @@ import {DataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-c
 @Component({
   selector: 'app-storybook-box-mesh',
   template: worldSceneWrapper(`
-    <app-server-actor name="Server RX10" (render)="mainRenderer.render()"></app-server-actor>
+    <atft-server-actor name="Server RX10" (render)="mainRenderer.render()"></atft-server-actor>
   `)
 })
 class StorybookServerComponent {
@@ -22,23 +22,23 @@ class StorybookServerComponent {
   template: worldSceneWrapper(`
     <atft-empty>
 
-        <app-layer-actor width="100" height="40" [translateZ]="0.5" [translateY]="-20" name="Servers A"
+        <atft-layer-actor width="100" height="40" [translateZ]="0.5" [translateY]="-20" name="Servers A"
            (render)="mainRenderer.render()">
-        </app-layer-actor>
-        <app-layer-actor width="100" height="50" [translateZ]="0.5" [translateY]="30" name="Servers B"
+        </atft-layer-actor>
+        <atft-layer-actor width="100" height="50" [translateZ]="0.5" [translateY]="30" name="Servers B"
            (render)="mainRenderer.render()">
-        </app-layer-actor>
+        </atft-layer-actor>
 
         <atft-empty translateZ="0.5">
           <!-- Nodes: -->
-          <app-server-actor #rx10 name="RX10" translateY="-20" (render)="mainRenderer.render()" svgName="idea.svg">
-          </app-server-actor>
-          <app-server-actor #z001 name="Server Z001" translateY="-20" [translateX]="-30" svgName="grid-world.svg"
+          <atft-server-actor #rx10 name="RX10" translateY="-20" (render)="mainRenderer.render()" svgName="idea.svg">
+          </atft-server-actor>
+          <atft-server-actor #z001 name="Server Z001" translateY="-20" [translateX]="-30" svgName="grid-world.svg"
             (render)="mainRenderer.render()">
-          </app-server-actor>
-          <app-server-actor #tx71 name="Server TX71" translateY="30" [translateX]="-30" svgName="upload.svg"
+          </atft-server-actor>
+          <atft-server-actor #tx71 name="Server TX71" translateY="30" [translateX]="-30" svgName="upload.svg"
             (render)="mainRenderer.render()">
-          </app-server-actor>
+          </atft-server-actor>
           <!-- Edges: -->
           <atft-empty translateZ="0.1">
             <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0xffffff" [lineWidth]="1"

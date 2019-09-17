@@ -4,7 +4,7 @@ import {EmptyComponent} from '../../../object/helper';
 
 
 @Component({
-  selector: 'app-layer-actor',
+  selector: 'atft-layer-actor',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => LayerActorComponent)}],
   template: `
       <atft-plane-mesh [width]="width" [height]="height" [materialColor]="color"

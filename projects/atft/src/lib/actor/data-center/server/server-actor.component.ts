@@ -3,7 +3,7 @@ import {AbstractObject3D} from '../../../object/abstract-object-3d';
 import {EmptyComponent} from '../../../object/helper';
 
 @Component({
-  selector: 'app-server-actor',
+  selector: 'atft-server-actor',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => ServerActorComponent)}],
   template: `
       <atft-empty>
