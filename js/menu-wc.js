@@ -314,6 +314,28 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </ul>
                                     </li>
                             </li>
+                            <li class="link">
+                                <a href="modules/DataCenterActorModule.html" data-type="entity-link">DataCenterActorModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-DataCenterActorModule-f36ca6ba5f941e2340d1d9c9a21cd2b9"' : 'data-target="#xs-components-links-module-DataCenterActorModule-f36ca6ba5f941e2340d1d9c9a21cd2b9"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-DataCenterActorModule-f36ca6ba5f941e2340d1d9c9a21cd2b9"' :
+                                            'id="xs-components-links-module-DataCenterActorModule-f36ca6ba5f941e2340d1d9c9a21cd2b9"' }>
+                                            <li class="link">
+                                                <a href="components/LayerActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayerActorComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ServerActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerActorComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
                 </ul>
                 </li>
                     <li class="chapter">
