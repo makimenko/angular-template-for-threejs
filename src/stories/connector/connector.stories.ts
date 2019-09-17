@@ -60,6 +60,25 @@ class StorybookAnimatedMeshLineComponent {
 }
 
 
+@Component({
+  selector: 'app-storybook-animated-mesh-line-performance',
+  template: defaultSceneWrapper(`
+<div *ngFor="let item of [].constructor(50); let i = index">
+  <atft-empty #a [translateY]="50" [translateX]="-i*2" [translateZ]="5+i">
+  </atft-empty>
+  <atft-empty #b [translateY]="-50" [translateX]="-i" [translateZ]="5-i">
+  </atft-empty>
+  <atft-mesh-line-connector [source]="a" [target]="b" (render)="mainRenderer.render()" materialColor="0xff0000" [animated]="true">
+  </atft-mesh-line-connector>
+  </div>
+  `)
+})
+class StorybookAnimatedMeshLinePerformanceComponent {
+
+}
+
+
+
 storiesOf('Connector', module)
   .addDecorator(withKnobs)
   .addDecorator(
@@ -86,6 +105,9 @@ storiesOf('Connector', module)
     props: {
       translateZ: number('translateZ', -10, {range: true, min: -10, max: 100, step: 1})
     }
+  }))
+  .add('performance', () => ({
+    component: StorybookAnimatedMeshLinePerformanceComponent
   }))
 ;
 
