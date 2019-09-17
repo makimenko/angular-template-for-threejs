@@ -42,11 +42,11 @@ class StorybookServerComponent {
           <!-- Edges: -->
           <atft-empty translateZ="0.1">
             <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0xffffff" [lineWidth]="1"
-                [transparent]="true" opacity="0.2" [animated]="false" [animationIncrement]="0.001"
+                [transparent]="true" opacity="0.2" [animated]="true" [animationIncrement]="0.001"
                 (render)="mainRenderer.render()">
             </atft-mesh-line-connector>
             <atft-mesh-line-connector [source]="z001" [target]="tx71" materialColor="0xffffff" [lineWidth]="1"
-                [transparent]="true" opacity="0.2" [animated]="false" [animationIncrement]="-0.001"
+                [transparent]="true" opacity="0.2" [animated]="true" [animationIncrement]="-0.001"
                 (render)="mainRenderer.render()">
              </atft-mesh-line-connector>
            </atft-empty>
