@@ -6,6 +6,47 @@ import {Observable, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 
 
+class Stats {
+
+  private lastTime: number;
+
+  private totalMs = 0;
+  private totalCount = 0;
+  private interval;
+  private name: string;
+
+  constructor(name: string, printEveryMs: number) {
+    this.name = name;
+    this.interval = setInterval(() => {
+      this.print();
+    }, printEveryMs);
+  }
+
+  start() {
+    this.lastTime = Date.now();
+  }
+
+  end() {
+    const deltaMs = Date.now() - this.lastTime;
+    this.totalMs += deltaMs;
+    this.totalCount++;
+  }
+
+  print() {
+    if (this.totalCount > 0) {
+      const spf = this.totalMs / this.totalCount;
+      console.log(`Stats-${this.name}: ${spf}`);
+      this.totalMs = 0;
+      this.totalCount = 0;
+    }
+  }
+
+  terminate() {
+    clearInterval(this.interval);
+  }
+
+}
+
 @Component({
   selector: 'atft-webgl-renderer',
   templateUrl: './webgl-renderer.component.html',
@@ -34,9 +75,16 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   @Input()
   enableShadowMap = false;
 
+  private stats: Stats;
+  private statsRaycast: Stats;
+
+  private lastRenderTime: number;
+
   constructor() {
     // console.log('RendererComponent.constructor');
     this.render = this.render.bind(this);
+    this.stats = new Stats('render', 2000);
+    this.statsRaycast = new Stats('raycaster', 2000);
   }
 
   ngAfterViewInit() {
@@ -98,17 +146,16 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   }
 
   public render() {
-    // if (this.sceneComponents != undefined && this.sceneComponents.length == 1 &&
-    //     this.cameraComponents != undefined && this.cameraComponents.length == 1) {
     if (this.viewInitialized) {
+      this.stats.start();
+
       const sceneComponent = this.sceneComponents.first;
       const cameraComponent = this.cameraComponents.first;
       // console.log("render");
-      // console.log(scene.getObject());
-      // console.log(camera.camera);
       this.renderer.render(sceneComponent.getObject(), cameraComponent.camera);
+
+      this.stats.end();
     }
-    // }
   }
 
   private calculateAspectRatio(): number {
@@ -152,6 +199,8 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.onDestroy.next();
+    this.stats.terminate();
+    this.statsRaycast.terminate();
   }
 
 
@@ -179,6 +228,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   }
 
   private getIntersected(event): THREE.Object3D {
+    this.statsRaycast.start();
     if (!this.enableRaycaster) {
       return;
     }
@@ -187,12 +237,15 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     if (intersects.length > 0) {
       // TODO: Select parent group by default
       const res = intersects.filter((i) => {
+        this.statsRaycast.end();
         return i && i.object;
       })[0];
       if (res && res.object) {
+        this.statsRaycast.end();
         return res.object;
       }
     }
+    this.statsRaycast.end();
     return;
   }
 
