@@ -31,6 +31,9 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   @Input()
   enableRaycaster = false;
 
+  @Input()
+  enableShadowMap = false;
+
   constructor() {
     // console.log('RendererComponent.constructor');
     this.render = this.render.bind(this);
@@ -82,8 +85,8 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     this.renderer.setPixelRatio(devicePixelRatio);
     this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight, false);
 
-    this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.autoUpdate = true;
+    this.renderer.shadowMap.enabled = this.enableShadowMap;
+    this.renderer.shadowMap.autoUpdate = this.enableShadowMap;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     // this.renderer.setClearColor(0xffffff, 1);
     // this.renderer.autoClear = true;
