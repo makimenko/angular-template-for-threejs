@@ -4,48 +4,7 @@ import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {Observable, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-
-
-class Stats {
-
-  private lastTime: number;
-
-  private totalMs = 0;
-  private totalCount = 0;
-  private interval;
-  private name: string;
-
-  constructor(name: string, printEveryMs: number) {
-    this.name = name;
-    this.interval = setInterval(() => {
-      this.print();
-    }, printEveryMs);
-  }
-
-  start() {
-    this.lastTime = Date.now();
-  }
-
-  end() {
-    const deltaMs = Date.now() - this.lastTime;
-    this.totalMs += deltaMs;
-    this.totalCount++;
-  }
-
-  print() {
-    if (this.totalCount > 0) {
-      const spf = this.totalMs / this.totalCount;
-      console.log(`Stats-${this.name}: ${spf}`);
-      this.totalMs = 0;
-      this.totalCount = 0;
-    }
-  }
-
-  terminate() {
-    clearInterval(this.interval);
-  }
-
-}
+import {Stats} from '../util';
 
 @Component({
   selector: 'atft-webgl-renderer',
@@ -75,7 +34,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   @Input()
   enableShadowMap = false;
 
-  private stats: Stats;
+  private statsRender: Stats;
   private statsRaycast: Stats;
 
   private lastRenderTime: number;
@@ -83,7 +42,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   constructor() {
     // console.log('RendererComponent.constructor');
     this.render = this.render.bind(this);
-    this.stats = new Stats('render', 2000);
+    this.statsRender = new Stats('render', 2000);
     this.statsRaycast = new Stats('raycaster', 2000);
   }
 
@@ -147,14 +106,14 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   public render() {
     if (this.viewInitialized) {
-      this.stats.start();
+      this.statsRender.start();
 
       const sceneComponent = this.sceneComponents.first;
       const cameraComponent = this.cameraComponents.first;
       // console.log("render");
       this.renderer.render(sceneComponent.getObject(), cameraComponent.camera);
 
-      this.stats.end();
+      this.statsRender.end();
     }
   }
 
@@ -199,7 +158,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.onDestroy.next();
-    this.stats.terminate();
+    this.statsRender.terminate();
     this.statsRaycast.terminate();
   }
 
