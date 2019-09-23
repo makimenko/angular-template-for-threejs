@@ -6,27 +6,31 @@ import {withKnobs} from '@storybook/addon-knobs';
 import {defaultSceneWrapper} from '../common/default-scene-wrapper';
 import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh';
 import * as THREE from 'three';
+import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 
 @Component({
-  selector: 'app-storybook-animate-loop',
+  selector: 'app-storybook-animate-service',
   template: defaultSceneWrapper(`
   <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff" (render)="mainRenderer.render()">
   </atft-box-mesh>
   `)
 })
-class StorybookAnimateLoopComponent implements AfterViewInit {
+class StorybookAnimateServiceComponent implements AfterViewInit {
 
   @ViewChild(BoxMeshComponent, {static: false}) box;
 
   k = 0;
 
+  constructor(private animationService: AnimationService) {
+
+  }
+
   public ngAfterViewInit() {
     this.animate = this.animate.bind(this);
-    this.animate();
+    this.animationService.animate.subscribe(this.animate);
   }
 
   public animate() {
-    requestAnimationFrame(this.animate);
     this.k += 0.02;
     this.box.rotateX = this.k;
     this.box.rotateY = -this.k * 2;
@@ -54,6 +58,10 @@ class StorybookAnimateSystemComponent implements AfterViewInit {
   private clock = new THREE.Clock();
   private boxObject: THREE.Object3D;
 
+  constructor(private animationService: AnimationService) {
+
+  }
+
   public ngAfterViewInit() {
     this.boxObject = this.box.getObject();
     const positionKF = new THREE.VectorKeyframeTrack('.position', [0, 1, 2, 4], [0, 0, 0, 0, 50, 0, 0, 50, 5, 0, 0, 0]);
@@ -63,11 +71,10 @@ class StorybookAnimateSystemComponent implements AfterViewInit {
     clipAction.play();
 
     this.animate = this.animate.bind(this);
-    this.animate();
+    this.animationService.animate.subscribe(this.animate);
   }
 
   public animate() {
-    requestAnimationFrame(this.animate);
     if (this.mixer) {
       this.mixer.update(this.clock.getDelta());
       this.box.render.emit();
@@ -87,7 +94,7 @@ storiesOf('Animate', module)
     }),
   )
   .add('loop', () => ({
-    component: StorybookAnimateLoopComponent
+    component: StorybookAnimateServiceComponent
   }))
   .add('mixer', () => ({
     component: StorybookAnimateSystemComponent

@@ -2,9 +2,8 @@ import {AfterViewInit, Component, ContentChildren, ElementRef, HostListener, Inp
 import * as THREE from 'three';
 import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
-import {Observable, Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
-import {Stats} from '../util';
+import {Subject} from 'rxjs';
+import {AnimationService} from '../animation/animation.service';
 
 @Component({
   selector: 'atft-webgl-renderer',
@@ -26,37 +25,21 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   @ContentChildren(AbstractCamera) cameraComponents: QueryList<AbstractCamera<THREE.Camera>>; // TODO: Multiple camera
 
   @Input()
-  renderQueue: Observable<void>; // TODO: add example of rendering via queue
-
-  @Input()
   enableRaycaster = false;
 
   @Input()
   enableShadowMap = false;
 
-  private statsRender: Stats;
-  private statsRaycast: Stats;
-
-  private lastRenderTime: number;
-
-  constructor() {
+  constructor(private animationService: AnimationService) {
     // console.log('RendererComponent.constructor');
     this.render = this.render.bind(this);
-    this.statsRender = new Stats('render', 2000);
-    this.statsRaycast = new Stats('raycaster', 2000);
   }
 
   ngAfterViewInit() {
     // console.log('RendererComponent.ngAfterViewInit');
     this.viewInitialized = true;
     this.startRendering();
-
-    if (this.renderQueue) {
-      // TODO: optimize performance and skip too frequent events in between?
-      this.renderQueue
-        .pipe(takeUntil(this.onDestroy))
-        .subscribe(() => this.render());
-    }
+    this.animationService.render.subscribe(this.render);
   }
 
   /**
@@ -106,14 +89,10 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   public render() {
     if (this.viewInitialized) {
-      this.statsRender.start();
-
       const sceneComponent = this.sceneComponents.first;
       const cameraComponent = this.cameraComponents.first;
-      // console.log("render");
+      //  console.log('render');
       this.renderer.render(sceneComponent.getObject(), cameraComponent.camera);
-
-      this.statsRender.end();
     }
   }
 
@@ -158,8 +137,6 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.onDestroy.next();
-    this.statsRender.terminate();
-    this.statsRaycast.terminate();
   }
 
 
@@ -187,7 +164,6 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   }
 
   private getIntersected(event): THREE.Object3D {
-    this.statsRaycast.start();
     if (!this.enableRaycaster) {
       return;
     }
@@ -196,15 +172,12 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     if (intersects.length > 0) {
       // TODO: Select parent group by default
       const res = intersects.filter((i) => {
-        this.statsRaycast.end();
         return i && i.object;
       })[0];
       if (res && res.object) {
-        this.statsRaycast.end();
         return res.object;
       }
     }
-    this.statsRaycast.end();
     return;
   }
 
