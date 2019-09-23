@@ -62,6 +62,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </a>
                         <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
+                                <a href="modules/AtftAnimationModule.html" data-type="entity-link">AtftAnimationModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-AtftAnimationModule-3871bd38fdce111c2a4f7e9477ac3126"' : 'data-target="#xs-injectables-links-module-AtftAnimationModule-3871bd38fdce111c2a4f7e9477ac3126"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftAnimationModule-3871bd38fdce111c2a4f7e9477ac3126"' :
+                                        'id="xs-injectables-links-module-AtftAnimationModule-3871bd38fdce111c2a4f7e9477ac3126"' }>
+                                        <li class="link">
+                                            <a href="injectables/AnimationService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>AnimationService</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/AtftCameraModule.html" data-type="entity-link">AtftCameraModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
@@ -363,6 +381,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/AbstractObject3D.html" data-type="entity-link">AbstractObject3D</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Stats.html" data-type="entity-link">Stats</a>
                             </li>
                         </ul>
                     </li>
