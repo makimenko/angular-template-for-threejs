@@ -20,27 +20,29 @@ export class AnimationService {
    */
   readonly render = new EventEmitter<void>();
 
-  private enabled = true;
+  private enabled = false;
 
   constructor() {
     this.animationStep = this.animationStep.bind(this);
-    this.start();
   }
 
   /**
-   * By default animation is started in the beginning.
-   * If stop() was called, then start() will continue animation
+   * Start the animation loop.
    */
   public start() {
-    this.enabled = true;
-    this.animationStep();
+    if (!this.enabled) {
+      this.enabled = true;
+      this.animationStep();
+    }
   }
 
   /**
    * Stop all animations.
    */
   public stop() {
-    this.enabled = false;
+    if (this.enabled) {
+      this.enabled = false;
+    }
   }
 
   private animationStep() {

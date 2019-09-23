@@ -4,6 +4,7 @@ import {Component} from '@angular/core';
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {defaultSceneWrapper} from '../common/default-scene-wrapper';
 import {number, withKnobs} from '@storybook/addon-knobs';
+import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
 
 @Component({
@@ -57,6 +58,10 @@ class StorybookLineComponent {
 })
 class StorybookAnimatedMeshLineComponent {
 
+  constructor(private animationService: AnimationService) {
+    this.animationService.start();
+  }
+
 }
 
 
@@ -76,8 +81,11 @@ class StorybookAnimatedMeshLineComponent {
 })
 class StorybookAnimatedMeshLinePerformanceComponent {
 
-}
+  constructor(private animationService: AnimationService) {
+    this.animationService.start();
+  }
 
+}
 
 
 storiesOf('Connector', module)

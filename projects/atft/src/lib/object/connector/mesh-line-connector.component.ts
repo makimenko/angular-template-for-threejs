@@ -34,7 +34,7 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
   @Input()
   animated = false;
 
-  @Input() animationIncrement = 0.001;
+  @Input() animationIncrement = 0.002;
 
   private geometry: THREE.Geometry;
   private line: MeshLine;

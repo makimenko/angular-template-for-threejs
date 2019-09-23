@@ -28,6 +28,7 @@ class StorybookAnimateServiceComponent implements AfterViewInit {
   public ngAfterViewInit() {
     this.animate = this.animate.bind(this);
     this.animationService.animate.subscribe(this.animate);
+    this.animationService.start();
   }
 
   public animate() {
@@ -72,6 +73,7 @@ class StorybookAnimateSystemComponent implements AfterViewInit {
 
     this.animate = this.animate.bind(this);
     this.animationService.animate.subscribe(this.animate);
+    this.animationService.start();
   }
 
   public animate() {
