@@ -4,6 +4,7 @@ import {AbstractObject3D} from '../abstract-object-3d';
 import {MeshLine, MeshLineMaterial} from 'three.meshline';
 import {AbstractConnector} from './abstract-connector';
 import {appliedColor} from '../../util/applied-color';
+import {AnimationService} from '../../animation/animation.service';
 
 @Component({
   selector: 'atft-mesh-line-connector',
@@ -33,12 +34,16 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
   @Input()
   animated = false;
 
-  @Input() animationIncrement = 0.001;
+  @Input() animationIncrement = 0.002;
 
   private geometry: THREE.Geometry;
   private line: MeshLine;
   private lineMaterial: MeshLineMaterial;
 
+
+  constructor(private animationService: AnimationService) {
+    super();
+  }
 
   createConnectorObject(): THREE.Mesh {
     this.geometry = this.getLineGeometry();
@@ -76,15 +81,13 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
     const mesh = new THREE.Mesh(this.line.geometry, this.lineMaterial);
     if (this.animated) {
       this.animate = this.animate.bind(this);
-      this.animate();
+      this.animationService.animate.subscribe(this.animate);
     }
     return mesh;
   }
 
   private animate() {
-    requestAnimationFrame(this.animate);
     this.lineMaterial.uniforms.dashOffset.value += this.animationIncrement;
-    this.render.emit();
   }
 
 

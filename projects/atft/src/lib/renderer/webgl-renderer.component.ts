@@ -2,9 +2,8 @@ import {AfterViewInit, Component, ContentChildren, ElementRef, HostListener, Inp
 import * as THREE from 'three';
 import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
-import {Observable, Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
-
+import {Subject} from 'rxjs';
+import {AnimationService} from '../animation/animation.service';
 
 @Component({
   selector: 'atft-webgl-renderer',
@@ -26,15 +25,12 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   @ContentChildren(AbstractCamera) cameraComponents: QueryList<AbstractCamera<THREE.Camera>>; // TODO: Multiple camera
 
   @Input()
-  renderQueue: Observable<void>; // TODO: add example of rendering via queue
-
-  @Input()
   enableRaycaster = false;
 
   @Input()
   enableShadowMap = false;
 
-  constructor() {
+  constructor(private animationService: AnimationService) {
     // console.log('RendererComponent.constructor');
     this.render = this.render.bind(this);
   }
@@ -43,13 +39,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     // console.log('RendererComponent.ngAfterViewInit');
     this.viewInitialized = true;
     this.startRendering();
-
-    if (this.renderQueue) {
-      // TODO: optimize performance and skip too frequent events in between?
-      this.renderQueue
-        .pipe(takeUntil(this.onDestroy))
-        .subscribe(() => this.render());
-    }
+    this.animationService.render.subscribe(this.render);
   }
 
   /**
@@ -98,17 +88,12 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   }
 
   public render() {
-    // if (this.sceneComponents != undefined && this.sceneComponents.length == 1 &&
-    //     this.cameraComponents != undefined && this.cameraComponents.length == 1) {
     if (this.viewInitialized) {
       const sceneComponent = this.sceneComponents.first;
       const cameraComponent = this.cameraComponents.first;
-      // console.log("render");
-      // console.log(scene.getObject());
-      // console.log(camera.camera);
+      //  console.log('render');
       this.renderer.render(sceneComponent.getObject(), cameraComponent.camera);
     }
-    // }
   }
 
   private calculateAspectRatio(): number {
