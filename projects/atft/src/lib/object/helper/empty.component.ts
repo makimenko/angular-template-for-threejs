@@ -20,8 +20,4 @@ export class EmptyComponent extends AbstractObject3D<THREE.Object3D> implements 
   }
 
 
-  public ngAfterViewInit() {
-    super.ngAfterViewInit();
-  }
-
 }

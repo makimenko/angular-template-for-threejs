@@ -1,5 +1,6 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import * as THREE from 'three';
+import {Intersection} from 'three';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {AbstractObject3D} from '../object/abstract-object-3d';
 
@@ -11,7 +12,7 @@ export class RaycasterService implements OnDestroy {
   private enabled = false;
   private camera: AbstractCamera<any>;
 
-  private objects: Array<AbstractObject3D<any>> = [];
+  private groups: Array<AbstractObject3D<any>> = [];
 
 
   constructor() {
@@ -30,7 +31,7 @@ export class RaycasterService implements OnDestroy {
   }
 
   private unsubscribe() {
-    console.log('unsubscribe raycaster');
+    // console.log('unsubscribe raycaster');
     window.removeEventListener('mousemove', this.onMouseMove);
     window.removeEventListener('mousedown', this.onMouseDown);
   }
@@ -44,13 +45,13 @@ export class RaycasterService implements OnDestroy {
   }
 
   public setCamera(camera: AbstractCamera<any>) {
-    console.log('Add camera to raycaster', camera);
+    // console.log('Add camera to raycaster', camera);
     this.camera = camera;
   }
 
   public addGroup(group: AbstractObject3D<any>) {
-    console.log('RaycasterService.addGroup', group.name, group);
-    this.objects.push(group);
+    // console.log('RaycasterService.addGroup', group.name, group);
+    this.groups.push(group);
   }
 
   private onMouseMove(event) {
@@ -65,6 +66,7 @@ export class RaycasterService implements OnDestroy {
       }
       if (i) {
         this.selected = i;
+        // console.log('RaycasterService.mouseEnter', i);
         this.selected.dispatchEvent({type: 'mouseEnter'});
       }
     }
@@ -85,8 +87,8 @@ export class RaycasterService implements OnDestroy {
     return this.enabled
       && this.camera
       && this.camera.camera
-      && this.objects
-      && this.objects.length > 0;
+      && this.groups
+      && this.groups.length > 0;
   }
 
   private getIntersected(event): THREE.Object3D {
@@ -100,19 +102,24 @@ export class RaycasterService implements OnDestroy {
     const mouseVector = new THREE.Vector3(x, y, 0.5);
     this.raycaster.setFromCamera(mouseVector, this.camera.camera);
 
-    /**
-     * Return immediate if something is found.
-     * NOTE: forEach not suits here
-     * https://www.competa.com/blog/the-javascript-array-foreach-method-doesnt-return-anything/
-     */
-    for (let k = 0; k < this.objects.length; k++) {
-      const i = this.objects[k].getObject();
-      const objs = this.raycaster.intersectObject(i, true);
-      if (objs.length > 0) {
-        return i;
+    // loop across all groups. Try to find the group with nearest distance.
+    let nearestIntersection: Intersection;
+    let nearestGroup: THREE.Object3D;
+    for (let k = 0; k < this.groups.length; k++) {
+      const i = this.groups[k].getObject();
+      const intersection = this.raycaster.intersectObject(i, true);
+      if (intersection.length > 0 && (!nearestIntersection || nearestIntersection.distance > intersection[0].distance)) {
+        nearestIntersection = intersection[0];
+        nearestGroup = i;
       }
     }
-    return;
+
+    // return the group with nearest distance
+    if (nearestGroup) {
+      return nearestGroup;
+    } else {
+      return;
+    }
   }
 
 }

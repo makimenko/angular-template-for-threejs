@@ -8,14 +8,14 @@ import {DataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-c
 
 @Component({
   template: worldSceneWrapper(`
-    <atft-empty atft-raycaster-group name="empty-box" (mouseEnter)="mouseEnter()" (mouseExit)="mouseExit()" (mouseDown)="mouseDown()">
+    <atft-empty atft-raycaster-group name="root-empty" (mouseEnter)="mouseEnter()" (mouseExit)="mouseExit()" (mouseDown)="mouseDown()">
       <atft-box-mesh name="parent-box" height="10" width="10" depth="10" [materialColor]="color"
         translateZ="10" (render)="mainRenderer.render()">
         <atft-box-mesh name="child-box1" height="5" width="5" depth="5" translateX="12" [materialColor]="color"
             (render)="mainRenderer.render()">
-          <atft-box-mesh name="child-box2" height="3" width="3" depth="3" translateX="8" [materialColor]="color"
-            (render)="mainRenderer.render()">
-          </atft-box-mesh>
+                  <atft-box-mesh name="child-box1" height="3" width="3" depth="3" translateX="12" [materialColor]="color"
+                                 (render)="mainRenderer.render()">
+                  </atft-box-mesh>
         </atft-box-mesh>
       </atft-box-mesh>
     </atft-empty>
@@ -26,6 +26,7 @@ class StorybookRaycasterGroupComponent {
   color = 0x00ff00;
 
   mouseEnter() {
+    // console.log('StorybookRaycasterGroupComponent.mouseEnter');
     this.color = 0x0000ff;
   }
 
@@ -54,6 +55,3 @@ storiesOf('Raycaster', module)
     component: StorybookRaycasterGroupComponent
   }))
 ;
-
-
-

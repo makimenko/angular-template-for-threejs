@@ -10,7 +10,7 @@ import {EmptyComponent} from '../../../object/helper';
                   (render)="render.emit()">
           <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7">
               <atft-svg-loader (render)="render.emit()" [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
-                               material="basic" maxX="8" maxY="8" [translateZ]="7" [depthWrite]="false"
+                               material="basic" maxX="8" maxY="8" [translateZ]="0" [depthWrite]="false"
                                translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)">
               </atft-svg-loader>
           </atft-box-mesh>
@@ -43,17 +43,17 @@ export class ServerActorComponent extends EmptyComponent {
   color = 0xffffff;
 
   public onSelected() {
-    console.log('ServerActorComponent.onSelected');
+    // console.log('ServerActorComponent.onSelected');
     this.color = 0xfff0f0;
   }
 
   public onDeselected() {
-    console.log('ServerActorComponent.onDeselected');
+    // console.log('ServerActorComponent.onDeselected');
     this.color = 0xffffff;
   }
 
   public onClick() {
-    console.log('ServerActorComponent.onClick');
+    // console.log('ServerActorComponent.onClick');
     this.color = 0xffa0a0;
   }
 }
