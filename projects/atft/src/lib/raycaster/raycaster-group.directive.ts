@@ -1,6 +1,7 @@
-import {AfterViewInit, Directive} from '@angular/core';
+import {AfterViewInit, Directive, EventEmitter, Output} from '@angular/core';
 import {AbstractObject3D} from '../object/abstract-object-3d';
 import {RaycasterService} from './raycaster.service';
+import * as THREE from 'three';
 
 /**
  * Only components marked as atft-raycaster-group emit raycaster events.
@@ -8,6 +9,12 @@ import {RaycasterService} from './raycaster.service';
  */
 @Directive({selector: '[atft-raycaster-group]'})
 export class RaycasterGroupDirective implements AfterViewInit {
+
+
+  @Output() mouseEnter = new EventEmitter<void>();
+  @Output() mouseExit = new EventEmitter<void>();
+  @Output() mouseDown = new EventEmitter<void>();
+
 
   constructor(
     private host: AbstractObject3D<any>,
@@ -18,6 +25,22 @@ export class RaycasterGroupDirective implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.raycasterService.addGroup(this.host);
+    this.listenMouseEvents(this.host.getObject());
+  }
+
+
+  protected listenMouseEvents(object: THREE.Object3D) {
+    object.addEventListener('mouseExit', () => {
+      this.mouseExit.emit();
+    });
+
+    object.addEventListener('mouseEnter', () => {
+      this.mouseEnter.emit();
+    });
+
+    object.addEventListener('mouseDown', () => {
+      this.mouseDown.emit();
+    });
   }
 
 }

@@ -38,10 +38,6 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
    */
   @Output() render = new EventEmitter<void>();
 
-  @Output() mouseEnter = new EventEmitter<void>();
-  @Output() mouseExit = new EventEmitter<void>();
-  @Output() mouseDown = new EventEmitter<void>();
-
   private object: T;
 
   public ngOnChanges(changes: SimpleChanges) {
@@ -95,23 +91,9 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
       // console.log("No child Object3D for: " + this.constructor.label);
     }
 
-    this.listenMouseEvents(this.object);
     this.afterInit();
   }
 
-  protected listenMouseEvents(object: THREE.Object3D) {
-    object.addEventListener('mouseExit', () => {
-      this.mouseExit.emit();
-    });
-
-    object.addEventListener('mouseEnter', () => {
-      this.mouseEnter.emit();
-    });
-
-    object.addEventListener('mouseDown', () => {
-      this.mouseDown.emit();
-    });
-  }
 
   private applyRotation(): void {
     this.object.rotation.set(

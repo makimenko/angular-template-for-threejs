@@ -53,9 +53,6 @@ export class SVGLoaderComponent extends AbstractModelLoader {
               const geometry = new THREE.ShapeBufferGeometry(shape);
               const mesh = new THREE.Mesh(geometry, material);
               group.add(mesh);
-
-              // TODO: Make it nicer (raycast parent group of objects?)
-              this.listenMouseEvents(mesh);
             }
           }
 
