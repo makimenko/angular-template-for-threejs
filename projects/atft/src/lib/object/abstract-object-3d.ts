@@ -1,7 +1,7 @@
 import {
   AfterViewInit,
   ContentChildren,
-  EventEmitter, Injectable,
+  EventEmitter,
   Input,
   OnChanges,
   Output,
@@ -31,14 +31,12 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   @Input() translateY: number;
   @Input() translateZ: number;
 
+  @Input() name: string;
+
   /**
    * Notify parent component, that scene rendering is required
    */
   @Output() render = new EventEmitter<void>();
-
-  @Output() mouseEnter = new EventEmitter<void>();
-  @Output() mouseExit = new EventEmitter<void>();
-  @Output() mouseDown = new EventEmitter<void>();
 
   private object: T;
 
@@ -72,39 +70,30 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
     if (this.childNodes !== undefined && this.childNodes.length > 1) {
       this.childNodes.filter(i => i !== this && i.getObject() !== undefined).forEach(i => {
-        // console.log("Add childNodes for ", this.constructor.name, i);
+        // console.log('Add childNodes for', this.name, i.name);
         this.addChild(i.getObject());
       });
     } else {
-      // console.log("No child Object3D for: " + this.constructor.name);
+      // console.log("No child Object3D for: " + this.constructor.label);
     }
+
 
     if (this.viewChilds !== undefined && this.viewChilds.length > 0) {
-      this.viewChilds.filter(i => i !== this && i.getObject() !== undefined).forEach(i => {
-        // console.log("Add viewChilds for ", this.constructor.name, i);
+      this.viewChilds.filter(
+        i => i !== this
+          && i.getObject() !== undefined
+          && !i.getObject().parent /* direct childs only */
+      ).forEach(i => {
+        // console.log('Add viewChilds for', this.name, i.name);
         this.addChild(i.getObject());
       });
     } else {
-      // console.log("No child Object3D for: " + this.constructor.name);
+      // console.log("No child Object3D for: " + this.constructor.label);
     }
 
-    this.listenMouseEvents(this.object);
     this.afterInit();
   }
 
-  protected listenMouseEvents(object: THREE.Object3D) {
-    object.addEventListener('mouseExit', () => {
-      this.mouseExit.emit();
-    });
-
-    object.addEventListener('mouseEnter', () => {
-      this.mouseEnter.emit();
-    });
-
-    object.addEventListener('mouseDown', () => {
-      this.mouseDown.emit();
-    });
-  }
 
   private applyRotation(): void {
     this.object.rotation.set(

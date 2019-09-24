@@ -10,3 +10,4 @@ export * from './lib/pipe';
 export * from './lib/renderer';
 export * from './lib/util';
 export * from './lib/animation';
+export * from './lib/raycaster';

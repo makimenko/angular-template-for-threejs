@@ -9,7 +9,6 @@ import * as THREE from 'three';
 import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 
 @Component({
-  selector: 'app-storybook-animate-service',
   template: defaultSceneWrapper(`
   <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff" (render)="mainRenderer.render()">
   </atft-box-mesh>
@@ -44,7 +43,6 @@ class StorybookAnimateServiceComponent implements AfterViewInit {
 
 
 @Component({
-  selector: 'app-storybook-animate-system',
   template: defaultSceneWrapper(`
   <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff" (render)="mainRenderer.render()">
   </atft-box-mesh>

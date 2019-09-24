@@ -6,20 +6,19 @@ import {EmptyComponent} from '../../../object/helper';
   selector: 'atft-server-actor',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => ServerActorComponent)}],
   template: `
-      <atft-empty>
-          <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7"
-                         (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()" (render)="render.emit()">
+      <atft-empty name="server-box" atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()"
+                  (render)="render.emit()">
+          <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7">
               <atft-svg-loader (render)="render.emit()" [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
-                               (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()"
-                               material="basic" maxX="8" maxY="8" [translateZ]="7" [depthWrite]="false"
-                               translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)"
-              ></atft-svg-loader>
+                               material="basic" maxX="8" maxY="8" [translateZ]="0" [depthWrite]="false"
+                               translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)">
+              </atft-svg-loader>
           </atft-box-mesh>
-          <atft-text-mesh [text]="name" [size]="2" [bevelEnabled]="false" height="0" [centered]="true" (render)="render.emit()"
+          <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" height="0" [centered]="true" (render)="render.emit()"
                           material="basic" materialColor="0xDADADA" [translateY]="-12" [translateZ]="0.2">
           </atft-text-mesh>
           <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="15" [translateZ]="0.5" material="basic" [materialColor]="color"
-                           (render)="render.emit()" (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
+                           (render)="render.emit()">
           </atft-frame-mesh>
       </atft-empty>
   `
@@ -27,7 +26,7 @@ import {EmptyComponent} from '../../../object/helper';
 export class ServerActorComponent extends EmptyComponent {
 
   @Input()
-  name: string;
+  label: string;
 
   @Output()
   render = new EventEmitter<void>();
@@ -44,14 +43,17 @@ export class ServerActorComponent extends EmptyComponent {
   color = 0xffffff;
 
   public onSelected() {
+    // console.log('ServerActorComponent.onSelected');
     this.color = 0xfff0f0;
   }
 
   public onDeselected() {
+    // console.log('ServerActorComponent.onDeselected');
     this.color = 0xffffff;
   }
 
   public onClick() {
+    // console.log('ServerActorComponent.onClick');
     this.color = 0xffa0a0;
   }
 }

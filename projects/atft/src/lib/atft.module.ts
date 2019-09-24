@@ -5,6 +5,7 @@ import {AtftControlModule} from './control/atft-control.module';
 import {AtftPipeModule} from './pipe/atft-pipe.module';
 import {AtftRendererModule} from './renderer/atft-renderer.module';
 import {AtftAnimationModule} from './animation/atft-animation.module';
+import {AtftRaycasterModule} from './raycaster/atft-raycaster.module';
 
 // NOTE: In case of "ERROR in Unexpected value 'undefined' exported by the module 'AtftModule" fix imports (do not import index.ts)
 
@@ -15,7 +16,8 @@ import {AtftAnimationModule} from './animation/atft-animation.module';
     AtftControlModule,
     AtftPipeModule,
     AtftRendererModule,
-    AtftAnimationModule
+    AtftAnimationModule,
+    AtftRaycasterModule
   ],
   exports: [
     AtftCameraModule,
@@ -23,7 +25,8 @@ import {AtftAnimationModule} from './animation/atft-animation.module';
     AtftControlModule,
     AtftPipeModule,
     AtftRendererModule,
-    AtftAnimationModule
+    AtftAnimationModule,
+    AtftRaycasterModule
   ]
 })
 export class AtftModule {

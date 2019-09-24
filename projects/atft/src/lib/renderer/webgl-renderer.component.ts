@@ -15,17 +15,12 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   private renderer: THREE.WebGLRenderer;
   private viewInitialized = false;
   private readonly onDestroy = new Subject<void>();
-  private raycaster: THREE.Raycaster;
-  private selectedObject: THREE.Object3D;
 
   @ViewChild('canvas', {static: true})
   private canvasRef: ElementRef; // NOTE: say bye-bye to server-side rendering ;)
 
   @ContentChildren(SceneComponent) sceneComponents: QueryList<SceneComponent>; // TODO: Multiple scenes
   @ContentChildren(AbstractCamera) cameraComponents: QueryList<AbstractCamera<THREE.Camera>>; // TODO: Multiple camera
-
-  @Input()
-  enableRaycaster = false;
 
   @Input()
   enableShadowMap = false;
@@ -81,8 +76,6 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     // this.renderer.setClearColor(0xffffff, 1);
     // this.renderer.autoClear = true;
 
-    this.raycaster = new THREE.Raycaster();
-
     this.updateChildCamerasAspectRatio();
     this.render();
   }
@@ -137,59 +130,6 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.onDestroy.next();
-  }
-
-
-  @HostListener('window:mousemove', ['$event'])
-  public onDocumentMouseMove(event) {
-    const i = this.getIntersected(event);
-    if (i) {
-      if (!this.selectedObject || this.selectedObject !== i) {
-        if (this.selectedObject) {
-          this.selectedObject.dispatchEvent({type: 'mouseExit'});
-          this.selectedObject = null;
-        }
-        this.selectedObject = i;
-        this.selectedObject.dispatchEvent({type: 'mouseEnter'});
-      }
-    }
-  }
-
-  @HostListener('window:mousedown', ['$event'])
-  public onDocumentMouseDown(event) {
-    const i = this.getIntersected(event);
-    if (i) {
-      i.dispatchEvent({type: 'mouseDown'});
-    }
-  }
-
-  private getIntersected(event): THREE.Object3D {
-    if (!this.enableRaycaster) {
-      return;
-    }
-    event.preventDefault();
-    const intersects = this.getIntersects(event.layerX, event.layerY);
-    if (intersects.length > 0) {
-      // TODO: Select parent group by default
-      const res = intersects.filter((i) => {
-        return i && i.object;
-      })[0];
-      if (res && res.object) {
-        return res.object;
-      }
-    }
-    return;
-  }
-
-  private getIntersects(x, y): Array<THREE.Intersection> {
-    x = (x / window.innerWidth) * 2 - 1;
-    y = -(y / window.innerHeight) * 2 + 1;
-    const mouseVector = new THREE.Vector3(x, y, 0.5);
-    const cameraComponent = this.cameraComponents.first;
-    const sceneComponent = this.sceneComponents.first;
-    this.raycaster.setFromCamera(mouseVector, cameraComponent.camera);
-    const objs = this.raycaster.intersectObject(sceneComponent.getObject(), true);
-    return objs;
   }
 
 

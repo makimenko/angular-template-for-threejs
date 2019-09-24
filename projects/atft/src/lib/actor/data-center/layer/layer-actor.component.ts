@@ -7,15 +7,12 @@ import {EmptyComponent} from '../../../object/helper';
   selector: 'atft-layer-actor',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => LayerActorComponent)}],
   template: `
-      <atft-plane-mesh [width]="width" [height]="height" [materialColor]="color"
-                       (mouseEnter)="onSelected()" (mouseExit)="onDeselected()"
-      >
-          <atft-text-mesh [centered]="true" [text]="name" size="5" translateX="40" [rotateZ]="(90 | deg2rad)"
-                          materialColor="0xE0E0E0" (render)="render.emit()"
-                          (mouseEnter)="onSelected()" (mouseExit)="onDeselected()"
-          >
-          </atft-text-mesh>
-      </atft-plane-mesh>
+    <atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"
+                     (mouseExit)="onDeselected()">
+      <atft-text-mesh [centered]="true" [text]="name" size="5" translateX="40" [rotateZ]="(90 | deg2rad)"
+                      materialColor="0xE0E0E0" (render)="render.emit()">
+      </atft-text-mesh>
+    </atft-plane-mesh>
   `
 })
 export class LayerActorComponent extends EmptyComponent {

@@ -8,7 +8,6 @@ import {withKnobs, number} from '@storybook/addon-knobs';
 import markdownNotes from './object.stories.md';
 
 @Component({
-  selector: 'app-storybook-sphere-mesh',
   template: defaultSceneWrapper(`
     <atft-empty (render)="mainRenderer.render()"
         [translateX]="translateX"
