@@ -1,6 +1,7 @@
 import {Component, forwardRef, Input} from '@angular/core';
 import {AbstractCamera} from './abstract-camera';
 import * as THREE from 'three';
+import {RendererService} from '../renderer/renderer.service';
 
 @Component({
   selector: 'atft-perspective-camera',
@@ -13,9 +14,10 @@ export class PerspectiveCameraComponent extends AbstractCamera<THREE.Perspective
   @Input() near: number;
   @Input() far: number;
 
-  constructor() {
-    // console.log('PerspectiveCameraComponent.constructor');
-    super();
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
   }
 
   protected createCamera(): void {

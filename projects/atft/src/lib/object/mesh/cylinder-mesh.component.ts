@@ -2,6 +2,7 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
+import {RendererService} from '../../renderer';
 
 @Component({
   selector: 'atft-cylinder-mesh',
@@ -27,9 +28,10 @@ export class CylinderMeshComponent extends AbstractMesh {
   @Input()
   thetaLength = 2 * Math.PI;
 
-  constructor() {
-    super();
-    // console.log('CylinderMeshComponent.constructor');
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
   }
 
   protected newObject3DInstance(): THREE.Mesh {

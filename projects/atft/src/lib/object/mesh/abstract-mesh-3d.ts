@@ -42,7 +42,7 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> implemen
     }
 
     if (mustRerender) {
-      this.render.emit();
+      this.rendererService.request();
     }
   }
 

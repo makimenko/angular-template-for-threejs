@@ -9,7 +9,7 @@ import markdownNotes from './object.stories.md';
 
 @Component({
   template: defaultSceneWrapper(`
-    <atft-empty (render)="mainRenderer.render()"
+    <atft-empty
         [translateX]="translateX"
         [translateY]="translateY"
         [translateZ]="translateZ"

@@ -10,11 +10,11 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation/animati
 
 @Component({
   template: defaultSceneWrapper(`
-  <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff" (render)="mainRenderer.render()">
+  <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff">
   </atft-box-mesh>
   `)
 })
-class StorybookAnimateServiceComponent implements AfterViewInit {
+class StorybookAnimateLoopComponent implements AfterViewInit {
 
   @ViewChild(BoxMeshComponent, {static: false}) box;
 
@@ -36,7 +36,6 @@ class StorybookAnimateServiceComponent implements AfterViewInit {
     this.box.rotateY = -this.k * 2;
     this.box.rotateZ = this.k * 3.3;
     this.box.applyRotation();
-    this.box.render.emit();
   }
 
 }
@@ -44,11 +43,11 @@ class StorybookAnimateServiceComponent implements AfterViewInit {
 
 @Component({
   template: defaultSceneWrapper(`
-  <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff" (render)="mainRenderer.render()">
+  <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff">
   </atft-box-mesh>
   `)
 })
-class StorybookAnimateSystemComponent implements AfterViewInit {
+class StorybookAnimateMixerComponent implements AfterViewInit {
 
   @ViewChild(BoxMeshComponent, {static: false}) box;
 
@@ -77,7 +76,6 @@ class StorybookAnimateSystemComponent implements AfterViewInit {
   public animate() {
     if (this.mixer) {
       this.mixer.update(this.clock.getDelta());
-      this.box.render.emit();
     }
   }
 
@@ -94,10 +92,10 @@ storiesOf('Animate', module)
     }),
   )
   .add('loop', () => ({
-    component: StorybookAnimateServiceComponent
+    component: StorybookAnimateLoopComponent
   }))
   .add('mixer', () => ({
-    component: StorybookAnimateSystemComponent
+    component: StorybookAnimateMixerComponent
   }))
 ;
 

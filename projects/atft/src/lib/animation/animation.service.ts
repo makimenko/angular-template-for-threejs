@@ -1,4 +1,5 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Optional, SkipSelf} from '@angular/core';
+import {RendererService} from '../renderer/renderer.service';
 
 
 /**
@@ -14,15 +15,11 @@ export class AnimationService {
    */
   readonly animate = new EventEmitter<void>();
 
-  /**
-   * When all components updated animation, render event is emitted.
-   * Main renderer subscribed to this event emitter.
-   */
-  readonly render = new EventEmitter<void>();
-
   private enabled = false;
 
-  constructor() {
+  constructor(
+    private rendererService: RendererService
+  ) {
     this.animationStep = this.animationStep.bind(this);
   }
 
@@ -50,7 +47,11 @@ export class AnimationService {
       requestAnimationFrame(this.animationStep);
       if (this.animate.observers.length > 0) {
         this.animate.emit();
-        this.render.emit();
+        /**
+         * When all components updated animation, render event is emitted.
+         * Main renderer subscribed to this event emitter.
+         */
+        this.rendererService.request();
       }
     }
   }

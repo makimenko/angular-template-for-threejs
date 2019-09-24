@@ -5,6 +5,7 @@ import {MeshLine, MeshLineMaterial} from 'three.meshline';
 import {AbstractConnector} from './abstract-connector';
 import {appliedColor} from '../../util/applied-color';
 import {AnimationService} from '../../animation/animation.service';
+import {RendererService} from '../../renderer';
 
 @Component({
   selector: 'atft-mesh-line-connector',
@@ -41,8 +42,11 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
   private lineMaterial: MeshLineMaterial;
 
 
-  constructor(private animationService: AnimationService) {
-    super();
+  constructor(
+    protected animationService: AnimationService,
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
   }
 
   createConnectorObject(): THREE.Mesh {
@@ -90,11 +94,10 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
     this.lineMaterial.uniforms.dashOffset.value += this.animationIncrement;
   }
 
-
   updateLineGeometry(): void {
     // https://github.com/spite/THREE.MeshLine/issues/51#issuecomment-379579926
     this.line.setGeometry(this.geometry);
-    this.render.emit();
+    this.rendererService.request();
   }
 
 }

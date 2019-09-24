@@ -6,9 +6,9 @@
  */
 export const worldSceneWrapper = (content: string) => `
   <atft-orbit-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2
-    [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
+    [listeningControlElement]=mainRenderer.renderPane>
       <atft-webgl-renderer #mainRenderer>
-          <atft-perspective-camera (render)="mainRenderer.render()" [zAxisUp]="true" positionX=20 positionY=-80
+          <atft-perspective-camera [zAxisUp]="true" positionX=20 positionY=-80
                 positionZ=30 atft-raycaster-camera atft-raycaster-enable>
           </atft-perspective-camera>
           <atft-scene name="scene" background="0xa0a0a0" [fog]="true" fogColor="0xa0a0a0" fogNear="40" fogFar="500">

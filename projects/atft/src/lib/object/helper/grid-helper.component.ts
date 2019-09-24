@@ -1,6 +1,7 @@
 import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
+import {RendererService} from '../../renderer';
 
 @Component({
   selector: 'atft-grid-helper',
@@ -12,9 +13,10 @@ export class GridHelperComponent extends AbstractObject3D<THREE.AxesHelper> {
   @Input() size: number;
   @Input() divisions: number;
 
-  constructor() {
-    super();
-    // console.log('GridHelperComponent.constructor');
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
   }
 
   protected newObject3DInstance(): THREE.AxesHelper {

@@ -2,6 +2,7 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {appliedColor} from '../../util';
+import {RendererService} from '../../renderer';
 
 @Component({
   selector: 'atft-point-light',
@@ -14,6 +15,12 @@ export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
   @Input() intensity = 1;
   @Input() distance = 500;
   @Input() castShadow = false;
+
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
+  }
 
   protected newObject3DInstance() {
     const light = new THREE.PointLight(appliedColor(this.color), this.intensity, this.distance);

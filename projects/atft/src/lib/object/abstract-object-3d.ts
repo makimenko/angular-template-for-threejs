@@ -10,6 +10,7 @@ import {
   ViewChildren
 } from '@angular/core';
 import * as THREE from 'three';
+import {RendererService} from '../renderer/renderer.service';
 
 export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit, OnChanges {
 
@@ -33,32 +34,36 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   @Input() name: string;
 
-  /**
-   * Notify parent component, that scene rendering is required
-   */
-  @Output() render = new EventEmitter<void>();
+  @Output() changed = new EventEmitter<void>();
 
   private object: T;
+
+  constructor(protected rendererService: RendererService) {
+    this.changed.subscribe(() => {
+      this.rendererService.request();
+    });
+  }
 
   public ngOnChanges(changes: SimpleChanges) {
     if (!this.object) {
       return;
     }
 
-    let mustRerender = false;
+    let modified = false;
 
     if (['rotateX', 'rotateY', 'rotateZ'].some(propName => propName in changes)) {
       this.applyRotation();
-      mustRerender = true;
+      modified = true;
     }
     if (['translateX', 'translateY', 'translateZ'].some(propName => propName in changes)) {
       this.applyTranslation();
-      mustRerender = true;
+      modified = true;
     }
 
-    if (mustRerender) {
-      this.render.emit();
+    if (modified) {
+      this.changed.emit();
     }
+
   }
 
   public ngAfterViewInit(): void {

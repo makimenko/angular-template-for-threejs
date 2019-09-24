@@ -2,6 +2,7 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {appliedColor} from '../../util/applied-color';
+import {RendererService} from '../../renderer';
 
 @Component({
   selector: 'atft-hemisphere-light',
@@ -13,6 +14,12 @@ export class HemisphereLightComponent extends AbstractObject3D<THREE.HemisphereL
   @Input() skyColor = 0xffffff;
   @Input() groundColor = 0x444444;
   @Input() intensity = 1;
+
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
+  }
 
   protected newObject3DInstance() {
 

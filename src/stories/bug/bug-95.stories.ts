@@ -11,7 +11,7 @@ import {defaultSceneWrapper} from '../common/default-scene-wrapper';
 @Component({
   selector: 'app-storybook-obj-loader',
   template: defaultSceneWrapper(`
-      <atft-obj-loader (render)="mainRenderer.render()"
+      <atft-obj-loader
               model="assets/model/smiley/smiley.obj"
               material="assets/model/smiley/smiley.mtl"
               texturePath="assets/model/smiley/"

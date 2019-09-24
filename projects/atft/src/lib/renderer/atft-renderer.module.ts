@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {WebGLRendererComponent} from './webgl-renderer.component';
 import {CommonModule} from '@angular/common';
+import {RendererService} from './renderer.service';
 
 
 @NgModule({
@@ -9,6 +10,9 @@ import {CommonModule} from '@angular/common';
   ],
   declarations: [
     WebGLRendererComponent
+  ],
+  providers: [
+    RendererService
   ],
   exports: [
     WebGLRendererComponent
