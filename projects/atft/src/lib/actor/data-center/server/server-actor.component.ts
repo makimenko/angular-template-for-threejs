@@ -6,20 +6,19 @@ import {EmptyComponent} from '../../../object/helper';
   selector: 'atft-server-actor',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => ServerActorComponent)}],
   template: `
-      <atft-empty>
-          <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7"
-                         (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()" (render)="render.emit()">
+      <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()"
+                  (render)="render.emit()">
+          <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7">
               <atft-svg-loader (render)="render.emit()" [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
-                               (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()"
                                material="basic" maxX="8" maxY="8" [translateZ]="7" [depthWrite]="false"
-                               translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)"
-              ></atft-svg-loader>
+                               translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)">
+              </atft-svg-loader>
           </atft-box-mesh>
           <atft-text-mesh [text]="name" [size]="2" [bevelEnabled]="false" height="0" [centered]="true" (render)="render.emit()"
                           material="basic" materialColor="0xDADADA" [translateY]="-12" [translateZ]="0.2">
           </atft-text-mesh>
           <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="15" [translateZ]="0.5" material="basic" [materialColor]="color"
-                           (render)="render.emit()" (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
+                           (render)="render.emit()">
           </atft-frame-mesh>
       </atft-empty>
   `

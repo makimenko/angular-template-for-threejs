@@ -21,4 +21,5 @@ export class AxesHelperComponent extends AbstractObject3D<THREE.AxesHelper> {
     return new THREE.AxesHelper(this.size);
   }
 
+
 }
