@@ -18,7 +18,6 @@ class StorybookCylinderMeshComponent {
 }
 
 @Component({
-  selector: 'app-storybook-sphere-mesh',
   template: defaultSceneWrapper(`
       <atft-sphere-mesh [radius]="4" [widthSegments]="20" [hightSegments]="20" material="phong" materialColor="0xff0000">
       </atft-sphere-mesh>
@@ -30,7 +29,6 @@ class StorybookSphereMeshComponent {
 }
 
 @Component({
-  selector: 'app-storybook-torus-mesh',
   template: defaultSceneWrapper(`
   <atft-torus-mesh [radius]="5" [tube]="2" [radialSegments]="16" [tubularSegments]="100" [arc]="6.28" material="phong"
         materialColor="0x0000ff">
@@ -42,7 +40,6 @@ class StorybookTorusMeshComponent {
 }
 
 @Component({
-  selector: 'app-storybook-box-mesh',
   template: defaultSceneWrapper(`
   <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff"></atft-box-mesh>
   `)
@@ -52,7 +49,6 @@ class StorybookBoxMeshComponent {
 }
 
 @Component({
-  selector: 'app-storybook-text-mesh',
   template: defaultSceneWrapper(`
   <atft-text-mesh text="Hello World! :)"
     material="phong" materialColor="0x0000FF" [bevelEnabled]="true" curveSegments="20" [centered]="true"
@@ -66,7 +62,6 @@ class StorybookTextMeshComponent {
 
 
 @Component({
-  selector: 'app-storybook-frame-mesh',
   template: defaultSceneWrapper(`
   <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="20" [translateZ]="0.5" material="basic" materialColor="0xff0000">
   </atft-frame-mesh>
@@ -75,9 +70,6 @@ class StorybookTextMeshComponent {
 class StorybookFrameMeshComponent {
 
 }
-
-
-
 
 
 storiesOf('Mesh', module)

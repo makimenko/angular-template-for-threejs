@@ -8,7 +8,6 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
 
 @Component({
-  selector: 'app-storybook-mesh-line',
   template: defaultSceneWrapper(`
   <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
     #a translateY="50" translateX="-10" [translateZ]="translateZ">
@@ -24,7 +23,6 @@ class StorybookMeshLineComponent {
 }
 
 @Component({
-  selector: 'app-storybook-line',
   template: defaultSceneWrapper(`
   <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
     #a translateY="50" translateX="-10" [translateZ]="translateZ">
@@ -41,7 +39,6 @@ class StorybookLineComponent {
 
 
 @Component({
-  selector: 'app-storybook-animated-mesh-line',
   template: defaultSceneWrapper(`
   <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
     #a translateY="50" translateX="-10" [translateZ]="translateZ">
@@ -66,7 +63,6 @@ class StorybookAnimatedMeshLineComponent {
 
 
 @Component({
-  selector: 'app-storybook-animated-mesh-line-performance',
   template: defaultSceneWrapper(`
 <div *ngFor="let item of [].constructor(100); let i = index">
   <atft-empty #a [translateY]="50" [translateX]="-i*2" [translateZ]="5+i">

@@ -7,16 +7,18 @@ import {worldSceneWrapper} from '../common/world-scene-wrapper';
 import {DataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/data-center-actor.module';
 
 @Component({
-  selector: 'app-storybook-box-mesh',
   template: worldSceneWrapper(`
-      <atft-empty atft-raycaster-group name="empty-box" (mouseEnter)="mouseEnter()" (mouseExit)="mouseExit()" (mouseDown)="mouseDown()">
-      <atft-box-mesh name="parent-box" atft-raycaster-enable height="10" width="10" depth="10" [materialColor]="color"
-      translateZ="10" (render)="mainRenderer.render()">
-        <atft-box-mesh name="child-box" atft-raycaster-enable height="5" width="5" depth="5" translateX="50" [materialColor]="color"
-        (render)="mainRenderer.render()">
+    <atft-empty atft-raycaster-group name="empty-box" (mouseEnter)="mouseEnter()" (mouseExit)="mouseExit()" (mouseDown)="mouseDown()">
+      <atft-box-mesh name="parent-box" height="10" width="10" depth="10" [materialColor]="color"
+        translateZ="10" (render)="mainRenderer.render()">
+        <atft-box-mesh name="child-box1" height="5" width="5" depth="5" translateX="12" [materialColor]="color"
+            (render)="mainRenderer.render()">
+          <atft-box-mesh name="child-box2" height="3" width="3" depth="3" translateX="8" [materialColor]="color"
+            (render)="mainRenderer.render()">
+          </atft-box-mesh>
         </atft-box-mesh>
       </atft-box-mesh>
-      </atft-empty>
+    </atft-empty>
 `)
 })
 class StorybookRaycasterGroupComponent {

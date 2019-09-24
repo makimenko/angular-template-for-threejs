@@ -9,7 +9,6 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
 
 @Component({
-  selector: 'app-storybook-box-mesh',
   template: worldSceneWrapper(`
     <atft-server-actor atft-raycaster-group (mouseEnter)="mouseEnter()" label="Server RX10" (render)="mainRenderer.render()"></atft-server-actor>
   `)
@@ -22,7 +21,6 @@ class StorybookServerComponent {
 }
 
 @Component({
-  selector: 'app-storybook-box-mesh',
   template: worldSceneWrapper(`
     <atft-empty>
 
