@@ -1,7 +1,7 @@
 import {
   AfterViewInit,
   ContentChildren,
-  EventEmitter, Injectable,
+  EventEmitter,
   Input,
   OnChanges,
   Output,
@@ -30,6 +30,8 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   @Input() translateX: number;
   @Input() translateY: number;
   @Input() translateZ: number;
+
+  @Input() name: string;
 
   /**
    * Notify parent component, that scene rendering is required
@@ -72,20 +74,20 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
     if (this.childNodes !== undefined && this.childNodes.length > 1) {
       this.childNodes.filter(i => i !== this && i.getObject() !== undefined).forEach(i => {
-        console.log("Add childNodes for ", this.constructor.name, i);
+        console.log('Add childNodes for', this.name, i);
         this.addChild(i.getObject());
       });
     } else {
-      // console.log("No child Object3D for: " + this.constructor.name);
+      // console.log("No child Object3D for: " + this.constructor.label);
     }
 
     if (this.viewChilds !== undefined && this.viewChilds.length > 0) {
       this.viewChilds.filter(i => i !== this && i.getObject() !== undefined).forEach(i => {
-        // console.log("Add viewChilds for ", this.constructor.name, i);
+        // console.log("Add viewChilds for ", this.constructor.label, i);
         this.addChild(i.getObject());
       });
     } else {
-      // console.log("No child Object3D for: " + this.constructor.name);
+      // console.log("No child Object3D for: " + this.constructor.label);
     }
 
     this.listenMouseEvents(this.object);
@@ -124,7 +126,9 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   protected addChild(object: THREE.Object3D): void {
+    console.log('  ** Add child', this.object, object);
     this.object.add(object);
+    console.log('    ** => this.object.children', this.object.children.length, this.getObject().children.length);
   }
 
   protected removeChild(object: THREE.Object3D): void {

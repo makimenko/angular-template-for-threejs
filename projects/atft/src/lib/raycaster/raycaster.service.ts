@@ -49,26 +49,32 @@ export class RaycasterService implements OnDestroy {
   }
 
   public addGroup(group: AbstractObject3D<any>) {
+    console.log('RaycasterService.addGroup', group.name, group);
     this.objects.push(group);
   }
 
   private onMouseMove(event) {
+    if (!this.isReady()) {
+      return;
+    }
     const i = this.getIntersected(event);
-    console.log('mousemove', this.isReady());
-    if (i) {
-      console.log('selected', i);
-      if (!this.selected || this.selected !== i) {
-        if (this.selected) {
-          this.selected.dispatchEvent({type: 'mouseExit'});
-          this.selected = null;
-        }
+    if (!this.selected || this.selected !== i) {
+      if (this.selected) {
+        this.selected.dispatchEvent({type: 'mouseExit'});
+        this.selected = null;
+      }
+      if (i) {
         this.selected = i;
         this.selected.dispatchEvent({type: 'mouseEnter'});
       }
     }
+
   }
 
   private onMouseDown(event) {
+    if (!this.isReady()) {
+      return;
+    }
     const i = this.getIntersected(event);
     if (i) {
       i.dispatchEvent({type: 'mouseDown'});
@@ -84,9 +90,6 @@ export class RaycasterService implements OnDestroy {
   }
 
   private getIntersected(event): THREE.Object3D {
-    if (!this.isReady()) {
-      return;
-    }
     event.preventDefault();
     return this.getFirstIntersectedGroup(event.layerX, event.layerY);
   }
@@ -96,14 +99,19 @@ export class RaycasterService implements OnDestroy {
     y = -(y / window.innerHeight) * 2 + 1;
     const mouseVector = new THREE.Vector3(x, y, 0.5);
     this.raycaster.setFromCamera(mouseVector, this.camera.camera);
-    this.objects.forEach(i => {
-      console.log(i );
-      const objs = this.raycaster.intersectObject(i.getObject(), true);
+
+    /**
+     * Return immediate if something is found.
+     * NOTE: forEach not suits here
+     * https://www.competa.com/blog/the-javascript-array-foreach-method-doesnt-return-anything/
+     */
+    for (let k = 0; k < this.objects.length; k++) {
+      const i = this.objects[k].getObject();
+      const objs = this.raycaster.intersectObject(i, true);
       if (objs.length > 0) {
-        console.log('found', i.getObject());
-        return i.getObject();
+        return i;
       }
-    });
+    }
     return;
   }
 

@@ -6,7 +6,7 @@ import {appliedColor} from './applied-color';
  * Creates material
  *
  * @param materialColor color
- * @param materialName material name as string
+ * @param materialName material label as string
  * @param depthWrite enable depth write
  */
 export function appliedMaterial(materialColor: number | THREE.Color, materialName?: string, depthWrite?: boolean): THREE.Material {

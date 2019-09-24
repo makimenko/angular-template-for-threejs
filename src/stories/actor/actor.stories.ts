@@ -11,11 +11,14 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 @Component({
   selector: 'app-storybook-box-mesh',
   template: worldSceneWrapper(`
-    <atft-server-actor name="Server RX10" (render)="mainRenderer.render()"></atft-server-actor>
+    <atft-server-actor atft-raycaster-group (mouseEnter)="mouseEnter()" label="Server RX10" (render)="mainRenderer.render()"></atft-server-actor>
   `)
 })
 class StorybookServerComponent {
 
+  mouseEnter() {
+    console.log('Mouse enter');
+  }
 }
 
 @Component({
@@ -32,12 +35,12 @@ class StorybookServerComponent {
 
         <atft-empty translateZ="0.5">
           <!-- Nodes: -->
-          <atft-server-actor #rx10 name="RX10" translateY="-20" (render)="mainRenderer.render()" svgName="idea.svg">
+          <atft-server-actor #rx10 label="RX10" translateY="-20" (render)="mainRenderer.render()" svgName="idea.svg">
           </atft-server-actor>
-          <atft-server-actor #z001 name="Server Z001" translateY="-20" [translateX]="-30" svgName="grid-world.svg"
+          <atft-server-actor #z001 label="Server Z001" translateY="-20" [translateX]="-30" svgName="grid-world.svg"
             (render)="mainRenderer.render()">
           </atft-server-actor>
-          <atft-server-actor #tx71 name="Server TX71" translateY="30" [translateX]="-30" svgName="upload.svg"
+          <atft-server-actor #tx71 label="Server TX71" translateY="30" [translateX]="-30" svgName="upload.svg"
             (render)="mainRenderer.render()">
           </atft-server-actor>
           <!-- Edges: -->

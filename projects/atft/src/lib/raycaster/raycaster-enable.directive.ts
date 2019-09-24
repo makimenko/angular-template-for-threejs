@@ -1,14 +1,17 @@
-import {Directive} from '@angular/core';
+import {AfterViewInit, Directive} from '@angular/core';
 import {RaycasterService} from './raycaster.service';
 
 @Directive({selector: '[atft-raycaster-enable]'})
-export class RaycasterEnableDirective {
+export class RaycasterEnableDirective implements AfterViewInit {
 
   constructor(
     private raycasterService: RaycasterService
   ) {
-    console.log('Enable raycaster');
-    raycasterService.enable();
+
+  }
+
+  ngAfterViewInit(): void {
+    this.raycasterService.enable();
   }
 
 }
