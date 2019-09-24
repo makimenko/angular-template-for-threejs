@@ -297,6 +297,47 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                             </li>
                             <li class="link">
+                                <a href="modules/AtftRaycasterModule.html" data-type="entity-link">AtftRaycasterModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#directives-links-module-AtftRaycasterModule-262664f314841e4ed6368ad8dd430536"' : 'data-target="#xs-directives-links-module-AtftRaycasterModule-262664f314841e4ed6368ad8dd430536"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-AtftRaycasterModule-262664f314841e4ed6368ad8dd430536"' :
+                                        'id="xs-directives-links-module-AtftRaycasterModule-262664f314841e4ed6368ad8dd430536"' }>
+                                        <li class="link">
+                                            <a href="directives/RaycasterCameraDirective.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">RaycasterCameraDirective</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="directives/RaycasterEnableDirective.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">RaycasterEnableDirective</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="directives/RaycasterGroupDirective.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">RaycasterGroupDirective</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-AtftRaycasterModule-262664f314841e4ed6368ad8dd430536"' : 'data-target="#xs-injectables-links-module-AtftRaycasterModule-262664f314841e4ed6368ad8dd430536"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftRaycasterModule-262664f314841e4ed6368ad8dd430536"' :
+                                        'id="xs-injectables-links-module-AtftRaycasterModule-262664f314841e4ed6368ad8dd430536"' }>
+                                        <li class="link">
+                                            <a href="injectables/RaycasterService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>RaycasterService</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/AtftRendererModule.html" data-type="entity-link">AtftRendererModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?

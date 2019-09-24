@@ -98,20 +98,19 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;atft-empty&gt;
-    &lt;atft-box-mesh height&#x3D;&quot;10&quot; width&#x3D;&quot;10&quot; depth&#x3D;&quot;14&quot; material&#x3D;&quot;x&quot; [materialColor]&#x3D;&quot;color&quot; [translateZ]&#x3D;&quot;7&quot;
-                   (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot; (render)&#x3D;&quot;render.emit()&quot;&gt;
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;atft-empty name&#x3D;&quot;server-box&quot; atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;
+            (render)&#x3D;&quot;render.emit()&quot;&gt;
+    &lt;atft-box-mesh height&#x3D;&quot;10&quot; width&#x3D;&quot;10&quot; depth&#x3D;&quot;14&quot; material&#x3D;&quot;x&quot; [materialColor]&#x3D;&quot;color&quot; [translateZ]&#x3D;&quot;7&quot;&gt;
         &lt;atft-svg-loader (render)&#x3D;&quot;render.emit()&quot; [model]&#x3D;&quot;(&#x27;./assets/svg/&#x27;+svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
-                         (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;
-                         material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;8&quot; maxY&#x3D;&quot;8&quot; [translateZ]&#x3D;&quot;7&quot; [depthWrite]&#x3D;&quot;false&quot;
-                         translateY&#x3D;&quot;-5.1&quot; [rotateX]&#x3D;&quot;(90 | deg2rad)&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot;
-        &gt;&lt;/atft-svg-loader&gt;
+                         material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;8&quot; maxY&#x3D;&quot;8&quot; [translateZ]&#x3D;&quot;0&quot; [depthWrite]&#x3D;&quot;false&quot;
+                         translateY&#x3D;&quot;-5.1&quot; [rotateX]&#x3D;&quot;(90 | deg2rad)&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot;&gt;
+        &lt;/atft-svg-loader&gt;
     &lt;/atft-box-mesh&gt;
-    &lt;atft-text-mesh [text]&#x3D;&quot;name&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot; (render)&#x3D;&quot;render.emit()&quot;
+    &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot; (render)&#x3D;&quot;render.emit()&quot;
                     material&#x3D;&quot;basic&quot; materialColor&#x3D;&quot;0xDADADA&quot; [translateY]&#x3D;&quot;-12&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
     &lt;/atft-text-mesh&gt;
     &lt;atft-frame-mesh [thickness]&#x3D;&quot;2&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.5&quot; material&#x3D;&quot;basic&quot; [materialColor]&#x3D;&quot;color&quot;
-                     (render)&#x3D;&quot;render.emit()&quot; (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;&gt;
+                     (render)&#x3D;&quot;render.emit()&quot;&gt;
     &lt;/atft-frame-mesh&gt;
 &lt;/atft-empty&gt;
 </code></pre></td>
@@ -214,10 +213,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#listenMouseEvents">listenMouseEvents</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#newObject3DInstance">newObject3DInstance</a>
                             </li>
@@ -255,10 +250,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#listenMouseEvents">listenMouseEvents</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#newObject3DInstance">newObject3DInstance</a>
                             </li>
@@ -287,10 +278,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#name">name</a>
+                                <a href="#label">label</a>
                             </li>
                             <li>
                                 <a href="#svgName">svgName</a>
+                            </li>
+                            <li>
+                                <a href="#name">name</a>
                             </li>
                             <li>
                                 <a href="#rotateX">rotateX</a>
@@ -309,6 +303,9 @@
                             </li>
                             <li>
                                 <a href="#translateZ">translateZ</a>
+                            </li>
+                            <li>
+                                <a href="#name">name</a>
                             </li>
                             <li>
                                 <a href="#rotateX">rotateX</a>
@@ -350,25 +347,7 @@
                                 <a href="#selected">selected</a>
                             </li>
                             <li>
-                                <a href="#mouseDown">mouseDown</a>
-                            </li>
-                            <li>
-                                <a href="#mouseEnter">mouseEnter</a>
-                            </li>
-                            <li>
-                                <a href="#mouseExit">mouseExit</a>
-                            </li>
-                            <li>
                                 <a href="#render">render</a>
-                            </li>
-                            <li>
-                                <a href="#mouseDown">mouseDown</a>
-                            </li>
-                            <li>
-                                <a href="#mouseEnter">mouseEnter</a>
-                            </li>
-                            <li>
-                                <a href="#mouseExit">mouseExit</a>
                             </li>
                             <li>
                                 <a href="#render">render</a>
@@ -390,8 +369,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="name"></a>
-                        <b>name</b>
+                        <a name="label"></a>
+                        <b>label</b>
                     </td>
                 </tr>
                 <tr>
@@ -402,7 +381,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:29</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -422,7 +401,35 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <b>name</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../components/EmptyComponent.html" target="_self" >EmptyComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:34</a></code>
+</div>
                             </td>
                         </tr>
             </tbody>
@@ -602,6 +609,34 @@
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:32</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <b>name</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/AbstractObject3D.html" target="_self" >AbstractObject3D</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:34</a></code>
 </div>
                             </td>
                         </tr>
@@ -806,7 +841,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:38</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -827,7 +862,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:32</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -848,7 +883,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:35</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -857,36 +892,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="mouseDown"></a>
-                        <b>mouseDown</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
-
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/EmptyComponent.html" target="_self" >EmptyComponent</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:41</a></code>
-</div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="mouseEnter"></a>
-                        <b>mouseEnter</b>
+                        <a name="render"></a>
+                        <b>render</b>
                     </td>
                 </tr>
                 <tr>
@@ -907,62 +914,6 @@
 </div>
                             </td>
                         </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="mouseExit"></a>
-                        <b>mouseExit</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
-
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/EmptyComponent.html" target="_self" >EmptyComponent</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:40</a></code>
-</div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="render"></a>
-                        <b>render</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
-
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/EmptyComponent.html" target="_self" >EmptyComponent</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:37</a></code>
-</div>
-                            </td>
-                        </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Notify parent component, that scene rendering is required</p>
@@ -975,36 +926,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="mouseDown"></a>
-                        <b>mouseDown</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
-
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../classes/AbstractObject3D.html" target="_self" >AbstractObject3D</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:41</a></code>
-</div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="mouseEnter"></a>
-                        <b>mouseEnter</b>
+                        <a name="render"></a>
+                        <b>render</b>
                     </td>
                 </tr>
                 <tr>
@@ -1022,62 +945,6 @@
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:39</a></code>
-</div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="mouseExit"></a>
-                        <b>mouseExit</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
-
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../classes/AbstractObject3D.html" target="_self" >AbstractObject3D</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:40</a></code>
-</div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="render"></a>
-                        <b>render</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
-
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../classes/AbstractObject3D.html" target="_self" >AbstractObject3D</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:37</a></code>
 </div>
                             </td>
                         </tr>
@@ -1121,8 +988,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:55</a></div>
                 </td>
             </tr>
 
@@ -1203,8 +1070,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:45</a></div>
                 </td>
             </tr>
 
@@ -1297,7 +1164,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:126</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:115</a></code>
 </div>
                 </td>
             </tr>
@@ -1375,7 +1242,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:138</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:127</a></code>
 </div>
                 </td>
             </tr>
@@ -1422,7 +1289,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:109</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:98</a></code>
 </div>
                 </td>
             </tr>
@@ -1469,7 +1336,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:118</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:107</a></code>
 </div>
                 </td>
             </tr>
@@ -1516,7 +1383,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:134</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:123</a></code>
 </div>
                 </td>
             </tr>
@@ -1528,84 +1395,6 @@
                     <div class="io-description">
                         <b>Returns : </b>    <code>T</code>
 
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="listenMouseEvents"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            listenMouseEvents
-                        </b>
-                        <a href="#listenMouseEvents"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>listenMouseEvents(object: THREE.Object3D)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../components/EmptyComponent.html" target="_self" >EmptyComponent</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:95</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>object</td>
-                                    <td>
-                                            <code>THREE.Object3D</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -1642,7 +1431,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:141</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:130</a></code>
 </div>
                 </td>
             </tr>
@@ -1689,7 +1478,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:66</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:64</a></code>
 </div>
                 </td>
             </tr>
@@ -1736,7 +1525,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:45</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:43</a></code>
 </div>
                 </td>
             </tr>
@@ -1814,7 +1603,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:130</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:119</a></code>
 </div>
                 </td>
             </tr>
@@ -1892,7 +1681,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:126</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:115</a></code>
 </div>
                 </td>
             </tr>
@@ -1970,7 +1759,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:138</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:127</a></code>
 </div>
                 </td>
             </tr>
@@ -2017,7 +1806,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:109</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:98</a></code>
 </div>
                 </td>
             </tr>
@@ -2064,7 +1853,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:118</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:107</a></code>
 </div>
                 </td>
             </tr>
@@ -2111,7 +1900,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:134</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:123</a></code>
 </div>
                 </td>
             </tr>
@@ -2123,84 +1912,6 @@
                     <div class="io-description">
                         <b>Returns : </b>    <code>T</code>
 
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="listenMouseEvents"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            listenMouseEvents
-                        </b>
-                        <a href="#listenMouseEvents"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>listenMouseEvents(object: THREE.Object3D)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/AbstractObject3D.html" target="_self" >AbstractObject3D</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:95</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>object</td>
-                                    <td>
-                                            <code>THREE.Object3D</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -2237,7 +1948,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:141</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:130</a></code>
 </div>
                 </td>
             </tr>
@@ -2284,7 +1995,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:66</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:64</a></code>
 </div>
                 </td>
             </tr>
@@ -2331,7 +2042,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:45</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:43</a></code>
 </div>
                 </td>
             </tr>
@@ -2409,7 +2120,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:130</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:119</a></code>
 </div>
                 </td>
             </tr>
@@ -2488,7 +2199,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -2565,7 +2276,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:43</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:41</a></code>
 </div>
                             </td>
                         </tr>
@@ -2686,7 +2397,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:43</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:41</a></code>
 </div>
                             </td>
                         </tr>
@@ -2751,20 +2462,19 @@ import {EmptyComponent} from &#x27;../../../object/helper&#x27;;
   selector: &#x27;atft-server-actor&#x27;,
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; ServerActorComponent)}],
   template: &#x60;
-      &lt;atft-empty&gt;
-          &lt;atft-box-mesh height&#x3D;&quot;10&quot; width&#x3D;&quot;10&quot; depth&#x3D;&quot;14&quot; material&#x3D;&quot;x&quot; [materialColor]&#x3D;&quot;color&quot; [translateZ]&#x3D;&quot;7&quot;
-                         (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot; (render)&#x3D;&quot;render.emit()&quot;&gt;
+      &lt;atft-empty name&#x3D;&quot;server-box&quot; atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;
+                  (render)&#x3D;&quot;render.emit()&quot;&gt;
+          &lt;atft-box-mesh height&#x3D;&quot;10&quot; width&#x3D;&quot;10&quot; depth&#x3D;&quot;14&quot; material&#x3D;&quot;x&quot; [materialColor]&#x3D;&quot;color&quot; [translateZ]&#x3D;&quot;7&quot;&gt;
               &lt;atft-svg-loader (render)&#x3D;&quot;render.emit()&quot; [model]&#x3D;&quot;(&#x27;./assets/svg/&#x27;+svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
-                               (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;
-                               material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;8&quot; maxY&#x3D;&quot;8&quot; [translateZ]&#x3D;&quot;7&quot; [depthWrite]&#x3D;&quot;false&quot;
-                               translateY&#x3D;&quot;-5.1&quot; [rotateX]&#x3D;&quot;(90 | deg2rad)&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot;
-              &gt;&lt;/atft-svg-loader&gt;
+                               material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;8&quot; maxY&#x3D;&quot;8&quot; [translateZ]&#x3D;&quot;0&quot; [depthWrite]&#x3D;&quot;false&quot;
+                               translateY&#x3D;&quot;-5.1&quot; [rotateX]&#x3D;&quot;(90 | deg2rad)&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot;&gt;
+              &lt;/atft-svg-loader&gt;
           &lt;/atft-box-mesh&gt;
-          &lt;atft-text-mesh [text]&#x3D;&quot;name&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot; (render)&#x3D;&quot;render.emit()&quot;
+          &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot; (render)&#x3D;&quot;render.emit()&quot;
                           material&#x3D;&quot;basic&quot; materialColor&#x3D;&quot;0xDADADA&quot; [translateY]&#x3D;&quot;-12&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
           &lt;/atft-text-mesh&gt;
           &lt;atft-frame-mesh [thickness]&#x3D;&quot;2&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.5&quot; material&#x3D;&quot;basic&quot; [materialColor]&#x3D;&quot;color&quot;
-                           (render)&#x3D;&quot;render.emit()&quot; (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;&gt;
+                           (render)&#x3D;&quot;render.emit()&quot;&gt;
           &lt;/atft-frame-mesh&gt;
       &lt;/atft-empty&gt;
   &#x60;
@@ -2772,7 +2482,7 @@ import {EmptyComponent} from &#x27;../../../object/helper&#x27;;
 export class ServerActorComponent extends EmptyComponent {
 
   @Input()
-  name: string;
+  label: string;
 
   @Output()
   render &#x3D; new EventEmitter&lt;void&gt;();
@@ -2789,14 +2499,17 @@ export class ServerActorComponent extends EmptyComponent {
   color &#x3D; 0xffffff;
 
   public onSelected() {
+    // console.log(&#x27;ServerActorComponent.onSelected&#x27;);
     this.color &#x3D; 0xfff0f0;
   }
 
   public onDeselected() {
+    // console.log(&#x27;ServerActorComponent.onDeselected&#x27;);
     this.color &#x3D; 0xffffff;
   }
 
   public onClick() {
+    // console.log(&#x27;ServerActorComponent.onClick&#x27;);
     this.color &#x3D; 0xffa0a0;
   }
 }
@@ -2830,9 +2543,9 @@ export class ServerActorComponent extends EmptyComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><atft-empty>    <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7"                   (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()" (render)="render.emit()">        <atft-svg-loader (render)="render.emit()" [model]="(\'./assets/svg/\'+svgName)" overrideMaterialColor="0xffffff"                         (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()"                         material="basic" maxX="8" maxY="8" [translateZ]="7" [depthWrite]="false"                         translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)"        ></atft-svg-loader>    </atft-box-mesh>    <atft-text-mesh [text]="name" [size]="2" [bevelEnabled]="false" height="0" [centered]="true" (render)="render.emit()"                    material="basic" materialColor="0xDADADA" [translateY]="-12" [translateZ]="0.2">    </atft-text-mesh>    <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="15" [translateZ]="0.5" material="basic" [materialColor]="color"                     (render)="render.emit()" (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">    </atft-frame-mesh></atft-empty></div>'
+        var COMPONENT_TEMPLATE = '<div><atft-empty name="server-box" atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()"            (render)="render.emit()">    <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7">        <atft-svg-loader (render)="render.emit()" [model]="(\'./assets/svg/\'+svgName)" overrideMaterialColor="0xffffff"                         material="basic" maxX="8" maxY="8" [translateZ]="0" [depthWrite]="false"                         translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)">        </atft-svg-loader>    </atft-box-mesh>    <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" height="0" [centered]="true" (render)="render.emit()"                    material="basic" materialColor="0xDADADA" [translateY]="-12" [translateZ]="0.2">    </atft-text-mesh>    <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="15" [translateZ]="0.5" material="basic" [materialColor]="color"                     (render)="render.emit()">    </atft-frame-mesh></atft-empty></div>'
     var COMPONENTS = [{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerActorComponent', 'selector': 'atft-server-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'WebGLRendererComponent', 'selector': 'atft-webgl-renderer'}];
-    var DIRECTIVES = [];
+    var DIRECTIVES = [{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'}];
     var ACTUAL_COMPONENT = {'name': 'ServerActorComponent'};
 </script>
 <script src="../js/tree.js"></script>
