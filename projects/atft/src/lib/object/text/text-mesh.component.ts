@@ -5,6 +5,7 @@ import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
 import {appliedColor} from '../../util/applied-color';
 import {appliedMaterial} from '../../util';
 import {fixCenter} from '../../util/fix-center';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-text-mesh',
@@ -60,6 +61,12 @@ export class TextMeshComponent extends AbstractLazyObject3D {
 
   @Input()
   centered = true;
+
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
+  }
 
   public getMaterial(): THREE.Material {
     return appliedMaterial(this.materialColor, this.material, this.depthWrite);

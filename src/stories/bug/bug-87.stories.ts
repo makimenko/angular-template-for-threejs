@@ -11,9 +11,9 @@ import markdownNotes from './bug-87.stories.md';
 @Component({
   selector: 'app-storybook-wrapper',
   template: `
-      <atft-orbit-controls rotateSpeed=1 zoomSpeed=1.2 [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
+      <atft-orbit-controls rotateSpeed=1 zoomSpeed=1.2 [listeningControlElement]=mainRenderer.renderPane>
           <atft-webgl-renderer #mainRenderer>
-              <atft-perspective-camera (render)="mainRenderer.render()" positionX=10 positionY=50 positionZ=50></atft-perspective-camera>
+              <atft-perspective-camera positionX=10 positionY=50 positionZ=50></atft-perspective-camera>
               <atft-scene>
                   <atft-axes-helper size=200></atft-axes-helper>
                   <atft-grid-helper size=100 divisions=10></atft-grid-helper>

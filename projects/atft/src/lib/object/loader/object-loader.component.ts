@@ -3,6 +3,7 @@ import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractModelLoader} from './abstract-model-loader';
 
 import * as THREE from 'three';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-object-loader',
@@ -11,6 +12,12 @@ import * as THREE from 'three';
 })
 export class ObjectLoaderComponent extends AbstractModelLoader {
   private loader = new THREE.ObjectLoader();
+
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
+  }
 
   protected async loadLazyObject() {
     // console.log('ObjectLoaderComponent.loadLazyObject');

@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {Subject} from 'rxjs';
-import {AnimationService} from '../animation/animation.service';
+import {RendererService} from './renderer.service';
 
 @Component({
   selector: 'atft-webgl-renderer',
@@ -25,7 +25,9 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   @Input()
   enableShadowMap = false;
 
-  constructor(private animationService: AnimationService) {
+  constructor(
+    private rendererService: RendererService
+  ) {
     // console.log('RendererComponent.constructor');
     this.render = this.render.bind(this);
   }
@@ -34,7 +36,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     // console.log('RendererComponent.ngAfterViewInit');
     this.viewInitialized = true;
     this.startRendering();
-    this.animationService.render.subscribe(this.render);
+    this.rendererService.render.subscribe(this.render);
   }
 
   /**

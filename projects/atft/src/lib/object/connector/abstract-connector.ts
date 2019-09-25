@@ -10,24 +10,18 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
   @Input()
   target: AbstractObject3D<THREE.Object3D>;
 
-  constructor() {
-    super();
-    // console.log('AbstractConnector.constructor');
-  }
-
   protected newObject3DInstance(): T {
-    // console.log('AbstractConnector.newObject3DInstance');
     const mesh = this.createConnectorObject();
     this.watchObjects();
     return mesh;
   }
 
   private watchObjects() {
-    this.source.render.subscribe(item => {
+    this.source.changed.subscribe(item => {
       this.updateLineGeometry();
     });
 
-    this.target.render.subscribe(item => {
+    this.target.changed.subscribe(item => {
       this.updateLineGeometry();
     });
   }

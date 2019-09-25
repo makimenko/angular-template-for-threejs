@@ -1,8 +1,28 @@
-import { TorusMeshComponent } from './torus-mesh.component';
+import {TorusMeshComponent} from './torus-mesh.component';
+import {async, TestBed} from '@angular/core/testing';
+import {RendererService} from '../../renderer/renderer.service';
+import {AtftMeshModule} from './atft-mesh.module';
 
-describe('TorusmeshComponent', () => {
+describe('TorusMeshComponent', () => {
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        AtftMeshModule
+      ],
+      providers: [
+        RendererService
+      ]
+    });
+    return TestBed.compileComponents();
+  }));
+
+
   it('should create an instance', () => {
-    const comp = new TorusMeshComponent();
-    expect(comp).toBeTruthy();
+    const fixture = TestBed.createComponent(TorusMeshComponent);
+    const component = fixture.componentInstance;
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
   });
+
 });

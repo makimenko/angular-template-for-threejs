@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractConnector} from './abstract-connector';
 import {appliedColor} from '../../util/applied-color';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-line-connector',
@@ -16,6 +17,10 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
 
   // TODO: move to abstract?
   private geometry: THREE.Geometry;
+
+  constructor(protected rendererService: RendererService) {
+    super(rendererService);
+  }
 
   public createConnectorObject(): THREE.Line {
     this.geometry = this.getLineGeometry();
@@ -37,7 +42,7 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
 
   updateLineGeometry(): void {
     this.geometry.verticesNeedUpdate = true;
-    this.render.emit();
+    this.rendererService.request();
   }
 
 }

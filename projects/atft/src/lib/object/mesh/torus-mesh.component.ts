@@ -2,6 +2,7 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-torus-mesh',
@@ -30,9 +31,10 @@ export class TorusMeshComponent extends AbstractMesh {
   @Input()
   arc: number = Math.PI * 2;
 
-  constructor() {
-    super();
-    // console.log('TorusMeshComponent.constructor');
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
   }
 
   protected newObject3DInstance(): THREE.Mesh {

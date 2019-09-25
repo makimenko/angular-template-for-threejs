@@ -6,7 +6,7 @@ The input fields `translate{X,Y,Z}`, `rotate{X,Y,Z}` are forwarded internally to
 ### Source Code
 
 ```html
-<atft-empty (render)="mainRenderer.render()"
+<atft-empty
     [translateX]="translateX"
     [translateY]="translateY"
     [translateZ]="translateZ"

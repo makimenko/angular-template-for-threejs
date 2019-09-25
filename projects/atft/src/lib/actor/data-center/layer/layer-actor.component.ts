@@ -9,8 +9,7 @@ import {EmptyComponent} from '../../../object/helper';
   template: `
     <atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"
                      (mouseExit)="onDeselected()">
-      <atft-text-mesh [centered]="true" [text]="name" size="5" translateX="40" [rotateZ]="(90 | deg2rad)"
-                      materialColor="0xE0E0E0" (render)="render.emit()">
+      <atft-text-mesh [centered]="true" [text]="name" size="5" translateX="40" [rotateZ]="(90 | deg2rad)" materialColor="0xE0E0E0">
       </atft-text-mesh>
     </atft-plane-mesh>
   `

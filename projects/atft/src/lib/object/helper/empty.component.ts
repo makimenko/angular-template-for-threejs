@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-empty',
@@ -9,15 +10,14 @@ import {AbstractObject3D} from '../abstract-object-3d';
 })
 export class EmptyComponent extends AbstractObject3D<THREE.Object3D> implements AfterViewInit {
 
-  constructor() {
-    super();
-    // console.log('EmptyComponent.constructor');
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
   }
 
   protected newObject3DInstance(): THREE.Object3D {
-    // console.log('EmptyComponent.newObject3DInstance');
     return new THREE.Object3D();
   }
-
 
 }

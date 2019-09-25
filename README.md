@@ -11,8 +11,7 @@
 Leverage [Three.js](https://threejs.org) in your Angular app using simple components:
 
 ```html
-<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 
-  (render)="mainRenderer.render()">
+<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
   <atft-webgl-renderer #mainRenderer>
     <atft-perspective-camera
       [fov]=60 [near]=1 [far]=1100
@@ -59,8 +58,7 @@ Click below to see the demo in a web browser:<br>
    ```
 3. Use atft library components in `src/app.app.component.html`:
     ```html
-    <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 
-      (render)="mainRenderer.render()">
+    <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
       <atft-webgl-renderer #mainRenderer>
         <atft-perspective-camera
           [fov]=60 [near]=1 [far]=1100

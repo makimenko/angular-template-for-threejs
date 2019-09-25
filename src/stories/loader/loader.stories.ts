@@ -9,7 +9,7 @@ import {worldSceneWrapper} from '../common/world-scene-wrapper';
 
 @Component({
   template: defaultSceneWrapper(`
-      <atft-object-loader model="assets/model/Server.json" (render)="mainRenderer.render()">
+      <atft-object-loader model="assets/model/Server.json">
       </atft-object-loader>
   `)
 })
@@ -22,7 +22,7 @@ const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angu
 
 @Component({
   template: worldSceneWrapper(`
-      <atft-obj-loader (render)="mainRenderer.render()"
+      <atft-obj-loader
               model="${modelPath}/SampleArchitecture.obj"
               material="${modelPath}/SampleArchitecture.mtl"
               texturePath="${modelPath}/"
@@ -38,9 +38,9 @@ class StorybookObjLoaderComponent {
 
 @Component({
   template: defaultSceneWrapper(`
-      <atft-svg-loader (render)="mainRenderer.render()" model="./assets/svg/worldwide.svg" maxX="15" maxY="15">
+      <atft-svg-loader model="./assets/svg/worldwide.svg" maxX="15" maxY="15">
       </atft-svg-loader>
-      <atft-svg-loader (render)="mainRenderer.render()" model="./assets/svg/grid-world.svg" overrideMaterialColor="0x0000ff"
+      <atft-svg-loader model="./assets/svg/grid-world.svg" overrideMaterialColor="0x0000ff"
         maxX="10" maxY="10"  translateZ="2">
       </atft-svg-loader>
   `)

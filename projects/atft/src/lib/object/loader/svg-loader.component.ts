@@ -7,6 +7,7 @@ import * as THREE from 'three';
 import {appliedColor, appliedMaterial} from '../../util';
 import {fixCenter} from '../../util/fix-center';
 import {scaleToFit} from '../../util/scale-to-fit';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-svg-loader',
@@ -33,6 +34,12 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   centered = true;
 
   private loader = new SVGLoader();
+
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
+  }
 
   protected async loadLazyObject() {
     // console.log('ObjectLoaderComponent.loadLazyObject');

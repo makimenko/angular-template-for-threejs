@@ -2,6 +2,7 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {appliedColor} from '../../util/applied-color';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-directional-light',
@@ -15,6 +16,12 @@ export class DirectionalLightComponent extends AbstractObject3D<THREE.Directiona
   // by default, target is 0,0,0
   @Input() target = new THREE.Object3D();
   @Input() castShadow = true;
+
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
+  }
 
   protected newObject3DInstance() {
 

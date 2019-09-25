@@ -2,6 +2,7 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-sphere-mesh',
@@ -13,6 +14,12 @@ export class SphereMeshComponent extends AbstractMesh {
   @Input() radius: number;
   @Input() widthSegments: number;
   @Input() hightSegments: number;
+
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
+  }
 
   protected newObject3DInstance(): THREE.Mesh {
     // console.log('SphereMeshComponent.newObject3DInstance');

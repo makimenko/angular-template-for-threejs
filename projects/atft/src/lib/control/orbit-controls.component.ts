@@ -14,6 +14,7 @@ import {
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {AbstractCamera} from '../camera/abstract-camera';
+import {RendererService} from '../renderer/renderer.service';
 
 @Component({
   selector: 'atft-orbit-controls',
@@ -45,11 +46,9 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
   @Input() rotateSpeed = 1.0;
   @Input() zoomSpeed = 1.2;
 
-  @Output() render = new EventEmitter<void>();
-
   private controls: OrbitControls;
 
-  constructor() {
+  constructor(private rendererService: RendererService) {
     // console.log('OrbitControlsComponent.constructor');
   }
 
@@ -90,9 +89,9 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
     this.controls.zoomSpeed = this.zoomSpeed;
 
     this.controls.addEventListener('change', () => {
-      this.render.emit();
+      this.rendererService.request();
     });
-    this.render.emit();
+    this.rendererService.request();
   }
 
   ngAfterViewInit(): void {

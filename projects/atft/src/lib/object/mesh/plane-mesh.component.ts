@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {appliedColor} from '../../util/applied-color';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-plane-mesh',
@@ -23,7 +24,6 @@ export class PlaneMeshComponent extends AbstractMesh {
   @Input()
   height = 1.0;
 
-
   /**
    * Number of segmented rectangular faces along the width of the sides. Optional; defaults to 1.
    */
@@ -35,6 +35,12 @@ export class PlaneMeshComponent extends AbstractMesh {
    */
   @Input()
   heightSegments = 1;
+
+  constructor(
+    protected rendererService: RendererService
+  ) {
+    super(rendererService);
+  }
 
   protected newObject3DInstance(): THREE.Mesh {
     const geometry = new THREE.PlaneBufferGeometry(this.width, this.height, this.widthSegments, this.heightSegments);
