@@ -5,7 +5,7 @@ import {BoxMeshComponent} from './box-mesh.component';
 import * as THREE from 'three';
 import {SimpleChange} from '@angular/core';
 
-fdescribe('AbstractMesh (via BoxMeshComponent)', () => {
+describe('AbstractMesh (via BoxMeshComponent)', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
