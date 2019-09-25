@@ -1,27 +1,31 @@
 import {SphereMeshComponent} from './sphere-mesh.component';
-import {async, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {RendererService} from '../../renderer/renderer.service';
 import {AtftMeshModule} from './atft-mesh.module';
 
-describe('SphereMeshComponent', () => {
+describe('mesh', () => {
+  describe('SphereMeshComponent', () => {
+    let component: SphereMeshComponent;
+    let fixture: ComponentFixture<SphereMeshComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        AtftMeshModule
-      ],
-      providers: [
-        RendererService
-      ]
+    beforeEach(async(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          AtftMeshModule
+        ],
+        providers: [
+          RendererService
+        ]
+      });
+      fixture = TestBed.createComponent(SphereMeshComponent);
+      component = fixture.componentInstance;
+      return TestBed.compileComponents();
+    }));
+
+    it('should create an instance', () => {
+      fixture.detectChanges();
+      expect(component).toBeTruthy();
     });
-    return TestBed.compileComponents();
-  }));
 
-  it('should create an instance', () => {
-    const fixture = TestBed.createComponent(SphereMeshComponent);
-    const component = fixture.componentInstance;
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
   });
-
 });
