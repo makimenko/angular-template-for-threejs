@@ -1232,7 +1232,7 @@ export abstract class AbstractMesh extends AbstractObject3D&lt;THREE.Mesh&gt; im
     }
 
     let mustRerender &#x3D; false;
-    if ([&#x27;material&#x27;, &#x27;materialColor&#x27;].some(propName &#x3D;&gt; propName in changes)) {
+    if ([&#x27;material&#x27;, &#x27;materialColor&#x27;, &#x27;depthWrite&#x27;].some(propName &#x3D;&gt; propName in changes)) {
       this.applyMaterial();
       mustRerender &#x3D; true;
     }
