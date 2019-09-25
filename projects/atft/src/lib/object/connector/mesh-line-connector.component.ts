@@ -5,7 +5,7 @@ import {MeshLine, MeshLineMaterial} from 'three.meshline';
 import {AbstractConnector} from './abstract-connector';
 import {appliedColor} from '../../util/applied-color';
 import {AnimationService} from '../../animation/animation.service';
-import {RendererService} from '../../renderer';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-mesh-line-connector',

@@ -5,7 +5,7 @@ import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
 import {appliedColor} from '../../util/applied-color';
 import {appliedMaterial} from '../../util';
 import {fixCenter} from '../../util/fix-center';
-import {RendererService} from '../../renderer';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-text-mesh',

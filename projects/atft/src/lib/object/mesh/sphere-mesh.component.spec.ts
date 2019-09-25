@@ -1,6 +1,6 @@
 import {SphereMeshComponent} from './sphere-mesh.component';
 import {async, TestBed} from '@angular/core/testing';
-import {RendererService} from '../../renderer';
+import {RendererService} from '../../renderer/renderer.service';
 import {AtftMeshModule} from './atft-mesh.module';
 
 describe('SphereMeshComponent', () => {

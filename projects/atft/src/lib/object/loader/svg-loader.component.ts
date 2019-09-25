@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import {appliedColor, appliedMaterial} from '../../util';
 import {fixCenter} from '../../util/fix-center';
 import {scaleToFit} from '../../util/scale-to-fit';
-import {RendererService} from '../../renderer';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-svg-loader',

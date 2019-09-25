@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractConnector} from './abstract-connector';
 import {appliedColor} from '../../util/applied-color';
-import {RendererService} from '../../renderer';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-line-connector',

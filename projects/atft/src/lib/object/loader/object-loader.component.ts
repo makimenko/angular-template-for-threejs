@@ -3,7 +3,7 @@ import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractModelLoader} from './abstract-model-loader';
 
 import * as THREE from 'three';
-import {RendererService} from '../../renderer';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-object-loader',

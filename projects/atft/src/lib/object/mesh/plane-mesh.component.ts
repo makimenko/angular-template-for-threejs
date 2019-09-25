@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {appliedColor} from '../../util/applied-color';
-import {RendererService} from '../../renderer';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-plane-mesh',
