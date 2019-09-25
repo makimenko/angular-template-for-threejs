@@ -38,8 +38,7 @@
 <a href="https://makimenko.github.io/angular-template-for-threejs/storybook"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg?sanitize=true" alt="Storybook link" class="img-responsive"></a></p>
 <h1 id="angular-template-for-threejs-atft">Angular Template For Three.js (atft)</h1>
 <p>Leverage <a href="https://threejs.org">Three.js</a> in your Angular app using simple components:</p>
-<div><pre class="line-numbers"><code class="language-html">&lt;atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 
-  (render)=&quot;mainRenderer.render()&quot;&gt;
+<div><pre class="line-numbers"><code class="language-html">&lt;atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2&gt;
   &lt;atft-webgl-renderer #mainRenderer&gt;
     &lt;atft-perspective-camera
       [fov]=60 [near]=1 [far]=1100
@@ -79,8 +78,7 @@
   ]
  ...</code></pre></div></li>
 <li><p>Use atft library components in <code>src/app.app.component.html</code>:</p>
-<div><pre class="line-numbers"><code class="language-html"> &lt;atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 
-   (render)=&quot;mainRenderer.render()&quot;&gt;
+<div><pre class="line-numbers"><code class="language-html"> &lt;atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2&gt;
    &lt;atft-webgl-renderer #mainRenderer&gt;
      &lt;atft-perspective-camera
        [fov]=60 [near]=1 [far]=1100

@@ -341,19 +341,34 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftRendererModule.html" data-type="entity-link">AtftRendererModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftRendererModule-e3bb7b1ac1f99120b654361495cc263e"' : 'data-target="#xs-components-links-module-AtftRendererModule-e3bb7b1ac1f99120b654361495cc263e"' }>
+                                            'data-target="#components-links-module-AtftRendererModule-6fb669f9d84ed500e4d9c81688483801"' : 'data-target="#xs-components-links-module-AtftRendererModule-6fb669f9d84ed500e4d9c81688483801"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftRendererModule-e3bb7b1ac1f99120b654361495cc263e"' :
-                                            'id="xs-components-links-module-AtftRendererModule-e3bb7b1ac1f99120b654361495cc263e"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftRendererModule-6fb669f9d84ed500e4d9c81688483801"' :
+                                            'id="xs-components-links-module-AtftRendererModule-6fb669f9d84ed500e4d9c81688483801"' }>
                                             <li class="link">
                                                 <a href="components/WebGLRendererComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">WebGLRendererComponent</a>
                                             </li>
                                         </ul>
                                     </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-AtftRendererModule-6fb669f9d84ed500e4d9c81688483801"' : 'data-target="#xs-injectables-links-module-AtftRendererModule-6fb669f9d84ed500e4d9c81688483801"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftRendererModule-6fb669f9d84ed500e4d9c81688483801"' :
+                                        'id="xs-injectables-links-module-AtftRendererModule-6fb669f9d84ed500e4d9c81688483801"' }>
+                                        <li class="link">
+                                            <a href="injectables/RendererService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>RendererService</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/AtftTextModule.html" data-type="entity-link">AtftTextModule</a>

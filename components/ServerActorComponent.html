@@ -98,19 +98,17 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;atft-empty name&#x3D;&quot;server-box&quot; atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;
-            (render)&#x3D;&quot;render.emit()&quot;&gt;
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;atft-empty name&#x3D;&quot;server-box&quot; atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;&gt;
     &lt;atft-box-mesh height&#x3D;&quot;10&quot; width&#x3D;&quot;10&quot; depth&#x3D;&quot;14&quot; material&#x3D;&quot;x&quot; [materialColor]&#x3D;&quot;color&quot; [translateZ]&#x3D;&quot;7&quot;&gt;
-        &lt;atft-svg-loader (render)&#x3D;&quot;render.emit()&quot; [model]&#x3D;&quot;(&#x27;./assets/svg/&#x27;+svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
+        &lt;atft-svg-loader [model]&#x3D;&quot;(&#x27;./assets/svg/&#x27;+svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
                          material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;8&quot; maxY&#x3D;&quot;8&quot; [translateZ]&#x3D;&quot;0&quot; [depthWrite]&#x3D;&quot;false&quot;
                          translateY&#x3D;&quot;-5.1&quot; [rotateX]&#x3D;&quot;(90 | deg2rad)&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot;&gt;
         &lt;/atft-svg-loader&gt;
     &lt;/atft-box-mesh&gt;
-    &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot; (render)&#x3D;&quot;render.emit()&quot;
+    &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot;
                     material&#x3D;&quot;basic&quot; materialColor&#x3D;&quot;0xDADADA&quot; [translateY]&#x3D;&quot;-12&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
     &lt;/atft-text-mesh&gt;
-    &lt;atft-frame-mesh [thickness]&#x3D;&quot;2&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.5&quot; material&#x3D;&quot;basic&quot; [materialColor]&#x3D;&quot;color&quot;
-                     (render)&#x3D;&quot;render.emit()&quot;&gt;
+    &lt;atft-frame-mesh [thickness]&#x3D;&quot;2&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.5&quot; material&#x3D;&quot;basic&quot; [materialColor]&#x3D;&quot;color&quot;&gt;
     &lt;/atft-frame-mesh&gt;
 &lt;/atft-empty&gt;
 </code></pre></td>
@@ -347,10 +345,10 @@
                                 <a href="#selected">selected</a>
                             </li>
                             <li>
-                                <a href="#render">render</a>
+                                <a href="#changed">changed</a>
                             </li>
                             <li>
-                                <a href="#render">render</a>
+                                <a href="#changed">changed</a>
                             </li>
                         </ul>
                     </td>
@@ -381,7 +379,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:27</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -401,7 +399,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:39</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -428,7 +426,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:34</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:35</a></code>
 </div>
                             </td>
                         </tr>
@@ -456,7 +454,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:23</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:24</a></code>
 </div>
                             </td>
                         </tr>
@@ -474,34 +472,6 @@
                     <td class="col-md-4">
                         <a name="rotateY"></a>
                         <b>rotateY</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/EmptyComponent.html" target="_self" >EmptyComponent</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:24</a></code>
-</div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="rotateZ"></a>
-                        <b>rotateZ</b>
                     </td>
                 </tr>
                 <tr>
@@ -528,6 +498,34 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="rotateZ"></a>
+                        <b>rotateZ</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../components/EmptyComponent.html" target="_self" >EmptyComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:26</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="translateX"></a>
                         <b>translateX</b>
                     </td>
@@ -546,7 +544,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:30</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:31</a></code>
 </div>
                             </td>
                         </tr>
@@ -580,7 +578,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:31</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:32</a></code>
 </div>
                             </td>
                         </tr>
@@ -608,7 +606,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:32</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:33</a></code>
 </div>
                             </td>
                         </tr>
@@ -636,7 +634,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:34</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:35</a></code>
 </div>
                             </td>
                         </tr>
@@ -664,7 +662,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:23</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:24</a></code>
 </div>
                             </td>
                         </tr>
@@ -698,7 +696,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:24</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:25</a></code>
 </div>
                             </td>
                         </tr>
@@ -726,7 +724,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:25</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:26</a></code>
 </div>
                             </td>
                         </tr>
@@ -754,7 +752,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:30</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:31</a></code>
 </div>
                             </td>
                         </tr>
@@ -788,7 +786,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:31</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:32</a></code>
 </div>
                             </td>
                         </tr>
@@ -816,7 +814,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:32</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:33</a></code>
 </div>
                             </td>
                         </tr>
@@ -841,7 +839,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:36</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -862,7 +860,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:30</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -883,7 +881,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:33</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -892,8 +890,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="render"></a>
-                        <b>render</b>
+                        <a name="changed"></a>
+                        <b>changed</b>
                     </td>
                 </tr>
                 <tr>
@@ -910,24 +908,18 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:39</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:37</a></code>
 </div>
                             </td>
                         </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Notify parent component, that scene rendering is required</p>
-</div>
-                    </td>
-                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="render"></a>
-                        <b>render</b>
+                        <a name="changed"></a>
+                        <b>changed</b>
                     </td>
                 </tr>
                 <tr>
@@ -944,16 +936,10 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:39</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:37</a></code>
 </div>
                             </td>
                         </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Notify parent component, that scene rendering is required</p>
-</div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
@@ -988,8 +974,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:53</a></div>
                 </td>
             </tr>
 
@@ -1029,8 +1015,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:48</a></div>
                 </td>
             </tr>
 
@@ -1070,8 +1056,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:43</a></div>
                 </td>
             </tr>
 
@@ -1117,7 +1103,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:17</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:19</a></code>
 </div>
                 </td>
             </tr>
@@ -1164,7 +1150,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:115</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:120</a></code>
 </div>
                 </td>
             </tr>
@@ -1242,7 +1228,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:127</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:132</a></code>
 </div>
                 </td>
             </tr>
@@ -1289,7 +1275,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:98</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:103</a></code>
 </div>
                 </td>
             </tr>
@@ -1336,7 +1322,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:107</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:112</a></code>
 </div>
                 </td>
             </tr>
@@ -1383,7 +1369,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:123</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:128</a></code>
 </div>
                 </td>
             </tr>
@@ -1431,7 +1417,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:130</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:135</a></code>
 </div>
                 </td>
             </tr>
@@ -1478,7 +1464,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:64</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:69</a></code>
 </div>
                 </td>
             </tr>
@@ -1525,7 +1511,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:43</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:47</a></code>
 </div>
                 </td>
             </tr>
@@ -1603,7 +1589,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:119</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:124</a></code>
 </div>
                 </td>
             </tr>
@@ -1681,7 +1667,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:115</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:120</a></code>
 </div>
                 </td>
             </tr>
@@ -1759,7 +1745,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:127</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:132</a></code>
 </div>
                 </td>
             </tr>
@@ -1806,7 +1792,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:98</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:103</a></code>
 </div>
                 </td>
             </tr>
@@ -1853,7 +1839,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:107</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:112</a></code>
 </div>
                 </td>
             </tr>
@@ -1900,7 +1886,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:123</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:128</a></code>
 </div>
                 </td>
             </tr>
@@ -1948,7 +1934,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:130</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:135</a></code>
 </div>
                 </td>
             </tr>
@@ -1995,7 +1981,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:64</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:69</a></code>
 </div>
                 </td>
             </tr>
@@ -2042,7 +2028,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:43</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:47</a></code>
 </div>
                 </td>
             </tr>
@@ -2120,7 +2106,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:119</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:124</a></code>
 </div>
                 </td>
             </tr>
@@ -2199,7 +2185,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-actor.component.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -2241,7 +2227,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:16</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:17</a></code>
 </div>
                             </td>
                         </tr>
@@ -2276,7 +2262,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:41</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:39</a></code>
 </div>
                             </td>
                         </tr>
@@ -2319,7 +2305,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:18</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:19</a></code>
 </div>
                             </td>
                         </tr>
@@ -2362,7 +2348,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:16</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:17</a></code>
 </div>
                             </td>
                         </tr>
@@ -2397,7 +2383,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:41</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:39</a></code>
 </div>
                             </td>
                         </tr>
@@ -2440,7 +2426,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:18</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractObject3D.html#source" target="_self" >AbstractObject3D:19</a></code>
 </div>
                             </td>
                         </tr>
@@ -2462,19 +2448,17 @@ import {EmptyComponent} from &#x27;../../../object/helper&#x27;;
   selector: &#x27;atft-server-actor&#x27;,
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; ServerActorComponent)}],
   template: &#x60;
-      &lt;atft-empty name&#x3D;&quot;server-box&quot; atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;
-                  (render)&#x3D;&quot;render.emit()&quot;&gt;
+      &lt;atft-empty name&#x3D;&quot;server-box&quot; atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;&gt;
           &lt;atft-box-mesh height&#x3D;&quot;10&quot; width&#x3D;&quot;10&quot; depth&#x3D;&quot;14&quot; material&#x3D;&quot;x&quot; [materialColor]&#x3D;&quot;color&quot; [translateZ]&#x3D;&quot;7&quot;&gt;
-              &lt;atft-svg-loader (render)&#x3D;&quot;render.emit()&quot; [model]&#x3D;&quot;(&#x27;./assets/svg/&#x27;+svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
+              &lt;atft-svg-loader [model]&#x3D;&quot;(&#x27;./assets/svg/&#x27;+svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
                                material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;8&quot; maxY&#x3D;&quot;8&quot; [translateZ]&#x3D;&quot;0&quot; [depthWrite]&#x3D;&quot;false&quot;
                                translateY&#x3D;&quot;-5.1&quot; [rotateX]&#x3D;&quot;(90 | deg2rad)&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot;&gt;
               &lt;/atft-svg-loader&gt;
           &lt;/atft-box-mesh&gt;
-          &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot; (render)&#x3D;&quot;render.emit()&quot;
+          &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot;
                           material&#x3D;&quot;basic&quot; materialColor&#x3D;&quot;0xDADADA&quot; [translateY]&#x3D;&quot;-12&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
           &lt;/atft-text-mesh&gt;
-          &lt;atft-frame-mesh [thickness]&#x3D;&quot;2&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.5&quot; material&#x3D;&quot;basic&quot; [materialColor]&#x3D;&quot;color&quot;
-                           (render)&#x3D;&quot;render.emit()&quot;&gt;
+          &lt;atft-frame-mesh [thickness]&#x3D;&quot;2&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.5&quot; material&#x3D;&quot;basic&quot; [materialColor]&#x3D;&quot;color&quot;&gt;
           &lt;/atft-frame-mesh&gt;
       &lt;/atft-empty&gt;
   &#x60;
@@ -2543,7 +2527,7 @@ export class ServerActorComponent extends EmptyComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><atft-empty name="server-box" atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()"            (render)="render.emit()">    <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7">        <atft-svg-loader (render)="render.emit()" [model]="(\'./assets/svg/\'+svgName)" overrideMaterialColor="0xffffff"                         material="basic" maxX="8" maxY="8" [translateZ]="0" [depthWrite]="false"                         translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)">        </atft-svg-loader>    </atft-box-mesh>    <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" height="0" [centered]="true" (render)="render.emit()"                    material="basic" materialColor="0xDADADA" [translateY]="-12" [translateZ]="0.2">    </atft-text-mesh>    <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="15" [translateZ]="0.5" material="basic" [materialColor]="color"                     (render)="render.emit()">    </atft-frame-mesh></atft-empty></div>'
+        var COMPONENT_TEMPLATE = '<div><atft-empty name="server-box" atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">    <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7">        <atft-svg-loader [model]="(\'./assets/svg/\'+svgName)" overrideMaterialColor="0xffffff"                         material="basic" maxX="8" maxY="8" [translateZ]="0" [depthWrite]="false"                         translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)">        </atft-svg-loader>    </atft-box-mesh>    <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" height="0" [centered]="true"                    material="basic" materialColor="0xDADADA" [translateY]="-12" [translateZ]="0.2">    </atft-text-mesh>    <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="15" [translateZ]="0.5" material="basic" [materialColor]="color">    </atft-frame-mesh></atft-empty></div>'
     var COMPONENTS = [{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerActorComponent', 'selector': 'atft-server-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'WebGLRendererComponent', 'selector': 'atft-webgl-renderer'}];
     var DIRECTIVES = [{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'}];
     var ACTUAL_COMPONENT = {'name': 'ServerActorComponent'};

@@ -63,21 +63,25 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_AtftRendererModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="141,-70 141,-268 355,-268 355,-70 141,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="56,-70 56,-268 440,-268 440,-70 56,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_AtftRendererModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="151,-78 151,-130 345,-130 345,-78 151,-78"/>
+<polygon fill="none" stroke="#000000" points="238,-78 238,-130 432,-130 432,-78 238,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_AtftRendererModule_exports</title>
 <polygon fill="none" stroke="#000000" points="149,-208 149,-260 347,-260 347,-208 149,-208"/>
 </g>
+<g id="clust7" class="cluster">
+<title>cluster_AtftRendererModule_providers</title>
+<polygon fill="none" stroke="#000000" points="64,-78 64,-130 230,-130 230,-78 64,-78"/>
+</g>
 <!-- WebGLRendererComponent -->
 <g id="node1" class="node">
 <title>WebGLRendererComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="336.7226,-122 159.2774,-122 159.2774,-86 336.7226,-86 336.7226,-122"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">WebGLRendererComponent</text>
+<polygon fill="#ffffb3" stroke="#000000" points="423.7226,-122 246.2774,-122 246.2774,-86 423.7226,-86 423.7226,-122"/>
+<text text-anchor="middle" x="335" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">WebGLRendererComponent</text>
 </g>
 <!-- AtftRendererModule -->
 <g id="node2" class="node">
@@ -88,8 +92,8 @@
 <!-- WebGLRendererComponent&#45;&gt;AtftRendererModule -->
 <g id="edge1" class="edge">
 <title>WebGLRendererComponent&#45;&gt;AtftRendererModule</title>
-<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
+<path fill="none" stroke="#000000" d="M280.4194,-122.1061C280.4194,-122.1061 280.4194,-140.991 280.4194,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="276.9194,-140.9909 280.4194,-150.991 283.9194,-140.991 276.9194,-140.9909"/>
 </g>
 <!-- WebGLRendererComponent  -->
 <g id="node3" class="node">
@@ -102,6 +106,18 @@
 <title>AtftRendererModule&#45;&gt;WebGLRendererComponent </title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
+</g>
+<!-- RendererService -->
+<g id="node4" class="node">
+<title>RendererService</title>
+<ellipse fill="#fdb462" stroke="#000000" cx="147" cy="-104" rx="75.2578" ry="18"/>
+<text text-anchor="middle" x="147" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">RendererService</text>
+</g>
+<!-- RendererService&#45;&gt;AtftRendererModule -->
+<g id="edge3" class="edge">
+<title>RendererService&#45;&gt;AtftRendererModule</title>
+<path fill="none" stroke="#000000" d="M201.8394,-116.5327C201.8394,-116.5327 201.8394,-140.8507 201.8394,-140.8507"/>
+<polygon fill="#000000" stroke="#000000" points="198.3395,-140.8506 201.8394,-150.8507 205.3395,-140.8507 198.3395,-140.8506"/>
 </g>
 </g>
 </svg>
@@ -151,6 +167,15 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
+                    <h3>Providers<a href="https://angular.io/api/core/NgModule#providers" target="_blank"
+                            title="Official documentation about module providers"><span class="icon ion-ios-information-circle-outline"></a></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="../injectables/RendererService.html">RendererService</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
                     <h3>Exports<a href="https://angular.io/api/core/NgModule#exports" target="_blank" title="Official documentation about module exports"><span
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
@@ -170,6 +195,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {NgModule} from &#x27;@angular/core&#x27;;
 import {WebGLRendererComponent} from &#x27;./webgl-renderer.component&#x27;;
 import {CommonModule} from &#x27;@angular/common&#x27;;
+import {RendererService} from &#x27;./renderer.service&#x27;;
 
 
 @NgModule({
@@ -178,6 +204,9 @@ import {CommonModule} from &#x27;@angular/common&#x27;;
   ],
   declarations: [
     WebGLRendererComponent
+  ],
+  providers: [
+    RendererService
   ],
   exports: [
     WebGLRendererComponent

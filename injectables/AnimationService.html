@@ -90,10 +90,6 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
                                     <span class="modifier">Private</span>
                                 <a href="#enabled">enabled</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#render">render</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -136,15 +132,45 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:18</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>rendererService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RendererService.html" target="_self" >RendererService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -178,8 +204,8 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -219,8 +245,8 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:29</a></div>
                 </td>
             </tr>
 
@@ -262,8 +288,8 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -307,7 +333,7 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -341,44 +367,10 @@ Avoid render() execution, it&#39;s called only once when all components updated 
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:18</a></div>
                             </td>
                         </tr>
 
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="render"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Readonly</span>
-                            render</b>
-                            <a href="#render"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new EventEmitter&lt;void&gt;()</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:21</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>When all components updated animation, render event is emitted.
-Main renderer subscribed to this event emitter.</p>
-</div>
-                    </td>
-                </tr>
 
             </tbody>
         </table>
@@ -388,7 +380,8 @@ Main renderer subscribed to this event emitter.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {EventEmitter, Injectable} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {EventEmitter, Injectable, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
+import {RendererService} from &#x27;../renderer/renderer.service&#x27;;
 
 
 /**
@@ -404,15 +397,11 @@ export class AnimationService {
    */
   readonly animate &#x3D; new EventEmitter&lt;void&gt;();
 
-  /**
-   * When all components updated animation, render event is emitted.
-   * Main renderer subscribed to this event emitter.
-   */
-  readonly render &#x3D; new EventEmitter&lt;void&gt;();
-
   private enabled &#x3D; false;
 
-  constructor() {
+  constructor(
+    private rendererService: RendererService
+  ) {
     this.animationStep &#x3D; this.animationStep.bind(this);
   }
 
@@ -440,7 +429,11 @@ export class AnimationService {
       requestAnimationFrame(this.animationStep);
       if (this.animate.observers.length &gt; 0) {
         this.animate.emit();
-        this.render.emit();
+        /**
+         * When all components updated animation, render event is emitted.
+         * Main renderer subscribed to this event emitter.
+         */
+        this.rendererService.request();
       }
     }
   }
