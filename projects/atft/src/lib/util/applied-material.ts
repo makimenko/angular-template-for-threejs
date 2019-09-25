@@ -12,9 +12,9 @@ import {appliedColor} from './applied-color';
 export function appliedMaterial(materialColor: number | THREE.Color, materialName?: string, depthWrite?: boolean): THREE.Material {
 
   const props = {
-    color: (materialColor instanceof THREE.Color ? materialColor : appliedColor(materialColor) ),
+    color: (materialColor instanceof THREE.Color ? materialColor : appliedColor(materialColor)),
     side: THREE.DoubleSide,
-    depthWrite: (depthWrite ? depthWrite : true)
+    depthWrite: (depthWrite !== undefined ? depthWrite : true)
   };
 
   if (materialName === 'lamb') {
