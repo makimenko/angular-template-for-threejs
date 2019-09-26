@@ -29,17 +29,23 @@ describe('raycaster', () => {
       });
       cameraFixture = TestBed.createComponent(PerspectiveCameraComponent);
       camera = cameraFixture.componentInstance;
+      camera.fov = 60;
+      camera.near = 1;
+      camera.far = 1100;
+      camera.positionX = 100;
+      camera.positionY = 50;
+      camera.positionZ = 10;
 
       boxFixture = TestBed.createComponent(BoxMeshComponent);
       box = boxFixture.componentInstance;
-      box.height = 1000;
-      box.width = 1000;
-      box.depth = 1000;
-
+      box.width = 10;
+      box.height = 10;
+      box.depth = 10;
+      boxFixture.detectChanges();
       return TestBed.compileComponents();
     }));
 
-    it('validate', () => {
+    it('mouseEnter and mouseDown', () => {
       const raycaster = new RaycasterService();
       raycaster.setCamera(camera);
 
@@ -48,17 +54,19 @@ describe('raycaster', () => {
       boxFixture.detectChanges();
       cameraFixture.detectChanges();
 
-      const evt = new MouseEvent('mousemove', {clientX: 0, clientY: 0});
-      window.dispatchEvent(evt);
+      spyOn(box.getObject(), 'dispatchEvent');
 
-      // TODO: assertions
-
+      window.dispatchEvent(new MouseEvent('mousemove', {clientX: 0, clientY: 0}));
+      expect(box.getObject().dispatchEvent).toHaveBeenCalledWith({type: 'mouseEnter'});
       boxFixture.detectChanges();
       cameraFixture.detectChanges();
 
-      raycaster.disable();
-      raycaster.ngOnDestroy();
+      window.dispatchEvent(new MouseEvent('mousedown', {clientX: 0, clientY: 0}));
+      expect(box.getObject().dispatchEvent).toHaveBeenCalledWith({type: 'mouseDown'});
+      boxFixture.detectChanges();
+      cameraFixture.detectChanges();
 
+      raycaster.ngOnDestroy();
     });
 
 
