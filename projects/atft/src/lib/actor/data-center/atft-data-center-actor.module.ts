@@ -18,5 +18,5 @@ import {AtftModule} from '../../atft.module';
     ServerActorComponent
   ]
 })
-export class DataCenterActorModule {
+export class AtftDataCenterActorModule {
 }

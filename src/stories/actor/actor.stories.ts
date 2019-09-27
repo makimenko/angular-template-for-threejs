@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {withKnobs} from '@storybook/addon-knobs';
 import {worldSceneWrapper} from '../common/world-scene-wrapper';
-import {DataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/data-center-actor.module';
+import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
 import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 
 
@@ -69,7 +69,7 @@ storiesOf('Actor', module)
     moduleMetadata({
       imports: [
         AtftModule,
-        DataCenterActorModule
+        AtftDataCenterActorModule
       ],
       declarations: [
         StorybookServerComponent,
