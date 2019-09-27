@@ -22,7 +22,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   material = 'basic';
 
   @Input()
-  depthWrite = false;
+  depthWrite = true;
 
   @Input()
   maxX: number;

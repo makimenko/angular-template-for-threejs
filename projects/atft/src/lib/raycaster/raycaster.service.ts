@@ -22,6 +22,7 @@ export class RaycasterService implements OnDestroy {
   }
 
   ngOnDestroy() {
+    this.disable();
     this.unsubscribe();
   }
 

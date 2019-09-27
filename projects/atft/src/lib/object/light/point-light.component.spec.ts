@@ -1,28 +1,28 @@
 import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AtftMeshModule} from './atft-mesh.module';
-import {FrameMeshComponent} from './frame-mesh.component';
+import {PointLightComponent} from './point-light.component';
 
-describe('mesh', () => {
-  describe('FrameMeshComponent', () => {
-    let component: FrameMeshComponent;
-    let fixture: ComponentFixture<FrameMeshComponent>;
+describe('light', () => {
+  describe('PointLightComponent', () => {
+    let component: PointLightComponent;
+    let fixture: ComponentFixture<PointLightComponent>;
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [
-          AtftMeshModule
+        declarations: [
+          PointLightComponent
         ],
         providers: [
           RendererService
         ]
       });
-      fixture = TestBed.createComponent(FrameMeshComponent);
+      fixture = TestBed.createComponent(PointLightComponent);
       component = fixture.componentInstance;
+      component.castShadow = true;
       return TestBed.compileComponents();
     }));
 
-    it('should create an instance', () => {
+    it('init', () => {
       fixture.detectChanges();
       expect(component).toBeTruthy();
     });

@@ -12,7 +12,7 @@ export const worldSceneWrapper = (content: string) => `
                 positionZ=30 atft-raycaster-camera atft-raycaster-enable>
           </atft-perspective-camera>
           <atft-scene name="scene" background="0xa0a0a0" [fog]="true" fogColor="0xa0a0a0" fogNear="40" fogFar="500">
-          <atft-plane-mesh name="ground" height="2000" width="2000" materialColor="0x999999" [depthWrite]="false" [castShadow]="false"
+          <atft-plane-mesh name="ground" height="2000" width="2000" materialColor="0x999999" [depthWrite]="true" [castShadow]="false"
             [receiveShadow]="true" heightSegments="10" widthSegments="10">
             </atft-plane-mesh>
               <!--atft-axes-helper size=1000></atft-axes-helper-->

@@ -3,7 +3,6 @@ import {Component} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {defaultSceneWrapper} from '../common/default-scene-wrapper';
-import {minimalisticSceneWrapper} from '../common/minimalistic-scene-wrapper';
 import {worldSceneWrapper} from '../common/world-scene-wrapper';
 
 

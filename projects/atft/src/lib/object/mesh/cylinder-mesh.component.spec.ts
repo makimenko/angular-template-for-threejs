@@ -1,27 +1,31 @@
 import {CylinderMeshComponent} from './cylinder-mesh.component';
 import {RendererService} from '../../renderer/renderer.service';
-import {async, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {AtftMeshModule} from './atft-mesh.module';
 
-describe('CylinderMeshComponent', () => {
+describe('mesh', () => {
+  describe('CylinderMeshComponent', () => {
+    let component: CylinderMeshComponent;
+    let fixture: ComponentFixture<CylinderMeshComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        AtftMeshModule
-      ],
-      providers: [
-        RendererService
-      ]
+    beforeEach(async(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          AtftMeshModule
+        ],
+        providers: [
+          RendererService
+        ]
+      });
+      fixture = TestBed.createComponent(CylinderMeshComponent);
+      component = fixture.componentInstance;
+      return TestBed.compileComponents();
+    }));
+
+    it('should create an instance', () => {
+      fixture.detectChanges();
+      expect(component).toBeTruthy();
     });
-    return TestBed.compileComponents();
-  }));
 
-  it('should create an instance', () => {
-    const fixture = TestBed.createComponent(CylinderMeshComponent);
-    const component = fixture.componentInstance;
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
   });
-
 });

@@ -1,28 +1,28 @@
 import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AtftMeshModule} from './atft-mesh.module';
-import {FrameMeshComponent} from './frame-mesh.component';
+import {TextMeshComponent} from './text-mesh.component';
 
-describe('mesh', () => {
-  describe('FrameMeshComponent', () => {
-    let component: FrameMeshComponent;
-    let fixture: ComponentFixture<FrameMeshComponent>;
+describe('text', () => {
+  describe('TextMeshComponent', () => {
+    let component: TextMeshComponent;
+    let fixture: ComponentFixture<TextMeshComponent>;
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [
-          AtftMeshModule
+        declarations: [
+          TextMeshComponent
         ],
         providers: [
           RendererService
         ]
       });
-      fixture = TestBed.createComponent(FrameMeshComponent);
+      fixture = TestBed.createComponent(TextMeshComponent);
       component = fixture.componentInstance;
+      component.castShadow = true;
       return TestBed.compileComponents();
     }));
 
-    it('should create an instance', () => {
+    it('init', () => {
       fixture.detectChanges();
       expect(component).toBeTruthy();
     });
