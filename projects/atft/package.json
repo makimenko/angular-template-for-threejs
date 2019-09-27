@@ -1,6 +1,6 @@
 {
   "name": "atft",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Ready-to-use Angular components for Three.js, see https://makimenko.github.io/angular-template-for-threejs/.",
   "keywords": [
     "threejs",
