@@ -138,6 +138,28 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                             </li>
                             <li class="link">
+                                <a href="modules/AtftDataCenterActorModule.html" data-type="entity-link">AtftDataCenterActorModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-AtftDataCenterActorModule-f70e9cd8c391520e8b84663e7540f7c9"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-f70e9cd8c391520e8b84663e7540f7c9"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-f70e9cd8c391520e8b84663e7540f7c9"' :
+                                            'id="xs-components-links-module-AtftDataCenterActorModule-f70e9cd8c391520e8b84663e7540f7c9"' }>
+                                            <li class="link">
+                                                <a href="components/LayerActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayerActorComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ServerActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerActorComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/AtftHelperModule.html" data-type="entity-link">AtftHelperModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
@@ -388,28 +410,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </ul>
                                     </li>
                             </li>
-                            <li class="link">
-                                <a href="modules/DataCenterActorModule.html" data-type="entity-link">DataCenterActorModule</a>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-DataCenterActorModule-f36ca6ba5f941e2340d1d9c9a21cd2b9"' : 'data-target="#xs-components-links-module-DataCenterActorModule-f36ca6ba5f941e2340d1d9c9a21cd2b9"' }>
-                                            <span class="icon ion-md-cog"></span>
-                                            <span>Components</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-DataCenterActorModule-f36ca6ba5f941e2340d1d9c9a21cd2b9"' :
-                                            'id="xs-components-links-module-DataCenterActorModule-f36ca6ba5f941e2340d1d9c9a21cd2b9"' }>
-                                            <li class="link">
-                                                <a href="components/LayerActorComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayerActorComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/ServerActorComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerActorComponent</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                            </li>
                 </ul>
                 </li>
                     <li class="chapter">
@@ -438,8 +438,31 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="classes/AbstractObject3D.html" data-type="entity-link">AbstractObject3D</a>
                             </li>
+                        </ul>
+                    </li>
+                        <li class="chapter">
+                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#injectables-links"' :
+                                'data-target="#xs-injectables-links"' }>
+                                <span class="icon ion-md-arrow-round-down"></span>
+                                <span>Injectables</span>
+                                <span class="icon ion-ios-arrow-down"></span>
+                            </div>
+                            <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
+                                <li class="link">
+                                    <a href="injectables/StatsService.html" data-type="entity-link">StatsService</a>
+                                </li>
+                            </ul>
+                        </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interfaces-links"' :
+                            'data-target="#xs-interfaces-links"' }>
+                            <span class="icon ion-md-information-circle-outline"></span>
+                            <span>Interfaces</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="classes/Stats.html" data-type="entity-link">Stats</a>
+                                <a href="interfaces/StatsResults.html" data-type="entity-link">StatsResults</a>
                             </li>
                         </ul>
                     </li>
