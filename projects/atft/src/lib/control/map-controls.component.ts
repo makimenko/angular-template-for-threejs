@@ -12,16 +12,16 @@ import {
   SimpleChanges
 } from '@angular/core';
 import * as THREE from 'three';
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+import {MapControls} from 'three/examples/jsm/controls/OrbitControls';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {RendererService} from '../renderer/renderer.service';
 
 @Component({
-  selector: 'atft-orbit-controls',
+  selector: 'atft-map-controls',
   template: `<ng-content></ng-content>`,
   styleUrls: ['controls.component.scss']
 })
-export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestroy {
+export class MapControlsComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   @ContentChildren(AbstractCamera, { descendants: true }) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
 
@@ -46,7 +46,7 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
   @Input() rotateSpeed = 1.0;
   @Input() zoomSpeed = 1.2;
 
-  private controls: OrbitControls;
+  private controls: MapControls;
 
   constructor(private rendererService: RendererService) {
     // console.log('OrbitControlsComponent.constructor');
@@ -81,12 +81,23 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
   }
 
   private setUpOrbitControls() {
-    this.controls = new OrbitControls(
+    this.controls = new MapControls(
       this.childCameras.first.camera,
       this.listeningControlElement && this.listeningControlElement.nativeElement
     );
     this.controls.rotateSpeed = this.rotateSpeed;
     this.controls.zoomSpeed = this.zoomSpeed;
+
+    this.controls.panSpeed = 0.7;
+
+    // TODO: props
+    // this.controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+    // this.controls.dampingFactor = 0.05;
+    this.controls.screenSpacePanning = false;
+    // this.controls.minDistance = 100;
+    // this.controls.maxDistance = 500;
+    this.controls.maxPolarAngle = Math.PI / 2 - 0.1;
+
 
     this.controls.addEventListener('change', () => {
       this.rendererService.request();
