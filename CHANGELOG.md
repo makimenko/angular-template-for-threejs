@@ -6,6 +6,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[1.1.0] - 2019-09-27](https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.1.0)
+### Added
+- Interactivity features:
+  - RaycasterService - allows to find objects intersections on mouse move/down. Emit object event.
+  - Directives: atft-raycaster-camera, atft-raycaster-enable, atft-raycaster-group
+- Performance optimizations:
+  - RendererService - is responsible for the scene rendering. By default injected into all objects.
+  - atft-raycaster-group - allows to group multiple hierarchical objects and emit event only on parent object (where directive is defined)
+- Animation features:
+  - AnimationService - is responsible for the animation frame preparation (emit animation event to all objects) and as last step - request rendering (emit render event for RendererService)
+- Data Center Actor module
+- Multiple new demo stories in storybook
+
+Install from NPM: https://www.npmjs.com/package/atft
+
+[![Showcase Gif](https://user-images.githubusercontent.com/11466819/65801227-479ccd00-e181-11e9-8da8-e93ccb1047c6.gif)](https://user-images.githubusercontent.com/11466819/65801227-479ccd00-e181-11e9-8da8-e93ccb1047c6.gif)
+
 ## [[1.0.2] - 2019-09-07](https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.0.2)
 ### Added
 - Integrate Storybook.js for isolated component exploration and development
