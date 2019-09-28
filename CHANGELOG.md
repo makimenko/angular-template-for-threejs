@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Deprecate `ObjLoaderComponent`'s `texturePath` input attribute in favor of `resourcePath` (following [Three.js' lead in this commit](https://github.com/mrdoob/three.js/commit/963bcc8144224f248f6d4687d95d3b191c0712df)).<br>
+  From now on use `<atft-obj-loader model="..." resourcePath="..." />`)
 
 ## [[1.1.0] - 2019-09-27](https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.1.0)
 ### Added
