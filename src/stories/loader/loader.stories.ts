@@ -24,7 +24,7 @@ const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angu
       <atft-obj-loader
               model="${modelPath}/SampleArchitecture.obj"
               material="${modelPath}/SampleArchitecture.mtl"
-              texturePath="${modelPath}/"
+              resourcePath="${modelPath}/"
               translateX="-60" translateY="-40" translateZ="0.5">
           >
       </atft-obj-loader>
