@@ -96,6 +96,10 @@ Click below to see the demo in a web browser:<br>
 2. `npm install`
 3. `ng build atft`<br>
 
+### Run Tests
+
+- `npm test`
+
 ### Run Storybook
 
 Run and watch locally: `npm run storybook`
