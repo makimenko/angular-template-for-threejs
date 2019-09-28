@@ -24,8 +24,20 @@ export class ObjLoaderComponent extends AbstractModelLoader {
   @Input()
   material: string;
 
+  /**
+   * Path relative to which resources and textures within the loaded obj file are loaded.
+   * @deprecated Rather use resourcePath
+   */
   @Input()
-  texturePath: string;
+  public set texturePath(newTexturePath: string) {
+    this.resourcePath = newTexturePath;
+  }
+
+  /**
+   * Path relative to which resources and textures within the loaded obj file are loaded.
+   */
+  @Input()
+  resourcePath: string;
 
   constructor(
     protected rendererService: RendererService
@@ -34,30 +46,31 @@ export class ObjLoaderComponent extends AbstractModelLoader {
   }
 
   protected async loadLazyObject() {
-    // console.log('ObjLoaderComponent.loadLazyObject');
-    // TODO: make it nicer
-    if (this.material === undefined) {
-      // console.log('ObjLoaderComponent.loadLazyObject without materials');
-      return new Promise<THREE.Object3D>((resolve, reject) => {
-        this.loader.load(this.model, model => {
-          resolve(model);
-        },
-          undefined,
-          reject
-        );
-      });
-    } else {
-      // console.log('ObjLoaderComponent.loadLazyObject with materials');
-      return new Promise<THREE.Object3D>((resolve, reject) => {
-        if (this.texturePath !== undefined) {
-          this.mtlLoader.setTexturePath(this.texturePath);
-        }
+    // Preloading step for the material
+    const preloadingStep = new Promise<void>((resolve, reject) => {
+      if (this.material === undefined) {
+        // No preloading necessary
+        resolve();
+      } else {
+        // TODO: If typings of mtlLoader are included in the Three.js NPM
+        // package, remove this 'any' cast.
+        (this.mtlLoader as any).setResourcePath(this.resourcePath);
+
         this.mtlLoader.load(this.material, materialCreator => {
           materialCreator.preload();
           this.loader.setMaterials(materialCreator);
-          this.loader.load(this.model, resolve);
-        });
+          resolve();
+        }, undefined, reject);
+      }
+    });
+
+    // Await preloading and load final model
+    return preloadingStep.then(() => {
+      return new Promise<THREE.Object3D>((resolve, reject) => {
+        this.loader.load(this.model, model => {
+          resolve(model);
+        }, undefined, reject);
       });
-    }
+    });
   }
 }
