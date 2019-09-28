@@ -35,8 +35,30 @@
 <p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
 <h2 id="unreleased">[Unreleased]</h2>
-<h2 id="102---2019-09-07"><a href="https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.0.2">[1.0.2] - 2019-09-07</a></h2>
+<h2 id="110---2019-09-27"><a href="https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.1.0">[1.1.0] - 2019-09-27</a></h2>
 <h3 id="added">Added</h3>
+<ul>
+<li>Interactivity features:<ul>
+<li>RaycasterService - allows to find objects intersections on mouse move/down. Emit object event.</li>
+<li>Directives: atft-raycaster-camera, atft-raycaster-enable, atft-raycaster-group</li>
+</ul>
+</li>
+<li>Performance optimizations:<ul>
+<li>RendererService - is responsible for the scene rendering. By default injected into all objects.</li>
+<li>atft-raycaster-group - allows to group multiple hierarchical objects and emit event only on parent object (where directive is defined)</li>
+</ul>
+</li>
+<li>Animation features:<ul>
+<li>AnimationService - is responsible for the animation frame preparation (emit animation event to all objects) and as last step - request rendering (emit render event for RendererService)</li>
+</ul>
+</li>
+<li>Data Center Actor module</li>
+<li>Multiple new demo stories in storybook</li>
+</ul>
+<p>Install from NPM: <a href="https://www.npmjs.com/package/atft">https://www.npmjs.com/package/atft</a></p>
+<p><a href="https://user-images.githubusercontent.com/11466819/65801227-479ccd00-e181-11e9-8da8-e93ccb1047c6.gif"><img src="https://user-images.githubusercontent.com/11466819/65801227-479ccd00-e181-11e9-8da8-e93ccb1047c6.gif" alt="Showcase Gif" class="img-responsive"></a></p>
+<h2 id="102---2019-09-07"><a href="https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.0.2">[1.0.2] - 2019-09-07</a></h2>
+<h3 id="added-1">Added</h3>
 <ul>
 <li>Integrate Storybook.js for isolated component exploration and development</li>
 <li>New demo scenes</li>
@@ -56,12 +78,12 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <p>Same as [0.0.3], see [0.0.3] for the reasons it was yanked.</p>
 <h2 id="003---2019-04-18-yanked">[0.0.3] - 2019-04-18 [YANKED]</h2>
 <p>Yanked due to patch version increase not adhering to semver. Also, due to the tag <code>v0.0.3</code> already having been used for [0.0.2], which is confusing. From now on, <code>atft</code> library versions will match Git tags and GitHub releases.</p>
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 <ul>
 <li>atft library: exposition of atft&#39;s public API by [@makimenko] fixing <a href="https://github.com/makimenko/angular-template-for-threejs/issues/39">issue #39</a></li>
 </ul>
 <h2 id="002---2019-04-10"><a href="https://github.com/makimenko/angular-template-for-threejs/releases/tag/v0.0.3">[0.0.2] - 2019-04-10</a></h2>
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 <ul>
 <li>atft library by [@makimenko] separating the Three.js bindings from the example code in `app.component.{html|ts|...}<br>
 It is published on NPM: <a href="https://www.npmjs.com/package/atft">https://www.npmjs.com/package/atft</a></li>
