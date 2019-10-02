@@ -5,7 +5,7 @@
  * @param content content template
  */
 export const worldSceneWrapper = (content: string) => `
-  <atft-orbit-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2
+  <atft-map-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2
     [listeningControlElement]=mainRenderer.renderPane>
       <atft-webgl-renderer #mainRenderer>
           <atft-perspective-camera [zAxisUp]="true" positionX=20 positionY=-80
@@ -25,7 +25,7 @@ export const worldSceneWrapper = (content: string) => `
               ${content}
           </atft-scene>
       </atft-webgl-renderer>
-  </atft-orbit-controls>
+  </atft-map-controls>
 `;
 
 

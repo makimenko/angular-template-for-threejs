@@ -11,13 +11,14 @@ export class RaycasterService implements OnDestroy {
   private selected: THREE.Object3D;
   private enabled = false;
   private camera: AbstractCamera<any>;
-
   private groups: Array<AbstractObject3D<any>> = [];
+  private paused = false;
 
 
   constructor() {
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
+    this.onTouchStart = this.onTouchStart.bind(this);
     this.subscribe();
   }
 
@@ -29,12 +30,14 @@ export class RaycasterService implements OnDestroy {
   private subscribe() {
     window.addEventListener('mousemove', this.onMouseMove);
     window.addEventListener('mousedown', this.onMouseDown);
+    window.addEventListener('touchstart', this.onTouchStart);
   }
 
   private unsubscribe() {
     // console.log('unsubscribe raycaster');
     window.removeEventListener('mousemove', this.onMouseMove);
     window.removeEventListener('mousedown', this.onMouseDown);
+    window.removeEventListener('touchstart', this.onTouchStart);
   }
 
   public enable() {
@@ -43,6 +46,19 @@ export class RaycasterService implements OnDestroy {
 
   public disable() {
     this.enabled = false;
+  }
+
+  public pause() {
+    this.paused = true;
+  }
+
+  public resume() {
+    this.paused = false;
+  }
+
+
+  get isEnabled() {
+    return this.enabled;
   }
 
   public setCamera(camera: AbstractCamera<any>) {
@@ -59,7 +75,8 @@ export class RaycasterService implements OnDestroy {
     if (!this.isReady()) {
       return;
     }
-    const i = this.getIntersected(event);
+    event.preventDefault();
+    const i = this.getFirstIntersectedGroup(event.layerX, event.layerY);
     if (!this.selected || this.selected !== i) {
       if (this.selected) {
         this.selected.dispatchEvent({type: 'mouseExit'});
@@ -75,26 +92,36 @@ export class RaycasterService implements OnDestroy {
   }
 
   private onMouseDown(event) {
-    if (!this.isReady()) {
+    if (!this.isReady(true)) {
       return;
     }
-    const i = this.getIntersected(event);
+    event.preventDefault();
+    const i = this.getFirstIntersectedGroup(event.layerX, event.layerY);
     if (i) {
       i.dispatchEvent({type: 'mouseDown'});
     }
   }
 
-  private isReady() {
+
+  private onTouchStart(event: TouchEvent) {
+    console.log(event);
+    if (!this.isReady()) {
+      return;
+    }
+    event.preventDefault();
+    const i = this.getFirstIntersectedGroup(event.touches[0].clientX, event.touches[0].clientY);
+    if (i) {
+      i.dispatchEvent({type: 'mouseDown'});
+    }
+  }
+
+  private isReady(ignorePaused?: boolean) {
     return this.enabled
+      && (ignorePaused || !this.paused)
       && this.camera
       && this.camera.camera
       && this.groups
       && this.groups.length > 0;
-  }
-
-  private getIntersected(event): THREE.Object3D {
-    event.preventDefault();
-    return this.getFirstIntersectedGroup(event.layerX, event.layerY);
   }
 
   private getFirstIntersectedGroup(x, y): THREE.Object3D {

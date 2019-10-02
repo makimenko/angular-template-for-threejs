@@ -6,8 +6,9 @@ import {EmptyComponent} from '../../../object/helper';
   selector: 'atft-server-actor',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => ServerActorComponent)}],
   template: `
-      <atft-empty name="server-box" atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
-          <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7">
+      <atft-empty name="server-box">
+          <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7"
+                         atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
               <atft-svg-loader [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
                                material="basic" maxX="8" maxY="8" [translateZ]="0"
                                translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)">
