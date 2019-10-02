@@ -11,8 +11,8 @@ export class RaycasterService implements OnDestroy {
   private selected: THREE.Object3D;
   private enabled = false;
   private camera: AbstractCamera<any>;
-
   private groups: Array<AbstractObject3D<any>> = [];
+  private paused = false;
 
 
   constructor() {
@@ -47,6 +47,15 @@ export class RaycasterService implements OnDestroy {
   public disable() {
     this.enabled = false;
   }
+
+  public pause() {
+    this.paused = true;
+  }
+
+  public resume() {
+    this.paused = false;
+  }
+
 
   get isEnabled() {
     return this.enabled;
@@ -83,7 +92,7 @@ export class RaycasterService implements OnDestroy {
   }
 
   private onMouseDown(event) {
-    if (!this.isReady()) {
+    if (!this.isReady(true)) {
       return;
     }
     event.preventDefault();
@@ -106,9 +115,9 @@ export class RaycasterService implements OnDestroy {
     }
   }
 
-
-  private isReady() {
+  private isReady(ignorePaused?: boolean) {
     return this.enabled
+      && (ignorePaused || !this.paused)
       && this.camera
       && this.camera.camera
       && this.groups

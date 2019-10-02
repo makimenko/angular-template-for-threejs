@@ -128,10 +128,10 @@ export class MapControlsComponent implements AfterViewInit, OnChanges, OnDestroy
     // don't raycast during rotation/damping/panning
     if (this.raycasterService.isEnabled) {
       this.controls.addEventListener('start', () => {
-        this.raycasterService.disable();
+        this.raycasterService.pause();
       });
       this.controls.addEventListener('end', () => {
-        this.raycasterService.enable();
+        this.raycasterService.resume();
       });
     }
 

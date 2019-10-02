@@ -88,10 +88,10 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
     // don't raycast during rotation/damping/panning
     if (this.raycasterService.isEnabled) {
       this.controls.addEventListener('start', () => {
-        this.raycasterService.disable();
+        this.raycasterService.pause();
       });
       this.controls.addEventListener('end', () => {
-        this.raycasterService.enable();
+        this.raycasterService.resume();
       });
     }
     this.rendererService.request();
