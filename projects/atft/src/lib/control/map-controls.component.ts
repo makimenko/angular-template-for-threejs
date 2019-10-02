@@ -1,29 +1,20 @@
-import {
-  AfterViewInit,
-  Component,
-  ContentChildren,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  Output,
-  QueryList,
-  SimpleChanges
-} from '@angular/core';
+import {AfterViewInit, Component, ContentChildren, ElementRef, Input, OnChanges, OnDestroy, QueryList, SimpleChanges} from '@angular/core';
 import * as THREE from 'three';
 import {MapControls} from 'three/examples/jsm/controls/OrbitControls';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {RendererService} from '../renderer/renderer.service';
+import {AnimationService} from '../animation';
+import {RaycasterService} from '../raycaster';
 
 @Component({
   selector: 'atft-map-controls',
-  template: `<ng-content></ng-content>`,
+  template: `
+      <ng-content></ng-content>`,
   styleUrls: ['controls.component.scss']
 })
 export class MapControlsComponent implements AfterViewInit, OnChanges, OnDestroy {
 
-  @ContentChildren(AbstractCamera, { descendants: true }) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
+  @ContentChildren(AbstractCamera, {descendants: true}) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
 
   /**
    * The element on whose native element the orbit control will listen for mouse events.
@@ -46,9 +37,31 @@ export class MapControlsComponent implements AfterViewInit, OnChanges, OnDestroy
   @Input() rotateSpeed = 1.0;
   @Input() zoomSpeed = 1.2;
 
+  @Input() autoRotate = true;
+
+  @Input() autoRotateSpeed = 0.5;
+
+  @Input() enableDamping = true;
+
+  @Input() dampingFactor = 0.03;
+
+  @Input() screenSpacePanning = false;
+
+  @Input() minDistance = 100;
+
+  @Input() maxDistance = 800;
+
+  @Input() maxPolarAngle: number = Math.PI / 2 - 0.1;
+
+  @Input() panSpeed = 1;
+
   private controls: MapControls;
 
-  constructor(private rendererService: RendererService) {
+  constructor(
+    private rendererService: RendererService,
+    private animationService: AnimationService,
+    private raycasterService: RaycasterService
+  ) {
     // console.log('OrbitControlsComponent.constructor');
   }
 
@@ -70,7 +83,7 @@ export class MapControlsComponent implements AfterViewInit, OnChanges, OnDestroy
       // The DOM element the OrbitControls listen on cannot be changed once an
       // OrbitControls object is created. We thus need to recreate it.
       this.controls.dispose();
-      this.setUpOrbitControls();
+      this.setUpControls();
     }
   }
 
@@ -80,7 +93,8 @@ export class MapControlsComponent implements AfterViewInit, OnChanges, OnDestroy
     }
   }
 
-  private setUpOrbitControls() {
+
+  private setUpControls() {
     this.controls = new MapControls(
       this.childCameras.first.camera,
       this.listeningControlElement && this.listeningControlElement.nativeElement
@@ -88,20 +102,39 @@ export class MapControlsComponent implements AfterViewInit, OnChanges, OnDestroy
     this.controls.rotateSpeed = this.rotateSpeed;
     this.controls.zoomSpeed = this.zoomSpeed;
 
-    this.controls.panSpeed = 0.7;
+    this.controls.panSpeed = this.panSpeed;
 
-    // TODO: props
-    // this.controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
-    // this.controls.dampingFactor = 0.05;
-    this.controls.screenSpacePanning = false;
-    // this.controls.minDistance = 100;
-    // this.controls.maxDistance = 500;
-    this.controls.maxPolarAngle = Math.PI / 2 - 0.1;
+    this.controls.autoRotate = this.autoRotate;
+    this.controls.autoRotateSpeed = this.autoRotateSpeed;
+    this.controls.enableDamping = this.enableDamping; // an animation loop is required when either damping or auto-rotation are enabled
+    this.controls.dampingFactor = this.dampingFactor;
 
+    this.controls.screenSpacePanning = this.screenSpacePanning;
+    this.controls.minDistance = this.minDistance;
+    this.controls.maxDistance = this.maxDistance;
+    this.controls.maxPolarAngle = this.maxPolarAngle;
 
-    this.controls.addEventListener('change', () => {
-      this.rendererService.request();
-    });
+    // Advanced animation:
+    if (this.autoRotate || this.enableDamping) {
+      this.animationService.animate.subscribe(() => {
+        this.controls.update();
+      });
+      this.controls.addEventListener('change', () => {
+        this.rendererService.request();
+      });
+      this.animationService.start();
+    }
+
+    // don't raycast during rotation/damping/panning
+    if (this.raycasterService.isEnabled) {
+      this.controls.addEventListener('start', () => {
+        this.raycasterService.disable();
+      });
+      this.controls.addEventListener('end', () => {
+        this.raycasterService.enable();
+      });
+    }
+
     this.rendererService.request();
   }
 
@@ -111,7 +144,7 @@ export class MapControlsComponent implements AfterViewInit, OnChanges, OnDestroy
       throw new Error('Camera is not found');
     }
 
-    this.setUpOrbitControls();
+    this.setUpControls();
   }
 
 }

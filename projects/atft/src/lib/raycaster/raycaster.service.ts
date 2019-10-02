@@ -48,6 +48,10 @@ export class RaycasterService implements OnDestroy {
     this.enabled = false;
   }
 
+  get isEnabled() {
+    return this.enabled;
+  }
+
   public setCamera(camera: AbstractCamera<any>) {
     // console.log('Add camera to raycaster', camera);
     this.camera = camera;

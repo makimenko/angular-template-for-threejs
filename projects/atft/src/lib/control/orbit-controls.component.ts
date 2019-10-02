@@ -1,29 +1,19 @@
-import {
-  AfterViewInit,
-  Component,
-  ContentChildren,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  Output,
-  QueryList,
-  SimpleChanges
-} from '@angular/core';
+import {AfterViewInit, Component, ContentChildren, ElementRef, Input, OnChanges, OnDestroy, QueryList, SimpleChanges} from '@angular/core';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {RendererService} from '../renderer/renderer.service';
+import {RaycasterService} from '../raycaster';
 
 @Component({
   selector: 'atft-orbit-controls',
-  template: `<ng-content></ng-content>`,
+  template: `
+      <ng-content></ng-content>`,
   styleUrls: ['controls.component.scss']
 })
 export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestroy {
 
-  @ContentChildren(AbstractCamera, { descendants: true }) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
+  @ContentChildren(AbstractCamera, {descendants: true}) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
 
   /**
    * The element on whose native element the orbit control will listen for mouse events.
@@ -48,7 +38,10 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
 
   private controls: OrbitControls;
 
-  constructor(private rendererService: RendererService) {
+  constructor(
+    private rendererService: RendererService,
+    private raycasterService: RaycasterService
+  ) {
     // console.log('OrbitControlsComponent.constructor');
   }
 
@@ -70,7 +63,7 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
       // The DOM element the OrbitControls listen on cannot be changed once an
       // OrbitControls object is created. We thus need to recreate it.
       this.controls.dispose();
-      this.setUpOrbitControls();
+      this.setUpControls();
     }
   }
 
@@ -80,7 +73,7 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
     }
   }
 
-  private setUpOrbitControls() {
+  private setUpControls() {
     this.controls = new OrbitControls(
       this.childCameras.first.camera,
       this.listeningControlElement && this.listeningControlElement.nativeElement
@@ -91,6 +84,16 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
     this.controls.addEventListener('change', () => {
       this.rendererService.request();
     });
+
+    // don't raycast during rotation/damping/panning
+    if (this.raycasterService.isEnabled) {
+      this.controls.addEventListener('start', () => {
+        this.raycasterService.disable();
+      });
+      this.controls.addEventListener('end', () => {
+        this.raycasterService.enable();
+      });
+    }
     this.rendererService.request();
   }
 
@@ -100,7 +103,7 @@ export class OrbitControlsComponent implements AfterViewInit, OnChanges, OnDestr
       throw new Error('Camera is not found');
     }
 
-    this.setUpOrbitControls();
+    this.setUpControls();
   }
 
 }
