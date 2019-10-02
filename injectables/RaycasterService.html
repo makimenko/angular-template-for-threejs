@@ -88,6 +88,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#paused">paused</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#raycaster">raycaster</a>
                             </li>
                             <li>
@@ -124,10 +128,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#getIntersected">getIntersected</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
                                 <a href="#isReady">isReady</a>
                             </li>
                             <li>
@@ -140,6 +140,18 @@
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#onMouseMove">onMouseMove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onTouchStart">onTouchStart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#pause">pause</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resume">resume</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -161,6 +173,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#isEnabled">isEnabled</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -213,8 +239,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -285,8 +311,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:47</a></div>
                 </td>
             </tr>
 
@@ -326,8 +352,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:43</a></div>
                 </td>
             </tr>
 
@@ -367,8 +393,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:100</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:127</a></div>
                 </td>
             </tr>
 
@@ -424,74 +450,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getIntersected"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            getIntersected
-                        </b>
-                        <a href="#getIntersected"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getIntersected(event)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:95</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>event</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>THREE.Object3D</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="isReady"></a>
                     <span class="name">
                         <b>
@@ -505,15 +463,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isReady()</code>
+                    <code>isReady(ignorePaused?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:118</a></div>
                 </td>
             </tr>
 
@@ -522,8 +480,39 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ignorePaused</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -551,8 +540,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:25</a></div>
                 </td>
             </tr>
 
@@ -592,8 +581,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:94</a></div>
                 </td>
             </tr>
 
@@ -660,8 +649,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:74</a></div>
                 </td>
             </tr>
 
@@ -708,6 +697,160 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="onTouchStart"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            onTouchStart
+                        </b>
+                        <a href="#onTouchStart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onTouchStart(event: TouchEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:106</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>TouchEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pause"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            pause
+                        </b>
+                        <a href="#pause"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>pause()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resume"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            resume
+                        </b>
+                        <a href="#resume"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resume()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:55</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="setCamera"></a>
                     <span class="name">
                         <b>
@@ -728,8 +871,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:64</a></div>
                 </td>
             </tr>
 
@@ -800,8 +943,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -841,8 +984,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:36</a></div>
                 </td>
             </tr>
 
@@ -945,6 +1088,33 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="paused"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            paused</b>
+                            <a href="#paused"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:15</a></div>
                             </td>
                         </tr>
@@ -1009,6 +1179,33 @@
         </table>
 </section>
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isEnabled"></a>
+                        <span class="name"><b>isEnabled</b><a href="#isEnabled"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isEnabled()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:60</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
     </div>
 
 
@@ -1026,13 +1223,14 @@ export class RaycasterService implements OnDestroy {
   private selected: THREE.Object3D;
   private enabled &#x3D; false;
   private camera: AbstractCamera&lt;any&gt;;
-
   private groups: Array&lt;AbstractObject3D&lt;any&gt;&gt; &#x3D; [];
+  private paused &#x3D; false;
 
 
   constructor() {
     this.onMouseMove &#x3D; this.onMouseMove.bind(this);
     this.onMouseDown &#x3D; this.onMouseDown.bind(this);
+    this.onTouchStart &#x3D; this.onTouchStart.bind(this);
     this.subscribe();
   }
 
@@ -1044,12 +1242,14 @@ export class RaycasterService implements OnDestroy {
   private subscribe() {
     window.addEventListener(&#x27;mousemove&#x27;, this.onMouseMove);
     window.addEventListener(&#x27;mousedown&#x27;, this.onMouseDown);
+    window.addEventListener(&#x27;touchstart&#x27;, this.onTouchStart);
   }
 
   private unsubscribe() {
     // console.log(&#x27;unsubscribe raycaster&#x27;);
     window.removeEventListener(&#x27;mousemove&#x27;, this.onMouseMove);
     window.removeEventListener(&#x27;mousedown&#x27;, this.onMouseDown);
+    window.removeEventListener(&#x27;touchstart&#x27;, this.onTouchStart);
   }
 
   public enable() {
@@ -1058,6 +1258,19 @@ export class RaycasterService implements OnDestroy {
 
   public disable() {
     this.enabled &#x3D; false;
+  }
+
+  public pause() {
+    this.paused &#x3D; true;
+  }
+
+  public resume() {
+    this.paused &#x3D; false;
+  }
+
+
+  get isEnabled() {
+    return this.enabled;
   }
 
   public setCamera(camera: AbstractCamera&lt;any&gt;) {
@@ -1074,7 +1287,8 @@ export class RaycasterService implements OnDestroy {
     if (!this.isReady()) {
       return;
     }
-    const i &#x3D; this.getIntersected(event);
+    event.preventDefault();
+    const i &#x3D; this.getFirstIntersectedGroup(event.layerX, event.layerY);
     if (!this.selected || this.selected !&#x3D;&#x3D; i) {
       if (this.selected) {
         this.selected.dispatchEvent({type: &#x27;mouseExit&#x27;});
@@ -1090,26 +1304,36 @@ export class RaycasterService implements OnDestroy {
   }
 
   private onMouseDown(event) {
-    if (!this.isReady()) {
+    if (!this.isReady(true)) {
       return;
     }
-    const i &#x3D; this.getIntersected(event);
+    event.preventDefault();
+    const i &#x3D; this.getFirstIntersectedGroup(event.layerX, event.layerY);
     if (i) {
       i.dispatchEvent({type: &#x27;mouseDown&#x27;});
     }
   }
 
-  private isReady() {
+
+  private onTouchStart(event: TouchEvent) {
+    console.log(event);
+    if (!this.isReady()) {
+      return;
+    }
+    event.preventDefault();
+    const i &#x3D; this.getFirstIntersectedGroup(event.touches[0].clientX, event.touches[0].clientY);
+    if (i) {
+      i.dispatchEvent({type: &#x27;mouseDown&#x27;});
+    }
+  }
+
+  private isReady(ignorePaused?: boolean) {
     return this.enabled
+      &amp;&amp; (ignorePaused || !this.paused)
       &amp;&amp; this.camera
       &amp;&amp; this.camera.camera
       &amp;&amp; this.groups
       &amp;&amp; this.groups.length &gt; 0;
-  }
-
-  private getIntersected(event): THREE.Object3D {
-    event.preventDefault();
-    return this.getFirstIntersectedGroup(event.layerX, event.layerY);
   }
 
   private getFirstIntersectedGroup(x, y): THREE.Object3D {

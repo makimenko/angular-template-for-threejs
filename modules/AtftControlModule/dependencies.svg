@@ -22,45 +22,69 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_AtftControlModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="151,-70 151,-268 345,-268 345,-70 151,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="62.5,-70 62.5,-268 433.5,-268 433.5,-70 62.5,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_AtftControlModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="160,-78 160,-130 336,-130 336,-78 160,-78"/>
+<polygon fill="none" stroke="#000000" points="73.5,-78 73.5,-130 422.5,-130 422.5,-78 73.5,-78"/>
 </g>
-<g id="clust5" class="cluster">
+<g id="clust6" class="cluster">
 <title>cluster_AtftControlModule_exports</title>
-<polygon fill="none" stroke="#000000" points="159,-208 159,-260 337,-260 337,-208 159,-208"/>
+<polygon fill="none" stroke="#000000" points="70.5,-208 70.5,-260 425.5,-260 425.5,-208 70.5,-208"/>
 </g>
-<!-- OrbitControlsComponent -->
+<!-- MapControlsComponent -->
 <g id="node1" class="node">
-<title>OrbitControlsComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="327.6038,-122 168.3962,-122 168.3962,-86 327.6038,-86 327.6038,-122"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">OrbitControlsComponent</text>
+<title>MapControlsComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="414.2147,-122 258.7853,-122 258.7853,-86 414.2147,-86 414.2147,-122"/>
+<text text-anchor="middle" x="336.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">MapControlsComponent</text>
 </g>
 <!-- AtftControlModule -->
-<g id="node2" class="node">
+<g id="node3" class="node">
 <title>AtftControlModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="310.3767,-187 307.3767,-191 286.3767,-191 283.3767,-187 185.6233,-187 185.6233,-151 310.3767,-151 310.3767,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">AtftControlModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="223.8767,-187 220.8767,-191 199.8767,-191 196.8767,-187 99.1233,-187 99.1233,-151 223.8767,-151 223.8767,-187"/>
+<text text-anchor="middle" x="161.5" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">AtftControlModule</text>
+</g>
+<!-- MapControlsComponent&#45;&gt;AtftControlModule -->
+<g id="edge1" class="edge">
+<title>MapControlsComponent&#45;&gt;AtftControlModule</title>
+<path fill="none" stroke="#000000" d="M362.4524,-122.0225C362.4524,-139.3734 362.4524,-163 362.4524,-163 362.4524,-163 233.9811,-163 233.9811,-163"/>
+<polygon fill="#000000" stroke="#000000" points="233.9811,-159.5001 223.9811,-163 233.981,-166.5001 233.9811,-159.5001"/>
+</g>
+<!-- OrbitControlsComponent -->
+<g id="node2" class="node">
+<title>OrbitControlsComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="241.1038,-122 81.8962,-122 81.8962,-86 241.1038,-86 241.1038,-122"/>
+<text text-anchor="middle" x="161.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">OrbitControlsComponent</text>
 </g>
 <!-- OrbitControlsComponent&#45;&gt;AtftControlModule -->
-<g id="edge1" class="edge">
+<g id="edge2" class="edge">
 <title>OrbitControlsComponent&#45;&gt;AtftControlModule</title>
-<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
+<path fill="none" stroke="#000000" d="M161.5,-122.1061C161.5,-122.1061 161.5,-140.991 161.5,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="158.0001,-140.9909 161.5,-150.991 165.0001,-140.991 158.0001,-140.9909"/>
+</g>
+<!-- MapControlsComponent  -->
+<g id="node4" class="node">
+<title>MapControlsComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="417.7149,-252 259.2851,-252 259.2851,-216 417.7149,-216 417.7149,-252"/>
+<text text-anchor="middle" x="338.5" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">MapControlsComponent </text>
+</g>
+<!-- AtftControlModule&#45;&gt;MapControlsComponent  -->
+<g id="edge3" class="edge">
+<title>AtftControlModule&#45;&gt;MapControlsComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M223.9506,-175C264.862,-175 310.7976,-175 310.7976,-175 310.7976,-175 310.7976,-205.9775 310.7976,-205.9775"/>
+<polygon fill="#000000" stroke="#000000" points="307.2977,-205.9774 310.7976,-215.9775 314.2977,-205.9775 307.2977,-205.9774"/>
 </g>
 <!-- OrbitControlsComponent  -->
-<g id="node3" class="node">
+<g id="node5" class="node">
 <title>OrbitControlsComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="329.1043,-252 166.8957,-252 166.8957,-216 329.1043,-216 329.1043,-252"/>
-<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">OrbitControlsComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="240.6043,-252 78.3957,-252 78.3957,-216 240.6043,-216 240.6043,-252"/>
+<text text-anchor="middle" x="159.5" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">OrbitControlsComponent </text>
 </g>
 <!-- AtftControlModule&#45;&gt;OrbitControlsComponent  -->
-<g id="edge2" class="edge">
+<g id="edge4" class="edge">
 <title>AtftControlModule&#45;&gt;OrbitControlsComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M161.5,-187.1061C161.5,-187.1061 161.5,-205.991 161.5,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="158.0001,-205.9909 161.5,-215.991 165.0001,-205.991 158.0001,-205.9909"/>
 </g>
 </g>
 </svg>

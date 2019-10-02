@@ -123,13 +123,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftControlModule.html" data-type="entity-link">AtftControlModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftControlModule-c7883a1fb3de195e4e7527dac053c42b"' : 'data-target="#xs-components-links-module-AtftControlModule-c7883a1fb3de195e4e7527dac053c42b"' }>
+                                            'data-target="#components-links-module-AtftControlModule-3afee76d2d250957682fb39e4445f948"' : 'data-target="#xs-components-links-module-AtftControlModule-3afee76d2d250957682fb39e4445f948"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftControlModule-c7883a1fb3de195e4e7527dac053c42b"' :
-                                            'id="xs-components-links-module-AtftControlModule-c7883a1fb3de195e4e7527dac053c42b"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftControlModule-3afee76d2d250957682fb39e4445f948"' :
+                                            'id="xs-components-links-module-AtftControlModule-3afee76d2d250957682fb39e4445f948"' }>
+                                            <li class="link">
+                                                <a href="components/MapControlsComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">MapControlsComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/OrbitControlsComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">OrbitControlsComponent</a>
@@ -437,6 +441,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/AbstractObject3D.html" data-type="entity-link">AbstractObject3D</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AbstractOrbitControls.html" data-type="entity-link">AbstractOrbitControls</a>
                             </li>
                         </ul>
                     </li>
