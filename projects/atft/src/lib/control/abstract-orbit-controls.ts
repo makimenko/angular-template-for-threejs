@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {RendererService} from '../renderer/renderer.service';
-import {RaycasterService} from '../raycaster';
+import {RaycasterService} from '../raycaster/raycaster.service';
 
 
 export abstract class AbstractOrbitControls<T extends OrbitControls> implements AfterViewInit, OnChanges, OnDestroy {

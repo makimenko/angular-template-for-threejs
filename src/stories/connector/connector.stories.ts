@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {defaultSceneWrapper} from '../common/default-scene-wrapper';
 import {number, withKnobs} from '@storybook/addon-knobs';
-import {AnimationService} from '../../../projects/atft/src/lib/animation';
+import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 
 
 @Component({

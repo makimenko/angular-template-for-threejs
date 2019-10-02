@@ -1,8 +1,8 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {MapControls, OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {RendererService} from '../renderer/renderer.service';
-import {AnimationService} from '../animation';
-import {RaycasterService} from '../raycaster';
+import {AnimationService} from '../animation/animation.service';
+import {RaycasterService} from '../raycaster/raycaster.service';
 import {AbstractOrbitControls} from './abstract-orbit-controls';
 
 @Component({
