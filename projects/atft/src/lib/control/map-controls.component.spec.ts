@@ -12,12 +12,12 @@ import {RaycasterService} from '../raycaster';
 @Component({
   selector: 'atft-mock',
   template: `
-      <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
+      <atft-map-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
           <atft-webgl-renderer #mainRenderer>
               <atft-perspective-camera [fov]=60 [near]=1 [far]=1100></atft-perspective-camera>
               <atft-scene></atft-scene>
           </atft-webgl-renderer>
-      </atft-orbit-controls>
+      </atft-map-controls>
   `
 })
 class MockComponent {
@@ -26,7 +26,7 @@ class MockComponent {
 
 describe('controls', () => {
 
-  describe('OrbitControlsComponent', () => {
+  describe('MapControlsComponent', () => {
     let component: OrbitControlsComponent;
     let fixture: ComponentFixture<OrbitControlsComponent>;
 
@@ -52,7 +52,7 @@ describe('controls', () => {
   });
 
 
-  describe('OrbitControlsComponent mock', () => {
+  describe('MapControlsComponent mock', () => {
     let component: MockComponent;
     let fixture: ComponentFixture<MockComponent>;
 
