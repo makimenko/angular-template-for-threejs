@@ -17,11 +17,11 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
 
   @Input() zoomSpeed = 1.2;
 
-  @Input() autoRotate = true;
+  @Input() autoRotate = false;
 
   @Input() autoRotateSpeed = 0.5;
 
-  @Input() enableDamping = true;
+  @Input() enableDamping = false;
 
   @Input() dampingFactor = 0.03;
 
@@ -29,11 +29,11 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
 
   @Input() minDistance = 100;
 
-  @Input() maxDistance = 800;
+  @Input() maxDistance = 200;
 
   @Input() maxPolarAngle: number = Math.PI / 2 - 0.1;
 
-  @Input() panSpeed = 1;
+  @Input() panSpeed = 1.2;
 
   constructor(
     protected rendererService: RendererService,
@@ -77,6 +77,8 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
     this.controls.minDistance = this.minDistance;
     this.controls.maxDistance = this.maxDistance;
     this.controls.maxPolarAngle = this.maxPolarAngle;
+
+    this.controls.update();
 
     // Advanced animation:
     if (this.autoRotate || this.enableDamping) {
