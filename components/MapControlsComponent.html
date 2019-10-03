@@ -320,7 +320,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>true</code>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
@@ -380,7 +380,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>true</code>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
@@ -400,7 +400,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>800</code>
+                        <i>Default value : </i><code>200</code>
                     </td>
                 </tr>
                         <tr>
@@ -466,7 +466,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>1</code>
+                        <i>Default value : </i><code>1.2</code>
                     </td>
                 </tr>
                         <tr>
@@ -1067,11 +1067,11 @@ export class MapControlsComponent extends AbstractOrbitControls&lt;OrbitControls
 
   @Input() zoomSpeed &#x3D; 1.2;
 
-  @Input() autoRotate &#x3D; true;
+  @Input() autoRotate &#x3D; false;
 
   @Input() autoRotateSpeed &#x3D; 0.5;
 
-  @Input() enableDamping &#x3D; true;
+  @Input() enableDamping &#x3D; false;
 
   @Input() dampingFactor &#x3D; 0.03;
 
@@ -1079,11 +1079,11 @@ export class MapControlsComponent extends AbstractOrbitControls&lt;OrbitControls
 
   @Input() minDistance &#x3D; 100;
 
-  @Input() maxDistance &#x3D; 800;
+  @Input() maxDistance &#x3D; 200;
 
   @Input() maxPolarAngle: number &#x3D; Math.PI / 2 - 0.1;
 
-  @Input() panSpeed &#x3D; 1;
+  @Input() panSpeed &#x3D; 1.2;
 
   constructor(
     protected rendererService: RendererService,
@@ -1127,6 +1127,8 @@ export class MapControlsComponent extends AbstractOrbitControls&lt;OrbitControls
     this.controls.minDistance &#x3D; this.minDistance;
     this.controls.maxDistance &#x3D; this.maxDistance;
     this.controls.maxPolarAngle &#x3D; this.maxPolarAngle;
+
+    this.controls.update();
 
     // Advanced animation:
     if (this.autoRotate || this.enableDamping) {
