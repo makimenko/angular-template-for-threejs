@@ -104,7 +104,7 @@ export class RaycasterService implements OnDestroy {
 
 
   private onTouchStart(event: TouchEvent) {
-    console.log(event);
+    // console.log(event);
     if (!this.isReady()) {
       return;
     }
