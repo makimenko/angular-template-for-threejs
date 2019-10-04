@@ -7,7 +7,7 @@ import {EmptyComponent} from '../../../object/helper';
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => ServerActorComponent)}],
   template: `
       <ng-template #stand>
-          <atft-box-mesh height="10" width="10" depth="14" material="x" [materialColor]="color" [translateZ]="7"
+          <atft-box-mesh height="10" width="10" depth="14" material="phong" [materialColor]="color" [translateZ]="7"
                          atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
               <atft-svg-loader *ngIf="svgName" [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
                                material="basic" maxX="8" maxY="8" [translateZ]="0"
@@ -17,7 +17,7 @@ import {EmptyComponent} from '../../../object/helper';
       </ng-template>
 
       <ng-template #compact>
-          <atft-box-mesh height="10" width="10" depth="3" material="x" [materialColor]="color" [translateZ]="1.5"
+          <atft-box-mesh height="10" width="10" depth="3" material="phong" [materialColor]="color" [translateZ]="1.5"
                          atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
               <atft-svg-loader *ngIf="svgName" [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
                                material="basic" maxX="6" maxY="6" [translateZ]="1.6"
@@ -27,14 +27,17 @@ import {EmptyComponent} from '../../../object/helper';
       </ng-template>
 
       <ng-template #barrel>
-          <atft-cylinder-mesh height="12" radiusTop="6" radiusBottom="6" [radialSegments]="30" material="x" [materialColor]="color"
-                              [translateZ]="6" [rotateX]="(90 | deg2rad)"
-                              atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
+          <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
               <atft-svg-loader *ngIf="svgName" [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
-                               material="basic" maxX="6" maxY="6" translateY="6.2"
-                               [rotateX]="(90 | deg2rad)">
+                               material="basic" maxX="6" maxY="6" translateZ="12.1" [rotateZ]="(180 | deg2rad)">
               </atft-svg-loader>
-          </atft-cylinder-mesh>
+
+              <atft-cylinder-mesh *ngFor="let z of [1, 5.5, 10]"
+                                  height="4" radiusTop="6" radiusBottom="6" [radialSegments]="30" [openEnded]="false"
+                                  material="phong" [materialColor]="color" [translateZ]="z" [rotateX]="(90 | deg2rad)">
+
+              </atft-cylinder-mesh>
+          </atft-empty>
       </ng-template>
 
       <atft-empty name="server-box">
@@ -52,7 +55,8 @@ import {EmptyComponent} from '../../../object/helper';
           <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" height="0" [centered]="true"
                           material="basic" materialColor="0xDADADA" [translateY]="-12" [translateZ]="0.2">
           </atft-text-mesh>
-          <atft-frame-mesh *ngIf="showFrame" [thickness]="2" [sizeX]="15" [sizeY]="15" [translateZ]="0.5" material="basic" [materialColor]="color">
+          <atft-frame-mesh *ngIf="showFrame" [thickness]="2" [sizeX]="15" [sizeY]="15" [translateZ]="0.5" material="basic"
+                           [materialColor]="color">
           </atft-frame-mesh>
       </atft-empty>
   `

@@ -32,7 +32,7 @@ class StorybookServerComponent {
 
         <atft-empty translateZ="0.5">
           <!-- Servers / Nodes: -->
-          <atft-server-actor #rx10 label="RX10" translateY="-20" serverType="barrel" [showFrame]="true">
+          <atft-server-actor #rx10 label="RX10" translateY="-20"  svgName="idea.svg" serverType="barrel" [showFrame]="true">
           </atft-server-actor>
           <atft-server-actor #z001 label="Server Z001" translateY="-20" [translateX]="-30" svgName="grid-world.svg">
           </atft-server-actor>
@@ -40,10 +40,10 @@ class StorybookServerComponent {
           </atft-server-actor>
           <!-- Connectors / Edges: -->
           <atft-empty translateZ="0.1">
-            <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0xffffff" [lineWidth]="1"
+            <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
                 [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="0.001">
             </atft-mesh-line-connector>
-            <atft-mesh-line-connector [source]="z001" [target]="tx71" materialColor="0xffffff" [lineWidth]="1"
+            <atft-mesh-line-connector [source]="z001" [target]="tx71" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
                 [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
              </atft-mesh-line-connector>
            </atft-empty>
