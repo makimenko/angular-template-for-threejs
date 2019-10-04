@@ -31,20 +31,20 @@ class StorybookServerComponent {
         </atft-layer-actor>
 
         <atft-empty translateZ="0.5">
-          <!-- Nodes: -->
-          <atft-server-actor #rx10 label="RX10" translateY="-20" svgName="idea.svg">
+          <!-- Servers / Nodes: -->
+          <atft-server-actor #rx10 label="RX10" translateY="-20" serverType="barrel" [showFrame]="true">
           </atft-server-actor>
           <atft-server-actor #z001 label="Server Z001" translateY="-20" [translateX]="-30" svgName="grid-world.svg">
           </atft-server-actor>
-          <atft-server-actor #tx71 label="Server TX71" translateY="30" [translateX]="-30" svgName="upload.svg">
+          <atft-server-actor #tx71 label="Server TX71" translateY="30" [translateX]="-30" svgName="upload.svg" serverType="compact">
           </atft-server-actor>
-          <!-- Edges: -->
+          <!-- Connectors / Edges: -->
           <atft-empty translateZ="0.1">
             <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0xffffff" [lineWidth]="1"
-                [transparent]="true" opacity="0.2" [animated]="true" [animationIncrement]="0.001">
+                [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="0.001">
             </atft-mesh-line-connector>
             <atft-mesh-line-connector [source]="z001" [target]="tx71" materialColor="0xffffff" [lineWidth]="1"
-                [transparent]="true" opacity="0.2" [animated]="true" [animationIncrement]="-0.001">
+                [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
              </atft-mesh-line-connector>
            </atft-empty>
          </atft-empty>
