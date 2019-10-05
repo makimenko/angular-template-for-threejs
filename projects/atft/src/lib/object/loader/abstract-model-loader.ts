@@ -8,7 +8,7 @@ import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
  */
 export abstract class AbstractModelLoader extends AbstractLazyObject3D {
 
-  private _model: string;
+  protected _model: string;
 
   /**
    * The model data source (usually a URI).

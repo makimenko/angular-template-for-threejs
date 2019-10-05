@@ -1,1 +1,4 @@
-export * from './server-actor.component';
+export * from './server-barrel-actor.component';
+export * from './server-stand-actor.component';
+export * from './server-compact-actor.component';
+export * from './server-icon-actor.component';

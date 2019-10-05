@@ -1,9 +1,10 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {defaultSceneWrapper} from '../common/default-scene-wrapper';
 import {worldSceneWrapper} from '../common/world-scene-wrapper';
+import {select, withKnobs} from '@storybook/addon-knobs';
 
 
 @Component({
@@ -39,7 +40,7 @@ class StorybookObjLoaderComponent {
   template: defaultSceneWrapper(`
       <atft-svg-loader model="./assets/svg/worldwide.svg" maxX="15" maxY="15">
       </atft-svg-loader>
-      <atft-svg-loader model="./assets/svg/grid-world.svg" overrideMaterialColor="0x0000ff"
+      <atft-svg-loader [model]="model" [overrideMaterialColor]="overrideMaterialColor"
         maxX="10" maxY="10"  translateZ="2">
       </atft-svg-loader>
   `)
@@ -50,6 +51,7 @@ class StorybookSVGLoaderComponent {
 
 
 storiesOf('Loader', module)
+  .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
       imports: [
@@ -64,6 +66,16 @@ storiesOf('Loader', module)
     component: StorybookObjLoaderComponent
   }))
   .add('svg', () => ({
-    component: StorybookSVGLoaderComponent
+    component: StorybookSVGLoaderComponent,
+    props: {
+      model: select('model', [
+          './assets/svg/idea.svg',
+          './assets/svg/grid-world.svg',
+          './assets/svg/upload.svg'
+        ],
+        './assets/svg/idea.svg'
+      ),
+      overrideMaterialColor: select('overrideMaterialColor', ['0xff0000', '0x00ff00', '0x0000ff'], '0x0000ff')
+    }
   }))
 ;

@@ -3,7 +3,7 @@ import {Component, Input} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {defaultSceneWrapper} from '../common/default-scene-wrapper';
-import {withKnobs} from '@storybook/addon-knobs';
+import {select, text, withKnobs} from '@storybook/addon-knobs';
 
 @Component({
   selector: 'app-storybook-cylinder-mesh',
@@ -50,9 +50,9 @@ class StorybookBoxMeshComponent {
 
 @Component({
   template: defaultSceneWrapper(`
-  <atft-text-mesh text="Hello World! :)"
-    material="phong" materialColor="0x0000FF" [bevelEnabled]="true" curveSegments="20" [centered]="true"></atft-text-mesh>
-  `)
+  <atft-text-mesh [text]="text" [rotateZ]="(90 | deg2rad)" material="phong" [materialColor]="materialColor"
+      [bevelEnabled]="true" curveSegments="20" [centered]="true">
+  </atft-text-mesh>`)
 })
 class StorybookTextMeshComponent {
 
@@ -92,7 +92,11 @@ storiesOf('Mesh', module)
     component: StorybookTorusMeshComponent
   }))
   .add('text', () => ({
-    component: StorybookTextMeshComponent
+    component: StorybookTextMeshComponent,
+    props: {
+      text: text('text', 'Hello :)'),
+      materialColor: select('materialColor', ['0xff0000', '0x00ff00', '0x0000ff'], '0x0000ff')
+    }
   }))
   .add('frame', () => ({
     component: StorybookFrameMeshComponent

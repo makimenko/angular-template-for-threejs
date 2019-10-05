@@ -15,8 +15,19 @@ import {RendererService} from '../../renderer/renderer.service';
   template: '<ng-content></ng-content>'
 })
 export class SVGLoaderComponent extends AbstractModelLoader {
+
   @Input()
-  overrideMaterialColor: number = undefined;
+  get overrideMaterialColor(): number {
+    return this._overrideMaterialColor;
+  }
+
+  set overrideMaterialColor(value: number) {
+    this._overrideMaterialColor = value;
+    this.startLoading();
+  }
+
+  private _overrideMaterialColor: number = undefined;
+
 
   @Input()
   material = 'basic';
@@ -51,7 +62,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
           for (let i = 0; i < paths.length; i++) {
             // NOTE: It seems that ShapePath does not includes typed color, cast to any as workaround
             const path: any = paths[i];
-            const color = (this.overrideMaterialColor ? appliedColor(this.overrideMaterialColor) : path.color);
+            const color = (this._overrideMaterialColor ? appliedColor(this._overrideMaterialColor) : path.color);
             const material = appliedMaterial(color, this.material, this.depthWrite);
             const shapes = path.toShapes(true, {});
 
@@ -69,8 +80,6 @@ export class SVGLoaderComponent extends AbstractModelLoader {
           if (this.centered) {
             fixCenter(group);
           }
-
-
 
           resolve(group);
         },

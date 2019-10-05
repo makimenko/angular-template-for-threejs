@@ -1,13 +1,13 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {ServerActorComponent} from './server-actor.component';
 import {AtftDataCenterActorModule} from '../atft-data-center-actor.module';
 import {RendererService} from '../../../renderer';
 import {AnimationService} from '../../../animation';
+import {ServerStandActorComponent} from './server-stand-actor.component';
 
 describe('actor', () => {
-  describe('ServerActorComponent', () => {
-    let component: ServerActorComponent;
-    let fixture: ComponentFixture<ServerActorComponent>;
+  describe('ServerStandActorComponent', () => {
+    let component: ServerStandActorComponent;
+    let fixture: ComponentFixture<ServerStandActorComponent>;
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
@@ -19,7 +19,7 @@ describe('actor', () => {
           AnimationService
         ]
       });
-      fixture = TestBed.createComponent(ServerActorComponent);
+      fixture = TestBed.createComponent(ServerStandActorComponent);
       component = fixture.componentInstance;
       return TestBed.compileComponents();
     }));

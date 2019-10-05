@@ -2,7 +2,6 @@ import {Component, forwardRef, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
-import {appliedColor} from '../../util/applied-color';
 import {appliedMaterial} from '../../util';
 import {fixCenter} from '../../util/fix-center';
 import {RendererService} from '../../renderer/renderer.service';
@@ -17,11 +16,28 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   @Input()
   material = 'basic';
 
-  @Input()
-  materialColor = 0xDADADA;
 
+  private _materialColor = 0xDADADA;
   @Input()
-  text = 'Text';
+  set materialColor(materialColor: number) {
+    // console.log('change color', materialColor);
+    this._materialColor = materialColor;
+    this.startLoading();
+  }
+  get materialColor() {
+    return this._materialColor;
+  }
+
+  private _text = 'Text';
+  @Input()
+  set text(text: string) {
+    this._text = text;
+    this.startLoading();
+  }
+  get text() {
+    return this._text;
+  }
+
 
   @Input()
   size = 10;
@@ -104,8 +120,6 @@ export class TextMeshComponent extends AbstractLazyObject3D {
 
 
   }
-
-
 
 
 }
