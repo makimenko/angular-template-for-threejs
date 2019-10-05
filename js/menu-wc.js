@@ -145,20 +145,32 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftDataCenterActorModule.html" data-type="entity-link">AtftDataCenterActorModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftDataCenterActorModule-f70e9cd8c391520e8b84663e7540f7c9"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-f70e9cd8c391520e8b84663e7540f7c9"' }>
+                                            'data-target="#components-links-module-AtftDataCenterActorModule-095b37c5ea6c10b427126e838563131b"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-095b37c5ea6c10b427126e838563131b"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-f70e9cd8c391520e8b84663e7540f7c9"' :
-                                            'id="xs-components-links-module-AtftDataCenterActorModule-f70e9cd8c391520e8b84663e7540f7c9"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-095b37c5ea6c10b427126e838563131b"' :
+                                            'id="xs-components-links-module-AtftDataCenterActorModule-095b37c5ea6c10b427126e838563131b"' }>
                                             <li class="link">
                                                 <a href="components/LayerActorComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayerActorComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/ServerActorComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerActorComponent</a>
+                                                <a href="components/ServerBarrelActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerBarrelActorComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ServerCompactActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerCompactActorComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ServerIconActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerIconActorComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/ServerStandActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerStandActorComponent</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -417,6 +429,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                 </ul>
                 </li>
                     <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#components-links"' :
+                            'data-target="#xs-components-links"' }>
+                            <span class="icon ion-md-cog"></span>
+                            <span>Components</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="components-links"' : 'id="xs-components-links"' }>
+                            <li class="link">
+                                <a href="components/ServerBarrelActorComponent.html" data-type="entity-link">ServerBarrelActorComponent</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#classes-links"' :
                             'data-target="#xs-classes-links"' }>
                             <span class="icon ion-ios-paper"></span>
@@ -444,6 +469,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/AbstractOrbitControls.html" data-type="entity-link">AbstractOrbitControls</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AbstractServerActor.html" data-type="entity-link">AbstractServerActor</a>
                             </li>
                         </ul>
                     </li>

@@ -71,6 +71,7 @@
             <p class="comment">
                             <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
                             <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+                            <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
             </p>
 
 
@@ -109,7 +110,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Public</span>
                                 <a href="#addChild">addChild</a>
                             </li>
                             <li>
@@ -123,6 +124,10 @@
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#applyTranslation">applyTranslation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#collectChilds">collectChilds</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -140,6 +145,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -214,7 +223,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -286,7 +295,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -314,7 +323,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -350,7 +359,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -371,7 +380,7 @@
                     <a name="addChild"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Protected</span>
+                            <span class="modifier">Public</span>
                             addChild
                         </b>
                         <a href="#addChild"><span class="icon ion-ios-link"></span></a>
@@ -388,8 +397,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="120"
-                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:120</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:136</a></div>
                 </td>
             </tr>
 
@@ -460,8 +469,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:132</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:148</a></div>
                 </td>
             </tr>
 
@@ -501,8 +510,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:119</a></div>
                 </td>
             </tr>
 
@@ -542,8 +551,49 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="112"
-                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:112</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:128</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="collectChilds"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            collectChilds
+                        </b>
+                        <a href="#collectChilds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>collectChilds()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:91</a></div>
                 </td>
             </tr>
 
@@ -583,8 +633,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="128"
-                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:128</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:144</a></div>
                 </td>
             </tr>
 
@@ -625,8 +675,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="135"
-                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:135</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:152</a></div>
                 </td>
             </tr>
 
@@ -666,8 +716,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:79</a></div>
                 </td>
             </tr>
 
@@ -707,8 +757,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:50</a></div>
                 </td>
             </tr>
 
@@ -759,6 +809,47 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="removeChild"></a>
                     <span class="name">
                         <b>
@@ -779,8 +870,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:140</a></div>
                 </td>
             </tr>
 
@@ -847,7 +938,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:36</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -868,7 +959,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:25</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -895,7 +986,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:26</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -916,7 +1007,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:27</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -937,7 +1028,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:32</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -964,7 +1055,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:33</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -985,7 +1076,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:34</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1009,7 +1100,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/atft/src/lib/object/abstract-object-3d.ts:38</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1027,6 +1118,7 @@
   EventEmitter,
   Input,
   OnChanges,
+  OnDestroy,
   Output,
   QueryList,
   SimpleChanges,
@@ -1035,7 +1127,7 @@
 import * as THREE from &#x27;three&#x27;;
 import {RendererService} from &#x27;../renderer/renderer.service&#x27;;
 
-export abstract class AbstractObject3D&lt;T extends THREE.Object3D&gt; implements AfterViewInit, OnChanges {
+export abstract class AbstractObject3D&lt;T extends THREE.Object3D&gt; implements AfterViewInit, OnChanges, OnDestroy {
 
   @ContentChildren(AbstractObject3D, {descendants: false}) childNodes: QueryList&lt;AbstractObject3D&lt;THREE.Object3D&gt;&gt;;
 
@@ -1062,9 +1154,11 @@ export abstract class AbstractObject3D&lt;T extends THREE.Object3D&gt; implement
   private object: T;
 
   constructor(protected rendererService: RendererService) {
+    // console.log(&#x27;AbstractObject3D.constructor&#x27;);
     this.changed.subscribe(() &#x3D;&gt; {
       this.rendererService.request();
     });
+
   }
 
   public ngOnChanges(changes: SimpleChanges) {
@@ -1089,16 +1183,30 @@ export abstract class AbstractObject3D&lt;T extends THREE.Object3D&gt; implement
 
   }
 
-  public ngAfterViewInit(): void {
-    // console.log(&#x27;AbstractObject3D.ngAfterViewInit&#x27;);
+  public ngOnDestroy() {
+    // console.log(&#x27;AbstractObject3D.OnDestroy&#x27;);
+    if (this.object &amp;&amp; this.object.parent) {
+      this.object.parent.remove(this.object);
+    }
+  }
+
+  public ngAfterViewInit() {
+    // console.log(&#x27;AbstractObject3D.ngAfterViewInit &#x27; + this.name);
     this.object &#x3D; this.newObject3DInstance();
 
     this.applyTranslation();
     this.applyRotation();
 
+    this.collectChilds();
+
+    this.afterInit();
+  }
+
+  public collectChilds() {
+    // console.log(&#x27;Collect childs for&#x27;, this.name);
     if (this.childNodes !&#x3D;&#x3D; undefined &amp;&amp; this.childNodes.length &gt; 1) {
       this.childNodes.filter(i &#x3D;&gt; i !&#x3D;&#x3D; this &amp;&amp; i.getObject() !&#x3D;&#x3D; undefined).forEach(i &#x3D;&gt; {
-        // console.log(&#x27;Add childNodes for&#x27;, this.name, i.name);
+        // console.log(&#x27;Add childNodes for&#x27;, this.name, i);
         this.addChild(i.getObject());
       });
     } else {
@@ -1112,14 +1220,13 @@ export abstract class AbstractObject3D&lt;T extends THREE.Object3D&gt; implement
           &amp;&amp; i.getObject() !&#x3D;&#x3D; undefined
           &amp;&amp; !i.getObject().parent /* direct childs only */
       ).forEach(i &#x3D;&gt; {
-        // console.log(&#x27;Add viewChilds for&#x27;, this.name, i.name);
+        // console.log(&#x27;Add viewChilds for&#x27;, this.name, i);
         this.addChild(i.getObject());
       });
     } else {
       // console.log(&quot;No child Object3D for: &quot; + this.constructor.label);
     }
 
-    this.afterInit();
   }
 
 
@@ -1140,7 +1247,7 @@ export abstract class AbstractObject3D&lt;T extends THREE.Object3D&gt; implement
     );
   }
 
-  protected addChild(object: THREE.Object3D): void {
+  public addChild(object: THREE.Object3D): void {
     this.object.add(object);
   }
 
@@ -1153,6 +1260,7 @@ export abstract class AbstractObject3D&lt;T extends THREE.Object3D&gt; implement
   }
 
   protected afterInit() {
+    // this.changed.emit();
   }
 
   protected abstract newObject3DInstance(): T;
