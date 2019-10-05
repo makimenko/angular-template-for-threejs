@@ -32,6 +32,7 @@ export class CylinderMeshComponent extends AbstractMesh {
     protected rendererService: RendererService
   ) {
     super(rendererService);
+    // console.log('CylinderMeshComponent.constructor');
   }
 
   protected newObject3DInstance(): THREE.Mesh {

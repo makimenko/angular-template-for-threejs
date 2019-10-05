@@ -126,7 +126,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
   /*
   @HostListener('document:keypress', ['$event'])
   public onKeyPress(event: KeyboardEvent) {
-    console.log("onKeyPress: " + event.key);
+    // console.log("onKeyPress: " + event.key);
   }
 */
 

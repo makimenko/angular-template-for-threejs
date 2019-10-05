@@ -7,6 +7,7 @@ import {AbstractObject3D} from '../../../projects/atft/src/lib/object/abstract-o
 
 import markdownNotes from './bug-95.stories.md';
 import {defaultSceneWrapper} from '../common/default-scene-wrapper';
+import {withKnobs} from '@storybook/addon-knobs';
 
 @Component({
   selector: 'app-storybook-obj-loader',
@@ -26,6 +27,7 @@ class StorybookObjLoaderComponent {
 
 
 storiesOf('Bugs', module)
+  .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
       imports: [

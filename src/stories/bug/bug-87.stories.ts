@@ -6,6 +6,7 @@ import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
 import {AbstractObject3D} from '../../../projects/atft/src/lib/object/abstract-object-3d';
 
 import markdownNotes from './bug-87.stories.md';
+import {withKnobs} from '@storybook/addon-knobs';
 
 
 @Component({
@@ -48,6 +49,7 @@ class StorybookEmbeddedComponent extends EmptyComponent {
 
 
 storiesOf('Bugs', module)
+  .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
       imports: [
