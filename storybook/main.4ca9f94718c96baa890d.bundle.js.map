@@ -1,0 +1,1 @@
+{"version":3,"file":"main.4ca9f94718c96baa890d.bundle.js","sources":["webpack:///./projects/atft/src/lib/control/controls.component.scss"],"sourcesContent":["module.exports = \":host {\\n  display: flex;\\n  flex: 1;\\n}\""],"mappings":"AAAA","sourceRoot":""}
