@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 import {RendererService} from './renderer.service';
 
 @Component({
-  selector: 'atft-webgl-renderer',
+  selector: 'atft-renderer-canvas',
   templateUrl: './webgl-renderer.component.html',
   styleUrls: ['./webgl-renderer.component.scss']
 })
@@ -36,14 +36,7 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
    * underlying <canvas> element.
    *
    * @example This property can be used to restrict the orbit control (i.e. the
-   * area which is listened for mouse move and zoom events) to the rendering pane:
-   * ```
-   * <three-orbit-control [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
-   *   <three-renderer #mainRenderer>
-   *     ...
-   *   </three-renderer>
-   * </three-orbit-control>
-   * ```
+   * area which is listened for mouse move and zoom events) to the rendering pane
    */
   public get renderPane(): ElementRef {
     return this.canvasRef;

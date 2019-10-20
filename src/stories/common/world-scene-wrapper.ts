@@ -5,9 +5,8 @@
  * @param content content template
  */
 export const worldSceneWrapper = (content: string) => `
-  <atft-map-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2
-    [listeningControlElement]=mainRenderer.renderPane>
-      <atft-webgl-renderer #mainRenderer>
+  <atft-map-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2>
+      <atft-renderer-canvas #mainRenderer>
           <atft-perspective-camera [zAxisUp]="true" positionX=20 positionY=-80
                 positionZ=30 atft-raycaster-camera atft-raycaster-enable>
           </atft-perspective-camera>
@@ -24,7 +23,7 @@ export const worldSceneWrapper = (content: string) => `
               <atft-point-light name="point-light" intensity="1" translateX="20" translateY="-50" translateZ="50" [castShadow]="true"></atft-point-light>
               ${content}
           </atft-scene>
-      </atft-webgl-renderer>
+      </atft-renderer-canvas>
   </atft-map-controls>
 `;
 

@@ -12,8 +12,8 @@ import {withKnobs} from '@storybook/addon-knobs';
 @Component({
   selector: 'app-storybook-wrapper',
   template: `
-      <atft-orbit-controls rotateSpeed=1 zoomSpeed=1.2 [listeningControlElement]=mainRenderer.renderPane>
-          <atft-webgl-renderer #mainRenderer>
+      <atft-orbit-controls rotateSpeed=1 zoomSpeed=1.2>
+          <atft-renderer-canvas>
               <atft-perspective-camera positionX=10 positionY=50 positionZ=50></atft-perspective-camera>
               <atft-scene>
                   <atft-axes-helper size=200></atft-axes-helper>
@@ -23,7 +23,7 @@ import {withKnobs} from '@storybook/addon-knobs';
                   <!-- Why it's not working? -->
                   <ng-content></ng-content>
               </atft-scene>
-          </atft-webgl-renderer>
+          </atft-renderer-canvas>
       </atft-orbit-controls>
   `
 })
