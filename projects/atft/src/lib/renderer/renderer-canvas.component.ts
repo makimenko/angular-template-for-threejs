@@ -1,5 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, ViewChild} from '@angular/core';
-import {Subject} from 'rxjs';
+import {AfterViewInit, Component, ElementRef, HostListener, ViewChild} from '@angular/core';
 import {RendererService} from './renderer.service';
 
 @Component({
@@ -7,15 +6,10 @@ import {RendererService} from './renderer.service';
   templateUrl: './renderer-canvas.component.html',
   styleUrls: ['./renderer-canvas.component.scss']
 })
-export class RendererCanvasComponent implements AfterViewInit, OnDestroy {
-
-  private readonly onDestroy = new Subject<void>();
+export class RendererCanvasComponent implements AfterViewInit {
 
   @ViewChild('canvas', {static: true})
   private canvasRef: ElementRef;
-
-  @Input()
-  enableShadowMap = false;
 
   constructor(
     private rendererService: RendererService
@@ -52,10 +46,6 @@ export class RendererCanvasComponent implements AfterViewInit, OnDestroy {
     // as workaround - resettling to 100 pixels, then to 100%
     this.rendererService.resize(this.canvas, '100px');
     this.rendererService.resize(this.canvas, '100%');
-  }
-
-  ngOnDestroy(): void {
-    this.onDestroy.next();
   }
 
 }

@@ -97,11 +97,6 @@ storiesOf('Actor', module)
   .add('server', () => ({
     component: StorybookServerComponent,
     props: {
-      serverType: select('serverType', [
-        'stand',
-        'compact',
-        'barrel'
-      ], 'stand'),
       svgName: select('svgName', [
         'idea.svg',
         'upload.svg',

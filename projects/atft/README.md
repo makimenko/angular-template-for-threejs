@@ -12,7 +12,7 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple compon
 
 ```html
 <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
-  <atft-renderer-canvas #mainRenderer>
+  <atft-renderer-canvas>
     <atft-perspective-camera
       [fov]=60 [near]=1 [far]=1100
       positionX=20 positionY=50 positionZ=50>
