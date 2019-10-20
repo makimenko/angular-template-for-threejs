@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {WebGLRendererComponent} from './webgl-renderer.component';
+import {RendererCanvasComponent} from './renderer-canvas.component';
 import {CommonModule} from '@angular/common';
 import {RendererService} from './renderer.service';
 
@@ -9,13 +9,13 @@ import {RendererService} from './renderer.service';
     CommonModule
   ],
   declarations: [
-    WebGLRendererComponent
+    RendererCanvasComponent
   ],
   providers: [
     RendererService
   ],
   exports: [
-    WebGLRendererComponent
+    RendererCanvasComponent
   ]
 })
 export class AtftRendererModule {

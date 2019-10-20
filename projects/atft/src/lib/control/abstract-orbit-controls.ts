@@ -4,13 +4,13 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {RendererService} from '../renderer/renderer.service';
 import {RaycasterService} from '../raycaster/raycaster.service';
-import {WebGLRendererComponent} from '../renderer';
+import {RendererCanvasComponent} from '../renderer';
 
 
 export abstract class AbstractOrbitControls<T extends OrbitControls> implements AfterViewInit, OnChanges, OnDestroy {
 
   @ContentChildren(AbstractCamera, {descendants: true}) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
-  @ContentChild(WebGLRendererComponent, {static: false}) webGlRenderer: WebGLRendererComponent;
+  @ContentChild(RendererCanvasComponent, {static: false}) webGlRenderer: RendererCanvasComponent;
   /**
    * The element on whose native element the orbit control will listen for mouse events.
    *

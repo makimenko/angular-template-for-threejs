@@ -4,10 +4,10 @@ import {RendererService} from './renderer.service';
 
 @Component({
   selector: 'atft-renderer-canvas',
-  templateUrl: './webgl-renderer.component.html',
-  styleUrls: ['./webgl-renderer.component.scss']
+  templateUrl: './renderer-canvas.component.html',
+  styleUrls: ['./renderer-canvas.component.scss']
 })
-export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
+export class RendererCanvasComponent implements AfterViewInit, OnDestroy {
 
   private readonly onDestroy = new Subject<void>();
 
