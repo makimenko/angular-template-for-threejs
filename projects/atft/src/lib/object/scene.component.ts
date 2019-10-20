@@ -21,6 +21,8 @@ export class SceneComponent extends AbstractObject3D<THREE.Scene> {
     protected rendererService: RendererService
   ) {
     super(rendererService);
+    // TODO: directive?
+    rendererService.setScene(this);
   }
 
   protected newObject3DInstance(): THREE.Scene {

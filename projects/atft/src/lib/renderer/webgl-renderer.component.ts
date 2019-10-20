@@ -1,7 +1,4 @@
-import {AfterViewInit, Component, ContentChildren, ElementRef, HostListener, Input, OnDestroy, QueryList, ViewChild} from '@angular/core';
-import * as THREE from 'three';
-import {SceneComponent} from '../object/scene.component';
-import {AbstractCamera} from '../camera/abstract-camera';
+import {AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, ViewChild} from '@angular/core';
 import {Subject} from 'rxjs';
 import {RendererService} from './renderer.service';
 
@@ -12,15 +9,10 @@ import {RendererService} from './renderer.service';
 })
 export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
 
-  private renderer: THREE.WebGLRenderer;
-  private viewInitialized = false;
   private readonly onDestroy = new Subject<void>();
 
   @ViewChild('canvas', {static: true})
-  private canvasRef: ElementRef; // NOTE: say bye-bye to server-side rendering ;)
-
-  @ContentChildren(SceneComponent) sceneComponents: QueryList<SceneComponent>; // TODO: Multiple scenes
-  @ContentChildren(AbstractCamera) cameraComponents: QueryList<AbstractCamera<THREE.Camera>>; // TODO: Multiple camera
+  private canvasRef: ElementRef;
 
   @Input()
   enableShadowMap = false;
@@ -29,14 +21,12 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     private rendererService: RendererService
   ) {
     // console.log('RendererComponent.constructor');
-    this.render = this.render.bind(this);
+    this.onResize = this.onResize.bind(this);
   }
 
   ngAfterViewInit() {
     // console.log('RendererComponent.ngAfterViewInit');
-    this.viewInitialized = true;
-    this.startRendering();
-    this.rendererService.render.subscribe(this.render);
+    this.rendererService.initialize(this.canvas);
   }
 
   /**
@@ -63,76 +53,16 @@ export class WebGLRendererComponent implements AfterViewInit, OnDestroy {
     return this.canvasRef.nativeElement;
   }
 
-  private startRendering() {
-    // console.log('RendererComponent.startRendering');
-    this.renderer = new THREE.WebGLRenderer({
-      canvas: this.canvas,
-      antialias: true
-    });
-    this.renderer.setPixelRatio(devicePixelRatio);
-    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight, false);
-
-    this.renderer.shadowMap.enabled = this.enableShadowMap;
-    this.renderer.shadowMap.autoUpdate = this.enableShadowMap;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    // this.renderer.setClearColor(0xffffff, 1);
-    // this.renderer.autoClear = true;
-
-    this.updateChildCamerasAspectRatio();
-    this.render();
-  }
-
-  public render() {
-    if (this.viewInitialized) {
-      const sceneComponent = this.sceneComponents.first;
-      const cameraComponent = this.cameraComponents.first;
-      //  console.log('render');
-      this.renderer.render(sceneComponent.getObject(), cameraComponent.camera);
-    }
-  }
-
-  private calculateAspectRatio(): number {
-    const height = this.canvas.clientHeight;
-    if (height === 0) {
-      return 0;
-    }
-    return this.canvas.clientWidth / this.canvas.clientHeight;
-  }
-
   @HostListener('window:resize', ['$event'])
   public onResize(event: Event) {
     // strange, but single 100% resizing has unexpected behaviour with flex CSS
     // as workaround - resettling to 100 pixels, then to 100%
-    this.resize('100px');
-    this.resize('100%');
+    this.rendererService.resize(this.canvas, '100px');
+    this.rendererService.resize(this.canvas, '100%');
   }
-
-  private resize(size: string) {
-    this.canvas.style.width = size;
-    this.canvas.style.height = size;
-    const width = this.canvas.clientWidth;
-    const height = this.canvas.clientHeight;
-
-    this.renderer.setSize(width, height, true);
-    this.updateChildCamerasAspectRatio();
-    this.render();
-  }
-
-  public updateChildCamerasAspectRatio() {
-    const aspect = this.calculateAspectRatio();
-    this.cameraComponents.forEach(camera => camera.updateAspectRatio(aspect));
-  }
-
-  /*
-  @HostListener('document:keypress', ['$event'])
-  public onKeyPress(event: KeyboardEvent) {
-    // console.log("onKeyPress: " + event.key);
-  }
-*/
 
   ngOnDestroy(): void {
     this.onDestroy.next();
   }
-
 
 }

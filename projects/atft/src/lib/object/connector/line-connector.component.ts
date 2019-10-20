@@ -42,7 +42,7 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
 
   updateLineGeometry(): void {
     this.geometry.verticesNeedUpdate = true;
-    this.rendererService.request();
+    this.rendererService.render();
   }
 
 }

@@ -1,15 +1,4 @@
-import {
-  AfterViewInit,
-  Input,
-  QueryList,
-  ContentChildren,
-  OnChanges,
-  SimpleChanges,
-  Output,
-  EventEmitter,
-  SkipSelf,
-  Component, forwardRef
-} from '@angular/core';
+import {AfterViewInit, Input, OnChanges, SimpleChanges} from '@angular/core';
 import * as THREE from 'three';
 import {RendererService} from '../renderer/renderer.service';
 
@@ -35,6 +24,9 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements AfterVie
 
     this.applyZAxisUp();
     this.applyPosition();
+
+    // TODO: Directive?
+    this.rendererService.setCamera(this);
   }
 
   protected abstract createCamera(): void;
@@ -50,7 +42,7 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements AfterVie
     }
 
     if (mustRerender) {
-      this.rendererService.request();
+      this.rendererService.render();
     }
 
   }

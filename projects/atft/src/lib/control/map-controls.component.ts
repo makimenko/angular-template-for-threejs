@@ -86,12 +86,12 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
         this.controls.update();
       });
       this.controls.addEventListener('change', () => {
-        this.rendererService.request();
+        this.rendererService.render();
       });
       this.animationService.start();
     }
 
-    this.rendererService.request();
+    this.rendererService.render();
   }
 
 

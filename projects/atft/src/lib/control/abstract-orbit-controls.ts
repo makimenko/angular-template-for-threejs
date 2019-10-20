@@ -64,7 +64,7 @@ export abstract class AbstractOrbitControls<T extends OrbitControls> implements 
 
   private configureListeners() {
     this.controls.addEventListener('change', () => {
-      this.rendererService.request();
+      this.rendererService.render();
     });
 
     // don't raycast during rotation/damping/panning
@@ -86,7 +86,7 @@ export abstract class AbstractOrbitControls<T extends OrbitControls> implements 
 
     this.setUpControls();
     this.configureListeners();
-    this.rendererService.request();
+    this.rendererService.render();
   }
 
 }
