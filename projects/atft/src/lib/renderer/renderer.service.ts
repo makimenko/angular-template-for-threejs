@@ -48,6 +48,7 @@ export class RendererService implements OnDestroy {
     if (this.init && this.scene && this.camera) {
       //  console.log('render');
       this.webGlRenderer.render(this.scene.getObject(), this.camera.camera);
+      this.css3dRenderer.render(this.scene.getObject(), this.camera.camera);
     }
   }
 
@@ -57,7 +58,8 @@ export class RendererService implements OnDestroy {
     // TODO: Multiple renderers
     this.webGlRenderer = new THREE.WebGLRenderer({
       canvas: canvas,
-      antialias: true
+      antialias: true,
+      alpha: true
     });
     this.webGlRenderer.setPixelRatio(devicePixelRatio);
     this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
@@ -66,8 +68,19 @@ export class RendererService implements OnDestroy {
     this.webGlRenderer.shadowMap.enabled = false;
     this.webGlRenderer.shadowMap.autoUpdate = false;
     this.webGlRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    this.webGlRenderer.setClearColor(0xffffff, 1);
+    this.webGlRenderer.setClearColor(0x000000, 0);
     this.webGlRenderer.autoClear = true;
+    canvas.style.zIndex = '2' ;
+
+    // ------------------------------ START
+    this.css3dRenderer = new CSS3DRenderer();
+    this.css3dRenderer.setSize(window.innerWidth, window.innerHeight);
+    this.css3dRenderer.domElement.style.position = 'absolute';
+    this.css3dRenderer.domElement.style.top = '0';
+    this.css3dRenderer.domElement.style.zIndex = '1';
+    canvas.parentElement.appendChild(this.css3dRenderer.domElement);
+
+    // ------------------------------ END
 
     this.updateChildCamerasAspectRatio(canvas);
     this.init = true;
@@ -82,6 +95,7 @@ export class RendererService implements OnDestroy {
     const height = canvas.clientHeight;
 
     this.webGlRenderer.setSize(width, height, true);
+    this.css3dRenderer.setSize(width, height);
     this.updateChildCamerasAspectRatio(canvas);
     this.render();
   }
