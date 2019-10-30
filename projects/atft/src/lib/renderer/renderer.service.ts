@@ -70,7 +70,7 @@ export class RendererService implements OnDestroy {
     this.webGlRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.webGlRenderer.setClearColor(0x000000, 0);
     this.webGlRenderer.autoClear = true;
-    canvas.style.zIndex = '2' ;
+    canvas.style.zIndex = '2';
 
     // ------------------------------ START
     this.css3dRenderer = new CSS3DRenderer();

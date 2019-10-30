@@ -1,11 +1,10 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, ComponentFactoryResolver, forwardRef, Input, ViewContainerRef} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {RendererService} from '../../renderer/renderer.service';
-import {appliedMaterial, calculateSize} from '../../util';
+import {calculateSize} from '../../util';
 import {CSS3DObject} from 'three/examples/jsm/renderers/CSS3DRenderer';
-
 
 @Component({
   selector: 'atft-css3d-plane-mesh',
@@ -39,9 +38,12 @@ export class Css3dPlaneMeshComponent extends AbstractMesh {
   heightSegments = 1;
 
   resolution = new THREE.Vector3(800, 600, 0);
+  compRef: any;
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    private resolver: ComponentFactoryResolver,
+    private vcRef: ViewContainerRef
   ) {
     super(rendererService);
   }
@@ -54,11 +56,6 @@ export class Css3dPlaneMeshComponent extends AbstractMesh {
 
     const video = this.sampleCss3d();
     const meshSize = calculateSize(mesh);
-    const videoSize = calculateSize(video);
-
-    console.log('meshSize', meshSize);
-    console.log('videoSize', videoSize);
-
     this.scaleCss3d(video, meshSize);
 
     console.log('video.scale', video.scale);
@@ -89,13 +86,23 @@ export class Css3dPlaneMeshComponent extends AbstractMesh {
     div.style.width = this.resolution.x + 'px';
     div.style.height = this.resolution.y + 'px';
     div.style.backgroundColor = '#000';
-    const iframe = document.createElement('iframe');
-    iframe.style.width = this.resolution.x + 'px';
-    iframe.style.height = this.resolution.y + 'px';
-    iframe.style.border = '0px';
-    iframe.src = 'https://www.youtube.com/embed/HSqxlbf3Z7M';
-    div.appendChild(iframe);
+    div.id = 'myWrapper';
+
+
+    const video = document.createElement('video');
+    video.src = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_720p.mp4';
+    video.style.height = '100%';
+    video.style.width = '100%';
+    video.autoplay = true;
+    video.loop = true;
+    video.play();
+
+    div.appendChild(video);
+
     const object = new CSS3DObject(div);
+    object.scale.x = this.resolution.x;
+    object.scale.y = this.resolution.y;
+    object.scale.z = 1;
     return object;
   }
 
