@@ -7,7 +7,7 @@ import {withKnobs} from '@storybook/addon-knobs';
 
 @Component({
   template: defaultSceneWrapper(`
-  <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff" translateX="15"
+  <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff" translateX="20"
     translateZ="7"></atft-box-mesh>
   <atft-plane-mesh height="22" width="42" materialColor="0xffffff" material="phong"
     [rotateZ]="(90 | deg2rad)" [rotateY]="(90 | deg2rad)" translateZ="10">

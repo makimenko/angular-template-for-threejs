@@ -37,7 +37,7 @@ export class Css3dPlaneMeshComponent extends AbstractMesh {
   @Input()
   heightSegments = 1;
 
-  resolution = new THREE.Vector3(800, 600, 0);
+  resolution = new THREE.Vector3(1280, 720, 0);
   compRef: any;
 
   constructor(
