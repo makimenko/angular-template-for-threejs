@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 import {AbstractObject3D} from '../../../object/abstract-object-3d';
 import {EmptyComponent} from '../../../object/helper';
 
@@ -15,9 +15,21 @@ import {EmptyComponent} from '../../../object/helper';
       </atft-plane-mesh>
   `
 })
-export class LayerActorComponent extends EmptyComponent implements AfterViewInit {
+export class LayerActorComponent extends EmptyComponent {
   @Input() name: string;
-  @Input() width: number;
+
+  @Input()
+  set width(width: number) {
+    this._width = width;
+    this.translateLabelX = this._width / 2 - 10;
+  }
+
+  get width(): number {
+    return this._width;
+  }
+
+  private _width: number;
+
   @Input() height: number;
 
   @Output() render = new EventEmitter<void>();
@@ -38,11 +50,6 @@ export class LayerActorComponent extends EmptyComponent implements AfterViewInit
 
   public onClick() {
     this.color = 0xA0A0A0;
-  }
-
-  ngAfterViewInit() {
-    super.ngAfterViewInit();
-    this.translateLabelX = this.width / 2 - 10;
   }
 
 }

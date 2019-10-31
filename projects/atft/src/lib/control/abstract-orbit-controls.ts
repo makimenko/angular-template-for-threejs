@@ -4,7 +4,7 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {RendererService} from '../renderer/renderer.service';
 import {RaycasterService} from '../raycaster/raycaster.service';
-import {RendererCanvasComponent} from '../renderer';
+import {RendererCanvasComponent} from '../renderer/renderer-canvas.component';
 
 
 export abstract class AbstractOrbitControls<T extends OrbitControls> implements AfterViewInit, OnChanges, OnDestroy {

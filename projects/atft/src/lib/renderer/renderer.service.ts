@@ -1,5 +1,5 @@
 import {Injectable, OnDestroy} from '@angular/core';
-import {SceneComponent} from '../object';
+import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
 import * as THREE from 'three';
 import {CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer';

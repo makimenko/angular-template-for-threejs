@@ -2,7 +2,7 @@ import {AfterViewInit, Component, forwardRef, Input} from '@angular/core';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {CSS3DObject} from 'three/examples/jsm/renderers/CSS3DRenderer';
 import {AbstractCss3dMesh} from './abstract-css3d-mesh';
-import {RendererService} from '../../renderer';
+import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-css3d-video-mesh',
