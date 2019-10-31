@@ -6,7 +6,7 @@ import {FrameMeshComponent} from './frame-mesh.component';
 import {PlaneMeshComponent} from './plane-mesh.component';
 import {SphereMeshComponent} from './sphere-mesh.component';
 import {TorusMeshComponent} from './torus-mesh.component';
-import {Css3dPlaneMeshComponent} from './css3d-plane-mesh.component';
+import {Css3dVideoMeshComponent} from './css3d-video-mesh.component';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import {Css3dPlaneMeshComponent} from './css3d-plane-mesh.component';
     PlaneMeshComponent,
     SphereMeshComponent,
     TorusMeshComponent,
-    Css3dPlaneMeshComponent
+    Css3dVideoMeshComponent
   ],
   imports: [
     CommonModule
@@ -29,7 +29,7 @@ import {Css3dPlaneMeshComponent} from './css3d-plane-mesh.component';
     PlaneMeshComponent,
     SphereMeshComponent,
     TorusMeshComponent,
-    Css3dPlaneMeshComponent
+    Css3dVideoMeshComponent
   ]
 })
 export class AtftMeshModule {
