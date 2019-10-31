@@ -51,7 +51,7 @@ export class AnimationService {
          * When all components updated animation, render event is emitted.
          * Main renderer subscribed to this event emitter.
          */
-        this.rendererService.request();
+        this.rendererService.render();
       }
     }
   }

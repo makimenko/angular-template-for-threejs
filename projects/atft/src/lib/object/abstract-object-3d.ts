@@ -42,7 +42,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   constructor(protected rendererService: RendererService) {
     // console.log('AbstractObject3D.constructor');
     this.changed.subscribe(() => {
-      this.rendererService.request();
+      this.rendererService.render();
     });
 
   }

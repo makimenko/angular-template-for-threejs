@@ -12,11 +12,11 @@ import {RaycasterService} from '../raycaster';
 @Component({
   selector: 'atft-mock',
   template: `
-      <atft-map-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
-          <atft-webgl-renderer #mainRenderer>
+      <atft-map-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
+          <atft-renderer-canvas>
               <atft-perspective-camera [fov]=60 [near]=1 [far]=1100></atft-perspective-camera>
               <atft-scene></atft-scene>
-          </atft-webgl-renderer>
+          </atft-renderer-canvas>
       </atft-map-controls>
   `
 })

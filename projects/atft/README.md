@@ -12,7 +12,7 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple compon
 
 ```html
 <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
-  <atft-webgl-renderer #mainRenderer>
+  <atft-renderer-canvas>
     <atft-perspective-camera
       [fov]=60 [near]=1 [far]=1100
       positionX=20 positionY=50 positionZ=50>
@@ -21,7 +21,7 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple compon
       <atft-axes-helper size=200></atft-axes-helper>
       <atft-grid-helper size=100 divisions=10></atft-grid-helper>
     </atft-scene>
-  </atft-webgl-renderer>
+  </atft-renderer-canvas>
 </atft-orbit-controls>
 ```
 
@@ -59,7 +59,7 @@ Click below to see the demo in a web browser:<br>
 3. Use atft library components in `src/app.app.component.html`:
     ```html
     <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
-      <atft-webgl-renderer #mainRenderer>
+      <atft-renderer-canvas #mainRenderer>
         <atft-perspective-camera
           [fov]=60 [near]=1 [far]=1100
           positionX=20 positionY=50 positionZ=50>
@@ -68,7 +68,7 @@ Click below to see the demo in a web browser:<br>
           <atft-axes-helper size=200></atft-axes-helper>
           <atft-grid-helper size=100 divisions=10></atft-grid-helper>
         </atft-scene>
-      </atft-webgl-renderer>
+      </atft-renderer-canvas>
     </atft-orbit-controls>
     ```
 4. (optionally) if you want to fit 3D scene canvas into entire screen (horizontally and vertically):

@@ -14,10 +14,10 @@
   Camera positionX: <input type="range" min="-50" max="50" step="1" [(ngModel)]="cameraPositionX"> {{ cameraPositionX }}
   </div>
 
-<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane (render)="mainRenderer.render()">
-    <atft-webgl-renderer #mainRenderer>
+<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
+    <atft-renderer-canvas>
 
-      <atft-perspective-camera (render)="mainRenderer.render()" [fov]=60 [near]=1 [far]=1100 [positionX]=cameraPositionX positionY=50 positionZ=50></atft-perspective-camera>
+      <atft-perspective-camera [fov]=60 [near]=1 [far]=1100 [positionX]=cameraPositionX positionY=50 positionZ=50></atft-perspective-camera>
 
     <atft-scene>
       <atft-axes-helper size=200></atft-axes-helper>
@@ -27,7 +27,6 @@
       <atft-point-light color="0xffffff" intensity="0.1" distance="1000" translateX=-50 translateY=50 translateZ=20></atft-point-light>
 
       <atft-obj-loader
-        (render)="mainRenderer.render()"
         model="assets/model/smiley/smiley.obj"
         material="assets/model/smiley/smiley.mtl"
         texturePath="assets/model/smiley/"
@@ -38,7 +37,6 @@
 
       <div *ngFor="let z of [-10, -5, 0, 5, 10]">
         <atft-object-loader *ngFor="let x of [0,5,10,15,20]" model="assets/model/Server.json" [translateX]="x" [translateZ]="z"
-          (render)="mainRenderer.render()"
           [rotateX]="rotationX"
           [rotateY]="rotationY"
           [rotateZ]="rotationZ"
@@ -60,6 +58,6 @@
       </atft-empty>
 
     </atft-scene>
-  </atft-webgl-renderer>
+  </atft-renderer-canvas>
 </atft-orbit-controls>
 </div>

@@ -1,21 +1,21 @@
-import {Component, forwardRef} from '@angular/core';
+import {Component, forwardRef, Input} from '@angular/core';
 import {AbstractObject3D} from '../../../object/abstract-object-3d';
 import {AbstractServerActor} from './abstract-server-actor';
 
 @Component({
-  selector: 'atft-server-compact-actor',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => ServerCompactActorComponent)}],
+  selector: 'atft-workstation-actor',
+  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => WorkstationActorComponent)}],
   template: `
       <atft-empty name="server-box">
 
           <!-- TODO: template? -->
           <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
-              <atft-box-mesh height="10" width="10" depth="3" material="phong" [materialColor]="color" [translateZ]="1.5"
-                             atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
-                  <atft-svg-loader *ngIf="svgName" [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
-                                   material="basic" maxX="6" maxY="6" [translateZ]="1.6"
-                                   translateY="0" [rotateZ]="(180 | deg2rad)" [rotateY]="(180 | deg2rad)">
-                  </atft-svg-loader>
+              <atft-box-mesh height="10" width="10" depth="0.5" material="phong" [materialColor]="color" [translateZ]="0.5">
+              </atft-box-mesh>
+              <atft-box-mesh height="12.25" width="21" depth="1" [materialColor]="color" material="phong"
+                             [rotateX]="(90 | deg2rad)" translateZ="7">
+                  <atft-css3d-video-mesh height="11.25" width="20" translateZ="0.6" [videoSrc]="videoSrc">
+                  </atft-css3d-video-mesh>
               </atft-box-mesh>
           </atft-empty>
 
@@ -28,6 +28,9 @@ import {AbstractServerActor} from './abstract-server-actor';
       </atft-empty>
   `
 })
-export class ServerCompactActorComponent extends AbstractServerActor {
+export class WorkstationActorComponent extends AbstractServerActor {
+
+  @Input()
+  videoSrc;
 
 }

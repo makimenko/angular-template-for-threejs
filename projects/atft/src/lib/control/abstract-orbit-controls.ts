@@ -1,32 +1,23 @@
-import {AfterViewInit, ContentChildren, ElementRef, Input, OnChanges, OnDestroy, QueryList, SimpleChanges} from '@angular/core';
+import {AfterViewInit, ContentChild, ContentChildren, ElementRef, OnChanges, OnDestroy, QueryList, SimpleChanges} from '@angular/core';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {RendererService} from '../renderer/renderer.service';
 import {RaycasterService} from '../raycaster/raycaster.service';
+import {RendererCanvasComponent} from '../renderer/renderer-canvas.component';
 
 
 export abstract class AbstractOrbitControls<T extends OrbitControls> implements AfterViewInit, OnChanges, OnDestroy {
 
   @ContentChildren(AbstractCamera, {descendants: true}) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
-
+  @ContentChild(RendererCanvasComponent, {static: false}) webGlRenderer: RendererCanvasComponent;
   /**
    * The element on whose native element the orbit control will listen for mouse events.
    *
    * Note that keyboard events are still listened for on the global window object, this is
    * a known issue from Three.js: https://github.com/mrdoob/three.js/pull/10315
-   *
-   * @example This property can be used to restrict the orbit control (i.e. the
-   * area which is listened for mouse move and zoom events) to the rendering pane:
-   * ```
-   * <three-orbit-control [listeningControlElement]=mainRenderer.renderPane>
-   *   <three-renderer #mainRenderer>
-   *     ...
-   *   </three-renderer>
-   * </three-orbit-control>
-   * ```
    */
-  @Input() listeningControlElement: ElementRef | undefined = undefined;
+  protected listeningControlElement: ElementRef;
 
   protected controls: T;
 
@@ -64,7 +55,7 @@ export abstract class AbstractOrbitControls<T extends OrbitControls> implements 
 
   private configureListeners() {
     this.controls.addEventListener('change', () => {
-      this.rendererService.request();
+      this.rendererService.render();
     });
 
     // don't raycast during rotation/damping/panning
@@ -83,10 +74,13 @@ export abstract class AbstractOrbitControls<T extends OrbitControls> implements 
     if (this.childCameras === undefined || this.childCameras.first === undefined) {
       throw new Error('Camera is not found');
     }
-
+    if (!this.webGlRenderer) {
+      throw new Error('webGlRenderer is not found');
+    }
+    this.listeningControlElement = this.webGlRenderer.renderPane;
     this.setUpControls();
     this.configureListeners();
-    this.rendererService.request();
+    this.rendererService.render();
   }
 
 }
