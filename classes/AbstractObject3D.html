@@ -1156,7 +1156,7 @@ export abstract class AbstractObject3D&lt;T extends THREE.Object3D&gt; implement
   constructor(protected rendererService: RendererService) {
     // console.log(&#x27;AbstractObject3D.constructor&#x27;);
     this.changed.subscribe(() &#x3D;&gt; {
-      this.rendererService.request();
+      this.rendererService.render();
     });
 
   }

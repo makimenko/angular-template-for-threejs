@@ -1340,7 +1340,7 @@ export abstract class AbstractMesh extends AbstractObject3D&lt;THREE.Mesh&gt; im
     }
 
     if (mustRerender) {
-      this.rendererService.request();
+      this.rendererService.render();
     }
   }
 
