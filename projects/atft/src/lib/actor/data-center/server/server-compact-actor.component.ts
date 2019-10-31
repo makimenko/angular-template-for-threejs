@@ -14,7 +14,7 @@ import {AbstractServerActor} from './abstract-server-actor';
                              atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
                   <atft-svg-loader *ngIf="svgName" [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
                                    material="basic" maxX="6" maxY="6" [translateZ]="1.6"
-                                   translateY="0" [rotateZ]="(180 | deg2rad)">
+                                   translateY="0" [rotateZ]="(180 | deg2rad)" [rotateY]="(180 | deg2rad)">
                   </atft-svg-loader>
               </atft-box-mesh>
           </atft-empty>

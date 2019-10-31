@@ -54,38 +54,42 @@ class StorybookServerComponent {
 
   <atft-empty>
     <!-- Servers / Nodes: -->
-    <atft-server-compact-actor #ad1 label="Active Directory" translateY="30" [translateX]="-60" svgName="upload.svg">
+    <atft-server-compact-actor #ad1 label="Active Directory" translateY="30" [translateX]="-60" svgName="users-solid.svg">
     </atft-server-compact-actor>
-    <atft-server-compact-actor #ad2 label="Active Directory" translateY="90" [translateX]="-60" svgName="upload.svg">
+    <atft-server-compact-actor #ad2 label="Active Directory (Replica)" translateY="90" [translateX]="-60" svgName="users-solid.svg">
     </atft-server-compact-actor>
     <atft-workstation-actor #ws1 label="Client Workstation" [svgName]="svgName"
        translateY="30" translateX="0"
        videoSrc="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_720p.mp4">
     </atft-workstation-actor>
 
-    <atft-server-compact-actor #lb label="Load Balancer" translateY="90" [translateX]="-0" svgName="upload.svg">
+    <atft-server-compact-actor #lb label="Load Balancer" translateY="90" [translateX]="-0" svgName="sitemap-solid.svg">
     </atft-server-compact-actor>
-    <atft-server-icon-actor label="Firewall" translateY="90" [translateX]="20" svgName="upload.svg">
+    <atft-server-icon-actor label="Firewall" translateY="90" [translateX]="20" svgName="expeditedssl-brands.svg">
     </atft-server-icon-actor>
-    <atft-server-icon-actor label="Auto-Scaling" translateY="90" [translateX]="40" svgName="upload.svg">
-    </atft-server-icon-actor>
-
-    <atft-server-stand-actor #fs1 label="FS1" translateY="140" [translateX]="-40" svgName="upload.svg">
-    </atft-server-stand-actor>
-    <atft-server-stand-actor #fs2 label="FS2" translateY="140" [translateX]="40" svgName="upload.svg">
-    </atft-server-stand-actor>
-
-    <atft-server-stand-actor #bs1 label="BS1" translateY="190" [translateX]="-40" svgName="upload.svg">
-    </atft-server-stand-actor>
-    <atft-server-stand-actor #bs2 label="BS2" translateY="190" [translateX]="40" svgName="upload.svg">
-    </atft-server-stand-actor>
-    <atft-server-icon-actor #m1 label="In-memory Cache" translateY="190" [translateX]="0" svgName="upload.svg">
+    <atft-server-icon-actor label="Auto-Scaling" translateY="90" [translateX]="40" svgName="external-link-alt-solid.svg">
     </atft-server-icon-actor>
 
-    <atft-server-barrel-actor #db1 label="DB1" translateY="240" [translateX]="-40" svgName="upload.svg">
+    <atft-server-stand-actor #fs1 label="Frontend Server 1" translateY="140" [translateX]="-40" svgName="grid-world.svg">
+    </atft-server-stand-actor>
+    <atft-server-stand-actor #fs2 label="Frontend Server 2" translateY="140" [translateX]="40" svgName="grid-world.svg">
+    </atft-server-stand-actor>
+    <atft-server-icon-actor label="Application Insights" translateY="140" [translateX]="0" svgName="idea.svg">
+    </atft-server-icon-actor>
+    
+    <atft-server-stand-actor #bs1 label="Backend Server 1" translateY="190" [translateX]="-40" svgName="server-solid.svg">
+    </atft-server-stand-actor>
+    <atft-server-stand-actor #bs2 label="Backend Server 2" translateY="190" [translateX]="40" svgName="server-solid.svg">
+    </atft-server-stand-actor>
+    <atft-server-icon-actor label="Cloud Bursting Enabled" translateY="190" [translateX]="0" svgName="upload.svg">
+    </atft-server-icon-actor>
+
+    <atft-server-barrel-actor #db1 label="DB Cluster 1" translateY="240" [translateX]="-40" svgName="galactic-republic-brands.svg">
     </atft-server-barrel-actor>
-    <atft-server-barrel-actor #db2 label="DB2" translateY="240" [translateX]="40" svgName="upload.svg">
+    <atft-server-barrel-actor #db2 label="DB Cluster 2" translateY="240" [translateX]="40" svgName="galactic-republic-brands.svg">
     </atft-server-barrel-actor>
+    <atft-server-icon-actor label="In-Memory Cache Enabled" translateY="240" [translateX]="0" svgName="border-none-solid.svg">
+    </atft-server-icon-actor>
 
     <!-- Connectors / Edges: -->
     <atft-empty translateZ="0.1">
