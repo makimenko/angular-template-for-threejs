@@ -5,10 +5,10 @@
  * @param content content template
  */
 export const worldSceneWrapper = (content: string) => `
-  <atft-map-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2 [enableDamping]="true">
+  <atft-map-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2 [enableDamping]="true" [autoRotate]="true">
       <atft-renderer-canvas #mainRenderer>
-          <atft-perspective-camera [zAxisUp]="true" positionX=20 positionY=-80
-                positionZ=30 atft-raycaster-camera atft-raycaster-enable>
+          <atft-perspective-camera [zAxisUp]="true" positionX=40 positionY=-100
+                positionZ=50 atft-raycaster-camera atft-raycaster-enable>
           </atft-perspective-camera>
           <atft-scene name="scene" background="0xa0a0a0" [fog]="true" fogColor="0xa0a0a0" fogNear="80" fogFar="500">
           <atft-plane-mesh name="ground" height="2000" width="2000" materialColor="0x999999" [depthWrite]="true" [castShadow]="false"
