@@ -10,14 +10,12 @@ import {AbstractServerActor} from './abstract-server-actor';
 
           <!-- TODO: template? -->
           <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
-              <atft-box-mesh height="10" width="10" depth="0.5" material="phong" [materialColor]="color" [translateZ]="0.5"
-                             atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
+              <atft-box-mesh height="10" width="10" depth="0.5" material="phong" [materialColor]="color" [translateZ]="0.5">
               </atft-box-mesh>
-
-              <atft-box-mesh height="12.25" width="21" depth="1" materialColor="0xffffff" material="phong"
+              <atft-box-mesh height="12.25" width="21" depth="1" [materialColor]="color" material="phong"
                              [rotateX]="(90 | deg2rad)" translateZ="7">
-                  <atft-css3d-video-mesh height="11.25" width="20" translateZ="0.6"
-                                         [videoSrc]="videoSrc"></atft-css3d-video-mesh>
+                  <atft-css3d-video-mesh height="11.25" width="20" translateZ="0.6" [videoSrc]="videoSrc">
+                  </atft-css3d-video-mesh>
               </atft-box-mesh>
           </atft-empty>
 

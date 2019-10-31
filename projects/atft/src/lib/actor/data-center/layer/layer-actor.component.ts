@@ -1,4 +1,4 @@
-import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 import {AbstractObject3D} from '../../../object/abstract-object-3d';
 import {EmptyComponent} from '../../../object/helper';
 
@@ -7,14 +7,15 @@ import {EmptyComponent} from '../../../object/helper';
   selector: 'atft-layer-actor',
   providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => LayerActorComponent)}],
   template: `
-    <atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"
-                     (mouseExit)="onDeselected()">
-      <atft-text-mesh [centered]="true" [text]="name" size="5" translateX="40" [rotateZ]="(90 | deg2rad)" materialColor="0xE0E0E0">
-      </atft-text-mesh>
-    </atft-plane-mesh>
+      <atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"
+                       (mouseExit)="onDeselected()">
+          <atft-text-mesh [centered]="true" [text]="name" size="5" [translateX]="translateLabelX" [rotateZ]="(90 | deg2rad)"
+                          materialColor="0xE0E0E0">
+          </atft-text-mesh>
+      </atft-plane-mesh>
   `
 })
-export class LayerActorComponent extends EmptyComponent {
+export class LayerActorComponent extends EmptyComponent implements AfterViewInit {
   @Input() name: string;
   @Input() width: number;
   @Input() height: number;
@@ -24,6 +25,8 @@ export class LayerActorComponent extends EmptyComponent {
   @Output() deselected = new EventEmitter<void>();
 
   color = 0xA0A0A0;
+
+  translateLabelX: number;
 
   public onSelected() {
     this.color = 0xA4A4A4;
@@ -36,4 +39,10 @@ export class LayerActorComponent extends EmptyComponent {
   public onClick() {
     this.color = 0xA0A0A0;
   }
+
+  ngAfterViewInit() {
+    super.ngAfterViewInit();
+    this.translateLabelX = this.width / 2 - 10;
+  }
+
 }

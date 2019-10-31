@@ -39,32 +39,91 @@ class StorybookServerComponent {
 
 @Component({
   template: worldSceneWrapper(`
-    <atft-empty>
+<atft-empty [translateZ]="0.5">
 
-        <atft-layer-actor width="100" height="40" [translateZ]="0.5" [translateY]="-20" name="Servers A">
-        </atft-layer-actor>
-        <atft-layer-actor width="100" height="50" [translateZ]="0.5" [translateY]="30" name="Servers B">
-        </atft-layer-actor>
+  <atft-layer-actor width="180" height="45" [translateY]="30" name="On-Premise">
+  </atft-layer-actor>
+  <atft-layer-actor width="180" height="45" [translateY]="90" name="Security">
+  </atft-layer-actor>
+  <atft-layer-actor width="180" height="45" [translateY]="140" name="Frontend">
+  </atft-layer-actor>
+  <atft-layer-actor width="180" height="45" [translateY]="190" name="Backend">
+  </atft-layer-actor>
+  <atft-layer-actor width="180" height="45" [translateY]="240" name="Storage">
+  </atft-layer-actor>
 
-        <atft-empty translateZ="0.5">
-          <!-- Servers / Nodes: -->
-          <atft-server-barrel-actor #rx10 label="RX10" translateY="-20"  svgName="idea.svg" [showFrame]="true">
-          </atft-server-barrel-actor>
-          <atft-server-stand-actor #z001 label="Server Z001" translateY="-20" [translateX]="-30" svgName="grid-world.svg">
-          </atft-server-stand-actor>
-          <atft-server-compact-actor #tx71 label="Server TX71" translateY="30" [translateX]="-30" svgName="upload.svg">
-          </atft-server-compact-actor>
-          <!-- Connectors / Edges: -->
-          <atft-empty translateZ="0.1">
-            <atft-mesh-line-connector [source]="rx10" [target]="z001" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-                [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="0.001">
-            </atft-mesh-line-connector>
-            <atft-mesh-line-connector [source]="z001" [target]="tx71" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-                [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
-             </atft-mesh-line-connector>
-           </atft-empty>
-         </atft-empty>
-    </atft-empty>
+  <atft-empty>
+    <!-- Servers / Nodes: -->
+    <atft-server-compact-actor #ad1 label="Active Directory" translateY="30" [translateX]="-60" svgName="upload.svg">
+    </atft-server-compact-actor>
+    <atft-server-compact-actor #ad2 label="Active Directory" translateY="90" [translateX]="-60" svgName="upload.svg">
+    </atft-server-compact-actor>
+    <atft-workstation-actor #ws1 label="Client Workstation" [svgName]="svgName"
+       translateY="30" translateX="0"
+       videoSrc="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_720p.mp4">
+    </atft-workstation-actor>
+
+    <atft-server-compact-actor #lb label="Load Balancer" translateY="90" [translateX]="-0" svgName="upload.svg">
+    </atft-server-compact-actor>
+    <atft-server-icon-actor label="Firewall" translateY="90" [translateX]="20" svgName="upload.svg">
+    </atft-server-icon-actor>
+    <atft-server-icon-actor label="Auto-Scaling" translateY="90" [translateX]="40" svgName="upload.svg">
+    </atft-server-icon-actor>
+
+    <atft-server-stand-actor #fs1 label="FS1" translateY="140" [translateX]="-40" svgName="upload.svg">
+    </atft-server-stand-actor>
+    <atft-server-stand-actor #fs2 label="FS2" translateY="140" [translateX]="40" svgName="upload.svg">
+    </atft-server-stand-actor>
+
+    <atft-server-stand-actor #bs1 label="BS1" translateY="190" [translateX]="-40" svgName="upload.svg">
+    </atft-server-stand-actor>
+    <atft-server-stand-actor #bs2 label="BS2" translateY="190" [translateX]="40" svgName="upload.svg">
+    </atft-server-stand-actor>
+    <atft-server-icon-actor #m1 label="In-memory Cache" translateY="190" [translateX]="0" svgName="upload.svg">
+    </atft-server-icon-actor>
+
+    <atft-server-barrel-actor #db1 label="DB1" translateY="240" [translateX]="-40" svgName="upload.svg">
+    </atft-server-barrel-actor>
+    <atft-server-barrel-actor #db2 label="DB2" translateY="240" [translateX]="40" svgName="upload.svg">
+    </atft-server-barrel-actor>
+
+    <!-- Connectors / Edges: -->
+    <atft-empty translateZ="0.1">
+      <atft-mesh-line-connector [source]="ad1" [target]="ad2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+      </atft-mesh-line-connector>
+      <atft-mesh-line-connector [source]="ad2" [target]="lb" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+      </atft-mesh-line-connector>
+      <atft-mesh-line-connector [source]="ws1" [target]="lb" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+      </atft-mesh-line-connector>
+
+      <atft-mesh-line-connector [source]="lb" [target]="fs1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+      </atft-mesh-line-connector>
+      <atft-mesh-line-connector [source]="lb" [target]="fs2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+      </atft-mesh-line-connector>
+
+
+      <atft-mesh-line-connector [source]="fs1" [target]="bs1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+      </atft-mesh-line-connector>
+      <atft-mesh-line-connector [source]="fs2" [target]="bs2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+      </atft-mesh-line-connector>
+
+      <atft-mesh-line-connector [source]="bs1" [target]="db1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+      </atft-mesh-line-connector>
+      <atft-mesh-line-connector [source]="bs2" [target]="db2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+      </atft-mesh-line-connector>
+
+     </atft-empty>
+   </atft-empty>
+</atft-empty>
   `)
 })
 class StorybookSceneComponent {
