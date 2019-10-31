@@ -23,11 +23,11 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
 
   @Input() enableDamping = false;
 
-  @Input() dampingFactor = 0.03;
+  @Input() dampingFactor = 0.1;
 
   @Input() screenSpacePanning = false;
 
-  @Input() minDistance = 100;
+  @Input() minDistance = 20;
 
   @Input() maxDistance = 200;
 

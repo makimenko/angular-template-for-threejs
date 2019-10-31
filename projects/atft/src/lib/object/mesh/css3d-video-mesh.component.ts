@@ -31,8 +31,9 @@ export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterV
     div.id = 'myWrapper';
 
     // 2. Create Video Player with source
-    this.video.autoplay = true;
+    this.video.autoplay = false;
     this.video.loop = true;
+    this.video.muted = true;
     const source = document.createElement('source');
     source.src = this.videoSrc;
     source.type = 'video/mp4';
@@ -47,6 +48,12 @@ export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterV
   ngAfterViewInit() {
     super.ngAfterViewInit();
     this.video.load();
+    this.video.addEventListener('canplay', () => {
+      console.log('EVENT');
+      this.video.play();
+    });
+
+
   }
 
 }

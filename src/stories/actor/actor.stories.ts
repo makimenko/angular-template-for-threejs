@@ -39,7 +39,7 @@ class StorybookServerComponent {
 
 @Component({
   template: worldSceneWrapper(`
-<atft-empty [translateZ]="0.5">
+<atft-empty [translateZ]="0.5" [translateY]="-40">
 
   <atft-layer-actor width="180" height="45" [translateY]="30" name="On-Premise">
   </atft-layer-actor>
