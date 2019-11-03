@@ -34,14 +34,24 @@
 <p>All notable changes to this project will be documented in this file.</p>
 <p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
-<h2 id="unreleased">[Unreleased]</h2>
-<h3 id="changed">Changed</h3>
+<h2 id="120---20191031"><a href="https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.2.0">[1.2.0] - 2019.10.31</a></h2>
+<h3 id="added">Added</h3>
 <ul>
+<li>Support of multiple renderers: CSS3DRenderer and WebGlRenderer</li>
+<li>New components<ul>
+<li>AbstractCss3dMesh</li>
+<li>Css3dVideoMeshComponent</li>
+<li>WorkstationActorComponent<h3 id="changed">Changed</h3>
+</li>
+</ul>
+</li>
 <li>Deprecate <code>ObjLoaderComponent</code>&#39;s <code>texturePath</code> input attribute in favor of <code>resourcePath</code> (following <a href="https://github.com/mrdoob/three.js/commit/963bcc8144224f248f6d4687d95d3b191c0712df">Three.js&#39; lead in this commit</a>).<br>
 From now on use <code>&lt;atft-obj-loader model=&quot;...&quot; resourcePath=&quot;...&quot; /&gt;</code>)</li>
+<li>Adjusted &quot;Actors&quot; storybook</li>
 </ul>
+<p><img src="https://user-images.githubusercontent.com/11466819/67981241-e311d980-fc28-11e9-82b3-a7f281132558.gif" alt="Showcase Gif" class="img-responsive"></p>
 <h2 id="110---2019-09-27"><a href="https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.1.0">[1.1.0] - 2019-09-27</a></h2>
-<h3 id="added">Added</h3>
+<h3 id="added-1">Added</h3>
 <ul>
 <li>Interactivity features:<ul>
 <li>RaycasterService - allows to find objects intersections on mouse move/down. Emit object event.</li>
@@ -63,7 +73,7 @@ From now on use <code>&lt;atft-obj-loader model=&quot;...&quot; resourcePath=&qu
 <p>Install from NPM: <a href="https://www.npmjs.com/package/atft">https://www.npmjs.com/package/atft</a></p>
 <p><a href="https://user-images.githubusercontent.com/11466819/65801227-479ccd00-e181-11e9-8da8-e93ccb1047c6.gif"><img src="https://user-images.githubusercontent.com/11466819/65801227-479ccd00-e181-11e9-8da8-e93ccb1047c6.gif" alt="Showcase Gif" class="img-responsive"></a></p>
 <h2 id="102---2019-09-07"><a href="https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.0.2">[1.0.2] - 2019-09-07</a></h2>
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 <ul>
 <li>Integrate Storybook.js for isolated component exploration and development</li>
 <li>New demo scenes</li>
@@ -83,12 +93,12 @@ From now on use <code>&lt;atft-obj-loader model=&quot;...&quot; resourcePath=&qu
 <p>Same as [0.0.3], see [0.0.3] for the reasons it was yanked.</p>
 <h2 id="003---2019-04-18-yanked">[0.0.3] - 2019-04-18 [YANKED]</h2>
 <p>Yanked due to patch version increase not adhering to semver. Also, due to the tag <code>v0.0.3</code> already having been used for [0.0.2], which is confusing. From now on, <code>atft</code> library versions will match Git tags and GitHub releases.</p>
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 <ul>
 <li>atft library: exposition of atft&#39;s public API by [@makimenko] fixing <a href="https://github.com/makimenko/angular-template-for-threejs/issues/39">issue #39</a></li>
 </ul>
 <h2 id="002---2019-04-10"><a href="https://github.com/makimenko/angular-template-for-threejs/releases/tag/v0.0.3">[0.0.2] - 2019-04-10</a></h2>
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 <ul>
 <li>atft library by [@makimenko] separating the Three.js bindings from the example code in `app.component.{html|ts|...}<br>
 It is published on NPM: <a href="https://www.npmjs.com/package/atft">https://www.npmjs.com/package/atft</a></li>
