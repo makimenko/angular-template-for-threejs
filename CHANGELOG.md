@@ -4,10 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [[1.2.0] - 2019.10.31](https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.2.0)
+### Added
+- Support of multiple renderers: CSS3DRenderer and WebGlRenderer
+- New components
+  - AbstractCss3dMesh
+  - Css3dVideoMeshComponent
+  - WorkstationActorComponent
 ### Changed
 - Deprecate `ObjLoaderComponent`'s `texturePath` input attribute in favor of `resourcePath` (following [Three.js' lead in this commit](https://github.com/mrdoob/three.js/commit/963bcc8144224f248f6d4687d95d3b191c0712df)).<br>
   From now on use `<atft-obj-loader model="..." resourcePath="..." />`)
+- Adjusted "Actors" storybook
 
 ## [[1.1.0] - 2019-09-27](https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.1.0)
 ### Added
