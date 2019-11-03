@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   From now on use `<atft-obj-loader model="..." resourcePath="..." />`)
 - Adjusted "Actors" storybook
 
+![Showcase Gif](https://user-images.githubusercontent.com/11466819/67981241-e311d980-fc28-11e9-82b3-a7f281132558.gif)
+
 ## [[1.1.0] - 2019-09-27](https://github.com/makimenko/angular-template-for-threejs/releases/tag/1.1.0)
 ### Added
 - Interactivity features:
