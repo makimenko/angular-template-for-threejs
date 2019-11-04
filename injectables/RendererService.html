@@ -201,8 +201,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:104</a></div>
                 </td>
             </tr>
 
@@ -653,8 +653,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="111"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:111</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:112</a></div>
                 </td>
             </tr>
 
@@ -943,8 +943,8 @@ export class RendererService implements OnDestroy {
       antialias: true,
       alpha: true
     });
-    this.webGlRenderer.setPixelRatio(devicePixelRatio);
-    this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+    this.webGlRenderer.setPixelRatio(window.devicePixelRatio);
+    this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, true);
 
     // TODO: props
     this.webGlRenderer.shadowMap.enabled &#x3D; false;
@@ -973,6 +973,7 @@ export class RendererService implements OnDestroy {
   public resize(canvas: HTMLCanvasElement, size: string) {
     canvas.style.width &#x3D; size;
     canvas.style.height &#x3D; size;
+    canvas.style.border &#x3D; &#x27;none&#x27;;
     const width &#x3D; canvas.clientWidth;
     const height &#x3D; canvas.clientHeight;
 

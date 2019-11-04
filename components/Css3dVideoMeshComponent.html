@@ -957,8 +957,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:50</a></div>
                 </td>
             </tr>
 
@@ -2345,6 +2345,8 @@ export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterV
     const source &#x3D; document.createElement(&#x27;source&#x27;);
     source.src &#x3D; this.videoSrc;
     source.type &#x3D; &#x27;video/mp4&#x27;;
+    this.video.style.width &#x3D; &#x27;100%&#x27;;
+    this.video.style.height &#x3D; &#x27;100%&#x27;;
     this.video.appendChild(source);
     div.appendChild(this.video);
 
