@@ -37,6 +37,8 @@ export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterV
     const source = document.createElement('source');
     source.src = this.videoSrc;
     source.type = 'video/mp4';
+    this.video.style.width = '100%';
+    this.video.style.height = '100%';
     this.video.appendChild(source);
     div.appendChild(this.video);
 

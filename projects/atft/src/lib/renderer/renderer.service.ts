@@ -61,8 +61,8 @@ export class RendererService implements OnDestroy {
       antialias: true,
       alpha: true
     });
-    this.webGlRenderer.setPixelRatio(devicePixelRatio);
-    this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+    this.webGlRenderer.setPixelRatio(window.devicePixelRatio);
+    this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, true);
 
     // TODO: props
     this.webGlRenderer.shadowMap.enabled = false;
@@ -91,6 +91,7 @@ export class RendererService implements OnDestroy {
   public resize(canvas: HTMLCanvasElement, size: string) {
     canvas.style.width = size;
     canvas.style.height = size;
+    canvas.style.border = 'none';
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
 
