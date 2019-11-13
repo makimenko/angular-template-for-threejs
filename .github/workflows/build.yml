@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -23,6 +23,7 @@ jobs:
         export DISPLAY=:99.0
         npm install -g greenkeeper-lockfile
         npm install -g codecov
+        npm install -g @angular/cli
       env:
         CI: true
     - name: Build
