@@ -9,9 +9,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Global dependencies
       run: |
-        npm install -g @angular/cli
         npm install -g greenkeeper-lockfile
         npm install -g codecov
+        npm install -g @angular/cli
     - name: Project dependencies
       run: npm ci
   lib:
