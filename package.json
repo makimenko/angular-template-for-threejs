@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build-atft": "ng build",
+    "build-atft": "ng build atft",
     "build-prod": "ng build --prod --base-href \"https://makimenko.github.io/angular-template-for-threejs/demo/\" --output-path ./dist/gh-pages-deploy/demo",
     "test": "ng test --watch=false --code-coverage",
     "lint": "ng lint",

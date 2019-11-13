@@ -10,7 +10,7 @@ jobs:
     - name: Install project dependencies
       run: npm ci
     - name: Build atft library
-      run: npx ng build atft
+      run: npm run build-atft
     - name: Build project
       run: npm run build-prod
     - name: Test
