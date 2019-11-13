@@ -3,39 +3,41 @@ name: CI
 on: [push]
 
 jobs:
-  build:
-
+  install:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: NPM Install
+    - name: Global dependencies
       run: |
-        npm ci
-        export DISPLAY=:99.0
+        npm install -g @angular/cli
         npm install -g greenkeeper-lockfile
         npm install -g codecov
-        npm install -g @angular/cli
-      env:
-        CI: true
-    - name: Build
-      run: |
-        ng build atft
-        ng lint
-        ng test --watch=false --code-coverage
-        ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
-        npm install -g @compodoc/compodoc
-        compodoc -p projects/atft/tsconfig.lib.json -d dist/gh-pages-deploy
-        npx build-storybook -c .storybook -o ./dist/gh-pages-deploy/storybook
-      env:
-        CI: true
-        
+    - name: Project dependencies
+      run: npm ci
+  lib:
+    needs: [install]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build atft library
+      run: ng build atft
+  build:
+    needs: [lib]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build project
+      run: ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
+  test:
+    needs: [lib]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test
+      run: ng test --watch=false --code-coverage
+  lint:
+    needs: [lib]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Linting
+      run: ng lint
+    
         
