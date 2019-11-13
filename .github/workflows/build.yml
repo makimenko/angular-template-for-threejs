@@ -7,31 +7,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Project dependencies
+    - name: Install project dependencies
       run: npm ci
   lib:
     needs: [install]
     runs-on: ubuntu-latest
     steps:
     - name: Build atft library
-      run: npx build-atft
+      run: npm run build-atft
   build:
     needs: [lib]
     runs-on: ubuntu-latest
     steps:
     - name: Build project
-      run: npx build-prod
+      run: npm run build-prod
   test:
     needs: [lib]
     runs-on: ubuntu-latest
     steps:
     - name: Test
-      run: npx test
+      run: npm run test
   lint:
     needs: [lib]
     runs-on: ubuntu-latest
     steps:
     - name: Linting
-      run: npx lint
+      run: npm run lint
 
 
