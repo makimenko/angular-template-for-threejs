@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
     - name: Global dependencies
       run: |
         npm install -g @angular/cli
@@ -19,28 +18,24 @@ jobs:
     needs: [install]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
     - name: Build atft library
       run: ng build atft
   build:
     needs: [lib]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
     - name: Build project
       run: ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
   test:
     needs: [lib]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
     - name: Test
       run: ng test --watch=false --code-coverage
   lint:
     needs: [lib]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
     - name: Linting
       run: ng lint
     
