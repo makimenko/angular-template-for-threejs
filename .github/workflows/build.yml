@@ -12,7 +12,7 @@ jobs:
     - name: Build atft library
       run: npx ng build atft
     - name: Build prod
-      run: ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
+      run: npx ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
     - name: Generate documentation
       run: npx compodoc -p projects/atft/tsconfig.lib.json -d dist/gh-pages-deploy
     - name: Build storybook
