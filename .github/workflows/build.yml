@@ -3,19 +3,6 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  base:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Install project dependencies
-        run: npm ci
-      - name: Build atft library
-        run: npx ng build atft
-      - name: Upload base
-        uses: actions/upload-artifact@v1
-        with:
-          name: base
-          path: ./
   build:
     runs-on: ubuntu-latest
     steps:
@@ -94,13 +81,3 @@ jobs:
           path: dist
       - name: dir
         run: ls dist
-  optimized-build:
-    runs-on: ubuntu-latest
-    needs: [base]
-    steps:
-      - uses: actions/download-artifact@v1
-        with:
-          name: base
-          path: ./
-      - name: Build prod
-        run: npx ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
