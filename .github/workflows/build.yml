@@ -6,10 +6,6 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
-    - name: Install xvfb
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y xvfb
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
       with:
@@ -20,8 +16,18 @@ jobs:
       run: npx ng build atft
     - name: Test
       run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb
         Xvfb :99 &
         export DISPLAY=:99
-        npm test
+        npx ng test --watch=false --code-coverage
       env:
         CI: true
+    - name: Build prod
+      run: ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
+    - name: Generate documentation
+      run: npx compodoc -p projects/atft/tsconfig.lib.json -d dist/gh-pages-deploy
+    - name: Build storybook
+      run: npx build-storybook -c .storybook -o ./dist/gh-pages-deploy/storybook
+    - name: Code coverage
+      run: npx codecov
