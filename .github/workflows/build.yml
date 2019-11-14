@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -79,3 +79,5 @@ jobs:
         with:
           name: build
           path: dist
+      - name: dir
+        run: ls dist
