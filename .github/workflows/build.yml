@@ -6,7 +6,7 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
-    - name:
+    - name: Install xvfb
       run: |
         sudo apt-get update
         sudo apt-get install -y xvfb
@@ -19,7 +19,8 @@ jobs:
     - name: Build atft library
       run: npx ng build atft
     - name: Test
-      run: npm test
+      run: |
+        xvfb-run --server-args='-screen 0, 1024x768x16' google-chrome -start-maximized > /dev/null &
+        npm test
       env:
         CI: true
-        DISPLAY: ":99.0"
