@@ -63,3 +63,18 @@ jobs:
         with:
           name: doc
           path: ./dist/gh-pages-deploy
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v1
+        with:
+          name: doc
+          path: dist
+      - uses: actions/download-artifact@v1
+        with:
+          name: storybook
+          path: dist
+      - uses: actions/download-artifact@v1
+        with:
+          name: build
+          path: dist
