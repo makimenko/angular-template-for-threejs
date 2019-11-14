@@ -13,10 +13,11 @@ jobs:
       run: npx ng build atft
     - name: Build prod
       run: npx ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
-    - name: Generate documentation
-      run: npx compodoc -p projects/atft/tsconfig.lib.json -d dist/gh-pages-deploy
-    - name: Build storybook
-      run: npx build-storybook -c .storybook -o ./dist/gh-pages-deploy/storybook
+    - name: Upload build
+      uses: actions/upload-artifact@v1
+      with:
+        name: build
+        path: ./dist/gh-pages-deploy
   test:
     runs-on: ubuntu-latest
     steps:
@@ -34,3 +35,31 @@ jobs:
           npx ng test --watch=false --code-coverage
       - name: Code coverage
         run: npx codecov
+  storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install project dependencies
+        run: npm ci
+      - name: Build atft library
+        run: npx ng build atft
+      - name: Build storybook
+        run: npx build-storybook -c .storybook -o ./dist/gh-pages-deploy/storybook
+      - name: Upload storybook
+        uses: actions/upload-artifact@v1
+        with:
+          name: storybook
+          path: ./dist/gh-pages-deploy
+  doc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install project dependencies
+        run: npm ci
+      - name: Generate documentation
+        run: npx compodoc -p projects/atft/tsconfig.lib.json -d dist/gh-pages-deploy
+      - name: Upload doc
+        uses: actions/upload-artifact@v1
+        with:
+          name: doc
+          path: ./dist/gh-pages-deploy
