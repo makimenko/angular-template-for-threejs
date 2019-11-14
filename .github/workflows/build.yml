@@ -11,6 +11,11 @@ jobs:
       run: npm ci
     - name: Build atft library
       run: npx ng build atft
+    - name: Upload base
+      uses: actions/upload-artifact@v1
+      with:
+        name: base
+        path: ./
     - name: Build prod
       run: npx ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
     - name: Upload build
