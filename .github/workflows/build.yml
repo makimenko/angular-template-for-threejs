@@ -7,15 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12
     - name: Install project dependencies
       run: npm ci
     - name: Build atft library
-      run: npm run build-atft
-    - name: Build project
-      run: npm run build-prod
+      run: npx ng build atft
     - name: Test
-      run: npm run test
-    - name: Linting
-      run: npm run lint
-
-
+      run: npm test
+      env:
+        CI: true
