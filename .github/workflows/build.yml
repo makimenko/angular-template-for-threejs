@@ -6,6 +6,10 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
+    - name:
+      run: |
+        apt-get update
+        apt-get install -y xvfb
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
       with:
