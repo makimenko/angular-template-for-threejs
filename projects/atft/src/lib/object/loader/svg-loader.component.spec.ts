@@ -2,6 +2,7 @@ import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {AtftLoaderModule} from './atft-loader.module';
 import {SVGLoaderComponent} from './svg-loader.component';
+import {StatsService} from '../../renderer';
 
 describe('loader', () => {
   describe('SVGLoaderComponent', () => {
@@ -14,6 +15,7 @@ describe('loader', () => {
           AtftLoaderModule
         ],
         providers: [
+          StatsService,
           RendererService
         ]
       });

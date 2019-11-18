@@ -1,5 +1,5 @@
 import {AnimationService} from './animation.service';
-import {RendererService} from '../renderer';
+import {RendererService, StatsService} from '../renderer';
 import {fakeAsync, tick} from '@angular/core/testing';
 
 describe('animation', () => {
@@ -7,7 +7,8 @@ describe('animation', () => {
 
 
     it('validate', fakeAsync(() => {
-      const renderer = new RendererService();
+      const stats = new StatsService();
+      const renderer = new RendererService(stats);
       const animation = new AnimationService(renderer);
 
       let called = false;

@@ -3,6 +3,7 @@ import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
 import * as THREE from 'three';
 import {CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer';
+import {StatsService} from './stats.service';
 
 /* TODO: Refactor to pair
 interface RendererPair {
@@ -26,7 +27,9 @@ export class RendererService implements OnDestroy {
   private aspect: number;
 
 
-  constructor() {
+  constructor(
+     private statsService: StatsService
+  ) {
 
   }
 
@@ -49,6 +52,7 @@ export class RendererService implements OnDestroy {
       //  console.log('render');
       this.webGlRenderer.render(this.scene.getObject(), this.camera.camera);
       this.css3dRenderer.render(this.scene.getObject(), this.camera.camera);
+      this.statsService.update();
     }
   }
 

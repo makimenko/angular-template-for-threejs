@@ -1,6 +1,7 @@
 import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {TextMeshComponent} from './text-mesh.component';
+import {StatsService} from '../../renderer';
 
 describe('text', () => {
   describe('TextMeshComponent', () => {
@@ -13,6 +14,7 @@ describe('text', () => {
           TextMeshComponent
         ],
         providers: [
+          StatsService,
           RendererService
         ]
       });
