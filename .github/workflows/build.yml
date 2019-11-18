@@ -79,5 +79,8 @@ jobs:
         with:
           name: build
           path: dist
-      - name: dir
-        run: ls dist
+      - name: GitHub Pages Deploy
+        uses: maxheld83/ghpages@v0.2.1
+        env:
+          BUILD_DIR: ./dist/
+
