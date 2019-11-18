@@ -66,6 +66,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     needs: [demo, test, storybook, doc]
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Download demo
         uses: actions/download-artifact@v1
@@ -83,7 +84,6 @@ jobs:
           name: doc
           path: dist
       - name: Deploy
-        if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v2.5.0
         env:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
