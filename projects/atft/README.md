@@ -1,5 +1,5 @@
 [![GitHub repo](https://img.shields.io/github/stars/makimenko/angular-template-for-threejs?label=GitHub&style=social)](https://github.com/makimenko/angular-template-for-threejs) 
-[![CI build status](https://github.com/makimenko/angular-template-for-threejs/workflows/CI/badge.svg?branch=master)
+[![CI build status](https://github.com/makimenko/angular-template-for-threejs/workflows/CI/badge.svg?branch=master)](https://github.com/makimenko/angular-template-for-threejs/actions?query=workflow%3ACI+branch%3Amaster)
 [![Greenkeeper badge](https://badges.greenkeeper.io/makimenko/angular-template-for-threejs.svg)](https://greenkeeper.io/)
 [![Code coverage by codecov.io](https://codecov.io/gh/makimenko/angular-template-for-threejs/branch/master/graph/badge.svg)](https://codecov.io/gh/makimenko/angular-template-for-threejs)
 [![npm version](https://badge.fury.io/js/atft.svg)](https://badge.fury.io/js/atft)
