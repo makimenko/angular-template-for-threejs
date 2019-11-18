@@ -79,8 +79,10 @@ jobs:
         with:
           name: build
           path: dist
-      - name: GitHub Pages Deploy
-        uses: maxheld83/ghpages@v0.2.1
+      - name: Deploy
+        # if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v2.5.0
         env:
-          BUILD_DIR: ./dist/
-
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./dist
