@@ -4,6 +4,7 @@ import {AtftMeshModule} from './atft-mesh.module';
 import {BoxMeshComponent} from './box-mesh.component';
 import * as THREE from 'three';
 import {SimpleChange} from '@angular/core';
+import {StatsService} from '../../renderer';
 
 describe('mesh', () => {
   describe('AbstractMesh (via BoxMeshComponent)', () => {
@@ -17,6 +18,7 @@ describe('mesh', () => {
           AtftMeshModule
         ],
         providers: [
+          StatsService,
           RendererService
         ]
       });

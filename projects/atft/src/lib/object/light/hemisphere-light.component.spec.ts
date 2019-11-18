@@ -1,6 +1,7 @@
 import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {HemisphereLightComponent} from './hemisphere-light.component';
+import {StatsService} from '../../renderer';
 
 describe('light', () => {
   describe('HemisphereLightComponent', () => {
@@ -13,6 +14,7 @@ describe('light', () => {
           HemisphereLightComponent
         ],
         providers: [
+          StatsService,
           RendererService
         ]
       });

@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {AtftDataCenterActorModule} from '../atft-data-center-actor.module';
-import {RendererService} from '../../../renderer';
+import {RendererService, StatsService} from '../../../renderer';
 import {AnimationService} from '../../../animation';
 import {ServerStandActorComponent} from './server-stand-actor.component';
 
@@ -15,6 +15,7 @@ describe('actor', () => {
           AtftDataCenterActorModule
         ],
         providers: [
+          StatsService,
           RendererService,
           AnimationService
         ]

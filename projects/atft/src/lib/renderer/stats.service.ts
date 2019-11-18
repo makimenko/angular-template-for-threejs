@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {ElementRef, Injectable} from '@angular/core';
 import Stats from 'three/examples/jsm/libs/stats.module.js';
 
 

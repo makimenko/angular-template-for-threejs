@@ -8,6 +8,7 @@ import {AtftRendererModule} from '../renderer/atft-renderer.module';
 import {AtftObjectModule} from '../object/atft-object.module';
 import {AnimationService} from '../animation';
 import {RaycasterService} from '../raycaster';
+import {StatsService} from '../renderer';
 
 @Component({
   selector: 'atft-mock',
@@ -36,6 +37,7 @@ describe('controls', () => {
           AtftControlModule
         ],
         providers: [
+          StatsService,
           RendererService,
           AnimationService,
           RaycasterService
@@ -68,6 +70,7 @@ describe('controls', () => {
           MockComponent
         ],
         providers: [
+          StatsService,
           RendererService,
           AnimationService,
           RaycasterService

@@ -4,6 +4,7 @@ import {MeshLineConnectorComponent} from './mesh-line-connector.component';
 import {AtftConnectorModule} from './atft-connector.module';
 import {AnimationService} from '../../animation';
 import {BoxMeshComponent} from '../mesh';
+import {StatsService} from '../../renderer';
 
 describe('connector', () => {
   describe('MeshLineConnectorComponent', () => {
@@ -19,6 +20,7 @@ describe('connector', () => {
           BoxMeshComponent
         ],
         providers: [
+          StatsService,
           RendererService,
           AnimationService
         ]
