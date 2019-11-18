@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  build:
+  demo:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -16,7 +16,7 @@ jobs:
     - name: Upload build
       uses: actions/upload-artifact@v1
       with:
-        name: build
+        name: demo
         path: ./dist/gh-pages-deploy
   test:
     runs-on: ubuntu-latest
@@ -65,22 +65,25 @@ jobs:
           path: ./dist/gh-pages-deploy
   publish:
     runs-on: ubuntu-latest
-    needs: [build, test, storybook, doc]
+    needs: [demo, test, storybook, doc]
     steps:
-      - uses: actions/download-artifact@v1
+      - name: Download demo
+        uses: actions/download-artifact@v1
         with:
-          name: doc
+          name: demo
           path: dist
-      - uses: actions/download-artifact@v1
+      - name: Download storybook
+        uses: actions/download-artifact@v1
         with:
           name: storybook
           path: dist
-      - uses: actions/download-artifact@v1
+      - name: Download doc
+        uses: actions/download-artifact@v1
         with:
-          name: build
+          name: doc
           path: dist
       - name: Deploy
-        # if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v2.5.0
         env:
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
