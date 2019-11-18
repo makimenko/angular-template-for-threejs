@@ -2,7 +2,8 @@
   "extends": "../src/tsconfig.app.json",
   "compilerOptions": {
     "types": [
-      "node"
+      "node",
+      "webgl2"
     ],
     "typeRoots": [
       "../src/typings.d.ts"

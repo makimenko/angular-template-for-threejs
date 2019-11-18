@@ -27,7 +27,7 @@
     "@storybook/addon-options": "^5.2.4",
     "core-js": "^3.3.2",
     "rxjs": "^6.5.3",
-    "three": "^0.109.0",
+    "three": "^0.110.0",
     "three.meshline": "^1.2.0",
     "zone.js": "~0.10.2"
   },
@@ -48,6 +48,7 @@
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "^12.11.1",
     "@types/three": "^0.103.2",
+    "@types/webgl2": "0.0.5",
     "babel-loader": "^8.0.6",
     "codecov": "^3.6.1",
     "codelyzer": "^5.1.2",
