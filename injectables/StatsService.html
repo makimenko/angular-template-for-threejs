@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/atft/src/lib/object/helper/stats.service.ts</code>
+            <code>projects/atft/src/lib/renderer/stats.service.ts</code>
         </p>
 
 
@@ -76,15 +76,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#count">count</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#lastTime">lastTime</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#ms">ms</a>
+                                <a href="#stats">stats</a>
                             </li>
                         </ul>
                     </td>
@@ -99,16 +91,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#end">end</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#createStats">createStats</a>
                             </li>
                             <li>
-                                <a href="#getStats">getStats</a>
-                            </li>
-                            <li>
-                                <a href="#reset">reset</a>
-                            </li>
-                            <li>
-                                <a href="#start">start</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#update">update</a>
                             </li>
                         </ul>
                     </td>
@@ -132,26 +120,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="end"></a>
+                    <a name="createStats"></a>
                     <span class="name">
                         <b>
-                            end
+                            <span class="modifier">Public</span>
+                            createStats
                         </b>
-                        <a href="#end"><span class="icon ion-ios-link"></span></a>
+                        <a href="#createStats"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>end()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createStats()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">projects/atft/src/lib/object/helper/stats.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">projects/atft/src/lib/renderer/stats.service.ts:10</a></div>
                 </td>
             </tr>
 
@@ -171,104 +161,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getStats"></a>
+                    <a name="update"></a>
                     <span class="name">
                         <b>
-                            getStats
+                            <span class="modifier">Public</span>
+                            update
                         </b>
-                        <a href="#getStats"><span class="icon ion-ios-link"></span></a>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getStats()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">projects/atft/src/lib/object/helper/stats.service.ts:26</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/StatsResults.html" target="_self" >StatsResults</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="reset"></a>
-                    <span class="name">
-                        <b>
-                            reset
-                        </b>
-                        <a href="#reset"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>reset()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">projects/atft/src/lib/object/helper/stats.service.ts:34</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="start"></a>
-                    <span class="name">
-                        <b>
-                            start
-                        </b>
-                        <a href="#start"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>start()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">projects/atft/src/lib/object/helper/stats.service.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">projects/atft/src/lib/renderer/stats.service.ts:17</a></div>
                 </td>
             </tr>
 
@@ -294,90 +208,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="count"></a>
+                        <a name="stats"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            count</b>
-                            <a href="#count"><span class="icon ion-ios-link"></span></a>
+                            stats</b>
+                            <a href="#stats"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>0</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/object/helper/stats.service.ts:14</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="lastTime"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            lastTime</b>
-                            <a href="#lastTime"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                            <i>Type : </i>    <code>Stats</code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/atft/src/lib/object/helper/stats.service.ts:12</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ms"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            ms</b>
-                            <a href="#ms"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>0</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/atft/src/lib/object/helper/stats.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">projects/atft/src/lib/renderer/stats.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -390,42 +238,26 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ElementRef, Injectable} from &#x27;@angular/core&#x27;;
+import Stats from &#x27;three/examples/jsm/libs/stats.module.js&#x27;;
 
-export interface StatsResults {
-  ms: number;
-  count: number;
-  callsPerSecond: number;
-}
 
 @Injectable()
 export class StatsService {
 
-  private lastTime: number;
-  private ms &#x3D; 0;
-  private count &#x3D; 0;
+  private stats: Stats;
 
-  start() {
-    this.lastTime &#x3D; Date.now();
+  public createStats() {
+    if (!this.stats) {
+      this.stats &#x3D; new Stats();
+      document.body.appendChild(this.stats.dom);
+    }
   }
 
-  end() {
-    const deltaMs &#x3D; Date.now() - this.lastTime;
-    this.ms +&#x3D; deltaMs;
-    this.count++;
-  }
-
-  getStats(): StatsResults {
-    return {
-      ms: this.ms,
-      count: this.count,
-      callsPerSecond: Math.round(this.count / (this.ms / 1000))
-    };
-  }
-
-  reset() {
-    this.ms &#x3D; 0;
-    this.count &#x3D; 0;
+  public update() {
+    if (this.stats) {
+      this.stats.update();
+    }
   }
 
 }
