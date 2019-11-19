@@ -45,7 +45,7 @@ export class AnimationService {
     }
   }
 
-  private animationStep() {
+  public animationStep() {
     if (this.enabled) {
       requestAnimationFrame(this.animationStep);
       if (this.animate.observers.length > 0) {
