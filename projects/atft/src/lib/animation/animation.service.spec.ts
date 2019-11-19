@@ -19,6 +19,8 @@ describe('animation', () => {
       animation.start();
 
       tick();
+      animation.animationStep();
+      tick();
       animation.stop();
 
       expect(window.requestAnimationFrame).toHaveBeenCalled();

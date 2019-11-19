@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild} from '@angular/core';
 import {RendererService} from './renderer.service';
 import {StatsService} from './stats.service';
 
@@ -13,6 +13,13 @@ export class RendererCanvasComponent implements AfterViewInit {
   @ViewChild('canvas', {static: true})
   private canvasRef: ElementRef;
 
+  @Input()
+  enableWebGl = true;
+
+  @Input()
+  enableCss3d = true;
+
+
   constructor(
     private rendererService: RendererService,
     private statsService: StatsService
@@ -23,7 +30,7 @@ export class RendererCanvasComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // console.log('RendererComponent.ngAfterViewInit');
-    this.rendererService.initialize(this.canvas);
+    this.rendererService.initialize(this.canvas, this.enableWebGl, this.enableCss3d);
     this.statsService.createStats();
   }
 

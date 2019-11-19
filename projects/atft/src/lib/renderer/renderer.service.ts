@@ -20,6 +20,8 @@ export class RendererService implements OnDestroy {
 
   private scene: SceneComponent;
   private camera: AbstractCamera<any>;
+  private enableWebGl: boolean;
+  private enableCss3d: boolean;
   private webGlRenderer: THREE.WebGLRenderer;
   // TODO:
   private css3dRenderer: CSS3DRenderer;
@@ -28,7 +30,7 @@ export class RendererService implements OnDestroy {
 
 
   constructor(
-     private statsService: StatsService
+    private statsService: StatsService
   ) {
 
   }
@@ -50,40 +52,49 @@ export class RendererService implements OnDestroy {
   public render() {
     if (this.init && this.scene && this.camera) {
       //  console.log('render');
-      this.webGlRenderer.render(this.scene.getObject(), this.camera.camera);
-      this.css3dRenderer.render(this.scene.getObject(), this.camera.camera);
+      if (this.enableWebGl) {
+        this.webGlRenderer.render(this.scene.getObject(), this.camera.camera);
+      }
+      if (this.enableCss3d) {
+        this.css3dRenderer.render(this.scene.getObject(), this.camera.camera);
+      }
       this.statsService.update();
     }
   }
 
-  public initialize(canvas: HTMLCanvasElement) {
+  public initialize(canvas: HTMLCanvasElement, enableWebGl: boolean, enableCss3d: boolean) {
     // console.log('RendererComponent.initialize');
 
-    // TODO: Multiple renderers
-    this.webGlRenderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-      antialias: true,
-      alpha: true
-    });
-    this.webGlRenderer.setPixelRatio(window.devicePixelRatio);
-    this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, true);
+    this.enableWebGl = enableWebGl;
+    this.enableCss3d = enableCss3d;
 
-    // TODO: props
-    this.webGlRenderer.shadowMap.enabled = false;
-    this.webGlRenderer.shadowMap.autoUpdate = false;
-    this.webGlRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    this.webGlRenderer.setClearColor(0x000000, 0);
-    this.webGlRenderer.autoClear = true;
-    canvas.style.zIndex = '2';
+    if (enableWebGl) {
+      // TODO: Multiple renderers
+      this.webGlRenderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: true
+      });
+      this.webGlRenderer.setPixelRatio(window.devicePixelRatio);
+      this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, true);
 
-    // ------------------------------ START
-    this.css3dRenderer = new CSS3DRenderer();
-    this.css3dRenderer.setSize(window.innerWidth, window.innerHeight);
-    this.css3dRenderer.domElement.style.position = 'absolute';
-    this.css3dRenderer.domElement.style.top = '0';
-    this.css3dRenderer.domElement.style.zIndex = '1';
-    canvas.parentElement.appendChild(this.css3dRenderer.domElement);
+      // TODO: props
+      this.webGlRenderer.shadowMap.enabled = false;
+      this.webGlRenderer.shadowMap.autoUpdate = false;
+      this.webGlRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      this.webGlRenderer.setClearColor(0x000000, 0);
+      this.webGlRenderer.autoClear = true;
+      canvas.style.zIndex = '2';
+    }
 
+    if (enableCss3d) {
+      this.css3dRenderer = new CSS3DRenderer();
+      this.css3dRenderer.setSize(window.innerWidth, window.innerHeight);
+      this.css3dRenderer.domElement.style.position = 'absolute';
+      this.css3dRenderer.domElement.style.top = '0';
+      this.css3dRenderer.domElement.style.zIndex = '1';
+      canvas.parentElement.appendChild(this.css3dRenderer.domElement);
+    }
     // ------------------------------ END
 
     this.updateChildCamerasAspectRatio(canvas);
