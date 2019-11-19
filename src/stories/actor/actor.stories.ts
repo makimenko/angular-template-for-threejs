@@ -23,7 +23,7 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation/animati
     </atft-server-icon-actor>
 
     <atft-workstation-actor atft-raycaster-group (mouseEnter)="mouseEnter()" [label]="label" [svgName]="svgName" translateX="40"
-      videoSrc="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_720p.mp4">
+      videoSrc="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_360p.mp4">
     </atft-workstation-actor>
   `)
 })
@@ -60,7 +60,7 @@ class StorybookServerComponent {
     </atft-server-compact-actor>
     <atft-workstation-actor #ws1 label="Client Workstation" [svgName]="svgName"
        translateY="30" translateX="0"
-       videoSrc="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_720p.mp4">
+       videoSrc="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_360p.mp4">
     </atft-workstation-actor>
 
     <atft-server-compact-actor #lb label="Load Balancer" translateY="90" [translateX]="-0" svgName="sitemap-solid.svg">
@@ -76,7 +76,7 @@ class StorybookServerComponent {
     </atft-server-stand-actor>
     <atft-server-icon-actor label="Application Insights" translateY="140" [translateX]="0" svgName="idea.svg">
     </atft-server-icon-actor>
-    
+
     <atft-server-stand-actor #bs1 label="Backend Server 1" translateY="190" [translateX]="-40" svgName="server-solid.svg">
     </atft-server-stand-actor>
     <atft-server-stand-actor #bs2 label="Backend Server 2" translateY="190" [translateX]="40" svgName="server-solid.svg">
@@ -94,35 +94,35 @@ class StorybookServerComponent {
     <!-- Connectors / Edges: -->
     <atft-empty translateZ="0.1">
       <atft-mesh-line-connector [source]="ad1" [target]="ad2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
       <atft-mesh-line-connector [source]="ad2" [target]="lb" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
       <atft-mesh-line-connector [source]="ws1" [target]="lb" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
 
       <atft-mesh-line-connector [source]="lb" [target]="fs1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
       <atft-mesh-line-connector [source]="lb" [target]="fs2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
 
 
       <atft-mesh-line-connector [source]="fs1" [target]="bs1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
       <atft-mesh-line-connector [source]="fs2" [target]="bs2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
 
       <atft-mesh-line-connector [source]="bs1" [target]="db1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
       <atft-mesh-line-connector [source]="bs2" [target]="db2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.001">
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
 
      </atft-empty>
@@ -131,6 +131,8 @@ class StorybookServerComponent {
   `)
 })
 class StorybookSceneComponent {
+
+  animationIncrement = -0.002;
 
   constructor(private animationService: AnimationService) {
     this.animationService.start();
