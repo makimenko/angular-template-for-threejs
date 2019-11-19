@@ -152,6 +152,23 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#enableCss3d">enableCss3d</a>
+                            </li>
+                            <li>
+                                <a href="#enableWebGl">enableWebGl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -202,7 +219,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -252,7 +269,49 @@
         </table>
 </section>
 
-
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableCss3d"></a>
+                        <b>enableCss3d</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableWebGl"></a>
+                        <b>enableWebGl</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
 
 
     <section>
@@ -283,8 +342,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:55</a></div>
                 </td>
             </tr>
 
@@ -319,8 +378,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:31</a></div>
                 </td>
             </tr>
 
@@ -401,7 +460,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:46</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -444,7 +503,7 @@ area which is listened for mouse move and zoom events) to the rendering pane</co
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/atft/src/lib/renderer/renderer-canvas.component.ts:50</a></div>
                                 </td>
                             </tr>
 
@@ -455,7 +514,7 @@ area which is listened for mouse move and zoom events) to the rendering pane</co
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, ElementRef, HostListener, ViewChild} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild} from &#x27;@angular/core&#x27;;
 import {RendererService} from &#x27;./renderer.service&#x27;;
 import {StatsService} from &#x27;./stats.service&#x27;;
 
@@ -470,6 +529,13 @@ export class RendererCanvasComponent implements AfterViewInit {
   @ViewChild(&#x27;canvas&#x27;, {static: true})
   private canvasRef: ElementRef;
 
+  @Input()
+  enableWebGl &#x3D; true;
+
+  @Input()
+  enableCss3d &#x3D; true;
+
+
   constructor(
     private rendererService: RendererService,
     private statsService: StatsService
@@ -480,7 +546,7 @@ export class RendererCanvasComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // console.log(&#x27;RendererComponent.ngAfterViewInit&#x27;);
-    this.rendererService.initialize(this.canvas);
+    this.rendererService.initialize(this.canvas, this.enableWebGl, this.enableCss3d);
     this.statsService.createStats();
   }
 
