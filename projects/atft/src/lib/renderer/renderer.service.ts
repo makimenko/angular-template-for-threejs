@@ -81,7 +81,7 @@ export class RendererService implements OnDestroy {
     this.css3dRenderer.setSize(window.innerWidth, window.innerHeight);
     this.css3dRenderer.domElement.style.position = 'absolute';
     this.css3dRenderer.domElement.style.top = '0';
-    this.css3dRenderer.domElement.style.zIndex = '1';
+    this.css3dRenderer.domElement.style.zIndex = '-1';
     canvas.parentElement.appendChild(this.css3dRenderer.domElement);
 
     // ------------------------------ END
