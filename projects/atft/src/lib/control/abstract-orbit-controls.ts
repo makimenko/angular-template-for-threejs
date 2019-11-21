@@ -1,4 +1,14 @@
-import {AfterViewInit, ContentChild, ContentChildren, ElementRef, OnChanges, OnDestroy, QueryList, SimpleChanges} from '@angular/core';
+import {
+  AfterViewInit,
+  ContentChild,
+  ContentChildren,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnDestroy,
+  QueryList,
+  SimpleChanges
+} from '@angular/core';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {AbstractCamera} from '../camera/abstract-camera';
@@ -17,7 +27,8 @@ export abstract class AbstractOrbitControls<T extends OrbitControls> implements 
    * Note that keyboard events are still listened for on the global window object, this is
    * a known issue from Three.js: https://github.com/mrdoob/three.js/pull/10315
    */
-  protected listeningControlElement: ElementRef;
+  @Input()
+  public listeningControlElement: ElementRef;
 
   protected controls: T;
 

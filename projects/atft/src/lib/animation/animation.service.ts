@@ -17,9 +17,6 @@ export class AnimationService {
 
   private enabled = false;
 
-  private animateEach = 2;
-  private counter = 0;
-
   constructor(
     private rendererService: RendererService
   ) {
@@ -49,15 +46,12 @@ export class AnimationService {
     if (this.enabled) {
       requestAnimationFrame(this.animationStep);
       if (this.animate.observers.length > 0) {
-        this.counter++;
-        if (this.counter % this.animateEach === 0) {
-          this.animate.emit();
-          /**
-           * When all components updated animation, render event is emitted.
-           * Main renderer subscribed to this event emitter.
-           */
-          this.rendererService.render();
-        }
+        this.animate.emit();
+        /**
+         * When all components updated animation, render event is emitted.
+         * Main renderer subscribed to this event emitter.
+         */
+        this.rendererService.render();
       }
     }
   }
