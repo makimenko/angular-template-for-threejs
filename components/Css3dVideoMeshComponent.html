@@ -2359,7 +2359,6 @@ export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterV
     super.ngAfterViewInit();
     this.video.load();
     this.video.addEventListener(&#x27;canplay&#x27;, () &#x3D;&gt; {
-      console.log(&#x27;EVENT&#x27;);
       this.video.play();
     });
 
