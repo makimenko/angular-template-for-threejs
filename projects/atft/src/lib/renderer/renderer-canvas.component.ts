@@ -31,7 +31,6 @@ export class RendererCanvasComponent implements AfterViewInit {
   ngAfterViewInit() {
     // console.log('RendererComponent.ngAfterViewInit');
     this.rendererService.initialize(this.canvas, this.enableWebGl, this.enableCss3d);
-    this.statsService.createStats();
   }
 
   /**
