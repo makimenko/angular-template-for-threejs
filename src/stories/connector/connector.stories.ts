@@ -69,7 +69,7 @@ class StorybookAnimatedMeshLineComponent {
   </atft-empty>
   <atft-empty #b [translateY]="-50" [translateX]="-i" [translateZ]="5-i">
   </atft-empty>
-  <atft-mesh-line-connector [source]="a" [target]="b" materialColor="0xff0000" [animated]="true"
+  <atft-mesh-line-connector [source]="a" [target]="b" materialColor="0xff0000" [animated]="true" [animationIncrement]="0.003"
     transparent="false">
   </atft-mesh-line-connector>
   </div>
