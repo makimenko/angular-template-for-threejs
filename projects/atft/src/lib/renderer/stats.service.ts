@@ -48,8 +48,10 @@ export class StatsService implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.stats.dom.remove();
-    this.stats = null;
+    if (this.stats) {
+      this.stats.dom.remove();
+      this.stats = null;
+    }
   }
 
 }
