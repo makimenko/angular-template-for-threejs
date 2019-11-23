@@ -16,7 +16,7 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
   materialColor = 0xffff00;
 
   // TODO: move to abstract?
-  private geometry: THREE.Geometry;
+  private geometry: THREE.BufferGeometry;
 
   constructor(protected rendererService: RendererService) {
     super(rendererService);
@@ -41,7 +41,7 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
   }
 
   updateLineGeometry(): void {
-    this.geometry.verticesNeedUpdate = true;
+    // this.geometry.verticesNeedUpdate = true;
     this.rendererService.render();
   }
 

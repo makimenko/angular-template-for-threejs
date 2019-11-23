@@ -37,7 +37,7 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
 
   @Input() animationIncrement = 0.002;
 
-  private geometry: THREE.Geometry;
+  private geometry: THREE.BufferGeometry;
   private line: MeshLine;
   private lineMaterial: MeshLineMaterial;
 
@@ -53,7 +53,8 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
     this.geometry = this.getLineGeometry();
 
     this.line = new MeshLine();
-    this.line.setGeometry(this.geometry);
+    const arr = this.geometry.getAttribute('position').array;
+    this.line.setGeometry(arr);
 
     this.lineMaterial = (this.animated ?
         new MeshLineMaterial({

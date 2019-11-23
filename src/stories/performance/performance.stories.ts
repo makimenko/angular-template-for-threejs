@@ -41,7 +41,7 @@ class StorybookConnectorPerformanceComponent {
   `)
 })
 class StorybookMeshPerformanceComponent {
-  size = 10;
+  size = 5;
   iterations = 20;
   offset = this.size * 1.05;
   translate = (this.iterations * this.offset) / 2;
@@ -60,7 +60,7 @@ class StorybookMeshPerformanceComponent {
   `)
 })
 class StorybookPlanePerformanceComponent {
-  size = 10;
+  size = 5;
   iterations = 20;
   offset = this.size * 1.05;
   translate = (this.iterations * this.offset) / 2;
