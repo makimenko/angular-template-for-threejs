@@ -4,9 +4,9 @@
  *
  * @param content content template
  */
-export const defaultSceneWrapper = (content: string) => `
+export const axesSceneWrapper = (content: string) => `
 <atft-orbit-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2>
-  <atft-renderer-canvas #mainRenderer>
+  <atft-renderer-canvas>
       <atft-perspective-camera [zAxisUp]="true" positionX=50 positionY=-20 positionZ=50></atft-perspective-camera>
       <atft-scene>
           <atft-axes-helper size=200></atft-axes-helper>

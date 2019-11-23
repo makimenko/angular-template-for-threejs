@@ -3,15 +3,15 @@ import {AfterViewInit, Component, QueryList, ViewChild, ViewChildren} from '@ang
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {withKnobs} from '@storybook/addon-knobs';
-import {defaultSceneWrapper} from '../common/default-scene-wrapper';
+import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh';
 import * as THREE from 'three';
 import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
-import {worldSceneWrapper} from '../common/world-scene-wrapper';
+import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {AbstractObject3D} from '../../../projects/atft/src/lib/object/abstract-object-3d';
 
 @Component({
-  template: defaultSceneWrapper(`
+  template: axesSceneWrapper(`
   <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff">
   </atft-box-mesh>
   `)
@@ -44,7 +44,7 @@ class StorybookAnimateLoopComponent implements AfterViewInit {
 
 
 @Component({
-  template: defaultSceneWrapper(`
+  template: axesSceneWrapper(`
   <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff">
   </atft-box-mesh>
   `)

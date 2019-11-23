@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild} from '@angular/core';
 import {RendererService} from './renderer.service';
-import {StatsService} from './stats.service';
+import {StatsService} from '../stats/stats.service';
 
 
 @Component({

@@ -2,13 +2,13 @@ import {moduleMetadata, storiesOf} from '@storybook/angular';
 import {Component, Input} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {defaultSceneWrapper} from '../common/default-scene-wrapper';
-import {worldSceneWrapper} from '../common/world-scene-wrapper';
+import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
+import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {select, withKnobs} from '@storybook/addon-knobs';
 
 
 @Component({
-  template: defaultSceneWrapper(`
+  template: axesSceneWrapper(`
       <atft-object-loader model="assets/model/Server.json">
       </atft-object-loader>
   `)
@@ -37,7 +37,7 @@ class StorybookObjLoaderComponent {
 
 
 @Component({
-  template: defaultSceneWrapper(`
+  template: axesSceneWrapper(`
       <atft-svg-loader model="./assets/svg/worldwide.svg" maxX="15" maxY="15">
       </atft-svg-loader>
       <atft-svg-loader [model]="model" [overrideMaterialColor]="overrideMaterialColor"

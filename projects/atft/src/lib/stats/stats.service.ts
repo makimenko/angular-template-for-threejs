@@ -7,22 +7,12 @@ export class StatsService implements OnDestroy {
 
   private stats: Stats;
 
-  private visible = false;
-
   constructor() {
     document.body.addEventListener('keydown', event => {
       if (event.altKey && event.key === 's') {
         this.toggle();
       }
     });
-  }
-
-  public createStats() {
-    if (!this.stats) {
-      this.stats = new Stats();
-      const dom = this.stats.dom;
-      document.body.appendChild(this.stats.dom);
-    }
   }
 
   public update() {
@@ -33,24 +23,27 @@ export class StatsService implements OnDestroy {
 
 
   public toggle() {
-    (this.visible ? this.hide() : this.show());
+    (this.stats ? this.remove() : this.create());
   }
 
-  public show() {
-    this.createStats();
-    this.stats.dom.style.display = 'block';
-    this.visible = true;
+  public create() {
+    if (!this.stats) {
+      this.stats = new Stats();
+      document.body.appendChild(this.stats.dom);
+    }
   }
 
-  public hide() {
-    this.stats.dom.style.display = 'none';
-    this.visible = false;
+  public remove() {
+    if (this.stats) {
+      this.stats.dom.remove();
+      this.stats.dom = null;
+      this.stats = null;
+    }
   }
 
   ngOnDestroy(): void {
     if (this.stats) {
-      this.stats.dom.remove();
-      this.stats = null;
+      this.remove();
     }
   }
 

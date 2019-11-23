@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RendererCanvasComponent} from './renderer-canvas.component';
 import {CommonModule} from '@angular/common';
 import {RendererService} from './renderer.service';
-import {StatsService} from './stats.service';
+
 
 
 @NgModule({
@@ -13,7 +13,6 @@ import {StatsService} from './stats.service';
     RendererCanvasComponent
   ],
   providers: [
-    StatsService,
     RendererService
   ],
   exports: [

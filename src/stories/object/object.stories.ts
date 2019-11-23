@@ -2,13 +2,13 @@ import {moduleMetadata, storiesOf} from '@storybook/angular';
 import {Component, Input} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {defaultSceneWrapper} from '../common/default-scene-wrapper';
+import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 import {withKnobs, number} from '@storybook/addon-knobs';
 
 import markdownNotes from './object.stories.md';
 
 @Component({
-  template: defaultSceneWrapper(`
+  template: axesSceneWrapper(`
     <atft-empty
         [translateX]="translateX"
         [translateY]="translateY"

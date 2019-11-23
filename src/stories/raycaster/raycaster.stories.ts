@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {withKnobs} from '@storybook/addon-knobs';
-import {worldSceneWrapper} from '../common/world-scene-wrapper';
+import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
 
 @Component({

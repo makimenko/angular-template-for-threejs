@@ -3,7 +3,7 @@ import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
 import * as THREE from 'three';
 import {CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer';
-import {StatsService} from './stats.service';
+import {StatsService} from '../stats/stats.service';
 
 /* TODO: Refactor to pair
 interface RendererPair {
