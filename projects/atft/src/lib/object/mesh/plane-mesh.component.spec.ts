@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {RendererService} from '../../renderer/renderer.service';
 import {AtftMeshModule} from './atft-mesh.module';
 import {PlaneMeshComponent} from './plane-mesh.component';
-import {StatsService} from '../../renderer';
+import {StatsService} from '../../stats';
 
 describe('mesh', () => {
   describe('PlaneMeshComponent', () => {

@@ -11,7 +11,6 @@ export class StatsAutoShowDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('AUTO SHOW')
     this.statsService.create();
   }
 

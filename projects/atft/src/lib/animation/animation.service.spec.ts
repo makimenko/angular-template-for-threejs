@@ -1,6 +1,7 @@
 import {AnimationService} from './animation.service';
-import {RendererService, StatsService} from '../renderer';
+import {RendererService} from '../renderer';
 import {fakeAsync, tick} from '@angular/core/testing';
+import {StatsService} from '../stats';
 
 describe('animation', () => {
   describe('AnimationService', () => {

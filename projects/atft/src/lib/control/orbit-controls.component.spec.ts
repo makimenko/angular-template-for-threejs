@@ -8,7 +8,7 @@ import {AtftRendererModule} from '../renderer/atft-renderer.module';
 import {AtftObjectModule} from '../object/atft-object.module';
 import {AnimationService} from '../animation';
 import {RaycasterService} from '../raycaster';
-import {StatsService} from '../renderer';
+import {StatsService} from '../stats';
 
 @Component({
   selector: 'atft-mock',

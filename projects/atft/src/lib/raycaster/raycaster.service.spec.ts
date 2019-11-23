@@ -1,9 +1,10 @@
 import {RaycasterService} from './raycaster.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {RendererService, StatsService} from '../renderer';
+import {RendererService} from '../renderer';
 import {PerspectiveCameraComponent} from '../camera';
 import {AtftCameraModule} from '../camera/atft-camera.module';
 import {BoxMeshComponent} from '../object/mesh';
+import {StatsService} from '../stats';
 
 describe('raycaster', () => {
   describe('RaycasterService', () => {

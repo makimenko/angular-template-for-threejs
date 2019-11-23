@@ -2,7 +2,7 @@ import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {AtftMeshModule} from './atft-mesh.module';
 import {BoxMeshComponent} from './box-mesh.component';
-import {StatsService} from '../../renderer';
+import {StatsService} from '../../stats';
 
 describe('mesh', () => {
   describe('BoxMeshComponent', () => {
