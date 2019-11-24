@@ -1,53 +1,10 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {Component, Input} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
-import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {select, withKnobs} from '@storybook/addon-knobs';
-
-
-@Component({
-  template: axesSceneWrapper(`
-      <atft-object-loader model="assets/model/Server.json">
-      </atft-object-loader>
-  `)
-})
-class StorybookObjectLoaderComponent {
-
-}
-
-
-const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/SampleArchitecture';
-
-@Component({
-  template: worldSceneWrapper(`
-      <atft-obj-loader
-              model="${modelPath}/SampleArchitecture.obj"
-              material="${modelPath}/SampleArchitecture.mtl"
-              resourcePath="${modelPath}/"
-              translateX="-60" translateY="-40" translateZ="0.5">
-          >
-      </atft-obj-loader>
-  `)
-})
-class StorybookObjLoaderComponent {
-
-}
-
-
-@Component({
-  template: axesSceneWrapper(`
-      <atft-svg-loader model="./assets/svg/worldwide.svg" maxX="15" maxY="15">
-      </atft-svg-loader>
-      <atft-svg-loader [model]="model" [overrideMaterialColor]="overrideMaterialColor"
-        maxX="10" maxY="10"  translateZ="2">
-      </atft-svg-loader>
-  `)
-})
-class StorybookSVGLoaderComponent {
-
-}
+import {StorybookObjectLoaderComponent} from './object-loader';
+import {StorybookObjLoaderComponent} from './obj-loader';
+import {StorybookSVGLoaderComponent} from './svg-loader';
 
 
 storiesOf('Loader', module)
@@ -59,13 +16,13 @@ storiesOf('Loader', module)
       ]
     }),
   )
-  .add('JSON', () => ({
+  .add('object-loader', () => ({
     component: StorybookObjectLoaderComponent
   }))
-  .add('Wavefront obj+mtl', () => ({
+  .add('obj-loader', () => ({
     component: StorybookObjLoaderComponent
   }))
-  .add('svg', () => ({
+  .add('svg-loader', () => ({
     component: StorybookSVGLoaderComponent,
     props: {
       model: select('model', [

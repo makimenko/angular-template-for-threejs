@@ -110,8 +110,13 @@ export class RendererService implements OnDestroy {
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
 
-    this.webGlRenderer.setSize(width, height, true);
-    this.css3dRenderer.setSize(width, height);
+    if (this.enableWebGl) {
+      this.webGlRenderer.setSize(width, height, true);
+    }
+
+    if (this.enableCss3d) {
+      this.css3dRenderer.setSize(width, height);
+    }
     this.updateChildCamerasAspectRatio(canvas);
     this.render();
   }
