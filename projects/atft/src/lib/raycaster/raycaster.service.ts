@@ -1,8 +1,9 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import * as THREE from 'three';
-import {Intersection} from 'three';
 import {AbstractCamera} from '../camera/abstract-camera';
 import {AbstractObject3D} from '../object/abstract-object-3d';
+import {RaycasterEvent} from './raycaster-event';
+
 
 @Injectable()
 export class RaycasterService implements OnDestroy {
@@ -79,13 +80,12 @@ export class RaycasterService implements OnDestroy {
     const i = this.getFirstIntersectedGroup(event.layerX, event.layerY);
     if (!this.selected || this.selected !== i) {
       if (this.selected) {
-        this.selected.dispatchEvent({type: 'mouseExit'});
+        this.selected.dispatchEvent({type: RaycasterEvent.mouseExit});
         this.selected = null;
       }
       if (i) {
         this.selected = i;
-        // console.log('RaycasterService.mouseEnter', i);
-        this.selected.dispatchEvent({type: 'mouseEnter'});
+        this.selected.dispatchEvent({type: RaycasterEvent.mouseEnter});
       }
     }
 
@@ -131,7 +131,7 @@ export class RaycasterService implements OnDestroy {
     this.raycaster.setFromCamera(mouseVector, this.camera.camera);
 
     // loop across all groups. Try to find the group with nearest distance.
-    let nearestIntersection: Intersection;
+    let nearestIntersection: THREE.Intersection;
     let nearestGroup: THREE.Object3D;
     for (let k = 0; k < this.groups.length; k++) {
       const i = this.groups[k].getObject();

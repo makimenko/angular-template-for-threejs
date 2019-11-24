@@ -1,7 +1,7 @@
 import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {PointLightComponent} from './point-light.component';
-import {StatsService} from '../../renderer';
+import {StatsService} from '../../stats';
 
 describe('light', () => {
   describe('PointLightComponent', () => {

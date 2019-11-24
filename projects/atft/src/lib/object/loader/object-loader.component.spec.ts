@@ -2,7 +2,7 @@ import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {AtftLoaderModule} from './atft-loader.module';
 import {ObjectLoaderComponent} from './object-loader.component';
-import {StatsService} from '../../renderer';
+import {StatsService} from '../../stats';
 
 describe('loader', () => {
   describe('ObjectLoaderComponent', () => {

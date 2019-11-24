@@ -1,25 +1,13 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {Component, Input} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {defaultSceneWrapper} from '../common/default-scene-wrapper';
-import {worldSceneWrapper} from '../common/world-scene-wrapper';
 import {select, withKnobs} from '@storybook/addon-knobs';
-
-
-@Component({
-  template: defaultSceneWrapper(`
-      <atft-object-loader model="assets/model/Server.json">
-      </atft-object-loader>
-  `)
-})
-class StorybookObjectLoaderComponent {
-
-}
+import {Component} from '@angular/core';
+import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
+import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 
 
 const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/SampleArchitecture';
-
 @Component({
   template: worldSceneWrapper(`
       <atft-obj-loader
@@ -35,9 +23,19 @@ class StorybookObjLoaderComponent {
 
 }
 
+@Component({
+  template: axesSceneWrapper(`
+      <atft-object-loader model="assets/model/Server.json">
+      </atft-object-loader>
+  `)
+})
+class StorybookObjectLoaderComponent {
+
+}
+
 
 @Component({
-  template: defaultSceneWrapper(`
+  template: axesSceneWrapper(`
       <atft-svg-loader model="./assets/svg/worldwide.svg" maxX="15" maxY="15">
       </atft-svg-loader>
       <atft-svg-loader [model]="model" [overrideMaterialColor]="overrideMaterialColor"
@@ -59,13 +57,13 @@ storiesOf('Loader', module)
       ]
     }),
   )
-  .add('JSON', () => ({
+  .add('object-loader', () => ({
     component: StorybookObjectLoaderComponent
   }))
-  .add('Wavefront obj+mtl', () => ({
+  .add('obj-loader', () => ({
     component: StorybookObjLoaderComponent
   }))
-  .add('svg', () => ({
+  .add('svg-loader', () => ({
     component: StorybookSVGLoaderComponent,
     props: {
       model: select('model', [

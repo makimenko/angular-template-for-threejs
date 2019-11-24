@@ -26,14 +26,18 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
     });
   }
 
-  protected getLineGeometry(): THREE.Geometry {
-    const geo = new THREE.Geometry();
+  protected getLineGeometry(): THREE.BufferGeometry {
     if (!this.source || !this.target) {
       throw new Error('AbstractConnector: source or target inputs are missing!');
     }
-    geo.vertices.push(this.source.getObject().position);
-    geo.vertices.push(this.target.getObject().position);
-    return geo;
+    const geometry = new THREE.BufferGeometry();
+    const positions = [];
+    const source = this.source.getObject().position;
+    const target = this.target.getObject().position;
+    positions.push(source.x, source.y, source.z);
+    positions.push(target.x, target.y, target.z);
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    return geometry;
   }
 
 

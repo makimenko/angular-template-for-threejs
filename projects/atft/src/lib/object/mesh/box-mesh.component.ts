@@ -55,7 +55,7 @@ export class BoxMeshComponent extends AbstractMesh {
 
   protected newObject3DInstance() {
     // console.log('BoxMeshComponent.newObject3DInstance');
-    const geometry = new THREE.BoxGeometry(this.width, this.height, this.depth,
+    const geometry = new THREE.BoxBufferGeometry(this.width, this.height, this.depth,
       this.widthSegments, this.heightSegments, this.depthSegments);
     const material = this.getMaterial();
     const mesh = new THREE.Mesh(geometry, material);

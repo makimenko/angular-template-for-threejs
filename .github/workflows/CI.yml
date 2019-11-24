@@ -38,6 +38,8 @@ jobs:
           npx ng test --watch=false --code-coverage
       - name: Code coverage
         run: npx codecov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   lint:
     runs-on: ubuntu-latest
     steps:

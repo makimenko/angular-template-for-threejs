@@ -1,6 +1,5 @@
-import {Component, EventEmitter, forwardRef, Input, Output, TemplateRef, ViewChild} from '@angular/core';
-import {AbstractObject3D} from '../../../object/abstract-object-3d';
-import {EmptyComponent} from '../../../object/helper';
+import {EventEmitter, Input, Output} from '@angular/core';
+import {EmptyComponent} from '../../../object/helper/empty.component';
 
 export abstract class AbstractServerActor extends EmptyComponent {
 

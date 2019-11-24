@@ -3,16 +3,7 @@ import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
 import * as THREE from 'three';
 import {CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer';
-import {StatsService} from './stats.service';
-
-/* TODO: Refactor to pair
-interface RendererPair {
-  scene: SceneComponent;
-  camera: AbstractCamera<any>;
-  webGlRenderer: THREE.Renderer;
-  layers: Array<number>;
-}
-*/
+import {StatsService} from '../stats/stats.service';
 
 @Injectable()
 export class RendererService implements OnDestroy {
@@ -110,8 +101,13 @@ export class RendererService implements OnDestroy {
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
 
-    this.webGlRenderer.setSize(width, height, true);
-    this.css3dRenderer.setSize(width, height);
+    if (this.enableWebGl) {
+      this.webGlRenderer.setSize(width, height, true);
+    }
+
+    if (this.enableCss3d) {
+      this.css3dRenderer.setSize(width, height);
+    }
     this.updateChildCamerasAspectRatio(canvas);
     this.render();
   }
