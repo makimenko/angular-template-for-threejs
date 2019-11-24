@@ -5,7 +5,7 @@ import {withKnobs} from '@storybook/addon-knobs';
 import {Component} from '@angular/core';
 import {performanceSceneWrapper} from '../scene-wrapper/performance-scene-wrapper';
 import {AbstractCameraRotation} from './abstract-camera-rotation';
-import {AnimationService} from '../../../projects/atft/src/lib/animation';
+import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 
 
 @Component({

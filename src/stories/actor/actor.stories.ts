@@ -5,7 +5,7 @@ import {select, text, withKnobs} from '@storybook/addon-knobs';
 import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
 import {Component} from '@angular/core';
 import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
-import {AnimationService} from '../../../projects/atft/src/lib/animation';
+import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 
 
 @Component({
