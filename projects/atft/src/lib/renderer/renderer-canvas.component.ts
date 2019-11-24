@@ -1,7 +1,5 @@
 import {AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild} from '@angular/core';
 import {RendererService} from './renderer.service';
-import {StatsService} from '../stats/stats.service';
-
 
 @Component({
   selector: 'atft-renderer-canvas',
@@ -21,8 +19,7 @@ export class RendererCanvasComponent implements AfterViewInit {
 
 
   constructor(
-    private rendererService: RendererService,
-    private statsService: StatsService
+    private rendererService: RendererService
   ) {
     // console.log('RendererComponent.constructor');
     this.onResize = this.onResize.bind(this);

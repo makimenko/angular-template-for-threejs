@@ -1,3 +1,5 @@
+export * from './abstract-object-3d';
+export * from './abstract-lazy-object-3d';
 export * from './scene.component';
 
 export * from './helper';
