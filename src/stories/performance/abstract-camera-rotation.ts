@@ -1,7 +1,7 @@
 import {ViewChild} from '@angular/core';
-import {PerspectiveCameraComponent} from '../../../projects/atft/src/lib/camera';
+import {PerspectiveCameraComponent} from '../../../projects/atft/src/lib/camera/perspective-camera.component';
 import * as THREE from 'three';
-import {AnimationService} from '../../../projects/atft/src/lib/animation';
+import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 
 export abstract class AbstractCameraRotation {
 
@@ -13,7 +13,6 @@ export abstract class AbstractCameraRotation {
 
 
   constructor(protected animation: AnimationService) {
-
     this.animate = this.animate.bind(this);
     animation.animate.subscribe(this.animate);
     animation.start();
