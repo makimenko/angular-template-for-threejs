@@ -5,15 +5,6 @@ import * as THREE from 'three';
 import {CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer';
 import {StatsService} from '../stats/stats.service';
 
-/* TODO: Refactor to pair
-interface RendererPair {
-  scene: SceneComponent;
-  camera: AbstractCamera<any>;
-  webGlRenderer: THREE.Renderer;
-  layers: Array<number>;
-}
-*/
-
 @Injectable()
 export class RendererService implements OnDestroy {
   private init = false;
