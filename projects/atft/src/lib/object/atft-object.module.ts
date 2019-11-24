@@ -24,7 +24,6 @@ import {SceneComponent} from './scene.component';
   ],
   exports: [
     SceneComponent,
-    CommonModule,
     AtftConnectorModule,
     AtftHelperModule,
     AtftLightModule,
