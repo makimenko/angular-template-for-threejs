@@ -5,6 +5,7 @@ import {withKnobs} from '@storybook/addon-knobs';
 import {StorybookConnectorPerformanceComponent} from './connector';
 import {StorybookMeshPerformanceComponent} from './mesh';
 import {StorybookPlanePerformanceComponent} from './plane';
+import {StorybookGridPerformanceComponent} from './grid';
 
 
 storiesOf('Performance', module)
@@ -25,6 +26,10 @@ storiesOf('Performance', module)
   .add('plane', () => ({
     component: StorybookPlanePerformanceComponent
   }))
+  .add('grid', () => ({
+    component: StorybookGridPerformanceComponent
+  }))
+
 ;
 
 

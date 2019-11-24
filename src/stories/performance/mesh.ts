@@ -17,7 +17,7 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 })
 export class StorybookMeshPerformanceComponent extends AbstractCameraRotation {
   size = 5;
-  iterations = 30;
+  iterations = 50;
   offset = this.size * 1.05;
   translate = (this.iterations * this.offset) / 2;
 
