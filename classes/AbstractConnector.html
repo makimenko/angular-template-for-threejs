@@ -359,8 +359,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/abstract-connector.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">projects/atft/src/lib/object/connector/abstract-connector.ts:47</a></div>
                 </td>
             </tr>
 
@@ -412,7 +412,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>THREE.Geometry</code>
+                        <b>Returns : </b>    <code>THREE.BufferGeometry</code>
 
                     </div>
                 </td>
@@ -484,8 +484,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/abstract-connector.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">projects/atft/src/lib/object/connector/abstract-connector.ts:53</a></div>
                 </td>
             </tr>
 
@@ -1238,14 +1238,18 @@ export abstract class AbstractConnector&lt;T extends THREE.Object3D&gt; extends 
     });
   }
 
-  protected getLineGeometry(): THREE.Geometry {
-    const geo &#x3D; new THREE.Geometry();
+  protected getLineGeometry(): THREE.BufferGeometry {
     if (!this.source || !this.target) {
       throw new Error(&#x27;AbstractConnector: source or target inputs are missing!&#x27;);
     }
-    geo.vertices.push(this.source.getObject().position);
-    geo.vertices.push(this.target.getObject().position);
-    return geo;
+    const geometry &#x3D; new THREE.BufferGeometry();
+    const positions &#x3D; [];
+    const source &#x3D; this.source.getObject().position;
+    const target &#x3D; this.target.getObject().position;
+    positions.push(source.x, source.y, source.z);
+    positions.push(target.x, target.y, target.z);
+    geometry.setAttribute(&#x27;position&#x27;, new THREE.Float32BufferAttribute(positions, 3));
+    return geometry;
   }
 
 

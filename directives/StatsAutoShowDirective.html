@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content pipe">
+               <div class="content directive">
                    <div class="content-data">
 
 
@@ -35,13 +35,9 @@
 
 
 
-
-
-
-
 <ol class="breadcrumb">
-  <li>Pipes</li>
-  <li>Rad2DegPipe</li>
+  <li>Directives</li>
+  <li>StatsAutoShowDirective</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,27 +51,116 @@
 
 <div class="tab-content">
     <div class="tab-pane fade active in" id="c-info">
-
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/atft/src/lib/pipe/rad2deg.pipe.ts</code>
+            <code>projects/atft/src/lib/stats/stats-auto-show.directive.ts</code>
         </p>
 
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+            </p>
 
 
         <section>
             <h3>Metadata</h3>
             <table class="table table-sm table-hover">
                 <tbody>
+
                     <tr>
-                        <td class="col-md-3">Name</td>
-                        <td class="col-md-9">rad2deg</td>
+                        <td class="col-md-3">Selector</td>
+                        <td class="col-md-9"><code>[atft-stats-auto-show]</code></td>
                     </tr>
+
                 </tbody>
             </table>
         </section>
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(statsService: <a href="../injectables/StatsService.html">StatsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">projects/atft/src/lib/stats/stats-auto-show.directive.ts:5</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>statsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StatsService.html" target="_self" >StatsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
 
             <section>
     
@@ -86,74 +171,36 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="transform"></a>
+                    <a name="ngAfterViewInit"></a>
                     <span class="name">
                         <b>
-                            transform
+                            ngAfterViewInit
                         </b>
-                        <a href="#transform"><span class="icon ion-ios-link"></span></a>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>transform(radians: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>ngAfterViewInit()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">projects/atft/src/lib/pipe/rad2deg.pipe.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">projects/atft/src/lib/stats/stats-auto-show.directive.ts:13</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Converts radians to degrees</p>
-</div>
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>radians</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>Radians</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -161,23 +208,25 @@
     </table>
 </section>
 
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Pipe, PipeTransform} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Directive} from &#x27;@angular/core&#x27;;
+import {StatsService} from &#x27;./stats.service&#x27;;
 
-@Pipe({
-  name: &#x27;rad2deg&#x27;
-})
-export class Rad2DegPipe implements PipeTransform {
+@Directive({selector: &#x27;[atft-stats-auto-show]&#x27;})
+export class StatsAutoShowDirective implements AfterViewInit {
 
-  /**
-   * Converts radians to degrees
-   * @param radians Radians
-   */
-  transform(radians: number): number {
-    return radians * (180 / Math.PI);
+  constructor(
+    private statsService: StatsService
+  ) {
+
+  }
+
+  ngAfterViewInit(): void {
+    this.statsService.create();
   }
 
 }
@@ -185,6 +234,10 @@ export class Rad2DegPipe implements PipeTransform {
     </div>
 
 </div>
+
+
+
+
 
 
 
@@ -210,8 +263,8 @@ export class Rad2DegPipe implements PipeTransform {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'pipe';
-            var COMPODOC_CURRENT_PAGE_URL = 'Rad2DegPipe.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatsAutoShowDirective.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
