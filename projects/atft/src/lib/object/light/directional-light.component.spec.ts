@@ -1,6 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AtftLightModule} from './atft-light.module';
 import {DirectionalLightComponent} from './directional-light.component';
 import {StatsService} from '../../stats';
 

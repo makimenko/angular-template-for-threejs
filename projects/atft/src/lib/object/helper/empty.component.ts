@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, forwardRef, Input} from '@angular/core';
+import {AfterViewInit, Component, forwardRef} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {RendererService} from '../../renderer/renderer.service';

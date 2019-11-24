@@ -1,11 +1,11 @@
 import {ViewChild} from '@angular/core';
-import {PerspectiveCameraComponent} from '../../../projects/atft/src/lib/camera/perspective-camera.component';
 import * as THREE from 'three';
 import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
+import {PerspectiveCameraComponent} from '../../../projects/atft/src/lib/camera/perspective-camera.component';
 
 export abstract class AbstractCameraRotation {
 
-  @ViewChild(PerspectiveCameraComponent, {static: true})
+  @ViewChild(PerspectiveCameraComponent, {static: false})
   camera;
   clock = new THREE.Clock();
   matrix = new THREE.Matrix4();

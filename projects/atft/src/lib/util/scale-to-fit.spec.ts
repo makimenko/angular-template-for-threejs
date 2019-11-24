@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import {fixCenter} from './fix-center';
 import {scaleToFit} from './scale-to-fit';
 
 describe('utils', () => {

@@ -4,7 +4,6 @@ import {CommonModule} from '@angular/common';
 import {RendererService} from './renderer.service';
 
 
-
 @NgModule({
   imports: [
     CommonModule

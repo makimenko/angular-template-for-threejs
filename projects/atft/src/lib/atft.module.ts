@@ -12,24 +12,24 @@ import {AtftStatsModule} from './stats/stats.module';
 
 @NgModule({
   imports: [
-    AtftStatsModule,
     AtftCameraModule,
     AtftObjectModule,
     AtftControlModule,
     AtftPipeModule,
     AtftRendererModule,
     AtftAnimationModule,
-    AtftRaycasterModule
+    AtftRaycasterModule,
+    AtftStatsModule
   ],
   exports: [
-    AtftStatsModule,
     AtftCameraModule,
     AtftObjectModule,
     AtftControlModule,
     AtftPipeModule,
     AtftRendererModule,
     AtftAnimationModule,
-    AtftRaycasterModule
+    AtftRaycasterModule,
+    AtftStatsModule
   ]
 })
 export class AtftModule {

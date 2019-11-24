@@ -1,9 +1,7 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
-import {Component, forwardRef} from '@angular/core';
+import {Component} from '@angular/core';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
-import {AbstractObject3D} from '../../../projects/atft/src/lib/object/abstract-object-3d';
 
 import markdownNotes from './bug-95.stories.md';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
