@@ -9,7 +9,6 @@ import {DashedDrawDirective} from './dashed-draw.directive';
   ],
   declarations: [
     DashedDrawDirective
-
   ],
   exports: [
     DashedDrawDirective
