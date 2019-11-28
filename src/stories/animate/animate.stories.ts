@@ -192,8 +192,8 @@ class StorybookReactiveGridComponent implements AfterViewInit {
 
     </atft-cylinder-mesh>
 
-    <atft-sphere-mesh atft-dashed-draw [radius]="4" [widthSegments]="20" [hightSegments]="20" material="phong" materialColor="0xffffff"
-    translateZ="9">
+    <atft-sphere-mesh atft-dashed-draw [radius]="4" [widthSegments]="20" [hightSegments]="20"
+        material="phong" materialColor="0xffffff"  translateZ="14">
     </atft-sphere-mesh>
 
   `)

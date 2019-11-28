@@ -1,7 +1,7 @@
 import {AfterViewInit, Directive} from '@angular/core';
-import {AbstractObject3D} from '../object';
+import {AbstractObject3D} from '../object/abstract-object-3d';
 import * as THREE from 'three';
-import {AnimationService} from '../animation';
+import {AnimationService} from '../animation/animation.service';
 
 @Directive({selector: '[atft-dashed-draw]'})
 export class DashedDrawDirective implements AfterViewInit {
@@ -28,7 +28,7 @@ export class DashedDrawDirective implements AfterViewInit {
         console.log(child);
 
         const edgesGeom = new THREE.EdgesGeometry(child.geometry, 8);
-        this.edges = new THREE.LineSegments(edgesGeom, new THREE.LineDashedMaterial({color: 0x11DA11}));
+        this.edges = new THREE.LineSegments(edgesGeom, new THREE.LineDashedMaterial({color: 0xDA1111}));
         this.edges.computeLineDistances();
         // console.log(this.edges);
         this.edges.material.dashSize = 0;
@@ -36,10 +36,15 @@ export class DashedDrawDirective implements AfterViewInit {
           .lineDistance.array[this.edges.geometry.attributes.lineDistance.count - 1];
 
 
+        const material = child.material as THREE.Material;
+        material.transparent = true;
+        material.opacity = 0.2;
+
         // this.edges.scale.x = 1.01;
         // this.edges.scale.y = 1.01;
         // this.edges.scale.z = 1.01;
         child.add(this.edges);
+
         // scene.add(this.edges);
         // child.scale.setScalar(0.999);
         // child.visible = false;
