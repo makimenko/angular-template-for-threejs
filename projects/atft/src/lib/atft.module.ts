@@ -7,6 +7,7 @@ import {AtftRendererModule} from './renderer/atft-renderer.module';
 import {AtftAnimationModule} from './animation/atft-animation.module';
 import {AtftRaycasterModule} from './raycaster/atft-raycaster.module';
 import {AtftStatsModule} from './stats/stats.module';
+import {AtftEffectModule} from './effect/atft-effect.module';
 
 // NOTE: In case of "ERROR in Unexpected value 'undefined' exported by the module 'AtftModule" fix imports (do not import index.ts)
 
@@ -19,7 +20,8 @@ import {AtftStatsModule} from './stats/stats.module';
     AtftRendererModule,
     AtftAnimationModule,
     AtftRaycasterModule,
-    AtftStatsModule
+    AtftStatsModule,
+    AtftEffectModule
   ],
   exports: [
     AtftCameraModule,
@@ -29,7 +31,8 @@ import {AtftStatsModule} from './stats/stats.module';
     AtftRendererModule,
     AtftAnimationModule,
     AtftRaycasterModule,
-    AtftStatsModule
+    AtftStatsModule,
+    AtftEffectModule
   ]
 })
 export class AtftModule {

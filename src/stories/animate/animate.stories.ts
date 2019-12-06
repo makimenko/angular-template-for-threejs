@@ -9,6 +9,7 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation/animati
 import * as THREE from 'three';
 import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {AbstractObject3D} from '../../../projects/atft/src/lib/object/abstract-object-3d';
+import {performanceSceneWrapper} from '../scene-wrapper/performance-scene-wrapper';
 
 
 @Component({
@@ -183,6 +184,26 @@ class StorybookReactiveGridComponent implements AfterViewInit {
 }
 
 
+@Component({
+  template: performanceSceneWrapper(`
+    <atft-cylinder-mesh atft-dashed-draw [radiusTop]="2.0" [radiusBottom]="7.0" [height]="10" [radialSegments]="36" [heightSegments]="1"
+                          material="phong" materialColor="0xffffff"
+                          [rotateX]="90 | deg2rad" translateZ="5">
+
+    </atft-cylinder-mesh>
+
+    <atft-sphere-mesh atft-dashed-draw [radius]="4" [widthSegments]="20" [hightSegments]="20"
+        material="phong" materialColor="0xffffff"  translateZ="14">
+    </atft-sphere-mesh>
+
+  `)
+})
+class StorybookDashedDrawComponent {
+
+
+}
+
+
 storiesOf('Animate', module)
   .addDecorator(withKnobs)
   .addDecorator(
@@ -200,6 +221,9 @@ storiesOf('Animate', module)
   }))
   .add('reactive-grid', () => ({
     component: StorybookReactiveGridComponent
+  }))
+  .add('dashed-draw', () => ({
+    component: StorybookDashedDrawComponent
   }))
 ;
 
