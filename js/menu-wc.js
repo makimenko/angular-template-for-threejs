@@ -180,6 +180,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                             </li>
                             <li class="link">
+                                <a href="modules/AtftEffectModule.html" data-type="entity-link">AtftEffectModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#directives-links-module-AtftEffectModule-32c5bed331f5fee650143dadb770cbf2"' : 'data-target="#xs-directives-links-module-AtftEffectModule-32c5bed331f5fee650143dadb770cbf2"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-AtftEffectModule-32c5bed331f5fee650143dadb770cbf2"' :
+                                        'id="xs-directives-links-module-AtftEffectModule-32c5bed331f5fee650143dadb770cbf2"' }>
+                                        <li class="link">
+                                            <a href="directives/DashedDrawDirective.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">DashedDrawDirective</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/AtftHelperModule.html" data-type="entity-link">AtftHelperModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
