@@ -46,7 +46,7 @@
     "@storybook/angular": "^5.2.8",
     "@types/jasmine": "^3.5.0",
     "@types/jasminewd2": "^2.0.8",
-    "@types/node": "^12.12.14",
+    "@types/node": "^13.1.0",
     "@types/three": "^0.103.2",
     "@types/webgl2": "0.0.5",
     "babel-loader": "^8.0.6",
