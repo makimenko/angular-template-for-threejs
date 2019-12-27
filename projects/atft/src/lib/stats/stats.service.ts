@@ -28,7 +28,7 @@ export class StatsService implements OnDestroy {
 
   public create() {
     if (!this.stats) {
-      this.stats = new Stats();
+      this.stats = Stats();
       document.body.appendChild(this.stats.dom);
     }
   }
