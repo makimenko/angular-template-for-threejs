@@ -8,6 +8,13 @@ import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from '@angul
 
 declare const require: any;
 
+// TODO: Remove when Angular will support typescript 3.7+
+// @ts-ignore
+window.__importDefault = function(mod) {
+  return mod && mod.__esModule ? mod : { default: mod };
+};
+
+
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,

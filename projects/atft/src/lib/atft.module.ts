@@ -37,3 +37,4 @@ import {AtftEffectModule} from './effect/atft-effect.module';
 })
 export class AtftModule {
 }
+
