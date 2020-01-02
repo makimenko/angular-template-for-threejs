@@ -1,7 +1,6 @@
 import {TorusMeshComponent} from './torus-mesh.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {RendererService} from '../../renderer/renderer.service';
-import {AtftMeshModule} from './atft-mesh.module';
 import {StatsService} from '../../stats';
 
 describe('mesh', () => {
@@ -11,8 +10,8 @@ describe('mesh', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [
-          AtftMeshModule
+        declarations: [
+          TorusMeshComponent
         ],
         providers: [
           StatsService,

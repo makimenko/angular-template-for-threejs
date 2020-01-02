@@ -1,6 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AtftMeshModule} from './atft-mesh.module';
 import {BoxMeshComponent} from './box-mesh.component';
 import * as THREE from 'three';
 import {SimpleChange} from '@angular/core';
@@ -14,8 +13,8 @@ describe('mesh', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [
-          AtftMeshModule
+        declarations: [
+          BoxMeshComponent
         ],
         providers: [
           StatsService,
