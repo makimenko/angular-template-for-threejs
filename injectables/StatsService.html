@@ -418,7 +418,7 @@ export class StatsService implements OnDestroy {
 
   public create() {
     if (!this.stats) {
-      this.stats &#x3D; new Stats();
+      this.stats &#x3D; Stats();
       document.body.appendChild(this.stats.dom);
     }
   }
