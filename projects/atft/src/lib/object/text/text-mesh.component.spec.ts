@@ -29,5 +29,15 @@ describe('text', () => {
       expect(component).toBeTruthy();
     });
 
+    it('text', () => {
+      fixture.detectChanges();
+      expect(component.text).toBe('Text');
+    });
+
+    it('color', () => {
+      fixture.detectChanges();
+      expect(component.materialColor).toBe(0xDADADA);
+    });
+
   });
 });

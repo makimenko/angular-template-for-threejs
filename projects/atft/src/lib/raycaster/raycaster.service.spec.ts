@@ -57,6 +57,8 @@ describe('raycaster', () => {
       boxFixture.detectChanges();
       cameraFixture.detectChanges();
 
+      raycaster.pause();
+      raycaster.resume();
       expect().nothing();
       /* TODO: Fix raycasrter test
       spyOn(box.getObject(), 'dispatchEvent');

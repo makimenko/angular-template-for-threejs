@@ -1,24 +1,25 @@
 import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {FrameMeshComponent} from './frame-mesh.component';
-import {StatsService} from '../../stats';
+import {AtftMeshModule} from './atft-mesh.module';
+import {StatsService} from '../../stats/stats.service';
+import {GridMeshComponent} from './grid-mesh.component';
 
 describe('mesh', () => {
-  describe('FrameMeshComponent', () => {
-    let component: FrameMeshComponent;
-    let fixture: ComponentFixture<FrameMeshComponent>;
+  describe('GridMeshComponent', () => {
+    let component: GridMeshComponent;
+    let fixture: ComponentFixture<GridMeshComponent>;
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         declarations: [
-          FrameMeshComponent
+          GridMeshComponent
         ],
         providers: [
           StatsService,
           RendererService
         ]
       });
-      fixture = TestBed.createComponent(FrameMeshComponent);
+      fixture = TestBed.createComponent(GridMeshComponent);
       component = fixture.componentInstance;
       return TestBed.compileComponents();
     }));

@@ -1,6 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {RendererService} from '../../renderer/renderer.service';
-import {AtftMeshModule} from './atft-mesh.module';
 import {PlaneMeshComponent} from './plane-mesh.component';
 import {StatsService} from '../../stats';
 
@@ -11,8 +10,8 @@ describe('mesh', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [
-          AtftMeshModule
+        declarations: [
+          PlaneMeshComponent
         ],
         providers: [
           StatsService,

@@ -1,7 +1,6 @@
 import {CylinderMeshComponent} from './cylinder-mesh.component';
 import {RendererService} from '../../renderer/renderer.service';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AtftMeshModule} from './atft-mesh.module';
 import {StatsService} from '../../stats';
 
 describe('mesh', () => {
@@ -11,8 +10,8 @@ describe('mesh', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [
-          AtftMeshModule
+        declarations: [
+          CylinderMeshComponent
         ],
         providers: [
           StatsService,
