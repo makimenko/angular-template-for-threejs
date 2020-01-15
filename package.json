@@ -37,7 +37,7 @@
     "@angular/cli": "^8.3.21",
     "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "^8.2.14",
-    "@babel/core": "^7.7.7",
+    "@babel/core": "^7.8.0",
     "@compodoc/compodoc": "^1.1.11",
     "@storybook/addon-actions": "^5.2.8",
     "@storybook/addon-links": "^5.2.8",
