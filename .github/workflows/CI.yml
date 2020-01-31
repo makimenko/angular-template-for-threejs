@@ -23,7 +23,7 @@ jobs:
         name: demo
         path: ./dist/gh-pages-deploy
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v1
       - name: Install project dependencies
