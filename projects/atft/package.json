@@ -33,9 +33,9 @@
     }
   ],
   "peerDependencies": {
-    "@angular/common": "^8.2.2",
-    "@angular/core": "^8.2.2",
-    "three": "^0.112.1"
+    "@angular/common": "^9.0.0-rc.12",
+    "@angular/core": "^9.0.0-rc.12",
+    "three": "^0.113.3"
   },
   "dependencies": {},
   "engines": {

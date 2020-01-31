@@ -35,8 +35,5 @@
         "node_modules/core-js/proposals/reflect-metadata"
       ]
     }
-  },
-  "angularCompilerOptions": {
-    "disableTypeScriptVersionCheck": true
   }
 }
