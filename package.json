@@ -24,7 +24,7 @@
     "@angular/platform-browser-dynamic": "^9.0.0-rc.12",
     "@angular/router": "^9.0.0-rc.12",
     "@storybook/addon-knobs": "^5.3.10",
-    "@storybook/addon-options": "^5.3.9",
+    "@storybook/addon-options": "^5.3.10",
     "core-js": "^3.6.4",
     "rxjs": "^6.5.3",
     "three": "^0.113.2",
