@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.900.0",
-    "@angular-devkit/build-ng-packagr": "^0.803.24",
+    "@angular-devkit/build-ng-packagr": "^0.900.0",
     "@angular/cli": "^9.0.0-rc.12",
     "@angular/compiler-cli": "^9.0.0-rc.12",
     "@angular/language-service": "^9.0.0-rc.12",
@@ -44,7 +44,7 @@
     "@storybook/addon-notes": "^5.3.11",
     "@storybook/addons": "^5.3.11",
     "@storybook/angular": "^5.3.11",
-    "@types/jasmine": "^3.5.2",
+    "@types/jasmine": "^3.5.3",
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "^13.5.3",
     "@types/three": "^0.103.2",
