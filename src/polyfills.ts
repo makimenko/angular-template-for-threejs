@@ -33,11 +33,6 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
  * APPLICATION IMPORTS
  */
 
-// TODO: Remove when Angular will support typescript 3.7+
-// @ts-ignore
-window.__importDefault = function(mod) {
-  return mod && mod.__esModule ? mod : { default: mod };
-};
 
 // zone.js hooks onto requestAnimateFrame, and runs angular’s change detection on each tick:
 (window as any).__Zone_disable_requestAnimationFrame = true;
