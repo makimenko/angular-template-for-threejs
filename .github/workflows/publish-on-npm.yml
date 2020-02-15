@@ -14,6 +14,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+        working-directory: ${{GITHUB_WORKSPACE}}/projects/atft
       - run: npm publish --access public
+        working-directory: ${{GITHUB_WORKSPACE}}/projects/atft
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
