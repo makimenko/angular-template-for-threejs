@@ -23,7 +23,7 @@ jobs:
         name: demo
         path: ./dist/gh-pages-deploy
   test:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Install project dependencies
@@ -36,7 +36,7 @@ jobs:
           sudo apt-get install -y xvfb
           Xvfb :99 &
           export DISPLAY=:99
-          npx ng test --watch=false --code-coverage
+          npx ng test --watch=false --code-coverage --browsers=ChromeHeadlessCustom
       - name: Code coverage
         run: npx codecov
         env:

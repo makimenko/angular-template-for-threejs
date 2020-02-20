@@ -27,6 +27,10 @@ module.exports = function (config) {
       Chrome_travis_ci: {
         base: 'Chrome',
         flags: ['--no-sandbox']
+      },
+      ChromeHeadlessCustom: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu']
       }
     },
     browsers: process.env.TRAVIS ? ['Chrome_travis_ci'] : ['Chrome', 'ChromeCanary'],
