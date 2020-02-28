@@ -40,7 +40,7 @@
     "@angular/language-service": "^9.0.2",
     "@babel/core": "^7.8.4",
     "@compodoc/compodoc": "^1.1.11",
-    "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-actions": "^5.3.14",
     "@storybook/addon-links": "^5.3.13",
     "@storybook/addon-notes": "^5.3.13",
     "@storybook/addons": "^5.3.13",
