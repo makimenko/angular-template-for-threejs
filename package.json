@@ -29,7 +29,7 @@
     "rxjs": "^6.5.4",
     "three": "^0.115.0",
     "three.meshline": "^1.2.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.0",
