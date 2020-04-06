@@ -87,6 +87,12 @@ and limitations under the License.
 * found in the LICENSE file at https://angular.io/license
 */
 
+/**
+* @license Angular v9.1.0-next.4+61.sha-e552591.with-local-changes
+* (c) 2010-2020 Google LLC. https://angular.io/
+* License: MIT
+*/
+
 /** @license React v0.19.0
  * scheduler.production.min.js
  *
