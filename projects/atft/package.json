@@ -7,7 +7,7 @@
     "3d",
     "angular",
     "typescript",
-    "angular8",
+    "angular9",
     "components"
   ],
   "license": "MIT",
@@ -33,9 +33,9 @@
     }
   ],
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0",
-    "three": "^0.113.3"
+    "@angular/common": "^9.1.3",
+    "@angular/core": "^9.1.3",
+    "three": "^0.115.0"
   },
   "dependencies": {},
   "engines": {
