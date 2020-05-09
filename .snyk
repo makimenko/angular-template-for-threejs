@@ -40,3 +40,85 @@ patch:
         patched: '2020-04-30T23:15:57.362Z'
     - '@storybook/addon-knobs > @storybook/client-api > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
         patched: '2020-04-30T23:15:57.362Z'
+    - '@storybook/addon-knobs > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/api > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/client-api > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/components > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > react-color > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/client-api > @storybook/csf > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/api > @storybook/router > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/api > telejson > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-options > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > react-color > reactcss > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/api > @storybook/router > @storybook/csf > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-options > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-options > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-options > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/client-api > @storybook/channel-postmessage > telejson > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/client-api > @storybook/addons > @storybook/api > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/addons > @storybook/api > @storybook/router > @storybook/csf > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-options > @storybook/addons > @storybook/api > @storybook/router > @storybook/csf > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/client-api > @storybook/addons > @storybook/api > @storybook/csf > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/client-api > @storybook/addons > @storybook/api > @storybook/router > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/client-api > @storybook/addons > @storybook/api > telejson > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/client-api > @storybook/addons > @storybook/api > @storybook/router > @storybook/csf > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > react-select > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > react-select > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/api > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/components > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/components > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/addons > @storybook/api > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-options > @storybook/addons > @storybook/api > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-options > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/client-api > @storybook/addons > @storybook/api > @storybook/theming > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
+    - '@storybook/addon-knobs > @storybook/client-api > @storybook/addons > @storybook/api > @storybook/theming > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-09T21:47:29.843Z'
