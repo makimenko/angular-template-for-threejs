@@ -28,11 +28,11 @@
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-options": "^5.3.19",
     "core-js": "^3.6.5",
-    "rxjs": "^6.5.5",
+    "rxjs": "^6.6.0",
     "three": "^0.118.3",
     "three.meshline": "^1.2.0",
     "zone.js": "~0.10.3",
-    "snyk": "^1.349.0"
+    "snyk": "^1.360.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.3",
