@@ -28,7 +28,7 @@
     "@storybook/addon-knobs": "^5.3.21",
     "@storybook/addon-options": "^5.3.21",
     "core-js": "^3.6.5",
-    "rxjs": "^6.6.2",
+    "rxjs": "^6.6.3",
     "three": "^0.120.0",
     "three.meshline": "^1.2.1",
     "zone.js": "~0.10.3",
