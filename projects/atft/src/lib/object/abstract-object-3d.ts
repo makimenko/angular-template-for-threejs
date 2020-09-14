@@ -1,18 +1,8 @@
-import {
-  AfterViewInit,
-  ContentChildren,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  Output,
-  QueryList,
-  SimpleChanges,
-  ViewChildren
-} from '@angular/core';
+import { AfterViewInit, ContentChildren, EventEmitter, Input, OnChanges, OnDestroy, Output, QueryList, SimpleChanges, ViewChildren, Directive } from '@angular/core';
 import * as THREE from 'three';
 import {RendererService} from '../renderer/renderer.service';
 
+@Directive()
 export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit, OnChanges, OnDestroy {
 
   @ContentChildren(AbstractObject3D, {descendants: false}) childNodes: QueryList<AbstractObject3D<THREE.Object3D>>;

@@ -33,11 +33,13 @@
     }
   ],
   "peerDependencies": {
-    "@angular/common": "^9.1.11",
-    "@angular/core": "^9.1.11",
+    "@angular/common": "^10.1.1",
+    "@angular/core": "^10.1.1",
     "three": "^0.120.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "engines": {
     "node": "*"
   }

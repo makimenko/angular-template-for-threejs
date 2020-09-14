@@ -1,8 +1,9 @@
-import {Input, OnChanges, SimpleChanges} from '@angular/core';
+import { Input, OnChanges, SimpleChanges, Directive } from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {appliedMaterial} from '../../util';
 
+@Directive()
 export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> implements OnChanges {
 
   @Input()

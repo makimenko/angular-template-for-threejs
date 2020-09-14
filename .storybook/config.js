@@ -5,6 +5,12 @@ const req = require.context('../src', true, /\.stories\.ts$/);
 function loadStories() {
   req.keys().sort().forEach(filename => req(filename));
   document.getElementById('root').style.height = '100%';
+
+  let body = document.getElementById('root').parentElement;
+  if (body) {
+    body.style.padding = '0';
+  }
+
 }
 
 addParameters({
