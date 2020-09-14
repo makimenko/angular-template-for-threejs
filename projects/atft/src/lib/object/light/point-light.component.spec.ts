@@ -1,5 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {PointLightComponent} from './point-light.component';
 import {StatsService} from '../../stats';
 
@@ -8,7 +8,7 @@ describe('light', () => {
     let component: PointLightComponent;
     let fixture: ComponentFixture<PointLightComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
           PointLightComponent

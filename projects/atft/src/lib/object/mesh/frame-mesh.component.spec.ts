@@ -1,5 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {FrameMeshComponent} from './frame-mesh.component';
 import {StatsService} from '../../stats';
 
@@ -8,7 +8,7 @@ describe('mesh', () => {
     let component: FrameMeshComponent;
     let fixture: ComponentFixture<FrameMeshComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
           FrameMeshComponent

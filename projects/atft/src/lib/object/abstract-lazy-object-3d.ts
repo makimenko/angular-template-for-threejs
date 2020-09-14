@@ -1,9 +1,11 @@
-import {OnDestroy} from '@angular/core';
+import { OnDestroy, Directive } from '@angular/core';
 
 import {AbstractObject3D} from './abstract-object-3d';
 
 import * as THREE from 'three';
 
+@Directive()
+// tslint:disable-next-line:directive-class-suffix
 export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
 
   /**

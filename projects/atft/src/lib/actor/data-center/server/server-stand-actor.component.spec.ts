@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {AtftDataCenterActorModule} from '../atft-data-center-actor.module';
 import {RendererService} from '../../../renderer';
 import {AnimationService} from '../../../animation';
@@ -10,7 +10,7 @@ describe('actor', () => {
     let component: ServerStandActorComponent;
     let fixture: ComponentFixture<ServerStandActorComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         imports: [
           AtftDataCenterActorModule
@@ -27,7 +27,7 @@ describe('actor', () => {
     }));
 
 
-    it('init', async(() => {
+    it('init', waitForAsync(() => {
       fixture.detectChanges();
       expect(component).toBeTruthy();
 

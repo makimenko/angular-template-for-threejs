@@ -1,5 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {BoxMeshComponent} from './box-mesh.component';
 import * as THREE from 'three';
 import {SimpleChange} from '@angular/core';
@@ -11,7 +11,7 @@ describe('mesh', () => {
     let component: BoxMeshComponent;
     let fixture: ComponentFixture<BoxMeshComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
           BoxMeshComponent

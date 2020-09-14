@@ -1,5 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {TextMeshComponent} from './text-mesh.component';
 import {StatsService} from '../../stats';
 
@@ -8,7 +8,7 @@ describe('text', () => {
     let component: TextMeshComponent;
     let fixture: ComponentFixture<TextMeshComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
           TextMeshComponent

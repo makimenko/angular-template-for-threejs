@@ -1,5 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {AtftConnectorModule} from './atft-connector.module';
 import {AnimationService} from '../../animation/animation.service';
 import {BoxMeshComponent} from '../mesh/box-mesh.component';
@@ -11,7 +11,7 @@ describe('connector', () => {
     let component: LineConnectorComponent;
     let fixture: ComponentFixture<LineConnectorComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         imports: [
           AtftConnectorModule
@@ -35,7 +35,7 @@ describe('connector', () => {
     });
 
 
-    it('init', async(() => {
+    it('init', waitForAsync(() => {
       const fixtureObject = TestBed.createComponent(BoxMeshComponent);
       const obj = fixtureObject.componentInstance;
       fixtureObject.detectChanges();

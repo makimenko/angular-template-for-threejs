@@ -1,7 +1,8 @@
-import {AfterViewInit, Input, OnChanges, SimpleChanges} from '@angular/core';
+import { AfterViewInit, Input, OnChanges, SimpleChanges, Directive } from '@angular/core';
 import * as THREE from 'three';
 import {RendererService} from '../renderer/renderer.service';
 
+@Directive()
 export abstract class AbstractCamera<T extends THREE.Camera> implements AfterViewInit, OnChanges {
 
   camera: T;

@@ -1,9 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches-ignore:
-      - gh-pages
   pull_request:
 
 jobs:

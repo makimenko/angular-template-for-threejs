@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   ContentChildren,
+  Directive,
   EventEmitter,
   Input,
   OnChanges,
@@ -13,6 +14,7 @@ import {
 import * as THREE from 'three';
 import {RendererService} from '../renderer/renderer.service';
 
+@Directive()
 export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit, OnChanges, OnDestroy {
 
   @ContentChildren(AbstractObject3D, {descendants: false}) childNodes: QueryList<AbstractObject3D<THREE.Object3D>>;

@@ -1,5 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {StatsService} from '../../stats';
 import {AxesHelperComponent} from './axes-helper.component';
 
@@ -8,7 +8,7 @@ describe('helper', () => {
     let component: AxesHelperComponent;
     let fixture: ComponentFixture<AxesHelperComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
           AxesHelperComponent

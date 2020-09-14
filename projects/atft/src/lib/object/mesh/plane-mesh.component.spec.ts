@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {RendererService} from '../../renderer/renderer.service';
 import {PlaneMeshComponent} from './plane-mesh.component';
 import {StatsService} from '../../stats';
@@ -8,7 +8,7 @@ describe('mesh', () => {
     let component: PlaneMeshComponent;
     let fixture: ComponentFixture<PlaneMeshComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
           PlaneMeshComponent

@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {RendererService} from '../renderer/renderer.service';
 import {Component} from '@angular/core';
 import {AnimationService} from '../animation';
@@ -11,7 +11,7 @@ import {RaycasterGroupDirective} from './raycaster-group.directive';
 @Component({
   selector: 'atft-mock',
   template: `
-      <atft-empty atft-raycaster-group></atft-empty>
+    <atft-empty atft-raycaster-group></atft-empty>
   `
 })
 class MockComponent {
@@ -24,7 +24,7 @@ describe('raycaster', () => {
     let component: MockComponent;
     let fixture: ComponentFixture<MockComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
           EmptyComponent,

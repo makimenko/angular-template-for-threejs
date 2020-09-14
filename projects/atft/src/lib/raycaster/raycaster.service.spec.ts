@@ -1,5 +1,5 @@
 import {RaycasterService} from './raycaster.service';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {RendererService} from '../renderer';
 import {PerspectiveCameraComponent} from '../camera/perspective-camera.component';
 import {AtftCameraModule} from '../camera/atft-camera.module';
@@ -16,7 +16,7 @@ describe('raycaster', () => {
     let box: BoxMeshComponent;
 
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         imports: [
           AtftCameraModule
