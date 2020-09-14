@@ -500,30 +500,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
-                                <a href="classes/AbstractCamera.html" data-type="entity-link">AbstractCamera</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractConnector.html" data-type="entity-link">AbstractConnector</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractCss3dMesh.html" data-type="entity-link">AbstractCss3dMesh</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractLazyObject3D.html" data-type="entity-link">AbstractLazyObject3D</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractMesh.html" data-type="entity-link">AbstractMesh</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractModelLoader.html" data-type="entity-link">AbstractModelLoader</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractObject3D.html" data-type="entity-link">AbstractObject3D</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractOrbitControls.html" data-type="entity-link">AbstractOrbitControls</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/AbstractServerActor.html" data-type="entity-link">AbstractServerActor</a>
                             </li>
                         </ul>
