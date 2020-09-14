@@ -1,14 +1,4 @@
-import {
-  AfterViewInit,
-  ContentChild,
-  ContentChildren,
-  ElementRef,
-  Input,
-  OnChanges,
-  OnDestroy,
-  QueryList,
-  SimpleChanges
-} from '@angular/core';
+import { AfterViewInit, ContentChild, ContentChildren, ElementRef, Input, OnChanges, OnDestroy, QueryList, SimpleChanges, Directive } from '@angular/core';
 import * as THREE from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {AbstractCamera} from '../camera/abstract-camera';
@@ -17,6 +7,7 @@ import {RaycasterService} from '../raycaster/raycaster.service';
 import {RendererCanvasComponent} from '../renderer/renderer-canvas.component';
 
 
+@Directive()
 export abstract class AbstractOrbitControls<T extends OrbitControls> implements AfterViewInit, OnChanges, OnDestroy {
 
   @ContentChildren(AbstractCamera, {descendants: true}) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
