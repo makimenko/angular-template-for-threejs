@@ -35,7 +35,7 @@
   "peerDependencies": {
     "@angular/common": "^9.1.11",
     "@angular/core": "^9.1.11",
-    "three": "^0.118.1"
+    "three": "^0.120.1"
   },
   "dependencies": {},
   "engines": {
