@@ -1,5 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {AtftLoaderModule} from './atft-loader.module';
 import {ObjectLoaderComponent} from './object-loader.component';
 import {StatsService} from '../../stats';
@@ -9,7 +9,7 @@ describe('loader', () => {
     let component: ObjectLoaderComponent;
     let fixture: ComponentFixture<ObjectLoaderComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         imports: [
           AtftLoaderModule
@@ -23,7 +23,7 @@ describe('loader', () => {
       return TestBed.compileComponents();
     }));
 
-    it('load', async(() => {
+    it('load', waitForAsync(() => {
       component = fixture.componentInstance;
       component.model = 'x';
       fixture.detectChanges();

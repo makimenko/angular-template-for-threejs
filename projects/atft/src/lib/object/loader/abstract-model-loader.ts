@@ -1,4 +1,4 @@
-import { Input, Directive } from '@angular/core';
+import {Input} from '@angular/core';
 import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
 
 /**
@@ -6,7 +6,6 @@ import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
  *
  * @see ObjLoaderComponent
  */
-@Directive()
 export abstract class AbstractModelLoader extends AbstractLazyObject3D {
 
   protected _model: string;

@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {OrbitControlsComponent} from './orbit-controls.component';
 import {RendererService} from '../renderer/renderer.service';
 import {AtftControlModule} from './atft-control.module';
@@ -13,12 +13,12 @@ import {StatsService} from '../stats';
 @Component({
   selector: 'atft-mock',
   template: `
-      <atft-map-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
-          <atft-renderer-canvas>
-              <atft-perspective-camera [fov]=60 [near]=1 [far]=1100></atft-perspective-camera>
-              <atft-scene></atft-scene>
-          </atft-renderer-canvas>
-      </atft-map-controls>
+    <atft-map-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
+      <atft-renderer-canvas>
+        <atft-perspective-camera [fov]=60 [near]=1 [far]=1100></atft-perspective-camera>
+        <atft-scene></atft-scene>
+      </atft-renderer-canvas>
+    </atft-map-controls>
   `
 })
 class MockComponent {
@@ -31,7 +31,7 @@ describe('controls', () => {
     let component: OrbitControlsComponent;
     let fixture: ComponentFixture<OrbitControlsComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         imports: [
           AtftControlModule
@@ -58,7 +58,7 @@ describe('controls', () => {
     let component: MockComponent;
     let fixture: ComponentFixture<MockComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         imports: [
           AtftControlModule,

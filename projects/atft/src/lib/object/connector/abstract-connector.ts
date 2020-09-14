@@ -1,8 +1,7 @@
-import { Input, Directive } from '@angular/core';
+import {Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 
-@Directive()
 export abstract class AbstractConnector<T extends THREE.Object3D> extends AbstractObject3D<T> {
 
   @Input()

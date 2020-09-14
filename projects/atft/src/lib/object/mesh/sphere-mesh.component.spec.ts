@@ -1,5 +1,5 @@
 import {SphereMeshComponent} from './sphere-mesh.component';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {RendererService} from '../../renderer/renderer.service';
 import {StatsService} from '../../stats';
 
@@ -8,7 +8,7 @@ describe('mesh', () => {
     let component: SphereMeshComponent;
     let fixture: ComponentFixture<SphereMeshComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
           SphereMeshComponent

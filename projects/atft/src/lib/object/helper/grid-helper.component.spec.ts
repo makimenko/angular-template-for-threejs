@@ -1,5 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {StatsService} from '../../stats';
 import {GridHelperComponent} from './grid-helper.component';
 
@@ -8,7 +8,7 @@ describe('helper', () => {
     let component: GridHelperComponent;
     let fixture: ComponentFixture<GridHelperComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
           GridHelperComponent

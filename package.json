@@ -29,10 +29,10 @@
     "@storybook/addon-options": "^6.0.0-alpha.29",
     "core-js": "^3.6.5",
     "rxjs": "^6.6.3",
-    "snyk": "^1.394.0",
+    "snyk": "^1.395.0",
     "three": "^0.120.1",
     "three.meshline": "^1.3.0",
-    "zone.js": "~0.10.3"
+    "zone.js": "~0.11.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1001.1",
@@ -55,11 +55,11 @@
     "@types/webgl2": "0.0.5",
     "babel-loader": "^8.1.0",
     "codecov": "^3.7.2",
-    "codelyzer": "^5.2.2",
+    "codelyzer": "^6.0.0",
     "greenkeeper-lockfile": "^1.15.1",
-    "jasmine-core": "~3.5.0",
+    "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~5.0.0",
+    "karma": "~5.2.2",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",

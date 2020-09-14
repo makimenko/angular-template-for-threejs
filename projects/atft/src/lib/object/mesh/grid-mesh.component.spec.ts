@@ -1,6 +1,5 @@
 import {RendererService} from '../../renderer/renderer.service';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AtftMeshModule} from './atft-mesh.module';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {StatsService} from '../../stats/stats.service';
 import {GridMeshComponent} from './grid-mesh.component';
 
@@ -9,7 +8,7 @@ describe('mesh', () => {
     let component: GridMeshComponent;
     let fixture: ComponentFixture<GridMeshComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
           GridMeshComponent
