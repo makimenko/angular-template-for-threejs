@@ -13,9 +13,10 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm ci     # The npm ci below needs peerDependencies which we install by the command in this line
-      - run: npm ci
-        working-directory: ./projects/atft
+      - name: Install project dependencies
+        run: npm i
+      - name: Build atft library
+        run: npx ng build atft
       - run: npm publish --access public
         working-directory: ./projects/atft
         env:
