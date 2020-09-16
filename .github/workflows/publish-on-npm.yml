@@ -2,13 +2,13 @@ name: Publish on NPM
 
 on:
   release:
-    types: [published]
+          types: [ published ]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
+          jobs:
+            build:
+              runs-on: ubuntu-latest
+              steps:
+                - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 12
@@ -18,6 +18,6 @@ jobs:
       - name: Build atft library
         run: npx ng build atft
       - run: npm publish --access public
-        working-directory: ./projects/atft
+        working-directory: ./dist/atft
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
