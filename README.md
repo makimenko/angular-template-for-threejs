@@ -56,7 +56,7 @@ Click below to see the demo in a web browser:<br>
      ]
     ...
    ```
-3. Use atft library components in `src/app.app.component.html`:
+3. Use atft library components in `src/app.component.html`:
     ```html
     <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
       <atft-renderer-canvas #mainRenderer>
