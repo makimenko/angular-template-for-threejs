@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { moduleMetadata } from '@storybook/angular';
-import { AtftDataCenterActorModule } from '../../../projects/atft/src/lib/actor/data-center';
-import { AnimationService } from '../../../projects/atft/src/lib/animation/animation.service';
+import {Component} from '@angular/core';
+import {moduleMetadata} from '@storybook/angular';
+import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
+import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
-import { worldSceneWrapper } from '../scene-wrapper/world-scene-wrapper';
+import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
+import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
 
 @Component({
@@ -152,10 +152,11 @@ export default {
   ],
   args: {
     svgName: 'idea.svg',
-    label: 'Client Workstation'
+    label: 'Workstation'
   },
   argTypes: {
     svgName: {
+      description: 'Please choose SVG file from assets',
       control: {
         type: 'select', options: [
           'idea.svg',
@@ -164,9 +165,13 @@ export default {
         ]
       }
     },
-    label: 'text'
+    label: {
+      description: 'Please choose title of workstation',
+      control: {type: 'text'}
+    }
   }
 };
+
 
 export const Actors = (args) => ({
   component: StorybookActorsComponent,

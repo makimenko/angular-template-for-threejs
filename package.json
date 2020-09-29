@@ -43,6 +43,7 @@
     "@compodoc/compodoc": "^1.1.11",
     "@storybook/addon-actions": "^6.0.22",
     "@storybook/addon-links": "^6.0.22",
+    "@storybook/addon-docs": "^6.0.22",
     "@storybook/addons": "^6.0.22",
     "@storybook/angular": "^6.0.22",
     "@storybook/addon-essentials": "^6.0.22",
