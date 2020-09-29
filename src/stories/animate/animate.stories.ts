@@ -199,31 +199,36 @@ class StorybookReactiveGridComponent implements AfterViewInit {
 })
 class StorybookDashedDrawComponent {
 
-
 }
 
-
-storiesOf('Animate', module)
-  .addDecorator(
+export default {
+  title: 'Animate',
+  decorators: [
     moduleMetadata({
+      schemas: [],
       imports: [
         AtftModule
       ]
-    }),
-  )
-  .add('loop', () => ({
-    component: StorybookLoopComponent
-  }))
-  .add('mixer', () => ({
-    component: StorybookMixerComponent
-  }))
-  .add('reactive-grid', () => ({
-    component: StorybookReactiveGridComponent
-  }))
-  .add('dashed-draw', () => ({
-    component: StorybookDashedDrawComponent
-  }))
-;
+    })
+  ]
+};
 
+export const Loop = (args) => ({
+  component: StorybookLoopComponent,
+  props: args
+});
 
+export const Mixer = (args) => ({
+  component: StorybookMixerComponent,
+  props: args
+});
 
+export const ReactiveGrid = (args) => ({
+  component: StorybookReactiveGridComponent,
+  props: args
+});
+
+export const DashedDraw = (args) => ({
+  component: StorybookDashedDrawComponent,
+  props: args
+});

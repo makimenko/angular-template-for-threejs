@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { moduleMetadata, storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
 import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
@@ -47,51 +47,56 @@ class StorybookSVGLoaderComponent {
 
 }
 
-
-storiesOf('Loader', module)
-  .addDecorator(
+export default {
+  title: 'Loader',
+  decorators: [
     moduleMetadata({
+      schemas: [],
       imports: [
         AtftModule
       ]
-    }),
-  )
-  .add('object-loader', () => ({
-    component: StorybookObjectLoaderComponent
-  }))
-  .add('obj-loader', () => ({
-    component: StorybookObjLoaderComponent
-  }))
-  .add('svg-loader', (args) => ({
-    component: StorybookSVGLoaderComponent,
-    props: args
-  }), {
-    args: {
-      model: './assets/svg/idea.svg',
-      overrideMaterialColor: '0xff0000'
-    },
-    argTypes: {
-      model: {
-        control: {
-          type: 'select',
-          options: [
-            './assets/svg/idea.svg',
-            './assets/svg/grid-world.svg',
-            './assets/svg/upload.svg'
-          ]
-        }
-      },
-      overrideMaterialColor: {
-        control: {
-          type: 'select',
-          options: [
-            '0xff0000',
-            '0x00ff00',
-            '0x0000ff'
-          ]
-        }
-      },
-    }
-  })
-;
+    })
+  ]
+};
 
+export const ObjectLoader = (args) => ({
+  component: StorybookObjectLoaderComponent,
+  props: args
+});
+
+export const ObjLoader = (args) => ({
+  component: StorybookObjLoaderComponent,
+  props: args
+});
+
+export const SvgLoader = (args) => ({
+  component: StorybookSVGLoaderComponent,
+  props: args
+});
+
+SvgLoader.args = {
+  model: './assets/svg/idea.svg',
+  overrideMaterialColor: '0xff0000'
+};
+SvgLoader.argTypes = {
+  model: {
+    control: {
+      type: 'select',
+      options: [
+        './assets/svg/idea.svg',
+        './assets/svg/grid-world.svg',
+        './assets/svg/upload.svg'
+      ]
+    }
+  },
+  overrideMaterialColor: {
+    control: {
+      type: 'select',
+      options: [
+        '0xff0000',
+        '0x00ff00',
+        '0x0000ff'
+      ]
+    }
+  }
+};

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { moduleMetadata, storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { AnimationService } from '../../../projects/atft/src/lib/animation/animation.service';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
@@ -60,44 +60,35 @@ class StorybookMeshLineAnimationComponent {
 }
 
 
-const defaultArgs = {
-  translateZ: -10
-};
-
-const defaultArgTypes = {
-  translateZ: { control: { type: 'range', min: -100, max: 100, step: 1 } }
-};
-
-
-storiesOf('Connector', module)
-  .addDecorator(
+export default {
+  title: 'Connector',
+  decorators: [
     moduleMetadata({
+      schemas: [],
       imports: [
         AtftModule
       ]
-    }),
-  )
-  .add('mesh-line', (args) => ({
-    component: StorybookMeshLineComponent,
-    props: args
-  }), {
-    args: defaultArgs,
-    argTypes: defaultArgTypes
-  })
-  .add('line', (args) => ({
-    component: StorybookLineComponent,
-    props: args
-  }), {
-    args: defaultArgs,
-    argTypes: defaultArgTypes
-  })
-  .add('mesh-line-animation', (args) => ({
-    component: StorybookMeshLineAnimationComponent,
-    props: args
-  }), {
-    args: defaultArgs,
-    argTypes: defaultArgTypes
-  })
-;
+    })
+  ],
+  args: {
+    translateZ: -10
+  },
+  argTypes: {
+    translateZ: { control: { type: 'range', min: -100, max: 100, step: 1 } }
+  }
+};
 
+export const MeshLine = (args) => ({
+  component: StorybookMeshLineComponent,
+  props: args
+});
 
+export const Line = (args) => ({
+  component: StorybookLineComponent,
+  props: args
+});
+
+export const AnimatedMeshLine = (args) => ({
+  component: StorybookMeshLineAnimationComponent,
+  props: args
+});
