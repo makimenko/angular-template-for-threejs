@@ -1,7 +1,6 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {withKnobs} from '@storybook/addon-knobs';
 import {AfterViewInit, Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh/box-mesh.component';
@@ -200,32 +199,35 @@ class StorybookReactiveGridComponent implements AfterViewInit {
 })
 class StorybookDashedDrawComponent {
 
-
 }
 
-
-storiesOf('Animate', module)
-  .addDecorator(withKnobs)
-  .addDecorator(
+export default {
+  title: 'Animate',
+  decorators: [
     moduleMetadata({
       imports: [
         AtftModule
       ]
-    }),
-  )
-  .add('loop', () => ({
-    component: StorybookLoopComponent
-  }))
-  .add('mixer', () => ({
-    component: StorybookMixerComponent
-  }))
-  .add('reactive-grid', () => ({
-    component: StorybookReactiveGridComponent
-  }))
-  .add('dashed-draw', () => ({
-    component: StorybookDashedDrawComponent
-  }))
-;
+    })
+  ]
+};
 
+export const Loop = (args) => ({
+  component: StorybookLoopComponent,
+  props: args
+});
 
+export const Mixer = (args) => ({
+  component: StorybookMixerComponent,
+  props: args
+});
 
+export const ReactiveGrid = (args) => ({
+  component: StorybookReactiveGridComponent,
+  props: args
+});
+
+export const DashedDraw = (args) => ({
+  component: StorybookDashedDrawComponent,
+  props: args
+});

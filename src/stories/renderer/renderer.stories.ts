@@ -1,9 +1,8 @@
-import {moduleMetadata, storiesOf} from '@storybook/angular';
+import { Component } from '@angular/core';
+import { moduleMetadata, storiesOf } from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {withKnobs} from '@storybook/addon-knobs';
-import {Component} from '@angular/core';
-import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
+import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
+import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
 
 
 @Component({
@@ -18,21 +17,23 @@ import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
   </atft-plane-mesh>
   `)
 })
-class StorybookBoxMeshComponent {
+class StorybookCss3dComponent {
 
 }
 
 
-storiesOf('Renderer', module)
-  .addDecorator(withKnobs)
-  .addDecorator(
+export default {
+  title: 'Renderer',
+  decorators: [
     moduleMetadata({
       imports: [
         AtftModule
       ]
-    }),
-  )
-  .add('css3d', () => ({
-    component: StorybookBoxMeshComponent
-  }))
-;
+    })
+  ]
+};
+
+export const Css = (args) => ({
+  component: StorybookCss3dComponent,
+  props: args
+});

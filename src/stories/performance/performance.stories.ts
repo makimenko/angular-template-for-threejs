@@ -1,7 +1,6 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {withKnobs} from '@storybook/addon-knobs';
 import {Component, ViewChild} from '@angular/core';
 import {performanceSceneWrapper} from '../scene-wrapper/performance-scene-wrapper';
 import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
@@ -123,30 +122,33 @@ class StorybookPlanePerformanceComponent extends AbstractCameraRotation {
 
 }
 
-
-storiesOf('Performance', module)
-  .addDecorator(withKnobs)
-  .addDecorator(
+export default {
+  title: 'Performance',
+  decorators: [
     moduleMetadata({
       imports: [
         AtftModule
       ]
-    }),
-  )
-  .add('connector', () => ({
-    component: StorybookConnectorPerformanceComponent
-  }))
-  .add('mesh', () => ({
-    component: StorybookMeshPerformanceComponent
-  }))
-  .add('plane', () => ({
-    component: StorybookPlanePerformanceComponent
-  }))
-  .add('grid', () => ({
-    component: StorybookGridPerformanceComponent
-  }))
+    })
+  ]
+};
 
-;
+export const Connector = (args) => ({
+  component: StorybookConnectorPerformanceComponent,
+  props: args
+});
 
+export const Mesh = (args) => ({
+  component: StorybookMeshPerformanceComponent,
+  props: args
+});
 
+export const Plane = (args) => ({
+  component: StorybookPlanePerformanceComponent,
+  props: args
+});
 
+export const Grid = (args) => ({
+  component: StorybookGridPerformanceComponent,
+  props: args
+});
