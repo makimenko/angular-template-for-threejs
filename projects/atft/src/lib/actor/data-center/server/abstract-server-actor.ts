@@ -1,7 +1,6 @@
-import { Directive, EventEmitter, Input, Output } from '@angular/core';
+import { EventEmitter, Input, Output } from '@angular/core';
 import {EmptyComponent} from '../../../object/helper/empty.component';
 
-@Directive()
 export abstract class AbstractServerActor extends EmptyComponent {
 
   @Input()
