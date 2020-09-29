@@ -1,9 +1,8 @@
-import {moduleMetadata, storiesOf} from '@storybook/angular';
+import { Component, Input } from '@angular/core';
+import { moduleMetadata, storiesOf } from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {select, text, withKnobs} from '@storybook/addon-knobs';
-import {Component, Input} from '@angular/core';
-import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
+import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
+import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
 
 
 @Component({
@@ -76,7 +75,6 @@ class StorybookFrameMeshComponent {
 
 
 storiesOf('Mesh', module)
-  .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
       imports: [
@@ -96,17 +94,20 @@ storiesOf('Mesh', module)
   .add('torus', () => ({
     component: StorybookTorusMeshComponent
   }))
-  .add('text', () => ({
+  .add('text', (args) => ({
     component: StorybookTextMeshComponent,
-    props: {
-      text: text('text', 'Hello :)'),
-      materialColor: select('materialColor', ['0xff0000', '0x00ff00', '0x0000ff'], '0x0000ff')
+    props: args
+  }), {
+    args: {
+      text: 'Hello :)',
+      materialColor: '0xff0000'
+    },
+    materialColor: '0xff0000',
+    argTypes: {
+      materialColor: { control: { type: 'select', options: ['0xff0000', '0x00ff00', '0x0000ff'] } }
     }
-  }))
+  })
   .add('frame', () => ({
     component: StorybookFrameMeshComponent
   }))
 ;
-
-
-

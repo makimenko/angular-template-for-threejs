@@ -1,7 +1,6 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {withKnobs} from '@storybook/addon-knobs';
 import {AfterViewInit, Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh/box-mesh.component';
@@ -205,7 +204,6 @@ class StorybookDashedDrawComponent {
 
 
 storiesOf('Animate', module)
-  .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
       imports: [

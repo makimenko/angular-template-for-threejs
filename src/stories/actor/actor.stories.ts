@@ -1,11 +1,10 @@
-import {moduleMetadata, storiesOf} from '@storybook/angular';
+import { Component } from '@angular/core';
+import { moduleMetadata, storiesOf } from '@storybook/angular';
+import { AtftDataCenterActorModule } from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
+import { AnimationService } from '../../../projects/atft/src/lib/animation/animation.service';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {select, text, withKnobs} from '@storybook/addon-knobs';
-import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
-import {Component} from '@angular/core';
-import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
-import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
+import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
+import { worldSceneWrapper } from '../scene-wrapper/world-scene-wrapper';
 
 
 @Component({
@@ -147,7 +146,6 @@ class StorybookServerComponent {
 
 
 storiesOf('Actor', module)
-  .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
       imports: [
@@ -163,18 +161,26 @@ storiesOf('Actor', module)
   .add('actors', () => ({
     component: StorybookActorsComponent
   }))
-  .add('server', () => ({
+  .add('server', (args) => ({
     component: StorybookServerComponent,
-    props: {
-      svgName: select('svgName', [
-        'idea.svg',
-        'upload.svg',
-        'grid-world.svg'
-      ], 'idea.svg'),
-      label: text('label', 'Server RX10')
+    props: args
+  }), {
+    args: {
+      svgName: 'idea.svg',
+      label: 'Server RX10'
+    },
+    argTypes: {
+      svgName: {
+        control: {
+          type: 'select',
+          options: [
+            'idea.svg',
+            'upload.svg',
+            'grid-world.svg'
+          ]
+        }
+      },
+      label: { control: { type: 'text' } }
     }
-  }))
+  })
 ;
-
-
-

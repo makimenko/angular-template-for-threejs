@@ -1,10 +1,9 @@
-import {moduleMetadata, storiesOf} from '@storybook/angular';
+import { Component } from '@angular/core';
+import { moduleMetadata, storiesOf } from '@storybook/angular';
+import { AnimationService } from '../../../projects/atft/src/lib/animation/animation.service';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {number, withKnobs} from '@storybook/addon-knobs';
-import {Component} from '@angular/core';
-import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
-import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
+import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
+import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
 
 
 @Component({
@@ -61,8 +60,16 @@ class StorybookMeshLineAnimationComponent {
 }
 
 
+const defaultArgs = {
+  translateZ: -10
+};
+
+const defaultArgTypes = {
+  translateZ: { control: { type: 'range', min: -100, max: 100, step: 1 } }
+};
+
+
 storiesOf('Connector', module)
-  .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
       imports: [
@@ -70,25 +77,27 @@ storiesOf('Connector', module)
       ]
     }),
   )
-  .add('mesh-line', () => ({
+  .add('mesh-line', (args) => ({
     component: StorybookMeshLineComponent,
-    props: {
-      translateZ: number('translateZ', -10, {range: true, min: -10, max: 100, step: 1})
-    }
-  }))
-  .add('line', () => ({
+    props: args
+  }), {
+    args: defaultArgs,
+    argTypes: defaultArgTypes
+  })
+  .add('line', (args) => ({
     component: StorybookLineComponent,
-    props: {
-      translateZ: number('translateZ', -10, {range: true, min: -10, max: 100, step: 1})
-    }
-  }))
-  .add('mesh-line-animation', () => ({
+    props: args
+  }), {
+    args: defaultArgs,
+    argTypes: defaultArgTypes
+  })
+  .add('mesh-line-animation', (args) => ({
     component: StorybookMeshLineAnimationComponent,
-    props: {
-      translateZ: number('translateZ', -10, {range: true, min: -10, max: 100, step: 1})
-    }
-  }))
+    props: args
+  }), {
+    args: defaultArgs,
+    argTypes: defaultArgTypes
+  })
 ;
-
 
 

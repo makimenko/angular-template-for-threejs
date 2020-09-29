@@ -5,7 +5,6 @@ import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 
 import markdownNotes from './bug-95.stories.md';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
-import {withKnobs} from '@storybook/addon-knobs';
 
 @Component({
   selector: 'app-storybook-obj-loader',
@@ -25,7 +24,6 @@ class StorybookObjLoaderComponent {
 
 
 storiesOf('Bugs', module)
-  .addDecorator(withKnobs)
   .addDecorator(
     moduleMetadata({
       imports: [
