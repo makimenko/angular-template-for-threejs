@@ -122,29 +122,33 @@ class StorybookPlanePerformanceComponent extends AbstractCameraRotation {
 
 }
 
-
-storiesOf('Performance', module)
-  .addDecorator(
+export default {
+  title: 'Performance',
+  decorators: [
     moduleMetadata({
       imports: [
         AtftModule
       ]
-    }),
-  )
-  .add('connector', () => ({
-    component: StorybookConnectorPerformanceComponent
-  }))
-  .add('mesh', () => ({
-    component: StorybookMeshPerformanceComponent
-  }))
-  .add('plane', () => ({
-    component: StorybookPlanePerformanceComponent
-  }))
-  .add('grid', () => ({
-    component: StorybookGridPerformanceComponent
-  }))
+    })
+  ]
+};
 
-;
+export const Connector = (args) => ({
+  component: StorybookConnectorPerformanceComponent,
+  props: args
+});
 
+export const Mesh = (args) => ({
+  component: StorybookMeshPerformanceComponent,
+  props: args
+});
 
+export const Plane = (args) => ({
+  component: StorybookPlanePerformanceComponent,
+  props: args
+});
 
+export const Grid = (args) => ({
+  component: StorybookGridPerformanceComponent,
+  props: args
+});

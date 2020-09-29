@@ -205,7 +205,6 @@ export default {
   title: 'Animate',
   decorators: [
     moduleMetadata({
-      schemas: [],
       imports: [
         AtftModule
       ]

@@ -17,20 +17,23 @@ import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
   </atft-plane-mesh>
   `)
 })
-class StorybookBoxMeshComponent {
+class StorybookCss3dComponent {
 
 }
 
 
-storiesOf('Renderer', module)
-  .addDecorator(
+export default {
+  title: 'Renderer',
+  decorators: [
     moduleMetadata({
       imports: [
         AtftModule
       ]
-    }),
-  )
-  .add('css3d', () => ({
-    component: StorybookBoxMeshComponent
-  }))
-;
+    })
+  ]
+};
+
+export const Css = (args) => ({
+  component: StorybookCss3dComponent,
+  props: args
+});

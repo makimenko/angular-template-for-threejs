@@ -51,7 +51,6 @@ export default {
   title: 'Loader',
   decorators: [
     moduleMetadata({
-      schemas: [],
       imports: [
         AtftModule
       ]

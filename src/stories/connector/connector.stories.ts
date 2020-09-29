@@ -64,7 +64,6 @@ export default {
   title: 'Connector',
   decorators: [
     moduleMetadata({
-      schemas: [],
       imports: [
         AtftModule
       ]
