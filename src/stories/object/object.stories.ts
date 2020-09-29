@@ -57,7 +57,7 @@ export default {
   }
 };
 
-export const AbstractPorerties = (args) => ({
+export const AbstractProperties = (args) => ({
   component: StorybookObjectComponent,
   props: args
 });
