@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { AtftDataCenterActorModule } from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
+import { moduleMetadata } from '@storybook/angular';
+import { AtftDataCenterActorModule } from '../../../projects/atft/src/lib/actor/data-center';
 import { AnimationService } from '../../../projects/atft/src/lib/animation/animation.service';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
@@ -24,12 +24,11 @@ import { worldSceneWrapper } from '../scene-wrapper/world-scene-wrapper';
 
   <atft-empty>
     <!-- Servers / Nodes: -->
-    <atft-server-compact-actor #ad1 label="Active Directory" translateY="30" [translateX]="-60" svgName="users-solid.svg">
+    <atft-server-compact-actor #ad1 label="Active Directory" translateY="30" [translateX]="-60" [svgName]="svgName">
     </atft-server-compact-actor>
     <atft-server-compact-actor #ad2 label="Active Directory (Replica)" translateY="90" [translateX]="-60" svgName="users-solid.svg">
     </atft-server-compact-actor>
-    <atft-workstation-actor #ws1 label="Client Workstation" [svgName]="svgName"
-       translateY="30" translateX="0"
+    <atft-workstation-actor #ws1 [label]="label" translateY="30" translateX="0"
        videoSrc="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_360p.mp4">
     </atft-workstation-actor>
 
@@ -44,7 +43,7 @@ import { worldSceneWrapper } from '../scene-wrapper/world-scene-wrapper';
     </atft-server-stand-actor>
     <atft-server-stand-actor #fs2 label="Frontend Server 2" translateY="140" [translateX]="40" svgName="grid-world.svg">
     </atft-server-stand-actor>
-    <atft-server-icon-actor label="Application Insights" translateY="140" [translateX]="0" svgName="idea.svg">
+    <atft-server-icon-actor label="Application Insights" translateY="140" [translateX]="0" [svgName]="svgName">
     </atft-server-icon-actor>
 
     <atft-server-stand-actor #bs1 label="Backend Server 1" translateY="190" [translateX]="-40" svgName="server-solid.svg">
@@ -102,14 +101,11 @@ import { worldSceneWrapper } from '../scene-wrapper/world-scene-wrapper';
 })
 class StorybookActorsComponent {
 
-  animationIncrement = -0.002;
+  svgName: string;
+  label: string;
 
   constructor(private animationService: AnimationService) {
     this.animationService.start();
-  }
-
-  rx10Selected() {
-    console.log('RX10 Selected!!!');
   }
 
 }
@@ -144,43 +140,40 @@ class StorybookServerComponent {
   }
 }
 
-
-storiesOf('Actor', module)
-  .addDecorator(
+export default {
+  title: 'Actor',
+  decorators: [
     moduleMetadata({
       imports: [
         AtftModule,
         AtftDataCenterActorModule
-      ],
-      declarations: [
-        StorybookServerComponent,
-        StorybookActorsComponent
       ]
-    }),
-  )
-  .add('actors', () => ({
-    component: StorybookActorsComponent
-  }))
-  .add('server', (args) => ({
-    component: StorybookServerComponent,
-    props: args
-  }), {
-    args: {
-      svgName: 'idea.svg',
-      label: 'Server RX10'
+    })
+  ],
+  args: {
+    svgName: 'idea.svg',
+    label: 'Client Workstation'
+  },
+  argTypes: {
+    svgName: {
+      control: {
+        type: 'select', options: [
+          'idea.svg',
+          'upload.svg',
+          'grid-world.svg'
+        ]
+      }
     },
-    argTypes: {
-      svgName: {
-        control: {
-          type: 'select',
-          options: [
-            'idea.svg',
-            'upload.svg',
-            'grid-world.svg'
-          ]
-        }
-      },
-      label: { control: { type: 'text' } }
-    }
-  })
-;
+    label: 'text'
+  }
+};
+
+export const Actors = (args) => ({
+  component: StorybookActorsComponent,
+  props: args
+});
+
+export const Server = (args) => ({
+  component: StorybookServerComponent,
+  props: args
+});
