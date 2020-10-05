@@ -97,6 +97,8 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
   }
 
   updateLineGeometry(): void {
+    console.log('MeshLineConnectorComponent.updateLineGeometry');
+    this.geometry = this.getLineGeometry();
     // https://github.com/spite/THREE.MeshLine/issues/51#issuecomment-379579926
     this.line.setGeometry(this.geometry);
     this.rendererService.render();
