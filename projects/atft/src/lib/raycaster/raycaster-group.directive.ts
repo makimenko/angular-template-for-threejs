@@ -37,9 +37,11 @@ export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
 
   private unSubscribeEvents() {
     const obj = this.host.getObject();
-    obj.removeEventListener(RaycasterEvent.mouseEnter, this.onMouseEnter);
-    obj.removeEventListener(RaycasterEvent.mouseExit, this.onMouseExit);
-    obj.removeEventListener(RaycasterEvent.mouseDown, this.onMouseDown);
+    if (obj) {
+      obj.removeEventListener(RaycasterEvent.mouseEnter, this.onMouseEnter);
+      obj.removeEventListener(RaycasterEvent.mouseExit, this.onMouseExit);
+      obj.removeEventListener(RaycasterEvent.mouseDown, this.onMouseDown);
+    }
   }
 
   private onMouseExit() {
