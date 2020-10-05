@@ -39,17 +39,19 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   @Output() changed = new EventEmitter<void>();
 
+  @Output() created = new EventEmitter<THREE.Object3D>();
+
   private object: T;
 
   constructor(protected rendererService: RendererService) {
-    // console.log('AbstractObject3D.constructor');
+    // console.log('AbstractObject3D.constructor', this.name);
     this.changed.subscribe(() => {
       this.rendererService.render();
     });
-
   }
 
   public ngOnChanges(changes: SimpleChanges) {
+    // console.log('AbstractObject3D.ngOnChanges', this.name);
     if (!this.object) {
       return;
     }
@@ -72,14 +74,15 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public ngOnDestroy() {
-    // console.log('AbstractObject3D.OnDestroy');
+    // console.log('AbstractObject3D.OnDestroy', this.name);
     if (this.object && this.object.parent) {
       this.object.parent.remove(this.object);
+      this.changed.emit();
     }
   }
 
   public ngAfterViewInit() {
-    // console.log('AbstractObject3D.ngAfterViewInit ' + this.name);
+    // console.log('AbstractObject3D.ngAfterViewInit', this.name);
     this.object = this.newObject3DInstance();
 
     this.applyTranslation();
@@ -91,14 +94,14 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public collectChilds() {
-    // console.log('Collect childs for', this.name);
+    // console.log('collectChilds', this.name);
     if (this.childNodes !== undefined && this.childNodes.length > 1) {
       this.childNodes.filter(i => i !== this && i.getObject() !== undefined).forEach(i => {
-        // console.log('Add childNodes for', this.name, i);
+        // console.log('collectChilds: childNodes found', this.name, i);
         this.addChild(i.getObject());
       });
     } else {
-      // console.log("No child Object3D for: " + this.constructor.label);
+      // console.log('childNodes: No childNodes', this.name);
     }
 
 
@@ -108,11 +111,11 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
           && i.getObject() !== undefined
           && !i.getObject().parent /* direct childs only */
       ).forEach(i => {
-        // console.log('Add viewChilds for', this.name, i);
+        // console.log('collectChilds: viewChilds found', this.name, i);
         this.addChild(i.getObject());
       });
     } else {
-      // console.log("No child Object3D for: " + this.constructor.label);
+      // console.log('childNodes: No viewChilds', this.name);
     }
 
   }
@@ -136,7 +139,10 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public addChild(object: THREE.Object3D): void {
-    this.object.add(object);
+    if (this.object) {
+      this.object.add(object);
+      this.changed.emit();
+    }
   }
 
   protected removeChild(object: THREE.Object3D): void {
@@ -148,10 +154,21 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   protected afterInit() {
+    // console.log('AbstractObject3D.afterInit', this.name);
+    this.created.emit(this.object);
     // this.changed.emit();
   }
 
   protected abstract newObject3DInstance(): T;
+
+  protected ngAfterViewChecked() {
+    // console.log('AbstractObject3D.ngAfterVIewChecked', this.name);
+  }
+
+  protected ngAfterContentInit() {
+    // console.log('AbstractObject3D.ngAfterContentInit', this.name);
+  }
+
 
 
 }
