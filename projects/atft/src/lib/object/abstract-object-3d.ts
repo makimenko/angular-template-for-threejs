@@ -5,10 +5,10 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnDestroy,
+  OnDestroy, Optional,
   Output,
   QueryList,
-  SimpleChanges,
+  SimpleChanges, SkipSelf,
   ViewChildren
 } from '@angular/core';
 import * as THREE from 'three';

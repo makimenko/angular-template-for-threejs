@@ -7,17 +7,14 @@ import { axesSceneWrapper } from './scene-wrapper/axes-scene-wrapper';
 @Component({
   template: axesSceneWrapper(`
       <atft-empty #parent name="emptyObj">
-        <atft-sphere-mesh *ngFor="let x of fakeArray(numObjects)"  [radius]="4" [translateX]="x" name="dynamicObj" (created)="parent.addChild($event)">
-        </atft-sphere-mesh>
+        <div>
+            <atft-sphere-mesh *ngFor="let x of fakeArray(numObjects)" [radius]="4" [translateX]="x" name="dynamicObj" (created)="parent.addChild($event)">
+            </atft-sphere-mesh>
+        </div>
       </atft-empty>
   `)
 })
 class StorybookDynamicComponent {
-
-
-  constructor() {
-    console.log('StorybookDynamicComponent.constructor');
-  }
 
   numObjects: number;
 
@@ -48,11 +45,9 @@ export default {
   argTypes: {
     numObjects: { control: { type: 'range', min: 0, max: 5, step: 1 } }
   }
-}
-;
+};
 
 export const ForLoop = (args) => ({
   component: StorybookDynamicComponent,
-  props: args,
-  title: 'XXXX'
+  props: args
 });
