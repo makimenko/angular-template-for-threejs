@@ -22,7 +22,7 @@ class StorybookDynamicComponent {
     if (length >= 0) {
       const arr = new Array(length);
       for (let i = 0; i < arr.length; i++) {
-        arr[i] = i * 5;
+        arr[i] = i * 10;
       }
       return arr;
     }

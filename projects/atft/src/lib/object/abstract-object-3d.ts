@@ -1,27 +1,21 @@
 import {
   AfterViewInit,
-  ContentChildren,
   Directive,
   EventEmitter,
   Input,
   OnChanges,
   OnDestroy,
+  OnInit,
   Optional,
   Output,
-  QueryList,
   SimpleChanges,
-  SkipSelf,
-  ViewChildren
+  SkipSelf
 } from '@angular/core';
 import * as THREE from 'three';
 import {RendererService} from '../renderer/renderer.service';
 
 @Directive()
-export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit, OnChanges, OnDestroy {
-
-  @ContentChildren(AbstractObject3D, {descendants: false}) childNodes: QueryList<AbstractObject3D<THREE.Object3D>>;
-
-  @ViewChildren(AbstractObject3D) viewChilds: QueryList<AbstractObject3D<THREE.Object3D>>;
+export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit, OnChanges, OnDestroy, OnInit {
 
   /**
    * Rotation in Euler angles (radians) with order X, Y, Z.
@@ -41,8 +35,6 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   @Output() changed = new EventEmitter<void>();
 
-  @Output() created = new EventEmitter<THREE.Object3D>();
-
   private object: T;
 
   constructor(
@@ -50,9 +42,6 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
     // console.log('AbstractObject3D.constructor', this.name);
-    this.changed.subscribe(() => {
-      this.rendererService.render();
-    });
   }
 
   public ngOnChanges(changes: SimpleChanges) {
@@ -82,49 +71,26 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     // console.log('AbstractObject3D.OnDestroy', this.name);
     if (this.object && this.object.parent) {
       this.object.parent.remove(this.object);
-      this.changed.emit();
+      this.rendererService.render();
     }
   }
 
-  public ngAfterViewInit() {
-    // console.log('AbstractObject3D.ngAfterViewInit', this.name);
+  public ngOnInit(): void {
     this.object = this.newObject3DInstance();
 
     this.applyTranslation();
     this.applyRotation();
-
-    this.collectChilds();
+    this.updateParent();
 
     this.afterInit();
   }
 
-  public collectChilds() {
-    // console.log('collectChilds', this.name);
-    if (this.childNodes !== undefined && this.childNodes.length > 1) {
-      this.childNodes.filter(i => i !== this && i.getObject() !== undefined).forEach(i => {
-        // console.log('collectChilds: childNodes found', this.name, i);
-        this.addChild(i.getObject());
-      });
-    } else {
-      // console.log('childNodes: No childNodes', this.name);
+  private updateParent(): void {
+    if (this.parent) {
+      this.parent.addChild(this.object);
+      this.rendererService.render();
     }
-
-
-    if (this.viewChilds !== undefined && this.viewChilds.length > 0) {
-      this.viewChilds.filter(
-        i => i !== this
-          && i.getObject() !== undefined
-          && !i.getObject().parent /* direct childs only */
-      ).forEach(i => {
-        // console.log('collectChilds: viewChilds found', this.name, i);
-        this.addChild(i.getObject());
-      });
-    } else {
-      // console.log('childNodes: No viewChilds', this.name);
-    }
-
   }
-
 
   private applyRotation(): void {
     this.object.rotation.set(
@@ -144,9 +110,11 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public addChild(object: THREE.Object3D): void {
+    // (this.constructor.name + ' addChild ' + object, this.object);
     if (this.object) {
+      // console.log(this.constructor.name + ' add child ' + object);
       this.object.add(object);
-      this.changed.emit();
+      this.rendererService.render();
     }
   }
 
@@ -160,19 +128,13 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   protected afterInit() {
     // console.log('AbstractObject3D.afterInit', this.name);
-    this.created.emit(this.object);
+    // this.created.emit(this.object);
     // this.changed.emit();
   }
 
   protected abstract newObject3DInstance(): T;
 
-  protected ngAfterViewChecked() {
-    // console.log('AbstractObject3D.ngAfterVIewChecked', this.name);
+  ngAfterViewInit(): void {
   }
-
-  protected ngAfterContentInit() {
-    // console.log('AbstractObject3D.ngAfterContentInit', this.name);
-  }
-
 
 }
