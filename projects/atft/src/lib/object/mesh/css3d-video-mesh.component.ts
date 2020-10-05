@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, forwardRef, Input} from '@angular/core';
+import {AfterViewInit, Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {CSS3DObject} from 'three/examples/jsm/renderers/CSS3DRenderer';
 import {AbstractCss3dMesh} from './abstract-css3d-mesh';
@@ -17,9 +17,10 @@ export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterV
   video = document.createElement('video');
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    super(rendererService);
+    super(rendererService, parent);
   }
 
   protected createCss3dObject(): CSS3DObject {

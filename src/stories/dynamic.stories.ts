@@ -6,9 +6,9 @@ import { axesSceneWrapper } from './scene-wrapper/axes-scene-wrapper';
 
 @Component({
   template: axesSceneWrapper(`
-      <atft-empty #parent name="emptyObj">
+      <atft-empty name="emptyObj">
         <div>
-            <atft-sphere-mesh *ngFor="let x of fakeArray(numObjects)" [radius]="4" [translateX]="x" name="dynamicObj" (created)="parent.addChild($event)">
+            <atft-sphere-mesh *ngFor="let x of fakeArray(numObjects)" [radius]="4" [translateX]="x" name="dynamicObj">
             </atft-sphere-mesh>
         </div>
       </atft-empty>

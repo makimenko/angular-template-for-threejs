@@ -5,10 +5,12 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnDestroy, Optional,
+  OnDestroy,
+  Optional,
   Output,
   QueryList,
-  SimpleChanges, SkipSelf,
+  SimpleChanges,
+  SkipSelf,
   ViewChildren
 } from '@angular/core';
 import * as THREE from 'three';
@@ -43,7 +45,10 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   private object: T;
 
-  constructor(protected rendererService: RendererService) {
+  constructor(
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+  ) {
     // console.log('AbstractObject3D.constructor', this.name);
     this.changed.subscribe(() => {
       this.rendererService.render();
@@ -168,7 +173,6 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   protected ngAfterContentInit() {
     // console.log('AbstractObject3D.ngAfterContentInit', this.name);
   }
-
 
 
 }

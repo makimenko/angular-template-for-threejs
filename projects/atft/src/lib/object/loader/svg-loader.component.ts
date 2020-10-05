@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractModelLoader} from './abstract-model-loader';
 import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader';
@@ -47,9 +47,10 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   private loader = new SVGLoader();
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    super(rendererService);
+    super(rendererService, parent);
   }
 
   protected async loadLazyObject() {

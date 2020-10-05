@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractConnector} from './abstract-connector';
@@ -18,8 +18,11 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
   // TODO: move to abstract?
   private geometry: THREE.BufferGeometry;
 
-  constructor(protected rendererService: RendererService) {
-    super(rendererService);
+  constructor(
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+  ) {
+    super(rendererService, parent);
   }
 
   public createConnectorObject(): THREE.Line {

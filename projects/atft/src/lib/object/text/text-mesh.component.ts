@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
@@ -79,9 +79,10 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   centered = true;
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    super(rendererService);
+    super(rendererService, parent);
   }
 
   public getMaterial(): THREE.Material {

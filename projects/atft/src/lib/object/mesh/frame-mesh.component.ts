@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
@@ -21,9 +21,10 @@ export class FrameMeshComponent extends AbstractMesh {
   sizeY = 20;
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    super(rendererService);
+    super(rendererService, parent);
   }
 
   protected newObject3DInstance(): THREE.Mesh {

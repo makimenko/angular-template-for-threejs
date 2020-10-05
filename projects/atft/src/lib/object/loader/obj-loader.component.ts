@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractModelLoader} from './abstract-model-loader';
@@ -40,9 +40,10 @@ export class ObjLoaderComponent extends AbstractModelLoader {
   resourcePath: string;
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    super(rendererService);
+    super(rendererService, parent);
   }
 
   protected async loadLazyObject() {

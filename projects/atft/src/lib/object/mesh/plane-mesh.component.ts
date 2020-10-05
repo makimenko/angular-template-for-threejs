@@ -36,9 +36,10 @@ export class PlaneMeshComponent extends AbstractMesh {
   heightSegments = 1;
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    super(rendererService);
+    super(rendererService, parent);
   }
 
   protected newObject3DInstance(): THREE.Mesh {

@@ -17,10 +17,9 @@ export class SphereMeshComponent extends AbstractMesh {
 
   constructor(
     protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent?: AbstractObject3D<any>
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    super(rendererService);
-    console.log('parent', parent);
+    super(rendererService, parent);
   }
 
   protected newObject3DInstance(): THREE.Mesh {
