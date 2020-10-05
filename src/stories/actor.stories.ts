@@ -75,8 +75,8 @@ import {worldSceneWrapper} from './scene-wrapper/world-scene-wrapper';
       <atft-mesh-line-connector [source]="lb" [target]="fs1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
           [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
-      <atft-mesh-line-connector [source]="lb" [target]="fs2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
+      <atft-mesh-line-connector [source]="lb" [target]="fs2" materialColor="0xff1111" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.0005">
       </atft-mesh-line-connector>
 
 
@@ -103,6 +103,8 @@ class StorybookActorsComponent {
 
   svgName: string;
   label: string;
+
+  animationIncrement = -0.002;
 
   constructor(private animationService: AnimationService) {
     this.animationService.start();
