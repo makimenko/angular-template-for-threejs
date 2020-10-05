@@ -174,7 +174,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -201,6 +201,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/RendererService.html" target="_self" >RendererService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>parent</td>
+                                                  
+                                                        <td>
+                                                                    <code>AbstractObject3D&lt;any&gt;</code>
                                                         </td>
                                                   
                                                     <td>
@@ -371,8 +383,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">projects/atft/src/lib/object/mesh/torus-mesh.component.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">projects/atft/src/lib/object/mesh/torus-mesh.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -394,7 +406,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
 import {AbstractMesh} from &#x27;./abstract-mesh-3d&#x27;;
 import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
@@ -428,9 +440,10 @@ export class TorusMeshComponent extends AbstractMesh {
   arc: number &#x3D; Math.PI * 2;
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D&lt;any&gt;
   ) {
-    super(rendererService);
+    super(rendererService, parent);
   }
 
   protected newObject3DInstance(): THREE.Mesh {

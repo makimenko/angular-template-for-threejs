@@ -174,12 +174,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -201,6 +201,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/RendererService.html" target="_self" >RendererService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>parent</td>
+                                                  
+                                                        <td>
+                                                                    <code>AbstractObject3D&lt;any&gt;</code>
                                                         </td>
                                                   
                                                     <td>
@@ -234,7 +246,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:15</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -254,7 +266,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:16</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -274,7 +286,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:17</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -294,7 +306,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:19</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -314,7 +326,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:18</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -352,8 +364,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:30</a></div>
                 </td>
             </tr>
 
@@ -375,11 +387,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
 import {AbstractObject3D} from &#x27;./abstract-object-3d&#x27;;
 import {appliedColor} from &#x27;../util/applied-color&#x27;;
 import {RendererService} from &#x27;../renderer/renderer.service&#x27;;
+import {AnimationService} from &#x27;../animation&#x27;;
 
 @Component({
   selector: &#x27;atft-scene&#x27;,
@@ -395,9 +408,10 @@ export class SceneComponent extends AbstractObject3D&lt;THREE.Scene&gt; {
   @Input() fogFar &#x3D; 500;
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D&lt;any&gt;
   ) {
-    super(rendererService);
+    super(rendererService, parent);
     // TODO: directive?
     rendererService.setScene(this);
   }

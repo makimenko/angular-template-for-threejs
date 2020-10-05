@@ -212,7 +212,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(animationService: <a href="../injectables/AnimationService.html">AnimationService</a>, rendererService: <a href="../injectables/RendererService.html">RendererService</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>, animationService: <a href="../injectables/AnimationService.html">AnimationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -235,10 +235,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>animationService</td>
+                                                        <td>rendererService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AnimationService.html" target="_self" >AnimationService</a></code>
+                                                                        <code><a href="../injectables/RendererService.html" target="_self" >RendererService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -247,10 +247,22 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>rendererService</td>
+                                                        <td>parent</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/RendererService.html" target="_self" >RendererService</a></code>
+                                                                    <code>AbstractObject3D&lt;any&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>animationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AnimationService.html" target="_self" >AnimationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -462,8 +474,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/mesh-line-connector.component.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">projects/atft/src/lib/object/connector/mesh-line-connector.component.ts:95</a></div>
                 </td>
             </tr>
 
@@ -501,8 +513,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/mesh-line-connector.component.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">projects/atft/src/lib/object/connector/mesh-line-connector.component.ts:53</a></div>
                 </td>
             </tr>
 
@@ -540,8 +552,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/mesh-line-connector.component.ts:98</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">projects/atft/src/lib/object/connector/mesh-line-connector.component.ts:99</a></div>
                 </td>
             </tr>
 
@@ -653,7 +665,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
 import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
 import {MeshLine, MeshLineMaterial} from &#x27;three.meshline&#x27;;
@@ -698,10 +710,11 @@ export class MeshLineConnectorComponent extends AbstractConnector&lt;THREE.Mesh&
 
 
   constructor(
-    protected animationService: AnimationService,
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D&lt;any&gt;,
+    protected animationService: AnimationService
   ) {
-    super(rendererService);
+    super(rendererService, parent);
   }
 
   createConnectorObject(): THREE.Mesh {
@@ -751,6 +764,8 @@ export class MeshLineConnectorComponent extends AbstractConnector&lt;THREE.Mesh&
   }
 
   updateLineGeometry(): void {
+    // console.log(&#x27;MeshLineConnectorComponent.updateLineGeometry&#x27;);
+    this.geometry &#x3D; this.getLineGeometry();
     // https://github.com/spite/THREE.MeshLine/issues/51#issuecomment-379579926
     this.line.setGeometry(this.geometry);
     this.rendererService.render();

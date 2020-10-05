@@ -183,7 +183,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -210,6 +210,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/RendererService.html" target="_self" >RendererService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>parent</td>
+                                                  
+                                                        <td>
+                                                                    <code>AbstractObject3D&lt;any&gt;</code>
                                                         </td>
                                                   
                                                     <td>
@@ -421,8 +433,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">projects/atft/src/lib/object/mesh/cylinder-mesh.component.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">projects/atft/src/lib/object/mesh/cylinder-mesh.component.ts:39</a></div>
                 </td>
             </tr>
 
@@ -444,7 +456,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
 import {AbstractMesh} from &#x27;./abstract-mesh-3d&#x27;;
 import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
@@ -475,9 +487,10 @@ export class CylinderMeshComponent extends AbstractMesh {
   thetaLength &#x3D; 2 * Math.PI;
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D&lt;any&gt;
   ) {
-    super(rendererService);
+    super(rendererService, parent);
     // console.log(&#x27;CylinderMeshComponent.constructor&#x27;);
   }
 
