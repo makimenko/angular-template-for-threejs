@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {moduleMetadata} from '@storybook/angular';
-import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
-import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
+import {AtftDataCenterActorModule} from '../../projects/atft/src/lib/actor/data-center';
+import {AnimationService} from '../../projects/atft/src/lib/animation/animation.service';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
+import {AtftModule} from '../../projects/atft/src/lib/atft.module';
+import {worldSceneWrapper} from './scene-wrapper/world-scene-wrapper';
 
 
 @Component({
@@ -75,8 +75,8 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
       <atft-mesh-line-connector [source]="lb" [target]="fs1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
           [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
       </atft-mesh-line-connector>
-      <atft-mesh-line-connector [source]="lb" [target]="fs2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
+      <atft-mesh-line-connector [source]="lb" [target]="fs2" materialColor="0xff1111" [lineWidth]="1" translateZ="1"
+          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.0005">
       </atft-mesh-line-connector>
 
 
@@ -103,6 +103,8 @@ class StorybookActorsComponent {
 
   svgName: string;
   label: string;
+
+  animationIncrement = -0.002;
 
   constructor(private animationService: AnimationService) {
     this.animationService.start();

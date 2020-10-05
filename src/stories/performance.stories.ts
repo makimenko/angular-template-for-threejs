@@ -1,10 +1,10 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
+import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 import {Component, ViewChild} from '@angular/core';
-import {performanceSceneWrapper} from '../scene-wrapper/performance-scene-wrapper';
-import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
-import {PerspectiveCameraComponent} from '../../../projects/atft/src/lib/camera';
+import {performanceSceneWrapper} from './scene-wrapper/performance-scene-wrapper';
+import {AnimationService} from '../../projects/atft/src/lib/animation/animation.service';
+import {PerspectiveCameraComponent} from '../../projects/atft/src/lib/camera';
 import * as THREE from 'three';
 
 

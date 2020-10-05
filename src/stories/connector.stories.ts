@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
-import { AnimationService } from '../../../projects/atft/src/lib/animation/animation.service';
+import { AnimationService } from '../../projects/atft/src/lib/animation/animation.service';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
-import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
+import { AtftModule } from '../../projects/atft/src/lib/atft.module';
+import { axesSceneWrapper } from './scene-wrapper/axes-scene-wrapper';
 
 
 @Component({

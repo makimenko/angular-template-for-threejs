@@ -1,14 +1,14 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
+import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 import {AfterViewInit, Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
-import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh/box-mesh.component';
-import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
+import {axesSceneWrapper} from './scene-wrapper/axes-scene-wrapper';
+import {BoxMeshComponent} from '../../projects/atft/src/lib/object/mesh/box-mesh.component';
+import {AnimationService} from '../../projects/atft/src/lib/animation/animation.service';
 import * as THREE from 'three';
-import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
-import {AbstractObject3D} from '../../../projects/atft/src/lib/object/abstract-object-3d';
-import {performanceSceneWrapper} from '../scene-wrapper/performance-scene-wrapper';
+import {worldSceneWrapper} from './scene-wrapper/world-scene-wrapper';
+import {AbstractObject3D} from '../../projects/atft/src/lib/object/abstract-object-3d';
+import {performanceSceneWrapper} from './scene-wrapper/performance-scene-wrapper';
 
 
 @Component({

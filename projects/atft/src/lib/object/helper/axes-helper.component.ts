@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {RendererService} from '../../renderer/renderer.service';
@@ -13,9 +13,10 @@ export class AxesHelperComponent extends AbstractObject3D<THREE.AxesHelper> {
   @Input() size: number;
 
   constructor(
-    protected rendererService: RendererService
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    super(rendererService);
+    super(rendererService, parent);
   }
 
   protected newObject3DInstance(): THREE.AxesHelper {

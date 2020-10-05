@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractConnector} from './abstract-connector';
@@ -18,8 +18,13 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
   // TODO: move to abstract?
   private geometry: THREE.BufferGeometry;
 
-  constructor(protected rendererService: RendererService) {
-    super(rendererService);
+  private line: THREE.Line;
+
+  constructor(
+    protected rendererService: RendererService,
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+  ) {
+    super(rendererService, parent);
   }
 
   public createConnectorObject(): THREE.Line {
@@ -35,13 +40,14 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
       linewidth: 1
     });
 
-    const line = new THREE.Line(this.geometry, material);
+    this.line = new THREE.Line(this.geometry, material);
 
-    return line;
+    return this.line;
   }
 
   updateLineGeometry(): void {
-    // this.geometry.verticesNeedUpdate = true;
+    this.geometry = this.getLineGeometry();
+    this.line.geometry = this.geometry;
     this.rendererService.render();
   }
 
