@@ -9,7 +9,7 @@ import { AbstractServerActor } from './abstract-server-actor';
     <atft-empty name="server-box">
 
       <!-- TODO: template? -->
-      <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">
+      <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (click)="onClick()">
         <atft-box-mesh height="10" width="10" depth="0.5" material="phong" [materialColor]="color" [translateZ]="0.5">
         </atft-box-mesh>
         <atft-box-mesh height="12.25" width="21" depth="1" [materialColor]="color" material="phong"

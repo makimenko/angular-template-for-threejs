@@ -48,7 +48,7 @@ describe('raycaster', () => {
     }));
 
 
-    it('mouseEnter and mouseDown (skip)', () => {
+    it('mouseEnter and click (skip)', () => {
       const raycaster = new RaycasterService();
       raycaster.setCamera(camera);
 
@@ -68,8 +68,8 @@ describe('raycaster', () => {
       boxFixture.detectChanges();
       cameraFixture.detectChanges();
 
-      window.dispatchEvent(new MouseEvent('mousedown', {clientX: 0, clientY: 0}));
-      expect(box.getObject().dispatchEvent).toHaveBeenCalledWith({type: 'mouseDown'});
+      window.dispatchEvent(new MouseEvent('click', {clientX: 0, clientY: 0}));
+      expect(box.getObject().dispatchEvent).toHaveBeenCalledWith({type: 'click'});
       boxFixture.detectChanges();
       cameraFixture.detectChanges();
       */

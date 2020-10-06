@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -16,4 +16,15 @@ export class AppComponent {
 
   public cameraPositionX = 20.0;
 
+  public mouseEnter() {
+    console.log('mouseEnter');
+  }
+
+  public click() {
+    console.log('click');
+  }
+
+  public mouseExit() {
+    console.log('mouseExit');
+  }
 }

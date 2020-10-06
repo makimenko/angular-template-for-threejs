@@ -18,7 +18,7 @@ export class RaycasterService implements OnDestroy {
 
   constructor() {
     this.onMouseMove = this.onMouseMove.bind(this);
-    this.onMouseDown = this.onMouseDown.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.onTouchStart = this.onTouchStart.bind(this);
     this.subscribe();
   }
@@ -30,14 +30,14 @@ export class RaycasterService implements OnDestroy {
 
   private subscribe() {
     window.addEventListener('mousemove', this.onMouseMove);
-    window.addEventListener('mousedown', this.onMouseDown);
+    window.addEventListener('click', this.onClick);
     window.addEventListener('touchstart', this.onTouchStart);
   }
 
   private unsubscribe() {
     // console.log('unsubscribe raycaster');
     window.removeEventListener('mousemove', this.onMouseMove);
-    window.removeEventListener('mousedown', this.onMouseDown);
+    window.removeEventListener('click', this.onClick);
     window.removeEventListener('touchstart', this.onTouchStart);
   }
 
@@ -91,14 +91,14 @@ export class RaycasterService implements OnDestroy {
 
   }
 
-  private onMouseDown(event) {
+  private onClick(event) {
     if (!this.isReady(true)) {
       return;
     }
     event.preventDefault();
     const i = this.getFirstIntersectedGroup(event.layerX, event.layerY);
     if (i) {
-      i.dispatchEvent({type: 'mouseDown'});
+      i.dispatchEvent({type: RaycasterEvent.click});
     }
   }
 
@@ -111,7 +111,7 @@ export class RaycasterService implements OnDestroy {
     event.preventDefault();
     const i = this.getFirstIntersectedGroup(event.touches[0].clientX, event.touches[0].clientY);
     if (i) {
-      i.dispatchEvent({type: 'mouseDown'});
+      i.dispatchEvent({type: RaycasterEvent.click});
     }
   }
 
