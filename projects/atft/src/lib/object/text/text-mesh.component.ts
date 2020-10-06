@@ -1,14 +1,14 @@
-import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
+import { Component, Input, Optional, SkipSelf } from '@angular/core';
 import * as THREE from 'three';
-import {AbstractObject3D} from '../abstract-object-3d';
-import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
-import {appliedMaterial} from '../../util';
-import {fixCenter} from '../../util/fix-center';
-import {RendererService} from '../../renderer/renderer.service';
+import { RendererService } from '../../renderer/renderer.service';
+import { appliedMaterial, provideParent } from '../../util';
+import { fixCenter } from '../../util/fix-center';
+import { AbstractLazyObject3D } from '../abstract-lazy-object-3d';
+import { AbstractObject3D } from '../abstract-object-3d';
 
 @Component({
   selector: 'atft-text-mesh',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => TextMeshComponent)}],
+  providers: [provideParent(TextMeshComponent)],
   template: '<ng-content></ng-content>'
 })
 export class TextMeshComponent extends AbstractLazyObject3D {
@@ -24,6 +24,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
     this._materialColor = materialColor;
     this.startLoading();
   }
+
   get materialColor() {
     return this._materialColor;
   }
@@ -34,6 +35,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
     this._text = text;
     this.startLoading();
   }
+
   get text() {
     return this._text;
   }

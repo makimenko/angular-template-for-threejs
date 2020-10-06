@@ -5,11 +5,12 @@ import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 import {EmptyComponent} from '../../projects/atft/src/lib/object/helper';
 import {AbstractObject3D} from '../../projects/atft/src/lib/object/abstract-object-3d';
 import {RendererService} from '../../projects/atft/src/lib/renderer';
+import { provideParent } from '../../projects/atft/src/lib/util';
 
 
 @Component({
   selector: 'app-storybook-wrapper',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookWrapperComponent)}],
+  providers: [provideParent(StorybookWrapperComponent)],
   template: `
       <atft-orbit-controls rotateSpeed=1 zoomSpeed=1.2>
           <atft-renderer-canvas>
@@ -40,7 +41,7 @@ class StorybookWrapperComponent  extends EmptyComponent {
 
 @Component({
   selector: 'app-storybook-embedded',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => StorybookEmbeddedComponent)}],
+  providers: [provideParent(StorybookEmbeddedComponent)],
   template: `
       <app-storybook-wrapper>
           <atft-cylinder-mesh [radiusTop]="2" [radiusBottom]="3" [height]="10" [radialSegments]="36" [heightSegments]="1"

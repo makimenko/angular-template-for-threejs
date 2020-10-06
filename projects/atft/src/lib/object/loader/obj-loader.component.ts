@@ -1,10 +1,11 @@
-import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
+import { Component, Input, Optional, SkipSelf } from '@angular/core';
 import * as THREE from 'three';
-import {AbstractObject3D} from '../abstract-object-3d';
-import {AbstractModelLoader} from './abstract-model-loader';
-import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader';
-import {MTLLoader} from 'three/examples/jsm/loaders/MTLLoader';
-import {RendererService} from '../../renderer/renderer.service';
+import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { RendererService } from '../../renderer/renderer.service';
+import { provideParent } from '../../util';
+import { AbstractObject3D } from '../abstract-object-3d';
+import { AbstractModelLoader } from './abstract-model-loader';
 
 /**
  * Component for employing THREE.OBJLoader to load [Wavefront *.obj files][1].
@@ -13,7 +14,7 @@ import {RendererService} from '../../renderer/renderer.service';
  */
 @Component({
   selector: 'atft-obj-loader',
-  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjLoaderComponent) }],
+  providers: [provideParent(ObjLoaderComponent)],
   template: '<ng-content></ng-content>'
 })
 export class ObjLoaderComponent extends AbstractModelLoader {

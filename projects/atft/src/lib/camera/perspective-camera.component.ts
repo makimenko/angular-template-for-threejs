@@ -1,11 +1,12 @@
-import {Component, forwardRef, Input} from '@angular/core';
-import {AbstractCamera} from './abstract-camera';
+import { Component, Input } from '@angular/core';
 import * as THREE from 'three';
-import {RendererService} from '../renderer/renderer.service';
+import { RendererService } from '../renderer/renderer.service';
+import { provideParent } from '../util';
+import { AbstractCamera } from './abstract-camera';
 
 @Component({
   selector: 'atft-perspective-camera',
-  providers: [{provide: AbstractCamera, useExisting: forwardRef(() => PerspectiveCameraComponent)}],
+  providers: [provideParent(PerspectiveCameraComponent, AbstractCamera)],
   template: '<ng-content></ng-content>'
 })
 export class PerspectiveCameraComponent extends AbstractCamera<THREE.PerspectiveCamera> {

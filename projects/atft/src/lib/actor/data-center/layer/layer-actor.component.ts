@@ -1,18 +1,18 @@
-import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
-import {AbstractObject3D} from '../../../object/abstract-object-3d';
-import {EmptyComponent} from '../../../object/helper';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { EmptyComponent } from '../../../object/helper';
+import { provideParent } from '../../../util';
 
 
 @Component({
   selector: 'atft-layer-actor',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => LayerActorComponent)}],
+  providers: [provideParent(LayerActorComponent)],
   template: `
-      <atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"
-                       (mouseExit)="onDeselected()">
-          <atft-text-mesh [centered]="true" [text]="name" size="5" [translateX]="translateLabelX" [rotateZ]="(90 | deg2rad)"
-                          materialColor="0xE0E0E0">
-          </atft-text-mesh>
-      </atft-plane-mesh>
+    <atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"
+                     (mouseExit)="onDeselected()">
+      <atft-text-mesh [centered]="true" [text]="name" size="5" [translateX]="translateLabelX" [rotateZ]="(90 | deg2rad)"
+                      materialColor="0xE0E0E0">
+      </atft-text-mesh>
+    </atft-plane-mesh>
   `
 })
 export class LayerActorComponent extends EmptyComponent {

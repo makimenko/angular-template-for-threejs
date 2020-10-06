@@ -1,12 +1,13 @@
-import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
+import { Component, Input, Optional, SkipSelf } from '@angular/core';
 import * as THREE from 'three';
-import {AbstractObject3D} from '../abstract-object-3d';
-import {appliedColor} from '../../util/applied-color';
-import {RendererService} from '../../renderer/renderer.service';
+import { RendererService } from '../../renderer/renderer.service';
+import { provideParent } from '../../util';
+import { appliedColor } from '../../util/applied-color';
+import { AbstractObject3D } from '../abstract-object-3d';
 
 @Component({
   selector: 'atft-hemisphere-light',
-  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => HemisphereLightComponent) }],
+  providers: [provideParent(HemisphereLightComponent)],
   template: '<ng-content></ng-content>'
 })
 export class HemisphereLightComponent extends AbstractObject3D<THREE.HemisphereLight> {

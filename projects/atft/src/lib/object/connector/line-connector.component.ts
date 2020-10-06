@@ -1,13 +1,14 @@
-import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
+import { Component, Input, Optional, SkipSelf } from '@angular/core';
 import * as THREE from 'three';
-import {AbstractObject3D} from '../abstract-object-3d';
-import {AbstractConnector} from './abstract-connector';
-import {appliedColor} from '../../util/applied-color';
-import {RendererService} from '../../renderer/renderer.service';
+import { RendererService } from '../../renderer/renderer.service';
+import { provideParent } from '../../util';
+import { appliedColor } from '../../util/applied-color';
+import { AbstractObject3D } from '../abstract-object-3d';
+import { AbstractConnector } from './abstract-connector';
 
 @Component({
   selector: 'atft-line-connector',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => LineConnectorComponent)}],
+  providers: [provideParent(LineConnectorComponent)],
   template: '<ng-content></ng-content>'
 })
 export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
