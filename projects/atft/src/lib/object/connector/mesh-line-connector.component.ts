@@ -1,5 +1,6 @@
 import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
+import { provideParent } from '../../util';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {MeshLine, MeshLineMaterial} from 'three.meshline';
 import {AbstractConnector} from './abstract-connector';
@@ -9,7 +10,7 @@ import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-mesh-line-connector',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => MeshLineConnectorComponent)}],
+  providers: [provideParent(MeshLineConnectorComponent)],
   template: '<ng-content></ng-content>'
 })
 export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {

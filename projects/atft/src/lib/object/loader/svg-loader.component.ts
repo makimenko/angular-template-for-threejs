@@ -1,17 +1,17 @@
-import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
-import {AbstractObject3D} from '../abstract-object-3d';
-import {AbstractModelLoader} from './abstract-model-loader';
-import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader';
+import { Component, Input, Optional, SkipSelf } from '@angular/core';
 
 import * as THREE from 'three';
-import {appliedColor, appliedMaterial} from '../../util';
-import {fixCenter} from '../../util/fix-center';
-import {scaleToFit} from '../../util/scale-to-fit';
-import {RendererService} from '../../renderer/renderer.service';
+import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader';
+import { RendererService } from '../../renderer/renderer.service';
+import { appliedColor, appliedMaterial, provideParent } from '../../util';
+import { fixCenter } from '../../util/fix-center';
+import { scaleToFit } from '../../util/scale-to-fit';
+import { AbstractObject3D } from '../abstract-object-3d';
+import { AbstractModelLoader } from './abstract-model-loader';
 
 @Component({
   selector: 'atft-svg-loader',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => SVGLoaderComponent)}],
+  providers: [provideParent(SVGLoaderComponent)],
   template: '<ng-content></ng-content>'
 })
 export class SVGLoaderComponent extends AbstractModelLoader {

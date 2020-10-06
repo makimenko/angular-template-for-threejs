@@ -1,13 +1,14 @@
-import {Component, forwardRef, Optional, SkipSelf} from '@angular/core';
-import {AbstractObject3D} from '../abstract-object-3d';
-import {AbstractModelLoader} from './abstract-model-loader';
+import { Component, Optional, SkipSelf } from '@angular/core';
 
 import * as THREE from 'three';
-import {RendererService} from '../../renderer/renderer.service';
+import { RendererService } from '../../renderer/renderer.service';
+import { provideParent } from '../../util';
+import { AbstractObject3D } from '../abstract-object-3d';
+import { AbstractModelLoader } from './abstract-model-loader';
 
 @Component({
   selector: 'atft-object-loader',
-  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() => ObjectLoaderComponent) }],
+  providers: [provideParent(ObjectLoaderComponent)],
   template: '<ng-content></ng-content>'
 })
 export class ObjectLoaderComponent extends AbstractModelLoader {

@@ -12,7 +12,7 @@ export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
 
   @Output() mouseEnter = new EventEmitter<void | AbstractObject3D<any>>();
   @Output() mouseExit = new EventEmitter<void | AbstractObject3D<any>>();
-  @Output() mouseDown = new EventEmitter<void | AbstractObject3D<any>>();
+  @Output() click = new EventEmitter<void | AbstractObject3D<any>>();
 
   constructor(
     private host: AbstractObject3D<any>,
@@ -20,7 +20,7 @@ export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
   ) {
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseExit = this.onMouseExit.bind(this);
-    this.onMouseDown = this.onMouseDown.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   ngAfterViewInit(): void {
@@ -32,7 +32,7 @@ export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
     const obj = this.host.getObject();
     obj.addEventListener(RaycasterEvent.mouseEnter, this.onMouseEnter);
     obj.addEventListener(RaycasterEvent.mouseExit, this.onMouseExit);
-    obj.addEventListener(RaycasterEvent.mouseDown, this.onMouseDown);
+    obj.addEventListener(RaycasterEvent.click, this.onClick);
   }
 
   private unSubscribeEvents() {
@@ -40,7 +40,7 @@ export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
     if (obj) {
       obj.removeEventListener(RaycasterEvent.mouseEnter, this.onMouseEnter);
       obj.removeEventListener(RaycasterEvent.mouseExit, this.onMouseExit);
-      obj.removeEventListener(RaycasterEvent.mouseDown, this.onMouseDown);
+      obj.removeEventListener(RaycasterEvent.click, this.onClick);
     }
   }
 
@@ -52,8 +52,8 @@ export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
     this.mouseEnter.emit(this.host);
   }
 
-  private onMouseDown() {
-    this.mouseDown.emit(this.host);
+  private onClick() {
+    this.click.emit(this.host);
   }
 
   ngOnDestroy(): void {

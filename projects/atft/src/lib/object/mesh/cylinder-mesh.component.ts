@@ -1,12 +1,13 @@
 import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
+import { provideParent } from '../../util';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {RendererService} from '../../renderer/renderer.service';
 
 @Component({
   selector: 'atft-cylinder-mesh',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => CylinderMeshComponent)}],
+  providers: [provideParent(CylinderMeshComponent)],
   template: '<ng-content></ng-content>'
 })
 export class CylinderMeshComponent extends AbstractMesh {

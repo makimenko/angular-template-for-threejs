@@ -1,12 +1,13 @@
-import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
+import { Component, Input, Optional, SkipSelf } from '@angular/core';
 import * as THREE from 'three';
-import {AbstractMesh} from './abstract-mesh-3d';
-import {AbstractObject3D} from '../abstract-object-3d';
-import {RendererService} from '../../renderer/renderer.service';
+import { RendererService } from '../../renderer/renderer.service';
+import { provideParent } from '../../util';
+import { AbstractObject3D } from '../abstract-object-3d';
+import { AbstractMesh } from './abstract-mesh-3d';
 
 @Component({
   selector: 'atft-grid-mesh',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => GridMeshComponent)}],
+  providers: [provideParent(GridMeshComponent)],
   template: '<ng-content></ng-content>'
 })
 export class GridMeshComponent extends AbstractMesh {

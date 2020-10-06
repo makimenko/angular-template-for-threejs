@@ -1,12 +1,13 @@
-import {AfterViewInit, Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
-import {AbstractObject3D} from '../abstract-object-3d';
-import {CSS3DObject} from 'three/examples/jsm/renderers/CSS3DRenderer';
-import {AbstractCss3dMesh} from './abstract-css3d-mesh';
-import {RendererService} from '../../renderer/renderer.service';
+import { AfterViewInit, Component, Input, Optional, SkipSelf } from '@angular/core';
+import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer';
+import { RendererService } from '../../renderer/renderer.service';
+import { provideParent } from '../../util';
+import { AbstractObject3D } from '../abstract-object-3d';
+import { AbstractCss3dMesh } from './abstract-css3d-mesh';
 
 @Component({
   selector: 'atft-css3d-video-mesh',
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() => Css3dVideoMeshComponent)}],
+  providers: [provideParent(Css3dVideoMeshComponent)],
   template: '<ng-content></ng-content>'
 })
 export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterViewInit {
