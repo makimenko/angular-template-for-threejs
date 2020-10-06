@@ -22,15 +22,17 @@ class StorybookRaycasterGroupComponent {
   color = 0x00ff00;
 
   mouseEnter() {
-    // console.log('StorybookRaycasterGroupComponent.mouseEnter');
+    console.log('mouseEnter');
     this.color = 0x0000ff;
   }
 
   mouseExit() {
+    console.log('mouseExit');
     this.color = 0x00ff00;
   }
 
   mouseDown() {
+    console.log('mouseDown');
     this.color = 0xFF0000;
   }
 

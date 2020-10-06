@@ -47,7 +47,6 @@
     "@storybook/addons": "^6.0.22",
     "@storybook/angular": "^6.0.22",
     "@storybook/addon-essentials": "^6.0.22",
-    "@storybook/addon-options": "^6.0.0-alpha.29",
     "@types/jasmine": "^3.5.14",
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "^13.13.19",
