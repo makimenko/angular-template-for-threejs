@@ -84,7 +84,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/GridHelperComponent.html" target="_self" >{ provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; GridHelperComponent) }</a></code>
+                                <code><a href="../components/GridHelperComponent.html" target="_self" >provideParent(GridHelperComponent)</a></code>
                 </td>
             </tr>
 
@@ -170,7 +170,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/object/helper/grid-helper.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/helper/grid-helper.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -238,7 +238,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/object/helper/grid-helper.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/helper/grid-helper.component.ts:15</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -259,7 +259,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/atft/src/lib/object/helper/grid-helper.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/object/helper/grid-helper.component.ts:14</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -297,8 +297,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">projects/atft/src/lib/object/helper/grid-helper.component.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">projects/atft/src/lib/object/helper/grid-helper.component.ts:24</a></div>
                 </td>
             </tr>
 
@@ -320,14 +320,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
-import {RendererService} from &#x27;../../renderer/renderer.service&#x27;;
+import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
+import { provideParent } from &#x27;../../util&#x27;;
+import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
 
 @Component({
   selector: &#x27;atft-grid-helper&#x27;,
-  providers: [{ provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; GridHelperComponent) }],
+  providers: [provideParent(GridHelperComponent)],
   template: &#x27;&lt;ng-content&gt;&lt;/ng-content&gt;&#x27;
 })
 export class GridHelperComponent extends AbstractObject3D&lt;THREE.AxesHelper&gt; {

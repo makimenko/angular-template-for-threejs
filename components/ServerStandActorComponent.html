@@ -84,7 +84,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/ServerStandActorComponent.html" target="_self" >{ provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; ServerStandActorComponent) }</a></code>
+                                <code><a href="../components/ServerStandActorComponent.html" target="_self" >provideParent(ServerStandActorComponent)</a></code>
                 </td>
             </tr>
 
@@ -100,23 +100,23 @@
                 <td class="col-md-3">template</td>
                 <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;atft-empty name&#x3D;&quot;server-box&quot;&gt;
 
-    &lt;!-- TODO: template? --&gt;
-    &lt;atft-empty atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;&gt;
-        &lt;atft-box-mesh height&#x3D;&quot;10&quot; width&#x3D;&quot;10&quot; depth&#x3D;&quot;14&quot; material&#x3D;&quot;phong&quot; [materialColor]&#x3D;&quot;color&quot; [translateZ]&#x3D;&quot;7&quot;
-                       atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;&gt;
-            &lt;atft-svg-loader *ngIf&#x3D;&quot;svgName&quot; [model]&#x3D;&quot;(&#x27;./assets/svg/&#x27;+svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
-                             material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;8&quot; maxY&#x3D;&quot;8&quot; [translateZ]&#x3D;&quot;0&quot;
-                             translateY&#x3D;&quot;-5.1&quot; [rotateX]&#x3D;&quot;(90 | deg2rad)&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot; [rotateY]&#x3D;&quot;(180 | deg2rad)&quot;&gt;
-            &lt;/atft-svg-loader&gt;
-        &lt;/atft-box-mesh&gt;
-    &lt;/atft-empty&gt;
+  &lt;!-- TODO: template? --&gt;
+  &lt;atft-empty atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (click)&#x3D;&quot;onClick()&quot;&gt;
+    &lt;atft-box-mesh height&#x3D;&quot;10&quot; width&#x3D;&quot;10&quot; depth&#x3D;&quot;14&quot; material&#x3D;&quot;phong&quot; [materialColor]&#x3D;&quot;color&quot; [translateZ]&#x3D;&quot;7&quot;
+                   atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (click)&#x3D;&quot;onClick()&quot;&gt;
+      &lt;atft-svg-loader *ngIf&#x3D;&quot;svgName&quot; [model]&#x3D;&quot;(&#x27;./assets/svg/&#x27;+svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
+                       material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;8&quot; maxY&#x3D;&quot;8&quot; [translateZ]&#x3D;&quot;0&quot;
+                       translateY&#x3D;&quot;-5.1&quot; [rotateX]&#x3D;&quot;(90 | deg2rad)&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot; [rotateY]&#x3D;&quot;(180 | deg2rad)&quot;&gt;
+      &lt;/atft-svg-loader&gt;
+    &lt;/atft-box-mesh&gt;
+  &lt;/atft-empty&gt;
 
-    &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot;
-                    material&#x3D;&quot;basic&quot; materialColor&#x3D;&quot;0xDADADA&quot; [translateY]&#x3D;&quot;-11&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
-    &lt;/atft-text-mesh&gt;
-    &lt;atft-frame-mesh *ngIf&#x3D;&quot;showFrame&quot; [thickness]&#x3D;&quot;1&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.1&quot; material&#x3D;&quot;basic&quot;
-                     [materialColor]&#x3D;&quot;color&quot;&gt;
-    &lt;/atft-frame-mesh&gt;
+  &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot;
+                  material&#x3D;&quot;basic&quot; materialColor&#x3D;&quot;0xDADADA&quot; [translateY]&#x3D;&quot;-11&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
+  &lt;/atft-text-mesh&gt;
+  &lt;atft-frame-mesh *ngIf&#x3D;&quot;showFrame&quot; [thickness]&#x3D;&quot;1&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.1&quot; material&#x3D;&quot;basic&quot;
+                   [materialColor]&#x3D;&quot;color&quot;&gt;
+  &lt;/atft-frame-mesh&gt;
 &lt;/atft-empty&gt;
 </code></pre></td>
             </tr>
@@ -580,7 +580,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:20</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/EmptyComponent.html#source" target="_self" >EmptyComponent:21</a></code>
 </div>
                 </td>
             </tr>
@@ -648,34 +648,34 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef} from &#x27;@angular/core&#x27;;
-import {AbstractObject3D} from &#x27;../../../object/abstract-object-3d&#x27;;
-import {AbstractServerActor} from &#x27;./abstract-server-actor&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { provideParent } from &#x27;../../../util&#x27;;
+import { AbstractServerActor } from &#x27;./abstract-server-actor&#x27;;
 
 @Component({
   selector: &#x27;atft-server-stand-actor&#x27;,
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; ServerStandActorComponent)}],
+  providers: [provideParent(ServerStandActorComponent)],
   template: &#x60;
-      &lt;atft-empty name&#x3D;&quot;server-box&quot;&gt;
+    &lt;atft-empty name&#x3D;&quot;server-box&quot;&gt;
 
-          &lt;!-- TODO: template? --&gt;
-          &lt;atft-empty atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;&gt;
-              &lt;atft-box-mesh height&#x3D;&quot;10&quot; width&#x3D;&quot;10&quot; depth&#x3D;&quot;14&quot; material&#x3D;&quot;phong&quot; [materialColor]&#x3D;&quot;color&quot; [translateZ]&#x3D;&quot;7&quot;
-                             atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (mouseDown)&#x3D;&quot;onClick()&quot;&gt;
-                  &lt;atft-svg-loader *ngIf&#x3D;&quot;svgName&quot; [model]&#x3D;&quot;(&#x27;./assets/svg/&#x27;+svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
-                                   material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;8&quot; maxY&#x3D;&quot;8&quot; [translateZ]&#x3D;&quot;0&quot;
-                                   translateY&#x3D;&quot;-5.1&quot; [rotateX]&#x3D;&quot;(90 | deg2rad)&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot; [rotateY]&#x3D;&quot;(180 | deg2rad)&quot;&gt;
-                  &lt;/atft-svg-loader&gt;
-              &lt;/atft-box-mesh&gt;
-          &lt;/atft-empty&gt;
-
-          &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot;
-                          material&#x3D;&quot;basic&quot; materialColor&#x3D;&quot;0xDADADA&quot; [translateY]&#x3D;&quot;-11&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
-          &lt;/atft-text-mesh&gt;
-          &lt;atft-frame-mesh *ngIf&#x3D;&quot;showFrame&quot; [thickness]&#x3D;&quot;1&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.1&quot; material&#x3D;&quot;basic&quot;
-                           [materialColor]&#x3D;&quot;color&quot;&gt;
-          &lt;/atft-frame-mesh&gt;
+      &lt;!-- TODO: template? --&gt;
+      &lt;atft-empty atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (click)&#x3D;&quot;onClick()&quot;&gt;
+        &lt;atft-box-mesh height&#x3D;&quot;10&quot; width&#x3D;&quot;10&quot; depth&#x3D;&quot;14&quot; material&#x3D;&quot;phong&quot; [materialColor]&#x3D;&quot;color&quot; [translateZ]&#x3D;&quot;7&quot;
+                       atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (click)&#x3D;&quot;onClick()&quot;&gt;
+          &lt;atft-svg-loader *ngIf&#x3D;&quot;svgName&quot; [model]&#x3D;&quot;(&#x27;./assets/svg/&#x27;+svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
+                           material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;8&quot; maxY&#x3D;&quot;8&quot; [translateZ]&#x3D;&quot;0&quot;
+                           translateY&#x3D;&quot;-5.1&quot; [rotateX]&#x3D;&quot;(90 | deg2rad)&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot; [rotateY]&#x3D;&quot;(180 | deg2rad)&quot;&gt;
+          &lt;/atft-svg-loader&gt;
+        &lt;/atft-box-mesh&gt;
       &lt;/atft-empty&gt;
+
+      &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot;
+                      material&#x3D;&quot;basic&quot; materialColor&#x3D;&quot;0xDADADA&quot; [translateY]&#x3D;&quot;-11&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
+      &lt;/atft-text-mesh&gt;
+      &lt;atft-frame-mesh *ngIf&#x3D;&quot;showFrame&quot; [thickness]&#x3D;&quot;1&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.1&quot; material&#x3D;&quot;basic&quot;
+                       [materialColor]&#x3D;&quot;color&quot;&gt;
+      &lt;/atft-frame-mesh&gt;
+    &lt;/atft-empty&gt;
   &#x60;
 })
 export class ServerStandActorComponent extends AbstractServerActor {
@@ -711,7 +711,7 @@ export class ServerStandActorComponent extends AbstractServerActor {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><atft-empty name="server-box">    <!-- TODO: template? -->    <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">        <atft-box-mesh height="10" width="10" depth="14" material="phong" [materialColor]="color" [translateZ]="7"                       atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (mouseDown)="onClick()">            <atft-svg-loader *ngIf="svgName" [model]="(\'./assets/svg/\'+svgName)" overrideMaterialColor="0xffffff"                             material="basic" maxX="8" maxY="8" [translateZ]="0"                             translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)" [rotateY]="(180 | deg2rad)">            </atft-svg-loader>        </atft-box-mesh>    </atft-empty>    <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" height="0" [centered]="true"                    material="basic" materialColor="0xDADADA" [translateY]="-11" [translateZ]="0.2">    </atft-text-mesh>    <atft-frame-mesh *ngIf="showFrame" [thickness]="1" [sizeX]="15" [sizeY]="15" [translateZ]="0.1" material="basic"                     [materialColor]="color">    </atft-frame-mesh></atft-empty></div>'
+        var COMPONENT_TEMPLATE = '<div><atft-empty name="server-box">  <!-- TODO: template? -->  <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (click)="onClick()">    <atft-box-mesh height="10" width="10" depth="14" material="phong" [materialColor]="color" [translateZ]="7"                   atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (click)="onClick()">      <atft-svg-loader *ngIf="svgName" [model]="(\'./assets/svg/\'+svgName)" overrideMaterialColor="0xffffff"                       material="basic" maxX="8" maxY="8" [translateZ]="0"                       translateY="-5.1" [rotateX]="(90 | deg2rad)" [rotateZ]="(180 | deg2rad)" [rotateY]="(180 | deg2rad)">      </atft-svg-loader>    </atft-box-mesh>  </atft-empty>  <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" height="0" [centered]="true"                  material="basic" materialColor="0xDADADA" [translateY]="-11" [translateZ]="0.2">  </atft-text-mesh>  <atft-frame-mesh *ngIf="showFrame" [thickness]="1" [sizeX]="15" [sizeY]="15" [translateZ]="0.1" material="basic"                   [materialColor]="color">  </atft-frame-mesh></atft-empty></div>'
     var COMPONENTS = [{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'Css3dVideoMeshComponent', 'selector': 'atft-css3d-video-mesh'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'ServerStandActorComponent'};

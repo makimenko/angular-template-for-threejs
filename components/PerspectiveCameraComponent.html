@@ -84,7 +84,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/PerspectiveCameraComponent.html" target="_self" >{ provide: AbstractCamera, useExisting: forwardRef(() &#x3D;&gt; PerspectiveCameraComponent) }</a></code>
+                                <code><a href="../components/PerspectiveCameraComponent.html" target="_self" >provideParent(PerspectiveCameraComponent, AbstractCamera)</a></code>
                 </td>
             </tr>
 
@@ -177,7 +177,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -233,7 +233,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:16</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -254,7 +254,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:14</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -275,7 +275,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:15</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -313,8 +313,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:24</a></div>
                 </td>
             </tr>
 
@@ -354,8 +354,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">projects/atft/src/lib/camera/perspective-camera.component.ts:35</a></div>
                 </td>
             </tr>
 
@@ -408,14 +408,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input} from &#x27;@angular/core&#x27;;
-import {AbstractCamera} from &#x27;./abstract-camera&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import {RendererService} from &#x27;../renderer/renderer.service&#x27;;
+import { RendererService } from &#x27;../renderer/renderer.service&#x27;;
+import { provideParent } from &#x27;../util&#x27;;
+import { AbstractCamera } from &#x27;./abstract-camera&#x27;;
 
 @Component({
   selector: &#x27;atft-perspective-camera&#x27;,
-  providers: [{provide: AbstractCamera, useExisting: forwardRef(() &#x3D;&gt; PerspectiveCameraComponent)}],
+  providers: [provideParent(PerspectiveCameraComponent, AbstractCamera)],
   template: &#x27;&lt;ng-content&gt;&lt;/ng-content&gt;&#x27;
 })
 export class PerspectiveCameraComponent extends AbstractCamera&lt;THREE.PerspectiveCamera&gt; {

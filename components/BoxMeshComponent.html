@@ -84,7 +84,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/BoxMeshComponent.html" target="_self" >{ provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; BoxMeshComponent) }</a></code>
+                                <code><a href="../components/BoxMeshComponent.html" target="_self" >provideParent(BoxMeshComponent)</a></code>
                 </td>
             </tr>
 
@@ -182,7 +182,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -249,7 +249,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:31</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -275,7 +275,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:49</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -301,7 +301,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:25</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -327,7 +327,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:43</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -353,7 +353,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:19</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -379,7 +379,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:37</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -423,8 +423,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">projects/atft/src/lib/object/mesh/box-mesh.component.ts:58</a></div>
                 </td>
             </tr>
 
@@ -446,15 +446,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import {AbstractMesh} from &#x27;./abstract-mesh-3d&#x27;;
-import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
-import {RendererService} from &#x27;../../renderer/renderer.service&#x27;;
+import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
+import { provideParent } from &#x27;../../util&#x27;;
+import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
+import { AbstractMesh } from &#x27;./abstract-mesh-3d&#x27;;
 
 @Component({
   selector: &#x27;atft-box-mesh&#x27;,
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; BoxMeshComponent)}],
+  providers: [provideParent(BoxMeshComponent)],
   template: &#x27;&lt;ng-content&gt;&lt;/ng-content&gt;&#x27;
 })
 export class BoxMeshComponent extends AbstractMesh {

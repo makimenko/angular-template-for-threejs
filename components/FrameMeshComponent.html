@@ -84,7 +84,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/FrameMeshComponent.html" target="_self" >{ provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; FrameMeshComponent) }</a></code>
+                                <code><a href="../components/FrameMeshComponent.html" target="_self" >provideParent(FrameMeshComponent)</a></code>
                 </td>
             </tr>
 
@@ -173,7 +173,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -240,7 +240,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:19</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -260,7 +260,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:22</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -280,7 +280,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:16</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -318,8 +318,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:31</a></div>
                 </td>
             </tr>
 
@@ -341,15 +341,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, forwardRef, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import {AbstractMesh} from &#x27;./abstract-mesh-3d&#x27;;
-import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
-import {RendererService} from &#x27;../../renderer/renderer.service&#x27;;
+import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
+import { provideParent } from &#x27;../../util&#x27;;
+import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
+import { AbstractMesh } from &#x27;./abstract-mesh-3d&#x27;;
 
 @Component({
   selector: &#x27;atft-frame-mesh&#x27;,
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; FrameMeshComponent)}],
+  providers: [provideParent(FrameMeshComponent)],
   template: &#x27;&lt;ng-content&gt;&lt;/ng-content&gt;&#x27;
 })
 export class FrameMeshComponent extends AbstractMesh {

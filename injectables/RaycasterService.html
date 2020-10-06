@@ -135,7 +135,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#onMouseDown">onMouseDown</a>
+                                <a href="#onClick">onClick</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -561,20 +561,20 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="onMouseDown"></a>
+                    <a name="onClick"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Private</span>
-                            onMouseDown
+                            onClick
                         </b>
-                        <a href="#onMouseDown"><span class="icon ion-ios-link"></span></a>
+                        <a href="#onClick"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onMouseDown(event)</code>
+                    <code>onClick(event)</code>
                 </td>
             </tr>
 
@@ -1230,7 +1230,7 @@ export class RaycasterService implements OnDestroy {
 
   constructor() {
     this.onMouseMove &#x3D; this.onMouseMove.bind(this);
-    this.onMouseDown &#x3D; this.onMouseDown.bind(this);
+    this.onClick &#x3D; this.onClick.bind(this);
     this.onTouchStart &#x3D; this.onTouchStart.bind(this);
     this.subscribe();
   }
@@ -1242,14 +1242,14 @@ export class RaycasterService implements OnDestroy {
 
   private subscribe() {
     window.addEventListener(&#x27;mousemove&#x27;, this.onMouseMove);
-    window.addEventListener(&#x27;mousedown&#x27;, this.onMouseDown);
+    window.addEventListener(&#x27;click&#x27;, this.onClick);
     window.addEventListener(&#x27;touchstart&#x27;, this.onTouchStart);
   }
 
   private unsubscribe() {
     // console.log(&#x27;unsubscribe raycaster&#x27;);
     window.removeEventListener(&#x27;mousemove&#x27;, this.onMouseMove);
-    window.removeEventListener(&#x27;mousedown&#x27;, this.onMouseDown);
+    window.removeEventListener(&#x27;click&#x27;, this.onClick);
     window.removeEventListener(&#x27;touchstart&#x27;, this.onTouchStart);
   }
 
@@ -1303,14 +1303,14 @@ export class RaycasterService implements OnDestroy {
 
   }
 
-  private onMouseDown(event) {
+  private onClick(event) {
     if (!this.isReady(true)) {
       return;
     }
     event.preventDefault();
     const i &#x3D; this.getFirstIntersectedGroup(event.layerX, event.layerY);
     if (i) {
-      i.dispatchEvent({type: &#x27;mouseDown&#x27;});
+      i.dispatchEvent({type: RaycasterEvent.click});
     }
   }
 
@@ -1323,7 +1323,7 @@ export class RaycasterService implements OnDestroy {
     event.preventDefault();
     const i &#x3D; this.getFirstIntersectedGroup(event.touches[0].clientX, event.touches[0].clientY);
     if (i) {
-      i.dispatchEvent({type: &#x27;mouseDown&#x27;});
+      i.dispatchEvent({type: RaycasterEvent.click});
     }
   }
 

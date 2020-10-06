@@ -90,7 +90,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/Css3dVideoMeshComponent.html" target="_self" >{ provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; Css3dVideoMeshComponent) }</a></code>
+                                <code><a href="../components/Css3dVideoMeshComponent.html" target="_self" >provideParent(Css3dVideoMeshComponent)</a></code>
                 </td>
             </tr>
 
@@ -190,7 +190,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -252,7 +252,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:16</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -290,8 +290,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:27</a></div>
                 </td>
             </tr>
 
@@ -329,8 +329,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:52</a></div>
                 </td>
             </tr>
 
@@ -371,7 +371,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -384,15 +384,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, forwardRef, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
-import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
-import {CSS3DObject} from &#x27;three/examples/jsm/renderers/CSS3DRenderer&#x27;;
-import {AbstractCss3dMesh} from &#x27;./abstract-css3d-mesh&#x27;;
-import {RendererService} from &#x27;../../renderer/renderer.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, Input, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
+import { CSS3DObject } from &#x27;three/examples/jsm/renderers/CSS3DRenderer&#x27;;
+import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
+import { provideParent } from &#x27;../../util&#x27;;
+import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
+import { AbstractCss3dMesh } from &#x27;./abstract-css3d-mesh&#x27;;
 
 @Component({
   selector: &#x27;atft-css3d-video-mesh&#x27;,
-  providers: [{provide: AbstractObject3D, useExisting: forwardRef(() &#x3D;&gt; Css3dVideoMeshComponent)}],
+  providers: [provideParent(Css3dVideoMeshComponent)],
   template: &#x27;&lt;ng-content&gt;&lt;/ng-content&gt;&#x27;
 })
 export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterViewInit {
