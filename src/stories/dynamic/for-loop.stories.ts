@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import { AtftModule } from '../../projects/atft/src/lib/atft.module';
-import { axesSceneWrapper } from './scene-wrapper/axes-scene-wrapper';
+import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
+import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
 
 @Component({
   template: axesSceneWrapper(`

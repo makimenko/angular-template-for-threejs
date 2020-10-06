@@ -1,11 +1,11 @@
 import { Component, Optional, SkipSelf } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import { AtftModule } from '../../projects/atft/src/lib/atft.module';
-import { AbstractObject3D } from '../../projects/atft/src/lib/object/abstract-object-3d';
-import { EmptyComponent } from '../../projects/atft/src/lib/object/helper';
-import { RendererService } from '../../projects/atft/src/lib/renderer';
-import { provideParent } from '../../projects/atft/src/lib/util';
+import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
+import { AbstractObject3D } from '../../../projects/atft/src/lib/object/abstract-object-3d';
+import { EmptyComponent } from '../../../projects/atft/src/lib/object/helper';
+import { RendererService } from '../../../projects/atft/src/lib/renderer';
+import { provideParent } from '../../../projects/atft/src/lib/util';
 
 
 @Component({
@@ -64,7 +64,7 @@ class StorybookEmbeddedComponent extends EmptyComponent {
 }
 
 export default {
-  title: 'Bugs',
+  title: 'Dynamic',
   decorators: [
     moduleMetadata({
       imports: [
@@ -78,7 +78,7 @@ export default {
   ]
 };
 
-export const Bug87 = (args) => ({
+export const NgContent = (args) => ({
   component: StorybookEmbeddedComponent,
   props: args
 });
