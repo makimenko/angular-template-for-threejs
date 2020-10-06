@@ -1,6 +1,5 @@
-import { Empty } from '@angular-devkit/core/src/virtual-fs/host';
 import { Component, Optional, SkipSelf } from '@angular/core';
-import { moduleMetadata, storiesOf } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import { AtftModule } from '../../projects/atft/src/lib/atft.module';
 import { AbstractObject3D } from '../../projects/atft/src/lib/object/abstract-object-3d';
@@ -64,20 +63,22 @@ class StorybookEmbeddedComponent extends EmptyComponent {
 
 }
 
-
-storiesOf('Bugs', module)
-  .addDecorator(
+export default {
+  title: 'Bugs',
+  decorators: [
     moduleMetadata({
       imports: [
         AtftModule
       ],
       declarations: [
-        StorybookWrapperComponent,
-        StorybookEmbeddedComponent
+        StorybookEmbeddedComponent,
+        StorybookWrapperComponent
       ]
-    }),
-  )
-  .add('#87', () => ({
-    component: StorybookEmbeddedComponent
-  }))
-;
+    })
+  ]
+};
+
+export const Bug87 = (args) => ({
+  component: StorybookEmbeddedComponent,
+  props: args
+});
