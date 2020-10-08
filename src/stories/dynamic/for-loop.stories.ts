@@ -31,7 +31,7 @@ class StorybookDynamicComponent {
 }
 
 export default {
-  title: 'Dynamic',
+  title: 'Dynamic/ForLoop',
   decorators: [
     moduleMetadata({
       imports: [

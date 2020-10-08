@@ -2,6 +2,7 @@ export * from './atft-object.module';
 
 export * from './abstract-object-3d';
 export * from './abstract-lazy-object-3d';
+export * from './abstract-content-projection';
 export * from './scene.component';
 
 export * from './helper';
