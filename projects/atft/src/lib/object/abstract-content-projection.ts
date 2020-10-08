@@ -6,7 +6,7 @@ import {RendererService} from '../renderer';
 
 @Directive()
 // tslint:disable-next-line:directive-class-suffix
-export class AbstractContentProjection extends EmptyComponent {
+export abstract class AbstractContentProjection extends EmptyComponent {
 
   @ViewChild('contentProjection') contentProjection: AbstractObject3D<any>;
 
