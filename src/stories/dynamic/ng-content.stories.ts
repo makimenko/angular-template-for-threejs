@@ -6,7 +6,7 @@ import {AbstractObject3D} from '../../../projects/atft/src/lib/object/abstract-o
 import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
 import {RendererService} from '../../../projects/atft/src/lib/renderer';
 import {provideParent} from '../../../projects/atft/src/lib/util';
-import {AbstractContentProjection} from '../../../projects/atft/src/lib/object';
+import {AbstractContentProjection} from '../../../projects/atft/src/lib/object/abstract-content-projection';
 
 
 @Component({
