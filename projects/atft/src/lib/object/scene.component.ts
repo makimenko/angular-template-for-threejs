@@ -36,4 +36,8 @@ export class SceneComponent extends AbstractObject3D<THREE.Scene> {
     return scene;
   }
 
+  protected updateParent() {
+    // No Parent for scene. Skip: super.updateParent();
+  }
+
 }

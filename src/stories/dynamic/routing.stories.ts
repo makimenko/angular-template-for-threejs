@@ -118,7 +118,7 @@ class StoryModule {
 
 // ======================================================================
 export default {
-  title: 'Dynamic',
+  title: 'Dynamic/Router',
   decorators: [
     moduleMetadata({
       imports: [

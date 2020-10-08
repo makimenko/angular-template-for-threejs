@@ -63,6 +63,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
     if (modified) {
       this.changed.emit();
+      this.rendererService.render();
     }
 
   }
@@ -82,19 +83,19 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
     this.applyTranslation();
     this.applyRotation();
-    this.updateParent();
+
 
     this.afterInit();
   }
 
-  private updateParent(): void {
+  protected updateParent(): void {
     if (this.parent) {
       this.parent.addChild(this.object);
       this.rendererService.render();
     }
   }
 
-  private applyRotation(): void {
+  protected  applyRotation(): void {
     this.object.rotation.set(
       this.rotateX || 0,
       this.rotateY || 0,
@@ -103,7 +104,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     );
   }
 
-  private applyTranslation(): void {
+  protected applyTranslation(): void {
     this.object.position.set(
       this.translateX || 0,
       this.translateY || 0,
@@ -122,6 +123,9 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     }
   }
 
+  protected afterInit() {
+  }
+
   protected removeChild(object: THREE.Object3D): void {
     if (this.object) {
       this.object.remove(object);
@@ -132,15 +136,10 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     return this.object;
   }
 
-  protected afterInit() {
-    // console.log('AbstractObject3D.afterInit', this.name);
-    // this.created.emit(this.object);
-    // this.changed.emit();
-  }
-
   protected abstract newObject3DInstance(): T;
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
+    this.updateParent();
   }
 
 }

@@ -1,6 +1,6 @@
-import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
+import {Component, Input, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
-import { provideParent } from '../../util';
+import {provideParent} from '../../util';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {RendererService} from '../../renderer/renderer.service';
@@ -34,7 +34,7 @@ export class CylinderMeshComponent extends AbstractMesh {
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
-    // console.log('CylinderMeshComponent.constructor');
+    // console.log('CylinderMeshComponent.constructor', parent);
   }
 
   protected newObject3DInstance(): THREE.Mesh {
