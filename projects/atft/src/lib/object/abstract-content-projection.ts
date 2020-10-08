@@ -4,7 +4,6 @@ import {EmptyComponent} from './helper';
 import {AbstractObject3D} from './abstract-object-3d';
 import {RendererService} from '../renderer';
 
-@Directive()
 // tslint:disable-next-line:directive-class-suffix
 export class AbstractContentProjection extends EmptyComponent {
 
