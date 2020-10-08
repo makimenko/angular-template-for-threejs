@@ -328,13 +328,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftObjectModule.html" data-type="entity-link">AtftObjectModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftObjectModule-267f2313f893f3dc3342aaa865de775b"' : 'data-target="#xs-components-links-module-AtftObjectModule-267f2313f893f3dc3342aaa865de775b"' }>
+                                            'data-target="#components-links-module-AtftObjectModule-37d16cab14d4c66a474fc53af95536e7"' : 'data-target="#xs-components-links-module-AtftObjectModule-37d16cab14d4c66a474fc53af95536e7"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftObjectModule-267f2313f893f3dc3342aaa865de775b"' :
-                                            'id="xs-components-links-module-AtftObjectModule-267f2313f893f3dc3342aaa865de775b"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftObjectModule-37d16cab14d4c66a474fc53af95536e7"' :
+                                            'id="xs-components-links-module-AtftObjectModule-37d16cab14d4c66a474fc53af95536e7"' }>
+                                            <li class="link">
+                                                <a href="components/ContentProjectionComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ContentProjectionComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/SceneComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">SceneComponent</a>
