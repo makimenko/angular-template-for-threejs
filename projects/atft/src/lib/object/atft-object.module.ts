@@ -7,6 +7,7 @@ import {AtftMeshModule} from './mesh/atft-mesh.module';
 import {AtftTextModule} from './text/atft-text.module';
 import {CommonModule} from '@angular/common';
 import {SceneComponent} from './scene.component';
+import {ContentProjectionComponent} from './content-projection.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {SceneComponent} from './scene.component';
     AtftTextModule
   ],
   declarations: [
-    SceneComponent
+    SceneComponent,
+    ContentProjectionComponent
   ],
   exports: [
     SceneComponent,
