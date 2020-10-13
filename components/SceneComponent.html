@@ -66,6 +66,12 @@
             <code>AbstractObject3D</code>
     </p>
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
 
 
 <section>
@@ -131,6 +137,10 @@
                                 <a href="#newObject3DInstance">newObject3DInstance</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Protected</span>
                                 <a href="#updateParent">updateParent</a>
                             </li>
@@ -148,18 +158,6 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#background">background</a>
-                            </li>
-                            <li>
-                                <a href="#fog">fog</a>
-                            </li>
-                            <li>
-                                <a href="#fogColor">fogColor</a>
-                            </li>
-                            <li>
-                                <a href="#fogFar">fogFar</a>
-                            </li>
-                            <li>
-                                <a href="#fogNear">fogNear</a>
                             </li>
                         </ul>
                     </td>
@@ -183,7 +181,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -255,86 +253,6 @@
                         </tr>
             </tbody>
         </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="fog"></a>
-                        <b>fog</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>false</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:16</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="fogColor"></a>
-                        <b>fogColor</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>0xa0a0a0</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:17</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="fogFar"></a>
-                        <b>fogFar</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>500</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:19</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="fogNear"></a>
-                        <b>fogNear</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>10</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:18</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
 </section>
 
 
@@ -368,8 +286,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:26</a></div>
                 </td>
             </tr>
 
@@ -380,6 +298,78 @@
                     <div class="io-description">
                         <b>Returns : </b>    <code>THREE.Scene</code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -409,8 +399,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:32</a></div>
                 </td>
             </tr>
 
@@ -432,25 +422,21 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf} from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import { RendererService } from &#x27;../renderer/renderer.service&#x27;;
-import { provideParent } from &#x27;../util&#x27;;
-import { appliedColor } from &#x27;../util/applied-color&#x27;;
-import { AbstractObject3D } from &#x27;./abstract-object-3d&#x27;;
+import {RendererService} from &#x27;../renderer/renderer.service&#x27;;
+import {provideParent} from &#x27;../util&#x27;;
+import {appliedColor} from &#x27;../util/applied-color&#x27;;
+import {AbstractObject3D} from &#x27;./abstract-object-3d&#x27;;
 
 @Component({
   selector: &#x27;atft-scene&#x27;,
   providers: [provideParent(SceneComponent)],
   template: &#x27;&lt;ng-content&gt;&lt;/ng-content&gt;&#x27;
 })
-export class SceneComponent extends AbstractObject3D&lt;THREE.Scene&gt; {
+export class SceneComponent extends AbstractObject3D&lt;THREE.Scene&gt; implements OnChanges {
 
   @Input() background &#x3D; 0xffffff;
-  @Input() fog &#x3D; false;
-  @Input() fogColor &#x3D; 0xa0a0a0;
-  @Input() fogNear &#x3D; 10;
-  @Input() fogFar &#x3D; 500;
 
   constructor(
     protected rendererService: RendererService,
@@ -464,15 +450,32 @@ export class SceneComponent extends AbstractObject3D&lt;THREE.Scene&gt; {
   protected newObject3DInstance(): THREE.Scene {
     const scene &#x3D; new THREE.Scene();
     scene.background &#x3D; new THREE.Color(appliedColor(this.background));
-    if (this.fog &#x3D;&#x3D;&#x3D; true) {
-      scene.fog &#x3D; new THREE.Fog(appliedColor(this.fogColor), this.fogNear, this.fogFar);
-    }
     return scene;
   }
 
   protected updateParent() {
     // No Parent for scene. Skip: super.updateParent();
   }
+
+  public ngOnChanges(changes: SimpleChanges) {
+    super.ngOnChanges(changes);
+    if (!this.object) {
+      return;
+    }
+
+    let modified &#x3D; false;
+
+    if ([&#x27;background&#x27;].some(propName &#x3D;&gt; propName in changes)) {
+      this.getObject().background &#x3D; new THREE.Color(appliedColor(this.background));
+      modified &#x3D; true;
+    }
+
+    if (modified) {
+      this.rendererService.render();
+    }
+
+  }
+
 
 }
 </code></pre>
@@ -506,7 +509,7 @@ export class SceneComponent extends AbstractObject3D&lt;THREE.Scene&gt; {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
-    var COMPONENTS = [{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'Css3dVideoMeshComponent', 'selector': 'atft-css3d-video-mesh'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
+    var COMPONENTS = [{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'Css3dVideoMeshComponent', 'selector': 'atft-css3d-video-mesh'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'SceneComponent'};
 </script>

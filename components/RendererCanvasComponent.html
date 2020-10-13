@@ -70,7 +70,7 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
     </p>
 
 
@@ -146,7 +146,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                                <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -348,18 +348,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngAfterViewInit"></a>
+                    <a name="ngOnInit"></a>
                     <span class="name">
                         <b>
-                            ngAfterViewInit
+                            ngOnInit
                         </b>
-                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngAfterViewInit()</code>
+<code>ngOnInit()</code>
                 </td>
             </tr>
 
@@ -502,7 +502,7 @@ area which is listened for mouse move and zoom events) to the rendering pane</co
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild} from &#x27;@angular/core&#x27;;
 import {RendererService} from &#x27;./renderer.service&#x27;;
 
 @Component({
@@ -510,7 +510,7 @@ import {RendererService} from &#x27;./renderer.service&#x27;;
   templateUrl: &#x27;./renderer-canvas.component.html&#x27;,
   styleUrls: [&#x27;./renderer-canvas.component.scss&#x27;]
 })
-export class RendererCanvasComponent implements AfterViewInit {
+export class RendererCanvasComponent implements OnInit {
 
   @ViewChild(&#x27;canvas&#x27;, {static: true})
   private canvasRef: ElementRef;
@@ -529,7 +529,7 @@ export class RendererCanvasComponent implements AfterViewInit {
     this.onResize &#x3D; this.onResize.bind(this);
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     // console.log(&#x27;RendererComponent.ngAfterViewInit&#x27;);
     this.rendererService.initialize(this.canvas, this.enableWebGl, this.enableCss3d);
   }
@@ -612,7 +612,7 @@ canvas {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><canvas #canvas>  <ng-content></ng-content></canvas></div>'
-    var COMPONENTS = [{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'Css3dVideoMeshComponent', 'selector': 'atft-css3d-video-mesh'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
+    var COMPONENTS = [{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'Css3dVideoMeshComponent', 'selector': 'atft-css3d-video-mesh'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'RendererCanvasComponent'};
 </script>

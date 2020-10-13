@@ -22,45 +22,93 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_AtftEffectModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="160,-70 160,-268 336,-268 336,-70 160,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="35,-70 35,-268 461,-268 461,-70 35,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_AtftEffectModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="169,-78 169,-130 327,-130 327,-78 169,-78"/>
+<polygon fill="none" stroke="#000000" points="48,-78 48,-130 448,-130 448,-78 48,-78"/>
 </g>
-<g id="clust5" class="cluster">
+<g id="clust7" class="cluster">
 <title>cluster_AtftEffectModule_exports</title>
-<polygon fill="none" stroke="#000000" points="168,-208 168,-260 328,-260 328,-208 168,-208"/>
+<polygon fill="none" stroke="#000000" points="43,-208 43,-260 453,-260 453,-208 43,-208"/>
 </g>
 <!-- DashedDrawDirective -->
 <g id="node1" class="node">
 <title>DashedDrawDirective</title>
-<polygon fill="#ffffb3" stroke="#000000" points="318.6517,-122 177.3483,-122 177.3483,-86 318.6517,-86 318.6517,-122"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">DashedDrawDirective</text>
+<polygon fill="#ffffb3" stroke="#000000" points="439.6517,-122 298.3483,-122 298.3483,-86 439.6517,-86 439.6517,-122"/>
+<text text-anchor="middle" x="369" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">DashedDrawDirective</text>
 </g>
 <!-- AtftEffectModule -->
-<g id="node2" class="node">
+<g id="node4" class="node">
 <title>AtftEffectModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="306.2922,-187 303.2922,-191 282.2922,-191 279.2922,-187 189.7078,-187 189.7078,-151 306.2922,-151 306.2922,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">AtftEffectModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="287.2922,-187 284.2922,-191 263.2922,-191 260.2922,-187 170.7078,-187 170.7078,-151 287.2922,-151 287.2922,-187"/>
+<text text-anchor="middle" x="229" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">AtftEffectModule</text>
 </g>
 <!-- DashedDrawDirective&#45;&gt;AtftEffectModule -->
 <g id="edge1" class="edge">
 <title>DashedDrawDirective&#45;&gt;AtftEffectModule</title>
-<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
+<path fill="none" stroke="#000000" d="M393.2753,-122.0225C393.2753,-139.3734 393.2753,-163 393.2753,-163 393.2753,-163 297.3799,-163 297.3799,-163"/>
+<polygon fill="#000000" stroke="#000000" points="297.3799,-159.5001 287.3799,-163 297.3798,-166.5001 297.3799,-159.5001"/>
+</g>
+<!-- DofComponent -->
+<g id="node2" class="node">
+<title>DofComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="280.5996,-122 177.4004,-122 177.4004,-86 280.5996,-86 280.5996,-122"/>
+<text text-anchor="middle" x="229" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">DofComponent</text>
+</g>
+<!-- DofComponent&#45;&gt;AtftEffectModule -->
+<g id="edge2" class="edge">
+<title>DofComponent&#45;&gt;AtftEffectModule</title>
+<path fill="none" stroke="#000000" d="M229,-122.1061C229,-122.1061 229,-140.991 229,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="225.5001,-140.9909 229,-150.991 232.5001,-140.991 225.5001,-140.9909"/>
+</g>
+<!-- FogComponent -->
+<g id="node3" class="node">
+<title>FogComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="159.6151,-122 56.3849,-122 56.3849,-86 159.6151,-86 159.6151,-122"/>
+<text text-anchor="middle" x="108" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">FogComponent</text>
+</g>
+<!-- FogComponent&#45;&gt;AtftEffectModule -->
+<g id="edge3" class="edge">
+<title>FogComponent&#45;&gt;AtftEffectModule</title>
+<path fill="none" stroke="#000000" d="M123.6858,-122.0225C123.6858,-139.3734 123.6858,-163 123.6858,-163 123.6858,-163 160.7984,-163 160.7984,-163"/>
+<polygon fill="#000000" stroke="#000000" points="160.7984,-166.5001 170.7984,-163 160.7984,-159.5001 160.7984,-166.5001"/>
 </g>
 <!-- DashedDrawDirective  -->
-<g id="node3" class="node">
+<g id="node5" class="node">
 <title>DashedDrawDirective </title>
-<polygon fill="#fb8072" stroke="#000000" points="320.152,-252 175.848,-252 175.848,-216 320.152,-216 320.152,-252"/>
-<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">DashedDrawDirective </text>
+<polygon fill="#fb8072" stroke="#000000" points="445.152,-252 300.848,-252 300.848,-216 445.152,-216 445.152,-252"/>
+<text text-anchor="middle" x="373" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">DashedDrawDirective </text>
 </g>
 <!-- AtftEffectModule&#45;&gt;DashedDrawDirective  -->
-<g id="edge2" class="edge">
+<g id="edge4" class="edge">
 <title>AtftEffectModule&#45;&gt;DashedDrawDirective </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M287.2961,-175C317.0184,-175 346.9747,-175 346.9747,-175 346.9747,-175 346.9747,-205.9775 346.9747,-205.9775"/>
+<polygon fill="#000000" stroke="#000000" points="343.4748,-205.9774 346.9747,-215.9775 350.4748,-205.9775 343.4748,-205.9774"/>
+</g>
+<!-- DofComponent  -->
+<g id="node6" class="node">
+<title>DofComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="282.1003,-252 175.8997,-252 175.8997,-216 282.1003,-216 282.1003,-252"/>
+<text text-anchor="middle" x="229" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">DofComponent </text>
+</g>
+<!-- AtftEffectModule&#45;&gt;DofComponent  -->
+<g id="edge5" class="edge">
+<title>AtftEffectModule&#45;&gt;DofComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M229,-187.1061C229,-187.1061 229,-205.991 229,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="225.5001,-205.9909 229,-215.991 232.5001,-205.991 225.5001,-205.9909"/>
+</g>
+<!-- FogComponent  -->
+<g id="node7" class="node">
+<title>FogComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="157.1157,-252 50.8843,-252 50.8843,-216 157.1157,-216 157.1157,-252"/>
+<text text-anchor="middle" x="104" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">FogComponent </text>
+</g>
+<!-- AtftEffectModule&#45;&gt;FogComponent  -->
+<g id="edge6" class="edge">
+<title>AtftEffectModule&#45;&gt;FogComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M170.4814,-175C132.5112,-175 90.0642,-175 90.0642,-175 90.0642,-175 90.0642,-205.9775 90.0642,-205.9775"/>
+<polygon fill="#000000" stroke="#000000" points="86.5643,-205.9774 90.0642,-215.9775 93.5643,-205.9775 86.5643,-205.9774"/>
 </g>
 </g>
 </svg>

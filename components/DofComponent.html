@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>Css3dVideoMeshComponent</li>
+  <li>DofComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,22 +55,18 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts</code>
+    <code>projects/atft/src/lib/effect/dof.component.ts</code>
 </p>
 
 
-    <p class="comment">
-        <h3>Extends</h3>
-    </p>
-    <p class="comment">
-            <code>AbstractCss3dMesh</code>
-    </p>
 
     <p class="comment">
         <h3>Implements</h3>
     </p>
     <p class="comment">
                     <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
     </p>
 
 
@@ -87,25 +83,15 @@
 
 
 
-            <tr>
-                <td class="col-md-3">providers</td>
-                <td class="col-md-9">
-                                <code><a href="../components/Css3dVideoMeshComponent.html" target="_self" >provideParent(Css3dVideoMeshComponent)</a></code>
-                </td>
-            </tr>
 
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>atft-css3d-video-mesh</code></td>
+                <td class="col-md-9"><code>atft-dof</code></td>
             </tr>
 
 
 
-            <tr>
-                <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;ng-content&gt;&lt;/ng-content&gt;</code></pre></td>
-            </tr>
 
 
 
@@ -132,7 +118,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#video">video</a>
+                                    <span class="modifier">Protected</span>
+                                <a href="#bokehPass">bokehPass</a>
                             </li>
                         </ul>
                     </td>
@@ -148,10 +135,22 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#createCss3dObject">createCss3dObject</a>
+                                <a href="#disable">disable</a>
                             </li>
                             <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#enable">enable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
                             </li>
                         </ul>
                     </td>
@@ -166,7 +165,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#videoSrc">videoSrc</a>
+                                <a href="#aperture">aperture</a>
+                            </li>
+                            <li>
+                                <a href="#focus">focus</a>
+                            </li>
+                            <li>
+                                <a href="#maxblur">maxblur</a>
                             </li>
                         </ul>
                     </td>
@@ -185,12 +190,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: <a href="../components/SceneComponent.html">SceneComponent</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/effect/dof.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -223,7 +228,7 @@
                                                         <td>parent</td>
                                                   
                                                         <td>
-                                                                    <code>AbstractObject3D&lt;any&gt;</code>
+                                                                        <code><a href="../components/SceneComponent.html" target="_self" >SceneComponent</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -246,13 +251,58 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="videoSrc"></a>
-                        <b>videoSrc</b>
+                        <a name="aperture"></a>
+                        <b>aperture</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0.025</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/atft/src/lib/effect/dof.component.ts:13</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="focus"></a>
+                        <b>focus</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1.0</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/atft/src/lib/effect/dof.component.ts:12</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxblur"></a>
+                        <b>maxblur</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0.01</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/effect/dof.component.ts:14</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -270,28 +320,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createCss3dObject"></a>
+                    <a name="disable"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Protected</span>
-                            createCss3dObject
+                            disable
                         </b>
-                        <a href="#createCss3dObject"><span class="icon ion-ios-link"></span></a>
+                        <a href="#disable"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createCss3dObject()</code>
+                    <code>disable()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">projects/atft/src/lib/effect/dof.component.ts:40</a></div>
                 </td>
             </tr>
 
@@ -300,7 +350,48 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>CSS3DObject</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enable"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            enable
+                        </b>
+                        <a href="#enable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>enable()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">projects/atft/src/lib/effect/dof.component.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                 </td>
@@ -314,6 +405,7 @@
                     <a name="ngAfterViewInit"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             ngAfterViewInit
                         </b>
                         <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
@@ -322,15 +414,127 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngAfterViewInit()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngAfterViewInit()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">projects/atft/src/lib/effect/dof.component.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">projects/atft/src/lib/effect/dof.component.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">projects/atft/src/lib/effect/dof.component.ts:50</a></div>
                 </td>
             </tr>
 
@@ -356,22 +560,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="video"></a>
+                        <a name="bokehPass"></a>
                         <span class="name">
                             <b>
-                            video</b>
-                            <a href="#video"><span class="icon ion-ios-link"></span></a>
+                                <span class="modifier">Protected</span>
+                            bokehPass</b>
+                            <a href="#bokehPass"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>document.createElement(&#x27;video&#x27;)</code>
+                            <i>Type : </i>    <code>BokehPass</code>
+
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/mesh/css3d-video-mesh.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/effect/dof.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -384,66 +590,90 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, Input, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
-import { CSS3DObject } from &#x27;three/examples/jsm/renderers/CSS3DRenderer&#x27;;
-import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
-import { provideParent } from &#x27;../../util&#x27;;
-import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
-import { AbstractCss3dMesh } from &#x27;./abstract-css3d-mesh&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from &#x27;@angular/core&#x27;;
+import {RendererService} from &#x27;../renderer/renderer.service&#x27;;
+import {SceneComponent} from &#x27;../object&#x27;;
+import {BokehPass} from &#x27;three/examples/jsm/postprocessing/BokehPass&#x27;;
 
 @Component({
-  selector: &#x27;atft-css3d-video-mesh&#x27;,
-  providers: [provideParent(Css3dVideoMeshComponent)],
-  template: &#x27;&lt;ng-content&gt;&lt;/ng-content&gt;&#x27;
+  selector: &#x27;atft-dof&#x27;,
+  template: &#x27;&#x27;
 })
-export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterViewInit {
+export class DofComponent implements AfterViewInit, OnDestroy, OnChanges {
 
-  @Input()
-  videoSrc;
+  @Input() focus &#x3D; 1.0;
+  @Input() aperture &#x3D; 0.025;
+  @Input() maxblur &#x3D; 0.01;
 
-  video &#x3D; document.createElement(&#x27;video&#x27;);
+  protected bokehPass: BokehPass;
 
   constructor(
     protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D&lt;any&gt;
+    @SkipSelf() @Optional() protected parent: SceneComponent
   ) {
-    super(rendererService, parent);
+    // console.log(&#x27;DofComponent.constructor&#x27;, parent);
   }
 
-  protected createCss3dObject(): CSS3DObject {
-    // 1. Create DIV
-    const div &#x3D; document.createElement(&#x27;div&#x27;);
-    div.style.width &#x3D; this.resolutionX + &#x27;px&#x27;;
-    div.style.height &#x3D; this.resolutionY + &#x27;px&#x27;;
-    div.style.backgroundColor &#x3D; &#x27;#000000&#x27;;
-    div.id &#x3D; &#x27;myWrapper&#x27;;
+  protected enable() {
+    // console.log(&#x27;DofComponent.enable&#x27;, this.rendererService);
 
-    // 2. Create Video Player with source
-    this.video.autoplay &#x3D; false;
-    this.video.loop &#x3D; true;
-    this.video.muted &#x3D; true;
-    const source &#x3D; document.createElement(&#x27;source&#x27;);
-    source.src &#x3D; this.videoSrc;
-    source.type &#x3D; &#x27;video/mp4&#x27;;
-    this.video.style.width &#x3D; &#x27;100%&#x27;;
-    this.video.style.height &#x3D; &#x27;100%&#x27;;
-    this.video.appendChild(source);
-    div.appendChild(this.video);
-
-    // 3. Create CSS3DObject
-    const object &#x3D; new CSS3DObject(div);
-    return object;
-  }
-
-  ngAfterViewInit() {
-    super.ngAfterViewInit();
-    this.video.load();
-    this.video.addEventListener(&#x27;canplay&#x27;, () &#x3D;&gt; {
-      this.video.play();
+    this.bokehPass &#x3D; new BokehPass(this.rendererService.getScene().getObject(), this.rendererService.getCamera().camera, {
+      focus: this.focus,
+      aperture: this.aperture,
+      maxblur: this.maxblur,
+      width: window.innerWidth,
+      height: window.innerHeight
     });
 
+    this.rendererService.addPass(this.bokehPass);
+    this.rendererService.render();
+  }
+
+  protected disable() {
+    // console.log(&#x27;DofComponent.disable&#x27;);
+    this.rendererService.removePass(this.bokehPass);
+    this.rendererService.render();
+  }
+
+  public ngAfterViewInit() {
+    this.enable();
+  }
+
+  ngOnDestroy(): void {
+    this.disable();
+  }
+
+  public ngOnChanges(changes: SimpleChanges) {
+    if (!this.bokehPass) {
+      return;
+    }
+
+    let modified &#x3D; false;
+
+    if ([&#x27;focus&#x27;].some(propName &#x3D;&gt; propName in changes)) {
+      // console.log(&#x27;change focus&#x27;, this.focus);
+      this.bokehPass.uniforms[&#x27;focus&#x27;].value &#x3D; this.focus;
+      modified &#x3D; true;
+    }
+
+    if ([&#x27;aperture&#x27;].some(propName &#x3D;&gt; propName in changes)) {
+      // console.log(&#x27;change aperture&#x27;, this.aperture);
+      this.bokehPass.uniforms[&#x27;aperture&#x27;].value &#x3D; this.aperture;
+      modified &#x3D; true;
+    }
+
+    if ([&#x27;maxblur&#x27;].some(propName &#x3D;&gt; propName in changes)) {
+      // console.log(&#x27;change maxblur&#x27;);
+      this.bokehPass.uniforms[&#x27;maxblur&#x27;].value &#x3D; this.maxblur;
+      modified &#x3D; true;
+    }
+
+    if (modified) {
+      this.rendererService.render();
+    }
 
   }
+
 
 }
 </code></pre>
@@ -476,10 +706,10 @@ export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterV
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
+        var COMPONENT_TEMPLATE = '<div></div>'
     var COMPONENTS = [{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'Css3dVideoMeshComponent', 'selector': 'atft-css3d-video-mesh'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
-    var ACTUAL_COMPONENT = {'name': 'Css3dVideoMeshComponent'};
+    var ACTUAL_COMPONENT = {'name': 'DofComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -514,7 +744,7 @@ export class Css3dVideoMeshComponent extends AbstractCss3dMesh implements AfterV
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'Css3dVideoMeshComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'DofComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
