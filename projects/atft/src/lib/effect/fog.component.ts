@@ -56,15 +56,8 @@ export class FogComponent implements AfterViewInit, OnDestroy, OnChanges {
       return;
     }
 
-    let modified = false;
-
     if (['color', 'near', 'far'].some(propName => propName in changes)) {
       this.enableFog();
-      modified = true;
-    }
-
-    if (modified) {
-      this.rendererService.render();
     }
 
   }
