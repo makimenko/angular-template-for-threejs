@@ -31,7 +31,7 @@ export abstract class AbstractOrbitControls<T extends OrbitControls> implements 
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // If the THREE.js OrbitControls are not set up yet, we do not need to update
+    // If the THREE.js OrbitControls are not set up yet, we do not need to enableFog
     // anything as they will pick the new values from the @Input properties automatically
     // upon creation.
     if (!this.controls) {

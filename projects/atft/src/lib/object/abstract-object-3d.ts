@@ -35,7 +35,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   @Output() changed = new EventEmitter<void>();
 
-  private object: T;
+  protected object: T;
 
   constructor(
     protected rendererService: RendererService,

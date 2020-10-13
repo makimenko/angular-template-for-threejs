@@ -3,6 +3,9 @@ import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
 import * as THREE from 'three';
 import {CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer';
+import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';
+import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass';
+import {Pass} from 'three/examples/jsm/postprocessing/Pass';
 import {StatsService} from '../stats/stats.service';
 
 @Injectable()
@@ -16,6 +19,7 @@ export class RendererService implements OnDestroy {
   private webGlRenderer: THREE.WebGLRenderer;
   // TODO:
   private css3dRenderer: CSS3DRenderer;
+  private composer: EffectComposer;
 
   private aspect: number;
 
@@ -42,9 +46,13 @@ export class RendererService implements OnDestroy {
 
   public render() {
     if (this.init && this.scene && this.camera) {
-      //  console.log('render');
+      // console.log('render');
       if (this.enableWebGl) {
-        this.webGlRenderer.render(this.scene.getObject(), this.camera.camera);
+        if (this.composer) {
+          this.composer.render(0.1);
+        } else {
+          this.webGlRenderer.render(this.scene.getObject(), this.camera.camera);
+        }
       }
       if (this.enableCss3d) {
         this.css3dRenderer.render(this.scene.getObject(), this.camera.camera);
@@ -125,6 +133,43 @@ export class RendererService implements OnDestroy {
     if (this.camera) {
       this.camera.updateAspectRatio(this.aspect);
     }
+  }
+
+  public initComposer() {
+    // console.log('RendererService.initComposer');
+    this.composer = new EffectComposer(this.webGlRenderer);
+    const renderPass = new RenderPass(this.scene.getObject(), this.camera.camera);
+    this.addPass(renderPass);
+  }
+
+  public addPass(pass: Pass) {
+    // console.log('RendererService.addPass', pass);
+    if (!this.composer) {
+      this.initComposer();
+    }
+    this.composer.addPass(pass);
+  }
+
+  public removePass(pass: Pass) {
+    // console.log('RendererService.removePass', pass);
+    if (this.composer && this.composer.passes.length > 1) {
+      const passes = this.composer.passes;
+      const index = passes.indexOf(pass, 0);
+      if (index > -1) {
+        passes.splice(index, 1);
+      }
+      if (passes.length === 1) {
+        this.composer = undefined;
+      }
+    }
+  }
+
+  public getScene() {
+    return this.scene;
+  }
+
+  public getCamera() {
+    return this.camera;
   }
 
 }
