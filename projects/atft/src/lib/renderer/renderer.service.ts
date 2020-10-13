@@ -42,7 +42,7 @@ export class RendererService implements OnDestroy {
 
   public render() {
     if (this.init && this.scene && this.camera) {
-      //  console.log('render');
+      // console.log('render');
       if (this.enableWebGl) {
         this.webGlRenderer.render(this.scene.getObject(), this.camera.camera);
       }

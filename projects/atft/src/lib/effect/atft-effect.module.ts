@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DashedDrawDirective} from './dashed-draw.directive';
+import {FogComponent} from './fog.component';
 
 
 @NgModule({
@@ -8,10 +9,12 @@ import {DashedDrawDirective} from './dashed-draw.directive';
     CommonModule
   ],
   declarations: [
-    DashedDrawDirective
+    DashedDrawDirective,
+    FogComponent
   ],
   exports: [
-    DashedDrawDirective
+    DashedDrawDirective,
+    FogComponent
   ]
 })
 export class AtftEffectModule {
