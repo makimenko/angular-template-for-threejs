@@ -20,28 +20,28 @@ export class FogComponent implements AfterViewInit, OnDestroy, OnChanges {
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: SceneComponent
   ) {
-    console.log('FogComponent.constructor', parent);
+    // console.log('FogComponent.constructor', parent);
 
   }
 
 
   public ngAfterViewInit() {
-    console.log('ngAfterViewInit', this.parent);
+    // console.log('ngAfterViewInit', this.parent);
     if (this.parent && this.parent.getObject() && this.parent.getObject().isScene) {
-      console.log('FogComponent detected parent scene', this.parent);
+      // console.log('FogComponent detected parent scene', this.parent);
       this.scene = this.parent.getObject();
       this.enableFog();
     }
   }
 
   protected enableFog() {
-    console.log('enableFog');
+    // console.log('enableFog');
     this.scene.fog = new THREE.Fog(appliedColor(this.color), this.near, this.far);
     this.rendererService.render();
   }
 
   protected disableFog() {
-    console.log('disableFog');
+    // console.log('disableFog');
     this.scene.fog = undefined;
     this.rendererService.render();
   }
