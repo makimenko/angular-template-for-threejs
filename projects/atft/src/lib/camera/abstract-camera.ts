@@ -1,9 +1,9 @@
-import { AfterViewInit, Input, OnChanges, SimpleChanges, Directive } from '@angular/core';
+import {AfterViewInit, Input, OnChanges, SimpleChanges, Directive, OnInit} from '@angular/core';
 import * as THREE from 'three';
 import {RendererService} from '../renderer/renderer.service';
 
 @Directive()
-export abstract class AbstractCamera<T extends THREE.Camera> implements AfterViewInit, OnChanges {
+export abstract class AbstractCamera<T extends THREE.Camera> implements OnInit, OnChanges {
 
   camera: T;
 
@@ -19,7 +19,7 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements AfterVie
     // console.log('AbstractCamera.constructor');
   }
 
-  public ngAfterViewInit(): void {
+  public ngOnInit(): void {
     // console.log('AbstractCamera.ngAfterViewInit');
     this.createCamera();
 

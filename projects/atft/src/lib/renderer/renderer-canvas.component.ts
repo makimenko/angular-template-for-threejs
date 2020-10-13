@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
 import {RendererService} from './renderer.service';
 
 @Component({
@@ -6,7 +6,7 @@ import {RendererService} from './renderer.service';
   templateUrl: './renderer-canvas.component.html',
   styleUrls: ['./renderer-canvas.component.scss']
 })
-export class RendererCanvasComponent implements AfterViewInit {
+export class RendererCanvasComponent implements OnInit {
 
   @ViewChild('canvas', {static: true})
   private canvasRef: ElementRef;
@@ -25,7 +25,7 @@ export class RendererCanvasComponent implements AfterViewInit {
     this.onResize = this.onResize.bind(this);
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     // console.log('RendererComponent.ngAfterViewInit');
     this.rendererService.initialize(this.canvas, this.enableWebGl, this.enableCss3d);
   }
