@@ -10,7 +10,7 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
     <atft-dof *ngIf="enable" [focus]="focus" [aperture]="aperture" [maxblur]="maxblur"></atft-dof>
   `)
 })
-class StorybookFogComponent {
+class StorybookDofComponent {
 
   enable: boolean;
   color = '0xffffff';
@@ -44,6 +44,6 @@ export default {
 };
 
 export const DepthOfField = (args) => ({
-  component: StorybookFogComponent,
+  component: StorybookDofComponent,
   props: args
 });
