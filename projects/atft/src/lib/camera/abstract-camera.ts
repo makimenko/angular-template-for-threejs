@@ -1,4 +1,4 @@
-import {AfterViewInit, Input, OnChanges, SimpleChanges, Directive, OnInit} from '@angular/core';
+import {Directive, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import * as THREE from 'three';
 import {RendererService} from '../renderer/renderer.service';
 
@@ -13,6 +13,8 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements OnInit, 
 
   @Input() zAxisUp = false;
 
+  @Input() layer: number;
+
   constructor(
     protected rendererService: RendererService
   ) {
@@ -22,6 +24,12 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements OnInit, 
   public ngOnInit(): void {
     // console.log('AbstractCamera.ngAfterViewInit');
     this.createCamera();
+
+    if (this.layer) {
+      this.camera.layers.enable(this.layer);
+    } else {
+      this.camera.layers.enableAll();
+    }
 
     this.applyZAxisUp();
     this.applyPosition();
