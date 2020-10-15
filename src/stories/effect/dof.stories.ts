@@ -38,8 +38,8 @@ export default {
   argTypes: {
     enable: {control: {type: 'boolean'}},
     focus: {control: {type: 'range', min: 1, max: 3000, step: 10}},
-    aperture: {control: {type: 'range', min: 0, max: 0.0002, step: .00001}},
-    maxblur: {control: {type: 'range', min: 0, max: 0.02, step: .001}}
+    aperture: {control: {type: 'range', min: 0, max: 0.0005, step: .00001}},
+    maxblur: {control: {type: 'range', min: 0, max: 0.05, step: .001}}
   }
 };
 
