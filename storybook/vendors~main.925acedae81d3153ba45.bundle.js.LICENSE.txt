@@ -37,13 +37,13 @@ PERFORMANCE OF THIS SOFTWARE.
  */
 
 /**
- * @license Angular v10.1.5
+ * @license Angular v10.1.6
  * (c) 2010-2020 Google LLC. https://angular.io/
  * License: MIT
  */
 
 /**
-* @license Angular v10.1.0-next.6+7.sha-aaa1d8e
+* @license Angular v11.0.0-next.6+37.sha-a38293d.with-local-changes
 * (c) 2010-2020 Google LLC. https://angular.io/
 * License: MIT
 */
