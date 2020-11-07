@@ -30,7 +30,7 @@
     "snyk": "^1.411.0",
     "three": "^0.121.1",
     "three.meshline": "^1.3.0",
-    "zone.js": "~0.11.2"
+    "zone.js": "~0.11.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1001.1",
