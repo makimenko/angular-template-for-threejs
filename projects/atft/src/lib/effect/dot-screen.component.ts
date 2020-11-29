@@ -2,6 +2,7 @@ import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SimpleC
 import {RendererService} from '../renderer/renderer.service';
 import {SceneComponent} from '../object';
 import {DotScreenPass} from 'three/examples/jsm/postprocessing/DotScreenPass';
+import {EffectComposerComponent} from './effect-composer.component';
 
 
 @Component({
@@ -14,9 +15,9 @@ export class DotScreenComponent implements AfterViewInit, OnDestroy, OnChanges {
 
   constructor(
     protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: SceneComponent
+    @SkipSelf() @Optional() protected composer: EffectComposerComponent
   ) {
-    // console.log('DofComponent.constructor', parent);
+    // console.log('DofComponent.constructor', parentScene);
   }
 
   protected enable() {
@@ -25,13 +26,13 @@ export class DotScreenComponent implements AfterViewInit, OnDestroy, OnChanges {
     this.pass = new DotScreenPass();
     this.pass.uniforms['scale'].value = 4;
 
-    this.rendererService.addPass(this.pass);
+    this.composer.addPass(this.pass);
     this.rendererService.render();
   }
 
   protected disable() {
     // console.log('DofComponent.disable');
-    this.rendererService.removePass(this.pass);
+    this.composer.removePass(this.pass);
     this.rendererService.render();
   }
 

@@ -7,7 +7,9 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
 
 @Component({
   template: effectsSceneWrapper(`
-    <atft-dof *ngIf="enable" [focus]="focus" [aperture]="aperture" [maxblur]="maxblur"></atft-dof>
+    <atft-effect-composer *ngIf="enable">
+        <atft-dof [focus]="focus" [aperture]="aperture" [maxblur]="maxblur"></atft-dof>
+    </atft-effect-composer>
   `)
 })
 class StorybookDofComponent {

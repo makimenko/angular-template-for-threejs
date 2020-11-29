@@ -4,6 +4,7 @@ import {DashedDrawDirective} from './dashed-draw.directive';
 import {FogComponent} from './fog.component';
 import {DofComponent} from './dof.component';
 import {DotScreenComponent} from './dot-screen.component';
+import {EffectComposerComponent} from './effect-composer.component';
 
 
 @NgModule({
@@ -14,13 +15,15 @@ import {DotScreenComponent} from './dot-screen.component';
     DashedDrawDirective,
     FogComponent,
     DofComponent,
-    DotScreenComponent
+    DotScreenComponent,
+    EffectComposerComponent
   ],
   exports: [
     DashedDrawDirective,
     FogComponent,
     DofComponent,
-    DotScreenComponent
+    DotScreenComponent,
+    EffectComposerComponent
   ]
 })
 export class AtftEffectModule {

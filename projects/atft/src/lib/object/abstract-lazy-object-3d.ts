@@ -9,7 +9,7 @@ import * as THREE from 'three';
 export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
 
   /**
-   * Flag to signal whether the parent class instance AbstractObject3D called the
+   * Flag to signal whether the parentScene class instance AbstractObject3D called the
    * overwritten method {@link AbstractModelLoader#afterInit} yet.
    *
    * Unless that method was called, no methods and properties of {@link AbstractObject3D}
@@ -37,7 +37,7 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
 
   protected startLoading() {
     // console.log('AbstractLazyObject3D.startLoading');
-    // Trigger model acquisition now that the parent has been initialized.
+    // Trigger model acquisition now that the parentScene has been initialized.
     this.loadLazyObject().then(obj => {
       // console.log('AbstractLazyObject3D loaded');
       // remove old if exists

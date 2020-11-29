@@ -2,6 +2,7 @@ import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SimpleC
 import {RendererService} from '../renderer/renderer.service';
 import {SceneComponent} from '../object';
 import {BokehPass} from 'three/examples/jsm/postprocessing/BokehPass';
+import {EffectComposerComponent} from './effect-composer.component';
 
 @Component({
   selector: 'atft-dof',
@@ -17,9 +18,9 @@ export class DofComponent implements AfterViewInit, OnDestroy, OnChanges {
 
   constructor(
     protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: SceneComponent
+    @SkipSelf() @Optional() protected composer: EffectComposerComponent
   ) {
-    // console.log('DofComponent.constructor', parent);
+    // console.log('DofComponent.constructor', parentScene);
   }
 
   protected enable() {
@@ -33,13 +34,13 @@ export class DofComponent implements AfterViewInit, OnDestroy, OnChanges {
       height: window.innerHeight
     });
 
-    this.rendererService.addPass(this.bokehPass);
+    this.composer.addPass(this.bokehPass);
     this.rendererService.render();
   }
 
   protected disable() {
     // console.log('DofComponent.disable');
-    this.rendererService.removePass(this.bokehPass);
+    this.composer.removePass(this.bokehPass);
     this.rendererService.render();
   }
 

@@ -3,26 +3,22 @@ import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
 import * as THREE from 'three';
 import {CSS3DRenderer} from 'three/examples/jsm/renderers/CSS3DRenderer';
-import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';
-import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass';
-import {Pass} from 'three/examples/jsm/postprocessing/Pass';
 import {StatsService} from '../stats/stats.service';
+import {EffectComposerComponent} from '../effect';
 
 @Injectable()
 export class RendererService implements OnDestroy {
-  private init = false;
 
+  private init = false;
   private scene: SceneComponent;
   private camera: AbstractCamera<any>;
   private enableWebGl: boolean;
   private enableCss3d: boolean;
   private webGlRenderer: THREE.WebGLRenderer;
-  // TODO:
   private css3dRenderer: CSS3DRenderer;
-  private composer: EffectComposer;
-
   private aspect: number;
 
+  private composer: EffectComposerComponent;
 
   constructor(
     private statsService: StatsService
@@ -49,7 +45,7 @@ export class RendererService implements OnDestroy {
       // console.log('render');
       if (this.enableWebGl) {
         if (this.composer) {
-          this.composer.render(0.1);
+          this.composer.render();
         } else {
           this.webGlRenderer.render(this.scene.getObject(), this.camera.camera);
         }
@@ -76,6 +72,9 @@ export class RendererService implements OnDestroy {
       });
       this.webGlRenderer.setPixelRatio(window.devicePixelRatio);
       this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, true);
+
+
+      // this.scene.background = this.renderTarget.texture;
 
       // TODO: props
       this.webGlRenderer.shadowMap.enabled = false;
@@ -135,34 +134,6 @@ export class RendererService implements OnDestroy {
     }
   }
 
-  public initComposer() {
-    // console.log('RendererService.initComposer');
-    this.composer = new EffectComposer(this.webGlRenderer);
-    const renderPass = new RenderPass(this.scene.getObject(), this.camera.camera);
-    this.addPass(renderPass);
-  }
-
-  public addPass(pass: Pass) {
-    // console.log('RendererService.addPass', pass);
-    if (!this.composer) {
-      this.initComposer();
-    }
-    this.composer.addPass(pass);
-  }
-
-  public removePass(pass: Pass) {
-    // console.log('RendererService.removePass', pass);
-    if (this.composer && this.composer.passes.length > 1) {
-      const passes = this.composer.passes;
-      const index = passes.indexOf(pass, 0);
-      if (index > -1) {
-        passes.splice(index, 1);
-      }
-      if (passes.length === 1) {
-        this.composer = undefined;
-      }
-    }
-  }
 
   public getScene() {
     return this.scene;
@@ -171,5 +142,14 @@ export class RendererService implements OnDestroy {
   public getCamera() {
     return this.camera;
   }
+
+  public getWebGlRenderer() {
+    return this.webGlRenderer;
+  }
+
+  public setComposer(composer: EffectComposerComponent) {
+    this.composer = composer;
+  }
+
 
 }

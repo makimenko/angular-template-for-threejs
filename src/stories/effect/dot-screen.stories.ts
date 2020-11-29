@@ -7,13 +7,14 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
 
 @Component({
   template: effectsSceneWrapper(`
+    <atft-effect-composer *ngIf="enable">
     <atft-dot-screen *ngIf="enable" ></atft-dot-screen>
+    </atft-effect-composer>
   `)
 })
 class StorybookDotScreenComponent {
 
   enable: boolean;
-
 
 }
 

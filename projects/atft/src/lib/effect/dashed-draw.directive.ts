@@ -60,7 +60,7 @@ export class DashedDrawDirective implements AfterViewInit {
 
   private animate() {
 
-    // console.log(this.host.getObject().parent);
+    // console.log(this.host.getObject().parentScene);
     if (this.edges) {
       this.edges.material.dashSize += 2;
       if (this.edges.material.dashSize >= this.edges.material.gapSize) {

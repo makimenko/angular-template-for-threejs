@@ -2,7 +2,7 @@ import { Input, Directive } from '@angular/core';
 import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
 
 /**
- * Helper parent class for model loader.
+ * Helper parentScene class for model loader.
  *
  * @see ObjLoaderComponent
  */
