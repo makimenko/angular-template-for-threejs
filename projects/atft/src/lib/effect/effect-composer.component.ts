@@ -12,6 +12,7 @@ import {Pass} from 'three/examples/jsm/postprocessing/Pass';
 export class EffectComposerComponent implements AfterViewInit, OnDestroy, OnChanges {
 
   @Input() renderToScreen = true;
+  @Input() sceneBackgroundTarget: SceneComponent;
 
   protected composer: EffectComposer;
 
@@ -29,9 +30,7 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy, OnChan
 
   ngOnDestroy(): void {
     console.log('EffectComposerComponent.ngOnDestroy');
-    if (this.renderToScreen) {
-      this.rendererService.setComposer(null);
-    }
+    this.rendererService.setComposer(null);
     this.composer = null;
     this.rendererService.render();
   }
@@ -44,14 +43,16 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy, OnChan
     if (!this.composer) {
       console.log('EffectComposerComponent.initComposer');
       this.composer = new EffectComposer(this.rendererService.getWebGlRenderer());
+      this.composer.renderToScreen = this.renderToScreen;
 
       // TODO: move renderPass to separate component?
       const renderPass = new RenderPass(this.parentScene.getObject(), this.rendererService.getCamera().camera);
       this.addPass(renderPass);
 
-      if (this.renderToScreen) {
-        this.rendererService.setComposer(this);
+      if (this.sceneBackgroundTarget) {
+        this.sceneBackgroundTarget.getObject().background = this.composer.writeBuffer.texture;
       }
+      this.rendererService.setComposer(this);
     }
   }
 
@@ -79,6 +80,10 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy, OnChan
     if (this.composer) {
       this.composer.render(0.1);
     }
+  }
+
+  public getComposer() {
+    return this.composer;
   }
 
 }

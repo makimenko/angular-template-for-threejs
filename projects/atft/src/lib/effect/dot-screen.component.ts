@@ -1,6 +1,5 @@
-import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
+import {AfterViewInit, Component, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
 import {RendererService} from '../renderer/renderer.service';
-import {SceneComponent} from '../object';
 import {DotScreenPass} from 'three/examples/jsm/postprocessing/DotScreenPass';
 import {EffectComposerComponent} from './effect-composer.component';
 
@@ -21,19 +20,23 @@ export class DotScreenComponent implements AfterViewInit, OnDestroy, OnChanges {
   }
 
   protected enable() {
-    // console.log('DofComponent.enable', this.rendererService);
+    if (this.composer) {
+      // console.log('DofComponent.enable', this.rendererService);
 
-    this.pass = new DotScreenPass();
-    this.pass.uniforms['scale'].value = 4;
+      this.pass = new DotScreenPass();
+      this.pass.uniforms['scale'].value = 4;
 
-    this.composer.addPass(this.pass);
-    this.rendererService.render();
+      this.composer.addPass(this.pass);
+      this.rendererService.render();
+    }
   }
 
   protected disable() {
-    // console.log('DofComponent.disable');
-    this.composer.removePass(this.pass);
-    this.rendererService.render();
+    if (this.composer) {
+      // console.log('DofComponent.disable');
+      this.composer.removePass(this.pass);
+      this.rendererService.render();
+    }
   }
 
   public ngAfterViewInit() {

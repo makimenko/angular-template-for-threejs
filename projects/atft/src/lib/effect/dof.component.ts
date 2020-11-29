@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
 import {RendererService} from '../renderer/renderer.service';
-import {SceneComponent} from '../object';
 import {BokehPass} from 'three/examples/jsm/postprocessing/BokehPass';
 import {EffectComposerComponent} from './effect-composer.component';
 
@@ -24,24 +23,28 @@ export class DofComponent implements AfterViewInit, OnDestroy, OnChanges {
   }
 
   protected enable() {
-    // console.log('DofComponent.enable', this.rendererService);
+    if (this.composer) {
+      // console.log('DofComponent.enable', this.rendererService);
 
-    this.bokehPass = new BokehPass(this.rendererService.getScene().getObject(), this.rendererService.getCamera().camera, {
-      focus: this.focus,
-      aperture: this.aperture,
-      maxblur: this.maxblur,
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
+      this.bokehPass = new BokehPass(this.rendererService.getScene().getObject(), this.rendererService.getCamera().camera, {
+        focus: this.focus,
+        aperture: this.aperture,
+        maxblur: this.maxblur,
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
 
-    this.composer.addPass(this.bokehPass);
-    this.rendererService.render();
+      this.composer.addPass(this.bokehPass);
+      this.rendererService.render();
+    }
   }
 
   protected disable() {
-    // console.log('DofComponent.disable');
-    this.composer.removePass(this.bokehPass);
-    this.rendererService.render();
+    if (this.composer) {
+      // console.log('DofComponent.disable');
+      this.composer.removePass(this.bokehPass);
+      this.rendererService.render();
+    }
   }
 
   public ngAfterViewInit() {
