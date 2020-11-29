@@ -3,7 +3,7 @@ import {RendererService} from '../renderer/renderer.service';
 
 
 /**
- * Animation service emits animate event, which should be used by animated components for animation logic.
+ * Animation service emits updateAnimation event, which should be used by animated components for animation logic.
  * NOTE: this service is for the performance optimization: requestAnimationFrame and render is called once.
  */
 @Injectable()
@@ -43,7 +43,7 @@ export class AnimationService {
   }
 
   public animationStep() {
-    if (this.enabled) {
+    if (this.enabled && this.animate.observers) {
       requestAnimationFrame(this.animationStep);
       if (this.animate.observers.length > 0) {
         this.animate.emit();

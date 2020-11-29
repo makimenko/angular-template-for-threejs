@@ -4,6 +4,7 @@ import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
 import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
+import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
 
 @Component({
   template: `
@@ -36,9 +37,9 @@ import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
         <atft-point-light intensity="0.8" distance="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
-        <atft-text-mesh [text]="text" translateX="-100" translateY="-50" translateZ="100"
-                        materialColor="0x8e99f3" height="1" size="20"
-        ></atft-text-mesh>
+        <atft-text-actor [text]="text" translateX="-100" translateY="-50" translateZ="100"
+                         [animate]="true" [minDelay]="5" [maxDelay]="10"
+        ></atft-text-actor>
 
       </atft-scene>
     </atft-renderer-canvas>
@@ -46,7 +47,7 @@ import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
 })
 class StorybookIntroComponent implements AfterViewInit {
 
-  text = 'Welcome';
+  text = 'Welcome to my world! :)';
 
   @ViewChild(EmptyComponent) box;
 
@@ -74,7 +75,8 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [
-        AtftModule
+        AtftModule,
+        AtftDataCenterActorModule
       ]
     })
   ],

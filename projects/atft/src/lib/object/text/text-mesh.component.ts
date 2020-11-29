@@ -1,10 +1,10 @@
-import { Component, Input, Optional, SkipSelf } from '@angular/core';
+import {Component, Input, Optional, SimpleChanges, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
-import { RendererService } from '../../renderer/renderer.service';
-import { appliedMaterial, provideParent } from '../../util';
-import { fixCenter } from '../../util/fix-center';
-import { AbstractLazyObject3D } from '../abstract-lazy-object-3d';
-import { AbstractObject3D } from '../abstract-object-3d';
+import {RendererService} from '../../renderer/renderer.service';
+import {appliedMaterial, provideParent} from '../../util';
+import {fixCenter} from '../../util/fix-center';
+import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
+import {AbstractObject3D} from '../abstract-object-3d';
 
 @Component({
   selector: 'atft-text-mesh',
@@ -94,9 +94,12 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   protected async loadLazyObject(): Promise<THREE.Object3D> {
     // console.log('TextMeshComponent.loadLazyObject');
 
+
     return new Promise<THREE.Object3D>(resolve => {
       const loader = new THREE.FontLoader();
       loader.load(this.fontUrl, font => {
+
+
 
         const geometry = new THREE.TextGeometry(this.text, {
           font: font,
@@ -120,8 +123,6 @@ export class TextMeshComponent extends AbstractLazyObject3D {
         resolve(mesh);
       });
     });
-
-
   }
 
 

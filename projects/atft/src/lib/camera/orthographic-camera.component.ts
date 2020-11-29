@@ -54,7 +54,7 @@ export class OrthographicCameraComponent extends AbstractCamera<THREE.Orthograph
   }
 
   public updateAspectRatio(aspect: number) {
-    console.log('OrthographicCameraComponent.updateAspectRatio: ' + aspect);
+    // console.log('OrthographicCameraComponent.updateAspectRatio: ' + aspect);
     const frustumSize = 1000;
     this.camera.left = -frustumSize * aspect / 2;
     this.camera.right = frustumSize * aspect / 2;
