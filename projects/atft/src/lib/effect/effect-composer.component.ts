@@ -24,12 +24,12 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy, OnChan
   }
 
   public ngAfterViewInit() {
-    console.log('EffectComposerComponent.ngAfterViewInit');
+    // console.log('EffectComposerComponent.ngAfterViewInit');
     this.initComposer();
   }
 
   ngOnDestroy(): void {
-    console.log('EffectComposerComponent.ngOnDestroy');
+    // console.log('EffectComposerComponent.ngOnDestroy');
     this.rendererService.setComposer(null);
     this.composer = null;
     this.rendererService.render();
@@ -41,7 +41,7 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy, OnChan
 
   public initComposer() {
     if (!this.composer) {
-      console.log('EffectComposerComponent.initComposer');
+      // console.log('EffectComposerComponent.initComposer');
       this.composer = new EffectComposer(this.rendererService.getWebGlRenderer());
       this.composer.renderToScreen = this.renderToScreen;
 

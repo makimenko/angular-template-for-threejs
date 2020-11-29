@@ -14,13 +14,13 @@ import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
       <!-- Background -->
       <atft-scene name="backgroundScene" background="0x000051">
         <atft-effect-composer [renderToScreen]="false" [sceneBackgroundTarget]="mainScene">
-          <atft-dof *ngIf="enable" [focus]="focus" [aperture]="aperture" [maxblur]="maxblur"></atft-dof>
+          <atft-dof [focus]="1.0" [aperture]="0.001" [maxblur]="0.01"></atft-dof>
         </atft-effect-composer>
 
         <atft-point-light intensity="1" distance="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
-        <atft-empty>
+        <atft-empty [rotateZ]="k">
           <atft-box-mesh *ngFor="let item of [].constructor(20); let i = index"
                          height="10" width="10" depth="10" material="phong" materialColor="0x5c6bc0"
                          [translateY]="0" [translateZ]="0" [translateX]="(i*15)-150"></atft-box-mesh>
@@ -46,13 +46,7 @@ import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
 })
 class StorybookIntroComponent implements AfterViewInit {
 
-  focus = 1.0;
-  aperture = 0.025;
-  maxblur = 10;
-  enable = true;
-
   text = 'Welcome';
-
 
   @ViewChild(EmptyComponent) box;
 
@@ -69,8 +63,7 @@ class StorybookIntroComponent implements AfterViewInit {
 
   public animate() {
     this.k += 0.02;
-    this.box.rotateZ = this.k * 3.3;
-    this.box.applyRotation();
+
   }
 
 
@@ -85,18 +78,8 @@ export default {
       ]
     })
   ],
-  args: {
-    enable: true,
-    focus: 1,
-    aperture: 0.001,
-    maxblur: 0.5
-  },
-  argTypes: {
-    enable: {control: {type: 'boolean'}},
-    focus: {control: {type: 'range', min: 1, max: 3000, step: 10}},
-    aperture: {control: {type: 'range', min: 0, max: 0.0005, step: .00001}},
-    maxblur: {control: {type: 'range', min: 0, max: 10, step: .001}}
-  }
+  args: {},
+  argTypes: {}
 };
 
 export const Intro = (args) => ({
