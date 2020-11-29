@@ -9,7 +9,8 @@ import {AbstractObject3D} from '../../../object';
   selector: 'atft-text-actor',
   providers: [provideParent(TextActorComponent)],
   template: `
-    <atft-text-mesh [text]="currentText"></atft-text-mesh>
+    <atft-text-mesh [text]="currentText" [centered]="false">
+    </atft-text-mesh>
   `
 })
 export class TextActorComponent extends EmptyComponent implements AfterViewInit, OnChanges, OnDestroy {
@@ -50,10 +51,11 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
   }
 
   protected updateText() {
+    console.log('TextActorComponent.updateText');
     if (this.text && this.text.length > 0) {
       // console.log('TextActorComponent.updateText', this.text);
       if (this.animate) {
-        // console.log('TextActorComponent.animate init');
+        console.log('TextActorComponent.animate init');
         this.updateAnimation = this.updateAnimation.bind(this);
         this.animationService.animate.subscribe(this.updateAnimation);
         this.subscribed = true;
@@ -98,6 +100,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
     if (this.subscribed) {
       // console.log('TextActorComponent.done');
       this.subscribed = false;
+      this.i = 0;
       // TODO: this.animationService.animate.unsubscribe();
     }
   }
@@ -118,6 +121,16 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
 
     if (['text'].some(propName => propName in changes)) {
       this.updateText();
+      modified = true;
+    }
+
+    if (['animate'].some(propName => propName in changes)) {
+      if (this.animate) {
+        this.updateText();
+      } else {
+        this.done();
+        this.currentText = this.text;
+      }
       modified = true;
     }
 

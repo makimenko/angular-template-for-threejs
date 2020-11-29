@@ -9,7 +9,7 @@ import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/da
 @Component({
   template: `
     <atft-renderer-canvas>
-      <atft-orthographic-camera [positionX]=0 [positionY]=0 [positionZ]="1000" [zoom]="4">
+      <atft-orthographic-camera [positionX]=0 [positionY]=0 [positionZ]="100" [zoom]="4">
       </atft-orthographic-camera>
 
       <!-- Background -->
@@ -37,7 +37,7 @@ import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/da
         <atft-point-light intensity="0.8" distance="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
-        <atft-text-actor [text]="text" translateX="-100" translateY="-50" translateZ="100"
+        <atft-text-actor [text]="text" translateX="-200" translateY="-50" translateZ="1"
                          [animate]="true" [minDelay]="5" [maxDelay]="10"
         ></atft-text-actor>
 
