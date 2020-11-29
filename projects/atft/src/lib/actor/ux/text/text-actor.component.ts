@@ -9,7 +9,7 @@ import {AbstractObject3D} from '../../../object';
   selector: 'atft-text-actor',
   providers: [provideParent(TextActorComponent)],
   template: `
-    <atft-text-mesh [text]="currentText" [centered]="false">
+    <atft-text-mesh [text]="currentText" [centered]="false" [materialColor]="materialColor">
     </atft-text-mesh>
   `
 })
@@ -20,6 +20,9 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
 
   @Input()
   animate = false;
+
+  @Input()
+  materialColor = 0x5DADE2;
 
   @Input()
   minDelay = 5;
@@ -51,11 +54,11 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
   }
 
   protected updateText() {
-    console.log('TextActorComponent.updateText');
+    // console.log('TextActorComponent.updateText');
     if (this.text && this.text.length > 0) {
       // console.log('TextActorComponent.updateText', this.text);
       if (this.animate) {
-        console.log('TextActorComponent.animate init');
+        // console.log('TextActorComponent.animate init');
         this.updateAnimation = this.updateAnimation.bind(this);
         this.animationService.animate.subscribe(this.updateAnimation);
         this.subscribed = true;
@@ -87,7 +90,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
         if (this.currentPos <= this.maxPos) {
           this.currentText = this.text.substr(0, this.currentPos);
           this.currentDelay = this.randomInt(this.minDelay, this.maxDelay);
-          this.rendererService.render();
+          // this.rendererService.render();
           // console.log('TextActorComponent.updateAnimation: text', this.currentText);
         } else {
           this.done();

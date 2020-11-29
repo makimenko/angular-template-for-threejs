@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {moduleMetadata} from '@storybook/angular';
-import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {uxSceneWrapper} from '../scene-wrapper/ux-scene-wrapper';
+import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
 
 
 @Component({
@@ -28,7 +28,7 @@ export default {
     moduleMetadata({
       imports: [
         AtftModule,
-        AtftDataCenterActorModule
+        UxActorModule
       ]
     })
   ],

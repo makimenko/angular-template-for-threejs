@@ -7,7 +7,6 @@ import {ServerStandActorComponent} from './server/server-stand-actor.component';
 import {ServerCompactActorComponent} from './server/server-compact-actor.component';
 import {ServerIconActorComponent} from './server/server-icon-actor.component';
 import {WorkstationActorComponent} from './server/workstation-actor.component';
-import {TextActorComponent} from './text/text-actor.component';
 
 @NgModule({
   imports: [
@@ -20,8 +19,7 @@ import {TextActorComponent} from './text/text-actor.component';
     ServerStandActorComponent,
     ServerCompactActorComponent,
     ServerIconActorComponent,
-    WorkstationActorComponent,
-    TextActorComponent
+    WorkstationActorComponent
   ],
   exports: [
     LayerActorComponent,
@@ -29,8 +27,7 @@ import {TextActorComponent} from './text/text-actor.component';
     ServerStandActorComponent,
     ServerCompactActorComponent,
     ServerIconActorComponent,
-    WorkstationActorComponent,
-    TextActorComponent
+    WorkstationActorComponent
   ]
 })
 export class AtftDataCenterActorModule {

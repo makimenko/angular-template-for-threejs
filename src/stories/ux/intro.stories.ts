@@ -4,7 +4,8 @@ import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
 import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
-import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
+import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
+
 
 @Component({
   template: `
@@ -15,17 +16,13 @@ import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/da
       <!-- Background -->
       <atft-scene name="backgroundScene" background="0x000051">
         <atft-effect-composer [renderToScreen]="false" [sceneBackgroundTarget]="mainScene">
-          <atft-dof [focus]="1.0" [aperture]="0.001" [maxblur]="0.01"></atft-dof>
+          <atft-dof [focus]="1.0" [aperture]="0.01" [maxblur]="0.02"></atft-dof>
         </atft-effect-composer>
 
         <atft-point-light intensity="1" distance="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
-        <atft-empty [rotateZ]="k">
-          <atft-box-mesh *ngFor="let item of [].constructor(20); let i = index"
-                         height="10" width="10" depth="10" material="phong" materialColor="0x5c6bc0"
-                         [translateY]="0" [translateZ]="0" [translateX]="(i*15)-150"></atft-box-mesh>
-        </atft-empty>
+        <atft-loader-actor></atft-loader-actor>
       </atft-scene>
 
       <!-- Foreground -->
@@ -37,9 +34,18 @@ import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/da
         <atft-point-light intensity="0.8" distance="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
-        <atft-text-actor [text]="text" translateX="-200" translateY="-50" translateZ="1"
-                         [animate]="true" [minDelay]="5" [maxDelay]="10"
+        <atft-text-actor text="ATFT" translateX="-210" translateY="-30" translateZ="1"
+                         [animate]="false" [minDelay]="10" [maxDelay]="10"
         ></atft-text-actor>
+
+        <atft-text-actor text="Introducing Angular Template for Three.js" translateX="-200" translateY="-50" translateZ="1"
+                         [animate]="true" [minDelay]="1" [maxDelay]="5"
+        ></atft-text-actor>
+
+        <atft-text-actor text="Param pam pam, param pam pam" translateX="-190" translateY="-70" translateZ="1"
+                         [animate]="true" [minDelay]="10" [maxDelay]="30"
+        ></atft-text-actor>
+
 
       </atft-scene>
     </atft-renderer-canvas>
@@ -47,7 +53,6 @@ import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/da
 })
 class StorybookIntroComponent implements AfterViewInit {
 
-  text = 'Welcome to my world! :)';
 
   @ViewChild(EmptyComponent) box;
 
@@ -76,7 +81,7 @@ export default {
     moduleMetadata({
       imports: [
         AtftModule,
-        AtftDataCenterActorModule
+        UxActorModule
       ]
     })
   ],
