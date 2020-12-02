@@ -43,12 +43,12 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
   }
 
   protected getMaterial(): THREE.Material {
-     return appliedMaterial(this.materialColor, 'basic');
+    return appliedMaterial(this.materialColor, 'basic');
   }
 
   protected init() {
     console.log('LoaderActorComponent.init');
-    const geometry = new THREE.RingGeometry(0.9, 1, 32, 1, 0, Math.PI);
+    const geometry = new THREE.RingGeometry(0.85, 1, 64, 1, 0, Math.PI * 1.8);
     const material = this.getMaterial();
 
     this.ring1 = new THREE.Mesh(geometry, material);
@@ -87,9 +87,11 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
     if (this.subscribed) {
       // console.log('LoaderActorComponent.updateAnimation');
       this.i++;
-      this.ring1.rotateZ(0.05);
-      this.ring2.rotateZ(0.1);
-      this.ring3.rotateZ(0.17);
+      this.ring1.scale.set(70 + (Math.sin(this.i / 20) * 10) + 12, 70 + (Math.sin(this.i / 20) * 10) + 12, 1);
+
+      this.ring1.rotateZ(Math.sin(this.i / 100) / 5);
+      this.ring2.rotateZ(Math.cos(this.i / 70) / 10);
+      this.ring3.rotateZ(Math.sin(this.i / 50) / 20);
     }
   }
 

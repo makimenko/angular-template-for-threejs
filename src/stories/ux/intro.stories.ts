@@ -16,7 +16,7 @@ import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
       <!-- Background -->
       <atft-scene name="backgroundScene" background="0x000051">
         <atft-effect-composer [renderToScreen]="false" [sceneBackgroundTarget]="mainScene">
-          <atft-dof [focus]="1.0" [aperture]="0.01" [maxblur]="0.02"></atft-dof>
+          <atft-dof [focus]="0.2" [aperture]="0.05" [maxblur]="0.04"></atft-dof>
         </atft-effect-composer>
 
         <atft-point-light intensity="1" distance="1000" [translateX]="-60" [translateY]="-60"
@@ -26,7 +26,7 @@ import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
       </atft-scene>
 
       <!-- Foreground -->
-      <atft-scene name="scene" #mainScene>
+      <atft-scene name="scene" #mainScene atft-stats-auto-show>
         <atft-ambient-light color="0xFFFFFF" intensity="0.4"></atft-ambient-light>
 
         <atft-point-light intensity="0.5" distance="1000" translateX=90 translateY=90
@@ -34,18 +34,9 @@ import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
         <atft-point-light intensity="0.8" distance="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
-        <atft-text-actor text="ATFT" translateX="-210" translateY="-30" translateZ="1"
-                         [animate]="false" [minDelay]="10" [maxDelay]="10"
-        ></atft-text-actor>
-
         <atft-text-actor text="Introducing Angular Template for Three.js" translateX="-200" translateY="-50" translateZ="1"
-                         [animate]="true" [minDelay]="1" [maxDelay]="5"
+                         [animate]="true" [minDelay]="5" [maxDelay]="5" materialColor="0xDDDDDD"
         ></atft-text-actor>
-
-        <atft-text-actor text="Param pam pam, param pam pam" translateX="-190" translateY="-70" translateZ="1"
-                         [animate]="true" [minDelay]="10" [maxDelay]="30"
-        ></atft-text-actor>
-
 
       </atft-scene>
     </atft-renderer-canvas>
