@@ -83,13 +83,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftCameraModule.html" data-type="entity-link">AtftCameraModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftCameraModule-19bb764eea3999aafda9501485265af3"' : 'data-target="#xs-components-links-module-AtftCameraModule-19bb764eea3999aafda9501485265af3"' }>
+                                            'data-target="#components-links-module-AtftCameraModule-bd5098613cc4010664644ef806236db4"' : 'data-target="#xs-components-links-module-AtftCameraModule-bd5098613cc4010664644ef806236db4"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftCameraModule-19bb764eea3999aafda9501485265af3"' :
-                                            'id="xs-components-links-module-AtftCameraModule-19bb764eea3999aafda9501485265af3"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftCameraModule-bd5098613cc4010664644ef806236db4"' :
+                                            'id="xs-components-links-module-AtftCameraModule-bd5098613cc4010664644ef806236db4"' }>
+                                            <li class="link">
+                                                <a href="components/OrthographicCameraComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">OrthographicCameraComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/PerspectiveCameraComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">PerspectiveCameraComponent</a>
@@ -183,16 +187,28 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftEffectModule.html" data-type="entity-link">AtftEffectModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftEffectModule-46c33b86c3979b430eff82893bd9bb44"' : 'data-target="#xs-components-links-module-AtftEffectModule-46c33b86c3979b430eff82893bd9bb44"' }>
+                                            'data-target="#components-links-module-AtftEffectModule-aaa967212161cb9291c459b805b8242c"' : 'data-target="#xs-components-links-module-AtftEffectModule-aaa967212161cb9291c459b805b8242c"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftEffectModule-46c33b86c3979b430eff82893bd9bb44"' :
-                                            'id="xs-components-links-module-AtftEffectModule-46c33b86c3979b430eff82893bd9bb44"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftEffectModule-aaa967212161cb9291c459b805b8242c"' :
+                                            'id="xs-components-links-module-AtftEffectModule-aaa967212161cb9291c459b805b8242c"' }>
+                                            <li class="link">
+                                                <a href="components/BlurComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">BlurComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/DofComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DofComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/DotScreenComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">DotScreenComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/EffectComposerComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">EffectComposerComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/FogComponent.html"
@@ -202,13 +218,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-AtftEffectModule-46c33b86c3979b430eff82893bd9bb44"' : 'data-target="#xs-directives-links-module-AtftEffectModule-46c33b86c3979b430eff82893bd9bb44"' }>
+                                        'data-target="#directives-links-module-AtftEffectModule-aaa967212161cb9291c459b805b8242c"' : 'data-target="#xs-directives-links-module-AtftEffectModule-aaa967212161cb9291c459b805b8242c"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-AtftEffectModule-46c33b86c3979b430eff82893bd9bb44"' :
-                                        'id="xs-directives-links-module-AtftEffectModule-46c33b86c3979b430eff82893bd9bb44"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-AtftEffectModule-aaa967212161cb9291c459b805b8242c"' :
+                                        'id="xs-directives-links-module-AtftEffectModule-aaa967212161cb9291c459b805b8242c"' }>
                                         <li class="link">
                                             <a href="directives/DashedDrawDirective.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules">DashedDrawDirective</a>
@@ -246,13 +262,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftLightModule.html" data-type="entity-link">AtftLightModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftLightModule-df4bdfa6bad752d8f08ddf87241dd779"' : 'data-target="#xs-components-links-module-AtftLightModule-df4bdfa6bad752d8f08ddf87241dd779"' }>
+                                            'data-target="#components-links-module-AtftLightModule-aa1fab8dcab5e19e49ba9c2444109087"' : 'data-target="#xs-components-links-module-AtftLightModule-aa1fab8dcab5e19e49ba9c2444109087"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftLightModule-df4bdfa6bad752d8f08ddf87241dd779"' :
-                                            'id="xs-components-links-module-AtftLightModule-df4bdfa6bad752d8f08ddf87241dd779"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftLightModule-aa1fab8dcab5e19e49ba9c2444109087"' :
+                                            'id="xs-components-links-module-AtftLightModule-aa1fab8dcab5e19e49ba9c2444109087"' }>
+                                            <li class="link">
+                                                <a href="components/AmbientLightComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">AmbientLightComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/DirectionalLightComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DirectionalLightComponent</a>
@@ -512,8 +532,43 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </ul>
                                     </li>
                             </li>
+                            <li class="link">
+                                <a href="modules/UxActorModule.html" data-type="entity-link">UxActorModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-UxActorModule-94dda9c633d3f8f68cb66e4eeabf9039"' : 'data-target="#xs-components-links-module-UxActorModule-94dda9c633d3f8f68cb66e4eeabf9039"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-UxActorModule-94dda9c633d3f8f68cb66e4eeabf9039"' :
+                                            'id="xs-components-links-module-UxActorModule-94dda9c633d3f8f68cb66e4eeabf9039"' }>
+                                            <li class="link">
+                                                <a href="components/LoaderActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LoaderActorComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/TextActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TextActorComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
                 </ul>
                 </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#components-links"' :
+                            'data-target="#xs-components-links"' }>
+                            <span class="icon ion-md-cog"></span>
+                            <span>Components</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="components-links"' : 'id="xs-components-links"' }>
+                            <li class="link">
+                                <a href="components/LoaderActorComponent.html" data-type="entity-link">LoaderActorComponent</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#classes-links"' :
                             'data-target="#xs-classes-links"' }>
@@ -522,6 +577,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
+                            <li class="link">
+                                <a href="classes/AbstractComposeEffect.html" data-type="entity-link">AbstractComposeEffect</a>
+                            </li>
                             <li class="link">
                                 <a href="classes/AbstractServerActor.html" data-type="entity-link">AbstractServerActor</a>
                             </li>

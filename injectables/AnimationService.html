@@ -63,7 +63,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Animation service emits animate event, which should be used by animated components for animation logic.
+                <p>Animation service emits updateAnimation event, which should be used by animated components for animation logic.
 NOTE: this service is for the performance optimization: requestAnimationFrame and render is called once.</p>
 
             </p>
@@ -385,7 +385,7 @@ import {RendererService} from &#x27;../renderer/renderer.service&#x27;;
 
 
 /**
- * Animation service emits animate event, which should be used by animated components for animation logic.
+ * Animation service emits updateAnimation event, which should be used by animated components for animation logic.
  * NOTE: this service is for the performance optimization: requestAnimationFrame and render is called once.
  */
 @Injectable()
@@ -425,7 +425,7 @@ export class AnimationService {
   }
 
   public animationStep() {
-    if (this.enabled) {
+    if (this.enabled &amp;&amp; this.animate.observers) {
       requestAnimationFrame(this.animationStep);
       if (this.animate.observers.length &gt; 0) {
         this.animate.emit();
