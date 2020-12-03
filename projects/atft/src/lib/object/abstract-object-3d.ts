@@ -33,6 +33,8 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   @Input() name: string;
 
+  @Input() layer = 0;
+
   @Output() changed = new EventEmitter<void>();
 
   protected object: T;
@@ -80,6 +82,12 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   public ngOnInit(): void {
     this.object = this.newObject3DInstance();
+    if (this.layer) {
+      this.object.layers.disableAll();
+      this.object.layers.enable(this.layer);
+    } else {
+      this.object.layers.enableAll();
+    }
 
     this.applyTranslation();
     this.applyRotation();

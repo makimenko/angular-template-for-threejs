@@ -1,16 +1,19 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {PerspectiveCameraComponent} from './perspective-camera.component';
+import {OrthographicCameraComponent} from './orthographic-camera.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    PerspectiveCameraComponent
+    PerspectiveCameraComponent,
+    OrthographicCameraComponent
   ],
   exports: [
-    PerspectiveCameraComponent
+    PerspectiveCameraComponent,
+    OrthographicCameraComponent
   ]
 })
 export class AtftCameraModule {

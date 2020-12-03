@@ -34,7 +34,7 @@ export class CylinderMeshComponent extends AbstractMesh {
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
-    // console.log('CylinderMeshComponent.constructor', parent);
+    // console.log('CylinderMeshComponent.constructor', parentScene);
   }
 
   protected newObject3DInstance(): THREE.Mesh {

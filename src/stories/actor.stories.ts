@@ -142,6 +142,7 @@ class StorybookServerComponent {
   }
 }
 
+
 export default {
   title: 'Actor',
   decorators: [

@@ -8,21 +8,16 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
 @Component({
   template: effectsSceneWrapper(`
     <atft-effect-composer *ngIf="enable">
-        <atft-fog [near]="near" [far]="far" [color]="color"></atft-fog>
+    <atft-dot-screen *ngIf="enable" ></atft-dot-screen>
     </atft-effect-composer>
   `)
 })
-class StorybookFogComponent {
-
-  enable: boolean;
-  color: string;
-  near: number;
-  far: number;
+class StorybookDotScreenComponent {
 
 }
 
 export default {
-  title: 'Effects / Fog',
+  title: 'Effects / Dot Screen',
   decorators: [
     moduleMetadata({
       imports: [
@@ -32,10 +27,7 @@ export default {
   ],
   args: {
     enable: true,
-    background: '0xDDDDDD',
-    color: '0xDDDDDD',
-    near: 10,
-    far: 200
+    background: '0xFFFFFF'
   },
   argTypes: {
     enable: {control: {type: 'boolean'}},
@@ -51,24 +43,10 @@ export default {
         ]
       }
     },
-    color: {
-      control: {
-        type: 'select',
-        options: [
-          '0xFFFFFF',
-          '0xDDDDDD',
-          '0xAA0000',
-          '0x00AA00',
-          '0x0000AA'
-        ]
-      }
-    },
-    near: {control: {type: 'number', min: 1, max: 1000}},
-    far: {control: {type: 'number', min: 1, max: 1000}},
   }
 };
 
-export const Fog = (args) => ({
-  component: StorybookFogComponent,
+export const DotScreen = (args) => ({
+  component: StorybookDotScreenComponent,
   props: args
 });
