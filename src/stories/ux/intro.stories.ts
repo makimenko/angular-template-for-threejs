@@ -16,13 +16,13 @@ import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
       <!-- Background -->
       <atft-scene name="backgroundScene" background="0x000051">
         <atft-effect-composer [renderToScreen]="false" [sceneBackgroundTarget]="mainScene">
-          <atft-dof [focus]="0.2" [aperture]="0.05" [maxblur]="0.04"></atft-dof>
+          <atft-blur></atft-blur>
         </atft-effect-composer>
 
-        <atft-point-light intensity="1" distance="1000" [translateX]="-60" [translateY]="-60"
+        <atft-point-light intensity="0.4" distance="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
-        <atft-loader-actor></atft-loader-actor>
+        <atft-loader-actor materialColor = "0x5DADE2"></atft-loader-actor>
       </atft-scene>
 
       <!-- Foreground -->

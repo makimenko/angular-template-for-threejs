@@ -14,8 +14,6 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
 })
 class StorybookDotScreenComponent {
 
-  enable: boolean;
-
 }
 
 export default {
@@ -28,10 +26,23 @@ export default {
     })
   ],
   args: {
-    enable: true
+    enable: true,
+    background: '0xFFFFFF'
   },
   argTypes: {
-    enable: {control: {type: 'boolean'}}
+    enable: {control: {type: 'boolean'}},
+    background: {
+      control: {
+        type: 'select',
+        options: [
+          '0xFFFFFF',
+          '0xDDDDDD',
+          '0xAA0000',
+          '0x00AA00',
+          '0x0000AA'
+        ]
+      }
+    },
   }
 };
 

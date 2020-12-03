@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
-import {RendererService} from '../renderer/renderer.service';
-import {SceneComponent} from '../object';
+import {RendererService} from '../../renderer/renderer.service';
+import {SceneComponent} from '../../object';
 import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';
 import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass';
 import {Pass} from 'three/examples/jsm/postprocessing/Pass';
