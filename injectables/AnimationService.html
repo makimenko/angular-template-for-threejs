@@ -63,7 +63,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Animation service emits updateAnimation event, which should be used by animated components for animation logic.
+                <p>Animation service emits updateAnimation event, which should be used by animated components for animationService logic.
 NOTE: this service is for the performance optimization: requestAnimationFrame and render is called once.</p>
 
             </p>
@@ -253,7 +253,7 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Start the animation loop.</p>
+                    <div class="io-description"><p>Start the animationService loop.</p>
 </div>
 
                     <div class="io-description">
@@ -339,8 +339,8 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Subscribe for animation frame creation (change position and etc.)
-Avoid render() execution, it&#39;s called only once when all components updated animation frame.</p>
+                        <div class="io-description"><p>Subscribe for animationService frame creation (change position and etc.)
+Avoid render() execution, it&#39;s called only once when all components updated animationService frame.</p>
 </div>
                     </td>
                 </tr>
@@ -385,15 +385,15 @@ import {RendererService} from &#x27;../renderer/renderer.service&#x27;;
 
 
 /**
- * Animation service emits updateAnimation event, which should be used by animated components for animation logic.
+ * Animation service emits updateAnimation event, which should be used by animated components for animationService logic.
  * NOTE: this service is for the performance optimization: requestAnimationFrame and render is called once.
  */
 @Injectable()
 export class AnimationService {
 
   /**
-   * Subscribe for animation frame creation (change position and etc.)
-   * Avoid render() execution, it&#x27;s called only once when all components updated animation frame.
+   * Subscribe for animationService frame creation (change position and etc.)
+   * Avoid render() execution, it&#x27;s called only once when all components updated animationService frame.
    */
   readonly animate &#x3D; new EventEmitter&lt;void&gt;();
 
@@ -406,7 +406,7 @@ export class AnimationService {
   }
 
   /**
-   * Start the animation loop.
+   * Start the animationService loop.
    */
   public start() {
     if (!this.enabled) {
@@ -430,7 +430,7 @@ export class AnimationService {
       if (this.animate.observers.length &gt; 0) {
         this.animate.emit();
         /**
-         * When all components updated animation, render event is emitted.
+         * When all components updated animationService, render event is emitted.
          * Main renderer subscribed to this event emitter.
          */
         this.rendererService.render();

@@ -318,20 +318,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftMeshModule.html" data-type="entity-link">AtftMeshModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftMeshModule-05e90afaa8abf844a4fca6dd0abe28a0"' : 'data-target="#xs-components-links-module-AtftMeshModule-05e90afaa8abf844a4fca6dd0abe28a0"' }>
+                                            'data-target="#components-links-module-AtftMeshModule-97d3438995449d5351956c05efc01bc1"' : 'data-target="#xs-components-links-module-AtftMeshModule-97d3438995449d5351956c05efc01bc1"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftMeshModule-05e90afaa8abf844a4fca6dd0abe28a0"' :
-                                            'id="xs-components-links-module-AtftMeshModule-05e90afaa8abf844a4fca6dd0abe28a0"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftMeshModule-97d3438995449d5351956c05efc01bc1"' :
+                                            'id="xs-components-links-module-AtftMeshModule-97d3438995449d5351956c05efc01bc1"' }>
                                             <li class="link">
                                                 <a href="components/BoxMeshComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">BoxMeshComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/Css3dVideoMeshComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">Css3dVideoMeshComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/CylinderMeshComponent.html"
@@ -356,6 +352,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="components/TorusMeshComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">TorusMeshComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/VideoMeshComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">VideoMeshComponent</a>
                                             </li>
                                         </ul>
                                     </li>
