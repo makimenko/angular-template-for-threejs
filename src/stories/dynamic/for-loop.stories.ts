@@ -8,7 +8,8 @@ import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
   template: axesSceneWrapper(`
       <atft-empty name="emptyObj">
         <div>
-            <atft-sphere-mesh *ngFor="let x of fakeArray(numObjects)" [radius]="4" [translateX]="x" name="dynamicObj">
+            <atft-sphere-mesh *ngFor="let x of fakeArray(numObjects)" [radius]="4" [translateY]="x" name="dynamicObj"
+                widthSegments="64" hightSegments="64">
             </atft-sphere-mesh>
         </div>
       </atft-empty>

@@ -14,8 +14,8 @@ import { AbstractServerActor } from './abstract-server-actor';
         </atft-box-mesh>
         <atft-box-mesh height="12.25" width="21" depth="1" [materialColor]="color" material="phong"
                        [rotateX]="(90 | deg2rad)" translateZ="7">
-          <atft-css3d-video-mesh height="11.25" width="20" translateZ="0.6" [videoSrc]="videoSrc">
-          </atft-css3d-video-mesh>
+          <atft-video-mesh height="11.25" width="20" translateZ="0.6" [videoSrc]="videoSrc">
+          </atft-video-mesh>
         </atft-box-mesh>
       </atft-empty>
 

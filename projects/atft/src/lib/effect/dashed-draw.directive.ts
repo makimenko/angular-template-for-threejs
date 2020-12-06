@@ -66,7 +66,7 @@ export class DashedDrawDirective implements AfterViewInit {
       if (this.edges.material.dashSize >= this.edges.material.gapSize) {
         // edges.material.color.set(0xffffff);
         // edges.children[0].visible = true;
-        // this.animation.updateAnimation.unsubscribe();
+        // this.animationService.updateAnimation.unsubscribe();
       }
     }
 

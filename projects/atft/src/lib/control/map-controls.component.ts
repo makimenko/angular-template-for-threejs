@@ -70,7 +70,7 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
 
     this.controls.autoRotate = this.autoRotate;
     this.controls.autoRotateSpeed = this.autoRotateSpeed;
-    this.controls.enableDamping = this.enableDamping; // an animation loop is required when either damping or auto-rotation are enabled
+    this.controls.enableDamping = this.enableDamping; // an animationService loop is required when either damping or auto-rotation are enabled
     this.controls.dampingFactor = this.dampingFactor;
 
     this.controls.screenSpacePanning = this.screenSpacePanning;
@@ -80,7 +80,7 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
 
     this.controls.update();
 
-    // Advanced animation:
+    // Advanced animationService:
     if (this.autoRotate || this.enableDamping) {
       this.animationService.animate.subscribe(() => {
         this.controls.update();

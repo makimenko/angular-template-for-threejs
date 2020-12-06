@@ -3,15 +3,15 @@ import {RendererService} from '../renderer/renderer.service';
 
 
 /**
- * Animation service emits updateAnimation event, which should be used by animated components for animation logic.
+ * Animation service emits updateAnimation event, which should be used by animated components for animationService logic.
  * NOTE: this service is for the performance optimization: requestAnimationFrame and render is called once.
  */
 @Injectable()
 export class AnimationService {
 
   /**
-   * Subscribe for animation frame creation (change position and etc.)
-   * Avoid render() execution, it's called only once when all components updated animation frame.
+   * Subscribe for animationService frame creation (change position and etc.)
+   * Avoid render() execution, it's called only once when all components updated animationService frame.
    */
   readonly animate = new EventEmitter<void>();
 
@@ -24,7 +24,7 @@ export class AnimationService {
   }
 
   /**
-   * Start the animation loop.
+   * Start the animationService loop.
    */
   public start() {
     if (!this.enabled) {
@@ -48,7 +48,7 @@ export class AnimationService {
       if (this.animate.observers.length > 0) {
         this.animate.emit();
         /**
-         * When all components updated animation, render event is emitted.
+         * When all components updated animationService, render event is emitted.
          * Main renderer subscribed to this event emitter.
          */
         this.rendererService.render();

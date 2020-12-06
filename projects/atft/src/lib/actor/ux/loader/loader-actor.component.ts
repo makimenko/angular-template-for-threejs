@@ -47,7 +47,7 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
   }
 
   protected init() {
-    console.log('LoaderActorComponent.init');
+    // console.log('LoaderActorComponent.init');
     const geometry = new THREE.RingGeometry(0.85, 1, 64, 1, 0, Math.PI * 1.8);
     const material = this.getMaterial();
 
