@@ -10,7 +10,7 @@ import {RaycasterEvent} from './raycaster-event';
 @Directive({selector: '[atft-raycaster-group]'})
 export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
 
-  @Output() mouseEnter = new EventEmitter<void | AbstractObject3D<any>>();
+  @Output() mouseEnter = new EventEmitter<void | any>();
   @Output() mouseExit = new EventEmitter<void | AbstractObject3D<any>>();
   @Output() click = new EventEmitter<void | AbstractObject3D<any>>();
 
@@ -48,12 +48,14 @@ export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
     this.mouseExit.emit(this.host);
   }
 
-  private onMouseEnter() {
-    this.mouseEnter.emit(this.host);
+  private onMouseEnter(event) {
+    // console.log('RaycasterGroupDirective.onMouseEnter', event);
+    this.mouseEnter.emit(event);
   }
 
-  private onClick() {
-    this.click.emit(this.host);
+  private onClick(event) {
+    // console.log('onClick', event);
+    this.click.emit(event);
   }
 
   ngOnDestroy(): void {

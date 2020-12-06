@@ -4,6 +4,10 @@ import {AbstractCamera} from '../camera/abstract-camera';
 import {AbstractObject3D} from '../object/abstract-object-3d';
 import {RaycasterEvent} from './raycaster-event';
 
+interface NearestIntersection {
+  object: THREE.Object3D;
+  face: THREE.Face3;
+}
 
 @Injectable()
 export class RaycasterService implements OnDestroy {
@@ -78,14 +82,14 @@ export class RaycasterService implements OnDestroy {
     }
     event.preventDefault();
     const i = this.getFirstIntersectedGroup(event.layerX, event.layerY);
-    if (!this.selected || this.selected !== i) {
+    if (!this.selected || this.selected !== i.object) {
       if (this.selected) {
         this.selected.dispatchEvent({type: RaycasterEvent.mouseExit});
         this.selected = null;
       }
-      if (i) {
-        this.selected = i;
-        this.selected.dispatchEvent({type: RaycasterEvent.mouseEnter});
+      if (i && i.object) {
+        this.selected = i.object;
+        this.selected.dispatchEvent({type: RaycasterEvent.mouseEnter, face: i.face});
       }
     }
 
@@ -97,11 +101,10 @@ export class RaycasterService implements OnDestroy {
     }
     event.preventDefault();
     const i = this.getFirstIntersectedGroup(event.layerX, event.layerY);
-    if (i) {
-      i.dispatchEvent({type: RaycasterEvent.click});
+    if (i && i.object) {
+      i.object.dispatchEvent({type: RaycasterEvent.click, face: i.face});
     }
   }
-
 
   private onTouchStart(event: TouchEvent) {
     // console.log(event);
@@ -110,8 +113,8 @@ export class RaycasterService implements OnDestroy {
     }
     event.preventDefault();
     const i = this.getFirstIntersectedGroup(event.touches[0].clientX, event.touches[0].clientY);
-    if (i) {
-      i.dispatchEvent({type: RaycasterEvent.click});
+    if (i && i.object) {
+      i.object.dispatchEvent({type: RaycasterEvent.click, face: i.face});
     }
   }
 
@@ -124,11 +127,12 @@ export class RaycasterService implements OnDestroy {
       && this.groups.length > 0;
   }
 
-  private getFirstIntersectedGroup(x, y): THREE.Object3D {
+  private getFirstIntersectedGroup(x, y): NearestIntersection {
     x = (x / window.innerWidth) * 2 - 1;
     y = -(y / window.innerHeight) * 2 + 1;
     const mouseVector = new THREE.Vector3(x, y, 0.5);
     this.raycaster.setFromCamera(mouseVector, this.camera.camera);
+    let face;
 
     // loop across all groups. Try to find the group with nearest distance.
     let nearestIntersection: THREE.Intersection;
@@ -138,15 +142,22 @@ export class RaycasterService implements OnDestroy {
       const intersection = this.raycaster.intersectObject(i, true);
       if (intersection.length > 0 && (!nearestIntersection || nearestIntersection.distance > intersection[0].distance)) {
         nearestIntersection = intersection[0];
+        face = nearestIntersection.face;
         nearestGroup = i;
       }
     }
 
     // return the group with nearest distance
     if (nearestGroup) {
-      return nearestGroup;
+      return {
+        object: nearestGroup,
+        face: face
+      };
     } else {
-      return;
+      return {
+        object: null,
+        face: null
+      };
     }
   }
 
