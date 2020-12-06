@@ -34,7 +34,7 @@ export default {
   ],
   args: {
     animate: true,
-    label: 'Hello, welcome to the world of animation!',
+    label: 'Hello, welcome to the world of animationService!',
     minDelay: 5,
     maxDelay: 20
   },

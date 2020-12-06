@@ -6,7 +6,7 @@
  */
 export const performanceSceneWrapper = (content: string) => `
 <atft-orbit-controls style="height:100%" rotateSpeed=1 zoomSpeed=1.2>
-  <atft-renderer-canvas [enableCss3d]="false">
+  <atft-renderer-canvas>
       <atft-perspective-camera [zAxisUp]="true" positionX=50 positionY=-20 positionZ=50></atft-perspective-camera>
       <atft-scene atft-stats-auto-show>
           <atft-point-light intensity="0.5" distance="100" translateX=90 translateY=90

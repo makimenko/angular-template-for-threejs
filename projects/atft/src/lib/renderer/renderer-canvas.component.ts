@@ -11,13 +11,6 @@ export class RendererCanvasComponent implements OnInit {
   @ViewChild('canvas', {static: true})
   private canvasRef: ElementRef;
 
-  @Input()
-  enableWebGl = true;
-
-  @Input()
-  enableCss3d = true;
-
-
   constructor(
     private rendererService: RendererService
   ) {
@@ -27,7 +20,7 @@ export class RendererCanvasComponent implements OnInit {
 
   ngOnInit() {
     // console.log('RendererComponent.ngAfterViewInit');
-    this.rendererService.initialize(this.canvas, this.enableWebGl, this.enableCss3d);
+    this.rendererService.initialize(this.canvas);
   }
 
   /**
