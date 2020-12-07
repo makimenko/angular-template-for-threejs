@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from '@angular/core';
 import {moduleMetadata} from '@storybook/angular';
-import {AtftDataCenterActorModule} from '../../projects/atft/src/lib/actor/data-center';
+import {AtftDataCenterActorModule, ServerStandActorComponent} from '../../projects/atft/src/lib/actor/data-center';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 
@@ -23,10 +23,12 @@ import {AtftModule} from '../../projects/atft/src/lib/atft.module';
         <atft-point-light name="point-light" intensity="1" translateX="20" translateY="-50" translateZ="50"
                           [castShadow]="true"></atft-point-light>
 
-        <atft-grid-actor iterationsX="30" iterationsY="20" (gridEnter)="onGridEnter($event)" (gridClick)="onGridClick($event)">
-          <atft-server-stand-actor [label]="label" [svgName]="svgName"
-                                   [translateX]="x" [translateY]="y">
-          </atft-server-stand-actor>
+        <atft-grid-actor iterationsX="30" iterationsY="20" offset="1.1" (gridEnter)="onGridEnter($event)" (gridClick)="onGridClick($event)">
+          <atft-frame-mesh [thickness]="1" [sizeX]="15" [sizeY]="15" [translateZ]="0.1" material="basic"
+                           [translateX]="x" [translateY]="y">
+          </atft-frame-mesh>
+          <template #gridcontainer>
+          </template>
         </atft-grid-actor>
 
       </atft-scene>
@@ -40,6 +42,12 @@ class StorybookEditorComponent {
   x = 0;
   y = 0;
 
+  @ViewChild('gridcontainer', {read: ViewContainerRef}) gridcontainer;
+
+  constructor(private resolver: ComponentFactoryResolver) {
+
+  }
+
   onGridEnter(event) {
     // console.log('StorybookEditorComponent.onGridEnter', event);
     this.x = event.array[0];
@@ -48,8 +56,14 @@ class StorybookEditorComponent {
 
   onGridClick(event) {
     console.log('StorybookEditorComponent.onGridClick', event);
-  }
 
+    const factory = this.resolver.resolveComponentFactory(ServerStandActorComponent);
+    const componentRef = this.gridcontainer.createComponent(factory);
+    componentRef.instance.label = 'Server';
+    componentRef.instance.svgName = 'grid-world.svg';
+    componentRef.instance.translateX = this.x; // event.array[0];
+    componentRef.instance.translateY = this.y; // event.array[1];
+  }
 
 }
 
@@ -61,6 +75,9 @@ export default {
       imports: [
         AtftModule,
         AtftDataCenterActorModule
+      ],
+      entryComponents: [
+        ServerStandActorComponent
       ]
     })
   ],
