@@ -100,7 +100,11 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
   }
 
   ngOnDestroy(): void {
-    this.video = null;
+    if (this.video) {
+      this.animationService.animate.unsubscribe();
+      this.video.pause();
+      this.video.remove();
+    }
   }
 
 
