@@ -1,8 +1,9 @@
 import {Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from '@angular/core';
 import {moduleMetadata} from '@storybook/angular';
-import {AtftDataCenterActorModule, ServerStandActorComponent} from '../../projects/atft/src/lib/actor/data-center';
+import {AtftDataCenterActorModule, ServerStandActorComponent} from '../../../projects/atft/src/lib/actor/data-center';
+import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
+
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../projects/atft/src/lib/atft.module';
 
 
 @Component({
@@ -16,11 +17,10 @@ import {AtftModule} from '../../projects/atft/src/lib/atft.module';
         <atft-plane-mesh name="ground" height="2000" width="2000" materialColor="0x999999" [depthWrite]="true" [castShadow]="false"
                          [receiveShadow]="true" heightSegments="10" widthSegments="10" translateZ="-0.1">
         </atft-plane-mesh>
-        <atft-axes-helper size=1000></atft-axes-helper>
-        <atft-hemisphere-light name="hemi-light" skyColor="0xffffff" groundColor="0xffffff" intensity="0.3"
+        <atft-hemisphere-light name="hemi-light" skyColor="0xffffff" groundColor="0xffffff" intensity="0.5"
                                translateX="-20" translateY="-20" translateZ="100">
         </atft-hemisphere-light>
-        <atft-point-light name="point-light" intensity="1" translateX="20" translateY="-50" translateZ="50"
+        <atft-point-light name="point-light" intensity="0.2" translateX="-50" translateY="-50" translateZ="50"
                           [castShadow]="true"></atft-point-light>
 
         <atft-grid-actor iterationsX="30" iterationsY="20" offset="1.1" (gridEnter)="onGridEnter($event)" (gridClick)="onGridClick($event)">
@@ -69,7 +69,7 @@ class StorybookEditorComponent {
 
 
 export default {
-  title: 'Editor',
+  title: 'Dynamic / Editor',
   decorators: [
     moduleMetadata({
       imports: [
