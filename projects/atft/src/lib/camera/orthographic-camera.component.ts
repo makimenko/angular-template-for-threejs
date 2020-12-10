@@ -11,7 +11,7 @@ import {AbstractCamera} from './abstract-camera';
 })
 export class OrthographicCameraComponent extends AbstractCamera<THREE.OrthographicCamera> implements OnChanges {
 
-  @Input() zoom = 1;
+  @Input() zoom = 4;
 
   constructor(
     protected rendererService: RendererService
@@ -61,6 +61,9 @@ export class OrthographicCameraComponent extends AbstractCamera<THREE.Orthograph
     this.camera.top = frustumSize / 2;
     this.camera.bottom = -frustumSize / 2;
     this.camera.updateProjectionMatrix();
+
+    // TODO: separate component:
+    this.camera.lookAt(new THREE.Vector3(0, 0, 0));
   }
 
 }

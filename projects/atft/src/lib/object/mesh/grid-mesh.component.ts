@@ -43,7 +43,7 @@ export class GridMeshComponent extends AbstractMesh {
     const x0 = -(this.iterationsX * (d * this.offset)) / 2;
     const y0 = -(this.iterationsY * (d * this.offset)) / 2;
 
-    let x = x0, y = x0;
+    let x = x0, y = y0;
 
     for (let i = 0; i < this.iterationsX; i++) {
       for (let j = 0; j < this.iterationsY; j++) {
