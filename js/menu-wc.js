@@ -149,13 +149,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftDataCenterActorModule.html" data-type="entity-link">AtftDataCenterActorModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftDataCenterActorModule-6520758d1dee02aaea530a682b19ee4f"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-6520758d1dee02aaea530a682b19ee4f"' }>
+                                            'data-target="#components-links-module-AtftDataCenterActorModule-c2cddc744934e3560bfc9d4362e80a4d"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-c2cddc744934e3560bfc9d4362e80a4d"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-6520758d1dee02aaea530a682b19ee4f"' :
-                                            'id="xs-components-links-module-AtftDataCenterActorModule-6520758d1dee02aaea530a682b19ee4f"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-c2cddc744934e3560bfc9d4362e80a4d"' :
+                                            'id="xs-components-links-module-AtftDataCenterActorModule-c2cddc744934e3560bfc9d4362e80a4d"' }>
+                                            <li class="link">
+                                                <a href="components/GridActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">GridActorComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/LayerActorComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LayerActorComponent</a>
@@ -582,6 +586,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/AbstractServerActor.html" data-type="entity-link">AbstractServerActor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interfaces-links"' :
+                            'data-target="#xs-interfaces-links"' }>
+                            <span class="icon ion-md-information-circle-outline"></span>
+                            <span>Interfaces</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/NearestIntersection.html" data-type="entity-link">NearestIntersection</a>
                             </li>
                         </ul>
                     </li>
