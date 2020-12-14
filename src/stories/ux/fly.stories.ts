@@ -30,10 +30,17 @@ import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
         >
         </atft-text-actor>
 
-        <atft-text-actor text="Hello, World!" translateX="100" translateY="5" [translateZ]="(-100-(i*30))"
+        <atft-text-actor text="Hello, World!" translateX="100" translateY="5" [translateZ]="-100"
                          [animate]="false" [minDelay]="10" [maxDelay]="10" materialColor="0x303030"
                          atft-dashed-draw dashColor="0x303030"
         ></atft-text-actor>
+
+        <atft-text-actor [text]="longtext" translateX="-50" translateY="100" [translateZ]="-50"
+                         [animate]="false" [minDelay]="10" [maxDelay]="10" materialColor="0x303030"
+                         [scaleX]="0.3" [scaleY]="0.3" [dashIncrement]="120"
+                         atft-dashed-draw dashColor="0x303030"
+        ></atft-text-actor>
+
 
         <atft-grid-mesh [rotateX]="(90 | deg2rad)" materialColor="0x202020"
                         [iterationsX]="30" [iterationsY]="60" [size]="20">
@@ -51,6 +58,26 @@ class StorybookFlyComponent implements AfterViewInit {
 
   k = 0;
   z = 600;
+  longtext = `# Creates a DataFrame based on a table named "people"
+# stored in a MySQL database.
+url = \\
+  "jdbc:mysql://yourIP:yourPort/test?user=yourUsername;password=yourPassword"
+df = sqlContext \\
+  .read \\
+  .format("jdbc") \\
+  .option("url", url) \\
+  .option("dbtable", "people") \\
+  .load()
+
+# Looks the schema of this DataFrame.
+df.printSchema()
+
+# Counts people by age
+countsByAge = df.groupBy("age").count()
+countsByAge.show()
+
+# Saves countsByAge to S3 in the JSON format.
+countsByAge.write.format("json").save("s3a://...")`;
 
   constructor(private animationService: AnimationService) {
   }
@@ -62,7 +89,7 @@ class StorybookFlyComponent implements AfterViewInit {
   }
 
   public animate() {
-    this.k += 0.05;
+    this.k += 0.005;
 
     if (this.z > 200) {
       this.z -= this.k;

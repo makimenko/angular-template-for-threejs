@@ -8,7 +8,6 @@ import {appliedColor} from '../util';
 export class DashedDrawDirective implements AfterViewInit {
 
   @Input() dashColor = 0xFF0000;
-  @Input() dashFinalColor = 0xFFFFFF;
   @Input() dashIncrement = 10;
 
   private edges: any;
@@ -24,7 +23,7 @@ export class DashedDrawDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('DashedDrawDirective.ngAfterViewInit: Dashed draw for', this.host);
+    // console.log('DashedDrawDirective.ngAfterViewInit: Dashed draw for', this.host);
 
     this.tryToFindGeometry();
 
@@ -39,9 +38,9 @@ export class DashedDrawDirective implements AfterViewInit {
       const findMesh = (child instanceof THREE.Mesh ? child : child.children[0]);
 
       if (findMesh && findMesh instanceof THREE.Mesh) {
-        console.log('DashedDrawDirective.ngAfterViewInit: child', findMesh);
+        // console.log('DashedDrawDirective.ngAfterViewInit: child', findMesh);
         // child.findMesh = new THREE.MeshBasicMaterial({color: 0x999999});
-        console.log(child);
+        // console.log(child);
 
         const edgesGeom = new THREE.EdgesGeometry(findMesh.geometry, 8);
         this.edges = new THREE.LineSegments(edgesGeom, new THREE.LineDashedMaterial({color: appliedColor(this.dashColor)}));
@@ -53,15 +52,15 @@ export class DashedDrawDirective implements AfterViewInit {
 
 
         this.material = findMesh.material as THREE.Material;
-        console.log('DashedDrawDirective.tryToFindGeometry original material', this.material);
+        // console.log('DashedDrawDirective.tryToFindGeometry original material', this.material);
 
         this.material.transparent = true;
-        this.material.opacity = 0.0;
+        this.material.opacity = 0.2;
 
         findMesh.add(this.edges);
 
       } else {
-        console.log('DashedDrawDirective.ngAfterViewInit: cant find geometry yet');
+        // console.log('DashedDrawDirective.ngAfterViewInit: cant find geometry yet');
       }
     });
   }
@@ -74,8 +73,7 @@ export class DashedDrawDirective implements AfterViewInit {
         this.edges.material.dashSize += this.dashIncrement;
         if (this.edges.material.dashSize >= this.edges.material.gapSize) {
 
-          this.edges.parent.children = [];
-          this.edges.material.color.set(appliedColor(this.dashFinalColor));
+          // this.edges.parent.children = [];
           this.material.transparent = false;
           this.material.opacity = 1;
           this.stop = true;
