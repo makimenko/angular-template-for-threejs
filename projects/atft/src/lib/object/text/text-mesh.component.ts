@@ -1,4 +1,4 @@
-import {Component, Input, Optional, SimpleChanges, SkipSelf} from '@angular/core';
+import {Component, Input, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
 import {RendererService} from '../../renderer/renderer.service';
 import {appliedMaterial, provideParent} from '../../util';
@@ -15,7 +15,6 @@ export class TextMeshComponent extends AbstractLazyObject3D {
 
   @Input()
   material = 'basic';
-
 
   private _materialColor = 0xDADADA;
   @Input()
@@ -80,6 +79,8 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   @Input()
   centered = true;
 
+  protected fontCache: THREE.Font;
+
   constructor(
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
@@ -94,35 +95,44 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   protected async loadLazyObject(): Promise<THREE.Object3D> {
     // console.log('TextMeshComponent.loadLazyObject');
 
-
-    return new Promise<THREE.Object3D>(resolve => {
-      const loader = new THREE.FontLoader();
-      loader.load(this.fontUrl, font => {
-
-
-
-        const geometry = new THREE.TextGeometry(this.text, {
-          font: font,
-          size: this.size,
-          height: this.height,
-          curveSegments: this.curveSegments,
-          bevelEnabled: this.bevelEnabled,
-          bevelThickness: this.bevelThickness,
-          bevelSize: this.bevelSize,
-          bevelOffset: this.bevelOffset,
-          bevelSegments: this.bevelOffset
-        });
-        const material = this.getMaterial();
-        const mesh = new THREE.Mesh(geometry, material);
-        mesh.castShadow = this.castShadow;
-        mesh.receiveShadow = this.receiveShadow;
-
-        if (this.centered) {
-          fixCenter(mesh);
-        }
-        resolve(mesh);
+    if (this.fontCache) {
+      return new Promise<THREE.Object3D>(resolve => {
+        resolve(this.getTextMesh(this.fontCache));
       });
+    } else {
+      return new Promise<THREE.Object3D>(resolve => {
+        const loader = new THREE.FontLoader();
+        loader.load(this.fontUrl, font => {
+          this.fontCache = font;
+          resolve(this.getTextMesh(font));
+        });
+      });
+    }
+  }
+
+  protected getTextMesh(font: THREE.Font): THREE.Mesh {
+    // console.log('TextMeshComponent.getTextMesh');
+    const geometry = new THREE.TextGeometry(this.text, {
+      font: font,
+      size: this.size,
+      height: this.height,
+      curveSegments: this.curveSegments,
+      bevelEnabled: this.bevelEnabled,
+      bevelThickness: this.bevelThickness,
+      bevelSize: this.bevelSize,
+      bevelOffset: this.bevelOffset,
+      bevelSegments: this.bevelOffset
     });
+
+    const material = this.getMaterial();
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.castShadow = this.castShadow;
+    mesh.receiveShadow = this.receiveShadow;
+
+    if (this.centered) {
+      fixCenter(mesh);
+    }
+    return mesh;
   }
 
 
