@@ -9,11 +9,14 @@ export class DashedDrawDirective implements AfterViewInit {
 
   @Input() dashColor = 0xFF0000;
   @Input() dashIncrement = 10;
+  @Input() initialOpacity = 0.2;
+  @Input() targetOpacity = 1;
 
   private edges: any;
 
   private material: THREE.Material;
   private stop = false;
+
 
   constructor(
     private host: AbstractObject3D<any>,
@@ -31,6 +34,7 @@ export class DashedDrawDirective implements AfterViewInit {
     this.animation.animate.subscribe(this.animate);
     this.animation.start();
   }
+
 
   private tryToFindGeometry() {
     const object = this.host.getObject() as THREE.Object3D;
@@ -54,8 +58,12 @@ export class DashedDrawDirective implements AfterViewInit {
         this.material = findMesh.material as THREE.Material;
         // console.log('DashedDrawDirective.tryToFindGeometry original material', this.material);
 
-        this.material.transparent = true;
-        this.material.opacity = 0.2;
+        if (this.initialOpacity) {
+          if (!this.material.transparent) {
+            this.material.transparent = true;
+          }
+          this.material.opacity = this.initialOpacity;
+        }
 
         findMesh.add(this.edges);
 
@@ -74,8 +82,12 @@ export class DashedDrawDirective implements AfterViewInit {
         if (this.edges.material.dashSize >= this.edges.material.gapSize) {
 
           // this.edges.parent.children = [];
-          this.material.transparent = false;
-          this.material.opacity = 1;
+          if (this.targetOpacity) {
+            this.material.opacity = this.targetOpacity;
+            if (this.targetOpacity === 1) {
+              this.material.transparent = false;
+            }
+          }
           this.stop = true;
         }
       } else {

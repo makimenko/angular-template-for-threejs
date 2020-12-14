@@ -25,7 +25,7 @@ class StorybookObjLoaderComponent {
 
 @Component({
   template: axesSceneWrapper(`
-      <atft-object-loader model="assets/model/Server.json">
+      <atft-object-loader  model="assets/model/Server.json">
       </atft-object-loader>
   `)
 })

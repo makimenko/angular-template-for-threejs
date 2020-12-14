@@ -6,6 +6,7 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
 import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
 
+const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/';
 
 @Component({
   template: `
@@ -35,19 +36,32 @@ import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
                          atft-dashed-draw dashColor="0x303030"
         ></atft-text-actor>
 
-        <atft-text-actor [text]="longtext" translateX="-50" translateY="100" [translateZ]="-50"
+        <atft-text-actor [text]="longtext" translateX="-50" [translateY]="100" [translateZ]="-50"
                          [animate]="false" [minDelay]="10" [maxDelay]="10" materialColor="0x303030"
                          [scaleX]="0.3" [scaleY]="0.3" [dashIncrement]="120"
                          atft-dashed-draw dashColor="0x303030"
         ></atft-text-actor>
 
+        <!-- -->
+        <atft-obj-loader atft-dashed-draw dashColor="0x303030" [dashIncrement]="30" [initialOpacity]="0.1" [targetOpacity]="0.1"
+          model="${modelPath}/SampleArea/Base.obj"
+          material="${modelPath}/SampleArea/Base.mtl"
+          resourcePath="${modelPath}/">
+        </atft-obj-loader>
 
-        <atft-grid-mesh [rotateX]="(90 | deg2rad)" materialColor="0x202020"
-                        [iterationsX]="30" [iterationsY]="60" [size]="20">
-        </atft-grid-mesh>
+        <atft-obj-loader atft-dashed-draw dashColor="0x303030" [dashIncrement]="30" [initialOpacity]="0.1" [targetOpacity]="0.1"
+                         model="${modelPath}/SampleArea/Zone.obj"
+                         material="${modelPath}/SampleArea/Zone.mtl"
+                         resourcePath="${modelPath}/">
+        </atft-obj-loader>
 
-        <atft-loader-actor [rotateX]="(90 | deg2rad)" [translateY]="10" materialColor="0x202020">
-        </atft-loader-actor>
+        <atft-obj-loader atft-dashed-draw dashColor="0x303030" [dashIncrement]="30" [initialOpacity]="0.01" [targetOpacity]="0.01"
+                         model="${modelPath}/SampleArea/House1.obj"
+                         material="${modelPath}/SampleArea/House1.mtl"
+                         resourcePath="${modelPath}/">
+        </atft-obj-loader>
+
+
       </atft-scene>
     </atft-renderer-canvas>
   `
