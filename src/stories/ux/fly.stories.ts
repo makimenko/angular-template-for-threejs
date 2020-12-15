@@ -7,6 +7,13 @@ import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
 import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
 
 const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/';
+// const modelPath = '/assets/model';
+const longText = `Coding allow us to construct and visit believable imaginary cities,
+provide us with glimpses of ancient urbanism, and let us immerse ourselves
+in the wildest utopias and darkest dystopias of our possible futures.
+They are an unprecedented canvas for experimenting with the urban environment,
+and an utterly unique medium for experiencing cities both imagined
+and real in truly immersive ways.`;
 
 @Component({
   template: `
@@ -25,42 +32,40 @@ const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angu
                           [translateZ]="50"></atft-point-light>
 
         <atft-text-actor text="Introducing Angular Template for Three.js" translateX="-200" translateY="50" translateZ="-50"
-                         [animate]="false" [minDelay]="5" [maxDelay]="5" materialColor="0x303030"
+                         [animate]="false" [minDelay]="5" [maxDelay]="5" [materialColor]="colorA200"
                          [scaleX]="0.5" [scaleY]="0.5"
-                         atft-dashed-draw dashColor="0x303030" [dashIncrement]="30"
-        >
+                         atft-dashed-draw [dashColor]="colorA200" [dashIncrement]="5">
         </atft-text-actor>
 
-        <atft-text-actor text="Hello, World!" translateX="100" translateY="5" [translateZ]="-100"
-                         [animate]="false" [minDelay]="10" [maxDelay]="10" materialColor="0x303030"
-                         atft-dashed-draw dashColor="0x303030"
-        ></atft-text-actor>
+        <atft-text-actor text="Hello, virtual city!" translateX="100" translateY="5" [translateZ]="-100"
+                         [animate]="false" [minDelay]="10" [maxDelay]="10" [materialColor]="colorA200"
+                         atft-dashed-draw [dashColor]="colorA200" [dashIncrement]="5">
+        </atft-text-actor>
 
-        <atft-text-actor [text]="longtext" translateX="-50" [translateY]="100" [translateZ]="-50"
-                         [animate]="false" [minDelay]="10" [maxDelay]="10" materialColor="0x303030"
-                         [scaleX]="0.3" [scaleY]="0.3" [dashIncrement]="120"
-                         atft-dashed-draw dashColor="0x303030"
-        ></atft-text-actor>
+        <atft-text-actor text="${longText}" translateX="-50" [translateY]="100" [translateZ]="-50"
+                         [animate]="false" [minDelay]="10" [maxDelay]="10" [materialColor]="colorA200"
+                         [scaleX]="0.3" [scaleY]="0.3" [dashIncrement]="50"
+                         atft-dashed-draw [dashColor]="colorA200">
+        </atft-text-actor>
 
-        <!-- -->
-        <atft-obj-loader atft-dashed-draw dashColor="0x303030" [dashIncrement]="30" [initialOpacity]="0.1" [targetOpacity]="0.1"
+        <atft-obj-loader
           model="${modelPath}/SampleArea/Base.obj"
           material="${modelPath}/SampleArea/Base.mtl"
           resourcePath="${modelPath}/">
         </atft-obj-loader>
 
-        <atft-obj-loader atft-dashed-draw dashColor="0x303030" [dashIncrement]="30" [initialOpacity]="0.1" [targetOpacity]="0.1"
+        <atft-obj-loader atft-dashed-draw dashColor="0x303030" [dashIncrement]="150" [initialOpacity]="0.2" [targetOpacity]="0.21"
                          model="${modelPath}/SampleArea/Zone.obj"
                          material="${modelPath}/SampleArea/Zone.mtl"
                          resourcePath="${modelPath}/">
         </atft-obj-loader>
 
-        <atft-obj-loader atft-dashed-draw dashColor="0x303030" [dashIncrement]="30" [initialOpacity]="0.01" [targetOpacity]="0.01"
-                         model="${modelPath}/SampleArea/House1.obj"
-                         material="${modelPath}/SampleArea/House1.mtl"
+        <atft-obj-loader *ngFor="let item of [].constructor(5); let i = index"
+                         atft-dashed-draw dashColor="0x303030" [dashIncrement]="20+(5*i)" [initialOpacity]="0.1" [targetOpacity]="0.2"
+                         model="${modelPath}/SampleArea/House{{i+1}}.obj"
+                         material="${modelPath}/SampleArea/House{{i+1}}.mtl"
                          resourcePath="${modelPath}/">
         </atft-obj-loader>
-
 
       </atft-scene>
     </atft-renderer-canvas>
@@ -72,26 +77,8 @@ class StorybookFlyComponent implements AfterViewInit {
 
   k = 0;
   z = 600;
-  longtext = `# Creates a DataFrame based on a table named "people"
-# stored in a MySQL database.
-url = \\
-  "jdbc:mysql://yourIP:yourPort/test?user=yourUsername;password=yourPassword"
-df = sqlContext \\
-  .read \\
-  .format("jdbc") \\
-  .option("url", url) \\
-  .option("dbtable", "people") \\
-  .load()
 
-# Looks the schema of this DataFrame.
-df.printSchema()
-
-# Counts people by age
-countsByAge = df.groupBy("age").count()
-countsByAge.show()
-
-# Saves countsByAge to S3 in the JSON format.
-countsByAge.write.format("json").save("s3a://...")`;
+  colorA200 = 0x9FA8DA;
 
   constructor(private animationService: AnimationService) {
   }
@@ -103,13 +90,12 @@ countsByAge.write.format("json").save("s3a://...")`;
   }
 
   public animate() {
-    this.k += 0.005;
+    this.k += 0.001;
 
     if (this.z > 200) {
       this.z -= this.k;
     }
   }
-
 
 }
 
