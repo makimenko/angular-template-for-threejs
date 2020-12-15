@@ -449,8 +449,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">projects/atft/src/lib/actor/ux/text/text-actor.component.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">projects/atft/src/lib/actor/ux/text/text-actor.component.ts:104</a></div>
                 </td>
             </tr>
 
@@ -531,8 +531,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">projects/atft/src/lib/actor/ux/text/text-actor.component.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">projects/atft/src/lib/actor/ux/text/text-actor.component.ts:118</a></div>
                 </td>
             </tr>
 
@@ -603,8 +603,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">projects/atft/src/lib/actor/ux/text/text-actor.component.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">projects/atft/src/lib/actor/ux/text/text-actor.component.ts:79</a></div>
                 </td>
             </tr>
 
@@ -644,8 +644,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="111"
-                            class="link-to-prism">projects/atft/src/lib/actor/ux/text/text-actor.component.ts:111</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">projects/atft/src/lib/actor/ux/text/text-actor.component.ts:113</a></div>
                 </td>
             </tr>
 
@@ -721,8 +721,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">projects/atft/src/lib/actor/ux/text/text-actor.component.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">projects/atft/src/lib/actor/ux/text/text-actor.component.ts:85</a></div>
                 </td>
             </tr>
 
@@ -1080,10 +1080,12 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
       // console.log(&#x27;TextActorComponent.updateText&#x27;, this.text);
       if (this.animate) {
         // console.log(&#x27;TextActorComponent.animate init&#x27;);
-        this.updateAnimation &#x3D; this.updateAnimation.bind(this);
-        this.animationService.animate.subscribe(this.updateAnimation);
-        this.subscribed &#x3D; true;
-        this.animationService.start();
+        if (!this.subscribed) {
+          this.updateAnimation &#x3D; this.updateAnimation.bind(this);
+          this.animationService.animate.subscribe(this.updateAnimation);
+          this.subscribed &#x3D; true;
+          this.animationService.start();
+        }
 
         this.currentPos &#x3D; 0;
         this.maxPos &#x3D; this.text.length;
