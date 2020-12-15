@@ -59,10 +59,12 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
       // console.log('TextActorComponent.updateText', this.text);
       if (this.animate) {
         // console.log('TextActorComponent.animate init');
-        this.updateAnimation = this.updateAnimation.bind(this);
-        this.animationService.animate.subscribe(this.updateAnimation);
-        this.subscribed = true;
-        this.animationService.start();
+        if (!this.subscribed) {
+          this.updateAnimation = this.updateAnimation.bind(this);
+          this.animationService.animate.subscribe(this.updateAnimation);
+          this.subscribed = true;
+          this.animationService.start();
+        }
 
         this.currentPos = 0;
         this.maxPos = this.text.length;

@@ -31,6 +31,12 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   @Input() translateY: number;
   @Input() translateZ: number;
 
+
+  @Input() scaleX = 1;
+  @Input() scaleY = 1;
+  @Input() scaleZ = 1;
+
+
   @Input() name: string;
 
   @Input() layer = 0;
@@ -63,6 +69,11 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
       modified = true;
     }
 
+    if (['scaleX', 'scaleY', 'scaleZ'].some(propName => propName in changes)) {
+      this.applyScale();
+      modified = true;
+    }
+
     if (modified) {
       this.changed.emit();
       this.rendererService.render();
@@ -91,7 +102,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
     this.applyTranslation();
     this.applyRotation();
-
+    this.applyScale();
 
     this.afterInit();
   }
@@ -103,7 +114,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     }
   }
 
-  protected  applyRotation(): void {
+  protected applyRotation(): void {
     this.object.rotation.set(
       this.rotateX || 0,
       this.rotateY || 0,
@@ -117,6 +128,14 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
       this.translateX || 0,
       this.translateY || 0,
       this.translateZ || 0
+    );
+  }
+
+  protected applyScale(): void {
+    this.object.scale.set(
+      this.scaleX || 0,
+      this.scaleY || 0,
+      this.scaleZ || 0
     );
   }
 

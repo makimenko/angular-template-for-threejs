@@ -185,16 +185,7 @@ class StorybookReactiveGridComponent implements AfterViewInit {
 
 @Component({
   template: performanceSceneWrapper(`
-    <atft-cylinder-mesh atft-dashed-draw [radiusTop]="2.0" [radiusBottom]="7.0" [height]="10" [radialSegments]="36" [heightSegments]="1"
-                          material="phong" materialColor="0xffffff"
-                          [rotateX]="90 | deg2rad" translateZ="5">
-
-    </atft-cylinder-mesh>
-
-    <atft-sphere-mesh atft-dashed-draw [radius]="4" [widthSegments]="20" [hightSegments]="20"
-        material="phong" materialColor="0xffffff"  translateZ="14">
-    </atft-sphere-mesh>
-
+    <atft-text-mesh atft-dashed-draw materialColor="0x00EE00" dashColor="0x00FF00" text="Hello world"></atft-text-mesh>
   `)
 })
 class StorybookDashedDrawComponent {

@@ -1,12 +1,22 @@
-import {AfterViewInit, Directive} from '@angular/core';
+import {AfterViewInit, Directive, Input} from '@angular/core';
 import {AbstractObject3D} from '../object/abstract-object-3d';
 import * as THREE from 'three';
 import {AnimationService} from '../animation/animation.service';
+import {appliedColor} from '../util';
 
 @Directive({selector: '[atft-dashed-draw]'})
 export class DashedDrawDirective implements AfterViewInit {
 
+  @Input() dashColor = 0xFF0000;
+  @Input() dashIncrement = 10;
+  @Input() initialOpacity = 0.2;
+  @Input() targetOpacity = 1;
+
   private edges: any;
+
+  private material: THREE.Material;
+  private stop = false;
+
 
   constructor(
     private host: AbstractObject3D<any>,
@@ -16,19 +26,28 @@ export class DashedDrawDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('Dashed draw for', this.host);
+    // console.log('DashedDrawDirective.ngAfterViewInit: Dashed draw for', this.host);
 
+    this.tryToFindGeometry();
+
+    this.animate = this.animate.bind(this);
+    this.animation.animate.subscribe(this.animate);
+    this.animation.start();
+  }
+
+
+  private tryToFindGeometry() {
     const object = this.host.getObject() as THREE.Object3D;
-
-    const list = new THREE.Group();
-
     object.traverse(child => {
-      if (child instanceof THREE.Mesh) {
-        // child.material = new THREE.MeshBasicMaterial({color: 0x999999});
-        console.log(child);
+      const findMesh = (child instanceof THREE.Mesh ? child : child.children[0]);
 
-        const edgesGeom = new THREE.EdgesGeometry(child.geometry, 8);
-        this.edges = new THREE.LineSegments(edgesGeom, new THREE.LineDashedMaterial({color: 0xDA1111}));
+      if (findMesh && findMesh instanceof THREE.Mesh) {
+        // console.log('DashedDrawDirective.ngAfterViewInit: child', findMesh);
+        // child.findMesh = new THREE.MeshBasicMaterial({color: 0x999999});
+        // console.log(child);
+
+        const edgesGeom = new THREE.EdgesGeometry(findMesh.geometry, 8);
+        this.edges = new THREE.LineSegments(edgesGeom, new THREE.LineDashedMaterial({color: appliedColor(this.dashColor)}));
         this.edges.computeLineDistances();
         // console.log(this.edges);
         this.edges.material.dashSize = 0;
@@ -36,37 +55,43 @@ export class DashedDrawDirective implements AfterViewInit {
           .lineDistance.array[this.edges.geometry.attributes.lineDistance.count - 1];
 
 
-        const material = child.material as THREE.Material;
-        material.transparent = true;
-        material.opacity = 0.2;
+        this.material = findMesh.material as THREE.Material;
+        // console.log('DashedDrawDirective.tryToFindGeometry original material', this.material);
 
-        // this.edges.scale.x = 1.01;
-        // this.edges.scale.y = 1.01;
-        // this.edges.scale.z = 1.01;
-        child.add(this.edges);
+        if (this.initialOpacity) {
+          if (!this.material.transparent) {
+            this.material.transparent = true;
+          }
+          this.material.opacity = this.initialOpacity;
+        }
 
-        // scene.add(this.edges);
-        // child.scale.setScalar(0.999);
-        // child.visible = false;
-        // edges.add(child);
+        findMesh.add(this.edges);
+
+      } else {
+        // console.log('DashedDrawDirective.ngAfterViewInit: cant find geometry yet');
       }
     });
-
-
-    this.animate = this.animate.bind(this);
-    this.animation.animate.subscribe(this.animate);
-    this.animation.start();
   }
 
   private animate() {
 
     // console.log(this.host.getObject().parentScene);
-    if (this.edges) {
-      this.edges.material.dashSize += 2;
-      if (this.edges.material.dashSize >= this.edges.material.gapSize) {
-        // edges.material.color.set(0xffffff);
-        // edges.children[0].visible = true;
-        // this.animationService.updateAnimation.unsubscribe();
+    if (!this.stop) {
+      if (this.edges) {
+        this.edges.material.dashSize += this.dashIncrement;
+        if (this.edges.material.dashSize >= this.edges.material.gapSize) {
+
+          // this.edges.parent.children = [];
+          if (this.targetOpacity) {
+            this.material.opacity = this.targetOpacity;
+            if (this.targetOpacity === 1) {
+              this.material.transparent = false;
+            }
+          }
+          this.stop = true;
+        }
+      } else {
+        this.tryToFindGeometry();
       }
     }
 
