@@ -600,6 +600,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="interfaces/NearestIntersection.html" data-type="entity-link">NearestIntersection</a>
                             </li>
+                            <li class="link">
+                                <a href="interfaces/RaycasterEmitEvent.html" data-type="entity-link">RaycasterEmitEvent</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="chapter">
