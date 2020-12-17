@@ -54,14 +54,14 @@ and real in truly immersive ways.`;
           resourcePath="${modelPath}/">
         </atft-obj-loader>
 
-        <atft-obj-loader atft-dashed-draw dashColor="0x303030" [dashIncrement]="150" [initialOpacity]="0.2" [targetOpacity]="0.21"
+        <atft-obj-loader atft-dashed-draw dashColor="0x303030" [dashIncrement]="150" [initialOpacity]="0.2"
                          model="${modelPath}/SampleArea/Zone.obj"
                          material="${modelPath}/SampleArea/Zone.mtl"
                          resourcePath="${modelPath}/">
         </atft-obj-loader>
 
         <atft-obj-loader *ngFor="let item of [].constructor(5); let i = index"
-                         atft-dashed-draw dashColor="0x303030" [dashIncrement]="20+(5*i)" [initialOpacity]="0.1" [targetOpacity]="0.2"
+                         atft-dashed-draw dashColor="0x303030" [dashIncrement]="20+(5*i)" [initialOpacity]="0.2"
                          model="${modelPath}/SampleArea/House{{i+1}}.obj"
                          material="${modelPath}/SampleArea/House{{i+1}}.mtl"
                          resourcePath="${modelPath}/">

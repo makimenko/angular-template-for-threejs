@@ -9,27 +9,23 @@ export class DashedDrawDirective implements AfterViewInit {
 
   @Input() dashColor = 0xFF0000;
   @Input() dashIncrement = 10;
-  @Input() initialOpacity = 0.2;
-  @Input() targetOpacity = 1;
+  @Input() initialOpacity;
+  @Input() targetOpacity;
+  @Input() hideDash = false; // hide dash lines at the end of animation
 
   private edges: any;
-
   private material: THREE.Material;
   private stop = false;
-
 
   constructor(
     private host: AbstractObject3D<any>,
     private animation: AnimationService
   ) {
-
   }
 
   ngAfterViewInit(): void {
     // console.log('DashedDrawDirective.ngAfterViewInit: Dashed draw for', this.host);
-
     this.tryToFindGeometry();
-
     this.animate = this.animate.bind(this);
     this.animation.animate.subscribe(this.animate);
     this.animation.start();
@@ -41,32 +37,26 @@ export class DashedDrawDirective implements AfterViewInit {
     object.traverse(child => {
       const findMesh = (child instanceof THREE.Mesh ? child : child.children[0]);
 
-      if (findMesh && findMesh instanceof THREE.Mesh) {
+      if (findMesh && findMesh instanceof THREE.Mesh && !this.edges) {
         // console.log('DashedDrawDirective.ngAfterViewInit: child', findMesh);
-        // child.findMesh = new THREE.MeshBasicMaterial({color: 0x999999});
-        // console.log(child);
 
         const edgesGeom = new THREE.EdgesGeometry(findMesh.geometry, 8);
         this.edges = new THREE.LineSegments(edgesGeom, new THREE.LineDashedMaterial({color: appliedColor(this.dashColor)}));
         this.edges.computeLineDistances();
-        // console.log(this.edges);
         this.edges.material.dashSize = 0;
         this.edges.material.gapSize = this.edges.geometry.attributes
           .lineDistance.array[this.edges.geometry.attributes.lineDistance.count - 1];
-
-
         this.material = findMesh.material as THREE.Material;
         // console.log('DashedDrawDirective.tryToFindGeometry original material', this.material);
 
-        if (this.initialOpacity) {
+        if (this.initialOpacity >= 0.0) {
+          // console.log('initialOpacity', this.initialOpacity);
           if (!this.material.transparent) {
             this.material.transparent = true;
           }
           this.material.opacity = this.initialOpacity;
         }
-
         findMesh.add(this.edges);
-
       } else {
         // console.log('DashedDrawDirective.ngAfterViewInit: cant find geometry yet');
       }
@@ -74,15 +64,16 @@ export class DashedDrawDirective implements AfterViewInit {
   }
 
   private animate() {
-
     // console.log(this.host.getObject().parentScene);
     if (!this.stop) {
       if (this.edges) {
         this.edges.material.dashSize += this.dashIncrement;
         if (this.edges.material.dashSize >= this.edges.material.gapSize) {
 
-          // this.edges.parent.children = [];
-          if (this.targetOpacity) {
+          if (this.hideDash) {
+            this.edges.parent.children = [];
+          }
+          if (this.targetOpacity >= 0.0) {
             this.material.opacity = this.targetOpacity;
             if (this.targetOpacity === 1) {
               this.material.transparent = false;
