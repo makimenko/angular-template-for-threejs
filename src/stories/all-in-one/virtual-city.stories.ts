@@ -3,8 +3,9 @@ import {moduleMetadata} from '@storybook/angular';
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
-import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
 import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
+import * as THREE from 'three';
+import {PerspectiveCameraComponent} from 'atft';
 
 const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/';
 // const modelPath = '/assets/model';
@@ -18,17 +19,17 @@ and real in truly immersive ways.`;
 @Component({
   template: `
     <atft-renderer-canvas>
-      <atft-perspective-camera [zAxisUp]="true" positionX=0 positionY=50 [positionZ]=z>
+      <atft-perspective-camera #cam [zAxisUp]="true" positionX=0 positionY=50 [positionZ]=z>
       </atft-perspective-camera>
 
       <!-- Foreground -->
-      <atft-scene name="scene" background="0x000000" atft-stats-auto-show>
+      <atft-scene name="scene" background="0x000000">
 
-        <atft-ambient-light color="0xFFFFFF" intensity="0.4"></atft-ambient-light>
+        <atft-ambient-light color="0xFFFFFF" intensity="0.9"></atft-ambient-light>
 
-        <atft-point-light intensity="0.5" distance="1000" translateX=90 translateY=90
+        <atft-point-light intensity="0.1" distance="1000" translateX=90 translateY=90
                           translateZ=90></atft-point-light>
-        <atft-point-light intensity="0.8" distance="1000" [translateX]="-60" [translateY]="-60"
+        <atft-point-light intensity="0.1" distance="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
         <atft-text-actor text="Introducing Angular Template for Three.js" translateX="-200" translateY="50" translateZ="-50"
@@ -66,17 +67,19 @@ and real in truly immersive ways.`;
                          material="${modelPath}/SampleArea/House{{i+1}}.mtl"
                          resourcePath="${modelPath}/">
         </atft-obj-loader>
-
       </atft-scene>
     </atft-renderer-canvas>
   `
 })
 class StorybookFlyComponent implements AfterViewInit {
 
-  @ViewChild(EmptyComponent) box;
+  @ViewChild('cam') cameraComponent: PerspectiveCameraComponent;
 
-  k = 0;
-  z = 600;
+  private mixer: THREE.AnimationMixer;
+  private clock = new THREE.Clock();
+  private camera: THREE.Camera;
+
+  // z = 600 - 200
 
   colorA200 = 0x9FA8DA;
 
@@ -84,16 +87,28 @@ class StorybookFlyComponent implements AfterViewInit {
   }
 
   public ngAfterViewInit() {
+    this.initCameraMovementClip();
+
     this.animate = this.animate.bind(this);
     this.animationService.animate.subscribe(this.animate);
     this.animationService.start();
+
+  }
+
+  public initCameraMovementClip() {
+    // console.log('StorybookFlyComponent.initCameraMovementClip: cam', this.camera);
+    const positionKF = new THREE.VectorKeyframeTrack('.position', [0, 10, 20], [0, 50, 600, -30, 10, 400, 10, 50, 200]);
+    const cameraMoveClip = new THREE.AnimationClip('Hello', 20, [positionKF]);
+    this.mixer = new THREE.AnimationMixer(this.cameraComponent.camera);
+    const clipAction = this.mixer.clipAction(cameraMoveClip);
+    clipAction.setLoop(THREE.LoopOnce, 1);
+    clipAction.clampWhenFinished = true;
+    clipAction.play();
   }
 
   public animate() {
-    this.k += 0.001;
-
-    if (this.z > 200) {
-      this.z -= this.k;
+    if (this.mixer) {
+      this.mixer.update(this.clock.getDelta());
     }
   }
 
