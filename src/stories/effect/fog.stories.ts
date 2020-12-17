@@ -22,7 +22,7 @@ class StorybookFogComponent {
 }
 
 export default {
-  title: 'Effects / Fog',
+  title: 'Effect/Fog',
   decorators: [
     moduleMetadata({
       imports: [

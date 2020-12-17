@@ -1,14 +1,13 @@
-import {moduleMetadata, storiesOf} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftModule} from '../../projects/atft/src/lib/atft.module';
+import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {AfterViewInit, Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {axesSceneWrapper} from './scene-wrapper/axes-scene-wrapper';
-import {BoxMeshComponent} from '../../projects/atft/src/lib/object/mesh/box-mesh.component';
-import {AnimationService} from '../../projects/atft/src/lib/animation/animation.service';
+import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
+import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh/box-mesh.component';
+import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 import * as THREE from 'three';
-import {worldSceneWrapper} from './scene-wrapper/world-scene-wrapper';
-import {AbstractObject3D} from '../../projects/atft/src/lib/object/abstract-object-3d';
-import {performanceSceneWrapper} from './scene-wrapper/performance-scene-wrapper';
+import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
+import {RaycasterEmitEvent} from '../../../projects/atft/src/lib/raycaster';
 
 
 @Component({
@@ -90,7 +89,8 @@ class StorybookMixerComponent implements AfterViewInit {
   <div *ngFor="let item of [].constructor(10); let x = index">
     <div *ngFor="let item of [].constructor(10); let y = index">
         <atft-empty [translateX]="(x*10.3)-50" [translateY]="(y*10.3)-50" [translateZ]="5">
-            <atft-box-mesh height="10" [width]="10" depth="0.2" materialColor="0xdadaff" atft-raycaster-group (mouseEnter)="mouseEnter($event)" (mouseExit)="mouseExit($event)"
+            <atft-box-mesh height="10" [width]="10" depth="0.2" materialColor="0xdadaff"
+            atft-raycaster-group (mouseEnter)="mouseEnter($event)" (mouseExit)="mouseExit($event)"
             [name]="'obj'+x+'_'+y">
             </atft-box-mesh>
         </atft-empty>
@@ -119,7 +119,8 @@ class StorybookReactiveGridComponent implements AfterViewInit {
     this.mouseOverClip = new THREE.AnimationClip('Mouse over', 0.5, [mouseOverKeyFrame]);
   }
 
-  public mouseEnter(boxComponent: AbstractObject3D<any>) {
+  public mouseEnter(event: RaycasterEmitEvent) {
+    const boxComponent = event.component;
     if (boxComponent) {
       const mixer = this.mixers.get(boxComponent.name);
       const existing = mixer.existingAction(this.mouseOverClip);
@@ -183,18 +184,8 @@ class StorybookReactiveGridComponent implements AfterViewInit {
 }
 
 
-@Component({
-  template: performanceSceneWrapper(`
-    <atft-text-mesh atft-dashed-draw materialColor="0x00EE00" dashColor="0x00FF00" text="Hello world"></atft-text-mesh>
-  `)
-})
-class StorybookDashedDrawComponent {
-
-}
-
-
 export default {
-  title: 'Animate',
+  title: 'Other/Animate',
   decorators: [
     moduleMetadata({
       imports: [
@@ -219,7 +210,3 @@ export const ReactiveGrid = (args) => ({
   props: args
 });
 
-export const DashedDraw = (args) => ({
-  component: StorybookDashedDrawComponent,
-  props: args
-});

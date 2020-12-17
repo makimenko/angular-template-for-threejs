@@ -3,6 +3,11 @@ import {AbstractObject3D} from '../object/abstract-object-3d';
 import {RaycasterService} from './raycaster.service';
 import {RaycasterEvent} from './raycaster-event';
 
+export interface RaycasterEmitEvent {
+  component: AbstractObject3D<any>;
+  face?: THREE.Face3;
+}
+
 /**
  * Only components marked as atft-raycaster-group emit raycaster events.
  * NOTE: All childs are also considered by raycaster (very usefull, for composite components).
@@ -10,9 +15,9 @@ import {RaycasterEvent} from './raycaster-event';
 @Directive({selector: '[atft-raycaster-group]'})
 export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
 
-  @Output() mouseEnter = new EventEmitter<void | any>();
-  @Output() mouseExit = new EventEmitter<void | AbstractObject3D<any>>();
-  @Output() click = new EventEmitter<void | AbstractObject3D<any>>();
+  @Output() mouseEnter = new EventEmitter<RaycasterEmitEvent>();
+  @Output() mouseExit = new EventEmitter<RaycasterEmitEvent>();
+  @Output() click = new EventEmitter<RaycasterEmitEvent>();
 
   constructor(
     private host: AbstractObject3D<any>,
@@ -45,17 +50,25 @@ export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
   }
 
   private onMouseExit() {
-    this.mouseExit.emit(this.host);
+    this.mouseExit.emit({
+      component: this.host
+    });
   }
 
   private onMouseEnter(event) {
     // console.log('RaycasterGroupDirective.onMouseEnter', event);
-    this.mouseEnter.emit(event);
+    this.mouseEnter.emit({
+      component: this.host,
+      face: event.face
+    });
   }
 
   private onClick(event) {
     // console.log('onClick', event);
-    this.click.emit(event);
+    this.click.emit({
+      component: this.host,
+      face: event.face
+    });
   }
 
   ngOnDestroy(): void {

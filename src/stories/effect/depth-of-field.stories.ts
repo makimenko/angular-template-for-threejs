@@ -18,7 +18,7 @@ class StorybookDofComponent {
 }
 
 export default {
-  title: 'Effects / DOF',
+  title: 'Effect/Depth Of Field',
   decorators: [
     moduleMetadata({
       imports: [

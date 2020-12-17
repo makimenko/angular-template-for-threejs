@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { moduleMetadata } from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import { AtftModule } from '../../projects/atft/src/lib/atft.module';
-import { axesSceneWrapper } from './scene-wrapper/axes-scene-wrapper';
-import { worldSceneWrapper } from './scene-wrapper/world-scene-wrapper';
+import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
+import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
+import { worldSceneWrapper } from '../scene-wrapper/world-scene-wrapper';
 
 
 const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/SampleArchitecture';
@@ -48,7 +48,7 @@ class StorybookSVGLoaderComponent {
 }
 
 export default {
-  title: 'Loader',
+  title: 'Other/Loader',
   decorators: [
     moduleMetadata({
       imports: [

@@ -3,6 +3,7 @@ import {EmptyComponent} from '../../../object/helper';
 import {provideParent} from '../../../util';
 import {GridMeshComponent} from '../../../object';
 import * as THREE from 'three';
+import {RaycasterEmitEvent} from '../../../raycaster';
 
 
 @Component({
@@ -37,7 +38,7 @@ export class GridActorComponent extends EmptyComponent {
 
   translateLabelX: number;
 
-  public onMouseEnter(event) {
+  public onMouseEnter(event: RaycasterEmitEvent) {
     // console.log('selected', event);
     const pos = this.getLinePosition(event);
     if (pos) {
@@ -45,7 +46,7 @@ export class GridActorComponent extends EmptyComponent {
     }
   }
 
-  public onMouseClick(event) {
+  public onMouseClick(event: RaycasterEmitEvent) {
     console.log('GridActorComponent.onMouseClick');
     const pos = this.getLinePosition(event);
     if (pos) {
@@ -54,7 +55,7 @@ export class GridActorComponent extends EmptyComponent {
     }
   }
 
-  protected getLinePosition(event): THREE.BufferAttribute {
+  protected getLinePosition(event: RaycasterEmitEvent): THREE.BufferAttribute {
     if (event.face) {
       // console.log('Finding coordinates for face', event.face);
 

@@ -17,7 +17,7 @@ class StorybookDotScreenComponent {
 }
 
 export default {
-  title: 'Effects / Dot Screen',
+  title: 'Effect/Dot Screen',
   decorators: [
     moduleMetadata({
       imports: [

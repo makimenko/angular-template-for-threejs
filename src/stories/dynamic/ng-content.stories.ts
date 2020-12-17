@@ -65,7 +65,7 @@ class StorybookEmbeddedComponent extends EmptyComponent {
 }
 
 export default {
-  title: 'Dynamic/NgContent',
+  title: 'Dynamic/Ng Content',
   decorators: [
     moduleMetadata({
       imports: [
