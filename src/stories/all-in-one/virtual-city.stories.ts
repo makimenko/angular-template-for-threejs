@@ -100,7 +100,7 @@ class StorybookFlyComponent implements AfterViewInit {
 }
 
 export default {
-  title: 'UX / Fly',
+  title: 'All-in-One/Virtual City',
   decorators: [
     moduleMetadata({
       imports: [
@@ -113,7 +113,7 @@ export default {
   argTypes: {}
 };
 
-export const Fly = (args) => ({
+export const VirtualCity = (args) => ({
   component: StorybookFlyComponent,
   props: args
 });

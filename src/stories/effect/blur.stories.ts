@@ -17,7 +17,7 @@ class StorybookDotScreenComponent {
 }
 
 export default {
-  title: 'Effects / Blur',
+  title: 'Effect/Blur',
   decorators: [
     moduleMetadata({
       imports: [

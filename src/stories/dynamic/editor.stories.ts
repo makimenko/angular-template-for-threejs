@@ -69,7 +69,7 @@ class StorybookEditorComponent {
 
 
 export default {
-  title: 'Dynamic / Editor',
+  title: 'Dynamic/Editor',
   decorators: [
     moduleMetadata({
       imports: [
