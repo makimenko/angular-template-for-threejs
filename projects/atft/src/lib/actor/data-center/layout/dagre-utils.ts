@@ -23,7 +23,7 @@ export interface GraphModel {
   composition?: Array<Composition>;
 }
 
-export class DagraUtils {
+export class DagreUtils {
 
   public static jsonToGraph(yaml: GraphModel): dagre.graphlib.Graph {
     const g = new dagre.graphlib.Graph({

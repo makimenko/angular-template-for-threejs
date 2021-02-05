@@ -9,7 +9,7 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 @Component({
   template: worldSceneWrapper(`
 <atft-empty [translateZ]="0.5" [translateY]="-40">
-    <atft-dagra-layout [align]="align" [rankdir]="rankdir">
+    <atft-dagre-layout [align]="align" [rankdir]="rankdir">
       <atft-server-compact-actor label="spa" translateY="30" [translateX]="0">
       </atft-server-compact-actor>
 
@@ -18,7 +18,7 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
       <atft-server-compact-actor label="db" translateY="90" [translateX]="0">
       </atft-server-compact-actor>
-    </atft-dagra-layout>
+    </atft-dagre-layout>
 </atft-empty>
 `)
 })

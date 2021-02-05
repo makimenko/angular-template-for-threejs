@@ -2,19 +2,19 @@ import {AfterViewInit, Component, Input, OnChanges, Optional, SimpleChanges, Ski
 import {EmptyComponent} from '../../../object/helper';
 import {provideParent} from '../../../util';
 import * as THREE from 'three';
-import {DagraUtils, GraphModel} from './dagra-utils';
+import {DagreUtils, GraphModel} from './dagre-utils';
 import {RendererService} from '../../../renderer';
 import {AbstractObject3D} from '../../../object';
 
 
 @Component({
-  selector: 'atft-dagra-layout',
-  providers: [provideParent(DagraLayoutComponent)],
+  selector: 'atft-dagre-layout',
+  providers: [provideParent(DagreLayoutComponent)],
   template: `
 
   `
 })
-export class DagraLayoutComponent extends EmptyComponent implements AfterViewInit, OnChanges {
+export class DagreLayoutComponent extends EmptyComponent implements AfterViewInit, OnChanges {
 
   @Input() align = 'DR';
   @Input() rankdir = 'TB';
@@ -36,7 +36,7 @@ export class DagraLayoutComponent extends EmptyComponent implements AfterViewIni
 
   public addChild(object: AbstractObject3D<any>): void {
     super.addChild(object);
-    console.log('DagraLayoutComponent.addChild', object);
+    console.log('DagreLayoutComponent.addChild', object);
     this.graph.nodes.push({
       id: object.getObject().uuid,
       label: '?'
@@ -49,13 +49,13 @@ export class DagraLayoutComponent extends EmptyComponent implements AfterViewIni
   }
 
   public layout() {
-    console.log('DagraLayoutComponent.layout');
+    console.log('DagreLayoutComponent.layout');
 
     this.graph.layout.align = this.align;
     this.graph.layout.rankdir = this.rankdir;
 
-    const g = DagraUtils.jsonToGraph(this.graph);
-    console.log('DagraLayoutComponent.ngAfterViewInit: g', g);
+    const g = DagreUtils.jsonToGraph(this.graph);
+    console.log('DagreLayoutComponent.ngAfterViewInit: g', g);
 
     g.nodes().forEach((uuid) => {
       console.log('Node ' + uuid + ': ' + JSON.stringify(g.node(uuid)));

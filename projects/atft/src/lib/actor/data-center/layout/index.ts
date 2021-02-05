@@ -1,2 +1,2 @@
-export * from './dagra-layout.component';
+export * from './dagre-layout.component';
 
