@@ -10,18 +10,20 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 @Component({
   template: worldSceneWrapper(`
 <atft-empty [translateZ]="0.5" [translateY]="-40">
-    <atft-dagre-layout [align]="align" [rankdir]="rankdir">
-      <atft-server-compact-actor #spa label="spa" translateY="30" [translateX]="0">
-      </atft-server-compact-actor>
+    <atft-dagre-layout [align]="align" [rankdir]="rankdir" [ranker]="ranker"
+      [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
+      [marginx]="marginx" [marginy]="marginy">
 
-      <atft-server-compact-actor #api label="api" translateY="60" [translateX]="0">
-      </atft-server-compact-actor>
+      <atft-server-compact-actor #spa label="spa" ></atft-server-compact-actor>
+      <atft-server-stand-actor #api label="api" ></atft-server-stand-actor>
+      <atft-server-compact-actor #v label="Vault"></atft-server-compact-actor>
+      <atft-server-barrel-actor #db1 label="PostgreSQL"></atft-server-barrel-actor>
+      <atft-server-barrel-actor #db2 label="MongoDB"></atft-server-barrel-actor>
 
-      <atft-server-compact-actor #db label="db" translateY="90" [translateX]="0">
-      </atft-server-compact-actor>
-
-      <atft-dagre-edge [source]="spa" [target]="api" [animated]="true"></atft-dagre-edge>
-      <atft-dagre-edge [source]="spa" [target]="db" [animated]="true"></atft-dagre-edge>
+      <atft-dagre-edge [source]="spa" [target]="api"></atft-dagre-edge>
+      <atft-dagre-edge [source]="api" [target]="db1"></atft-dagre-edge>
+      <atft-dagre-edge [source]="api" [target]="db2"></atft-dagre-edge>
+      <atft-dagre-edge [source]="api" [target]="v"></atft-dagre-edge>
 
     </atft-dagre-layout>
 </atft-empty>
@@ -48,7 +50,13 @@ export default {
   ],
   args: {
     align: 'DR',
-    rankdir: 'TB'
+    rankdir: 'TB',
+    nodesep: 20,
+    edgesep: 1,
+    ranksep: 20,
+    marginx: 0,
+    marginy: 0,
+    ranker: 'network-simplex'
   },
   argTypes: {
     align: {
@@ -70,6 +78,16 @@ export default {
           'BT',
           'LR',
           'RL'
+        ]
+      }
+    },
+    ranker: {
+      description: 'Type of algorithm to assigns a rank to each node in the input graph. Possible values: network-simplex, tight-tree or longest-path',
+      control: {
+        type: 'select', options: [
+          'network-simplex',
+          'tight-tree',
+          'longest-path'
         ]
       }
     },

@@ -42,7 +42,7 @@ export class DagreUtils {
 
     this.updateGraph(g, model);
 
-    console.log('DagreUtils.layout', g);
+    // console.log('DagreUtils.layout', g);
     dagre.layout(g);
     return g;
   }
@@ -50,7 +50,7 @@ export class DagreUtils {
   public static updateNodes(g: dagre.graphlib.Graph, model: GraphModel) {
     if (model.nodes) {
       model.nodes.forEach((node: Node) => {
-        g.setNode(node.id, {label: node.label, width:15, height:15});
+        g.setNode(node.id, {label: node.label, width: 15, height: 15});
       });
     }
   }
@@ -79,16 +79,7 @@ export class DagreUtils {
   }
 
   public static getLayout(model: GraphModel): dagre.GraphLabel {
-    const layout: dagre.GraphLabel = {};
-    if (model.layout) {
-      if (model.layout.rankdir) {
-        layout.rankdir = model.layout.rankdir;
-      }
-
-      if (model.layout.align) {
-        layout.align = model.layout.align;
-      }
-    }
+    const layout: dagre.GraphLabel = model.layout;
     return layout;
   }
 

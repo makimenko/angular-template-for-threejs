@@ -19,6 +19,13 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
 
   @Input() align = 'DR';
   @Input() rankdir = 'TB';
+  @Input() nodesep = 15;
+  @Input() edgesep = 1;
+  @Input() ranksep = 15;
+  @Input() marginx = 0;
+  @Input() marginy = 0;
+  @Input() ranker = 'network-simplex';
+
 
   protected graphModel: GraphModel;
 
@@ -38,10 +45,10 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
 
   public addChild(object: AbstractObject3D<any>): void {
     super.addChild(object);
-    console.log('DagreLayoutComponent.addChild', object);
+    // console.log('DagreLayoutComponent.addChild', object);
     if (object instanceof DagreEdgeComponent) {
       // ============== 1) EDGE:
-      console.log('DagreLayoutComponent.addChild as Edge', object);
+      // console.log('DagreLayoutComponent.addChild as Edge', object);
       const edgeObject: DagreEdgeComponent = object;
       if (edgeObject.source && edgeObject.source.getObject() && edgeObject.target && edgeObject.target.getObject()) {
         this.graphModel.edges.push({
@@ -54,7 +61,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
       }
     } else {
       // ============== 2) NODE:
-      console.log('DagreLayoutComponent.addChild as Node', object);
+      // console.log('DagreLayoutComponent.addChild as Node', object);
       this.graphModel.nodes.push({
         id: object.getObject().uuid,
         label: '?',
@@ -68,13 +75,19 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   }
 
   public layout() {
-    console.log('DagreLayoutComponent.layout');
+    // console.log('DagreLayoutComponent.layout');
 
     this.graphModel.layout.align = this.align;
     this.graphModel.layout.rankdir = this.rankdir;
+    this.graphModel.layout.nodesep = this.nodesep;
+    this.graphModel.layout.edgesep = this.edgesep;
+    this.graphModel.layout.ranksep = this.ranksep;
+    this.graphModel.layout.marginx = this.marginx;
+    this.graphModel.layout.marginy = this.marginy;
+    this.graphModel.layout.ranker = this.ranker;
 
     const g = DagreUtils.modelToGraph(this.graphModel);
-    console.log('DagreLayoutComponent.layout: g', g);
+    // console.log('DagreLayoutComponent.layout: g', g);
     this.syncGraphNodes(g);
     this.syncGraphEdges(g);
 
@@ -82,9 +95,9 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   }
 
   protected syncGraphNodes(g: dagre.graphlib.Graph) {
-    console.log('DagreLayoutComponent.syncGraphNodes');
+    // console.log('DagreLayoutComponent.syncGraphNodes');
     g.nodes().forEach((uuid) => {
-      console.log('Node ' + uuid + ': ' + JSON.stringify(g.node(uuid)));
+      // console.log('Node ' + uuid + ': ' + JSON.stringify(g.node(uuid)));
       const object: AbstractObject3D<any> = this.findByUuid(uuid);
 
       if (object) {
@@ -102,19 +115,19 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   }
 
   protected syncGraphEdges(g: dagre.graphlib.Graph) {
-    console.log('DagreLayoutComponent.syncGraphEdges');
+    // console.log('DagreLayoutComponent.syncGraphEdges');
     g.edges().forEach((e) => {
       const edge: dagre.GraphEdge = g.edge(e);
-      console.log('DagreLayoutComponent.syncGraphEdges: edge', edge);
+      // console.log('DagreLayoutComponent.syncGraphEdges: edge', edge);
       const object: AbstractObject3D<any> = this.findByUuid(edge.uuid);
       if (object && object instanceof DagreEdgeComponent) {
         const edgeComponent: DagreEdgeComponent = object;
         edgeComponent.positions = [];
-        console.log('DagreLayoutComponent.syncGraphEdges: edge.points', edge.points);
+        // console.log('DagreLayoutComponent.syncGraphEdges: edge.points', edge.points);
 
         edge.points.forEach(p => {
           if (!Number.isNaN(p.x) && !Number.isNaN(p.y)) {
-            console.log('x=' + p.x + ', y=' + p.y);
+            // console.log('x=' + p.x + ', y=' + p.y);
             edgeComponent.positions.push(p.x, p.y, 0);
           }
         });
@@ -135,7 +148,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
 
     let modified = false;
 
-    if (['align', 'rankdir'].some(propName => propName in changes)) {
+    if (['align', 'rankdir', 'ranksep', 'nodesep', 'edgesep', 'marginx', 'marginy', 'ranker'].some(propName => propName in changes)) {
       this.layout();
       modified = true;
     }
