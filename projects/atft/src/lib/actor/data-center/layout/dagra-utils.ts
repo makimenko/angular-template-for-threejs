@@ -16,7 +16,6 @@ export interface Composition {
   child: string;
 }
 
-
 export interface GraphModel {
   layout?: dagre.GraphLabel;
   nodes?: Array<Node>;
@@ -24,8 +23,26 @@ export interface GraphModel {
   composition?: Array<Composition>;
 }
 
-export class YamlGraphUtils {
+export class DagraUtils {
 
+  public static jsonToGraph(yaml: GraphModel): dagre.graphlib.Graph {
+    const g = new dagre.graphlib.Graph({
+      compound: true
+    });
+
+    g.setGraph(
+      this.getLayout(yaml)
+    );
+
+    g.setDefaultEdgeLabel(function () {
+      return {};
+    });
+
+    this.updateGraph(g, yaml);
+
+    dagre.layout(g);
+    return g;
+  }
 
   public static updateNodes(g: dagre.graphlib.Graph, yaml: GraphModel) {
     if (yaml.nodes) {
@@ -56,26 +73,6 @@ export class YamlGraphUtils {
     this.updateNodes(g, yaml);
     this.updateEdges(g, yaml);
     this.updateComposition(g, yaml);
-  }
-
-
-  public static jsonToGraph(yaml: GraphModel): dagre.graphlib.Graph {
-    const g = new dagre.graphlib.Graph({
-      compound: true
-    });
-
-    g.setGraph(
-      this.getLayout(yaml)
-    );
-
-    g.setDefaultEdgeLabel(function () {
-      return {};
-    });
-
-    this.updateGraph(g, yaml);
-
-    dagre.layout(g);
-    return g;
   }
 
   public static getLayout(yaml: GraphModel): dagre.GraphLabel {

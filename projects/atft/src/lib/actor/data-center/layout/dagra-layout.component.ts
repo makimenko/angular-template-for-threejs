@@ -2,7 +2,7 @@ import {AfterViewInit, Component, Optional, SkipSelf} from '@angular/core';
 import {EmptyComponent} from '../../../object/helper';
 import {provideParent} from '../../../util';
 import * as THREE from 'three';
-import {GraphModel, YamlGraphUtils} from './dagra-utils';
+import {GraphModel, DagraUtils} from './dagra-utils';
 import {RendererService} from '../../../renderer';
 import {AbstractObject3D} from '../../../object';
 
@@ -43,7 +43,7 @@ export class DagraLayoutComponent extends EmptyComponent implements AfterViewIni
     super.ngAfterViewInit();
 
     console.log('DagraLayoutComponent.ngAfterViewInit: graph', this.graph);
-    const g = YamlGraphUtils.jsonToGraph(this.graph);
+    const g = DagraUtils.jsonToGraph(this.graph);
     console.log('DagraLayoutComponent.ngAfterViewInit: g', g);
 
     g.nodes().forEach((uuid) => {
