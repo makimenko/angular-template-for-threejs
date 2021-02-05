@@ -34,11 +34,11 @@ export class DagraLayoutComponent extends EmptyComponent implements AfterViewIni
     };
   }
 
-  public addChild(object: THREE.Object3D): void {
+  public addChild(object: AbstractObject3D<any>): void {
     super.addChild(object);
     console.log('DagraLayoutComponent.addChild', object);
     this.graph.nodes.push({
-      id: object.uuid,
+      id: object.getObject().uuid,
       label: '?'
     });
   }

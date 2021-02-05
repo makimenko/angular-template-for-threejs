@@ -21,7 +21,7 @@ export class ContentProjectionComponent extends EmptyComponent {
     super(rendererService, parent);
   }
 
-  addChild(object: THREE.Object3D) {
+  addChild(object: AbstractObject3D<any>) {
     if (this.contentProjection) {
       this.contentProjection.addChild(object);
     } else {

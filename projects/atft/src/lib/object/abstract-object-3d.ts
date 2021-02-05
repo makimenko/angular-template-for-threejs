@@ -109,7 +109,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   protected updateParent(): void {
     if (this.parent) {
-      this.parent.addChild(this.object);
+      this.parent.addChild(this);
       this.rendererService.render();
     }
   }
@@ -139,11 +139,11 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     );
   }
 
-  public addChild(object: THREE.Object3D): void {
+  public addChild(object: AbstractObject3D<any>): void {
     // (this.constructor.name + ' addChild ' + object, this.object);
     if (this.object) {
       // console.log(this.constructor.name + ' add child ' + object);
-      this.object.add(object);
+      this.object.add(object.getObject());
       if (this.rendererService) {
         this.rendererService.render();
       }
@@ -153,9 +153,9 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   protected afterInit() {
   }
 
-  protected removeChild(object: THREE.Object3D): void {
-    if (this.object) {
-      this.object.remove(object);
+  protected removeChild(object: AbstractObject3D<any>): void {
+    if (this.object && object) {
+      this.object.remove(object.getObject());
     }
   }
 
