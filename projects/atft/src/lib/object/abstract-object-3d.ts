@@ -51,11 +51,11 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    // console.log('AbstractObject3D.constructor', this.name);
+    // console.log('AbstractObject3D.constructor', this.uuid);
   }
 
   public ngOnChanges(changes: SimpleChanges) {
-    // console.log('AbstractObject3D.ngOnChanges', this.name);
+    // console.log('AbstractObject3D.ngOnChanges', this.uuid);
     if (!this.object) {
       return;
     }
@@ -84,7 +84,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public ngOnDestroy() {
-    // console.log('AbstractObject3D.OnDestroy', this.name);
+    // console.log('AbstractObject3D.OnDestroy', this.uuid);
     if (this.object && this.object.parent) {
       this.object.parent.remove(this.object);
       if (this.rendererService) {
@@ -142,9 +142,9 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public addChild(object: AbstractObject3D<any>): void {
-    // (this.constructor.name + ' addChild ' + object, this.object);
+    // (this.constructor.uuid + ' addChild ' + object, this.object);
     if (this.object) {
-      // console.log(this.constructor.name + ' add child ' + object);
+      // console.log(this.constructor.uuid + ' add child ' + object);
       this.childlren.push(object);
       this.object.add(object.getObject());
       if (this.rendererService) {

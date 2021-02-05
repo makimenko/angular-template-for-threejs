@@ -16,7 +16,7 @@ import {RendererService} from '../../renderer/renderer.service';
 export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
 
   @Input()
-  materialColor = 0xffff00;
+  materialColor = 0xffffff;
 
   @Input()
   transparent = true;
@@ -25,7 +25,7 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
   opacity = 0.5;
 
   @Input()
-  lineWidth = 0.5;
+  lineWidth = 0.8;
 
   @Input()
   depthWrite = true;
@@ -36,7 +36,7 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
   @Input()
   animated = false;
 
-  @Input() animationIncrement = 0.002;
+  @Input() animationIncrement = -0.002;
 
   private geometry: THREE.BufferGeometry;
   private line: MeshLine;
@@ -98,7 +98,7 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
   }
 
   updateLineGeometry(): void {
-    // console.log('MeshLineConnectorComponent.updateLineGeometry');
+    console.log('MeshLineConnectorComponent.updateLineGeometry');
     this.geometry = this.getLineGeometry();
     // https://github.com/spite/THREE.MeshLine/issues/51#issuecomment-379579926
     this.line.setGeometry(this.geometry);
