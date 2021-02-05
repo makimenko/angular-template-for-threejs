@@ -23,6 +23,7 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
    */
   protected lazyObject: THREE.Object3D | undefined;
 
+
   /**
    * Abstract method for lazy loading
    *

@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf} from '@angular/core';
 import {EmptyComponent} from '../../../object/helper';
 import {provideParent} from '../../../util';
-import * as THREE from 'three';
 import {DagreUtils, GraphModel} from './dagre-utils';
 import {RendererService} from '../../../renderer';
 import {AbstractObject3D} from '../../../object';
@@ -19,15 +18,16 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   @Input() align = 'DR';
   @Input() rankdir = 'TB';
 
-  protected graph: GraphModel;
-
+  protected graphModel: GraphModel;
 
   constructor(
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
-    this.graph = {
+
+    // Initialize empty model:
+    this.graphModel = {
       layout: {},
       nodes: [],
       edges: []
@@ -37,7 +37,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   public addChild(object: AbstractObject3D<any>): void {
     super.addChild(object);
     console.log('DagreLayoutComponent.addChild', object);
-    this.graph.nodes.push({
+    this.graphModel.nodes.push({
       id: object.getObject().uuid,
       label: '?'
     });
@@ -51,32 +51,31 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   public layout() {
     console.log('DagreLayoutComponent.layout');
 
-    this.graph.layout.align = this.align;
-    this.graph.layout.rankdir = this.rankdir;
+    this.graphModel.layout.align = this.align;
+    this.graphModel.layout.rankdir = this.rankdir;
 
-    const g = DagreUtils.jsonToGraph(this.graph);
-    console.log('DagreLayoutComponent.ngAfterViewInit: g', g);
+    const g = DagreUtils.modelToGraph(this.graphModel);
+    console.log('DagreLayoutComponent.layout: g', g);
 
     g.nodes().forEach((uuid) => {
       console.log('Node ' + uuid + ': ' + JSON.stringify(g.node(uuid)));
-      const object = this.find(uuid);
+      const object: AbstractObject3D<any> = this.findByUuid(uuid);
 
       if (object) {
         const node = g.node(uuid);
-        object.position.x = node.x;
-        object.position.y = node.y;
+        // console.log('DagreLayoutComponent.layout: Update position', node);
+
+        object.translateX = node.x;
+        object.translateY = node.y;
+        object.applyTranslation();
+
       } else {
-        console.warn('Object not found by uuid', uuid);
+        console.warn('DagreLayoutComponent.layout: Object not found by uuid', uuid);
       }
     });
 
     this.rendererService.render();
   }
-
-  protected find(uuid: string): THREE.Object3D {
-    return this.object.getObjectByProperty('uuid', uuid);
-  }
-
 
   public ngOnChanges(changes: SimpleChanges) {
     // console.log('AbstractObject3D.ngOnChanges', this.name);

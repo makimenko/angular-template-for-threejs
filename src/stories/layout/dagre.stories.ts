@@ -18,6 +18,8 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
       <atft-server-compact-actor label="db" translateY="90" [translateX]="0">
       </atft-server-compact-actor>
+
+
     </atft-dagre-layout>
 </atft-empty>
 `)

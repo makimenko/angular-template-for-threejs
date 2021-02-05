@@ -25,65 +25,65 @@ export interface GraphModel {
 
 export class DagreUtils {
 
-  public static jsonToGraph(yaml: GraphModel): dagre.graphlib.Graph {
+  public static modelToGraph(model: GraphModel): dagre.graphlib.Graph {
     const g = new dagre.graphlib.Graph({
       compound: true
     });
 
     g.setGraph(
-      this.getLayout(yaml)
+      this.getLayout(model)
     );
 
     g.setDefaultEdgeLabel(function () {
       return {};
     });
 
-    this.updateGraph(g, yaml);
+    this.updateGraph(g, model);
 
     dagre.layout(g);
     return g;
   }
 
-  public static updateNodes(g: dagre.graphlib.Graph, yaml: GraphModel) {
-    if (yaml.nodes) {
-      yaml.nodes.forEach((node: Node) => {
+  public static updateNodes(g: dagre.graphlib.Graph, model: GraphModel) {
+    if (model.nodes) {
+      model.nodes.forEach((node: Node) => {
         g.setNode(node.id, {label: node.label});
       });
     }
   }
 
-  public static updateEdges(g: dagre.graphlib.Graph, yaml: GraphModel) {
-    if (yaml.edges) {
-      yaml.edges.forEach((edge: Edge) => {
+  public static updateEdges(g: dagre.graphlib.Graph, model: GraphModel) {
+    if (model.edges) {
+      model.edges.forEach((edge: Edge) => {
         g.setEdge(edge.from, edge.to);
       });
     }
   }
 
-  public static updateComposition(g: dagre.graphlib.Graph, yaml: GraphModel) {
-    if (yaml.composition) {
-      yaml.composition.forEach((composition: Composition) => {
+  public static updateComposition(g: dagre.graphlib.Graph, model: GraphModel) {
+    if (model.composition) {
+      model.composition.forEach((composition: Composition) => {
         g.setParent(composition.child, composition.parent);
       });
     }
     return g;
   }
 
-  public static updateGraph(g: dagre.graphlib.Graph, yaml: GraphModel) {
-    this.updateNodes(g, yaml);
-    this.updateEdges(g, yaml);
-    this.updateComposition(g, yaml);
+  public static updateGraph(g: dagre.graphlib.Graph, model: GraphModel) {
+    this.updateNodes(g, model);
+    this.updateEdges(g, model);
+    this.updateComposition(g, model);
   }
 
-  public static getLayout(yaml: GraphModel): dagre.GraphLabel {
+  public static getLayout(model: GraphModel): dagre.GraphLabel {
     const layout: dagre.GraphLabel = {};
-    if (yaml.layout) {
-      if (yaml.layout.rankdir) {
-        layout.rankdir = yaml.layout.rankdir;
+    if (model.layout) {
+      if (model.layout.rankdir) {
+        layout.rankdir = model.layout.rankdir;
       }
 
-      if (yaml.layout.align) {
-        layout.align = yaml.layout.align;
+      if (model.layout.align) {
+        layout.align = model.layout.align;
       }
     }
     return layout;

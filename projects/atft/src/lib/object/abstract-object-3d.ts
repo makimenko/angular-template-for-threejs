@@ -43,6 +43,8 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   @Output() changed = new EventEmitter<void>();
 
+  protected childlren: Array<AbstractObject3D<any>> = [];
+
   protected object: T;
 
   constructor(
@@ -107,14 +109,14 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     this.afterInit();
   }
 
-  protected updateParent(): void {
+  public updateParent(): void {
     if (this.parent) {
       this.parent.addChild(this);
       this.rendererService.render();
     }
   }
 
-  protected applyRotation(): void {
+  public applyRotation(): void {
     this.object.rotation.set(
       this.rotateX || 0,
       this.rotateY || 0,
@@ -123,7 +125,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     );
   }
 
-  protected applyTranslation(): void {
+  public applyTranslation(): void {
     this.object.position.set(
       this.translateX || 0,
       this.translateY || 0,
@@ -131,7 +133,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     );
   }
 
-  protected applyScale(): void {
+  public applyScale(): void {
     this.object.scale.set(
       this.scaleX || 0,
       this.scaleY || 0,
@@ -143,6 +145,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     // (this.constructor.name + ' addChild ' + object, this.object);
     if (this.object) {
       // console.log(this.constructor.name + ' add child ' + object);
+      this.childlren.push(object);
       this.object.add(object.getObject());
       if (this.rendererService) {
         this.rendererService.render();
@@ -155,6 +158,14 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   protected removeChild(object: AbstractObject3D<any>): void {
     if (this.object && object) {
+
+      // Remove from children:
+      const index = this.childlren.indexOf(object, 0);
+      if (index > -1) {
+        this.childlren.splice(index, 1);
+      }
+
+      // Remove from THREE graph:
       this.object.remove(object.getObject());
     }
   }
@@ -167,6 +178,14 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   public ngAfterViewInit(): void {
     this.updateParent();
+  }
+
+  public findByUuid(uuid: string) {
+    // console.log('AbstractObject3D.findByUuid: Searching uuid', uuid);
+    // console.log('AbstractObject3D.findByUuid: children', this.childlren);
+    const res = this.childlren.filter(i => i.object && i.object.uuid === uuid)[0];
+    // console.log('AbstractObject3D.findByUuid: result', res);
+    return res;
   }
 
 }
