@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, Optional, SkipSelf} from '@angular/core';
+import {AfterViewInit, Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf} from '@angular/core';
 import {EmptyComponent} from '../../../object/helper';
 import {provideParent} from '../../../util';
 import * as THREE from 'three';
-import {GraphModel, DagraUtils} from './dagra-utils';
+import {DagraUtils, GraphModel} from './dagra-utils';
 import {RendererService} from '../../../renderer';
 import {AbstractObject3D} from '../../../object';
 
@@ -14,9 +14,13 @@ import {AbstractObject3D} from '../../../object';
 
   `
 })
-export class DagraLayoutComponent extends EmptyComponent implements AfterViewInit {
+export class DagraLayoutComponent extends EmptyComponent implements AfterViewInit, OnChanges {
 
-  graph: GraphModel;
+  @Input() align = 'DR';
+  @Input() rankdir = 'TB';
+
+  protected graph: GraphModel;
+
 
   constructor(
     protected rendererService: RendererService,
@@ -24,10 +28,10 @@ export class DagraLayoutComponent extends EmptyComponent implements AfterViewIni
   ) {
     super(rendererService, parent);
     this.graph = {
+      layout: {},
       nodes: [],
       edges: []
     };
-
   }
 
   public addChild(object: THREE.Object3D): void {
@@ -41,8 +45,15 @@ export class DagraLayoutComponent extends EmptyComponent implements AfterViewIni
 
   ngAfterViewInit() {
     super.ngAfterViewInit();
+    this.layout();
+  }
 
-    console.log('DagraLayoutComponent.ngAfterViewInit: graph', this.graph);
+  public layout() {
+    console.log('DagraLayoutComponent.layout');
+
+    this.graph.layout.align = this.align;
+    this.graph.layout.rankdir = this.rankdir;
+
     const g = DagraUtils.jsonToGraph(this.graph);
     console.log('DagraLayoutComponent.ngAfterViewInit: g', g);
 
@@ -62,8 +73,31 @@ export class DagraLayoutComponent extends EmptyComponent implements AfterViewIni
     this.rendererService.render();
   }
 
-  find(uuid: string) {
+  protected find(uuid: string): THREE.Object3D {
     return this.object.getObjectByProperty('uuid', uuid);
   }
+
+
+  public ngOnChanges(changes: SimpleChanges) {
+    // console.log('AbstractObject3D.ngOnChanges', this.name);
+    if (!this.object) {
+      return;
+    }
+    super.ngOnChanges(changes);
+
+    let modified = false;
+
+    if (['align', 'rankdir'].some(propName => propName in changes)) {
+      this.layout();
+      modified = true;
+    }
+
+    if (modified) {
+      this.changed.emit();
+      // this.rendererService.render();
+    }
+
+  }
+
 
 }

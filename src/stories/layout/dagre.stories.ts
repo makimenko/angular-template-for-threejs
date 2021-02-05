@@ -9,7 +9,7 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 @Component({
   template: worldSceneWrapper(`
 <atft-empty [translateZ]="0.5" [translateY]="-40">
-    <atft-dagra-layout>
+    <atft-dagra-layout [align]="align" [rankdir]="rankdir">
       <atft-server-compact-actor label="spa" translateY="30" [translateX]="0">
       </atft-server-compact-actor>
 
@@ -36,7 +36,35 @@ export default {
         AtftDataCenterActorModule
       ]
     })
-  ]
+  ],
+  args: {
+    align: 'DR',
+    rankdir: 'TB'
+  },
+  argTypes: {
+    align: {
+      description: 'Alignment for rank nodes. Can be UL, UR, DL, or DR, where U = up, D = down, L = left, and R = right.',
+      control: {
+        type: 'select', options: [
+          'UL',
+          'UR',
+          'DL',
+          'DR'
+        ]
+      }
+    },
+    rankdir: {
+      description: 'Direction for rank nodes. Can be TB, BT, LR, or RL, where T = top, B = bottom, L = left, and R = right.',
+      control: {
+        type: 'select', options: [
+          'TB',
+          'BT',
+          'LR',
+          'RL'
+        ]
+      }
+    },
+  }
 };
 
 
