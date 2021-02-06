@@ -72,7 +72,7 @@ export class RaycasterService implements OnDestroy {
   }
 
   public addGroup(group: AbstractObject3D<any>) {
-    // console.log('RaycasterService.addGroup', group.name, group);
+    // console.log('RaycasterService.addGroup', group.uuid, group);
     this.groups.push(group);
   }
 

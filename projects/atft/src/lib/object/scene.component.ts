@@ -29,7 +29,7 @@ export class SceneComponent extends AbstractObject3D<THREE.Scene> implements OnC
     return scene;
   }
 
-  protected updateParent() {
+  public updateParent() {
     // No Parent for scene. Skip: super.updateParent();
   }
 

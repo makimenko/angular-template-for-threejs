@@ -47,10 +47,10 @@ export class GridActorComponent extends EmptyComponent {
   }
 
   public onMouseClick(event: RaycasterEmitEvent) {
-    console.log('GridActorComponent.onMouseClick');
+    // console.log('GridActorComponent.onMouseClick');
     const pos = this.getLinePosition(event);
     if (pos) {
-      console.log('GridActorComponent.onMouseClick position', pos);
+      // console.log('GridActorComponent.onMouseClick position', pos);
       this.gridClick.emit(pos);
     }
   }

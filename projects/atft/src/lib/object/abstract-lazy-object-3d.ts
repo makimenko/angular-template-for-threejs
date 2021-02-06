@@ -1,4 +1,4 @@
-import { OnDestroy, Directive } from '@angular/core';
+import {Directive, OnDestroy} from '@angular/core';
 
 import {AbstractObject3D} from './abstract-object-3d';
 
@@ -23,6 +23,7 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
    */
   protected lazyObject: THREE.Object3D | undefined;
 
+
   /**
    * Abstract method for lazy loading
    *
@@ -42,12 +43,12 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
       // console.log('AbstractLazyObject3D loaded');
       // remove old if exists
       if (this.lazyObject) {
-        super.removeChild(this.lazyObject);
+        super.getObject().remove(this.lazyObject);
       }
 
       // add lazy object to scene
       this.lazyObject = obj;
-      super.addChild(obj);
+      super.getObject().add(obj);
 
       this.rendererService.render();
     }).catch(err => {
@@ -57,7 +58,7 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
 
   ngOnDestroy(): void {
     if (this.lazyObject) {
-      super.removeChild(this.lazyObject);
+      super.getObject().remove(this.lazyObject);
     }
   }
 

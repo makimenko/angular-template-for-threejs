@@ -73,6 +73,17 @@ class StorybookFrameMeshComponent {
 
 }
 
+
+@Component({
+  template: axesSceneWrapper(`
+  <atft-plane-mesh height="10" [width]="width" [translateX]="translateX" [materialColor]="materialColor"></atft-plane-mesh>
+  `)
+})
+class StorybookPlaneMeshComponent {
+
+}
+
+
 export default {
   title: 'Other/Mesh',
   decorators: [
@@ -84,7 +95,8 @@ export default {
   ],
   args: {
     materialColor: '0x00ff00',
-    translateX: 0
+    translateX: 0,
+    width: 10
   },
   argTypes: {
     materialColor: { control: { type: 'select', options: ['0xff0000', '0x00ff00', '0x0000ff'] } },
@@ -129,4 +141,9 @@ Text.args = {
 Text.argTypes = {
   text: 'text'
 };
+
+export const Plane = (args) => ({
+  component: StorybookPlaneMeshComponent,
+  props: args
+});
 

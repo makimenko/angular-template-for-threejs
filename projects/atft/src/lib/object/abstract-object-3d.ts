@@ -43,17 +43,19 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   @Output() changed = new EventEmitter<void>();
 
+  protected childlren: Array<AbstractObject3D<any>> = [];
+
   protected object: T;
 
   constructor(
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    // console.log('AbstractObject3D.constructor', this.name);
+    // console.log('AbstractObject3D.constructor', this.uuid);
   }
 
   public ngOnChanges(changes: SimpleChanges) {
-    // console.log('AbstractObject3D.ngOnChanges', this.name);
+    // console.log('AbstractObject3D.ngOnChanges', this.uuid);
     if (!this.object) {
       return;
     }
@@ -82,7 +84,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public ngOnDestroy() {
-    // console.log('AbstractObject3D.OnDestroy', this.name);
+    // console.log('AbstractObject3D.OnDestroy', this.uuid);
     if (this.object && this.object.parent) {
       this.object.parent.remove(this.object);
       if (this.rendererService) {
@@ -107,14 +109,14 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     this.afterInit();
   }
 
-  protected updateParent(): void {
+  public updateParent(): void {
     if (this.parent) {
-      this.parent.addChild(this.object);
+      this.parent.addChild(this);
       this.rendererService.render();
     }
   }
 
-  protected applyRotation(): void {
+  public applyRotation(): void {
     this.object.rotation.set(
       this.rotateX || 0,
       this.rotateY || 0,
@@ -123,7 +125,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     );
   }
 
-  protected applyTranslation(): void {
+  public applyTranslation(): void {
     this.object.position.set(
       this.translateX || 0,
       this.translateY || 0,
@@ -131,7 +133,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     );
   }
 
-  protected applyScale(): void {
+  public applyScale(): void {
     this.object.scale.set(
       this.scaleX || 0,
       this.scaleY || 0,
@@ -139,11 +141,12 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     );
   }
 
-  public addChild(object: THREE.Object3D): void {
-    // (this.constructor.name + ' addChild ' + object, this.object);
+  public addChild(object: AbstractObject3D<any>): void {
+    // (this.constructor.uuid + ' addChild ' + object, this.object);
     if (this.object) {
-      // console.log(this.constructor.name + ' add child ' + object);
-      this.object.add(object);
+      // console.log(this.constructor.uuid + ' add child ' + object);
+      this.childlren.push(object);
+      this.object.add(object.getObject());
       if (this.rendererService) {
         this.rendererService.render();
       }
@@ -153,9 +156,17 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   protected afterInit() {
   }
 
-  protected removeChild(object: THREE.Object3D): void {
-    if (this.object) {
-      this.object.remove(object);
+  public removeChild(object: AbstractObject3D<any>): void {
+    if (this.object && object) {
+
+      // Remove from children:
+      const index = this.childlren.indexOf(object, 0);
+      if (index > -1) {
+        this.childlren.splice(index, 1);
+      }
+
+      // Remove from THREE graph:
+      this.object.remove(object.getObject());
     }
   }
 
@@ -167,6 +178,29 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   public ngAfterViewInit(): void {
     this.updateParent();
+  }
+
+  public findByUuid(uuid: string) {
+    // console.log('AbstractObject3D.findByUuid: Searching uuid', uuid);
+    // console.log('AbstractObject3D.findByUuid: children', this.childlren);
+    // const res = this.childlren.filter(i => i.object && i.object.uuid === uuid)[0];
+    const res = this.getNodeByUuid(this, uuid);
+    // console.log('AbstractObject3D.findByUuid: result', res);
+    return res;
+  }
+
+  protected getNodeByUuid(currentNode: AbstractObject3D<any>, uuid) {
+    if (currentNode.object && currentNode.object.uuid === uuid) {
+      return currentNode;
+    }
+    let node;
+    currentNode.childlren.some(child => node = this.getNodeByUuid(child, uuid));
+    return node;
+  }
+
+
+  public getChildren() {
+    return this.childlren;
   }
 
 }
