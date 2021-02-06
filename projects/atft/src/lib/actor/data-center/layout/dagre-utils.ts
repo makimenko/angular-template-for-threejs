@@ -1,6 +1,5 @@
 import * as dagre from 'dagre';
 
-
 export interface Node {
   id: string;
   label: string;
@@ -24,6 +23,9 @@ export interface GraphModel {
   composition?: Array<Composition>;
 }
 
+/**
+ * WIKI: https://github.com/dagrejs/dagre/wiki
+ */
 export class DagreUtils {
 
   public static modelToGraph(model: GraphModel): dagre.graphlib.Graph {

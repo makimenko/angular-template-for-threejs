@@ -17,9 +17,9 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent {
 
   protected getLineGeometry(): THREE.BufferGeometry {
     if (!this.source || !this.target) {
-      throw new Error('DagreEdgeComponent: source or target inputs are missing!');
+      throw new Error('DagreCompositionComponent: source or target inputs are missing!');
     }
-    // console.log('DagreEdgeComponent.getLineGeometry', this.positions);
+    // console.log('DagreCompositionComponent.getLineGeometry', this.positions);
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(this.positions, 3));
     return geometry;

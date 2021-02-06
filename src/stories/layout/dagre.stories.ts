@@ -31,12 +31,55 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 })
 class StorybookDagreComponent {
 
+  constructor(private animationService: AnimationService) {
+    this.animationService.start();
+  }
+
+}
+
+@Component({
+  template: worldSceneWrapper(`
+<atft-empty [translateZ]="0.5" [translateY]="-40">
+    <atft-dagre-layout [align]="align" [rankdir]="rankdir" [ranker]="ranker"
+      [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
+      [marginx]="marginx" [marginy]="marginy">
+
+      <atft-dagre-composition #presentation name="Presentation tier"></atft-dagre-composition>
+      <atft-dagre-composition #application name="Application tier"></atft-dagre-composition>
+      <atft-dagre-composition #data name="Data tier"></atft-dagre-composition>
+
+      <atft-dagre-node #spa [composition]="presentation">
+        <atft-server-compact-actor label="spa"></atft-server-compact-actor>
+      </atft-dagre-node>
+
+      <atft-dagre-node #api [composition]="application">
+        <atft-server-stand-actor label="api"></atft-server-stand-actor>
+      </atft-dagre-node>
+
+      <atft-dagre-node #db1 [composition]="data">
+        <atft-server-barrel-actor label="PostgreSQL"></atft-server-barrel-actor>
+      </atft-dagre-node>
+
+      <atft-dagre-node #db2 [composition]="data">
+        <atft-server-barrel-actor label="MongoDB"></atft-server-barrel-actor>
+      </atft-dagre-node>
+
+      <atft-dagre-edge [source]="spa" [target]="api"></atft-dagre-edge>
+      <atft-dagre-edge [source]="api" [target]="db1"></atft-dagre-edge>
+      <atft-dagre-edge [source]="api" [target]="db2"></atft-dagre-edge>
+
+    </atft-dagre-layout>
+</atft-empty>
+`)
+})
+class StorybookDagreCompositionComponent {
 
   constructor(private animationService: AnimationService) {
     this.animationService.start();
   }
 
 }
+
 
 export default {
   title: 'Layout/Dagre',
@@ -95,7 +138,14 @@ export default {
 };
 
 
-export const Dagre = (args) => ({
+export const Simple = (args) => ({
   component: StorybookDagreComponent,
   props: args
 });
+
+
+export const Composition = (args) => ({
+  component: StorybookDagreCompositionComponent,
+  props: args
+});
+

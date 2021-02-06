@@ -156,7 +156,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   protected afterInit() {
   }
 
-  protected removeChild(object: AbstractObject3D<any>): void {
+  public removeChild(object: AbstractObject3D<any>): void {
     if (this.object && object) {
 
       // Remove from children:
@@ -183,9 +183,24 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   public findByUuid(uuid: string) {
     // console.log('AbstractObject3D.findByUuid: Searching uuid', uuid);
     // console.log('AbstractObject3D.findByUuid: children', this.childlren);
-    const res = this.childlren.filter(i => i.object && i.object.uuid === uuid)[0];
+    // const res = this.childlren.filter(i => i.object && i.object.uuid === uuid)[0];
+    const res = this.getNodeByUuid(this, uuid);
     // console.log('AbstractObject3D.findByUuid: result', res);
     return res;
+  }
+
+  protected getNodeByUuid(currentNode: AbstractObject3D<any>, uuid) {
+    if (currentNode.object && currentNode.object.uuid === uuid) {
+      return currentNode;
+    }
+    let node;
+    currentNode.childlren.some(child => node = this.getNodeByUuid(child, uuid));
+    return node;
+  }
+
+
+  public getChildren() {
+    return this.childlren;
   }
 
 }

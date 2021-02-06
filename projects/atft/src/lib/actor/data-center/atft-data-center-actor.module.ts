@@ -8,7 +8,7 @@ import {ServerCompactActorComponent} from './server/server-compact-actor.compone
 import {ServerIconActorComponent} from './server/server-icon-actor.component';
 import {WorkstationActorComponent} from './server/workstation-actor.component';
 import {GridActorComponent} from './layer/grid-actor.component';
-import {DagreEdgeComponent, DagreLayoutComponent} from './layout';
+import {DagreCompositionComponent, DagreEdgeComponent, DagreLayoutComponent, DagreNodeComponent} from './layout';
 
 @NgModule({
   imports: [
@@ -24,7 +24,9 @@ import {DagreEdgeComponent, DagreLayoutComponent} from './layout';
     WorkstationActorComponent,
     GridActorComponent,
     DagreLayoutComponent,
-    DagreEdgeComponent
+    DagreEdgeComponent,
+    DagreCompositionComponent,
+    DagreNodeComponent
   ],
   exports: [
     LayerActorComponent,
@@ -35,7 +37,9 @@ import {DagreEdgeComponent, DagreLayoutComponent} from './layout';
     WorkstationActorComponent,
     GridActorComponent,
     DagreLayoutComponent,
-    DagreEdgeComponent
+    DagreEdgeComponent,
+    DagreCompositionComponent,
+    DagreNodeComponent
   ]
 })
 export class AtftDataCenterActorModule {

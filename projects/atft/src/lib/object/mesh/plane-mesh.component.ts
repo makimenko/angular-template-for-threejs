@@ -1,16 +1,16 @@
-import { Component, Input, Optional, SkipSelf } from '@angular/core';
+import {Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
-import { RendererService } from '../../renderer/renderer.service';
-import { provideParent } from '../../util';
-import { AbstractObject3D } from '../abstract-object-3d';
-import { AbstractMesh } from './abstract-mesh-3d';
+import {RendererService} from '../../renderer/renderer.service';
+import {provideParent} from '../../util';
+import {AbstractObject3D} from '../abstract-object-3d';
+import {AbstractMesh} from './abstract-mesh-3d';
 
 @Component({
   selector: 'atft-plane-mesh',
   providers: [provideParent(PlaneMeshComponent)],
   template: '<ng-content></ng-content>'
 })
-export class PlaneMeshComponent extends AbstractMesh {
+export class PlaneMeshComponent extends AbstractMesh implements OnChanges {
 
   /**
    * Width; that is, the length of the edges parallel to the X axis. Optional; defaults to 1.
@@ -49,6 +49,36 @@ export class PlaneMeshComponent extends AbstractMesh {
     const mesh = new THREE.Mesh(geometry, material);
     this.applyShadowProps(mesh);
     return mesh;
+  }
+
+
+  public ngOnChanges(changes: SimpleChanges) {
+    // console.log('AbstractObject3D.ngOnChanges', this.uuid);
+    if (!this.object) {
+      return;
+    }
+    super.ngOnChanges(changes);
+
+    let modified = false;
+
+    if (['width', 'height', 'widthSegments', 'heightSegments'].some(propName => propName in changes)) {
+      if (this.getObject() instanceof THREE.Mesh) {
+        const mesh: THREE.Mesh = this.getObject();
+
+        if (mesh.geometry instanceof THREE.PlaneBufferGeometry) {
+          const currentGeometry: THREE.PlaneBufferGeometry = mesh.geometry;
+          const newGeometry = new THREE.PlaneBufferGeometry(this.width, this.height, this.widthSegments, this.heightSegments);
+          currentGeometry.attributes = newGeometry.attributes;
+        }
+      }
+      modified = true;
+    }
+
+    if (modified) {
+      this.changed.emit();
+      this.rendererService.render();
+    }
+
   }
 
 }
