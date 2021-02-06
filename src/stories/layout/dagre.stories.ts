@@ -9,7 +9,6 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
 @Component({
   template: worldSceneWrapper(`
-<atft-empty [translateZ]="0.5" [translateY]="-40">
     <atft-dagre-layout [align]="align" [rankdir]="rankdir" [ranker]="ranker"
       [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
       [marginx]="marginx" [marginy]="marginy">
@@ -26,7 +25,6 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
       <atft-dagre-edge [source]="api" [target]="v"></atft-dagre-edge>
 
     </atft-dagre-layout>
-</atft-empty>
 `)
 })
 class StorybookDagreComponent {
@@ -39,7 +37,6 @@ class StorybookDagreComponent {
 
 @Component({
   template: worldSceneWrapper(`
-<atft-empty [translateZ]="0.5" [translateY]="-40">
     <atft-dagre-layout [align]="align" [rankdir]="rankdir" [ranker]="ranker"
       [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
       [marginx]="marginx" [marginy]="marginy">
@@ -69,7 +66,7 @@ class StorybookDagreComponent {
       <atft-dagre-edge [source]="api" [target]="db2"></atft-dagre-edge>
 
     </atft-dagre-layout>
-</atft-empty>
+
 `)
 })
 class StorybookDagreCompositionComponent {

@@ -86,7 +86,8 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   public ngOnDestroy() {
     // console.log('AbstractObject3D.OnDestroy', this.uuid);
     if (this.object && this.object.parent) {
-      this.object.parent.remove(this.object);
+      this.parent.removeChild(this);
+      // this.object.parent.remove(this.object);
       if (this.rendererService) {
         this.rendererService.render();
       }

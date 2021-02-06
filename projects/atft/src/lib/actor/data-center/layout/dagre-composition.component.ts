@@ -24,15 +24,11 @@ export class DagreCompositionComponent extends EmptyComponent {
     this._height = hight;
     this.translateLabelY = this._height / 2 - 5;
   }
-
   get height(): number {
     return this._height;
   }
 
   @Input() width: number;
-
-
-
   @Output() render = new EventEmitter<void>();
   @Output() selected = new EventEmitter<void>();
   @Output() deselected = new EventEmitter<void>();
