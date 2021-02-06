@@ -22,7 +22,7 @@ export class DagreCompositionComponent extends EmptyComponent {
   @Input()
   set height(hight: number) {
     this._height = hight;
-    this.translateLabelY = this._height / 2 - 5;
+    this.translateLabelY = this._height / 2 - 3;
   }
   get height(): number {
     return this._height;

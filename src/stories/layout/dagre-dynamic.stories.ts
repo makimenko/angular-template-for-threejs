@@ -10,17 +10,15 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 @Component({
   template: worldSceneWrapper(`
     <atft-dagre-layout>
-      <atft-server-stand-actor #api label="api" ></atft-server-stand-actor>
-
       <atft-dagre-node *ngFor="let x of fakeArray(numDatabases)" [composition]="data">
         <atft-server-barrel-actor label="db"></atft-server-barrel-actor>
       </atft-dagre-node>
 
-      <atft-dagre-composition #data></atft-dagre-composition>
+      <atft-dagre-composition #data name="Data"></atft-dagre-composition>
     </atft-dagre-layout>
 `)
 })
-class StorybookDagreComponent {
+class StorybookNgForComponent {
 
   constructor(private animationService: AnimationService) {
     this.animationService.start();
@@ -54,9 +52,7 @@ export default {
 };
 
 
-export const DynamicNodes = (args) => ({
-  component: StorybookDagreComponent,
+export const NgFor = (args) => ({
+  component: StorybookNgForComponent,
   props: args
 });
-
-
