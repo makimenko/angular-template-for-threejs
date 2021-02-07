@@ -183,8 +183,6 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   public findByName(name: string) {
     // console.log('AbstractObject3D.findByName: Searching name', name);
-    // console.log('AbstractObject3D.findByName: children', this.childlren);
-    // const res = this.childlren.filter(i => i.object && i.object.name === name)[0];
     const res = this.recursionByName(this, name);
     // console.log('AbstractObject3D.findByName: result', res);
     return res;
@@ -203,5 +201,10 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   public getChildren() {
     return this.childlren;
   }
+
+  public removeChildByName(name: string) {
+    this.childlren = this.childlren.filter(i => i.name !== name);
+  }
+
 
 }
