@@ -41,9 +41,9 @@ class StorybookDagreComponent {
       [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
       [marginx]="marginx" [marginy]="marginy">
 
-      <atft-dagre-composition #presentation name="Presentation tier"></atft-dagre-composition>
-      <atft-dagre-composition #application name="Application tier"></atft-dagre-composition>
-      <atft-dagre-composition #data name="Data tier"></atft-dagre-composition>
+      <atft-dagre-composition #presentation label="Presentation tier"></atft-dagre-composition>
+      <atft-dagre-composition #application label="Application tier"></atft-dagre-composition>
+      <atft-dagre-composition #data label="Data tier"></atft-dagre-composition>
 
       <atft-dagre-node #spa [composition]="presentation">
         <atft-server-compact-actor label="spa"></atft-server-compact-actor>

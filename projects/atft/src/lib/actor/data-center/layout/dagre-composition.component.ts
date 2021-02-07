@@ -8,7 +8,7 @@ import {EmptyComponent} from '../../../object';
   template: `
     <atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"
                      (mouseExit)="onDeselected()">
-      <atft-text-mesh [centered]="true" [text]="name" size="3" [translateY]="translateLabelY"
+      <atft-text-mesh [centered]="true" [text]="label" size="3" [translateY]="translateLabelY"
                       materialColor="0xE0E0E0">
       </atft-text-mesh>
     </atft-plane-mesh>
@@ -16,7 +16,7 @@ import {EmptyComponent} from '../../../object';
 })
 export class DagreCompositionComponent extends EmptyComponent {
 
-  @Input() name: string;
+  @Input() label: string;
 
   private _height: number;
   @Input()

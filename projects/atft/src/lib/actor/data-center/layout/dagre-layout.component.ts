@@ -13,9 +13,7 @@ import {DagreCompositionComponent} from './dagre-composition.component';
 @Component({
   selector: 'atft-dagre-layout',
   providers: [provideParent(DagreLayoutComponent)],
-  template: `
-
-  `
+  template: `<ng-content></ng-content>`
 })
 export class DagreLayoutComponent extends EmptyComponent implements AfterViewInit, OnChanges, OnDestroy {
 
@@ -65,6 +63,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   }
 
   protected addDagreChild(object: AbstractObject3D<any>) {
+    console.log('DagreLayoutComponent.addDagreChild');
     if (object instanceof DagreEdgeComponent) {
       this.addEdge(object);
     } else {

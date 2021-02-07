@@ -9,14 +9,14 @@ import { provideParent } from '../../../util';
   template: `
     <atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"
                      (mouseExit)="onDeselected()">
-      <atft-text-mesh [centered]="true" [text]="name" size="5" [translateX]="translateLabelX" [rotateZ]="(90 | deg2rad)"
+      <atft-text-mesh [centered]="true" [text]="label" size="5" [translateX]="translateLabelX" [rotateZ]="(90 | deg2rad)"
                       materialColor="0xE0E0E0">
       </atft-text-mesh>
     </atft-plane-mesh>
   `
 })
 export class LayerActorComponent extends EmptyComponent {
-  @Input() name: string;
+  @Input() label: string;
 
   @Input()
   set width(width: number) {
