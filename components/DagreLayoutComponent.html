@@ -72,6 +72,7 @@
     <p class="comment">
                     <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
                     <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
     </p>
 
 
@@ -105,8 +106,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">
-</code></pre></td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;ng-content&gt;&lt;/ng-content&gt;</code></pre></td>
             </tr>
 
 
@@ -135,6 +135,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Protected</span>
+                                <a href="#graph">graph</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
                                 <a href="#graphModel">graphModel</a>
                             </li>
                         </ul>
@@ -151,15 +155,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#addChild">addChild</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#addEdge">addEdge</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#addNode">addNode</a>
+                                <a href="#getGraphModel">getGraphModel</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -173,8 +169,15 @@
                                 <a href="#ngOnChanges">ngOnChanges</a>
                             </li>
                             <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refreshLayout">refreshLayout</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#processDagreChild">processDagreChild</a>
+                                <a href="#syncGraphContainer">syncGraphContainer</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -202,6 +205,9 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#align">align</a>
+                            </li>
+                            <li>
+                                <a href="#deepScan">deepScan</a>
                             </li>
                             <li>
                                 <a href="#edgesep">edgesep</a>
@@ -246,7 +252,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -313,7 +319,27 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deepScan"></a>
+                        <b>deepScan</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:28</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -333,7 +359,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:23</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -353,7 +379,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:25</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -373,7 +399,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:26</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -393,7 +419,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:22</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -413,7 +439,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:21</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -433,7 +459,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:27</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -453,7 +479,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:24</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -471,100 +497,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="addChild"></a>
+                    <a name="getGraphModel"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            addChild
+                            getGraphModel
                         </b>
-                        <a href="#addChild"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getGraphModel"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>addChild(object: AbstractObject3D<any>)</code>
+                    <code>getGraphModel()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:49</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>object</td>
-                                    <td>
-                                            <code>AbstractObject3D&lt;any&gt;</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="addEdge"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            addEdge
-                        </b>
-                        <a href="#addEdge"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>addEdge(edge: <a href="../interfaces/Edge.html">DagreEdgeComponent</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="154"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:154</a></div>
                 </td>
             </tr>
 
@@ -573,111 +527,8 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>edge</td>
-                                    <td>
-                                                <code><a href="../interfaces/Edge.html" target="_self" >DagreEdgeComponent</a></code>
-                                    </td>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="addNode"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            addNode
-                        </b>
-                        <a href="#addNode"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>addNode(object: AbstractObject3D<any>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:77</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>object</td>
-                                    <td>
-                                            <code>AbstractObject3D&lt;any&gt;</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -707,8 +558,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:53</a></div>
                 </td>
             </tr>
 
@@ -746,8 +597,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:48</a></div>
                 </td>
             </tr>
 
@@ -787,8 +638,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="174"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:174</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:128</a></div>
                 </td>
             </tr>
 
@@ -839,28 +690,108 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="processDagreChild"></a>
+                    <a name="ngOnDestroy"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Protected</span>
-                            processDagreChild
+                            ngOnDestroy
                         </b>
-                        <a href="#processDagreChild"><span class="icon ion-ios-link"></span></a>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshLayout"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            refreshLayout
+                        </b>
+                        <a href="#refreshLayout"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>processDagreChild(object: AbstractObject3D<any>)</code>
+                    <code>refreshLayout()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:158</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="syncGraphContainer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            syncGraphContainer
+                        </b>
+                        <a href="#syncGraphContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>syncGraphContainer(g: dagre.graphlib.Graph)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:120</a></div>
                 </td>
             </tr>
 
@@ -880,9 +811,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>object</td>
+                                    <td>g</td>
                                     <td>
-                                            <code>AbstractObject3D&lt;any&gt;</code>
+                                            <code>dagre.graphlib.Graph</code>
                                     </td>
 
                                     <td>
@@ -931,8 +862,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="149"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:149</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:98</a></div>
                 </td>
             </tr>
 
@@ -1003,8 +934,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="121"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:121</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:73</a></div>
                 </td>
             </tr>
 
@@ -1108,6 +1039,34 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="graph"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            graph</b>
+                            <a href="#graph"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>dagre.graphlib.Graph</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="graphModel"></a>
                         <span class="name">
                             <b>
@@ -1125,7 +1084,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-layout.component.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -1138,7 +1097,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from &#x27;@angular/core&#x27;;
 import {EmptyComponent} from &#x27;../../../object/helper&#x27;;
 import {provideParent} from &#x27;../../../util&#x27;;
 import {DagreUtils, GraphModel} from &#x27;./dagre-utils&#x27;;
@@ -1146,7 +1105,6 @@ import {RendererService} from &#x27;../../../renderer&#x27;;
 import {AbstractObject3D} from &#x27;../../../object&#x27;;
 import {DagreEdgeComponent} from &#x27;./dagre-edge.component&#x27;;
 import * as dagre from &#x27;dagre&#x27;;
-import {DagreNodeComponent} from &#x27;./dagre-node.component&#x27;;
 import {DagreCompositionComponent} from &#x27;./dagre-composition.component&#x27;;
 
 
@@ -1154,10 +1112,9 @@ import {DagreCompositionComponent} from &#x27;./dagre-composition.component&#x27
   selector: &#x27;atft-dagre-layout&#x27;,
   providers: [provideParent(DagreLayoutComponent)],
   template: &#x60;
-
-  &#x60;
+    &lt;ng-content&gt;&lt;/ng-content&gt;&#x60;
 })
-export class DagreLayoutComponent extends EmptyComponent implements AfterViewInit, OnChanges {
+export class DagreLayoutComponent extends EmptyComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   @Input() align &#x3D; &#x27;DR&#x27;;
   @Input() rankdir &#x3D; &#x27;TB&#x27;;
@@ -1167,9 +1124,10 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   @Input() marginx &#x3D; 0;
   @Input() marginy &#x3D; 0;
   @Input() ranker &#x3D; &#x27;network-simplex&#x27;;
-
+  @Input() deepScan &#x3D; false;
 
   protected graphModel: GraphModel;
+  protected graph: dagre.graphlib.Graph;
 
   constructor(
     protected rendererService: RendererService,
@@ -1184,54 +1142,6 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
       edges: [],
       composition: []
     };
-  }
-
-  public addChild(object: AbstractObject3D&lt;any&gt;): void {
-    super.addChild(object);
-    this.processDagreChild(object);
-  }
-
-  protected processDagreChild(object: AbstractObject3D&lt;any&gt;) {
-    if (object instanceof DagreEdgeComponent) {
-      this.addEdge(object);
-    } else {
-      this.addNode(object);
-    }
-  }
-
-  protected addEdge(edge: DagreEdgeComponent) {
-    // console.log(&#x27;DagreLayoutComponent.addEdge&#x27;, edge);
-    const edgeObject: DagreEdgeComponent &#x3D; edge;
-    if (edgeObject.source &amp;&amp; edgeObject.source.getObject() &amp;&amp; edgeObject.target &amp;&amp; edgeObject.target.getObject()) {
-      this.graphModel.edges.push({
-        uuid: edgeObject.getObject().uuid,
-        from: edgeObject.source.getObject().uuid,
-        to: edgeObject.target.getObject().uuid
-      });
-    } else {
-      console.warn(&#x27;DagreLayoutComponent.addChild: edge source/target is undefined&#x27;);
-    }
-  }
-
-
-  protected addNode(object: AbstractObject3D&lt;any&gt;) {
-    // console.log(&#x27;DagreLayoutComponent.addNode&#x27;, object);
-    this.graphModel.nodes.push({
-      id: object.getObject().uuid,
-      label: object.getObject().uuid,
-    });
-
-    if (object instanceof DagreNodeComponent) {
-      const node: DagreNodeComponent &#x3D; object;
-      if (node.composition) {
-        // console.log(&#x27;DagreLayoutComponent.addNode to composition&#x27;, node.composition);
-        this.graphModel.composition.push({
-          parent: node.composition.getObject().uuid,
-          child: node.getObject().uuid
-        });
-      }
-    }
-
   }
 
   ngAfterViewInit() {
@@ -1251,21 +1161,22 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
       marginy: this.marginy,
       ranker: this.ranker
     };
-    const g &#x3D; DagreUtils.modelToGraph(this.graphModel);
-    // console.log(&#x27;DagreLayoutComponent.layout: g&#x27;, g);
-    this.syncGraphNodes(g);
-    this.syncGraphEdges(g);
+    this.graph &#x3D; DagreUtils.modelToGraph(this.graphModel);
+    // console.log(&#x27;DagreLayoutComponent.layout: graph&#x27;, this.graph);
+    this.syncGraphNodes(this.graph);
+    this.syncGraphEdges(this.graph);
+    this.syncGraphContainer(this.graph);
     this.rendererService.render();
   }
 
   protected syncGraphNodes(g: dagre.graphlib.Graph) {
     // console.log(&#x27;DagreLayoutComponent.syncGraphNodes&#x27;);
-    g.nodes().forEach((uuid) &#x3D;&gt; {
-      // console.log(&#x27;Node &#x27; + uuid + &#x27;: &#x27; + JSON.stringify(g.node(uuid)));
-      const object: AbstractObject3D&lt;any&gt; &#x3D; this.findByUuid(uuid);
+    g.nodes().forEach((name) &#x3D;&gt; {
+      // console.log(&#x27;Node &#x27; + name + &#x27;: &#x27; + JSON.stringify(g.node(name)));
+      const object: AbstractObject3D&lt;any&gt; &#x3D; this.findByName(name);
 
       if (object) {
-        const node &#x3D; g.node(uuid);
+        const node &#x3D; g.node(name);
         // console.log(&#x27;DagreLayoutComponent.layout: Update position&#x27;, node);
 
         object.translateX &#x3D; node.x;
@@ -1277,11 +1188,8 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
           const composition: DagreCompositionComponent &#x3D; object;
           composition.width &#x3D; node.width;
           composition.height &#x3D; node.height;
-
         }
 
-      } else {
-        console.warn(&#x27;DagreLayoutComponent.layout: Object not found by uuid&#x27;, uuid);
       }
     });
   }
@@ -1291,7 +1199,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
     g.edges().forEach((e) &#x3D;&gt; {
       const edge: dagre.GraphEdge &#x3D; g.edge(e);
       // console.log(&#x27;DagreLayoutComponent.syncGraphEdges: edge&#x27;, edge);
-      const object: AbstractObject3D&lt;any&gt; &#x3D; this.findByUuid(edge.uuid);
+      const object: AbstractObject3D&lt;any&gt; &#x3D; this.findByName(edge.name);
       if (object &amp;&amp; object instanceof DagreEdgeComponent) {
         const edgeComponent: DagreEdgeComponent &#x3D; object;
         edgeComponent.positions &#x3D; [];
@@ -1304,20 +1212,24 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
           }
         });
         edgeComponent.updateLineGeometry();
-      } else {
-        console.warn(&#x27;DagreLayoutComponent.layout: Object not found by uuid&#x27;, e.name);
       }
     });
   }
 
+  protected syncGraphContainer(g: dagre.graphlib.Graph) {
+    // console.log(&#x27;DagreLayoutComponent.syncGraphContainer&#x27;);
+    this.translateX &#x3D; -(g.graph().width / 2);
+    this.translateY &#x3D; -(g.graph().height / 2);
+    this.applyTranslation();
+
+  }
 
   public ngOnChanges(changes: SimpleChanges) {
-    // console.log(&#x27;AbstractObject3D.ngOnChanges&#x27;, this.uuid);
+    super.ngOnChanges(changes);
+    // console.log(&#x27;AbstractObject3D.ngOnChanges&#x27;, this.name);
     if (!this.object) {
       return;
     }
-    super.ngOnChanges(changes);
-
     let modified &#x3D; false;
 
     if ([&#x27;align&#x27;, &#x27;rankdir&#x27;, &#x27;ranksep&#x27;, &#x27;nodesep&#x27;, &#x27;edgesep&#x27;, &#x27;marginx&#x27;, &#x27;marginy&#x27;, &#x27;ranker&#x27;].some(propName &#x3D;&gt; propName in changes)) {
@@ -1332,6 +1244,21 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
 
   }
 
+  ngOnDestroy() {
+    super.ngOnDestroy();
+    this.graph &#x3D; undefined;
+    this.graphModel &#x3D; undefined;
+  }
+
+  public getGraphModel() {
+    return this.graphModel;
+  }
+
+  public refreshLayout() {
+    if (this.graph) {
+      this.layout();
+    }
+  }
 
 }
 </code></pre>
@@ -1364,7 +1291,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div></div>'
+        var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
     var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'DagreLayoutComponent'};

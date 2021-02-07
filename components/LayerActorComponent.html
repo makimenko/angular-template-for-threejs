@@ -100,7 +100,7 @@
                 <td class="col-md-3">template</td>
                 <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;atft-plane-mesh atft-raycaster-group [width]&#x3D;&quot;width&quot; [height]&#x3D;&quot;height&quot; [materialColor]&#x3D;&quot;color&quot; (mouseEnter)&#x3D;&quot;onSelected()&quot;
                  (mouseExit)&#x3D;&quot;onDeselected()&quot;&gt;
-  &lt;atft-text-mesh [centered]&#x3D;&quot;true&quot; [text]&#x3D;&quot;name&quot; size&#x3D;&quot;5&quot; [translateX]&#x3D;&quot;translateLabelX&quot; [rotateZ]&#x3D;&quot;(90 | deg2rad)&quot;
+  &lt;atft-text-mesh [centered]&#x3D;&quot;true&quot; [text]&#x3D;&quot;label&quot; size&#x3D;&quot;5&quot; [translateX]&#x3D;&quot;translateLabelX&quot; [rotateZ]&#x3D;&quot;(90 | deg2rad)&quot;
                   materialColor&#x3D;&quot;0xE0E0E0&quot;&gt;
   &lt;/atft-text-mesh&gt;
 &lt;/atft-plane-mesh&gt;
@@ -185,7 +185,7 @@
                                 <a href="#height">height</a>
                             </li>
                             <li>
-                                <a href="#name">name</a>
+                                <a href="#label">label</a>
                             </li>
                             <li>
                                 <a href="#width">width</a>
@@ -263,8 +263,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="name"></a>
-                        <b>name</b>
+                        <a name="label"></a>
+                        <b>label</b>
                     </td>
                 </tr>
                 <tr>
@@ -729,14 +729,14 @@ import { provideParent } from &#x27;../../../util&#x27;;
   template: &#x60;
     &lt;atft-plane-mesh atft-raycaster-group [width]&#x3D;&quot;width&quot; [height]&#x3D;&quot;height&quot; [materialColor]&#x3D;&quot;color&quot; (mouseEnter)&#x3D;&quot;onSelected()&quot;
                      (mouseExit)&#x3D;&quot;onDeselected()&quot;&gt;
-      &lt;atft-text-mesh [centered]&#x3D;&quot;true&quot; [text]&#x3D;&quot;name&quot; size&#x3D;&quot;5&quot; [translateX]&#x3D;&quot;translateLabelX&quot; [rotateZ]&#x3D;&quot;(90 | deg2rad)&quot;
+      &lt;atft-text-mesh [centered]&#x3D;&quot;true&quot; [text]&#x3D;&quot;label&quot; size&#x3D;&quot;5&quot; [translateX]&#x3D;&quot;translateLabelX&quot; [rotateZ]&#x3D;&quot;(90 | deg2rad)&quot;
                       materialColor&#x3D;&quot;0xE0E0E0&quot;&gt;
       &lt;/atft-text-mesh&gt;
     &lt;/atft-plane-mesh&gt;
   &#x60;
 })
 export class LayerActorComponent extends EmptyComponent {
-  @Input() name: string;
+  @Input() label: string;
 
   @Input()
   set width(width: number) {
@@ -803,7 +803,7 @@ export class LayerActorComponent extends EmptyComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"                 (mouseExit)="onDeselected()">  <atft-text-mesh [centered]="true" [text]="name" size="5" [translateX]="translateLabelX" [rotateZ]="(90 | deg2rad)"                  materialColor="0xE0E0E0">  </atft-text-mesh></atft-plane-mesh></div>'
+        var COMPONENT_TEMPLATE = '<div><atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"                 (mouseExit)="onDeselected()">  <atft-text-mesh [centered]="true" [text]="label" size="5" [translateX]="translateLabelX" [rotateZ]="(90 | deg2rad)"                  materialColor="0xE0E0E0">  </atft-text-mesh></atft-plane-mesh></div>'
     var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'LayerActorComponent'};
