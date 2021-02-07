@@ -11,7 +11,7 @@ import { AbstractObject3D } from '../abstract-object-3d';
 })
 export class AxesHelperComponent extends AbstractObject3D<THREE.AxesHelper> {
 
-  @Input() size: number;
+  @Input() size = 50;
 
   constructor(
     protected rendererService: RendererService,

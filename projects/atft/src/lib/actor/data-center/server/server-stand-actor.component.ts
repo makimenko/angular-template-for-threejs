@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import { provideParent } from '../../../util';
 import { AbstractServerActor } from './abstract-server-actor';
 
@@ -29,5 +29,6 @@ import { AbstractServerActor } from './abstract-server-actor';
   `
 })
 export class ServerStandActorComponent extends AbstractServerActor {
+
 
 }

@@ -15,6 +15,10 @@ export abstract class AbstractServerActor extends EmptyComponent {
   @Output()
   deselected = new EventEmitter<void>();
 
+  @Output()
+  actorClick = new EventEmitter<void>();
+
+
   @Input()
   svgName: string;
 
@@ -34,8 +38,9 @@ export abstract class AbstractServerActor extends EmptyComponent {
   }
 
   public onClick() {
-    // console.log('ServerActorComponent.onClick');
+    console.log('ServerActorComponent.onClick');
     this.color = 0xffa0a0;
+    this.actorClick.emit();
   }
 
 }

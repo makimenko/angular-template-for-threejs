@@ -1,5 +1,5 @@
 // https://angular.io/guide/dependency-injection-navtree
-// Helper method to provide the current component instance in the uuid of a `parentType`.
+// Helper method to provide the current component instance in the name of a `parentType`.
 // The `parentType` defaults to `Parent` when omitting the second parameter.
 import { forwardRef } from '@angular/core';
 import { AbstractObject3D } from '../object/abstract-object-3d';

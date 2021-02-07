@@ -11,15 +11,15 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
   template: worldSceneWrapper(`
 <atft-empty [translateZ]="0.5" [translateY]="-40">
 
-  <atft-layer-actor width="180" height="45" [translateY]="30" name="On-Premise">
+  <atft-layer-actor width="180" height="45" [translateY]="30" label="On-Premise">
   </atft-layer-actor>
-  <atft-layer-actor width="180" height="45" [translateY]="90" name="Security">
+  <atft-layer-actor width="180" height="45" [translateY]="90" label="Security">
   </atft-layer-actor>
-  <atft-layer-actor width="180" height="45" [translateY]="140" name="Frontend">
+  <atft-layer-actor width="180" height="45" [translateY]="140" label="Frontend">
   </atft-layer-actor>
-  <atft-layer-actor width="180" height="45" [translateY]="190" name="Backend">
+  <atft-layer-actor width="180" height="45" [translateY]="190" label="Backend">
   </atft-layer-actor>
-  <atft-layer-actor width="180" height="45" [translateY]="240" name="Storage">
+  <atft-layer-actor width="180" height="45" [translateY]="240" label="Storage">
   </atft-layer-actor>
 
   <atft-empty>

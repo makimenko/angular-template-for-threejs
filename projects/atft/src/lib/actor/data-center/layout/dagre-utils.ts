@@ -1,12 +1,12 @@
 import * as dagre from 'dagre';
 
 export interface Node {
-  id: string;
+  name: string;
   label: string;
 }
 
 export interface Edge {
-  uuid: string;
+  name: string;
   from: string;
   to: string;
 }
@@ -44,6 +44,7 @@ export class DagreUtils {
 
     this.updateGraph(g, model);
 
+    // console.log('DagreUtils.layout model', model);
     // console.log('DagreUtils.layout', g);
     dagre.layout(g);
     return g;
@@ -52,7 +53,7 @@ export class DagreUtils {
   public static updateNodes(g: dagre.graphlib.Graph, model: GraphModel) {
     if (model.nodes) {
       model.nodes.forEach((node: Node) => {
-        g.setNode(node.id, {label: node.label, width: 15, height: 15});
+        g.setNode(node.name, {label: node.label, width: 15, height: 15});
       });
     }
   }
@@ -60,7 +61,7 @@ export class DagreUtils {
   public static updateEdges(g: dagre.graphlib.Graph, model: GraphModel) {
     if (model.edges) {
       model.edges.forEach((edge: Edge) => {
-        g.setEdge(edge.from, edge.to, {uuid: edge.uuid});
+        g.setEdge(edge.from, edge.to, {name: edge.name});
       });
     }
   }

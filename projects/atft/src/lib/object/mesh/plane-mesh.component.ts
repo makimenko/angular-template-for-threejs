@@ -53,7 +53,7 @@ export class PlaneMeshComponent extends AbstractMesh implements OnChanges {
 
 
   public ngOnChanges(changes: SimpleChanges) {
-    // console.log('AbstractObject3D.ngOnChanges', this.uuid);
+    // console.log('AbstractObject3D.ngOnChanges', this.name);
     if (!this.object) {
       return;
     }
