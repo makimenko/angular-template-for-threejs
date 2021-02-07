@@ -16,11 +16,11 @@ import {APP_BASE_HREF} from '@angular/common';
 @Component({
   template: worldSceneWrapper(`
     <atft-dagre-layout>
-      <atft-dagre-node *ngFor="let x of fakeArray(numDatabases)" [composition]="data">
+      <atft-dagre-node *ngFor="let x of fakeArray(numDatabases)" composition="data">
         <atft-server-barrel-actor label="db"></atft-server-barrel-actor>
       </atft-dagre-node>
 
-      <atft-dagre-composition #data label="Data"></atft-dagre-composition>
+      <atft-dagre-composition name="data" label="Data"></atft-dagre-composition>
     </atft-dagre-layout>
 `)
 })
@@ -45,9 +45,9 @@ class StorybookNgForComponent {
 @Component({
   template: worldSceneWrapper(`
     <atft-dagre-layout>
-        <atft-server-stand-actor #spa label="spa" (actorClick)="showSpaDetails()"></atft-server-stand-actor>
-        <atft-server-stand-actor #api label="api" (actorClick)="showApiDetails()"></atft-server-stand-actor>
-        <atft-dagre-edge [source]="spa" [target]="api"></atft-dagre-edge>
+        <atft-server-stand-actor name="spa" label="spa" (actorClick)="showSpaDetails()"></atft-server-stand-actor>
+        <atft-server-stand-actor name="api" label="api" (actorClick)="showApiDetails()"></atft-server-stand-actor>
+        <atft-dagre-edge from="spa" to="api"></atft-dagre-edge>
         <router-outlet></router-outlet>
     </atft-dagre-layout>
 `)
@@ -99,8 +99,8 @@ class SpaDetailsPageComponent extends EmptyComponent {
   selector: 'app-api-details-page',
   providers: [provideParent(ApiDetailsPageComponent)],
   template: `
-    <atft-server-barrel-actor #db1 label="PostgreSQL"></atft-server-barrel-actor>
-    <atft-server-barrel-actor #db2 label="MongoDB"></atft-server-barrel-actor>
+    <atft-server-barrel-actor name="db1" label="PostgreSQL"></atft-server-barrel-actor>
+    <atft-server-barrel-actor name="db2" label="MongoDB"></atft-server-barrel-actor>
   `
 })
 class ApiDetailsPageComponent extends EmptyComponent {

@@ -25,7 +25,7 @@ export class ContentProjectionComponent extends EmptyComponent {
     if (this.contentProjection) {
       this.contentProjection.addChild(object);
     } else {
-      console.error('ContentProjectionComponent error: #contentProjection id not found! Embedded child object in "ng-content" can not be attached to parentScene object');
+      console.error('ContentProjectionComponent error: #contentProjection name not found! Embedded child object in "ng-content" can not be attached to parentScene object');
     }
   }
 

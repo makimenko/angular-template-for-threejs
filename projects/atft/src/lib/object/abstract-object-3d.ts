@@ -13,6 +13,7 @@ import {
 } from '@angular/core';
 import * as THREE from 'three';
 import {RendererService} from '../renderer/renderer.service';
+import {v4 as uuidv4} from 'uuid';
 
 @Directive()
 export abstract class AbstractObject3D<T extends THREE.Object3D> implements AfterViewInit, OnChanges, OnDestroy, OnInit {
@@ -36,8 +37,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   @Input() scaleY = 1;
   @Input() scaleZ = 1;
 
-
-  @Input() name: string;
+  @Input() name: string = uuidv4(); // if not provided, then auto-generate
 
   @Input() layer = 0;
 
@@ -51,11 +51,11 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
   ) {
-    // console.log('AbstractObject3D.constructor', this.uuid);
+    // console.log('AbstractObject3D.constructor', this.name);
   }
 
   public ngOnChanges(changes: SimpleChanges) {
-    // console.log('AbstractObject3D.ngOnChanges', this.uuid);
+    // console.log('AbstractObject3D.ngOnChanges', this.name);
     if (!this.object) {
       return;
     }
@@ -84,7 +84,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public ngOnDestroy() {
-    // console.log('AbstractObject3D.OnDestroy', this.uuid);
+    // console.log('AbstractObject3D.OnDestroy', this.name);
     if (this.object && this.object.parent) {
       this.parent.removeChild(this);
       // this.object.parent.remove(this.object);
@@ -143,9 +143,9 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public addChild(object: AbstractObject3D<any>): void {
-    // (this.constructor.uuid + ' addChild ' + object, this.object);
+    // (this.constructor.name + ' addChild ' + object, this.object);
     if (this.object) {
-      // console.log(this.constructor.uuid + ' add child ' + object);
+      // console.log(this.constructor.name + ' add child ' + object);
       this.childlren.push(object);
       this.object.add(object.getObject());
       if (this.rendererService) {
@@ -181,21 +181,21 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     this.updateParent();
   }
 
-  public findByUuid(uuid: string) {
-    // console.log('AbstractObject3D.findByUuid: Searching uuid', uuid);
-    // console.log('AbstractObject3D.findByUuid: children', this.childlren);
-    // const res = this.childlren.filter(i => i.object && i.object.uuid === uuid)[0];
-    const res = this.getNodeByUuid(this, uuid);
-    // console.log('AbstractObject3D.findByUuid: result', res);
+  public findByName(name: string) {
+    // console.log('AbstractObject3D.findByName: Searching name', name);
+    // console.log('AbstractObject3D.findByName: children', this.childlren);
+    // const res = this.childlren.filter(i => i.object && i.object.name === name)[0];
+    const res = this.recursionByName(this, name);
+    // console.log('AbstractObject3D.findByName: result', res);
     return res;
   }
 
-  protected getNodeByUuid(currentNode: AbstractObject3D<any>, uuid) {
-    if (currentNode.object && currentNode.object.uuid === uuid) {
+  protected recursionByName(currentNode: AbstractObject3D<any>, name) {
+    if (currentNode.object && currentNode.name === name) {
       return currentNode;
     }
     let node;
-    currentNode.childlren.some(child => node = this.getNodeByUuid(child, uuid));
+    currentNode.childlren.some(child => node = this.recursionByName(child, name));
     return node;
   }
 

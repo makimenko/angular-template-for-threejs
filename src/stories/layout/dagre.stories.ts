@@ -13,16 +13,16 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
       [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
       [marginx]="marginx" [marginy]="marginy">
 
-      <atft-server-compact-actor #spa label="spa" ></atft-server-compact-actor>
-      <atft-server-stand-actor #api label="api" ></atft-server-stand-actor>
-      <atft-server-compact-actor #v label="Vault"></atft-server-compact-actor>
-      <atft-server-barrel-actor #db1 label="PostgreSQL"></atft-server-barrel-actor>
-      <atft-server-barrel-actor #db2 label="MongoDB"></atft-server-barrel-actor>
+      <atft-server-compact-actor name="spa" label="SPA"></atft-server-compact-actor>
+      <atft-server-stand-actor name="api" label="API"></atft-server-stand-actor>
+      <atft-server-compact-actor name="kv" label="Key Vault"></atft-server-compact-actor>
+      <atft-server-barrel-actor name="db1" label="PostgreSQL"></atft-server-barrel-actor>
+      <atft-server-barrel-actor name="db2" label="MongoDB"></atft-server-barrel-actor>
 
-      <atft-dagre-edge [source]="spa" [target]="api"></atft-dagre-edge>
-      <atft-dagre-edge [source]="api" [target]="db1"></atft-dagre-edge>
-      <atft-dagre-edge [source]="api" [target]="db2"></atft-dagre-edge>
-      <atft-dagre-edge [source]="api" [target]="v"></atft-dagre-edge>
+      <atft-dagre-edge from="spa" to="api"></atft-dagre-edge>
+      <atft-dagre-edge from="api" to="db1"></atft-dagre-edge>
+      <atft-dagre-edge from="api" to="db2"></atft-dagre-edge>
+      <atft-dagre-edge from="api" to="kv"></atft-dagre-edge>
 
     </atft-dagre-layout>
 `)
@@ -41,29 +41,29 @@ class StorybookDagreComponent {
       [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
       [marginx]="marginx" [marginy]="marginy">
 
-      <atft-dagre-composition #presentation label="Presentation tier"></atft-dagre-composition>
-      <atft-dagre-composition #application label="Application tier"></atft-dagre-composition>
-      <atft-dagre-composition #data label="Data tier"></atft-dagre-composition>
+      <atft-dagre-composition name="presentation" label="Presentation tier"></atft-dagre-composition>
+      <atft-dagre-composition name="application" label="Application tier"></atft-dagre-composition>
+      <atft-dagre-composition name="data" label="Data tier"></atft-dagre-composition>
 
-      <atft-dagre-node #spa [composition]="presentation">
+      <atft-dagre-node name="spa" composition="presentation">
         <atft-server-compact-actor label="spa"></atft-server-compact-actor>
       </atft-dagre-node>
 
-      <atft-dagre-node #api [composition]="application">
+      <atft-dagre-node name="api" composition="application">
         <atft-server-stand-actor label="api"></atft-server-stand-actor>
       </atft-dagre-node>
 
-      <atft-dagre-node #db1 [composition]="data">
+      <atft-dagre-node name="db1" composition="data">
         <atft-server-barrel-actor label="PostgreSQL"></atft-server-barrel-actor>
       </atft-dagre-node>
 
-      <atft-dagre-node #db2 [composition]="data">
+      <atft-dagre-node name="db2" composition="data">
         <atft-server-barrel-actor label="MongoDB"></atft-server-barrel-actor>
       </atft-dagre-node>
 
-      <atft-dagre-edge [source]="spa" [target]="api"></atft-dagre-edge>
-      <atft-dagre-edge [source]="api" [target]="db1"></atft-dagre-edge>
-      <atft-dagre-edge [source]="api" [target]="db2"></atft-dagre-edge>
+      <atft-dagre-edge from="spa" to="api"></atft-dagre-edge>
+      <atft-dagre-edge from="api" to="db1"></atft-dagre-edge>
+      <atft-dagre-edge from="api" to="db2"></atft-dagre-edge>
 
     </atft-dagre-layout>
 

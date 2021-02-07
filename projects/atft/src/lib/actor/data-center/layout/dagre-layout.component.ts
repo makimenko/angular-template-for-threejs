@@ -13,7 +13,8 @@ import {DagreCompositionComponent} from './dagre-composition.component';
 @Component({
   selector: 'atft-dagre-layout',
   providers: [provideParent(DagreLayoutComponent)],
-  template: `<ng-content></ng-content>`
+  template: `
+    <ng-content></ng-content>`
 })
 export class DagreLayoutComponent extends EmptyComponent implements AfterViewInit, OnChanges, OnDestroy {
 
@@ -53,15 +54,6 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
     }
   }
 
-  public removeChild(object: AbstractObject3D<any>) {
-    super.removeChild(object);
-    console.log('DagreLayoutComponent.removeChild');
-    this.removeDagreChild(object);
-    if (this.graph) {
-      this.layout();
-    }
-  }
-
   protected addDagreChild(object: AbstractObject3D<any>) {
     console.log('DagreLayoutComponent.addDagreChild');
     if (object instanceof DagreEdgeComponent) {
@@ -71,46 +63,25 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
     }
   }
 
-  protected removeDagreChild(object: AbstractObject3D<any>) {
-    if (object instanceof DagreEdgeComponent) {
-      console.log('DagreLayoutComponent.removeDagreChild: Edge');
-      const edgeObject: DagreEdgeComponent = object;
-      this.graphModel.edges = this.graphModel.edges.filter(i => i.uuid !== edgeObject.getObject().uuid);
-    } else {
-      console.log('DagreLayoutComponent.removeDagreChild: Node');
-      this.graphModel.nodes = this.graphModel.nodes.filter(i => i.id !== object.getObject().uuid);
-
-      if (object instanceof DagreNodeComponent) {
-        const node: DagreNodeComponent = object;
-        if (node.composition) {
-          this.graphModel.composition = this.graphModel.composition.filter(i => i.child !== node.getObject().uuid);
-        }
-      }
-
-    }
-  }
-
-
   protected addEdge(edge: DagreEdgeComponent) {
-    // console.log('DagreLayoutComponent.addEdge', edge);
+    console.log('DagreLayoutComponent.addEdge', edge);
     const edgeObject: DagreEdgeComponent = edge;
-    if (edgeObject.source && edgeObject.source.getObject() && edgeObject.target && edgeObject.target.getObject()) {
+    if (edgeObject.from && edgeObject.to) {
       this.graphModel.edges.push({
-        uuid: edgeObject.getObject().uuid,
-        from: edgeObject.source.getObject().uuid,
-        to: edgeObject.target.getObject().uuid
+        name: edgeObject.name,
+        from: edgeObject.from,
+        to: edgeObject.to
       });
     } else {
       console.warn('DagreLayoutComponent.addChild: edge source/target is undefined');
     }
   }
 
-
   protected addNode(object: AbstractObject3D<any>) {
-    // console.log('DagreLayoutComponent.addNode', object);
+    console.log('DagreLayoutComponent.addNode', object);
     this.graphModel.nodes.push({
-      id: object.getObject().uuid,
-      label: object.getObject().uuid,
+      name: object.name,
+      label: object.name,
     });
 
     if (object instanceof DagreNodeComponent) {
@@ -118,12 +89,40 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
       if (node.composition) {
         // console.log('DagreLayoutComponent.addNode to composition', node.composition);
         this.graphModel.composition.push({
-          parent: node.composition.getObject().uuid,
-          child: node.getObject().uuid
+          parent: node.composition,
+          child: node.name
         });
       }
     }
 
+  }
+
+  public removeChild(object: AbstractObject3D<any>) {
+    super.removeChild(object);
+    console.log('DagreLayoutComponent.removeChild');
+    this.removeDagreChild(object);
+    if (this.graph) {
+      this.layout();
+    }
+  }
+
+  protected removeDagreChild(object: AbstractObject3D<any>) {
+    if (object instanceof DagreEdgeComponent) {
+      console.log('DagreLayoutComponent.removeDagreChild: Edge');
+      const edgeObject: DagreEdgeComponent = object;
+      this.graphModel.edges = this.graphModel.edges.filter(i => i.name !== edgeObject.name);
+    } else {
+      console.log('DagreLayoutComponent.removeDagreChild: Node');
+      this.graphModel.nodes = this.graphModel.nodes.filter(i => i.name !== object.name);
+
+      if (object instanceof DagreNodeComponent) {
+        const node: DagreNodeComponent = object;
+        if (node.composition) {
+          this.graphModel.composition = this.graphModel.composition.filter(i => i.child !== node.name);
+        }
+      }
+
+    }
   }
 
   ngAfterViewInit() {
@@ -152,13 +151,13 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   }
 
   protected syncGraphNodes(g: dagre.graphlib.Graph) {
-    // console.log('DagreLayoutComponent.syncGraphNodes');
-    g.nodes().forEach((uuid) => {
-      // console.log('Node ' + uuid + ': ' + JSON.stringify(g.node(uuid)));
-      const object: AbstractObject3D<any> = this.findByUuid(uuid);
+    console.log('DagreLayoutComponent.syncGraphNodes');
+    g.nodes().forEach((name) => {
+      console.log('Node ' + name + ': ' + JSON.stringify(g.node(name)));
+      const object: AbstractObject3D<any> = this.findByName(name);
 
       if (object) {
-        const node = g.node(uuid);
+        const node = g.node(name);
         // console.log('DagreLayoutComponent.layout: Update position', node);
 
         object.translateX = node.x;
@@ -174,7 +173,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
         }
 
       } else {
-        console.warn('DagreLayoutComponent.layout: Object not found by uuid', uuid);
+        console.warn('DagreLayoutComponent.layout: Object not found by name', name);
       }
     });
   }
@@ -184,7 +183,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
     g.edges().forEach((e) => {
       const edge: dagre.GraphEdge = g.edge(e);
       // console.log('DagreLayoutComponent.syncGraphEdges: edge', edge);
-      const object: AbstractObject3D<any> = this.findByUuid(edge.uuid);
+      const object: AbstractObject3D<any> = this.findByName(edge.name);
       if (object && object instanceof DagreEdgeComponent) {
         const edgeComponent: DagreEdgeComponent = object;
         edgeComponent.positions = [];
@@ -198,7 +197,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
         });
         edgeComponent.updateLineGeometry();
       } else {
-        console.warn('DagreLayoutComponent.layout: Object not found by uuid', e.name);
+        console.warn('DagreLayoutComponent.layout: Object not found by name', e.name);
       }
     });
   }
@@ -212,7 +211,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   }
 
   public ngOnChanges(changes: SimpleChanges) {
-    // console.log('AbstractObject3D.ngOnChanges', this.uuid);
+    // console.log('AbstractObject3D.ngOnChanges', this.name);
     if (!this.object) {
       return;
     }

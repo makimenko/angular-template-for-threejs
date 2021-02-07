@@ -9,7 +9,7 @@ import {provideParent} from '../../../util';
 })
 export class DagreNodeComponent extends EmptyComponent {
 
-  @Input() composition: AbstractObject3D<any>;
+  @Input() composition: string;
 
   @Input() translateZ = 1;
 }

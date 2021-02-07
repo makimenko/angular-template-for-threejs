@@ -116,7 +116,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
 
 
   public ngOnChanges(changes: SimpleChanges) {
-    // console.log('AbstractObject3D.ngOnChanges', this.uuid);
+    // console.log('AbstractObject3D.ngOnChanges', this.name);
     if (!this.object) {
       return;
     }

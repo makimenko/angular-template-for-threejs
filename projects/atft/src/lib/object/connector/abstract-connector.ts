@@ -1,4 +1,4 @@
-import { Input, Directive } from '@angular/core';
+import {Directive, Input} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
 
@@ -13,7 +13,9 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
 
   protected newObject3DInstance(): T {
     const mesh = this.createConnectorObject();
-    this.watchObjects();
+    if (this.source && this.target) {
+      this.watchObjects();
+    }
     return mesh;
   }
 
