@@ -26,7 +26,7 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   @Input() marginx = 0;
   @Input() marginy = 0;
   @Input() ranker = 'network-simplex';
-
+  @Input() deepScan = false;
 
   protected graphModel: GraphModel;
   protected graph: dagre.graphlib.Graph;
@@ -54,34 +54,51 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
     }
   }
 
-  protected addDagreChild(object: AbstractObject3D<any>) {
+  protected addDagreChild(object: AbstractObject3D<any>, deepRoot?: AbstractObject3D<any>) {
     console.log('DagreLayoutComponent.addDagreChild');
     if (object instanceof DagreEdgeComponent) {
-      this.addEdge(object);
-    } else {
-      this.addNode(object);
+      this.addEdge(object, deepRoot);
+    } else if (object instanceof DagreNodeComponent
+      || object instanceof DagreCompositionComponent
+    ) {
+      this.addNode(object, deepRoot);
+    }
+
+    if (this.deepScan) {
+      if (object.getChildren()) {
+        for (const i of object.getChildren()) {
+          if (i instanceof DagreNodeComponent
+            || i instanceof DagreEdgeComponent
+            || i instanceof DagreCompositionComponent) {
+            console.log('DagreLayoutComponent.addDagreChild: ', i.name);
+            this.addDagreChild(i, object);
+          }
+        }
+      }
     }
   }
 
-  protected addEdge(edge: DagreEdgeComponent) {
+  protected addEdge(edge: DagreEdgeComponent, deepRoot?: AbstractObject3D<any>) {
     console.log('DagreLayoutComponent.addEdge', edge);
     const edgeObject: DagreEdgeComponent = edge;
     if (edgeObject.from && edgeObject.to) {
       this.graphModel.edges.push({
         name: edgeObject.name,
         from: edgeObject.from,
-        to: edgeObject.to
+        to: edgeObject.to,
+        deepRoot: deepRoot?.name
       });
     } else {
       console.warn('DagreLayoutComponent.addChild: edge source/target is undefined');
     }
   }
 
-  protected addNode(object: AbstractObject3D<any>) {
+  protected addNode(object: AbstractObject3D<any>, deepRoot?: AbstractObject3D<any>) {
     console.log('DagreLayoutComponent.addNode', object);
     this.graphModel.nodes.push({
       name: object.name,
       label: object.name,
+      deepRoot: deepRoot?.name
     });
 
     if (object instanceof DagreNodeComponent) {
@@ -90,7 +107,8 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
         // console.log('DagreLayoutComponent.addNode to composition', node.composition);
         this.graphModel.composition.push({
           parent: node.composition,
-          child: node.name
+          child: node.name,
+          deepRoot: deepRoot?.name
         });
       }
     }
@@ -101,6 +119,14 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
     super.removeChild(object);
     console.log('DagreLayoutComponent.removeChild');
     this.removeDagreChild(object);
+
+    if (this.deepScan) {
+      console.log('DagreLayoutComponent.removeChild deepScan for', object.name);
+      this.graphModel.nodes = this.graphModel.nodes.filter(i => i.deepRoot !== object.name);
+      this.graphModel.edges = this.graphModel.edges.filter(i => i.deepRoot !== object.name);
+      this.graphModel.composition = this.graphModel.composition.filter(i => i.deepRoot !== object.name);
+    }
+
     if (this.graph) {
       this.layout();
     }
@@ -108,11 +134,11 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
 
   protected removeDagreChild(object: AbstractObject3D<any>) {
     if (object instanceof DagreEdgeComponent) {
-      console.log('DagreLayoutComponent.removeDagreChild: Edge');
+      console.log('DagreLayoutComponent.removeDagreChild: Edge', object.name);
       const edgeObject: DagreEdgeComponent = object;
       this.graphModel.edges = this.graphModel.edges.filter(i => i.name !== edgeObject.name);
     } else {
-      console.log('DagreLayoutComponent.removeDagreChild: Node');
+      console.log('DagreLayoutComponent.removeDagreChild: Node', object.name);
       this.graphModel.nodes = this.graphModel.nodes.filter(i => i.name !== object.name);
 
       if (object instanceof DagreNodeComponent) {

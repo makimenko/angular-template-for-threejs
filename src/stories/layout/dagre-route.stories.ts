@@ -13,41 +13,19 @@ import {BrowserModule} from '@angular/platform-browser';
 import {APP_BASE_HREF} from '@angular/common';
 
 
-@Component({
-  template: worldSceneWrapper(`
-    <atft-dagre-layout>
-      <atft-dagre-node *ngFor="let x of fakeArray(numDatabases)" composition="data">
-        <atft-server-barrel-actor label="db"></atft-server-barrel-actor>
-      </atft-dagre-node>
-
-      <atft-dagre-composition name="data" label="Data"></atft-dagre-composition>
-    </atft-dagre-layout>
-`)
-})
-class StorybookNgForComponent {
-
-  constructor(private animationService: AnimationService) {
-    this.animationService.start();
-  }
-
-  numDatabases = 1;
-
-  fakeArray(length: number): Array<any> {
-    if (length >= 0) {
-      return new Array(length);
-    }
-  }
-
-}
-
-
 // ======================================================================
 @Component({
   template: worldSceneWrapper(`
-    <atft-dagre-layout>
-        <atft-server-stand-actor name="spa" label="spa" (actorClick)="showSpaDetails()"></atft-server-stand-actor>
-        <atft-server-stand-actor name="api" label="api" (actorClick)="showApiDetails()"></atft-server-stand-actor>
+    <atft-dagre-layout [deepScan]="true">
+        <atft-dagre-node name="spa">
+            <atft-server-stand-actor label="spa" (actorClick)="showSpaDetails()"></atft-server-stand-actor>
+        </atft-dagre-node>
+        <atft-dagre-node name="api">
+            <atft-server-stand-actor label="api" (actorClick)="showApiDetails()"></atft-server-stand-actor>
+        </atft-dagre-node>
+
         <atft-dagre-edge from="spa" to="api"></atft-dagre-edge>
+
         <router-outlet></router-outlet>
     </atft-dagre-layout>
 `)
@@ -79,7 +57,10 @@ class StorybookRouterMainComponent {
   selector: 'app-spa-details-page',
   providers: [provideParent(SpaDetailsPageComponent)],
   template: `
-    <atft-server-compact-actor label="Active Directory"></atft-server-compact-actor>
+    <atft-dagre-node name="ad">
+      <atft-server-compact-actor label="Active Directory"></atft-server-compact-actor>
+    </atft-dagre-node>
+    <atft-dagre-edge from="spa" to="ad"></atft-dagre-edge>
   `
 })
 class SpaDetailsPageComponent extends EmptyComponent {
@@ -99,8 +80,14 @@ class SpaDetailsPageComponent extends EmptyComponent {
   selector: 'app-api-details-page',
   providers: [provideParent(ApiDetailsPageComponent)],
   template: `
-    <atft-server-barrel-actor name="db1" label="PostgreSQL"></atft-server-barrel-actor>
-    <atft-server-barrel-actor name="db2" label="MongoDB"></atft-server-barrel-actor>
+    <atft-dagre-node name="db1">
+      <atft-server-barrel-actor label="PostgreSQL"></atft-server-barrel-actor>
+    </atft-dagre-node>
+    <atft-dagre-node name="db2">
+      <atft-server-barrel-actor label="MongoDB"></atft-server-barrel-actor>
+    </atft-dagre-node>
+    <atft-dagre-edge from="api" to="db1"></atft-dagre-edge>
+    <atft-dagre-edge from="api" to="db2"></atft-dagre-edge>
   `
 })
 class ApiDetailsPageComponent extends EmptyComponent {
@@ -173,7 +160,7 @@ class StoryModule {
 
 // ======================================================================
 export default {
-  title: 'Layout/Dagre Dynamic',
+  title: 'Layout/Router Sample',
   decorators: [
     moduleMetadata({
       imports: [
@@ -188,12 +175,6 @@ export default {
   }
 
 };
-
-
-export const NgFor = (args) => ({
-  component: StorybookNgForComponent,
-  props: args
-});
 
 export const RouterSample = (args) => ({
   component: StorybookRouterMainComponent,

@@ -1,17 +1,21 @@
 import * as dagre from 'dagre';
 
-export interface Node {
+export interface DeepRoot {
+  deepRoot?: string;
+}
+
+export interface Node extends DeepRoot {
   name: string;
   label: string;
 }
 
-export interface Edge {
+export interface Edge extends DeepRoot {
   name: string;
   from: string;
   to: string;
 }
 
-export interface Composition {
+export interface Composition extends DeepRoot {
   parent: string;
   child: string;
 }
@@ -44,7 +48,8 @@ export class DagreUtils {
 
     this.updateGraph(g, model);
 
-    // console.log('DagreUtils.layout', g);
+    console.log('DagreUtils.layout model', model);
+    console.log('DagreUtils.layout', g);
     dagre.layout(g);
     return g;
   }

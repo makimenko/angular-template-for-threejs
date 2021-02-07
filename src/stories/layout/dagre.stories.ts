@@ -13,11 +13,21 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
       [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
       [marginx]="marginx" [marginy]="marginy">
 
-      <atft-server-compact-actor name="spa" label="SPA"></atft-server-compact-actor>
-      <atft-server-stand-actor name="api" label="API"></atft-server-stand-actor>
-      <atft-server-compact-actor name="kv" label="Key Vault"></atft-server-compact-actor>
-      <atft-server-barrel-actor name="db1" label="PostgreSQL"></atft-server-barrel-actor>
-      <atft-server-barrel-actor name="db2" label="MongoDB"></atft-server-barrel-actor>
+      <atft-dagre-node name="spa" >
+        <atft-server-compact-actor label="SPA"></atft-server-compact-actor>
+      </atft-dagre-node>
+      <atft-dagre-node name="api" >
+        <atft-server-stand-actor label="API"></atft-server-stand-actor>
+      </atft-dagre-node>
+      <atft-dagre-node name="kv">
+        <atft-server-compact-actor label="Key Vault"></atft-server-compact-actor>
+      </atft-dagre-node>
+      <atft-dagre-node name="db1">
+        <atft-server-barrel-actor  label="PostgreSQL"></atft-server-barrel-actor>
+      </atft-dagre-node>
+      <atft-dagre-node name="db2">
+        <atft-server-barrel-actor  label="MongoDB"></atft-server-barrel-actor>
+      </atft-dagre-node>
 
       <atft-dagre-edge from="spa" to="api"></atft-dagre-edge>
       <atft-dagre-edge from="api" to="db1"></atft-dagre-edge>
