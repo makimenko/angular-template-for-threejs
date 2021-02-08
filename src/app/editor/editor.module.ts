@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AnimationService, RendererService, StatsService } from 'atft';
 import { AtftDataCenterActorModule } from '../../../projects/atft/src/lib/actor/data-center';
 import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
+import { EditorCanvasComponent } from './editor-canvas/editor-canvas.component';
 import { EditorContentComponent } from './editor-content/editor-content.component';
 import { EditorLayoutComponent } from './editor-layout/editor-layout.component';
-import { EditorToolbarComponent } from './editor-toolbar/editor-toolbar.component';
 import { EditorSideComponent } from './editor-side/editor-side.component';
-import { EditorCanvasComponent } from './editor-canvas/editor-canvas.component';
-
+import { EditorToolbarComponent } from './editor-toolbar/editor-toolbar.component';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { EditorCanvasComponent } from './editor-canvas/editor-canvas.component';
     AtftModule,
     AtftDataCenterActorModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule
   ],
   declarations: [
     EditorLayoutComponent,
@@ -39,4 +42,5 @@ import { EditorCanvasComponent } from './editor-canvas/editor-canvas.component';
     StatsService
   ]
 })
-export class EditorModule { }
+export class EditorModule {
+}
