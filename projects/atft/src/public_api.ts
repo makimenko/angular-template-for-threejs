@@ -13,3 +13,10 @@ export * from './lib/animation';
 export * from './lib/raycaster';
 export * from './lib/stats';
 export * from './lib/effect';
+
+export * from './lib/actor/data-center/atft-data-center-actor.module';
+export * from './lib/actor/data-center/';
+export * from './lib/actor/data-center/layer';
+export * from './lib/actor/data-center/layout';
+export * from './lib/actor/data-center/server';
+

@@ -27,6 +27,7 @@ export class AnimationService {
    * Start the animationService loop.
    */
   public start() {
+    // console.log('AnimationService.start');
     if (!this.enabled) {
       this.enabled = true;
       this.animationStep();
@@ -43,6 +44,7 @@ export class AnimationService {
   }
 
   public animationStep() {
+    // console.log('AnimationService.animationStep (enabled=' + this.enabled + ', observers=' + this.animate.observers.length + ')');
     if (this.enabled && this.animate.observers) {
       requestAnimationFrame(this.animationStep);
       if (this.animate.observers.length > 0) {

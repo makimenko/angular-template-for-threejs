@@ -87,6 +87,7 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
 
     const mesh = new THREE.Mesh(this.line.geometry, this.lineMaterial);
     if (this.animated) {
+      // console.log('MeshLineConnectorComponent.createConnectorObject animated');
       this.animate = this.animate.bind(this);
       this.animationService.animate.subscribe(this.animate);
     }
@@ -94,6 +95,7 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
   }
 
   private animate() {
+    // console.log('MeshLineConnectorComponent.animate');
     this.lineMaterial.uniforms.dashOffset.value += this.animationIncrement;
   }
 
