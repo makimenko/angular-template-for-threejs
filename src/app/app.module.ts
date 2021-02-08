@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {AtftModule} from 'atft';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // For development (code watch): import { AtftModule } from 'projects/atft/src/lib/atft.module';
 
@@ -14,7 +15,8 @@ import {AtftModule} from 'atft';
   imports: [
     BrowserModule,
     FormsModule,
-    AtftModule
+    AtftModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
