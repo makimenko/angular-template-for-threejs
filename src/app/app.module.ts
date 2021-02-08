@@ -1,12 +1,15 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
-import {NgModule} from '@angular/core';
-
-import {AppComponent} from './app.component';
-import {AtftModule} from 'atft';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// For development (code watch): import { AtftModule } from 'projects/atft/src/lib/atft.module';
+
+import { AppComponent } from './app.component';
+import { EditorModule } from './editor/editor.module';
+
+// import { AtftModule } from 'atft';
+// TODO: For development (code watch):
+import { AtftModule } from 'projects/atft/src/lib/atft.module';
 
 @NgModule({
   declarations: [
@@ -15,10 +18,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     FormsModule,
-    AtftModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
