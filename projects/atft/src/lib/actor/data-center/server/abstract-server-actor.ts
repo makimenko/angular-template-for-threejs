@@ -1,7 +1,8 @@
-import { EventEmitter, Input, Output } from '@angular/core';
-import {EmptyComponent} from '../../../object/helper/empty.component';
+import { Directive, EventEmitter, Input, Output } from '@angular/core';
+import { AbstractEmptyDirective } from '../../../object';
 
-export abstract class AbstractServerActor extends EmptyComponent {
+@Directive()
+export abstract class AbstractServerActor extends AbstractEmptyDirective {
 
   @Input()
   label: string;
@@ -17,7 +18,6 @@ export abstract class AbstractServerActor extends EmptyComponent {
 
   @Output()
   actorClick = new EventEmitter<void>();
-
 
   @Input()
   svgName: string;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { provideParent } from '../../../util';
 import { AbstractServerActor } from './abstract-server-actor';
 
@@ -29,5 +29,5 @@ import { AbstractServerActor } from './abstract-server-actor';
   `
 })
 export class ServerCompactActorComponent extends AbstractServerActor {
-
+//@Input() label;
 }

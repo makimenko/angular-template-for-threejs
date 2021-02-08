@@ -1,15 +1,16 @@
-import {Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf} from '@angular/core';
-import {AbstractObject3D, EmptyComponent} from '../../../object';
-import {provideParent} from '../../../util';
-import {RendererService} from '../../../renderer';
-import {DagreLayoutComponent} from './dagre-layout.component';
+import { Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf } from '@angular/core';
+import * as dagre from 'dagre';
+import { AbstractEmptyDirective, AbstractObject3D } from '../../../object';
+import { RendererService } from '../../../renderer';
+import { provideParent } from '../../../util';
+import { DagreLayoutComponent } from './dagre-layout.component';
 
 @Component({
   selector: 'atft-dagre-node',
   providers: [provideParent(DagreNodeComponent)],
   template: '<ng-content></ng-content>'
 })
-export class DagreNodeComponent extends EmptyComponent implements OnInit, OnDestroy {
+export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit, OnDestroy {
 
   @Input() composition: string;
 
@@ -28,6 +29,9 @@ export class DagreNodeComponent extends EmptyComponent implements OnInit, OnDest
     if (!this.dagreLayout) {
       console.warn('DagreNodeComponent.constructor: atft-dagre-layout not found!');
     }
+
+    this.syncGraph = this.syncGraph.bind(this);
+    this.dagreLayout.updated.subscribe(this.syncGraph);
   }
 
   ngOnInit() {
@@ -87,5 +91,25 @@ export class DagreNodeComponent extends EmptyComponent implements OnInit, OnDest
       this.dagreLayout.refreshLayout();
     }
   }
+
+  protected syncGraphNodes(g: dagre.graphlib.Graph) {
+    // console.log('DagreNodeComponent.syncGraphNodes');
+    g.nodes().forEach((name) => {
+      // console.log('Node ' + name + ': ' + JSON.stringify(g.node(name)));
+      if (name === this.name) {
+        const node = g.node(name);
+        // console.log('DagreLayoutComponent.layout: Update position', node);
+        this.translateX = node.x;
+        this.translateY = node.y;
+        this.applyTranslation();
+      }
+    });
+  }
+
+  protected syncGraph() {
+    console.log('DagreNodeComponent.update');
+    this.syncGraphNodes(this.dagreLayout.getGraph());
+  }
+
 
 }
