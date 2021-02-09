@@ -101,9 +101,7 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
       // console.log('LoaderActorComponent.done');
       this.subscribed = false;
       this.i = 0;
-      if (this.animation) {
-        this.animation.unsubscribe();
-      }
+      this.animation?.unsubscribe();
     }
   }
 

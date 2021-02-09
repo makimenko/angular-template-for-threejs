@@ -43,9 +43,7 @@ class StorybookLoopComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.animation) {
-      this.animation.unsubscribe();
-    }
+    this.animation?.unsubscribe();
   }
 
 }
@@ -91,9 +89,7 @@ class StorybookMixerComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.animation) {
-      this.animation.unsubscribe();
-    }
+    this.animation?.unsubscribe();
   }
 
 }
@@ -199,9 +195,7 @@ class StorybookReactiveGridComponent implements AfterViewInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    if (this.animation) {
-      this.animation.unsubscribe();
-    }
+    this.animation?.unsubscribe();
   }
 
 }

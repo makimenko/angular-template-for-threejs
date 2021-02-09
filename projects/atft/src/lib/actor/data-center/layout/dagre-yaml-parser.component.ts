@@ -14,9 +14,10 @@ import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
 import {RendererService} from '../../../renderer';
 import {provideParent} from '../../../util';
 import * as yaml from 'yaml';
-import {GraphModel} from './dagre-utils';
+import {Edge, GraphModel, Node} from './dagre-utils';
 import {ServerStandActorComponent} from '../server';
 import {DagreNodeComponent} from './dagre-node.component';
+import {DagreEdgeComponent} from './dagre-edge.component';
 
 @Component({
   selector: 'atft-dagre-yaml-parser',
@@ -65,16 +66,18 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     // console.log('DagreYamlParserComponent.parseAndCreate yaml', model);
     if (model && model.nodes && model.nodes.length > 0) {
 
-      model.nodes.forEach(i => this.createNode(i));
+      model.nodes?.forEach(i => this.createNode(i));
+      model.edges?.forEach(i => this.createEdge(i));
     }
   }
 
-  protected createNode(node) {
+  protected createNode(node: Node) {
     // console.log('DagreYamlParserComponent.createNode', node);
     const nodeFactory = this.resolver.resolveComponentFactory(DagreNodeComponent);
     const nodeRef = this.container.createComponent(nodeFactory);
     nodeRef.instance.name = node.name;
     this.instances.push(nodeRef);
+
 
     const serverFactory = this.resolver.resolveComponentFactory(ServerStandActorComponent);
     const serverRef = nodeRef.instance.container.createComponent(serverFactory);
@@ -82,6 +85,17 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     serverRef.instance.label = (node.label ? node.label : node.name);
     this.instances.push(serverRef);
   }
+
+
+  protected createEdge(edge: Edge) {
+    // console.log('DagreYamlParserComponent.createEdge', edge);
+    const factory = this.resolver.resolveComponentFactory(DagreEdgeComponent);
+    const edgeRef = this.container.createComponent(factory);
+    edgeRef.instance.from = edge.from;
+    edgeRef.instance.to = edge.to;
+    this.instances.push(edgeRef);
+  }
+
 
   protected destroyAll() {
     // console.log('DagreYamlParserComponent.destroyAll');

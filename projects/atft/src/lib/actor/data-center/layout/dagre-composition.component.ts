@@ -105,9 +105,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
       // console.log('DagreCompositionComponent.removeNode', this.name);
 
       // Unsubscribe from graph update events
-      if (this.graphUpdated) {
-        this.graphUpdated.unsubscribe();
-      }
+      this.graphUpdated?.unsubscribe();
 
       // Remove from layout
       this.dagreLayout.removeChildByName(this.name);

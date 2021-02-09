@@ -1,17 +1,24 @@
 import {Component} from '@angular/core';
 import {moduleMetadata} from '@storybook/angular';
-import {AtftDataCenterActorModule, DagreNodeComponent, ServerStandActorComponent} from '../../../projects/atft/src/lib/actor/data-center';
+import {
+  AtftDataCenterActorModule,
+  DagreEdgeComponent,
+  DagreNodeComponent,
+  ServerStandActorComponent
+} from '../../../projects/atft/src/lib/actor/data-center';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
-const yaml = `
-nodes:
+const yaml = `nodes:
   - name: db1
     label: PostgreSQL
   - name: db2
     label: MongoDB
+edges:
+  - from: db1
+    to: db2
 `;
 
 @Component({
@@ -41,7 +48,8 @@ export default {
       ],
       entryComponents: [
         ServerStandActorComponent,
-        DagreNodeComponent
+        DagreNodeComponent,
+        DagreEdgeComponent
       ]
     })
   ],

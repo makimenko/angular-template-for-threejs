@@ -49,12 +49,9 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
 
   public ngOnDestroy() {
     super.ngOnDestroy();
-    if (this.sourceSub) {
-      this.sourceSub.unsubscribe();
-    }
-    if (this.targetSub) {
-      this.targetSub.unsubscribe();
-    }
+
+    this.sourceSub?.unsubscribe();
+    this.targetSub?.unsubscribe();
   }
 
 

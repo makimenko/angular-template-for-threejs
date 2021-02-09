@@ -91,9 +91,7 @@ export class DashedDrawDirective implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.animation) {
-      this.animation.unsubscribe();
-    }
+    this.animation?.unsubscribe();
   }
 
 }

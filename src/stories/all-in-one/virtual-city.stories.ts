@@ -115,9 +115,7 @@ class StorybookFlyComponent implements AfterViewInit, OnDestroy {
   }
 
   public ngOnDestroy() {
-    if (this.animation) {
-      this.animation.unsubscribe();
-    }
+    this.animation?.unsubscribe();
   }
 
 }

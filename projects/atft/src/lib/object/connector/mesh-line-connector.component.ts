@@ -111,9 +111,7 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> im
 
   public ngOnDestroy() {
     super.ngOnDestroy();
-    if (this.animation) {
-      this.animation.unsubscribe();
-    }
+    this.animation?.unsubscribe();
   }
 
 }

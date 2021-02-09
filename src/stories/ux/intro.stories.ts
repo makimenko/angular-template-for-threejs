@@ -65,9 +65,7 @@ class StorybookIntroComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.animation) {
-      this.animation.unsubscribe();
-    }
+    this.animation?.unsubscribe();
   }
 
 }

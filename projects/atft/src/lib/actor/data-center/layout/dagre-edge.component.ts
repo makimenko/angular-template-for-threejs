@@ -95,9 +95,7 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
       // console.log('DagreNodeComponent.removeNode', this.name);
 
       // Unsubscribe from graph update events
-      if (this.graphUpdated) {
-        this.graphUpdated.unsubscribe();
-      }
+      this.graphUpdated?.unsubscribe();
 
       // Remove from layout
       this.dagreLayout.removeChildByName(this.name);

@@ -107,9 +107,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
       // console.log('TextActorComponent.done');
       this.subscribed = false;
       this.i = 0;
-      if (this.animation) {
-        this.animation.unsubscribe();
-      }
+      this.animation?.unsubscribe();
     }
   }
 

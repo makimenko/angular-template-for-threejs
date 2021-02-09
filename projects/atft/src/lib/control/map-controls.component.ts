@@ -100,9 +100,7 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
 
   ngOnDestroy() {
     super.ngOnDestroy();
-    if (this.animation) {
-      this.animation.unsubscribe();
-    }
+    this.animation?.unsubscribe();
   }
 
 }
