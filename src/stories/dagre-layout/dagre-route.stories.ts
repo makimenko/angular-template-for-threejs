@@ -160,7 +160,7 @@ class StoryModule {
 
 // ======================================================================
 export default {
-  title: 'Layout/Router Sample',
+  title: 'Dagre Layout/Router Sample',
   decorators: [
     moduleMetadata({
       imports: [
@@ -169,11 +169,7 @@ export default {
         StoryModule
       ]
     })
-  ],
-  args: {
-    numDatabases: 1
-  }
-
+  ]
 };
 
 export const RouterSample = (args) => ({

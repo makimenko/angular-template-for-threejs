@@ -1,4 +1,4 @@
-import { Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf } from '@angular/core';
+import {Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf, ViewChild, ViewContainerRef} from '@angular/core';
 import * as dagre from 'dagre';
 import { AbstractEmptyDirective, AbstractObject3D } from '../../../object';
 import { RendererService } from '../../../renderer';
@@ -8,13 +8,15 @@ import { DagreLayoutComponent } from './dagre-layout.component';
 @Component({
   selector: 'atft-dagre-node',
   providers: [provideParent(DagreNodeComponent)],
-  template: '<ng-content></ng-content>'
+  template: '<template #container></template><ng-content></ng-content>'
 })
 export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit, OnDestroy {
 
   @Input() composition: string;
 
   @Input() translateZ = 1;
+
+  @ViewChild('container', {read: ViewContainerRef, static: true}) container;
 
   protected dagreLayout: DagreLayoutComponent;
 
@@ -37,11 +39,13 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
   ngOnInit() {
     super.ngOnInit();
     this.addNode();
+
+
   }
 
   protected addNode() {
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
-      // console.log('DagreNodeComponent.addNode', this.name);
+      console.log('DagreNodeComponent.addNode', this.name);
 
       // Register as layout children
       this.dagreLayout.getChildren().push(this);
@@ -108,7 +112,9 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
 
   protected syncGraph() {
     console.log('DagreNodeComponent.update');
-    this.syncGraphNodes(this.dagreLayout.getGraph());
+    if (this.object) {
+      this.syncGraphNodes(this.dagreLayout.getGraph());
+    }
   }
 
 

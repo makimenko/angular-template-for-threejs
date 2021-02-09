@@ -89,7 +89,7 @@ class StorybookDagreCompositionComponent {
 
 
 export default {
-  title: 'Layout/Dagre',
+  title: 'Dagre Layout/Sample',
   decorators: [
     moduleMetadata({
       imports: [

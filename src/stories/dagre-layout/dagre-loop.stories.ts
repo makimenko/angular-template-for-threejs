@@ -36,7 +36,7 @@ class StorybookLoopComponent {
 
 // ======================================================================
 export default {
-  title: 'Layout/Loop',
+  title: 'Dagre Layout/Loop',
   decorators: [
     moduleMetadata({
       imports: [

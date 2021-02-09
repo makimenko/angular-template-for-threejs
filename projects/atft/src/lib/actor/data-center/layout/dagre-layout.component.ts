@@ -90,7 +90,7 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
 
   protected syncGraphContainer(g: dagre.graphlib.Graph) {
     // console.log('DagreLayoutComponent.syncGraphContainer');
-    if (this.centered) {
+    if (this.object && this.centered) {
       this.translateX = -(g.graph().width / 2);
       this.translateY = -(g.graph().height / 2);
       this.applyTranslation();
