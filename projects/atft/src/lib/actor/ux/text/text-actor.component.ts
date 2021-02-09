@@ -4,6 +4,7 @@ import {EmptyComponent} from '../../../object/helper';
 import {AnimationService} from '../../../animation';
 import {RendererService} from '../../../renderer';
 import {AbstractObject3D} from '../../../object';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'atft-text-actor',
@@ -37,7 +38,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
   private currentPos = 0;
   private maxPos = 0;
   private i = 0;
-
+  protected animation: Subscription;
 
   constructor(
     protected rendererService: RendererService,
@@ -61,7 +62,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
         // console.log('TextActorComponent.animate init');
         if (!this.subscribed) {
           this.updateAnimation = this.updateAnimation.bind(this);
-          this.animationService.animate.subscribe(this.updateAnimation);
+          this.animation = this.animationService.animate.subscribe(this.updateAnimation);
           this.subscribed = true;
           this.animationService.start();
         }
@@ -106,7 +107,9 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
       // console.log('TextActorComponent.done');
       this.subscribed = false;
       this.i = 0;
-      // TODO: this.animationService.animate.unsubscribe();
+      if (this.animation) {
+        this.animation.unsubscribe();
+      }
     }
   }
 

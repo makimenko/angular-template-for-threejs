@@ -5,6 +5,7 @@ import {AnimationService} from '../../../animation';
 import {RendererService} from '../../../renderer';
 import {AbstractObject3D} from '../../../object';
 import * as THREE from 'three';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'atft-loader-actor',
@@ -25,7 +26,7 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
 
   private subscribed = false;
   private i = 0;
-
+  protected animation: Subscription;
 
   constructor(
     protected rendererService: RendererService,
@@ -71,7 +72,7 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
     if (this.animate) {
       // console.log('LoaderActorComponent.animate init');
       this.updateAnimation = this.updateAnimation.bind(this);
-      this.animationService.animate.subscribe(this.updateAnimation);
+      this.animation = this.animationService.animate.subscribe(this.updateAnimation);
       this.subscribed = true;
       this.animationService.start();
     }
@@ -100,7 +101,9 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
       // console.log('LoaderActorComponent.done');
       this.subscribed = false;
       this.i = 0;
-      // TODO: this.animationService.animate.unsubscribe();
+      if (this.animation) {
+        this.animation.unsubscribe();
+      }
     }
   }
 

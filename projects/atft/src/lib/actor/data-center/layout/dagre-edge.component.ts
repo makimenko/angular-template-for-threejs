@@ -1,11 +1,12 @@
-import { Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf } from '@angular/core';
+import {Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf} from '@angular/core';
 import * as dagre from 'dagre';
 import * as THREE from 'three';
-import { AnimationService } from '../../../animation';
-import { AbstractObject3D, MeshLineConnectorComponent } from '../../../object';
-import { RendererService } from '../../../renderer';
-import { provideParent } from '../../../util';
-import { DagreLayoutComponent } from './dagre-layout.component';
+import {AnimationService} from '../../../animation';
+import {AbstractObject3D, MeshLineConnectorComponent} from '../../../object';
+import {RendererService} from '../../../renderer';
+import {provideParent} from '../../../util';
+import {DagreLayoutComponent} from './dagre-layout.component';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'atft-dagre-edge',
@@ -20,6 +21,7 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
 
   public positions: Array<number>;
   protected dagreLayout: DagreLayoutComponent;
+  protected graphUpdated: Subscription;
 
 
   constructor(
@@ -37,7 +39,7 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
     }
 
     this.syncGraph = this.syncGraph.bind(this);
-    this.dagreLayout.updated.subscribe(this.syncGraph);
+    this.graphUpdated = this.dagreLayout.updated.subscribe(this.syncGraph);
   }
 
   protected getLineGeometry(): THREE.BufferGeometry {
@@ -92,6 +94,11 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
       // console.log('DagreNodeComponent.removeNode', this.name);
 
+      // Unsubscribe from graph update events
+      if (this.graphUpdated) {
+        this.graphUpdated.unsubscribe();
+      }
+
       // Remove from layout
       this.dagreLayout.removeChildByName(this.name);
 
@@ -103,9 +110,8 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
     }
   }
 
-
   protected syncGraph() {
-    console.log('DagreEdgeComponent.update');
+    // console.log('DagreEdgeComponent.update');
     this.syncGraphEdges(this.dagreLayout.getGraph());
   }
 

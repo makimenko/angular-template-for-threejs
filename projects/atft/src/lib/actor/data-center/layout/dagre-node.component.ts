@@ -1,9 +1,10 @@
 import {Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf, ViewChild, ViewContainerRef} from '@angular/core';
 import * as dagre from 'dagre';
-import { AbstractEmptyDirective, AbstractObject3D } from '../../../object';
-import { RendererService } from '../../../renderer';
-import { provideParent } from '../../../util';
-import { DagreLayoutComponent } from './dagre-layout.component';
+import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
+import {RendererService} from '../../../renderer';
+import {provideParent} from '../../../util';
+import {DagreLayoutComponent} from './dagre-layout.component';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'atft-dagre-node',
@@ -19,6 +20,7 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
   @ViewChild('container', {read: ViewContainerRef, static: true}) container;
 
   protected dagreLayout: DagreLayoutComponent;
+  protected graphUpdated: Subscription;
 
   constructor(
     protected rendererService: RendererService,
@@ -33,19 +35,17 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
     }
 
     this.syncGraph = this.syncGraph.bind(this);
-    this.dagreLayout.updated.subscribe(this.syncGraph);
+    this.graphUpdated = this.dagreLayout.updated.subscribe(this.syncGraph);
   }
 
   ngOnInit() {
     super.ngOnInit();
     this.addNode();
-
-
   }
 
   protected addNode() {
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
-      console.log('DagreNodeComponent.addNode', this.name);
+      // console.log('DagreNodeComponent.addNode', this.name);
 
       // Register as layout children
       this.dagreLayout.getChildren().push(this);
@@ -70,7 +70,6 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
     }
   }
 
-
   ngOnDestroy() {
     super.ngOnDestroy();
     this.removeNode();
@@ -79,6 +78,11 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
   protected removeNode() {
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
       // console.log('DagreNodeComponent.removeNode', this.name);
+
+      // Unsubscribe from graph update events
+      if (this.graphUpdated) {
+        this.graphUpdated.unsubscribe();
+      }
 
       // Remove from layout
       this.dagreLayout.removeChildByName(this.name);
@@ -111,7 +115,7 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
   }
 
   protected syncGraph() {
-    console.log('DagreNodeComponent.update');
+    // console.log('DagreNodeComponent.update');
     if (this.object) {
       this.syncGraphNodes(this.dagreLayout.getGraph());
     }

@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Injector, Input, OnDestroy, OnInit, Optional, Output, SkipSelf } from '@angular/core';
+import {Component, EventEmitter, Injector, Input, OnDestroy, OnInit, Optional, Output, SkipSelf} from '@angular/core';
 import * as dagre from 'dagre';
-import { AbstractEmptyDirective, AbstractObject3D } from '../../../object';
-import { RendererService } from '../../../renderer';
-import { provideParent } from '../../../util';
-import { DagreLayoutComponent } from './dagre-layout.component';
+import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
+import {RendererService} from '../../../renderer';
+import {provideParent} from '../../../util';
+import {DagreLayoutComponent} from './dagre-layout.component';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'atft-dagre-composition',
@@ -40,6 +41,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
   public color = 0xA0A0A0;
   public translateLabelY: number;
   protected dagreLayout: DagreLayoutComponent;
+  protected graphUpdated: Subscription;
 
   constructor(
     protected rendererService: RendererService,
@@ -54,7 +56,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
     }
 
     this.syncGraph = this.syncGraph.bind(this);
-    this.dagreLayout.updated.subscribe(this.syncGraph);
+    this.graphUpdated = this.dagreLayout.updated.subscribe(this.syncGraph);
   }
 
   public onSelected() {
@@ -102,6 +104,11 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
       // console.log('DagreCompositionComponent.removeNode', this.name);
 
+      // Unsubscribe from graph update events
+      if (this.graphUpdated) {
+        this.graphUpdated.unsubscribe();
+      }
+
       // Remove from layout
       this.dagreLayout.removeChildByName(this.name);
 
@@ -114,13 +121,13 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
   }
 
   protected syncGraphNodes(g: dagre.graphlib.Graph) {
-    console.log('DagreCompositionComponent.syncGraphNodes');
+    // console.log('DagreCompositionComponent.syncGraphNodes');
     g.nodes().forEach((name) => {
       // console.log('Node ' + name + ': ' + JSON.stringify(g.node(name)));
       if (name === this.name) {
         const node = g.node(name);
 
-        console.log('DagreCompositionComponent.layout: Update position node', node);
+        // console.log('DagreCompositionComponent.layout: Update position node', node);
         this.translateX = node.x;
         this.translateY = node.y;
         this.applyTranslation();
@@ -132,7 +139,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
   }
 
   protected syncGraph() {
-    console.log('DagreCompositionComponent.update');
+    // console.log('DagreCompositionComponent.update');
     this.syncGraphNodes(this.dagreLayout.getGraph());
   }
 

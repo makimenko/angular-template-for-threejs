@@ -1,11 +1,12 @@
 import {moduleMetadata} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, ViewChild} from '@angular/core';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
 import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
 import * as THREE from 'three';
 import {PerspectiveCameraComponent} from 'atft';
+import {Subscription} from 'rxjs';
 
 const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/';
 // const modelPath = '/assets/model';
@@ -71,13 +72,14 @@ and real in truly immersive ways.`;
     </atft-renderer-canvas>
   `
 })
-class StorybookFlyComponent implements AfterViewInit {
+class StorybookFlyComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('cam') cameraComponent: PerspectiveCameraComponent;
 
   private mixer: THREE.AnimationMixer;
   private clock = new THREE.Clock();
   private camera: THREE.Camera;
+  protected animation: Subscription;
 
   // z = 600 - 200
 
@@ -90,7 +92,7 @@ class StorybookFlyComponent implements AfterViewInit {
     this.initCameraMovementClip();
 
     this.animate = this.animate.bind(this);
-    this.animationService.animate.subscribe(this.animate);
+    this.animation = this.animationService.animate.subscribe(this.animate);
     this.animationService.start();
 
   }
@@ -109,6 +111,12 @@ class StorybookFlyComponent implements AfterViewInit {
   public animate() {
     if (this.mixer) {
       this.mixer.update(this.clock.getDelta());
+    }
+  }
+
+  public ngOnDestroy() {
+    if (this.animation) {
+      this.animation.unsubscribe();
     }
   }
 

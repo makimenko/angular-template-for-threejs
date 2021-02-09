@@ -62,7 +62,7 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     this.destroyAll();
     const model: GraphModel = yaml.parse(this.yaml);
 
-    console.log('DagreYamlParserComponent.parseAndCreate yaml', model);
+    // console.log('DagreYamlParserComponent.parseAndCreate yaml', model);
     if (model && model.nodes && model.nodes.length > 0) {
 
       model.nodes.forEach(i => this.createNode(i));
@@ -70,7 +70,7 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
   }
 
   protected createNode(node) {
-    console.log('DagreYamlParserComponent.createNode', node);
+    // console.log('DagreYamlParserComponent.createNode', node);
     const nodeFactory = this.resolver.resolveComponentFactory(DagreNodeComponent);
     const nodeRef = this.container.createComponent(nodeFactory);
     nodeRef.instance.name = node.name;
@@ -84,9 +84,9 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
   }
 
   protected destroyAll() {
-    console.log('DagreYamlParserComponent.destroyAll');
+    // console.log('DagreYamlParserComponent.destroyAll');
     this.instances.forEach(i => {
-      console.log('DagreYamlParserComponent destroy', i);
+      // console.log('DagreYamlParserComponent destroy', i);
       i.destroy();
     });
 

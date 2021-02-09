@@ -1,19 +1,20 @@
-import {Component, forwardRef, Input, Optional, SkipSelf} from '@angular/core';
+import {Component, Input, OnDestroy, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
-import { provideParent } from '../../util';
+import {provideParent} from '../../util';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {MeshLine, MeshLineMaterial} from 'three.meshline';
 import {AbstractConnector} from './abstract-connector';
 import {appliedColor} from '../../util/applied-color';
 import {AnimationService} from '../../animation/animation.service';
 import {RendererService} from '../../renderer/renderer.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'atft-mesh-line-connector',
   providers: [provideParent(MeshLineConnectorComponent)],
   template: '<ng-content></ng-content>'
 })
-export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
+export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> implements OnDestroy {
 
   @Input()
   materialColor = 0xffffff;
@@ -41,6 +42,7 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
   private geometry: THREE.BufferGeometry;
   private line: MeshLine;
   private lineMaterial: MeshLineMaterial;
+  protected animation: Subscription;
 
 
   constructor(
@@ -89,7 +91,7 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
     if (this.animated) {
       // console.log('MeshLineConnectorComponent.createConnectorObject animated');
       this.animate = this.animate.bind(this);
-      this.animationService.animate.subscribe(this.animate);
+      this.animation = this.animationService.animate.subscribe(this.animate);
     }
     return mesh;
   }
@@ -105,6 +107,13 @@ export class MeshLineConnectorComponent extends AbstractConnector<THREE.Mesh> {
     // https://github.com/spite/THREE.MeshLine/issues/51#issuecomment-379579926
     this.line.setGeometry(this.geometry);
     this.rendererService.render();
+  }
+
+  public ngOnDestroy() {
+    super.ngOnDestroy();
+    if (this.animation) {
+      this.animation.unsubscribe();
+    }
   }
 
 }
