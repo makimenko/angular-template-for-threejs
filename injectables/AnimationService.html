@@ -204,8 +204,8 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:46</a></div>
                 </td>
             </tr>
 
@@ -288,8 +288,8 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:40</a></div>
                 </td>
             </tr>
 
@@ -409,6 +409,7 @@ export class AnimationService {
    * Start the animationService loop.
    */
   public start() {
+    // console.log(&#x27;AnimationService.start&#x27;);
     if (!this.enabled) {
       this.enabled &#x3D; true;
       this.animationStep();
@@ -425,6 +426,7 @@ export class AnimationService {
   }
 
   public animationStep() {
+    // console.log(&#x27;AnimationService.animationStep (enabled&#x3D;&#x27; + this.enabled + &#x27;, observers&#x3D;&#x27; + this.animate.observers.length + &#x27;)&#x27;);
     if (this.enabled &amp;&amp; this.animate.observers) {
       requestAnimationFrame(this.animationStep);
       if (this.animate.observers.length &gt; 0) {

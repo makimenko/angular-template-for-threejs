@@ -149,13 +149,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftDataCenterActorModule.html" data-type="entity-link">AtftDataCenterActorModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftDataCenterActorModule-26b90cfa1eb7401d31b6d6301d1dc0fd"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-26b90cfa1eb7401d31b6d6301d1dc0fd"' }>
+                                            'data-target="#components-links-module-AtftDataCenterActorModule-56292c48797eb8e513a2088ffaeb4a3b"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-56292c48797eb8e513a2088ffaeb4a3b"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-26b90cfa1eb7401d31b6d6301d1dc0fd"' :
-                                            'id="xs-components-links-module-AtftDataCenterActorModule-26b90cfa1eb7401d31b6d6301d1dc0fd"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-56292c48797eb8e513a2088ffaeb4a3b"' :
+                                            'id="xs-components-links-module-AtftDataCenterActorModule-56292c48797eb8e513a2088ffaeb4a3b"' }>
                                             <li class="link">
                                                 <a href="components/DagreCompositionComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DagreCompositionComponent</a>
@@ -171,6 +171,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="components/DagreNodeComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DagreNodeComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/DagreYamlParserComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">DagreYamlParserComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/GridActorComponent.html"
@@ -597,6 +601,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/DagreNodeComponent.html" data-type="entity-link">DagreNodeComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/DagreYamlParserComponent.html" data-type="entity-link">DagreYamlParserComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/LoaderActorComponent.html" data-type="entity-link">LoaderActorComponent</a>
                             </li>
                         </ul>
@@ -611,9 +618,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
                                 <a href="classes/AbstractComposeEffect.html" data-type="entity-link">AbstractComposeEffect</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/AbstractServerActor.html" data-type="entity-link">AbstractServerActor</a>
                             </li>
                             <li class="link">
                                 <a href="classes/DagreUtils.html" data-type="entity-link">DagreUtils</a>
