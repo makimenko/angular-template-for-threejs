@@ -1,15 +1,19 @@
-import {Directive, Input} from '@angular/core';
+import {Directive, Input, OnDestroy} from '@angular/core';
 import * as THREE from 'three';
 import {AbstractObject3D} from '../abstract-object-3d';
+import {Subscription} from 'rxjs';
 
 @Directive()
-export abstract class AbstractConnector<T extends THREE.Object3D> extends AbstractObject3D<T> {
+export abstract class AbstractConnector<T extends THREE.Object3D> extends AbstractObject3D<T> implements OnDestroy {
 
   @Input()
   source: AbstractObject3D<THREE.Object3D>;
 
   @Input()
   target: AbstractObject3D<THREE.Object3D>;
+
+  protected sourceSub: Subscription;
+  protected targetSub: Subscription;
 
   protected newObject3DInstance(): T {
     const mesh = this.createConnectorObject();
@@ -20,11 +24,11 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
   }
 
   private watchObjects() {
-    this.source.changed.subscribe(item => {
+    this.sourceSub = this.source.changed.subscribe(item => {
       this.updateLineGeometry();
     });
 
-    this.target.changed.subscribe(item => {
+    this.targetSub = this.target.changed.subscribe(item => {
       this.updateLineGeometry();
     });
   }
@@ -41,6 +45,13 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
     positions.push(target.x, target.y, target.z);
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
     return geometry;
+  }
+
+  public ngOnDestroy() {
+    super.ngOnDestroy();
+
+    this.sourceSub?.unsubscribe();
+    this.targetSub?.unsubscribe();
   }
 
 

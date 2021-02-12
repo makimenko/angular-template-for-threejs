@@ -1,10 +1,11 @@
 import {moduleMetadata} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, ViewChild} from '@angular/core';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
 import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
 import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -22,7 +23,7 @@ import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
         <atft-point-light intensity="0.4" distance="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
-        <atft-loader-actor materialColor = "0x5DADE2"></atft-loader-actor>
+        <atft-loader-actor materialColor="0x5DADE2"></atft-loader-actor>
       </atft-scene>
 
       <!-- Foreground -->
@@ -42,27 +43,30 @@ import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
     </atft-renderer-canvas>
   `
 })
-class StorybookIntroComponent implements AfterViewInit {
+class StorybookIntroComponent implements AfterViewInit, OnDestroy {
 
 
   @ViewChild(EmptyComponent) box;
 
   k = 0;
+  protected animation: Subscription;
 
   constructor(private animationService: AnimationService) {
   }
 
   public ngAfterViewInit() {
     this.animate = this.animate.bind(this);
-    this.animationService.animate.subscribe(this.animate);
+    this.animation = this.animationService.animate.subscribe(this.animate);
     this.animationService.start();
   }
 
   public animate() {
     this.k += 0.02;
-
   }
 
+  ngOnDestroy(): void {
+    this.animation?.unsubscribe();
+  }
 
 }
 

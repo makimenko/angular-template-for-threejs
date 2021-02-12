@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {EmptyComponent} from '../../../object/helper';
 import {provideParent} from '../../../util';
-import {GridMeshComponent} from '../../../object';
+import { AbstractEmptyDirective, GridMeshComponent } from '../../../object';
 import * as THREE from 'three';
 import {RaycasterEmitEvent} from '../../../raycaster';
 
@@ -19,7 +19,7 @@ import {RaycasterEmitEvent} from '../../../raycaster';
     ></atft-grid-mesh>
   `
 })
-export class GridActorComponent extends EmptyComponent {
+export class GridActorComponent extends AbstractEmptyDirective {
 
   @ViewChild('grid', {static: true}) grid: GridMeshComponent;
 

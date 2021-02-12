@@ -1,8 +1,10 @@
 import {Component, EventEmitter, Injector, Input, OnDestroy, OnInit, Optional, Output, SkipSelf} from '@angular/core';
-import {provideParent} from '../../../util';
-import {AbstractObject3D, EmptyComponent} from '../../../object';
+import * as dagre from 'dagre';
+import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
 import {RendererService} from '../../../renderer';
+import {provideParent} from '../../../util';
 import {DagreLayoutComponent} from './dagre-layout.component';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'atft-dagre-composition',
@@ -16,7 +18,7 @@ import {DagreLayoutComponent} from './dagre-layout.component';
     </atft-plane-mesh>
   `
 })
-export class DagreCompositionComponent extends EmptyComponent implements OnInit, OnDestroy {
+export class DagreCompositionComponent extends AbstractEmptyDirective implements OnInit, OnDestroy {
 
   @Input() label: string;
 
@@ -39,6 +41,7 @@ export class DagreCompositionComponent extends EmptyComponent implements OnInit,
   public color = 0xA0A0A0;
   public translateLabelY: number;
   protected dagreLayout: DagreLayoutComponent;
+  protected graphUpdated: Subscription;
 
   constructor(
     protected rendererService: RendererService,
@@ -51,6 +54,9 @@ export class DagreCompositionComponent extends EmptyComponent implements OnInit,
     if (!this.dagreLayout) {
       console.warn('DagreCompositionComponent.constructor: atft-dagre-layout not found!');
     }
+
+    this.syncGraph = this.syncGraph.bind(this);
+    this.graphUpdated = this.dagreLayout.updated.subscribe(this.syncGraph);
   }
 
   public onSelected() {
@@ -65,11 +71,10 @@ export class DagreCompositionComponent extends EmptyComponent implements OnInit,
     this.color = 0xA0A0A0;
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     super.ngOnInit();
     this.addNode();
   }
-
 
   protected addNode() {
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
@@ -99,6 +104,9 @@ export class DagreCompositionComponent extends EmptyComponent implements OnInit,
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
       // console.log('DagreCompositionComponent.removeNode', this.name);
 
+      // Unsubscribe from graph update events
+      this.graphUpdated?.unsubscribe();
+
       // Remove from layout
       this.dagreLayout.removeChildByName(this.name);
 
@@ -109,5 +117,29 @@ export class DagreCompositionComponent extends EmptyComponent implements OnInit,
       this.dagreLayout.refreshLayout();
     }
   }
+
+  protected syncGraphNodes(g: dagre.graphlib.Graph) {
+    // console.log('DagreCompositionComponent.syncGraphNodes');
+    g.nodes().forEach((name) => {
+      // console.log('Node ' + name + ': ' + JSON.stringify(g.node(name)));
+      if (name === this.name) {
+        const node = g.node(name);
+
+        // console.log('DagreCompositionComponent.layout: Update position node', node);
+        this.translateX = node.x;
+        this.translateY = node.y;
+        this.applyTranslation();
+
+        this.width = node.width;
+        this.height = node.height;
+      }
+    });
+  }
+
+  protected syncGraph() {
+    // console.log('DagreCompositionComponent.update');
+    this.syncGraphNodes(this.dagreLayout.getGraph());
+  }
+
 
 }

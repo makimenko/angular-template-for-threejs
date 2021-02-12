@@ -1,11 +1,12 @@
-import {AfterViewInit, Directive, Input} from '@angular/core';
+import {AfterViewInit, Directive, Input, OnDestroy} from '@angular/core';
 import {AbstractObject3D} from '../object/abstract-object-3d';
 import * as THREE from 'three';
 import {AnimationService} from '../animation/animation.service';
 import {appliedColor} from '../util';
+import {Subscription} from 'rxjs';
 
 @Directive({selector: '[atft-dashed-draw]'})
-export class DashedDrawDirective implements AfterViewInit {
+export class DashedDrawDirective implements AfterViewInit, OnDestroy {
 
   @Input() dashColor = 0xFF0000;
   @Input() dashIncrement = 10;
@@ -16,10 +17,11 @@ export class DashedDrawDirective implements AfterViewInit {
   private edges: any;
   private material: THREE.Material;
   private stop = false;
+  protected animation: Subscription;
 
   constructor(
     private host: AbstractObject3D<any>,
-    private animation: AnimationService
+    private animationService: AnimationService
   ) {
   }
 
@@ -27,8 +29,8 @@ export class DashedDrawDirective implements AfterViewInit {
     // console.log('DashedDrawDirective.ngAfterViewInit: Dashed draw for', this.host);
     this.tryToFindGeometry();
     this.animate = this.animate.bind(this);
-    this.animation.animate.subscribe(this.animate);
-    this.animation.start();
+    this.animation = this.animationService.animate.subscribe(this.animate);
+    this.animationService.start();
   }
 
 
@@ -86,6 +88,10 @@ export class DashedDrawDirective implements AfterViewInit {
       }
     }
 
+  }
+
+  ngOnDestroy() {
+    this.animation?.unsubscribe();
   }
 
 }

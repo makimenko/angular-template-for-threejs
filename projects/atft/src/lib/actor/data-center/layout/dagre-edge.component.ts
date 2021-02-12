@@ -1,10 +1,12 @@
 import {Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf} from '@angular/core';
-import {AbstractObject3D, MeshLineConnectorComponent} from '../../../object';
-import {provideParent} from '../../../util';
+import * as dagre from 'dagre';
 import * as THREE from 'three';
-import {RendererService} from '../../../renderer';
-import {DagreLayoutComponent} from './dagre-layout.component';
 import {AnimationService} from '../../../animation';
+import {AbstractObject3D, MeshLineConnectorComponent} from '../../../object';
+import {RendererService} from '../../../renderer';
+import {provideParent} from '../../../util';
+import {DagreLayoutComponent} from './dagre-layout.component';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'atft-dagre-edge',
@@ -19,6 +21,7 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
 
   public positions: Array<number>;
   protected dagreLayout: DagreLayoutComponent;
+  protected graphUpdated: Subscription;
 
 
   constructor(
@@ -30,11 +33,14 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
     super(rendererService, parent, animationService);
 
     this.dagreLayout = this.injector.get<DagreLayoutComponent>(DagreLayoutComponent);
+
     if (!this.dagreLayout) {
       console.warn('DagreEdgeComponent.constructor: atft-dagre-layout not found!');
     }
-  }
 
+    this.syncGraph = this.syncGraph.bind(this);
+    this.graphUpdated = this.dagreLayout.updated.subscribe(this.syncGraph);
+  }
 
   protected getLineGeometry(): THREE.BufferGeometry {
     if (this.source || this.target) {
@@ -88,6 +94,9 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
       // console.log('DagreNodeComponent.removeNode', this.name);
 
+      // Unsubscribe from graph update events
+      this.graphUpdated?.unsubscribe();
+
       // Remove from layout
       this.dagreLayout.removeChildByName(this.name);
 
@@ -97,6 +106,30 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
       // Update Graph Layout
       this.dagreLayout.refreshLayout();
     }
+  }
+
+  protected syncGraph() {
+    // console.log('DagreEdgeComponent.update');
+    this.syncGraphEdges(this.dagreLayout.getGraph());
+  }
+
+  protected syncGraphEdges(g: dagre.graphlib.Graph) {
+    // console.log('DagreEdgeComponent.syncGraphEdges');
+    g.edges().forEach((e) => {
+      const edge: dagre.GraphEdge = g.edge(e);
+      // console.log('DagreEdgeComponent.syncGraphEdges: edge', edge);
+      if (edge.name === this.name) {
+        this.positions = [];
+        // console.log('DagreEdgeComponent.syncGraphEdges: edge.points', edge.points);
+        edge.points.forEach(p => {
+          if (!Number.isNaN(p.x) && !Number.isNaN(p.y)) {
+            // console.log('x=' + p.x + ', y=' + p.y);
+            this.positions.push(p.x, p.y, 0);
+          }
+        });
+        this.updateLineGeometry();
+      }
+    });
   }
 
 

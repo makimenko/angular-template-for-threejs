@@ -1,13 +1,14 @@
 import {moduleMetadata} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {AfterViewInit, Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 import {BoxMeshComponent} from '../../../projects/atft/src/lib/object/mesh/box-mesh.component';
 import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 import * as THREE from 'three';
 import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {RaycasterEmitEvent} from '../../../projects/atft/src/lib/raycaster';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -16,11 +17,12 @@ import {RaycasterEmitEvent} from '../../../projects/atft/src/lib/raycaster';
   </atft-box-mesh>
   `)
 })
-class StorybookLoopComponent implements AfterViewInit {
+class StorybookLoopComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild(BoxMeshComponent, {static: false}) box;
 
   k = 0;
+  protected animation: Subscription;
 
   constructor(private animationService: AnimationService) {
 
@@ -28,7 +30,7 @@ class StorybookLoopComponent implements AfterViewInit {
 
   public ngAfterViewInit() {
     this.animate = this.animate.bind(this);
-    this.animationService.animate.subscribe(this.animate);
+    this.animation = this.animationService.animate.subscribe(this.animate);
     this.animationService.start();
   }
 
@@ -40,6 +42,10 @@ class StorybookLoopComponent implements AfterViewInit {
     this.box.applyRotation();
   }
 
+  ngOnDestroy(): void {
+    this.animation?.unsubscribe();
+  }
+
 }
 
 
@@ -49,7 +55,7 @@ class StorybookLoopComponent implements AfterViewInit {
   </atft-box-mesh>
   `)
 })
-class StorybookMixerComponent implements AfterViewInit {
+class StorybookMixerComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild(BoxMeshComponent, {static: false}) box;
 
@@ -57,6 +63,7 @@ class StorybookMixerComponent implements AfterViewInit {
 
   private clock = new THREE.Clock();
   private boxObject: THREE.Object3D;
+  protected animation: Subscription;
 
   constructor(private animationService: AnimationService) {
 
@@ -71,7 +78,7 @@ class StorybookMixerComponent implements AfterViewInit {
     clipAction.play();
 
     this.animate = this.animate.bind(this);
-    this.animationService.animate.subscribe(this.animate);
+    this.animation = this.animationService.animate.subscribe(this.animate);
     this.animationService.start();
   }
 
@@ -79,6 +86,10 @@ class StorybookMixerComponent implements AfterViewInit {
     if (this.mixer) {
       this.mixer.update(this.clock.getDelta());
     }
+  }
+
+  ngOnDestroy(): void {
+    this.animation?.unsubscribe();
   }
 
 }
@@ -98,7 +109,7 @@ class StorybookMixerComponent implements AfterViewInit {
   </div>
   `)
 })
-class StorybookReactiveGridComponent implements AfterViewInit {
+class StorybookReactiveGridComponent implements AfterViewInit, OnDestroy {
 
   @ViewChildren(BoxMeshComponent) boxes: QueryList<BoxMeshComponent>;
 
@@ -107,6 +118,8 @@ class StorybookReactiveGridComponent implements AfterViewInit {
   private clock = new THREE.Clock();
 
   private readonly mouseOverClip: THREE.AnimationClip;
+
+  protected animation: Subscription;
 
   constructor(private animationService: AnimationService) {
     const mouseOverKeyFrame = new THREE.VectorKeyframeTrack('.position', [0, 0.2, 0.5], [
@@ -168,7 +181,7 @@ class StorybookReactiveGridComponent implements AfterViewInit {
     this.playAppearForAll();
 
     this.animate = this.animate.bind(this);
-    this.animationService.animate.subscribe(this.animate);
+    this.animation = this.animationService.animate.subscribe(this.animate);
     this.animationService.start();
   }
 
@@ -179,6 +192,10 @@ class StorybookReactiveGridComponent implements AfterViewInit {
         i.update(delta);
       });
     }
+  }
+
+  public ngOnDestroy() {
+    this.animation?.unsubscribe();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AbstractEmptyDirective } from '../../../object';
 import { EmptyComponent } from '../../../object/helper';
 import { provideParent } from '../../../util';
 
@@ -15,7 +16,7 @@ import { provideParent } from '../../../util';
     </atft-plane-mesh>
   `
 })
-export class LayerActorComponent extends EmptyComponent {
+export class LayerActorComponent extends AbstractEmptyDirective {
   @Input() label: string;
 
   @Input()

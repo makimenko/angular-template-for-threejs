@@ -1,26 +1,28 @@
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnDestroy, ViewChild} from '@angular/core';
 import {performanceSceneWrapper} from '../scene-wrapper/performance-scene-wrapper';
 import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 import {PerspectiveCameraComponent} from '../../../projects/atft/src/lib/camera';
 import * as THREE from 'three';
+import {Subscription} from 'rxjs';
 
 
-abstract class AbstractCameraRotation {
+abstract class AbstractCameraRotation implements OnDestroy {
 
   @ViewChild(PerspectiveCameraComponent, {static: false})
   camera;
   clock = new THREE.Clock();
   matrix = new THREE.Matrix4();
   period = 20; // rotation time in seconds
+  protected animation: Subscription;
 
 
-  constructor(protected animation: AnimationService) {
+  constructor(protected animationService: AnimationService) {
     this.animate = this.animate.bind(this);
-    animation.animate.subscribe(this.animate);
-    animation.start();
+    this.animation = this.animationService.animate.subscribe(this.animate);
+    animationService.start();
   }
 
   animate() {
@@ -29,6 +31,10 @@ abstract class AbstractCameraRotation {
       this.camera.camera.position.applyMatrix4(this.matrix);
       this.camera.camera.lookAt(new THREE.Vector3());
     }
+  }
+
+  ngOnDestroy(): void {
+    this.animation?.unsubscribe();
   }
 
 }
@@ -49,7 +55,7 @@ abstract class AbstractCameraRotation {
 })
 class StorybookConnectorPerformanceComponent extends AbstractCameraRotation {
 
-  constructor(private animationService: AnimationService) {
+  constructor(protected animationService: AnimationService) {
     super(animationService);
   }
 
@@ -63,8 +69,8 @@ class StorybookConnectorPerformanceComponent extends AbstractCameraRotation {
 })
 class StorybookGridPerformanceComponent extends AbstractCameraRotation {
 
-  constructor(protected animation: AnimationService) {
-    super(animation);
+  constructor(protected animationService: AnimationService) {
+    super(animationService);
   }
 
 }
@@ -89,8 +95,8 @@ class StorybookMeshPerformanceComponent extends AbstractCameraRotation {
   translate = (this.iterations * this.offset) / 2;
 
 
-  constructor(protected animation: AnimationService) {
-    super(animation);
+  constructor(protected animationService: AnimationService) {
+    super(animationService);
   }
 
 
@@ -116,8 +122,8 @@ class StorybookPlanePerformanceComponent extends AbstractCameraRotation {
   offset = this.size * 1.05;
   translate = (this.iterations * this.offset) / 2;
 
-  constructor(protected animation: AnimationService) {
-    super(animation);
+  constructor(protected animationService: AnimationService) {
+    super(animationService);
   }
 
 }

@@ -5,6 +5,7 @@ import {provideParent} from '../../util';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AnimationService} from '../../animation';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'atft-video-mesh',
@@ -43,7 +44,7 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
   protected video = document.createElement('video');
   protected widthSegments = 1;
   protected heightSegments = 1;
-
+  protected animation: Subscription;
 
   constructor(
     protected rendererService: RendererService,
@@ -88,7 +89,7 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
     if (this.autoplay) {
       this.animationService.start();
       this.animate = this.animate.bind(this);
-      this.animationService.animate.subscribe(this.animate);
+      this.animation = this.animationService.animate.subscribe(this.animate);
 
       this.video.load();
       this.video.addEventListener('canplay', () => {
@@ -101,7 +102,7 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
 
   ngOnDestroy(): void {
     if (this.video) {
-      this.animationService.animate.unsubscribe();
+      this.animation?.unsubscribe();
       this.video.pause();
       this.video.remove();
     }

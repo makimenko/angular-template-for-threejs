@@ -1,12 +1,21 @@
-import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
-import {EmptyComponent} from '../../../object/helper';
-import {provideParent} from '../../../util';
-import {DagreUtils, GraphModel} from './dagre-utils';
-import {RendererService} from '../../../renderer';
-import {AbstractObject3D} from '../../../object';
-import {DagreEdgeComponent} from './dagre-edge.component';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  Optional,
+  Output,
+  SimpleChanges,
+  SkipSelf
+} from '@angular/core';
 import * as dagre from 'dagre';
-import {DagreCompositionComponent} from './dagre-composition.component';
+import { AbstractEmptyDirective, AbstractObject3D } from '../../../object';
+import { RendererService } from '../../../renderer';
+import { provideParent } from '../../../util';
+import { DagreUtils, GraphModel } from './dagre-utils';
 
 
 @Component({
@@ -15,7 +24,7 @@ import {DagreCompositionComponent} from './dagre-composition.component';
   template: `
     <ng-content></ng-content>`
 })
-export class DagreLayoutComponent extends EmptyComponent implements AfterViewInit, OnChanges, OnDestroy {
+export class DagreLayoutComponent extends AbstractEmptyDirective implements AfterViewInit, OnChanges, OnDestroy, AfterContentInit {
 
   @Input() align = 'DR';
   @Input() rankdir = 'TB';
@@ -26,6 +35,10 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
   @Input() marginy = 0;
   @Input() ranker = 'network-simplex';
   @Input() deepScan = false;
+
+  @Input() centered = true;
+
+  @Output() updated = new EventEmitter<void>();
 
   protected graphModel: GraphModel;
   protected graph: dagre.graphlib.Graph;
@@ -47,8 +60,13 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
 
   ngAfterViewInit() {
     super.ngAfterViewInit();
+
+  }
+
+  ngAfterContentInit() {
     this.layout();
   }
+
 
   public layout() {
     // console.log('DagreLayoutComponent.layout');
@@ -64,66 +82,21 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
     };
     this.graph = DagreUtils.modelToGraph(this.graphModel);
     // console.log('DagreLayoutComponent.layout: graph', this.graph);
-    this.syncGraphNodes(this.graph);
-    this.syncGraphEdges(this.graph);
     this.syncGraphContainer(this.graph);
+    this.updated.emit();
     this.rendererService.render();
   }
 
-  protected syncGraphNodes(g: dagre.graphlib.Graph) {
-    // console.log('DagreLayoutComponent.syncGraphNodes');
-    g.nodes().forEach((name) => {
-      // console.log('Node ' + name + ': ' + JSON.stringify(g.node(name)));
-      const object: AbstractObject3D<any> = this.findByName(name);
-
-      if (object) {
-        const node = g.node(name);
-        // console.log('DagreLayoutComponent.layout: Update position', node);
-
-        object.translateX = node.x;
-        object.translateY = node.y;
-        object.applyTranslation();
-
-        if (object instanceof DagreCompositionComponent) {
-          // console.log('DagreLayoutComponent.layout: Update composition', node);
-          const composition: DagreCompositionComponent = object;
-          composition.width = node.width;
-          composition.height = node.height;
-        }
-
-      }
-    });
-  }
-
-  protected syncGraphEdges(g: dagre.graphlib.Graph) {
-    // console.log('DagreLayoutComponent.syncGraphEdges');
-    g.edges().forEach((e) => {
-      const edge: dagre.GraphEdge = g.edge(e);
-      // console.log('DagreLayoutComponent.syncGraphEdges: edge', edge);
-      const object: AbstractObject3D<any> = this.findByName(edge.name);
-      if (object && object instanceof DagreEdgeComponent) {
-        const edgeComponent: DagreEdgeComponent = object;
-        edgeComponent.positions = [];
-        // console.log('DagreLayoutComponent.syncGraphEdges: edge.points', edge.points);
-
-        edge.points.forEach(p => {
-          if (!Number.isNaN(p.x) && !Number.isNaN(p.y)) {
-            // console.log('x=' + p.x + ', y=' + p.y);
-            edgeComponent.positions.push(p.x, p.y, 0);
-          }
-        });
-        edgeComponent.updateLineGeometry();
-      }
-    });
-  }
 
   protected syncGraphContainer(g: dagre.graphlib.Graph) {
     // console.log('DagreLayoutComponent.syncGraphContainer');
-    this.translateX = -(g.graph().width / 2);
-    this.translateY = -(g.graph().height / 2);
-    this.applyTranslation();
-
+    if (this.object && this.centered) {
+      this.translateX = -(g.graph().width / 2);
+      this.translateY = -(g.graph().height / 2);
+      this.applyTranslation();
+    }
   }
+
 
   public ngOnChanges(changes: SimpleChanges) {
     super.ngOnChanges(changes);
@@ -159,6 +132,10 @@ export class DagreLayoutComponent extends EmptyComponent implements AfterViewIni
     if (this.graph) {
       this.layout();
     }
+  }
+
+  public getGraph() {
+    return this.graph;
   }
 
 }

@@ -1,17 +1,18 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, SimpleChanges} from '@angular/core';
 import {MapControls, OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {RendererService} from '../renderer/renderer.service';
 import {AnimationService} from '../animation/animation.service';
 import {RaycasterService} from '../raycaster/raycaster.service';
 import {AbstractOrbitControls} from './abstract-orbit-controls';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'atft-map-controls',
   template: `
-      <ng-content></ng-content>`,
+    <ng-content></ng-content>`,
   styleUrls: ['controls.component.scss']
 })
-export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> implements OnChanges {
+export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> implements OnChanges, OnDestroy {
 
   @Input() rotateSpeed = 1.0;
 
@@ -34,6 +35,8 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
   @Input() maxPolarAngle: number = Math.PI / 2 - 0.1;
 
   @Input() panSpeed = 1.2;
+
+  protected animation: Subscription;
 
   constructor(
     protected rendererService: RendererService,
@@ -82,7 +85,8 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
 
     // Advanced animationService:
     if (this.autoRotate || this.enableDamping) {
-      this.animationService.animate.subscribe(() => {
+
+      this.animation = this.animationService.animate.subscribe(() => {
         this.controls.update();
       });
       this.controls.addEventListener('change', () => {
@@ -94,5 +98,9 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
     this.rendererService.render();
   }
 
+  ngOnDestroy() {
+    super.ngOnDestroy();
+    this.animation?.unsubscribe();
+  }
 
 }
