@@ -29,5 +29,5 @@ import { AbstractServerActor } from './abstract-server-actor';
   `
 })
 export class ServerCompactActorComponent extends AbstractServerActor {
-//@Input() label;
+
 }
