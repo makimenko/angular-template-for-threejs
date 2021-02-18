@@ -37,7 +37,7 @@ export class RendererService implements OnDestroy {
   }
 
   public render() {
-    if (this.init && this.scene && this.camera) {
+    if (this.init && this.scene && this.scene.getObject() && this.camera && this.camera.camera) {
       // console.log('render');
       if (this.composer) {
         this.composer.render();
