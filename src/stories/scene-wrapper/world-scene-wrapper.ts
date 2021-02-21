@@ -21,7 +21,7 @@ export const worldSceneWrapper = (content: string) => `
               </atft-hemisphere-light>
               <!--<atft-directional-light color="0xffffff" intensity="0.7" translateX="20" translateY="-50" translateZ="50">
               </atft-directional-light>-->
-              <atft-point-light name="point-light" intensity="1" translateX="20" translateY="-50" translateZ="50" [castShadow]="true"></atft-point-light>
+              <atft-point-light name="point-light" intensity="1" translateX="60" translateY="-120" translateZ="50" [castShadow]="true"></atft-point-light>
               ${content}
           </atft-scene>
       </atft-renderer-canvas>

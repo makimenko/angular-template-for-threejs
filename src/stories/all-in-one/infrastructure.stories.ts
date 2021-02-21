@@ -26,7 +26,9 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
     <!-- Servers / Nodes: -->
     <atft-server-compact-actor #ad1 label="Active Directory" translateY="30" [translateX]="-60" [svgName]="svgName">
     </atft-server-compact-actor>
-    <atft-server-compact-actor #ad2 label="Active Directory (Replica)" translateY="90" [translateX]="-60" svgName="users-solid.svg">
+    <atft-server-compact-actor #ad2 label="Active Directory (Replica)" translateY="90" [translateX]="-60"
+        svgLocation="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/"
+        svgName="video_settings/baseline.svg">
     </atft-server-compact-actor>
     <atft-workstation-actor #ws1 [label]="label" translateY="30" translateX="0"
        videoSrc="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_360p.mp4">
@@ -41,7 +43,9 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
     <atft-server-stand-actor #fs1 label="Frontend Server 1" translateY="140" [translateX]="-40" svgName="grid-world.svg">
     </atft-server-stand-actor>
-    <atft-server-stand-actor #fs2 label="Frontend Server 2" translateY="140" [translateX]="40" svgName="grid-world.svg">
+    <atft-server-stand-actor #fs2 label="Frontend Server 2" translateY="140" [translateX]="40"
+        svgLocation="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/"
+        svgName="connected_tv/baseline.svg">
     </atft-server-stand-actor>
     <atft-server-icon-actor label="Application Insights" translateY="140" [translateX]="0" [svgName]="svgName">
     </atft-server-icon-actor>

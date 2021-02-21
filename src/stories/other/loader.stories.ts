@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { moduleMetadata } from '@storybook/angular';
+import {Component} from '@angular/core';
+import {moduleMetadata} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
-import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
-import { worldSceneWrapper } from '../scene-wrapper/world-scene-wrapper';
+import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
+import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
+import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
 
 const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/SampleArchitecture';
@@ -47,6 +47,19 @@ class StorybookSVGLoaderComponent {
 
 }
 
+@Component({
+  template: axesSceneWrapper(`
+    <atft-svg-loader model="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/web_asset/outline.svg"
+    overrideMaterialColor="0xff0000"
+    >
+    </atft-svg-loader>
+  `)
+})
+class StorybookExternalSVGLoaderComponent {
+
+}
+
+
 export default {
   title: 'Other/Loader',
   decorators: [
@@ -73,10 +86,16 @@ export const SvgLoader = (args) => ({
   props: args
 });
 
+export const ExternalSvgLoader = (args) => ({
+  component: StorybookExternalSVGLoaderComponent,
+  props: args
+});
+
 SvgLoader.args = {
   model: './assets/svg/idea.svg',
   overrideMaterialColor: '0xff0000'
 };
+
 SvgLoader.argTypes = {
   model: {
     control: {
@@ -84,7 +103,11 @@ SvgLoader.argTypes = {
       options: [
         './assets/svg/idea.svg',
         './assets/svg/grid-world.svg',
-        './assets/svg/upload.svg'
+        './assets/svg/upload.svg',
+        'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/video_settings/baseline.svg',
+        'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/desktop_access_disabled/baseline.svg',
+        'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/settings_input_antenna/baseline.svg',
+        'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/web_asset/baseline.svg'
       ]
     }
   },
@@ -99,3 +122,4 @@ SvgLoader.argTypes = {
     }
   }
 };
+

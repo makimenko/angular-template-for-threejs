@@ -17,7 +17,7 @@ import {RendererService} from '../../../renderer';
 import {provideParent} from '../../../util';
 import * as yaml from 'yaml';
 import {Composition, Edge, GraphModel, Node} from './dagre-model';
-import {ServerBarrelActorComponent, ServerCompactActorComponent, ServerStandActorComponent} from '../server';
+import {ServerBarrelActorComponent, ServerCompactActorComponent, ServerIconActorComponent, ServerStandActorComponent} from '../server';
 import {DagreNodeComponent} from './dagre-node.component';
 import {DagreEdgeComponent} from './dagre-edge.component';
 import {DagreCompositionComponent} from './dagre-composition.component';
@@ -36,6 +36,8 @@ function onlyUnique(value, index, self) {
 export class DagreYamlParserComponent extends AbstractEmptyDirective implements OnChanges, AfterViewInit {
 
   @Input() yaml;
+  @Input() svgLocation = './assets/svg/';
+
   @Output() status = new EventEmitter<boolean>();
 
   @ViewChild('container', {read: ViewContainerRef}) container;
@@ -94,6 +96,8 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
       return this.resolver.resolveComponentFactory(ServerCompactActorComponent);
     } else if (type === 'barrel') {
       return this.resolver.resolveComponentFactory(ServerBarrelActorComponent);
+    } else if (type === 'icon') {
+      return this.resolver.resolveComponentFactory(ServerIconActorComponent);
     } else {
       return this.resolver.resolveComponentFactory(ServerStandActorComponent);
     }
@@ -111,6 +115,10 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     const serverRef = nodeRef.instance.container.createComponent(serverFactory);
     serverRef.instance.name = node.name;
     serverRef.instance.label = (node.label ? node.label : node.name);
+    serverRef.instance.svgLocation = this.svgLocation;
+    serverRef.instance.svgName = node.icon;
+    serverRef.instance.svgNoHoles = true;
+
     this.instances.push(serverRef);
   }
 

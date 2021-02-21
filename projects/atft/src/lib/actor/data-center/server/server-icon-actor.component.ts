@@ -10,7 +10,7 @@ import { AbstractServerActor } from './abstract-server-actor';
 
       <!-- TODO: template? -->
       <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (click)="onClick()">
-        <atft-svg-loader *ngIf="svgName" [model]="('./assets/svg/'+svgName)" overrideMaterialColor="0xffffff"
+        <atft-svg-loader *ngIf="svgName" [model]="(svgLocation+'/'+svgName)" overrideMaterialColor="0xffffff"
                          material="basic" maxX="15" maxY="15" [translateZ]="0.1"
                          translateY="0" [rotateZ]="(180 | deg2rad)" [rotateY]="(180 | deg2rad)">
         </atft-svg-loader>

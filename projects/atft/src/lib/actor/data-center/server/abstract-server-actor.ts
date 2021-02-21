@@ -1,5 +1,5 @@
-import { Directive, EventEmitter, Input, Output } from '@angular/core';
-import { AbstractEmptyDirective } from '../../../object';
+import {Directive, EventEmitter, Input, Output} from '@angular/core';
+import {AbstractEmptyDirective} from '../../../object';
 
 @Directive()
 export abstract class AbstractServerActor extends AbstractEmptyDirective {
@@ -20,7 +20,13 @@ export abstract class AbstractServerActor extends AbstractEmptyDirective {
   actorClick = new EventEmitter<void>();
 
   @Input()
+  svgLocation = './assets/svg/';
+
+  @Input()
   svgName: string;
+
+  @Input()
+  svgNoHoles = true;
 
   color = 0xffffff;
 
