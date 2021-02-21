@@ -51,7 +51,6 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     this.parseAndCreate();
   }
 
-
   public ngOnChanges(changes: SimpleChanges) {
     super.ngOnChanges(changes);
     // console.log('DagreYamlParserComponent.ngOnChanges', this.name);
@@ -73,32 +72,10 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     // console.log('DagreYamlParserComponent.parseAndCreate yaml', model);
     if (model && model.nodes && model.nodes.length > 0) {
 
-      // 1. Find and create compositions:
-      const uniqueCompositions = this.extractCompositions(model);
-
-      // 2. Create nodes (excluding compositions):
-      model.nodes?.filter(i => uniqueCompositions.indexOf(i.name) < 0).forEach(i => this.createNode(i));
-
-      // 3. Create edges
+      model.compositions?.forEach(i => this.createComposition(i));
+      model.nodes?.forEach(i => this.createNode(i));
       model.edges?.forEach(i => this.createEdge(i));
     }
-  }
-
-  protected extractCompositions(model: GraphModel): Array<string> {
-    // console.log('DagreYamlParserComponent.extractCompositions');
-    const uniqueCompositions = model.nodes?.filter(i => {
-      return (i.composition ? true : false);
-    }).map(i => {
-      return i.composition;
-    }).filter(onlyUnique);
-
-    // console.log('DagreYamlParserComponent.extractCompositions uniqueCompositions', uniqueCompositions);
-    uniqueCompositions?.forEach(i => {
-      const compositionNode = model.nodes.find(n => i === n.name);
-      this.createComposition(compositionNode);
-    });
-
-    return uniqueCompositions;
   }
 
   protected createNode(node: Node) {

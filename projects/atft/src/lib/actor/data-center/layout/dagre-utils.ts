@@ -1,19 +1,27 @@
 import * as dagre from 'dagre';
 
-export interface Node {
+export interface BaseInfo {
   name: string;
   label?: string;
   composition?: string;
 }
 
-export interface Edge {
-  name: string;
+export interface Node extends BaseInfo {
+  icon?: string;
+}
+
+export interface Composition extends BaseInfo {
+  border?: string;
+}
+
+export interface Edge extends BaseInfo {
   from: string;
   to: string;
 }
 
 export interface GraphModel {
   layout?: dagre.GraphLabel;
+  compositions?: Array<Composition>;
   nodes?: Array<Node>;
   edges?: Array<Edge>;
 }
@@ -45,9 +53,9 @@ export class DagreUtils {
     return g;
   }
 
-  public static updateNodes(g: dagre.graphlib.Graph, model: GraphModel) {
-    if (model.nodes) {
-      model.nodes.forEach((node: Node) => {
+  public static updateBaseInfo(g: dagre.graphlib.Graph, baseInfo: Array<BaseInfo>) {
+    if (baseInfo) {
+      baseInfo.forEach((node: Node) => {
         g.setNode(node.name, {label: node.label, width: 15, height: 15});
         if (node.composition) {
           g.setParent(node.name, node.composition);
@@ -65,7 +73,8 @@ export class DagreUtils {
   }
 
   public static updateGraph(g: dagre.graphlib.Graph, model: GraphModel) {
-    this.updateNodes(g, model);
+    this.updateBaseInfo(g, model.compositions);
+    this.updateBaseInfo(g, model.nodes);
     this.updateEdges(g, model);
   }
 

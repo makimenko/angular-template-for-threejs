@@ -27,7 +27,9 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
   set height(height: number) {
     this._height = height;
     this.translateLabelY = this._height / 2 - 3;
-    this.cdRef.detectChanges();
+    if (!this.cdRef['destroyed']) {
+      this.cdRef.detectChanges();
+    }
   }
 
   get height(): number {

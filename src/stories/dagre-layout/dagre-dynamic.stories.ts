@@ -12,7 +12,15 @@ import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
-const yaml = `nodes:
+const yaml = `
+compositions:
+  - name: data
+    label: Data Layer
+    composition: backend
+  - name: backend
+    label: Backend
+
+nodes:
   - name: spa
   - name: api
     composition: backend
@@ -22,11 +30,6 @@ const yaml = `nodes:
   - name: db2
     label: MongoDB
     composition: data
-  - name: data
-    label: Data Layer
-    composition: backend
-  - name: backend
-    label: Backend
 
 edges:
   - from: spa
