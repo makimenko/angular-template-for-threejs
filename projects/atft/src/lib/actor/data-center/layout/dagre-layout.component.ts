@@ -12,10 +12,11 @@ import {
   SkipSelf
 } from '@angular/core';
 import * as dagre from 'dagre';
-import { AbstractEmptyDirective, AbstractObject3D } from '../../../object';
-import { RendererService } from '../../../renderer';
-import { provideParent } from '../../../util';
-import { DagreUtils, GraphModel } from './dagre-utils';
+import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
+import {RendererService} from '../../../renderer';
+import {provideParent} from '../../../util';
+import {DagreUtils} from './dagre-utils';
+import {GraphModel} from './dagre-model';
 
 
 @Component({

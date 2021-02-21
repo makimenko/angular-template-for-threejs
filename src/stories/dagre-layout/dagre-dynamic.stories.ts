@@ -12,27 +12,25 @@ import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
-const yaml = `
-compositions:
+const yaml = `compositions:
   - name: data
     label: Data Layer
     composition: backend
-    border: frame
   - name: backend
     label: Backend
     border: frame
-
 nodes:
   - name: spa
+    type: compact
   - name: api
     composition: backend
   - name: db1
     label: PostgreSQL
     composition: data
+    type: barrel
   - name: db2
     label: MongoDB
     composition: data
-
 edges:
   - from: spa
     to: api

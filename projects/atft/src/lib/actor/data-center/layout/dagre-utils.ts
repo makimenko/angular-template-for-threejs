@@ -1,30 +1,6 @@
 import * as dagre from 'dagre';
+import {BaseInfo, Edge, GraphModel, Node} from './dagre-model';
 
-export interface BaseInfo {
-  name: string;
-  label?: string;
-  composition?: string;
-}
-
-export interface Node extends BaseInfo {
-  icon?: string;
-}
-
-export interface Composition extends BaseInfo {
-  border?: string;
-}
-
-export interface Edge extends BaseInfo {
-  from: string;
-  to: string;
-}
-
-export interface GraphModel {
-  layout?: dagre.GraphLabel;
-  compositions?: Array<Composition>;
-  nodes?: Array<Node>;
-  edges?: Array<Edge>;
-}
 
 /**
  * WIKI: https://github.com/dagrejs/dagre/wiki

@@ -45,6 +45,8 @@ import {DagreCompositionComponent, DagreEdgeComponent, DagreLayoutComponent, Dag
   ],
   entryComponents: [
     ServerStandActorComponent,
+    ServerBarrelActorComponent,
+    ServerCompactActorComponent,
     DagreNodeComponent,
     DagreEdgeComponent,
     DagreCompositionComponent
