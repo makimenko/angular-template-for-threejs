@@ -36,7 +36,7 @@ function onlyUnique(value, index, self) {
 export class DagreYamlParserComponent extends AbstractEmptyDirective implements OnChanges, AfterViewInit {
 
   @Input() yaml;
-  @Input() svgLocation = './assets/svg/';
+  @Input() svgPattern = 'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/?/baseline.svg';
 
   @Output() status = new EventEmitter<boolean>();
 
@@ -115,7 +115,7 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     const serverRef = nodeRef.instance.container.createComponent(serverFactory);
     serverRef.instance.name = node.name;
     serverRef.instance.label = (node.label ? node.label : node.name);
-    serverRef.instance.svgLocation = this.svgLocation;
+    serverRef.instance.svgPattern = this.svgPattern;
     serverRef.instance.svgName = node.icon;
     serverRef.instance.svgNoHoles = true;
 

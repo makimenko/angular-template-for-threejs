@@ -17,10 +17,10 @@ const yaml = `compositions:
 nodes:
   - name: spa
     type: compact
-    icon: web_asset/outline.svg
+    icon: connected_tv
   - name: api
     composition: backend
-    icon: video_settings/baseline.svg
+    icon: video_settings
   - name: db1
     label: PostgreSQL
     composition: data

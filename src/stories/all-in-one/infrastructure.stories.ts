@@ -24,44 +24,49 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
   <atft-empty>
     <!-- Servers / Nodes: -->
-    <atft-server-compact-actor #ad1 label="Active Directory" translateY="30" [translateX]="-60" [svgName]="svgName">
+    <atft-server-compact-actor #ad1 label="Active Directory" translateY="30" [translateX]="-60"
+       svgPattern="assets/svg/?.svg" [svgName]="svgName">
     </atft-server-compact-actor>
     <atft-server-compact-actor #ad2 label="Active Directory (Replica)" translateY="90" [translateX]="-60"
-        svgLocation="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/"
-        svgName="video_settings/baseline.svg">
+        svgName="video_settings">
     </atft-server-compact-actor>
     <atft-workstation-actor #ws1 [label]="label" translateY="30" translateX="0"
        videoSrc="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_360p.mp4">
     </atft-workstation-actor>
 
-    <atft-server-compact-actor #lb label="Load Balancer" translateY="90" [translateX]="-0" svgName="sitemap-solid.svg">
+    <atft-server-compact-actor #lb label="Load Balancer" translateY="90" [translateX]="-0"
+      svgPattern="assets/svg/?.svg" svgName="sitemap-solid">
     </atft-server-compact-actor>
-    <atft-server-icon-actor label="Firewall" translateY="90" [translateX]="20" svgName="expeditedssl-brands.svg">
+    <atft-server-icon-actor label="Firewall" translateY="90" [translateX]="20" svgName="lock">
     </atft-server-icon-actor>
-    <atft-server-icon-actor label="Auto-Scaling" translateY="90" [translateX]="40" svgName="external-link-alt-solid.svg">
+    <atft-server-icon-actor label="Auto-Scaling" translateY="90" [translateX]="40"
+      svgPattern="assets/svg/?.svg" svgName="external-link-alt-solid">
     </atft-server-icon-actor>
 
-    <atft-server-stand-actor #fs1 label="Frontend Server 1" translateY="140" [translateX]="-40" svgName="grid-world.svg">
+    <atft-server-stand-actor #fs1 label="Frontend Server 1" translateY="140" [translateX]="-40"
+      svgPattern="assets/svg/?.svg" svgName="grid-world">
     </atft-server-stand-actor>
     <atft-server-stand-actor #fs2 label="Frontend Server 2" translateY="140" [translateX]="40"
-        svgLocation="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/"
-        svgName="connected_tv/baseline.svg">
+        svgName="connected_tv">
     </atft-server-stand-actor>
-    <atft-server-icon-actor label="Application Insights" translateY="140" [translateX]="0" [svgName]="svgName">
+    <atft-server-icon-actor label="Application Insights" translateY="140" [translateX]="0"
+       svgPattern="assets/svg/?.svg" [svgName]="svgName">
     </atft-server-icon-actor>
 
-    <atft-server-stand-actor #bs1 label="Backend Server 1" translateY="190" [translateX]="-40" svgName="server-solid.svg">
+    <atft-server-stand-actor #bs1 label="Backend Server 1" translateY="190" [translateX]="-40" svgName="account_tree">
     </atft-server-stand-actor>
-    <atft-server-stand-actor #bs2 label="Backend Server 2" translateY="190" [translateX]="40" svgName="server-solid.svg">
+    <atft-server-stand-actor #bs2 label="Backend Server 2" translateY="190" [translateX]="40" svgName="account_tree">
     </atft-server-stand-actor>
-    <atft-server-icon-actor label="Cloud Bursting Enabled" translateY="190" [translateX]="0" svgName="upload.svg">
+    <atft-server-icon-actor label="Cloud Bursting Enabled" translateY="190" [translateX]="0"
+      svgPattern="assets/svg/?.svg" svgName="upload">
     </atft-server-icon-actor>
 
-    <atft-server-barrel-actor #db1 label="DB Cluster 1" translateY="240" [translateX]="-40" svgName="galactic-republic-brands.svg">
+    <atft-server-barrel-actor #db1 label="DB Cluster 1" translateY="240" [translateX]="-40" svgName="settings_backup_restore">
     </atft-server-barrel-actor>
-    <atft-server-barrel-actor #db2 label="DB Cluster 2" translateY="240" [translateX]="40" svgName="galactic-republic-brands.svg">
+    <atft-server-barrel-actor #db2 label="DB Cluster 2" translateY="240" [translateX]="40" svgName="settings_backup_restore">
     </atft-server-barrel-actor>
-    <atft-server-icon-actor label="In-Memory Cache Enabled" translateY="240" [translateX]="0" svgName="border-none-solid.svg">
+    <atft-server-icon-actor label="In-Memory Cache Enabled" translateY="240" [translateX]="0"
+      svgPattern="assets/svg/?.svg" svgName="border-none-solid">
     </atft-server-icon-actor>
 
     <!-- Connectors / Edges: -->
@@ -127,7 +132,7 @@ export default {
     })
   ],
   args: {
-    svgName: 'idea.svg',
+    svgName: 'idea',
     label: 'Workstation'
   },
   argTypes: {
@@ -135,9 +140,9 @@ export default {
       description: 'Please choose SVG file from assets',
       control: {
         type: 'select', options: [
-          'idea.svg',
-          'upload.svg',
-          'grid-world.svg'
+          'idea',
+          'upload',
+          'grid-world'
         ]
       }
     },

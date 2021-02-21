@@ -66,7 +66,7 @@ class StorybookTorusMeshComponent {
 @Component({
   template: axesSceneWrapper(`
   <atft-frame-mesh [thickness]="2" [sizeX]="width" [sizeY]="width" [translateZ]="0.5" [translateX]="translateX"
-  [materialColor]="materialColor">
+    [materialColor]="materialColor">
   </atft-frame-mesh>
   `)
 })

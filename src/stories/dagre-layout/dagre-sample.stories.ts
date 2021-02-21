@@ -60,8 +60,7 @@ class StorybookDagreComponent {
       </atft-dagre-node>
 
       <atft-dagre-node name="api" composition="application">
-        <atft-server-stand-actor label="api"
-            svgLocation="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/" svgName="video_settings/baseline.svg"
+        <atft-server-stand-actor label="api" svgName="video_settings"
         ></atft-server-stand-actor>
       </atft-dagre-node>
 
