@@ -10,17 +10,28 @@ import {Subscription} from 'rxjs';
   selector: 'atft-dagre-composition',
   providers: [provideParent(DagreCompositionComponent)],
   template: `
-    <atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"
+    <atft-plane-mesh *ngIf="border!='frame'" atft-raycaster-group [width]="width" [height]="height" [materialColor]="color"
+                     (mouseEnter)="onSelected()"
                      (mouseExit)="onDeselected()">
       <atft-text-mesh [centered]="true" [text]="label" size="3" [translateY]="translateLabelY"
                       materialColor="0xE0E0E0">
       </atft-text-mesh>
     </atft-plane-mesh>
+
+    <atft-frame-mesh *ngIf="border=='frame'" [sizeX]="width" [sizeY]="height" [thickness]="2" [materialColor]="color"
+                     atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()">
+      <atft-text-mesh [centered]="true" [text]="label" size="3" [translateY]="translateLabelY"
+                      materialColor="0xE0E0E0">
+      </atft-text-mesh>
+    </atft-frame-mesh>
+
   `
 })
 export class DagreCompositionComponent extends AbstractEmptyDirective implements OnInit, OnDestroy {
 
   @Input() label: string;
+
+  @Input() border = 'plane';
 
   private _height: number;
   @Input()

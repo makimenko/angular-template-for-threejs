@@ -17,8 +17,10 @@ compositions:
   - name: data
     label: Data Layer
     composition: backend
+    border: frame
   - name: backend
     label: Backend
+    border: frame
 
 nodes:
   - name: spa
@@ -64,12 +66,6 @@ export default {
       imports: [
         AtftModule,
         AtftDataCenterActorModule
-      ],
-      entryComponents: [
-        ServerStandActorComponent,
-        DagreNodeComponent,
-        DagreEdgeComponent,
-        DagreCompositionComponent
       ]
     })
   ],

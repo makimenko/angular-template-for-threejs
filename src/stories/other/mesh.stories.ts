@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { moduleMetadata } from '@storybook/angular';
+import {Component, Input} from '@angular/core';
+import {moduleMetadata} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
-import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
+import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
+import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 
 
 @Component({
@@ -65,7 +65,8 @@ class StorybookTorusMeshComponent {
 
 @Component({
   template: axesSceneWrapper(`
-  <atft-frame-mesh [thickness]="2" [sizeX]="15" [sizeY]="20" [translateZ]="0.5" [translateX]="translateX" [materialColor]="materialColor">
+  <atft-frame-mesh [thickness]="2" [sizeX]="width" [sizeY]="width" [translateZ]="0.5" [translateX]="translateX"
+  [materialColor]="materialColor">
   </atft-frame-mesh>
   `)
 })
@@ -99,8 +100,8 @@ export default {
     width: 10
   },
   argTypes: {
-    materialColor: { control: { type: 'select', options: ['0xff0000', '0x00ff00', '0x0000ff'] } },
-    translateX: { control: { type: 'range', min: -50, max: 50, step: 1 } }
+    materialColor: {control: {type: 'select', options: ['0xff0000', '0x00ff00', '0x0000ff']}},
+    translateX: {control: {type: 'range', min: -50, max: 50, step: 1}}
   }
 };
 

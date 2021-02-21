@@ -42,6 +42,12 @@ import {DagreCompositionComponent, DagreEdgeComponent, DagreLayoutComponent, Dag
     DagreCompositionComponent,
     DagreNodeComponent,
     DagreYamlParserComponent
+  ],
+  entryComponents: [
+    ServerStandActorComponent,
+    DagreNodeComponent,
+    DagreEdgeComponent,
+    DagreCompositionComponent
   ]
 })
 export class AtftDataCenterActorModule {

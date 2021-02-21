@@ -14,7 +14,7 @@ import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
 import {RendererService} from '../../../renderer';
 import {provideParent} from '../../../util';
 import * as yaml from 'yaml';
-import {Edge, GraphModel, Node} from './dagre-utils';
+import {Composition, Edge, GraphModel, Node} from './dagre-utils';
 import {ServerStandActorComponent} from '../server';
 import {DagreNodeComponent} from './dagre-node.component';
 import {DagreEdgeComponent} from './dagre-edge.component';
@@ -114,13 +114,14 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
   }
 
 
-  private createComposition(node: Node) {
+  private createComposition(composition: Composition) {
     // console.log('DagreYamlParserComponent.createComposition', node);
     const factory = this.resolver.resolveComponentFactory(DagreCompositionComponent);
     const compositionRef = this.container.createComponent(factory);
-    compositionRef.instance.name = node.name;
-    compositionRef.instance.label = (node.label ? node.label : node.name);
-    compositionRef.instance.composition = node.composition;
+    compositionRef.instance.name = composition.name;
+    compositionRef.instance.label = (composition.label ? composition.label : composition.name);
+    compositionRef.instance.composition = composition.composition;
+    compositionRef.instance.border = composition.border;
 
     this.instances.push(compositionRef);
   }
