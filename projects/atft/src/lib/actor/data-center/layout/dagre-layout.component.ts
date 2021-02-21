@@ -53,8 +53,7 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
     this.graphModel = {
       layout: {},
       nodes: [],
-      edges: [],
-      composition: []
+      edges: []
     };
   }
 

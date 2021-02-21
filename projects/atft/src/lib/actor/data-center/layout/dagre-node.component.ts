@@ -53,19 +53,11 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
       // Create Graph Node
       this.dagreLayout.getGraphModel().nodes.push({
         name: this.name,
-        label: this.name
+        label: this.name,
+        composition: this.composition
       });
 
-      // Create Composition (is exists):
-      if (this.composition) {
-        // console.log('DagreNodeComponent.addNode to composition', node.composition);
-        this.dagreLayout.getGraphModel().composition.push({
-          parent: this.composition,
-          child: this.name
-        });
-      }
-
-      // Update Graph Layout
+       // Update Graph Layout
       this.dagreLayout.refreshLayout();
     }
   }
@@ -87,11 +79,6 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
 
       // Remove from model
       this.dagreLayout.getGraphModel().nodes = this.dagreLayout.getGraphModel().nodes.filter(i => i.name !== this.name);
-
-      // Remove from composition
-      if (this.composition) {
-        this.dagreLayout.getGraphModel().composition = this.dagreLayout.getGraphModel().composition.filter(i => i.child !== this.name);
-      }
 
       // Update Graph Layout
       this.dagreLayout.refreshLayout();

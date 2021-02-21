@@ -2,7 +2,8 @@ import * as dagre from 'dagre';
 
 export interface Node {
   name: string;
-  label: string;
+  label?: string;
+  composition?: string;
 }
 
 export interface Edge {
@@ -11,16 +12,10 @@ export interface Edge {
   to: string;
 }
 
-export interface Composition {
-  parent: string;
-  child: string;
-}
-
 export interface GraphModel {
   layout?: dagre.GraphLabel;
   nodes?: Array<Node>;
   edges?: Array<Edge>;
-  composition?: Array<Composition>;
 }
 
 /**
@@ -54,6 +49,9 @@ export class DagreUtils {
     if (model.nodes) {
       model.nodes.forEach((node: Node) => {
         g.setNode(node.name, {label: node.label, width: 15, height: 15});
+        if (node.composition) {
+          g.setParent(node.name, node.composition);
+        }
       });
     }
   }
@@ -66,19 +64,9 @@ export class DagreUtils {
     }
   }
 
-  public static updateComposition(g: dagre.graphlib.Graph, model: GraphModel) {
-    if (model.composition) {
-      model.composition.forEach((composition: Composition) => {
-        g.setParent(composition.child, composition.parent);
-      });
-    }
-    return g;
-  }
-
   public static updateGraph(g: dagre.graphlib.Graph, model: GraphModel) {
     this.updateNodes(g, model);
     this.updateEdges(g, model);
-    this.updateComposition(g, model);
   }
 
   public static getLayout(model: GraphModel): dagre.GraphLabel {

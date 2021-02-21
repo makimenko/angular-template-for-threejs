@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Injector, Input, OnDestroy, OnInit, Optional, Output, SkipSelf} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Injector, Input, OnDestroy, OnInit, Optional, Output, SkipSelf} from '@angular/core';
 import * as dagre from 'dagre';
 import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
 import {RendererService} from '../../../renderer';
@@ -27,6 +27,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
   set height(height: number) {
     this._height = height;
     this.translateLabelY = this._height / 2 - 3;
+    this.cdRef.detectChanges();
   }
 
   get height(): number {
@@ -38,6 +39,8 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
   @Output() selected = new EventEmitter<void>();
   @Output() deselected = new EventEmitter<void>();
 
+  @Input() composition: string;
+
   public color = 0xA0A0A0;
   public translateLabelY: number;
   protected dagreLayout: DagreLayoutComponent;
@@ -46,7 +49,8 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
   constructor(
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
-    protected injector: Injector
+    protected injector: Injector,
+    private cdRef: ChangeDetectorRef
   ) {
     super(rendererService, parent);
 
@@ -76,6 +80,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
     this.addNode();
   }
 
+
   protected addNode() {
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
       // console.log('DagreCompositionComponent.addNode', this.name);
@@ -86,7 +91,8 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
       // Create Graph Node
       this.dagreLayout.getGraphModel().nodes.push({
         name: this.name,
-        label: this.name
+        label: this.label,
+        composition: this.composition
       });
 
       // Update Graph Layout
@@ -99,6 +105,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
     super.ngOnDestroy();
     this.removeNode();
   }
+
 
   protected removeNode() {
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
@@ -138,7 +145,9 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
 
   protected syncGraph() {
     // console.log('DagreCompositionComponent.update');
-    this.syncGraphNodes(this.dagreLayout.getGraph());
+    if (this.object) {
+      this.syncGraphNodes(this.dagreLayout.getGraph());
+    }
   }
 
 

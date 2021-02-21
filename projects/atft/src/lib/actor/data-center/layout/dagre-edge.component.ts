@@ -110,7 +110,9 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
 
   protected syncGraph() {
     // console.log('DagreEdgeComponent.update');
-    this.syncGraphEdges(this.dagreLayout.getGraph());
+    if (this.object) {
+      this.syncGraphEdges(this.dagreLayout.getGraph());
+    }
   }
 
   protected syncGraphEdges(g: dagre.graphlib.Graph) {

@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {moduleMetadata} from '@storybook/angular';
 import {
   AtftDataCenterActorModule,
+  DagreCompositionComponent,
   DagreEdgeComponent,
   DagreNodeComponent,
   ServerStandActorComponent
@@ -12,13 +13,28 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
 const yaml = `nodes:
+  - name: spa
+  - name: api
+    composition: backend
   - name: db1
     label: PostgreSQL
+    composition: data
   - name: db2
     label: MongoDB
+    composition: data
+  - name: data
+    label: Data Layer
+    composition: backend
+  - name: backend
+    label: Backend
+
 edges:
-  - from: db1
+  - from: spa
+    to: api
+  - from: api
     to: db2
+  - from: api
+    to: db1
 `;
 
 @Component({
@@ -49,7 +65,8 @@ export default {
       entryComponents: [
         ServerStandActorComponent,
         DagreNodeComponent,
-        DagreEdgeComponent
+        DagreEdgeComponent,
+        DagreCompositionComponent
       ]
     })
   ],
