@@ -97,7 +97,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#updateComposition">updateComposition</a>
+                                <a href="#updateBaseInfo">updateBaseInfo</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
@@ -106,10 +106,6 @@
                             <li>
                                     <span class="modifier">Static</span>
                                 <a href="#updateGraph">updateGraph</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#updateNodes">updateNodes</a>
                             </li>
                         </ul>
                     </td>
@@ -154,8 +150,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:57</a></div>
                 </td>
             </tr>
 
@@ -226,8 +222,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:10</a></div>
                 </td>
             </tr>
 
@@ -278,28 +274,28 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updateComposition"></a>
+                    <a name="updateBaseInfo"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Static</span>
-                            updateComposition
+                            updateBaseInfo
                         </b>
-                        <a href="#updateComposition"><span class="icon ion-ios-link"></span></a>
+                        <a href="#updateBaseInfo"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateComposition(g: dagre.graphlib.Graph, model: <a href="../interfaces/GraphModel.html">GraphModel</a>)</code>
+                    <code>updateBaseInfo(g: dagre.graphlib.Graph, baseInfo: <a href="../interfaces/BaseInfo.html">Array<BaseInfo></a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:32</a></div>
                 </td>
             </tr>
 
@@ -331,9 +327,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>model</td>
+                                    <td>baseInfo</td>
                                     <td>
-                                                <code><a href="../interfaces/GraphModel.html" target="_self" >GraphModel</a></code>
+                                                <code><a href="../interfaces/BaseInfo.html" target="_self" >Array&lt;BaseInfo&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -348,7 +344,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -382,8 +378,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:43</a></div>
                 </td>
             </tr>
 
@@ -466,92 +462,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:78</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>g</td>
-                                    <td>
-                                            <code>dagre.graphlib.Graph</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>model</td>
-                                    <td>
-                                                <code><a href="../interfaces/GraphModel.html" target="_self" >GraphModel</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updateNodes"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            updateNodes
-                        </b>
-                        <a href="#updateNodes"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateNodes(g: dagre.graphlib.Graph, model: <a href="../interfaces/GraphModel.html">GraphModel</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts:51</a></div>
                 </td>
             </tr>
 
@@ -621,29 +533,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import * as dagre from &#x27;dagre&#x27;;
+import {BaseInfo, Edge, GraphModel, Node} from &#x27;./dagre-model&#x27;;
 
-export interface Node {
-  name: string;
-  label: string;
-}
-
-export interface Edge {
-  name: string;
-  from: string;
-  to: string;
-}
-
-export interface Composition {
-  parent: string;
-  child: string;
-}
-
-export interface GraphModel {
-  layout?: dagre.GraphLabel;
-  nodes?: Array&lt;Node&gt;;
-  edges?: Array&lt;Edge&gt;;
-  composition?: Array&lt;Composition&gt;;
-}
 
 /**
  * WIKI: https://github.com/dagrejs/dagre/wiki
@@ -672,10 +563,13 @@ export class DagreUtils {
     return g;
   }
 
-  public static updateNodes(g: dagre.graphlib.Graph, model: GraphModel) {
-    if (model.nodes) {
-      model.nodes.forEach((node: Node) &#x3D;&gt; {
+  public static updateBaseInfo(g: dagre.graphlib.Graph, baseInfo: Array&lt;BaseInfo&gt;) {
+    if (baseInfo) {
+      baseInfo.forEach((node: Node) &#x3D;&gt; {
         g.setNode(node.name, {label: node.label, width: 15, height: 15});
+        if (node.composition) {
+          g.setParent(node.name, node.composition);
+        }
       });
     }
   }
@@ -688,19 +582,10 @@ export class DagreUtils {
     }
   }
 
-  public static updateComposition(g: dagre.graphlib.Graph, model: GraphModel) {
-    if (model.composition) {
-      model.composition.forEach((composition: Composition) &#x3D;&gt; {
-        g.setParent(composition.child, composition.parent);
-      });
-    }
-    return g;
-  }
-
   public static updateGraph(g: dagre.graphlib.Graph, model: GraphModel) {
-    this.updateNodes(g, model);
+    this.updateBaseInfo(g, model.compositions);
+    this.updateBaseInfo(g, model.nodes);
     this.updateEdges(g, model);
-    this.updateComposition(g, model);
   }
 
   public static getLayout(model: GraphModel): dagre.GraphLabel {

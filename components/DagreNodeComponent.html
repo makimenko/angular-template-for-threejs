@@ -394,8 +394,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-node.component.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-node.component.ts:65</a></div>
                 </td>
             </tr>
 
@@ -474,8 +474,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-node.component.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-node.component.ts:70</a></div>
                 </td>
             </tr>
 
@@ -515,8 +515,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="115"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-node.component.ts:115</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-node.component.ts:102</a></div>
                 </td>
             </tr>
 
@@ -556,8 +556,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-node.component.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-node.component.ts:88</a></div>
                 </td>
             </tr>
 
@@ -757,19 +757,11 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
       // Create Graph Node
       this.dagreLayout.getGraphModel().nodes.push({
         name: this.name,
-        label: this.name
+        label: this.name,
+        composition: this.composition
       });
 
-      // Create Composition (is exists):
-      if (this.composition) {
-        // console.log(&#x27;DagreNodeComponent.addNode to composition&#x27;, node.composition);
-        this.dagreLayout.getGraphModel().composition.push({
-          parent: this.composition,
-          child: this.name
-        });
-      }
-
-      // Update Graph Layout
+       // Update Graph Layout
       this.dagreLayout.refreshLayout();
     }
   }
@@ -791,11 +783,6 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
 
       // Remove from model
       this.dagreLayout.getGraphModel().nodes &#x3D; this.dagreLayout.getGraphModel().nodes.filter(i &#x3D;&gt; i.name !&#x3D;&#x3D; this.name);
-
-      // Remove from composition
-      if (this.composition) {
-        this.dagreLayout.getGraphModel().composition &#x3D; this.dagreLayout.getGraphModel().composition.filter(i &#x3D;&gt; i.child !&#x3D;&#x3D; this.name);
-      }
 
       // Update Graph Layout
       this.dagreLayout.refreshLayout();

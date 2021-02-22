@@ -66,6 +66,12 @@
             <code>AbstractMesh</code>
     </p>
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
 
 
 <section>
@@ -128,7 +134,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Protected</span>
+                                <a href="#getGeometry">getGeometry</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
                                 <a href="#newObject3DInstance">newObject3DInstance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnChanges">ngOnChanges</a>
                             </li>
                         </ul>
                     </td>
@@ -298,6 +312,47 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getGeometry"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            getGeometry
+                        </b>
+                        <a href="#getGeometry"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getGeometry()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>THREE.ShapeBufferGeometry</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="newObject3DInstance"></a>
                     <span class="name">
                         <b>
@@ -318,8 +373,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:55</a></div>
                 </td>
             </tr>
 
@@ -335,25 +390,97 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">projects/atft/src/lib/object/mesh/frame-mesh.component.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf} from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
-import { provideParent } from &#x27;../../util&#x27;;
-import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
-import { AbstractMesh } from &#x27;./abstract-mesh-3d&#x27;;
+import {RendererService} from &#x27;../../renderer/renderer.service&#x27;;
+import {provideParent} from &#x27;../../util&#x27;;
+import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
+import {AbstractMesh} from &#x27;./abstract-mesh-3d&#x27;;
 
 @Component({
   selector: &#x27;atft-frame-mesh&#x27;,
   providers: [provideParent(FrameMeshComponent)],
   template: &#x27;&lt;ng-content&gt;&lt;/ng-content&gt;&#x27;
 })
-export class FrameMeshComponent extends AbstractMesh {
+export class FrameMeshComponent extends AbstractMesh implements OnChanges {
 
   @Input()
   thickness &#x3D; 2;
@@ -371,8 +498,7 @@ export class FrameMeshComponent extends AbstractMesh {
     super(rendererService, parent);
   }
 
-  protected newObject3DInstance(): THREE.Mesh {
-
+  protected getGeometry(): THREE.ShapeBufferGeometry {
     const halfX &#x3D; this.sizeX / 2.0;
     const halfY &#x3D; this.sizeY / 2.0;
     const t &#x3D; this.thickness;
@@ -393,11 +519,47 @@ export class FrameMeshComponent extends AbstractMesh {
     shape.lineTo(-halfX, halfY);
 
     const geometry &#x3D; new THREE.ShapeBufferGeometry(shape);
+    return geometry;
+  }
+
+  protected newObject3DInstance(): THREE.Mesh {
+
     const material &#x3D; this.getMaterial();
-    const mesh &#x3D; new THREE.Mesh(geometry, material);
+    const mesh &#x3D; new THREE.Mesh(this.getGeometry(), material);
 
     this.applyShadowProps(mesh);
     return mesh;
+  }
+
+
+  public ngOnChanges(changes: SimpleChanges) {
+    // console.log(&#x27;FrameMeshComponent.ngOnChanges&#x27;, this.name);
+    if (!this.object) {
+      return;
+    }
+    super.ngOnChanges(changes);
+
+    let modified &#x3D; false;
+
+    if ([&#x27;sizeX&#x27;, &#x27;sizeY&#x27;, &#x27;thickness&#x27;].some(propName &#x3D;&gt; propName in changes)) {
+      if (this.getObject() instanceof THREE.Mesh) {
+        const mesh: THREE.Mesh &#x3D; this.getObject();
+
+        if (mesh.geometry instanceof THREE.ShapeBufferGeometry) {
+          const currentGeometry: THREE.ShapeBufferGeometry &#x3D; mesh.geometry;
+          const newGeometry &#x3D; this.getGeometry();
+          currentGeometry.attributes &#x3D; newGeometry.attributes;
+        }
+        modified &#x3D; true;
+      }
+
+    }
+
+    if (modified) {
+      this.changed.emit();
+      this.rendererService.render();
+    }
+
   }
 
 }

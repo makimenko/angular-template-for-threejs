@@ -149,13 +149,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftDataCenterActorModule.html" data-type="entity-link">AtftDataCenterActorModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftDataCenterActorModule-56292c48797eb8e513a2088ffaeb4a3b"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-56292c48797eb8e513a2088ffaeb4a3b"' }>
+                                            'data-target="#components-links-module-AtftDataCenterActorModule-6a294df374d523cd697366ea9372c987"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-6a294df374d523cd697366ea9372c987"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-56292c48797eb8e513a2088ffaeb4a3b"' :
-                                            'id="xs-components-links-module-AtftDataCenterActorModule-56292c48797eb8e513a2088ffaeb4a3b"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-6a294df374d523cd697366ea9372c987"' :
+                                            'id="xs-components-links-module-AtftDataCenterActorModule-6a294df374d523cd697366ea9372c987"' }>
                                             <li class="link">
                                                 <a href="components/DagreCompositionComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DagreCompositionComponent</a>
@@ -632,6 +632,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/BaseInfo.html" data-type="entity-link">BaseInfo</a>
+                            </li>
                             <li class="link">
                                 <a href="interfaces/Composition.html" data-type="entity-link">Composition</a>
                             </li>

@@ -645,7 +645,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
             const path: any &#x3D; paths[i];
             const color &#x3D; (this._overrideMaterialColor ? appliedColor(this._overrideMaterialColor) : path.color);
             const material &#x3D; appliedMaterial(color, this.material, this.depthWrite);
-            const shapes &#x3D; path.toShapes(true, {});
+            const shapes &#x3D; path.toShapes(false, false);
 
             for (let j &#x3D; 0; j &lt; shapes.length; j++) {
               const shape &#x3D; shapes[j];

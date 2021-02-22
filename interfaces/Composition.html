@@ -61,10 +61,16 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/atft/src/lib/actor/data-center/layout/dagre-utils.ts</code>
+            <code>projects/atft/src/lib/actor/data-center/layout/dagre-model.ts</code>
         </p>
 
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../interfaces/BaseInfo.html" target="_self" >BaseInfo</a></code>
+            </p>
 
         <section>
             <h3 id="index">Index</h3>
@@ -79,10 +85,8 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#child">child</a>
-                                </li>
-                                <li>
-                                        <a href="#parent">parent</a>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#border">border</a>
                                 </li>
                             </ul>
                         </td>
@@ -99,13 +103,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="child"></a>
-                                        <span class="name"><b>child</b><a href="#child"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="border"></a>
+                                        <span class="name"><b>border</b><a href="#border"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>child:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>border:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -118,35 +122,11 @@
                                         </td>
                                     </tr>
 
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="parent"></a>
-                                        <span class="name"><b>parent</b><a href="#parent"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>parent:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                                            <i>Optional</i>
                                         </td>
                                     </tr>
-
 
 
 
@@ -160,92 +140,31 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import * as dagre from &#x27;dagre&#x27;;
 
-export interface Node {
+export interface BaseInfo {
   name: string;
-  label: string;
+  label?: string;
+  composition?: string;
 }
 
-export interface Edge {
-  name: string;
+export interface Node extends BaseInfo {
+  type?: string;
+  icon?: string;
+}
+
+export interface Composition extends BaseInfo {
+  border?: string;
+}
+
+export interface Edge extends BaseInfo {
   from: string;
   to: string;
 }
 
-export interface Composition {
-  parent: string;
-  child: string;
-}
-
 export interface GraphModel {
   layout?: dagre.GraphLabel;
+  compositions?: Array&lt;Composition&gt;;
   nodes?: Array&lt;Node&gt;;
   edges?: Array&lt;Edge&gt;;
-  composition?: Array&lt;Composition&gt;;
-}
-
-/**
- * WIKI: https://github.com/dagrejs/dagre/wiki
- */
-export class DagreUtils {
-
-  public static modelToGraph(model: GraphModel): dagre.graphlib.Graph {
-    const g &#x3D; new dagre.graphlib.Graph({
-      compound: true,
-      multigraph: true
-    });
-
-    g.setGraph(
-      this.getLayout(model)
-    );
-
-    g.setDefaultEdgeLabel(function () {
-      return {};
-    });
-
-    this.updateGraph(g, model);
-
-    // console.log(&#x27;DagreUtils.layout model&#x27;, model);
-    // console.log(&#x27;DagreUtils.layout&#x27;, g);
-    dagre.layout(g);
-    return g;
-  }
-
-  public static updateNodes(g: dagre.graphlib.Graph, model: GraphModel) {
-    if (model.nodes) {
-      model.nodes.forEach((node: Node) &#x3D;&gt; {
-        g.setNode(node.name, {label: node.label, width: 15, height: 15});
-      });
-    }
-  }
-
-  public static updateEdges(g: dagre.graphlib.Graph, model: GraphModel) {
-    if (model.edges) {
-      model.edges.forEach((edge: Edge) &#x3D;&gt; {
-        g.setEdge(edge.from, edge.to, {name: edge.name});
-      });
-    }
-  }
-
-  public static updateComposition(g: dagre.graphlib.Graph, model: GraphModel) {
-    if (model.composition) {
-      model.composition.forEach((composition: Composition) &#x3D;&gt; {
-        g.setParent(composition.child, composition.parent);
-      });
-    }
-    return g;
-  }
-
-  public static updateGraph(g: dagre.graphlib.Graph, model: GraphModel) {
-    this.updateNodes(g, model);
-    this.updateEdges(g, model);
-    this.updateComposition(g, model);
-  }
-
-  public static getLayout(model: GraphModel): dagre.GraphLabel {
-    const layout: dagre.GraphLabel &#x3D; model.layout;
-    return layout;
-  }
-
 }
 </code></pre>
     </div>

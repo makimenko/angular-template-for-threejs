@@ -908,8 +908,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:118</a></div>
                 </td>
             </tr>
 
@@ -1488,7 +1488,9 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
 
   protected syncGraph() {
     // console.log(&#x27;DagreEdgeComponent.update&#x27;);
-    this.syncGraphEdges(this.dagreLayout.getGraph());
+    if (this.object) {
+      this.syncGraphEdges(this.dagreLayout.getGraph());
+    }
   }
 
   protected syncGraphEdges(g: dagre.graphlib.Graph) {
