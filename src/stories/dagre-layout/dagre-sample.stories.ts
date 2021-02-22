@@ -53,14 +53,15 @@ class StorybookDagreComponent {
 
       <atft-dagre-composition name="presentation" label="Presentation tier"></atft-dagre-composition>
       <atft-dagre-composition name="application" label="Application tier"></atft-dagre-composition>
-      <atft-dagre-composition name="data" label="Data tier"></atft-dagre-composition>
+      <atft-dagre-composition name="data" label="Data tier" border="frame"></atft-dagre-composition>
 
       <atft-dagre-node name="spa" composition="presentation">
         <atft-server-compact-actor label="spa"></atft-server-compact-actor>
       </atft-dagre-node>
 
       <atft-dagre-node name="api" composition="application">
-        <atft-server-stand-actor label="api"></atft-server-stand-actor>
+        <atft-server-stand-actor label="api" svgName="video_settings"
+        ></atft-server-stand-actor>
       </atft-dagre-node>
 
       <atft-dagre-node name="db1" composition="data">

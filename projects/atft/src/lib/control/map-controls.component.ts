@@ -15,26 +15,18 @@ import {Subscription} from 'rxjs';
 export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> implements OnChanges, OnDestroy {
 
   @Input() rotateSpeed = 1.0;
-
   @Input() zoomSpeed = 1.2;
-
   @Input() autoRotate = false;
-
   @Input() autoRotateSpeed = 0.5;
-
   @Input() enableDamping = false;
-
   @Input() dampingFactor = 0.1;
-
   @Input() screenSpacePanning = false;
-
   @Input() minDistance = 20;
-
   @Input() maxDistance = 200;
-
   @Input() maxPolarAngle: number = Math.PI / 2 - 0.1;
-
   @Input() panSpeed = 1.2;
+  @Input() minZoom = 0;
+  @Input() maxZoom = Infinity;
 
   protected animation: Subscription;
 
@@ -81,6 +73,9 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
     this.controls.maxDistance = this.maxDistance;
     this.controls.maxPolarAngle = this.maxPolarAngle;
 
+    this.controls.minZoom = this.minZoom;
+    this.controls.maxZoom = this.maxZoom;
+
     this.controls.update();
 
     // Advanced animationService:
@@ -101,6 +96,10 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
   ngOnDestroy() {
     super.ngOnDestroy();
     this.animation?.unsubscribe();
+  }
+
+  public reset(): void {
+    this.controls.reset();
   }
 
 }

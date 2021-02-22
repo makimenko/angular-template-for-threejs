@@ -8,6 +8,7 @@ import {AtftAnimationModule} from './animation/atft-animation.module';
 import {AtftRaycasterModule} from './raycaster/atft-raycaster.module';
 import {AtftStatsModule} from './stats/stats.module';
 import {AtftEffectModule} from './effect/atft-effect.module';
+import {DagreCompositionComponent, DagreEdgeComponent, DagreNodeComponent, ServerStandActorComponent} from './actor/data-center';
 
 // NOTE: In case of "ERROR in Unexpected value 'undefined' exported by the module 'AtftModule" fix imports (do not import index.ts)
 

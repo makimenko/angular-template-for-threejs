@@ -88,6 +88,13 @@ Click below to see the demo in a web browser:<br>
     } 
     ```
 
+## Used by
+Sample [vect](https://github.com/makimenko/vect) project, which is based on atft library:
+
+<a href="https://github.com/makimenko/vect">
+<img src="https://raw.githubusercontent.com/makimenko/files/master/vect/images/demo.gif">
+</a>
+
 ## Development
 
 ### Build Library

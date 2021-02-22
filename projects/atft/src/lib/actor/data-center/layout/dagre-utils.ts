@@ -1,27 +1,6 @@
 import * as dagre from 'dagre';
+import {BaseInfo, Edge, GraphModel, Node} from './dagre-model';
 
-export interface Node {
-  name: string;
-  label: string;
-}
-
-export interface Edge {
-  name: string;
-  from: string;
-  to: string;
-}
-
-export interface Composition {
-  parent: string;
-  child: string;
-}
-
-export interface GraphModel {
-  layout?: dagre.GraphLabel;
-  nodes?: Array<Node>;
-  edges?: Array<Edge>;
-  composition?: Array<Composition>;
-}
 
 /**
  * WIKI: https://github.com/dagrejs/dagre/wiki
@@ -50,10 +29,13 @@ export class DagreUtils {
     return g;
   }
 
-  public static updateNodes(g: dagre.graphlib.Graph, model: GraphModel) {
-    if (model.nodes) {
-      model.nodes.forEach((node: Node) => {
+  public static updateBaseInfo(g: dagre.graphlib.Graph, baseInfo: Array<BaseInfo>) {
+    if (baseInfo) {
+      baseInfo.forEach((node: Node) => {
         g.setNode(node.name, {label: node.label, width: 15, height: 15});
+        if (node.composition) {
+          g.setParent(node.name, node.composition);
+        }
       });
     }
   }
@@ -66,19 +48,10 @@ export class DagreUtils {
     }
   }
 
-  public static updateComposition(g: dagre.graphlib.Graph, model: GraphModel) {
-    if (model.composition) {
-      model.composition.forEach((composition: Composition) => {
-        g.setParent(composition.child, composition.parent);
-      });
-    }
-    return g;
-  }
-
   public static updateGraph(g: dagre.graphlib.Graph, model: GraphModel) {
-    this.updateNodes(g, model);
+    this.updateBaseInfo(g, model.compositions);
+    this.updateBaseInfo(g, model.nodes);
     this.updateEdges(g, model);
-    this.updateComposition(g, model);
   }
 
   public static getLayout(model: GraphModel): dagre.GraphLabel {

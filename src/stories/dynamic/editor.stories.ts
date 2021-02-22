@@ -60,7 +60,7 @@ class StorybookEditorComponent {
     const factory = this.resolver.resolveComponentFactory(ServerStandActorComponent);
     const componentRef = this.gridcontainer.createComponent(factory);
     componentRef.instance.label = 'Server';
-    componentRef.instance.svgName = 'grid-world.svg';
+    componentRef.instance.svgName = 'language';
     componentRef.instance.translateX = this.x; // event.array[0];
     componentRef.instance.translateY = this.y; // event.array[1];
   }
@@ -82,7 +82,7 @@ export default {
     })
   ],
   args: {
-    svgName: 'idea.svg',
+    svgName: 'idea',
     label: 'Workstation'
   },
   argTypes: {
@@ -90,9 +90,9 @@ export default {
       description: 'Please choose SVG file from assets',
       control: {
         type: 'select', options: [
-          'idea.svg',
-          'upload.svg',
-          'grid-world.svg'
+          'idea',
+          'upload',
+          'grid-world'
         ]
       }
     },
