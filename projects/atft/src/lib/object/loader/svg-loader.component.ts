@@ -1,10 +1,11 @@
 import {Component, Input, Optional, SkipSelf} from '@angular/core';
 import {RendererService} from '../../renderer/renderer.service';
-import {provideParent} from '../../util';
+import {appliedColor, appliedMaterial, fixCenter, provideParent, scaleToFit} from '../../util';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractModelLoader} from './abstract-model-loader';
-import {SvgDetails, SvgLoaderService} from './services';
-
+import {SvgLoaderService} from './services';
+import * as THREE from 'three';
+import {Shape} from 'three';
 
 @Component({
   selector: 'atft-svg-loader',
@@ -51,18 +52,32 @@ export class SVGLoaderComponent extends AbstractModelLoader {
     super(rendererService, parent);
   }
 
-  protected async loadLazyObject() {
-    // console.log('ObjectLoaderComponent.loadLazyObject');
-    const key: SvgDetails = {
-      model: this.model,
-      color: this._overrideMaterialColor,
-      material: this.material,
-      maxX: this.maxX,
-      maxY: this.maxY,
-      depthWrite: this.depthWrite,
-      centered: this.centered
-    };
-    return this.svgLoader.load(this.model, key);
+  protected async loadLazyObject(): Promise<THREE.Object3D> {
+    // console.log('SVGLoaderComponent.loadLazyObject');
+
+    const paths = await this.svgLoader.load(this.model);
+    const group = new THREE.Group();
+
+    for (const path of paths) {
+      const color = (this._overrideMaterialColor ? appliedColor(this._overrideMaterialColor) : path.color);
+      const material = appliedMaterial(color, this.material, this.depthWrite);
+      const shapes: Shape[] = path.toShapes(false, false);
+
+      for (const shape of shapes) {
+        const geometry = new THREE.ShapeBufferGeometry(shape);
+        const mesh = new THREE.Mesh(geometry, material);
+        group.add(mesh);
+      }
+    }
+
+    if (this.maxX || this.maxY) {
+      scaleToFit(group, new THREE.Vector3(this.maxX, this.maxY, 0));
+    }
+    if (this.centered) {
+      fixCenter(group);
+    }
+
+    return group;
   }
 
 
