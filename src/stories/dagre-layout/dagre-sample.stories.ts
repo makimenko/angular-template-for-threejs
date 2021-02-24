@@ -122,7 +122,7 @@ export default {
       }
     },
     rankdir: {
-      description: 'Direction for rank nodes. Can be TB, BT, LR, or RL, where T = top, B = bottom, L = left, and R = right.',
+      description: 'Direction for rank nodes. Can be TB, BT, LR, or RL, where V = top, B = bottom, L = left, and R = right.',
       control: {
         type: 'select', options: [
           'TB',

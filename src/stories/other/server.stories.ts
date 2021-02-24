@@ -7,7 +7,7 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
 @Component({
   template: worldSceneWrapper(`
-    <atft-server-stand-actor atft-raycaster-group (mouseEnter)="mouseEnter()" [label]="label"
+    <atft-server-stand-actor atft-raycaster-group (mouseEnter)="mouseEnter()" label="AA"
       svgPattern="assets/svg/?.svg" [svgName]="svgName" translateX="-40">
     </atft-server-stand-actor>
 

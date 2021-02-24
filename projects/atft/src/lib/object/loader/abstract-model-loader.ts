@@ -1,4 +1,4 @@
-import { Input, Directive } from '@angular/core';
+import {Directive, Input} from '@angular/core';
 import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
 
 /**
@@ -19,8 +19,8 @@ export abstract class AbstractModelLoader extends AbstractLazyObject3D {
    */
   @Input()
   public set model(newModelUrl: string) {
-    if (this._model !== newModelUrl) {
-      this._model = newModelUrl;
+    this._model = newModelUrl;
+    if (this.object && this._model !== newModelUrl) {
       super.startLoading();
     }
   }

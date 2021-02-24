@@ -95,6 +95,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   }
 
   public ngOnInit(): void {
+    // console.log('AbstractObject3D.ngOnInit', this.name);
     this.object = this.newObject3DInstance();
     if (this.layer) {
       this.object.layers.disableAll();
@@ -145,7 +146,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   public addChild(object: AbstractObject3D<any>): void {
     // (this.constructor.name + ' addChild ' + object, this.object);
     if (this.object) {
-      // console.log(this.constructor.name + ' add child ' + object);
+      // console.log('AbstractObject3D.addChild', this.name);
       this.childlren.push(object);
       this.object.add(object.getObject());
       if (this.rendererService) {
@@ -159,6 +160,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   public removeChild(object: AbstractObject3D<any>): void {
     if (this.object && object) {
+      // console.log('AbstractObject3D.removeChild', this.name);
 
       // Remove from children:
       const index = this.childlren.indexOf(object, 0);

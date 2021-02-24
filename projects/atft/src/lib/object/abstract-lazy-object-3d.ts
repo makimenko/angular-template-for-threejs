@@ -37,7 +37,7 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
   }
 
   protected startLoading() {
-    // console.log('AbstractLazyObject3D.startLoading');
+    // console.log('AbstractLazyObject3D.startLoading', this.name + ' / '+this.parentInitialized);
     // Trigger model acquisition now that the parentScene has been initialized.
     this.loadLazyObject().then(obj => {
       // console.log('AbstractLazyObject3D loaded');

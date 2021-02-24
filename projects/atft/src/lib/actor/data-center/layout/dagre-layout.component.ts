@@ -100,7 +100,7 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
 
   public ngOnChanges(changes: SimpleChanges) {
     super.ngOnChanges(changes);
-    // console.log('AbstractObject3D.ngOnChanges', this.name);
+    // console.log('DagreLayoutComponent.ngOnChanges', this.name);
     if (!this.object) {
       return;
     }

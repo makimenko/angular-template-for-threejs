@@ -100,7 +100,7 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
   }
 
   protected syncGraph() {
-    // console.log('DagreNodeComponent.update');
+    // console.log('DagreNodeComponent.syncGraph');
     if (this.object) {
       this.syncGraphNodes(this.dagreLayout.getGraph());
     }

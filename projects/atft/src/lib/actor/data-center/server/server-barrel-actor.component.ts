@@ -21,7 +21,7 @@ import { AbstractServerActor } from './abstract-server-actor';
       </atft-empty>
 
       <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" height="0" [centered]="true"
-                      material="basic" materialColor="0xDADADA" [translateY]="-11" [translateZ]="0.2">
+                      [material]="'basic'" [materialColor]="'0xDADADA'" [translateY]="-11" [translateZ]="0.2">
       </atft-text-mesh>
       <atft-frame-mesh *ngIf="showFrame" [thickness]="1" [sizeX]="15" [sizeY]="15" [translateZ]="0.1" material="basic"
                        [materialColor]="color">

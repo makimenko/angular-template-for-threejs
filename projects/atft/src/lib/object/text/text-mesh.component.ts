@@ -5,6 +5,7 @@ import {appliedMaterial, provideParent} from '../../util';
 import {fixCenter} from '../../util/fix-center';
 import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
+import {FontService} from '../loader/services/font.service';
 
 @Component({
   selector: 'atft-text-mesh',
@@ -19,9 +20,11 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   private _materialColor = 0xDADADA;
   @Input()
   set materialColor(materialColor: number) {
-    // console.log('change color', materialColor);
     this._materialColor = materialColor;
-    this.startLoading();
+    if (this.object) {
+      // console.log('TextMeshComponent.set materialColor', materialColor + ' / ' + this.name);
+      this.startLoading();
+    }
   }
 
   get materialColor() {
@@ -32,7 +35,10 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   @Input()
   set text(text: string) {
     this._text = text;
-    this.startLoading();
+    if (this.object) {
+      // console.log('TextMeshComponent.set text', text + ' / ' + this.name);
+      this.startLoading();
+    }
   }
 
   get text() {
@@ -83,7 +89,8 @@ export class TextMeshComponent extends AbstractLazyObject3D {
 
   constructor(
     protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected font: FontService
   ) {
     super(rendererService, parent);
   }
@@ -93,25 +100,15 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   }
 
   protected async loadLazyObject(): Promise<THREE.Object3D> {
-    // console.log('TextMeshComponent.loadLazyObject');
+    // console.log('TextMeshComponent.loadLazyObject', this.name);
 
-    if (this.fontCache) {
-      return new Promise<THREE.Object3D>(resolve => {
-        resolve(this.getTextMesh(this.fontCache));
-      });
-    } else {
-      return new Promise<THREE.Object3D>(resolve => {
-        const loader = new THREE.FontLoader();
-        loader.load(this.fontUrl, font => {
-          this.fontCache = font;
-          resolve(this.getTextMesh(font));
-        });
-      });
-    }
+    const font = await this.font.load(this.fontUrl);
+    // console.log('TextMeshComponent.loadLazyObject font', font);
+    return this.getTextMesh(font);
   }
 
   protected getTextMesh(font: THREE.Font): THREE.Mesh {
-    // console.log('TextMeshComponent.getTextMesh');
+    // console.log('TextMeshComponent.getTextMesh', this.text + ' / ' + this.name);
     const geometry = new THREE.TextGeometry(this.text, {
       font: font,
       size: this.size,
