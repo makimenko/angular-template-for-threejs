@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {RendererService} from './renderer.service';
 
 @Component({
@@ -21,6 +21,7 @@ export class RendererCanvasComponent implements OnInit {
   ngOnInit() {
     // console.log('RendererComponent.ngAfterViewInit');
     this.rendererService.initialize(this.canvas);
+    this.resetCanvas();
   }
 
   /**
@@ -42,6 +43,11 @@ export class RendererCanvasComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   public onResize(event: Event) {
+    this.resetCanvas();
+  }
+
+  protected resetCanvas() {
+    // console.log('RendererCanvasComponent.resetCanvas');
     // strange, but single 100% resizing has unexpected behaviour with flex CSS
     // as workaround - resettling to 100 pixels, then to 100%
     this.rendererService.resize(this.canvas, '100px');
