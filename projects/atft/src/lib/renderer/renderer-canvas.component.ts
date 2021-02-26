@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
 import {RendererService} from './renderer.service';
 
 @Component({
@@ -11,6 +11,8 @@ export class RendererCanvasComponent implements OnInit {
   @ViewChild('canvas', {static: true})
   private canvasRef: ElementRef;
 
+  @Input() preserveDrawingBuffer = false;
+
   constructor(
     private rendererService: RendererService
   ) {
@@ -20,7 +22,7 @@ export class RendererCanvasComponent implements OnInit {
 
   ngOnInit() {
     // console.log('RendererComponent.ngAfterViewInit');
-    this.rendererService.initialize(this.canvas);
+    this.rendererService.initialize(this.canvas, this.preserveDrawingBuffer);
     this.resetCanvas();
   }
 

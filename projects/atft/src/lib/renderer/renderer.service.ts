@@ -51,12 +51,13 @@ export class RendererService implements OnDestroy {
     }
   }
 
-  public initialize(canvas: HTMLCanvasElement) {
+  public initialize(canvas: HTMLCanvasElement, preserveDrawingBuffer) {
     // console.log('RendererComponent.initialize');
     this.webGlRenderer = new THREE.WebGLRenderer({
       canvas: canvas,
       antialias: true,
-      alpha: true
+      alpha: true,
+      preserveDrawingBuffer: preserveDrawingBuffer
     });
     this.webGlRenderer.setPixelRatio(window.devicePixelRatio);
     this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, true);
