@@ -8,7 +8,7 @@ import {AtftTextModule} from './text/atft-text.module';
 import {CommonModule} from '@angular/common';
 import {SceneComponent} from './scene.component';
 import {ContentProjectionComponent} from './content-projection.component';
-import {FontService, SvgLoaderService} from './loader';
+import {FontService, IconService, SvgLoaderService} from './loader';
 
 
 @NgModule({
@@ -35,7 +35,8 @@ import {FontService, SvgLoaderService} from './loader';
     AtftTextModule
   ], providers: [
     FontService,
-    SvgLoaderService
+    SvgLoaderService,
+    IconService
   ]
 })
 export class AtftObjectModule {

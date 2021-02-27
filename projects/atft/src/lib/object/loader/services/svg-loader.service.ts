@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {ShapePath} from 'three';
 import {AbstractCacheService} from './abstract-cache.service';
-import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader';
+import {SVGLoader} from '../../../threejs-fork/SVGLoader';
+
 
 @Injectable()
 export class SvgLoaderService extends AbstractCacheService<ShapePath[]> {

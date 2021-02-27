@@ -1,5 +1,6 @@
-import {Directive, EventEmitter, Input, Output} from '@angular/core';
-import {AbstractEmptyDirective} from '../../../object';
+import {Directive, EventEmitter, Input, Optional, Output, SkipSelf} from '@angular/core';
+import {AbstractEmptyDirective, AbstractObject3D, IconService} from '../../../object';
+import {RendererService} from '../../../renderer';
 
 @Directive()
 export abstract class AbstractServerActor extends AbstractEmptyDirective {
@@ -20,13 +21,7 @@ export abstract class AbstractServerActor extends AbstractEmptyDirective {
   actorClick = new EventEmitter<void>();
 
   @Input()
-  svgPattern = 'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/?/baseline.svg';
-
-  @Input()
-  svgName: string;
-
-  @Input()
-  svgNoHoles = true;
+  icon: string;
 
   color = 0xffffff;
 

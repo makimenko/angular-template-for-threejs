@@ -51,6 +51,9 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
       super.getObject().add(obj);
 
       this.rendererService.render();
+      setTimeout(() => {
+        this.rendererService.render();
+      }, 10);
     }).catch(err => {
       console.error(err);
     });

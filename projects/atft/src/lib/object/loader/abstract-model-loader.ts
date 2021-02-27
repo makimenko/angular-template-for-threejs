@@ -19,8 +19,9 @@ export abstract class AbstractModelLoader extends AbstractLazyObject3D {
    */
   @Input()
   public set model(newModelUrl: string) {
+    // console.log('AbstractModelLoader.model', newModelUrl);
     this._model = newModelUrl;
-    if (this.object && this._model !== newModelUrl) {
+    if (this.object) {
       super.startLoading();
     }
   }

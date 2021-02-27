@@ -109,27 +109,32 @@ export class TextMeshComponent extends AbstractLazyObject3D {
 
   protected getTextMesh(font: THREE.Font): THREE.Mesh {
     // console.log('TextMeshComponent.getTextMesh', this.text + ' / ' + this.name);
-    const geometry = new THREE.TextGeometry(this.text, {
-      font: font,
-      size: this.size,
-      height: this.height,
-      curveSegments: this.curveSegments,
-      bevelEnabled: this.bevelEnabled,
-      bevelThickness: this.bevelThickness,
-      bevelSize: this.bevelSize,
-      bevelOffset: this.bevelOffset,
-      bevelSegments: this.bevelOffset
-    });
+    if (this.text) {
+      const geometry = new THREE.TextGeometry(this.text, {
+        font: font,
+        size: this.size,
+        height: this.height,
+        curveSegments: this.curveSegments,
+        bevelEnabled: this.bevelEnabled,
+        bevelThickness: this.bevelThickness,
+        bevelSize: this.bevelSize,
+        bevelOffset: this.bevelOffset,
+        bevelSegments: this.bevelOffset
+      });
 
-    const material = this.getMaterial();
-    const mesh = new THREE.Mesh(geometry, material);
-    mesh.castShadow = this.castShadow;
-    mesh.receiveShadow = this.receiveShadow;
+      const material = this.getMaterial();
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.castShadow = this.castShadow;
+      mesh.receiveShadow = this.receiveShadow;
 
-    if (this.centered) {
-      fixCenter(mesh);
+      if (this.centered) {
+        fixCenter(mesh);
+      }
+      return mesh;
+    } else {
+      return new THREE.Mesh();
     }
-    return mesh;
+
   }
 
 

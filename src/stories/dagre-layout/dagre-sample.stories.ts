@@ -60,7 +60,7 @@ class StorybookDagreComponent {
       </atft-dagre-node>
 
       <atft-dagre-node name="api" composition="application">
-        <atft-server-stand-actor label="api" svgName="video_settings"
+        <atft-server-stand-actor label="api" icon="video_settings"
         ></atft-server-stand-actor>
       </atft-dagre-node>
 
