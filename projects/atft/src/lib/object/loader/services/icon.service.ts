@@ -6,6 +6,8 @@ const REPLACE_SYMBOL = '?';
 export interface IconSource {
   url: string;
   allowColorOverride: boolean;
+  isCCW: boolean;
+  noHoles: boolean;
 }
 
 @Injectable({
@@ -23,16 +25,35 @@ export class IconService {
   protected init() {
     this.registerProvider('a', {
       url: 'assets/svg/?.svg',
-      allowColorOverride: true
+      allowColorOverride: true,
+      isCCW: false,
+      noHoles: false
     });
     this.registerProvider('md', {
       url: 'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/?/baseline.svg',
-      allowColorOverride: true
+      allowColorOverride: true,
+      isCCW: false,
+      noHoles: false
     });
     this.registerProvider('az', {
       url: 'https://raw.githubusercontent.com/makimenko/files/master/azure-icons/?.svg',
-      allowColorOverride: false
+      allowColorOverride: false,
+      isCCW: false,
+      noHoles: false
     });
+    this.registerProvider('g', {
+      url: 'https://raw.githubusercontent.com/makimenko/files/master/google-cloud-icons/?.svg',
+      allowColorOverride: true,
+      isCCW: false,
+      noHoles: false
+    });
+    this.registerProvider('aws', {
+      url: 'https://raw.githubusercontent.com/makimenko/files/master/aws-icons/?.svg',
+      allowColorOverride: false,
+      isCCW: false,
+      noHoles: true
+    });
+
   }
 
   public registerProvider(key: string, source: IconSource) {
@@ -55,7 +76,9 @@ export class IconService {
     } else {
       return {
         url: icon,
-        allowColorOverride: true
+        allowColorOverride: true,
+        isCCW: false,
+        noHoles: false
       };
     }
   }
@@ -67,14 +90,18 @@ export class IconService {
       console.warn('Icon provider not found', provider);
       return {
         url: icon,
-        allowColorOverride: true
+        allowColorOverride: true,
+        isCCW: false,
+        noHoles: false
       };
     }
     const finalUrl = provider.url.replace(REPLACE_SYMBOL, icon);
     // console.log('IconService.getUrlByNamespace url', svgUrl);
     return {
       url: finalUrl,
-      allowColorOverride: provider.allowColorOverride
+      allowColorOverride: provider.allowColorOverride,
+      isCCW: provider.isCCW,
+      noHoles: provider.noHoles
     };
   }
 

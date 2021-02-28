@@ -29,9 +29,11 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   @Input()
   set icon(icon: string) {
     // console.log('SVGLoaderComponent.icon', icon);
-    const svg = this.iconService.getIconSource(icon);
-    this.model = svg.url;
-    if (!svg.allowColorOverride) {
+    const iconProvider = this.iconService.getIconSource(icon);
+    this.model = iconProvider.url;
+    this.isCCW = iconProvider.isCCW;
+    this.noHoles = iconProvider.noHoles;
+    if (!iconProvider.allowColorOverride) {
       this.overrideMaterialColor = undefined;
     }
   }
@@ -57,6 +59,12 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   @Input()
   centered = true;
 
+  @Input()
+  isCCW = false;
+
+  @Input()
+  noHoles = false;
+
   constructor(
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
@@ -75,7 +83,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
     for (const path of paths) {
       const color = (this._overrideMaterialColor ? appliedColor(this._overrideMaterialColor) : path.color);
       const material = appliedMaterial(color, this.material, this.depthWrite);
-      const shapes: Shape[] = path.toShapes(false, false);
+      const shapes: Shape[] = path.toShapes(this.isCCW, this.noHoles);
 
       for (const shape of shapes) {
         const geometry = new THREE.ShapeBufferGeometry(shape);
