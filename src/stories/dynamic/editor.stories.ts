@@ -59,8 +59,8 @@ class StorybookEditorComponent {
 
     const factory = this.resolver.resolveComponentFactory(ServerStandActorComponent);
     const componentRef = this.gridcontainer.createComponent(factory);
-    componentRef.instance.label = 'Server';
-    componentRef.instance.icon = 'a:language';
+    componentRef.instance.label = this.label;
+    componentRef.instance.icon = this.icon;
     componentRef.instance.translateX = this.x; // event.array[0];
     componentRef.instance.translateY = this.y; // event.array[1];
   }
