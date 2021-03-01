@@ -7,6 +7,38 @@ import {AbstractConnector} from './abstract-connector';
 import {AnimationService} from '../../animation';
 import {Subscription} from 'rxjs';
 
+var lineVertShader = `
+  attribute float lineDistance;
+  varying float vLineDistance;
+
+  void main() {
+    vLineDistance = lineDistance;
+    vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+    gl_Position = projectionMatrix * mvPosition;
+  }
+  `;
+
+var lineFragShader = `
+  uniform vec3 diffuse;
+  uniform float opacity;
+  uniform float time; // added time uniform
+
+  uniform float dashSize;
+  uniform float gapSize;
+  varying float vLineDistance;
+
+  void main() {
+		float totalSize = dashSize + gapSize;
+		float modulo = mod( vLineDistance + time, totalSize ); // time added to vLineDistance
+
+    if ( modulo > dashSize ) {
+      discard;
+    }
+
+    gl_FragColor = vec4( diffuse, opacity );
+  }
+  `;
+
 
 @Component({
   selector: 'atft-line-connector',
@@ -25,8 +57,11 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
 
   protected line: THREE.Line;
   private material: THREE.LineDashedMaterial;
-  private animationIncrement: 0.001;
+
   protected animation: Subscription;
+  protected time = 0;
+  protected timeScale = 10;
+  protected clock = new THREE.Clock();
 
   constructor(
     protected rendererService: RendererService,
@@ -40,19 +75,21 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
     this.geometry = this.getLineGeometry();
 
     if (this.animated) {
-
-      console.log('LineConnectorComponent.createConnectorObject dash');
-      this.material = new THREE.LineDashedMaterial({
-        color: appliedColor(this.materialColor),
-        dashSize: 1.2,
-        gapSize: 2,
-        scale: 1
+      this.material = new THREE.ShaderMaterial({
+        uniforms: {
+          diffuse: {value: new THREE.Color(appliedColor(this.materialColor))},
+          dashSize: {value: 4},
+          gapSize: {value: 1},
+          opacity: {value: 1.0},
+          time: {value: 0} // added uniform
+        },
+        vertexShader: lineVertShader,
+        fragmentShader: lineFragShader,
+        transparent: true
       });
 
       this.line = new THREE.Line(this.geometry, this.material);
-      this.line.computeLineDistances();
 
-      // console.log('MeshLineConnectorComponent.createConnectorObject animated');
       this.animate = this.animate.bind(this);
       this.animation = this.animationService.animate.subscribe(this.animate);
     } else {
@@ -73,11 +110,20 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
     this.rendererService.render();
   }
 
+  ngOnDestroy() {
+    super.ngOnDestroy();
+    this.animation.unsubscribe();
+  }
+
   private animate() {
     // console.log('MeshLineConnectorComponent.animate');
     if (this.material && this.material.uniforms) {
-      console.log('animate');
-      this.material.uniforms.dashOffset.value += this.animationIncrement;
+      const x = 1;
+      this.time += this.clock.getDelta();
+      this.material.uniforms.time.value = this.time * this.timeScale;
+
+      // console.log('animate');
+      // this.material.uniforms.dashOffset.value += this.animationIncrement;
     }
   }
 
