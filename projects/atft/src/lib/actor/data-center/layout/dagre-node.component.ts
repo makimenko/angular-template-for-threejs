@@ -15,7 +15,7 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
 
   @Input() composition: string;
 
-  @Input() translateZ = 1;
+  @Input() translateZ = 0;
 
   @ViewChild('container', {read: ViewContainerRef, static: true}) container;
 

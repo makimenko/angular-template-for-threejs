@@ -37,13 +37,15 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
     if (!this.source || !this.target) {
       throw new Error('AbstractConnector: source or target inputs are missing!');
     }
-    const geometry = new THREE.BufferGeometry();
-    const positions = [];
+
     const source = this.source.getObject().position;
     const target = this.target.getObject().position;
-    positions.push(source.x, source.y, source.z);
-    positions.push(target.x, target.y, target.z);
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+
+    const points = [];
+    points.push(new THREE.Vector3(source.x, source.y, source.z));
+    points.push(new THREE.Vector3(target.x, target.y, target.z));
+
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
     return geometry;
   }
 

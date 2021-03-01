@@ -2,7 +2,7 @@ import {Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf} from 
 import * as dagre from 'dagre';
 import * as THREE from 'three';
 import {AnimationService} from '../../../animation';
-import {AbstractObject3D, MeshLineConnectorComponent} from '../../../object';
+import {AbstractObject3D, LineConnectorComponent, MeshLineConnectorComponent} from '../../../object';
 import {RendererService} from '../../../renderer';
 import {provideParent} from '../../../util';
 import {DagreLayoutComponent} from './dagre-layout.component';
@@ -13,9 +13,8 @@ import {Subscription} from 'rxjs';
   providers: [provideParent(DagreEdgeComponent)],
   template: '<ng-content></ng-content>'
 })
-export class DagreEdgeComponent extends MeshLineConnectorComponent implements OnInit, OnDestroy {
+export class DagreEdgeComponent extends LineConnectorComponent implements OnInit, OnDestroy {
 
-  @Input() animated = true;
   @Input() from: string;
   @Input() to: string;
 
