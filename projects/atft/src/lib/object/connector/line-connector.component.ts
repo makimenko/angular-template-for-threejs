@@ -75,12 +75,13 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
     this.geometry = this.getLineGeometry();
 
     if (this.animated) {
+      console.log('LineConnectorComponent.createConnectorObject animated');
       this.material = new THREE.ShaderMaterial({
         uniforms: {
           diffuse: {value: new THREE.Color(appliedColor(this.materialColor))},
           dashSize: {value: 4},
           gapSize: {value: 1},
-          opacity: {value: 1.0},
+          opacity: {value: 1},
           time: {value: 0} // added uniform
         },
         vertexShader: lineVertShader,
@@ -89,7 +90,6 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
       });
 
       this.line = new THREE.Line(this.geometry, this.material);
-
       this.animate = this.animate.bind(this);
       this.animation = this.animationService.animate.subscribe(this.animate);
     } else {
@@ -104,26 +104,25 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
   }
 
   updateLineGeometry(): void {
+    console.log('LineConnectorComponent.updateLineGeometry');
     this.geometry = this.getLineGeometry();
     this.line.geometry = this.geometry;
-    this.line.computeLineDistances();
     this.rendererService.render();
   }
 
   ngOnDestroy() {
     super.ngOnDestroy();
-    this.animation.unsubscribe();
+    if (this.animation) {
+      this.animation.unsubscribe();
+    }
   }
 
   private animate() {
-    // console.log('MeshLineConnectorComponent.animate');
+    // console.log('LineConnectorComponent.animate');
     if (this.material && this.material.uniforms) {
-      const x = 1;
       this.time += this.clock.getDelta();
-      this.material.uniforms.time.value = this.time * this.timeScale;
-
-      // console.log('animate');
-      // this.material.uniforms.dashOffset.value += this.animationIncrement;
+      this.material.uniforms.time.value = -1 * this.time * this.timeScale;
+      this.line.computeLineDistances();
     }
   }
 

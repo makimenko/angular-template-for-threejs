@@ -62,37 +62,29 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
     <!-- Connectors / Edges: -->
     <atft-empty translateZ="0.1">
-      <atft-mesh-line-connector [source]="ad1" [target]="ad2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
-      </atft-mesh-line-connector>
-      <atft-mesh-line-connector [source]="ad2" [target]="lb" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
-      </atft-mesh-line-connector>
-      <atft-mesh-line-connector [source]="ws1" [target]="lb" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
-      </atft-mesh-line-connector>
+      <atft-line-connector [source]="ad1" [target]="ad2" materialColor="0xffffff" translateZ="1" [animated]="true">
+      </atft-line-connector>
+      <atft-line-connector [source]="ad2" [target]="lb" materialColor="0xffffff" translateZ="1" [animated]="true">
+      </atft-line-connector>
+      <atft-line-connector [source]="ws1" [target]="lb" materialColor="0xffffff" translateZ="1" [animated]="true">
+      </atft-line-connector>
 
-      <atft-mesh-line-connector [source]="lb" [target]="fs1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
-      </atft-mesh-line-connector>
-      <atft-mesh-line-connector [source]="lb" [target]="fs2" materialColor="0xff1111" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="-0.0005">
-      </atft-mesh-line-connector>
+      <atft-line-connector [source]="lb" [target]="fs1" materialColor="0xffffff" translateZ="1" [animated]="true">
+      </atft-line-connector>
+      <atft-line-connector [source]="lb" [target]="fs2" materialColor="0xff1111" translateZ="1" [animated]="true">
+      </atft-line-connector>
 
 
-      <atft-mesh-line-connector [source]="fs1" [target]="bs1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
-      </atft-mesh-line-connector>
-      <atft-mesh-line-connector [source]="fs2" [target]="bs2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
-      </atft-mesh-line-connector>
+      <atft-line-connector [source]="fs1" [target]="bs1" materialColor="0xffffff" translateZ="1" [animated]="true">
+          [transparent]="true" [animated]="true">
+      </atft-line-connector>
+      <atft-line-connector [source]="fs2" [target]="bs2" materialColor="0xffffff" translateZ="1" [animated]="true">
+      </atft-line-connector>
 
-      <atft-mesh-line-connector [source]="bs1" [target]="db1" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
-      </atft-mesh-line-connector>
-      <atft-mesh-line-connector [source]="bs2" [target]="db2" materialColor="0xffffff" [lineWidth]="1" translateZ="1"
-          [transparent]="true" opacity="0.4" [animated]="true" [animationIncrement]="animationIncrement">
-      </atft-mesh-line-connector>
+      <atft-line-connector [source]="bs1" [target]="db1" materialColor="0xffffff" translateZ="1" [animated]="true">
+      </atft-line-connector>
+      <atft-line-connector [source]="bs2" [target]="db2" materialColor="0xffffff" translateZ="1" [animated]="true">
+      </atft-line-connector>
 
      </atft-empty>
    </atft-empty>

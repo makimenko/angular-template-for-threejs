@@ -2,7 +2,7 @@ import {Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf} from 
 import * as dagre from 'dagre';
 import * as THREE from 'three';
 import {AnimationService} from '../../../animation';
-import {AbstractObject3D, LineConnectorComponent, MeshLineConnectorComponent} from '../../../object';
+import {AbstractObject3D, LineConnectorComponent} from '../../../object';
 import {RendererService} from '../../../renderer';
 import {provideParent} from '../../../util';
 import {DagreLayoutComponent} from './dagre-layout.component';
@@ -42,6 +42,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
   }
 
   protected getLineGeometry(): THREE.BufferGeometry {
+    console.log('DagreEdgeComponent.getLineGeometry');
     if (this.source || this.target) {
       console.warn('DagreEdgeComponent.getLineGeometry source/target inputs ignored. Please use from/to instead');
     }

@@ -47,9 +47,8 @@ abstract class AbstractCameraRotation implements OnDestroy {
   </atft-empty>
   <atft-empty #b [translateY]="-50" [translateX]="(-i)+50" [translateZ]="5-i">
   </atft-empty>
-  <atft-mesh-line-connector [source]="a" [target]="b" materialColor="0xff0000" [animated]="true" [animationIncrement]="0.003"
-    transparent="false">
-  </atft-mesh-line-connector>
+  <atft-line-connector [source]="a" [target]="b" materialColor="0xff0000" [animated]="true" transparent="false">
+  </atft-line-connector>
   </div>
   `)
 })
