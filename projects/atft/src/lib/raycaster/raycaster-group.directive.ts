@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 export interface RaycasterEmitEvent {
   component: AbstractObject3D<any>;
-  face?: THREE.Face3;
+  face?: THREE.Face;
 }
 
 /**

@@ -45,18 +45,21 @@ var lineFragShader = `
   providers: [provideParent(LineConnectorComponent)],
   template: '<ng-content></ng-content>'
 })
-export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
+export class LineConnectorComponent extends AbstractConnector {
 
   @Input()
   materialColor = 0xffffff;
 
   @Input() animated = true;
+  @Input() dashSize = 4;
+  @Input() gapSize = 1;
+  @Input() opacity = 1;
 
   // TODO: move to abstract?
   private geometry: THREE.BufferGeometry;
 
   protected line: THREE.Line;
-  private material: THREE.LineDashedMaterial;
+  private material: THREE.ShaderMaterial;
 
   protected animation: Subscription;
   protected time = 0;
@@ -71,11 +74,15 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
     super(rendererService, parent);
   }
 
-  public createConnectorObject(): THREE.Line {
+  protected newObject3DInstance(): THREE.Object3D {
+    return super.newObject3DInstance();
+  }
+
+  public createLineMesh(): THREE.Line {
     this.geometry = this.getLineGeometry();
 
     if (this.animated) {
-      console.log('LineConnectorComponent.createConnectorObject animated');
+      // console.log('LineConnectorComponent.createLineMesh animated');
       this.material = new THREE.ShaderMaterial({
         uniforms: {
           diffuse: {value: new THREE.Color(appliedColor(this.materialColor))},
@@ -93,7 +100,7 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
       this.animate = this.animate.bind(this);
       this.animation = this.animationService.animate.subscribe(this.animate);
     } else {
-      console.log('LineConnectorComponent.createConnectorObject solid');
+      // console.log('LineConnectorComponent.createLineMesh solid');
       const material = new THREE.LineBasicMaterial({
         color: appliedColor(this.materialColor)
       });
@@ -104,7 +111,7 @@ export class LineConnectorComponent extends AbstractConnector<THREE.Line> {
   }
 
   updateLineGeometry(): void {
-    console.log('LineConnectorComponent.updateLineGeometry');
+    // console.log('LineConnectorComponent.updateLineGeometry');
     this.geometry = this.getLineGeometry();
     this.line.geometry = this.geometry;
     this.rendererService.render();

@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import {AnimationService} from '../../../animation';
 import {AbstractObject3D, LineConnectorComponent} from '../../../object';
 import {RendererService} from '../../../renderer';
-import {provideParent} from '../../../util';
+import {appliedColor, provideParent} from '../../../util';
 import {DagreLayoutComponent} from './dagre-layout.component';
 import {Subscription} from 'rxjs';
 
@@ -21,6 +21,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
   public positions: Array<number>;
   protected dagreLayout: DagreLayoutComponent;
   protected graphUpdated: Subscription;
+  private endMesh: THREE.Mesh;
 
 
   constructor(
@@ -61,6 +62,17 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     this.addEdge();
   }
 
+
+  protected newObject3DInstance(): THREE.Object3D {
+    const lineObject = super.newObject3DInstance();
+
+    console.log('DagreEdgeComponent.newObject3DInstance');
+    const geom = new THREE.CircleGeometry(0.7, 16);
+    const material = new THREE.MeshBasicMaterial({color: appliedColor(this.materialColor)});
+    this.endMesh = new THREE.Mesh(geom, material);
+    lineObject.add(this.endMesh);
+    return lineObject;
+  }
 
   protected addEdge() {
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
@@ -123,16 +135,34 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
       if (edge.name === this.name) {
         this.positions = [];
         // console.log('DagreEdgeComponent.syncGraphEdges: edge.points', edge.points);
+        let start: THREE.Vector3;
+        let end: THREE.Vector3;
         edge.points.forEach(p => {
           if (!Number.isNaN(p.x) && !Number.isNaN(p.y)) {
             // console.log('x=' + p.x + ', y=' + p.y);
+            if (!start) {
+              start = new THREE.Vector3(p.x, p.y, 0);
+            }
             this.positions.push(p.x, p.y, 0);
+            end = new THREE.Vector3(p.x, p.y, 0);
           }
         });
+        this.updateEndOfLine(start, end);
         this.updateLineGeometry();
       }
     });
   }
 
+
+  private updateEndOfLine(start: THREE.Vector3, end: THREE.Vector3) {
+    console.log('DagreEdgeComponent.updateEndOfLine', this.endMesh)
+    if (this.endMesh) {
+      this.endMesh.position.set(
+        end.x || 0,
+        end.y || 0,
+        end.z || 0
+      );
+    }
+  }
 
 }
