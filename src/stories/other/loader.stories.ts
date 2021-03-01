@@ -64,9 +64,22 @@ class StorybookExternalSVGLoaderComponent {
     <atft-svg-loader model="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/web_asset/outline.svg">
     </atft-svg-loader>
 
-    <atft-svg-loader model="assets/Azure_Public_Service_Icons/Icons/App Services/10035-icon-service-App-Services.svg"
-    [translateY]="20">
+    <atft-svg-loader model="https://raw.githubusercontent.com/makimenko/files/master/azure-icons/App-Services.svg" [translateY]="20">
     </atft-svg-loader>
+
+    <atft-svg-loader model="https://raw.githubusercontent.com/makimenko/files/master/google-cloud-icons/Stackdriver.svg" [translateY]="40"
+    [scaleX]="0.04" [scaleY]="0.04">
+    </atft-svg-loader>
+
+    <atft-svg-loader model="https://raw.githubusercontent.com/makimenko/files/master/google-cloud-icons/Stackdriver.svg" [translateY]="40"
+    [scaleX]="0.04" [scaleY]="0.04">
+    </atft-svg-loader>
+
+    <atft-svg-loader model="https://raw.githubusercontent.com/makimenko/files/master/aws-icons/Device-Farm.svg" [translateY]="60"
+    [scaleX]="0.25" [scaleY]="0.25">
+    </atft-svg-loader>
+
+
 </atft-empty>
   `)
 })
