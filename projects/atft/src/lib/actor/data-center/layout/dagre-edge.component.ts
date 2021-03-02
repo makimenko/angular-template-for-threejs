@@ -14,6 +14,12 @@ export enum LineEndType {
   arrow = 'arrow'
 }
 
+export enum EdgeType {
+  sequence = 'sequence',
+  association = 'association',
+  message = 'message',
+  line = 'line'
+}
 
 @Component({
   selector: 'atft-dagre-edge',
@@ -24,16 +30,56 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
 
   @Input() from: string;
   @Input() to: string;
-  @Input() startType: LineEndType = LineEndType.arrow;
+  @Input() startType: LineEndType = LineEndType.circle;
   @Input() endType: LineEndType = LineEndType.arrow;
+
+  @Input()
+  set type(val: EdgeType) {
+    switch (val) {
+
+      case EdgeType.association:
+        this.animated = false;
+        this.solid = false;
+        this.startType = LineEndType.none;
+        this.endType = LineEndType.arrow;
+        break;
+
+      case EdgeType.message:
+        this.animated = true;
+        this.solid = false;
+        this.dashSize = 1;
+        this.startType = LineEndType.circle;
+        this.endType = LineEndType.arrow;
+        break;
+
+      case EdgeType.line:
+        this.animated = false;
+        this.solid = true;
+        this.startType = LineEndType.none;
+        this.endType = LineEndType.none;
+        break;
+
+      case EdgeType.sequence:
+        this.animated = false;
+        this.solid = true;
+        this.startType = LineEndType.none;
+        this.endType = LineEndType.arrow;
+        break;
+
+      default:
+        this.animated = true;
+        this.solid = false;
+        this.dashSize = 4;
+        this.startType = LineEndType.circle;
+        this.endType = LineEndType.arrow;
+    }
+  }
 
   protected lineStart: THREE.Mesh;
   protected lineEnd: THREE.Mesh;
-
-  public positions: Array<number>;
+  protected positions: Array<number>;
   protected dagreLayout: DagreLayoutComponent;
   protected graphUpdated: Subscription;
-
 
   constructor(
     protected rendererService: RendererService,
@@ -196,14 +242,13 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
 
   private updateEnds(positions: number[]) {
     const p = this.positions;
-
-    if (p?.length >= (3 * 3)) {
-
+    if (p?.length >= 9) {
+      // Beginning / Start of the line
       this.updateEnd(this.lineStart,
         new THREE.Vector3(p[3], p[4], p[5]),
         new THREE.Vector3(p[0], p[1], p[2])
       );
-
+      // Target / End of the line
       this.updateEnd(this.lineEnd,
         new THREE.Vector3(p[p.length - 6], p[p.length - 5], p[p.length - 4]),
         new THREE.Vector3(p[p.length - 3], p[p.length - 2], p[p.length - 1])

@@ -12,15 +12,15 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
-import {RendererService} from '../../../renderer';
-import {provideParent} from '../../../util';
 import * as yaml from 'yaml';
-import {Composition, Edge, GraphModel, Node} from './dagre-model';
-import {ServerBarrelActorComponent, ServerCompactActorComponent, ServerIconActorComponent, ServerStandActorComponent} from '../server';
-import {DagreNodeComponent} from './dagre-node.component';
-import {DagreEdgeComponent} from './dagre-edge.component';
-import {DagreCompositionComponent} from './dagre-composition.component';
+import { AbstractEmptyDirective, AbstractObject3D } from '../../../object';
+import { RendererService } from '../../../renderer';
+import { provideParent } from '../../../util';
+import { ServerBarrelActorComponent, ServerCompactActorComponent, ServerIconActorComponent, ServerStandActorComponent } from '../server';
+import { DagreCompositionComponent } from './dagre-composition.component';
+import { DagreEdgeComponent } from './dagre-edge.component';
+import { Composition, Edge, GraphModel, Node } from './dagre-model';
+import { DagreNodeComponent } from './dagre-node.component';
 
 
 function onlyUnique(value, index, self) {
@@ -39,7 +39,7 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
 
   @Output() status = new EventEmitter<boolean>();
 
-  @ViewChild('container', {read: ViewContainerRef}) container;
+  @ViewChild('container', { read: ViewContainerRef }) container;
 
   private instances = [];
 
@@ -127,6 +127,9 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     const edgeRef = this.container.createComponent(factory);
     edgeRef.instance.from = edge.from;
     edgeRef.instance.to = edge.to;
+    if (edge.type) {
+      edgeRef.instance.type = edge.type;
+    }
     this.instances.push(edgeRef);
   }
 

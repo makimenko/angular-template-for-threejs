@@ -57,15 +57,16 @@ export class LineConnectorComponent extends AbstractConnector implements OnDestr
   materialColor = 0xffffff;
 
 
+  @Input() solid = false;
   @Input() dashSize = 4;
-  @Input() gapSize = 1;
+  @Input() gapSize = 0.5;
   @Input() opacity = 1;
   @Input() lineType: LineType = LineType.dashed;
 
   @Input() animated = true;
   protected animation: Subscription;
   protected time = 0;
-  protected timeScale = 10;
+  protected timeScale = 5;
   protected clock = new THREE.Clock();
 
   protected line: THREE.Line;
@@ -82,14 +83,20 @@ export class LineConnectorComponent extends AbstractConnector implements OnDestr
   public createLineMesh(): THREE.Line {
     const geometry = this.getLineGeometry();
 
-    if (this.animated) {
+    if (this.solid) {
+      // console.log('LineConnectorComponent.createLineMesh solid');
+      const material = new THREE.LineBasicMaterial({
+        color: appliedColor(this.materialColor)
+      });
+      this.line = new THREE.Line(geometry, material);
+    } else {
       // console.log('LineConnectorComponent.createLineMesh animated');
       const material = new THREE.ShaderMaterial({
         uniforms: {
           diffuse: { value: new THREE.Color(appliedColor(this.materialColor)) },
-          dashSize: { value: 4 },
-          gapSize: { value: 0.5 },
-          opacity: { value: 1 },
+          dashSize: { value: this.dashSize },
+          gapSize: { value: this.gapSize },
+          opacity: { value: this.opacity },
           time: { value: 0 } // added uniform
         },
         vertexShader: lineVertShader,
@@ -98,14 +105,11 @@ export class LineConnectorComponent extends AbstractConnector implements OnDestr
       });
 
       this.line = new THREE.Line(geometry, material);
-      this.animate = this.animate.bind(this);
-      this.animation = this.animationService.animate.subscribe(this.animate);
-    } else {
-      // console.log('LineConnectorComponent.createLineMesh solid');
-      const material = new THREE.LineBasicMaterial({
-        color: appliedColor(this.materialColor)
-      });
-      this.line = new THREE.Line(geometry, material);
+
+      if (this.animated) {
+        this.animate = this.animate.bind(this);
+        this.animation = this.animationService.animate.subscribe(this.animate);
+      }
     }
 
     return this.line;
@@ -115,6 +119,7 @@ export class LineConnectorComponent extends AbstractConnector implements OnDestr
     // console.log('LineConnectorComponent.updateLineGeometry');
     const geometry = this.getLineGeometry();
     this.line.geometry = geometry;
+    this.line.computeLineDistances();
     this.rendererService.render();
   }
 
