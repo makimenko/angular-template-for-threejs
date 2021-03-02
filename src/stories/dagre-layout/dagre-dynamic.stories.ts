@@ -31,10 +31,14 @@ nodes:
 edges:
   - from: spa
     to: api
+    type: sequence
   - from: api
     to: db2
+    type: association
   - from: api
     to: db1
+    type: message
+    color: 0xff0000
 `;
 
 @Component({

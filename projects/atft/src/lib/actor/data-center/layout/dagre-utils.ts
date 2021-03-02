@@ -32,7 +32,7 @@ export class DagreUtils {
   public static updateBaseInfo(g: dagre.graphlib.Graph, baseInfo: Array<BaseInfo>) {
     if (baseInfo) {
       baseInfo.forEach((node: Node) => {
-        g.setNode(node.name, {label: node.label, width: 15, height: 15});
+        g.setNode(node.name, {label: node.label, width: 18, height: 18});
         if (node.composition) {
           g.setParent(node.name, node.composition);
         }

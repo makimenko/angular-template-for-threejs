@@ -50,8 +50,7 @@ class StorybookSVGLoaderComponent {
 @Component({
   template: axesSceneWrapper(`
     <atft-svg-loader model="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/web_asset/outline.svg"
-    overrideMaterialColor="0xff0000"
-    >
+    overrideMaterialColor="0xff0000">
     </atft-svg-loader>
   `)
 })
@@ -59,6 +58,34 @@ class StorybookExternalSVGLoaderComponent {
 
 }
 
+@Component({
+  template: axesSceneWrapper(`
+<atft-empty>
+    <atft-svg-loader model="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/web_asset/outline.svg">
+    </atft-svg-loader>
+
+    <atft-svg-loader model="https://raw.githubusercontent.com/makimenko/files/master/azure-icons/App-Services.svg" [translateY]="20">
+    </atft-svg-loader>
+
+    <atft-svg-loader model="https://raw.githubusercontent.com/makimenko/files/master/google-cloud-icons/Stackdriver.svg" [translateY]="40"
+    [scaleX]="0.04" [scaleY]="0.04">
+    </atft-svg-loader>
+
+    <atft-svg-loader model="https://raw.githubusercontent.com/makimenko/files/master/google-cloud-icons/Stackdriver.svg" [translateY]="40"
+    [scaleX]="0.04" [scaleY]="0.04">
+    </atft-svg-loader>
+
+    <atft-svg-loader model="https://raw.githubusercontent.com/makimenko/files/master/aws-icons/Device-Farm.svg" [translateY]="60"
+    [scaleX]="0.25" [scaleY]="0.25">
+    </atft-svg-loader>
+
+
+</atft-empty>
+  `)
+})
+class StorybookDifferentSVGLoaderComponent {
+
+}
 
 export default {
   title: 'Other/Loader',
@@ -88,6 +115,11 @@ export const SvgLoader = (args) => ({
 
 export const ExternalSvgLoader = (args) => ({
   component: StorybookExternalSVGLoaderComponent,
+  props: args
+});
+
+export const DifferentSvgLoader = (args) => ({
+  component: StorybookDifferentSVGLoaderComponent,
   props: args
 });
 

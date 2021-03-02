@@ -15,7 +15,7 @@ export const worldSceneWrapper = (content: string) => `
           <atft-plane-mesh name="ground" height="2000" width="2000" materialColor="0x999999" [depthWrite]="true" [castShadow]="false"
             [receiveShadow]="true" heightSegments="10" widthSegments="10" translateZ="-0.1">
             </atft-plane-mesh>
-              <!--atft-axes-helper size=1000></atft-axes-helper-->
+              <!--atft-axes-helper-- size=1000></atft-axes-helper-->
               <atft-hemisphere-light name="hemi-light" skyColor="0xffffff" groundColor="0xffffff"  intensity="0.3"
                 translateX="-20" translateY="-20" translateZ="100">
               </atft-hemisphere-light>

@@ -15,7 +15,7 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
 
   @Input() composition: string;
 
-  @Input() translateZ = 1;
+  @Input() translateZ = 0;
 
   @ViewChild('container', {read: ViewContainerRef, static: true}) container;
 
@@ -100,7 +100,7 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
   }
 
   protected syncGraph() {
-    // console.log('DagreNodeComponent.update');
+    // console.log('DagreNodeComponent.syncGraph');
     if (this.object) {
       this.syncGraphNodes(this.dagreLayout.getGraph());
     }

@@ -37,7 +37,7 @@ import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 })
 class StorybookEditorComponent {
 
-  svgName: string;
+  icon: string;
   label: string;
   x = 0;
   y = 0;
@@ -59,8 +59,8 @@ class StorybookEditorComponent {
 
     const factory = this.resolver.resolveComponentFactory(ServerStandActorComponent);
     const componentRef = this.gridcontainer.createComponent(factory);
-    componentRef.instance.label = 'Server';
-    componentRef.instance.svgName = 'language';
+    componentRef.instance.label = this.label;
+    componentRef.instance.icon = this.icon;
     componentRef.instance.translateX = this.x; // event.array[0];
     componentRef.instance.translateY = this.y; // event.array[1];
   }
@@ -82,17 +82,19 @@ export default {
     })
   ],
   args: {
-    svgName: 'idea',
+    icon: 'a:idea',
     label: 'Workstation'
   },
   argTypes: {
-    svgName: {
+    icon: {
       description: 'Please choose SVG file from assets',
       control: {
         type: 'select', options: [
-          'idea',
-          'upload',
-          'grid-world'
+          'a:idea',
+          'a:upload',
+          'a:grid-world',
+          'md:alarm_on',
+          'alarm_off'
         ]
       }
     },

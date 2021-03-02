@@ -20,13 +20,7 @@ export abstract class AbstractServerActor extends AbstractEmptyDirective {
   actorClick = new EventEmitter<void>();
 
   @Input()
-  svgPattern = 'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/?/baseline.svg';
-
-  @Input()
-  svgName: string;
-
-  @Input()
-  svgNoHoles = true;
+  icon: string;
 
   color = 0xffffff;
 

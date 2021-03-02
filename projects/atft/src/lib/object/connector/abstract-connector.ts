@@ -4,7 +4,7 @@ import {AbstractObject3D} from '../abstract-object-3d';
 import {Subscription} from 'rxjs';
 
 @Directive()
-export abstract class AbstractConnector<T extends THREE.Object3D> extends AbstractObject3D<T> implements OnDestroy {
+export abstract class AbstractConnector extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
 
   @Input()
   source: AbstractObject3D<THREE.Object3D>;
@@ -15,12 +15,12 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
   protected sourceSub: Subscription;
   protected targetSub: Subscription;
 
-  protected newObject3DInstance(): T {
-    const mesh = this.createConnectorObject();
+  protected newObject3DInstance(): THREE.Object3D {
+    const line = this.createLineMesh();
     if (this.source && this.target) {
       this.watchObjects();
     }
-    return mesh;
+    return line;
   }
 
   private watchObjects() {
@@ -37,13 +37,15 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
     if (!this.source || !this.target) {
       throw new Error('AbstractConnector: source or target inputs are missing!');
     }
-    const geometry = new THREE.BufferGeometry();
-    const positions = [];
+
     const source = this.source.getObject().position;
     const target = this.target.getObject().position;
-    positions.push(source.x, source.y, source.z);
-    positions.push(target.x, target.y, target.z);
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+
+    const points = [];
+    points.push(new THREE.Vector3(source.x, source.y, source.z));
+    points.push(new THREE.Vector3(target.x, target.y, target.z));
+
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
     return geometry;
   }
 
@@ -58,7 +60,7 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
   /**
    * Create line mesh
    */
-  abstract createConnectorObject(): T;
+  abstract createLineMesh(): THREE.Line;
 
   /**
    * If at least one line end (source or target object)  changed, then line geoetry should be updated as well

@@ -1,13 +1,11 @@
-import { Component, Input, Optional, SkipSelf } from '@angular/core';
-
+import {Component, Input, Optional, SkipSelf} from '@angular/core';
+import {RendererService} from '../../renderer/renderer.service';
+import {appliedColor, appliedMaterial, fixCenter, provideParent, scaleToFit} from '../../util';
+import {AbstractObject3D} from '../abstract-object-3d';
+import {AbstractModelLoader} from './abstract-model-loader';
+import {IconService, SvgLoaderService} from './services';
 import * as THREE from 'three';
-import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader';
-import { RendererService } from '../../renderer/renderer.service';
-import { appliedColor, appliedMaterial, provideParent } from '../../util';
-import { fixCenter } from '../../util/fix-center';
-import { scaleToFit } from '../../util/scale-to-fit';
-import { AbstractObject3D } from '../abstract-object-3d';
-import { AbstractModelLoader } from './abstract-model-loader';
+import {Shape} from 'three';
 
 @Component({
   selector: 'atft-svg-loader',
@@ -23,9 +21,26 @@ export class SVGLoaderComponent extends AbstractModelLoader {
 
   set overrideMaterialColor(value: number) {
     this._overrideMaterialColor = value;
-    this.startLoading();
+    if (this.object) {
+      this.startLoading();
+    }
   }
 
+  @Input()
+  set icon(icon: string) {
+    // console.log('SVGLoaderComponent.icon', icon);
+    const iconProvider = this.iconService.getIconSource(icon);
+    this.model = iconProvider.url;
+    this.isCCW = iconProvider.isCCW;
+    this.noHoles = iconProvider.noHoles;
+    if (!iconProvider.allowColorOverride) {
+      this.overrideMaterialColor = undefined;
+    }
+  }
+
+  get icon(): string {
+    return this.model;
+  }
   private _overrideMaterialColor: number = undefined;
 
 
@@ -33,7 +48,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   material = 'basic';
 
   @Input()
-  depthWrite = true;
+  depthWrite = false;
 
   @Input()
   maxX: number;
@@ -44,49 +59,47 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   @Input()
   centered = true;
 
-  private loader = new SVGLoader();
+  @Input()
+  isCCW = false;
+
+  @Input()
+  noHoles = false;
 
   constructor(
     protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected svgLoader: SvgLoaderService,
+    protected iconService: IconService
   ) {
     super(rendererService, parent);
   }
 
-  protected async loadLazyObject() {
-    // console.log('ObjectLoaderComponent.loadLazyObject');
-    return new Promise<THREE.Object3D>((resolve, reject) => {
-      this.loader.load(this.model, data => {
-          const paths = data.paths;
-          const group = new THREE.Group();
+  protected async loadLazyObject(): Promise<THREE.Object3D> {
+    // console.log('SVGLoaderComponent.loadLazyObject', this.model);
 
-          for (let i = 0; i < paths.length; i++) {
-            // NOTE: It seems that ShapePath does not includes typed color, cast to any as workaround
-            const path: any = paths[i];
-            const color = (this._overrideMaterialColor ? appliedColor(this._overrideMaterialColor) : path.color);
-            const material = appliedMaterial(color, this.material, this.depthWrite);
-            const shapes = path.toShapes(false, false);
+    const paths = await this.svgLoader.load(this.model);
+    const group = new THREE.Group();
 
-            for (let j = 0; j < shapes.length; j++) {
-              const shape = shapes[j];
-              const geometry = new THREE.ShapeBufferGeometry(shape);
-              const mesh = new THREE.Mesh(geometry, material);
-              group.add(mesh);
-            }
-          }
+    for (const path of paths) {
+      const color = (this._overrideMaterialColor ? appliedColor(this._overrideMaterialColor) : path.color);
+      const material = appliedMaterial(color, this.material, this.depthWrite);
+      const shapes: Shape[] = path.toShapes(this.isCCW, this.noHoles);
 
-          if (this.maxX || this.maxY) {
-            scaleToFit(group, new THREE.Vector3(this.maxX, this.maxY, 0));
-          }
-          if (this.centered) {
-            fixCenter(group);
-          }
+      for (const shape of shapes) {
+        const geometry = new THREE.ShapeBufferGeometry(shape);
+        const mesh = new THREE.Mesh(geometry, material);
+        group.add(mesh);
+      }
+    }
 
-          resolve(group);
-        },
-        undefined,
-        reject);
-    });
+    if (this.maxX || this.maxY) {
+      scaleToFit(group, new THREE.Vector3(this.maxX, this.maxY, 0));
+    }
+    if (this.centered) {
+      fixCenter(group);
+    }
+
+    return group;
   }
 
 

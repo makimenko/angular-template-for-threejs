@@ -16,7 +16,7 @@ import {APP_BASE_HREF} from '@angular/common';
 // ======================================================================
 @Component({
   template: worldSceneWrapper(`
-    <atft-dagre-layout [deepScan]="true">
+    <atft-dagre-layout>
         <atft-dagre-node name="spa">
             <atft-server-stand-actor label="spa" (actorClick)="showSpaDetails()"></atft-server-stand-actor>
         </atft-dagre-node>

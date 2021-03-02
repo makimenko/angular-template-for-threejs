@@ -60,7 +60,7 @@ class StorybookDagreComponent {
       </atft-dagre-node>
 
       <atft-dagre-node name="api" composition="application">
-        <atft-server-stand-actor label="api" svgName="video_settings"
+        <atft-server-stand-actor label="api" icon="video_settings"
         ></atft-server-stand-actor>
       </atft-dagre-node>
 
@@ -122,7 +122,7 @@ export default {
       }
     },
     rankdir: {
-      description: 'Direction for rank nodes. Can be TB, BT, LR, or RL, where T = top, B = bottom, L = left, and R = right.',
+      description: 'Direction for rank nodes. Can be TB, BT, LR, or RL, where V = top, B = bottom, L = left, and R = right.',
       control: {
         type: 'select', options: [
           'TB',

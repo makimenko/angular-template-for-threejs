@@ -2,10 +2,11 @@ import {AfterViewInit, Directive, EventEmitter, OnDestroy, Output} from '@angula
 import {AbstractObject3D} from '../object/abstract-object-3d';
 import {RaycasterService} from './raycaster.service';
 import {RaycasterEvent} from './raycaster-event';
+import * as THREE from 'three';
 
 export interface RaycasterEmitEvent {
   component: AbstractObject3D<any>;
-  face?: THREE.Face3;
+  face?: THREE.Face;
 }
 
 /**

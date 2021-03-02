@@ -27,15 +27,14 @@ import {GraphModel} from './dagre-model';
 })
 export class DagreLayoutComponent extends AbstractEmptyDirective implements AfterViewInit, OnChanges, OnDestroy, AfterContentInit {
 
-  @Input() align = 'DR';
-  @Input() rankdir = 'TB';
+  @Input() align = 'DL';
+  @Input() rankdir = 'BT';
   @Input() nodesep = 15;
   @Input() edgesep = 1;
   @Input() ranksep = 15;
   @Input() marginx = 0;
   @Input() marginy = 0;
   @Input() ranker = 'network-simplex';
-  @Input() deepScan = false;
 
   @Input() centered = true;
 
@@ -100,7 +99,7 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
 
   public ngOnChanges(changes: SimpleChanges) {
     super.ngOnChanges(changes);
-    // console.log('AbstractObject3D.ngOnChanges', this.name);
+    // console.log('DagreLayoutComponent.ngOnChanges', this.name);
     if (!this.object) {
       return;
     }
