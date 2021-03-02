@@ -1,5 +1,6 @@
 import {RendererService} from '../../renderer/renderer.service';
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import { FontService } from '../loader/services';
 import {TextMeshComponent} from './text-mesh.component';
 import {StatsService} from '../../stats';
 
@@ -15,7 +16,8 @@ describe('text', () => {
         ],
         providers: [
           StatsService,
-          RendererService
+          RendererService,
+          FontService
         ]
       });
       fixture = TestBed.createComponent(TextMeshComponent);
