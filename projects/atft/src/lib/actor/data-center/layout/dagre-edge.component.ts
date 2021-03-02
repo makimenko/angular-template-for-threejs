@@ -1,12 +1,13 @@
-import {Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf} from '@angular/core';
+import { Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf } from '@angular/core';
 import * as dagre from 'dagre';
+import { Subscription } from 'rxjs';
 import * as THREE from 'three';
-import {AnimationService} from '../../../animation';
-import {AbstractObject3D, LineConnectorComponent} from '../../../object';
-import {RendererService} from '../../../renderer';
-import {appliedColor, provideParent} from '../../../util';
-import {DagreLayoutComponent} from './dagre-layout.component';
-import {Subscription} from 'rxjs';
+import { AnimationService } from '../../../animation';
+import { AbstractObject3D, LineConnectorComponent } from '../../../object';
+import { RendererService } from '../../../renderer';
+import { provideParent } from '../../../util';
+import { DagreLayoutComponent } from './dagre-layout.component';
+
 
 @Component({
   selector: 'atft-dagre-edge',
@@ -21,7 +22,6 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
   public positions: Array<number>;
   protected dagreLayout: DagreLayoutComponent;
   protected graphUpdated: Subscription;
-  private endMesh: THREE.Mesh;
 
 
   constructor(
@@ -31,16 +31,14 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     protected injector: Injector
   ) {
     super(rendererService, parent, animationService);
-
     this.dagreLayout = this.injector.get<DagreLayoutComponent>(DagreLayoutComponent);
-
     if (!this.dagreLayout) {
       console.warn('DagreEdgeComponent.constructor: atft-dagre-layout not found!');
     }
-
     this.syncGraph = this.syncGraph.bind(this);
     this.graphUpdated = this.dagreLayout.updated.subscribe(this.syncGraph);
   }
+
 
   protected getLineGeometry(): THREE.BufferGeometry {
     console.log('DagreEdgeComponent.getLineGeometry');
@@ -62,17 +60,6 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     this.addEdge();
   }
 
-
-  protected newObject3DInstance(): THREE.Object3D {
-    const lineObject = super.newObject3DInstance();
-
-    console.log('DagreEdgeComponent.newObject3DInstance');
-    const geom = new THREE.CircleGeometry(0.7, 16);
-    const material = new THREE.MeshBasicMaterial({color: appliedColor(this.materialColor)});
-    this.endMesh = new THREE.Mesh(geom, material);
-    lineObject.add(this.endMesh);
-    return lineObject;
-  }
 
   protected addEdge() {
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
@@ -153,11 +140,17 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     });
   }
 
-
   private updateEndOfLine(start: THREE.Vector3, end: THREE.Vector3) {
-    console.log('DagreEdgeComponent.updateEndOfLine', this.endMesh)
-    if (this.endMesh) {
-      this.endMesh.position.set(
+    // console.log('DagreEdgeComponent.updateEndOfLine');
+    if (this.lineStart) {
+      this.lineStart.position.set(
+        start.x || 0,
+        start.y || 0,
+        start.z || 0
+      );
+    }
+    if (this.lineEnd) {
+      this.lineEnd.position.set(
         end.x || 0,
         end.y || 0,
         end.z || 0
