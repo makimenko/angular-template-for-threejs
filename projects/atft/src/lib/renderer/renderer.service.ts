@@ -5,6 +5,8 @@ import * as THREE from 'three';
 import {StatsService} from '../stats/stats.service';
 import {EffectComposerComponent} from '../effect';
 
+export const ENTIRE_SCENE_LAYER = 0, BLOOM_SCENE_LAYER = 1;
+
 @Injectable()
 export class RendererService implements OnDestroy {
 

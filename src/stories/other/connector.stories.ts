@@ -4,6 +4,7 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation/animati
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
+import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
 
 @Component({
@@ -14,6 +15,7 @@ import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
   <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
     #b translateY="-20" translateX="-30" translateZ="+10">
   </atft-sphere-mesh>
+
   <atft-line-connector [source]="a" [target]="b" materialColor="0xff0000"></atft-line-connector>
   `)
 })
@@ -31,13 +33,35 @@ class StorybookLineComponent {
     #b translateY="-50" translateX="10" translateZ="+10">
   </atft-sphere-mesh>
 
-  <atft-line-connector [source]="a" [target]="b" materialColor="0xff0000"
-  [animated]="true"
-  >
+  <atft-line-connector [source]="a" [target]="b" materialColor="0xff0000" [animated]="true" >
   </atft-line-connector>
   `)
 })
 class StorybookLineAnimationComponent {
+
+  constructor(private animationService: AnimationService) {
+    this.animationService.start();
+  }
+
+}
+
+@Component({
+  template: worldSceneWrapper(`
+  <atft-effect-composer>
+  </atft-effect-composer>
+
+  <atft-sphere-mesh [radius]="0.5" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x0000ff"
+    #a translateY="50" translateX="-10" [translateZ]="translateZ">
+  </atft-sphere-mesh>
+  <atft-sphere-mesh [radius]="0.5" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x0000ff"
+    #b translateY="-50" translateX="10" translateZ="5">
+  </atft-sphere-mesh>
+
+  <atft-line-connector [source]="a" [target]="b" materialColor="0x0000ff" [animated]="true" >
+  </atft-line-connector>
+  `)
+})
+class StorybookLineBloomComponent {
 
   constructor(private animationService: AnimationService) {
     this.animationService.start();
@@ -56,7 +80,7 @@ export default {
     })
   ],
   args: {
-    translateZ: -10
+    translateZ: 5
   },
   argTypes: {
     translateZ: {control: {type: 'range', min: -100, max: 100, step: 1}}
@@ -70,5 +94,10 @@ export const Line = (args) => ({
 
 export const AnimatedLine = (args) => ({
   component: StorybookLineAnimationComponent,
+  props: args
+});
+
+export const BloomLine = (args) => ({
+  component: StorybookLineBloomComponent,
   props: args
 });
