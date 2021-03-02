@@ -45,12 +45,6 @@ export enum LineType {
   solid = 'solid'
 }
 
-export enum LineEndType {
-  none = 'none',
-  circle = 'circle',
-  arrow = 'arrow'
-}
-
 
 @Component({
   selector: 'atft-line-connector',
@@ -67,8 +61,6 @@ export class LineConnectorComponent extends AbstractConnector implements OnDestr
   @Input() gapSize = 1;
   @Input() opacity = 1;
   @Input() lineType: LineType = LineType.dashed;
-  @Input() startType: LineEndType = LineEndType.circle;
-  @Input() endType: LineEndType = LineEndType.arrow;
 
   @Input() animated = true;
   protected animation: Subscription;
@@ -77,8 +69,7 @@ export class LineConnectorComponent extends AbstractConnector implements OnDestr
   protected clock = new THREE.Clock();
 
   protected line: THREE.Line;
-  protected lineStart: THREE.Mesh;
-  protected lineEnd: THREE.Mesh;
+
 
   constructor(
     protected rendererService: RendererService,
@@ -86,57 +77,6 @@ export class LineConnectorComponent extends AbstractConnector implements OnDestr
     protected animationService: AnimationService,
   ) {
     super(rendererService, parent);
-  }
-
-
-  protected newObject3DInstance(): THREE.Object3D {
-    const lineObject = super.newObject3DInstance();
-
-    // console.log('DagreEdgeComponent.newObject3DInstance');
-    this.appendLineEnds(lineObject);
-    return lineObject;
-  }
-
-  protected appendLineEnds(lineObject: THREE.Object3D) {
-    // 1. Init Material
-    const material = new THREE.MeshBasicMaterial({ color: appliedColor(this.materialColor) });
-
-    // 2. Create start
-    const startGeometry = this.getConnectorEndGeometry(this.startType);
-    if (startGeometry) {
-      this.lineStart = new THREE.Mesh(startGeometry, material);
-      lineObject.add(this.lineStart);
-    }
-
-    // 3. Create end
-    const endGeometry = this.getConnectorEndGeometry(this.endType);
-    if (endGeometry) {
-      this.lineEnd = new THREE.Mesh(endGeometry, material);
-      lineObject.add(this.lineEnd);
-    }
-  }
-
-  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry {
-    switch (type) {
-      case LineEndType.circle:
-        return new THREE.CircleGeometry(0.7, 16);
-        break;
-      case LineEndType.arrow:
-        const shape = new THREE.Shape();
-
-        shape.moveTo(0, 0);
-        shape.lineTo(1, 2);
-        shape.lineTo(0, 1.7);
-        shape.lineTo(-1, 2);
-
-        const geometry = new THREE.ShapeBufferGeometry(shape);
-
-        return geometry;
-        break;
-      default:
-        return undefined;
-    }
-
   }
 
   public createLineMesh(): THREE.Line {

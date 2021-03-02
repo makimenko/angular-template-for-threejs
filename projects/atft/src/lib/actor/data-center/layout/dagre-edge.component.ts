@@ -5,8 +5,14 @@ import * as THREE from 'three';
 import { AnimationService } from '../../../animation';
 import { AbstractObject3D, LineConnectorComponent } from '../../../object';
 import { RendererService } from '../../../renderer';
-import { provideParent } from '../../../util';
+import { appliedColor, provideParent } from '../../../util';
 import { DagreLayoutComponent } from './dagre-layout.component';
+
+export enum LineEndType {
+  none = 'none',
+  circle = 'circle',
+  arrow = 'arrow'
+}
 
 
 @Component({
@@ -18,6 +24,11 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
 
   @Input() from: string;
   @Input() to: string;
+  @Input() startType: LineEndType = LineEndType.arrow;
+  @Input() endType: LineEndType = LineEndType.arrow;
+
+  protected lineStart: THREE.Mesh;
+  protected lineEnd: THREE.Mesh;
 
   public positions: Array<number>;
   protected dagreLayout: DagreLayoutComponent;
@@ -39,9 +50,58 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     this.graphUpdated = this.dagreLayout.updated.subscribe(this.syncGraph);
   }
 
+  protected newObject3DInstance(): THREE.Object3D {
+    const lineObject = super.newObject3DInstance();
+
+    // console.log('DagreEdgeComponent.newObject3DInstance');
+    this.appendLineEnds(lineObject);
+    return lineObject;
+  }
+
+  protected appendLineEnds(lineObject: THREE.Object3D) {
+    // 1. Init Material
+    const material = new THREE.MeshBasicMaterial({ color: appliedColor(this.materialColor) });
+
+    // 2. Create start
+    const startGeometry = this.getConnectorEndGeometry(this.startType);
+    if (startGeometry) {
+      this.lineStart = new THREE.Mesh(startGeometry, material);
+      lineObject.add(this.lineStart);
+    }
+
+    // 3. Create end
+    const endGeometry = this.getConnectorEndGeometry(this.endType);
+    if (endGeometry) {
+      this.lineEnd = new THREE.Mesh(endGeometry, material);
+      lineObject.add(this.lineEnd);
+    }
+  }
+
+  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry {
+    switch (type) {
+      case LineEndType.circle:
+        return new THREE.CircleGeometry(0.7, 16);
+        break;
+      case LineEndType.arrow:
+        const shape = new THREE.Shape();
+
+        shape.moveTo(0, 0);
+        shape.lineTo(1, 2);
+        shape.lineTo(0, 1.7);
+        shape.lineTo(-1, 2);
+
+        const geometry = new THREE.ShapeBufferGeometry(shape);
+
+        return geometry;
+        break;
+      default:
+        return undefined;
+    }
+
+  }
 
   protected getLineGeometry(): THREE.BufferGeometry {
-    console.log('DagreEdgeComponent.getLineGeometry');
+    // console.log('DagreEdgeComponent.getLineGeometry');
     if (this.source || this.target) {
       console.warn('DagreEdgeComponent.getLineGeometry source/target inputs ignored. Please use from/to instead');
     }
@@ -122,38 +182,47 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
       if (edge.name === this.name) {
         this.positions = [];
         // console.log('DagreEdgeComponent.syncGraphEdges: edge.points', edge.points);
-        let start: THREE.Vector3;
-        let end: THREE.Vector3;
         edge.points.forEach(p => {
           if (!Number.isNaN(p.x) && !Number.isNaN(p.y)) {
             // console.log('x=' + p.x + ', y=' + p.y);
-            if (!start) {
-              start = new THREE.Vector3(p.x, p.y, 0);
-            }
             this.positions.push(p.x, p.y, 0);
-            end = new THREE.Vector3(p.x, p.y, 0);
           }
         });
-        this.updateEndOfLine(start, end);
+        this.updateEnds(this.positions);
         this.updateLineGeometry();
       }
     });
   }
 
-  private updateEndOfLine(start: THREE.Vector3, end: THREE.Vector3) {
-    // console.log('DagreEdgeComponent.updateEndOfLine');
-    if (this.lineStart) {
-      this.lineStart.position.set(
-        start.x || 0,
-        start.y || 0,
-        start.z || 0
+  private updateEnds(positions: number[]) {
+    const p = this.positions;
+
+    if (p?.length >= (3 * 3)) {
+
+      this.updateEnd(this.lineStart,
+        new THREE.Vector3(p[3], p[4], p[5]),
+        new THREE.Vector3(p[0], p[1], p[2])
+      );
+
+      this.updateEnd(this.lineEnd,
+        new THREE.Vector3(p[p.length - 6], p[p.length - 5], p[p.length - 4]),
+        new THREE.Vector3(p[p.length - 3], p[p.length - 2], p[p.length - 1])
       );
     }
-    if (this.lineEnd) {
-      this.lineEnd.position.set(
-        end.x || 0,
-        end.y || 0,
-        end.z || 0
+
+  }
+
+  private updateEnd(lineSide: THREE.Mesh, prevPoint: THREE.Vector3, endPoint: THREE.Vector3) {
+    if (lineSide) {
+      const direction = prevPoint.clone().sub(endPoint);
+      let angle = direction.angleTo(new THREE.Vector3(0, 1, 0));
+      angle = prevPoint.x < endPoint.x ? angle : -angle;
+
+      lineSide.rotation.set(0, 0, angle);
+      lineSide.position.set(
+        endPoint.x || 0,
+        endPoint.y || 0,
+        endPoint.z || 0
       );
     }
   }
