@@ -15,6 +15,7 @@ import {
   Vector3
 } from 'three';
 
+/* tslint:disable */
 var SVGLoader = function (manager?) {
 
   Loader.call(this, manager);
