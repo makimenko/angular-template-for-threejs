@@ -38,6 +38,7 @@ edges:
   - from: api
     to: db1
     type: message
+    color: 0xff0000
 `;
 
 @Component({

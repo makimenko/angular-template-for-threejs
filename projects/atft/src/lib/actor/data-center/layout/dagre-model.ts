@@ -19,6 +19,7 @@ export interface Edge extends BaseInfo {
   from: string;
   to: string;
   type?: string;
+  color?: number;
 }
 
 export interface GraphModel {

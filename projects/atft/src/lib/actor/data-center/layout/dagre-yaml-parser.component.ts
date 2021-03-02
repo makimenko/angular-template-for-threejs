@@ -130,6 +130,10 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     if (edge.type) {
       edgeRef.instance.type = edge.type;
     }
+    if (edge.color) {
+      edgeRef.instance.materialColor = edge.color;
+    }
+
     this.instances.push(edgeRef);
   }
 
