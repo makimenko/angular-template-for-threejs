@@ -247,8 +247,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:96</a></div>
                 </td>
             </tr>
 
@@ -319,8 +319,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="114"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:114</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:115</a></div>
                 </td>
             </tr>
 
@@ -360,8 +360,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:111</a></div>
                 </td>
             </tr>
 
@@ -401,8 +401,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="118"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:118</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:119</a></div>
                 </td>
             </tr>
 
@@ -435,7 +435,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>initialize(canvas: HTMLCanvasElement)</code>
+                    <code>initialize(canvas: HTMLCanvasElement, preserveDrawingBuffer)</code>
                 </td>
             </tr>
 
@@ -466,6 +466,17 @@
                                     <td>canvas</td>
                                     <td>
                                             <code>HTMLCanvasElement</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>preserveDrawingBuffer</td>
+                                    <td>
                                     </td>
 
                                     <td>
@@ -594,8 +605,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:82</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:83</a></div>
                 </td>
             </tr>
 
@@ -750,8 +761,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="122"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:122</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:123</a></div>
                 </td>
             </tr>
 
@@ -894,8 +905,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">projects/atft/src/lib/renderer/renderer.service.ts:104</a></div>
                 </td>
             </tr>
 
@@ -1174,12 +1185,13 @@ export class RendererService implements OnDestroy {
     }
   }
 
-  public initialize(canvas: HTMLCanvasElement) {
+  public initialize(canvas: HTMLCanvasElement, preserveDrawingBuffer) {
     // console.log(&#x27;RendererComponent.initialize&#x27;);
     this.webGlRenderer &#x3D; new THREE.WebGLRenderer({
       canvas: canvas,
       antialias: true,
-      alpha: true
+      alpha: true,
+      preserveDrawingBuffer: preserveDrawingBuffer
     });
     this.webGlRenderer.setPixelRatio(window.devicePixelRatio);
     this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, true);

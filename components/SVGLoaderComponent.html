@@ -129,10 +129,6 @@
                                     <span class="modifier">Private</span>
                                 <a href="#_overrideMaterialColor">_overrideMaterialColor</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#loader">loader</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -169,6 +165,12 @@
                                 <a href="#depthWrite">depthWrite</a>
                             </li>
                             <li>
+                                <a href="#icon">icon</a>
+                            </li>
+                            <li>
+                                <a href="#isCCW">isCCW</a>
+                            </li>
+                            <li>
                                 <a href="#material">material</a>
                             </li>
                             <li>
@@ -176,6 +178,9 @@
                             </li>
                             <li>
                                 <a href="#maxY">maxY</a>
+                            </li>
+                            <li>
+                                <a href="#noHoles">noHoles</a>
                             </li>
                             <li>
                                 <a href="#overrideMaterialColor">overrideMaterialColor</a>
@@ -198,6 +203,9 @@
                                 <li>
                                     <a href="#overrideMaterialColor">overrideMaterialColor</a>
                                 </li>
+                                <li>
+                                    <a href="#icon">icon</a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -211,12 +219,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>, svgLoader: <a href="../injectables/SvgLoaderService.html">SvgLoaderService</a>, iconService: <a href="../injectables/IconService.html">IconService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:66</a></div>
                             </td>
                         </tr>
 
@@ -257,6 +265,30 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>svgLoader</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SvgLoaderService.html" target="_self" >SvgLoaderService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>iconService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/IconService.html" target="_self" >IconService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -283,7 +315,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:45</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:60</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -298,12 +330,53 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>true</code>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:51</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="icon"></a>
+                        <b>icon</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isCCW"></a>
+                        <b>isCCW</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:63</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -323,7 +396,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:48</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -344,7 +417,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:54</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -365,7 +438,27 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:57</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="noHoles"></a>
+                        <b>noHoles</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:66</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -386,7 +479,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:18</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -425,8 +518,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:77</a></div>
                 </td>
             </tr>
 
@@ -435,7 +528,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>{}</code>
+                        <b>Returns : </b>    <code>Promise&lt;THREE.Object3D&gt;</code>
 
                     </div>
                 </td>
@@ -474,34 +567,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:29</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="loader"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            loader</b>
-                            <a href="#loader"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new SVGLoader()</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:44</a></div>
                             </td>
                         </tr>
 
@@ -531,7 +597,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:22</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -573,21 +639,88 @@
                     </tr>
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="icon"></a>
+                        <span class="name"><b>icon</b><a href="#icon"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>icon()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:41</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>icon(icon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:30</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>icon</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
 </section>
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
-
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
+import {RendererService} from &#x27;../../renderer/renderer.service&#x27;;
+import {appliedColor, appliedMaterial, fixCenter, provideParent, scaleToFit} from &#x27;../../util&#x27;;
+import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
+import {AbstractModelLoader} from &#x27;./abstract-model-loader&#x27;;
+import {IconService, SvgLoaderService} from &#x27;./services&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import { SVGLoader } from &#x27;three/examples/jsm/loaders/SVGLoader&#x27;;
-import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
-import { appliedColor, appliedMaterial, provideParent } from &#x27;../../util&#x27;;
-import { fixCenter } from &#x27;../../util/fix-center&#x27;;
-import { scaleToFit } from &#x27;../../util/scale-to-fit&#x27;;
-import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
-import { AbstractModelLoader } from &#x27;./abstract-model-loader&#x27;;
+import {Shape} from &#x27;three&#x27;;
 
 @Component({
   selector: &#x27;atft-svg-loader&#x27;,
@@ -603,9 +736,26 @@ export class SVGLoaderComponent extends AbstractModelLoader {
 
   set overrideMaterialColor(value: number) {
     this._overrideMaterialColor &#x3D; value;
-    this.startLoading();
+    if (this.object) {
+      this.startLoading();
+    }
   }
 
+  @Input()
+  set icon(icon: string) {
+    // console.log(&#x27;SVGLoaderComponent.icon&#x27;, icon);
+    const iconProvider &#x3D; this.iconService.getIconSource(icon);
+    this.model &#x3D; iconProvider.url;
+    this.isCCW &#x3D; iconProvider.isCCW;
+    this.noHoles &#x3D; iconProvider.noHoles;
+    if (!iconProvider.allowColorOverride) {
+      this.overrideMaterialColor &#x3D; undefined;
+    }
+  }
+
+  get icon(): string {
+    return this.model;
+  }
   private _overrideMaterialColor: number &#x3D; undefined;
 
 
@@ -613,7 +763,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   material &#x3D; &#x27;basic&#x27;;
 
   @Input()
-  depthWrite &#x3D; true;
+  depthWrite &#x3D; false;
 
   @Input()
   maxX: number;
@@ -624,49 +774,47 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   @Input()
   centered &#x3D; true;
 
-  private loader &#x3D; new SVGLoader();
+  @Input()
+  isCCW &#x3D; false;
+
+  @Input()
+  noHoles &#x3D; false;
 
   constructor(
     protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D&lt;any&gt;
+    @SkipSelf() @Optional() protected parent: AbstractObject3D&lt;any&gt;,
+    protected svgLoader: SvgLoaderService,
+    protected iconService: IconService
   ) {
     super(rendererService, parent);
   }
 
-  protected async loadLazyObject() {
-    // console.log(&#x27;ObjectLoaderComponent.loadLazyObject&#x27;);
-    return new Promise&lt;THREE.Object3D&gt;((resolve, reject) &#x3D;&gt; {
-      this.loader.load(this.model, data &#x3D;&gt; {
-          const paths &#x3D; data.paths;
-          const group &#x3D; new THREE.Group();
+  protected async loadLazyObject(): Promise&lt;THREE.Object3D&gt; {
+    // console.log(&#x27;SVGLoaderComponent.loadLazyObject&#x27;, this.model);
 
-          for (let i &#x3D; 0; i &lt; paths.length; i++) {
-            // NOTE: It seems that ShapePath does not includes typed color, cast to any as workaround
-            const path: any &#x3D; paths[i];
-            const color &#x3D; (this._overrideMaterialColor ? appliedColor(this._overrideMaterialColor) : path.color);
-            const material &#x3D; appliedMaterial(color, this.material, this.depthWrite);
-            const shapes &#x3D; path.toShapes(false, false);
+    const paths &#x3D; await this.svgLoader.load(this.model);
+    const group &#x3D; new THREE.Group();
 
-            for (let j &#x3D; 0; j &lt; shapes.length; j++) {
-              const shape &#x3D; shapes[j];
-              const geometry &#x3D; new THREE.ShapeBufferGeometry(shape);
-              const mesh &#x3D; new THREE.Mesh(geometry, material);
-              group.add(mesh);
-            }
-          }
+    for (const path of paths) {
+      const color &#x3D; (this._overrideMaterialColor ? appliedColor(this._overrideMaterialColor) : path.color);
+      const material &#x3D; appliedMaterial(color, this.material, this.depthWrite);
+      const shapes: Shape[] &#x3D; path.toShapes(this.isCCW, this.noHoles);
 
-          if (this.maxX || this.maxY) {
-            scaleToFit(group, new THREE.Vector3(this.maxX, this.maxY, 0));
-          }
-          if (this.centered) {
-            fixCenter(group);
-          }
+      for (const shape of shapes) {
+        const geometry &#x3D; new THREE.ShapeBufferGeometry(shape);
+        const mesh &#x3D; new THREE.Mesh(geometry, material);
+        group.add(mesh);
+      }
+    }
 
-          resolve(group);
-        },
-        undefined,
-        reject);
-    });
+    if (this.maxX || this.maxY) {
+      scaleToFit(group, new THREE.Vector3(this.maxX, this.maxY, 0));
+    }
+    if (this.centered) {
+      fixCenter(group);
+    }
+
+    return group;
   }
 
 
@@ -702,7 +850,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
-    var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
+    var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'SVGLoaderComponent'};
 </script>

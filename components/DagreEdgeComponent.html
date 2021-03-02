@@ -63,7 +63,7 @@
         <h3>Extends</h3>
     </p>
     <p class="comment">
-                <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
     </p>
 
     <p class="comment">
@@ -141,7 +141,15 @@
                                 <a href="#graphUpdated">graphUpdated</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Protected</span>
+                                <a href="#lineEnd">lineEnd</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#lineStart">lineStart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
                                 <a href="#positions">positions</a>
                             </li>
                             <li>
@@ -149,16 +157,20 @@
                                 <a href="#animation">animation</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#geometry">geometry</a>
+                                    <span class="modifier">Protected</span>
+                                <a href="#clock">clock</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Protected</span>
                                 <a href="#line">line</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#lineMaterial">lineMaterial</a>
+                                    <span class="modifier">Protected</span>
+                                <a href="#time">time</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#timeScale">timeScale</a>
                             </li>
                         </ul>
                     </td>
@@ -178,7 +190,19 @@
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
+                                <a href="#appendLineEnds">appendLineEnds</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#getConnectorEndGeometry">getConnectorEndGeometry</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
                                 <a href="#getLineGeometry">getLineGeometry</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#newObject3DInstance">newObject3DInstance</a>
                             </li>
                             <li>
                                 <a href="#ngOnDestroy">ngOnDestroy</a>
@@ -200,13 +224,21 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#updateEnd">updateEnd</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateEnds">updateEnds</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#animate">animate</a>
                             </li>
                             <li>
-                                <a href="#createConnectorObject">createConnectorObject</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#createLineMesh">createLineMesh</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
                                 <a href="#ngOnDestroy">ngOnDestroy</a>
                             </li>
                             <li>
@@ -225,28 +257,31 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#animated">animated</a>
+                                <a href="#endType">endType</a>
                             </li>
                             <li>
                                 <a href="#from">from</a>
                             </li>
                             <li>
+                                <a href="#startType">startType</a>
+                            </li>
+                            <li>
                                 <a href="#to">to</a>
+                            </li>
+                            <li>
+                                <a href="#type">type</a>
                             </li>
                             <li>
                                 <a href="#animated">animated</a>
                             </li>
                             <li>
-                                <a href="#animationIncrement">animationIncrement</a>
+                                <a href="#dashSize">dashSize</a>
                             </li>
                             <li>
-                                <a href="#depthTest">depthTest</a>
+                                <a href="#gapSize">gapSize</a>
                             </li>
                             <li>
-                                <a href="#depthWrite">depthWrite</a>
-                            </li>
-                            <li>
-                                <a href="#lineWidth">lineWidth</a>
+                                <a href="#lineType">lineType</a>
                             </li>
                             <li>
                                 <a href="#materialColor">materialColor</a>
@@ -255,7 +290,7 @@
                                 <a href="#opacity">opacity</a>
                             </li>
                             <li>
-                                <a href="#transparent">transparent</a>
+                                <a href="#solid">solid</a>
                             </li>
                         </ul>
                     </td>
@@ -264,6 +299,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#type">type</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -279,7 +328,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:82</a></div>
                             </td>
                         </tr>
 
@@ -359,18 +408,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="animated"></a>
-                        <b>animated</b>
+                        <a name="endType"></a>
+                        <b>endType</b>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>true</code>
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#LineEndType" target="_self" >LineEndType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LineEndType.arrow</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:34</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -391,7 +446,33 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:31</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="startType"></a>
+                        <b>startType</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#LineEndType" target="_self" >LineEndType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LineEndType.circle</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:33</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -412,7 +493,22 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:32</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:37</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -427,72 +523,18 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>false</code>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:38</a></code>
-</div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="animationIncrement"></a>
-                        <b>animationIncrement</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>-0.002</code>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:40</a></code>
-</div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="depthTest"></a>
-                        <b>depthTest</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                                 </td>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:35</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:66</a></code>
 </div>
                             </td>
                         </tr>
@@ -502,24 +544,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="depthWrite"></a>
-                        <b>depthWrite</b>
+                        <a name="dashSize"></a>
+                        <b>dashSize</b>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>true</code>
+                        <i>Default value : </i><code>4</code>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                                 </td>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:32</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:61</a></code>
 </div>
                             </td>
                         </tr>
@@ -529,24 +571,57 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="lineWidth"></a>
-                        <b>lineWidth</b>
+                        <a name="gapSize"></a>
+                        <b>gapSize</b>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0.8</code>
+                        <i>Default value : </i><code>0.5</code>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                                 </td>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:29</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:62</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lineType"></a>
+                        <b>lineType</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#LineType" target="_self" >LineType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LineType.dashed</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:64</a></code>
 </div>
                             </td>
                         </tr>
@@ -567,13 +642,13 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                                 </td>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:20</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:57</a></code>
 </div>
                             </td>
                         </tr>
@@ -589,18 +664,18 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0.5</code>
+                        <i>Default value : </i><code>1</code>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                                 </td>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:26</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:63</a></code>
 </div>
                             </td>
                         </tr>
@@ -610,24 +685,24 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="transparent"></a>
-                        <b>transparent</b>
+                        <a name="solid"></a>
+                        <b>solid</b>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>true</code>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                                 </td>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:23</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:60</a></code>
 </div>
                             </td>
                         </tr>
@@ -666,8 +741,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:170</a></div>
                 </td>
             </tr>
 
@@ -678,6 +753,150 @@
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appendLineEnds"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            appendLineEnds
+                        </b>
+                        <a href="#appendLineEnds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>appendLineEnds(lineObject: THREE.Object3D)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:107</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>lineObject</td>
+                                    <td>
+                                            <code>THREE.Object3D</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getConnectorEndGeometry"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            getConnectorEndGeometry
+                        </b>
+                        <a href="#getConnectorEndGeometry"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getConnectorEndGeometry(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:126</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>THREE.BufferGeometry</code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -707,8 +926,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="149"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:149</a></div>
                 </td>
             </tr>
 
@@ -718,6 +937,47 @@
 
                     <div class="io-description">
                         <b>Returns : </b>    <code>THREE.BufferGeometry</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newObject3DInstance"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            newObject3DInstance
+                        </b>
+                        <a href="#newObject3DInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newObject3DInstance()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:99</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>THREE.Object3D</code>
 
                     </div>
                 </td>
@@ -746,8 +1006,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="193"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:193</a></div>
                 </td>
             </tr>
 
@@ -785,8 +1045,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:164</a></div>
                 </td>
             </tr>
 
@@ -826,8 +1086,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="93"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:93</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="198"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:198</a></div>
                 </td>
             </tr>
 
@@ -867,8 +1127,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="111"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:111</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="216"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:216</a></div>
                 </td>
             </tr>
 
@@ -908,8 +1168,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="118"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:118</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="223"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:223</a></div>
                 </td>
             </tr>
 
@@ -960,6 +1220,174 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="updateEnd"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            updateEnd
+                        </b>
+                        <a href="#updateEnd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateEnd(lineSide: THREE.Mesh, prevPoint: THREE.Vector3, endPoint: THREE.Vector3)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="260"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:260</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>lineSide</td>
+                                    <td>
+                                            <code>THREE.Mesh</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>prevPoint</td>
+                                    <td>
+                                            <code>THREE.Vector3</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>endPoint</td>
+                                    <td>
+                                            <code>THREE.Vector3</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateEnds"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            updateEnds
+                        </b>
+                        <a href="#updateEnds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateEnds(positions: number[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="243"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:243</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>positions</td>
+                                    <td>
+                                            <code>number[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="animate"></a>
                     <span class="name">
                         <b>
@@ -980,13 +1408,13 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:99</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:133</a></code>
 </div>
                 </td>
             </tr>
@@ -1007,31 +1435,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createConnectorObject"></a>
+                    <a name="createLineMesh"></a>
                     <span class="name">
                         <b>
-                            createConnectorObject
+                            <span class="modifier">Public</span>
+                            createLineMesh
                         </b>
-                        <a href="#createConnectorObject"><span class="icon ion-ios-link"></span></a>
+                        <a href="#createLineMesh"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createConnectorObject()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createLineMesh()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:56</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:83</a></code>
 </div>
                 </td>
             </tr>
@@ -1041,7 +1471,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>THREE.Mesh</code>
+                        <b>Returns : </b>    <code>THREE.Line</code>
 
                     </div>
                 </td>
@@ -1055,7 +1485,6 @@
                     <a name="ngOnDestroy"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Public</span>
                             ngOnDestroy
                         </b>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
@@ -1064,21 +1493,20 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ngOnDestroy()</code>
+<code>ngOnDestroy()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:112</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:126</a></code>
 </div>
                 </td>
             </tr>
@@ -1117,13 +1545,13 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:104</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:118</a></code>
 </div>
                 </td>
             </tr>
@@ -1167,7 +1595,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:81</a></div>
                             </td>
                         </tr>
 
@@ -1195,7 +1623,63 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:82</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lineEnd"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            lineEnd</b>
+                            <a href="#lineEnd"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>THREE.Mesh</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:79</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lineStart"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            lineStart</b>
+                            <a href="#lineStart"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>THREE.Mesh</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:78</a></div>
                             </td>
                         </tr>
 
@@ -1209,7 +1693,7 @@
                         <a name="positions"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Public</span>
+                                <span class="modifier">Protected</span>
                             positions</b>
                             <a href="#positions"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -1223,7 +1707,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:80</a></div>
                             </td>
                         </tr>
 
@@ -1251,13 +1735,13 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                                 </td>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:45</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:67</a></code>
 </div>
                             </td>
                         </tr>
@@ -1269,30 +1753,29 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="geometry"></a>
+                        <a name="clock"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
-                            geometry</b>
-                            <a href="#geometry"><span class="icon ion-ios-link"></span></a>
+                                <span class="modifier">Protected</span>
+                            clock</b>
+                            <a href="#clock"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>THREE.BufferGeometry</code>
-
+                            <i>Default value : </i><code>new THREE.Clock()</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                                 </td>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:42</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:70</a></code>
 </div>
                             </td>
                         </tr>
@@ -1307,7 +1790,7 @@
                         <a name="line"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
+                                <span class="modifier">Protected</span>
                             line</b>
                             <a href="#line"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -1315,19 +1798,19 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>MeshLine</code>
+                            <i>Type : </i>    <code>THREE.Line</code>
 
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                                 </td>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:43</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:72</a></code>
 </div>
                             </td>
                         </tr>
@@ -1339,30 +1822,75 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="lineMaterial"></a>
+                        <a name="time"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
-                            lineMaterial</b>
-                            <a href="#lineMaterial"><span class="icon ion-ios-link"></span></a>
+                                <span class="modifier">Protected</span>
+                            time</b>
+                            <a href="#time"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>MeshLineMaterial</code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
                         </td>
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../components/MeshLineConnectorComponent.html" target="_self" >MeshLineConnectorComponent</a></code>
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
 </div>
                                 </td>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../components/MeshLineConnectorComponent.html#source" target="_self" >MeshLineConnectorComponent:44</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:68</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="timeScale"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            timeScale</b>
+                            <a href="#timeScale"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>5</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../components/LineConnectorComponent.html" target="_self" >LineConnectorComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:69</a></code>
 </div>
                             </td>
                         </tr>
@@ -1372,35 +1900,152 @@
         </table>
 </section>
 
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <span class="name"><b>type</b><a href="#type"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>type(val)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-edge.component.ts:37</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>val</td>
+                                                    
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
 import * as dagre from &#x27;dagre&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import {AnimationService} from &#x27;../../../animation&#x27;;
-import {AbstractObject3D, MeshLineConnectorComponent} from &#x27;../../../object&#x27;;
-import {RendererService} from &#x27;../../../renderer&#x27;;
-import {provideParent} from &#x27;../../../util&#x27;;
-import {DagreLayoutComponent} from &#x27;./dagre-layout.component&#x27;;
-import {Subscription} from &#x27;rxjs&#x27;;
+import { AnimationService } from &#x27;../../../animation&#x27;;
+import { AbstractObject3D, LineConnectorComponent } from &#x27;../../../object&#x27;;
+import { RendererService } from &#x27;../../../renderer&#x27;;
+import { appliedColor, provideParent } from &#x27;../../../util&#x27;;
+import { DagreLayoutComponent } from &#x27;./dagre-layout.component&#x27;;
+
+export enum LineEndType {
+  none &#x3D; &#x27;none&#x27;,
+  circle &#x3D; &#x27;circle&#x27;,
+  arrow &#x3D; &#x27;arrow&#x27;
+}
+
+export enum EdgeType {
+  sequence &#x3D; &#x27;sequence&#x27;,
+  association &#x3D; &#x27;association&#x27;,
+  message &#x3D; &#x27;message&#x27;,
+  line &#x3D; &#x27;line&#x27;
+}
 
 @Component({
   selector: &#x27;atft-dagre-edge&#x27;,
   providers: [provideParent(DagreEdgeComponent)],
   template: &#x27;&lt;ng-content&gt;&lt;/ng-content&gt;&#x27;
 })
-export class DagreEdgeComponent extends MeshLineConnectorComponent implements OnInit, OnDestroy {
+export class DagreEdgeComponent extends LineConnectorComponent implements OnInit, OnDestroy {
 
-  @Input() animated &#x3D; true;
   @Input() from: string;
   @Input() to: string;
+  @Input() startType: LineEndType &#x3D; LineEndType.circle;
+  @Input() endType: LineEndType &#x3D; LineEndType.arrow;
 
-  public positions: Array&lt;number&gt;;
+  @Input()
+  set type(val: EdgeType) {
+    switch (val) {
+
+      case EdgeType.association:
+        this.animated &#x3D; false;
+        this.solid &#x3D; false;
+        this.startType &#x3D; LineEndType.none;
+        this.endType &#x3D; LineEndType.arrow;
+        break;
+
+      case EdgeType.message:
+        this.animated &#x3D; true;
+        this.solid &#x3D; false;
+        this.dashSize &#x3D; 1;
+        this.startType &#x3D; LineEndType.circle;
+        this.endType &#x3D; LineEndType.arrow;
+        break;
+
+      case EdgeType.line:
+        this.animated &#x3D; false;
+        this.solid &#x3D; true;
+        this.startType &#x3D; LineEndType.none;
+        this.endType &#x3D; LineEndType.none;
+        break;
+
+      case EdgeType.sequence:
+        this.animated &#x3D; false;
+        this.solid &#x3D; true;
+        this.startType &#x3D; LineEndType.none;
+        this.endType &#x3D; LineEndType.arrow;
+        break;
+
+      default:
+        this.animated &#x3D; true;
+        this.solid &#x3D; false;
+        this.dashSize &#x3D; 4;
+        this.startType &#x3D; LineEndType.circle;
+        this.endType &#x3D; LineEndType.arrow;
+    }
+  }
+
+  protected lineStart: THREE.Mesh;
+  protected lineEnd: THREE.Mesh;
+  protected positions: Array&lt;number&gt;;
   protected dagreLayout: DagreLayoutComponent;
   protected graphUpdated: Subscription;
-
 
   constructor(
     protected rendererService: RendererService,
@@ -1409,18 +2054,66 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
     protected injector: Injector
   ) {
     super(rendererService, parent, animationService);
-
     this.dagreLayout &#x3D; this.injector.get&lt;DagreLayoutComponent&gt;(DagreLayoutComponent);
-
     if (!this.dagreLayout) {
       console.warn(&#x27;DagreEdgeComponent.constructor: atft-dagre-layout not found!&#x27;);
     }
-
     this.syncGraph &#x3D; this.syncGraph.bind(this);
     this.graphUpdated &#x3D; this.dagreLayout.updated.subscribe(this.syncGraph);
   }
 
+  protected newObject3DInstance(): THREE.Object3D {
+    const lineObject &#x3D; super.newObject3DInstance();
+
+    // console.log(&#x27;DagreEdgeComponent.newObject3DInstance&#x27;);
+    this.appendLineEnds(lineObject);
+    return lineObject;
+  }
+
+  protected appendLineEnds(lineObject: THREE.Object3D) {
+    // 1. Init Material
+    const material &#x3D; new THREE.MeshBasicMaterial({ color: appliedColor(this.materialColor) });
+
+    // 2. Create start
+    const startGeometry &#x3D; this.getConnectorEndGeometry(this.startType);
+    if (startGeometry) {
+      this.lineStart &#x3D; new THREE.Mesh(startGeometry, material);
+      lineObject.add(this.lineStart);
+    }
+
+    // 3. Create end
+    const endGeometry &#x3D; this.getConnectorEndGeometry(this.endType);
+    if (endGeometry) {
+      this.lineEnd &#x3D; new THREE.Mesh(endGeometry, material);
+      lineObject.add(this.lineEnd);
+    }
+  }
+
+  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry {
+    switch (type) {
+      case LineEndType.circle:
+        return new THREE.CircleGeometry(0.7, 16);
+        break;
+      case LineEndType.arrow:
+        const shape &#x3D; new THREE.Shape();
+
+        shape.moveTo(0, 0);
+        shape.lineTo(1, 2);
+        shape.lineTo(0, 1.7);
+        shape.lineTo(-1, 2);
+
+        const geometry &#x3D; new THREE.ShapeBufferGeometry(shape);
+
+        return geometry;
+        break;
+      default:
+        return undefined;
+    }
+
+  }
+
   protected getLineGeometry(): THREE.BufferGeometry {
+    // console.log(&#x27;DagreEdgeComponent.getLineGeometry&#x27;);
     if (this.source || this.target) {
       console.warn(&#x27;DagreEdgeComponent.getLineGeometry source/target inputs ignored. Please use from/to instead&#x27;);
     }
@@ -1507,11 +2200,43 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
             this.positions.push(p.x, p.y, 0);
           }
         });
+        this.updateEnds(this.positions);
         this.updateLineGeometry();
       }
     });
   }
 
+  private updateEnds(positions: number[]) {
+    const p &#x3D; this.positions;
+    if (p?.length &gt;&#x3D; 9) {
+      // Beginning / Start of the line
+      this.updateEnd(this.lineStart,
+        new THREE.Vector3(p[3], p[4], p[5]),
+        new THREE.Vector3(p[0], p[1], p[2])
+      );
+      // Target / End of the line
+      this.updateEnd(this.lineEnd,
+        new THREE.Vector3(p[p.length - 6], p[p.length - 5], p[p.length - 4]),
+        new THREE.Vector3(p[p.length - 3], p[p.length - 2], p[p.length - 1])
+      );
+    }
+
+  }
+
+  private updateEnd(lineSide: THREE.Mesh, prevPoint: THREE.Vector3, endPoint: THREE.Vector3) {
+    if (lineSide) {
+      const direction &#x3D; prevPoint.clone().sub(endPoint);
+      let angle &#x3D; direction.angleTo(new THREE.Vector3(0, 1, 0));
+      angle &#x3D; prevPoint.x &lt; endPoint.x ? angle : -angle;
+
+      lineSide.rotation.set(0, 0, angle);
+      lineSide.position.set(
+        endPoint.x || 0,
+        endPoint.y || 0,
+        endPoint.z || 0
+      );
+    }
+  }
 
 }
 </code></pre>
@@ -1545,7 +2270,7 @@ export class DagreEdgeComponent extends MeshLineConnectorComponent implements On
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
-    var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
+    var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'DagreEdgeComponent'};
 </script>

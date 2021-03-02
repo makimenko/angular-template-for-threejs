@@ -105,20 +105,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftConnectorModule.html" data-type="entity-link">AtftConnectorModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftConnectorModule-92163d119a173e049dba469d3e00a8aa"' : 'data-target="#xs-components-links-module-AtftConnectorModule-92163d119a173e049dba469d3e00a8aa"' }>
+                                            'data-target="#components-links-module-AtftConnectorModule-8316e6b3dbf4894dca3503b133befd03"' : 'data-target="#xs-components-links-module-AtftConnectorModule-8316e6b3dbf4894dca3503b133befd03"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftConnectorModule-92163d119a173e049dba469d3e00a8aa"' :
-                                            'id="xs-components-links-module-AtftConnectorModule-92163d119a173e049dba469d3e00a8aa"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftConnectorModule-8316e6b3dbf4894dca3503b133befd03"' :
+                                            'id="xs-components-links-module-AtftConnectorModule-8316e6b3dbf4894dca3503b133befd03"' }>
                                             <li class="link">
                                                 <a href="components/LineConnectorComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LineConnectorComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/MeshLineConnectorComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">MeshLineConnectorComponent</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -391,13 +387,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftObjectModule.html" data-type="entity-link">AtftObjectModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftObjectModule-37d16cab14d4c66a474fc53af95536e7"' : 'data-target="#xs-components-links-module-AtftObjectModule-37d16cab14d4c66a474fc53af95536e7"' }>
+                                            'data-target="#components-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' : 'data-target="#xs-components-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftObjectModule-37d16cab14d4c66a474fc53af95536e7"' :
-                                            'id="xs-components-links-module-AtftObjectModule-37d16cab14d4c66a474fc53af95536e7"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' :
+                                            'id="xs-components-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' }>
                                             <li class="link">
                                                 <a href="components/ContentProjectionComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ContentProjectionComponent</a>
@@ -408,6 +404,29 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             </li>
                                         </ul>
                                     </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' : 'data-target="#xs-injectables-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' :
+                                        'id="xs-injectables-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' }>
+                                        <li class="link">
+                                            <a href="injectables/FontService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>FontService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/IconService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>IconService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/SvgLoaderService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>SvgLoaderService</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/AtftPipeModule.html" data-type="entity-link">AtftPipeModule</a>
@@ -617,6 +636,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
+                                <a href="classes/AbstractCacheService.html" data-type="entity-link">AbstractCacheService</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/AbstractComposeEffect.html" data-type="entity-link">AbstractComposeEffect</a>
                             </li>
                             <li class="link">
@@ -624,6 +646,25 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                         </ul>
                     </li>
+                        <li class="chapter">
+                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#injectables-links"' :
+                                'data-target="#xs-injectables-links"' }>
+                                <span class="icon ion-md-arrow-round-down"></span>
+                                <span>Injectables</span>
+                                <span class="icon ion-ios-arrow-down"></span>
+                            </div>
+                            <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
+                                <li class="link">
+                                    <a href="injectables/FontService.html" data-type="entity-link">FontService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/IconService.html" data-type="entity-link">IconService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/SvgLoaderService.html" data-type="entity-link">SvgLoaderService</a>
+                                </li>
+                            </ul>
+                        </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interfaces-links"' :
                             'data-target="#xs-interfaces-links"' }>
@@ -643,6 +684,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/GraphModel.html" data-type="entity-link">GraphModel</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IconSource.html" data-type="entity-link">IconSource</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/NearestIntersection.html" data-type="entity-link">NearestIntersection</a>
@@ -668,6 +712,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                             </li>
                         </ul>
                     </li>

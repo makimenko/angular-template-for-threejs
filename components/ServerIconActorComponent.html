@@ -100,18 +100,19 @@
                 <td class="col-md-3">template</td>
                 <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;atft-empty name&#x3D;&quot;server-box&quot;&gt;
 
-  &lt;!-- TODO: template? --&gt;
   &lt;atft-empty atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (click)&#x3D;&quot;onClick()&quot;&gt;
-    &lt;atft-svg-loader *ngIf&#x3D;&quot;svgName&quot; [model]&#x3D;&quot;svgPattern.replace(&#x27;?&#x27;, svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
-                     material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;15&quot; maxY&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.1&quot;
+    &lt;atft-svg-loader #svg *ngIf&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;icon&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot; [translateZ]&#x3D;&quot;0.1&quot;
+                     material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;13&quot; maxY&#x3D;&quot;13&quot;
                      translateY&#x3D;&quot;0&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot; [rotateY]&#x3D;&quot;(180 | deg2rad)&quot;&gt;
     &lt;/atft-svg-loader&gt;
-
   &lt;/atft-empty&gt;
 
   &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot;
                   material&#x3D;&quot;basic&quot; materialColor&#x3D;&quot;0xDADADA&quot; [translateY]&#x3D;&quot;-11&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
   &lt;/atft-text-mesh&gt;
+  &lt;atft-frame-mesh *ngIf&#x3D;&quot;showFrame&quot; [thickness]&#x3D;&quot;1&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.1&quot; material&#x3D;&quot;basic&quot;
+                   [materialColor]&#x3D;&quot;color&quot;&gt;
+  &lt;/atft-frame-mesh&gt;
 
 &lt;/atft-empty&gt;
 </code></pre></td>
@@ -141,9 +142,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import { provideParent } from &#x27;../../../util&#x27;;
-import { AbstractServerActor } from &#x27;./abstract-server-actor&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component} from &#x27;@angular/core&#x27;;
+import {provideParent} from &#x27;../../../util&#x27;;
+import {AbstractServerActor} from &#x27;./abstract-server-actor&#x27;;
 
 @Component({
   selector: &#x27;atft-server-icon-actor&#x27;,
@@ -151,18 +152,19 @@ import { AbstractServerActor } from &#x27;./abstract-server-actor&#x27;;
   template: &#x60;
     &lt;atft-empty name&#x3D;&quot;server-box&quot;&gt;
 
-      &lt;!-- TODO: template? --&gt;
       &lt;atft-empty atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot; (click)&#x3D;&quot;onClick()&quot;&gt;
-        &lt;atft-svg-loader *ngIf&#x3D;&quot;svgName&quot; [model]&#x3D;&quot;svgPattern.replace(&#x27;?&#x27;, svgName)&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot;
-                         material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;15&quot; maxY&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.1&quot;
+        &lt;atft-svg-loader #svg *ngIf&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;icon&quot; overrideMaterialColor&#x3D;&quot;0xffffff&quot; [translateZ]&#x3D;&quot;0.1&quot;
+                         material&#x3D;&quot;basic&quot; maxX&#x3D;&quot;13&quot; maxY&#x3D;&quot;13&quot;
                          translateY&#x3D;&quot;0&quot; [rotateZ]&#x3D;&quot;(180 | deg2rad)&quot; [rotateY]&#x3D;&quot;(180 | deg2rad)&quot;&gt;
         &lt;/atft-svg-loader&gt;
-
       &lt;/atft-empty&gt;
 
       &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; height&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot;
                       material&#x3D;&quot;basic&quot; materialColor&#x3D;&quot;0xDADADA&quot; [translateY]&#x3D;&quot;-11&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
       &lt;/atft-text-mesh&gt;
+      &lt;atft-frame-mesh *ngIf&#x3D;&quot;showFrame&quot; [thickness]&#x3D;&quot;1&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.1&quot; material&#x3D;&quot;basic&quot;
+                       [materialColor]&#x3D;&quot;color&quot;&gt;
+      &lt;/atft-frame-mesh&gt;
 
     &lt;/atft-empty&gt;
   &#x60;
@@ -200,8 +202,8 @@ export class ServerIconActorComponent extends AbstractServerActor {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><atft-empty name="server-box">  <!-- TODO: template? -->  <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (click)="onClick()">    <atft-svg-loader *ngIf="svgName" [model]="svgPattern.replace(\'?\', svgName)" overrideMaterialColor="0xffffff"                     material="basic" maxX="15" maxY="15" [translateZ]="0.1"                     translateY="0" [rotateZ]="(180 | deg2rad)" [rotateY]="(180 | deg2rad)">    </atft-svg-loader>  </atft-empty>  <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" height="0" [centered]="true"                  material="basic" materialColor="0xDADADA" [translateY]="-11" [translateZ]="0.2">  </atft-text-mesh></atft-empty></div>'
-    var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'MeshLineConnectorComponent', 'selector': 'atft-mesh-line-connector'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
+        var COMPONENT_TEMPLATE = '<div><atft-empty name="server-box">  <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (click)="onClick()">    <atft-svg-loader #svg *ngIf="icon" [icon]="icon" overrideMaterialColor="0xffffff" [translateZ]="0.1"                     material="basic" maxX="13" maxY="13"                     translateY="0" [rotateZ]="(180 | deg2rad)" [rotateY]="(180 | deg2rad)">    </atft-svg-loader>  </atft-empty>  <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" height="0" [centered]="true"                  material="basic" materialColor="0xDADADA" [translateY]="-11" [translateZ]="0.2">  </atft-text-mesh>  <atft-frame-mesh *ngIf="showFrame" [thickness]="1" [sizeX]="15" [sizeY]="15" [translateZ]="0.1" material="basic"                   [materialColor]="color">  </atft-frame-mesh></atft-empty></div>'
+    var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'ServerIconActorComponent'};
 </script>
