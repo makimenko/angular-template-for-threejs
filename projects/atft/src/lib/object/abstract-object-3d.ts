@@ -98,10 +98,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     // console.log('AbstractObject3D.ngOnInit', this.name);
     this.object = this.newObject3DInstance();
     if (this.layer) {
-      this.object.layers.disableAll();
-      this.object.layers.enable(this.layer);
-    } else {
-      this.object.layers.enableAll();
+      this.object.layers.set(this.layer);
     }
 
     this.applyTranslation();

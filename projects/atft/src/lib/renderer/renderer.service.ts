@@ -4,8 +4,8 @@ import {AbstractCamera} from '../camera/abstract-camera';
 import * as THREE from 'three';
 import {StatsService} from '../stats/stats.service';
 import {EffectComposerComponent} from '../effect';
+import {BloomService} from './bloom.service';
 
-export const ENTIRE_SCENE_LAYER = 0, BLOOM_SCENE_LAYER = 1;
 
 @Injectable()
 export class RendererService implements OnDestroy {
@@ -19,7 +19,8 @@ export class RendererService implements OnDestroy {
   private composer: EffectComposerComponent;
 
   constructor(
-    private statsService: StatsService
+    private statsService: StatsService,
+    private bloom: BloomService
   ) {
 
   }
@@ -39,7 +40,9 @@ export class RendererService implements OnDestroy {
   }
 
   public render() {
+    // TODO: this.bloomInit();
     if (this.init && this.scene && this.scene.getObject() && this.camera && this.camera.camera) {
+      // TODO: this.bloom.render();
       // console.log('render');
       if (this.composer) {
         this.composer.render();
@@ -79,6 +82,13 @@ export class RendererService implements OnDestroy {
     this.updateChildCamerasAspectRatio(canvas);
     this.init = true;
     this.render();
+  }
+
+
+  protected bloomInit() {
+    if (!this.bloom.initialized && this.scene && this.scene.getObject() && this.camera && this.camera.camera) {
+      this.bloom.init(this.webGlRenderer, this.scene.getObject(), this.camera.camera);
+    }
   }
 
 
