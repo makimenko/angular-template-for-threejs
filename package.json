@@ -25,7 +25,7 @@
     "@angular/platform-browser": "^11.1.2",
     "@angular/platform-browser-dynamic": "^11.1.2",
     "@angular/router": "^11.1.2",
-    "core-js": "^3.8.3",
+    "core-js": "^3.9.1",
     "dagre": "^0.8.5",
     "rxjs": "^6.6.6",
     "snyk": "^1.463.0",
