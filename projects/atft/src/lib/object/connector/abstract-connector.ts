@@ -4,7 +4,7 @@ import {AbstractObject3D} from '../abstract-object-3d';
 import {Subscription} from 'rxjs';
 
 @Directive()
-export abstract class AbstractConnector extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
+export abstract class AbstractConnector<T extends THREE.Object3D> extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
 
   @Input()
   source: AbstractObject3D<THREE.Object3D>;
@@ -60,7 +60,7 @@ export abstract class AbstractConnector extends AbstractObject3D<THREE.Object3D>
   /**
    * Create line mesh
    */
-  abstract createLineMesh(): THREE.Line;
+  abstract createLineMesh(): T;
 
   /**
    * If at least one line end (source or target object)  changed, then line geoetry should be updated as well

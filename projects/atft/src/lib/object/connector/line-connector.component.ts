@@ -51,7 +51,7 @@ export enum LineType {
   providers: [provideParent(LineConnectorComponent)],
   template: '<ng-content></ng-content>'
 })
-export class LineConnectorComponent extends AbstractConnector implements OnDestroy {
+export class LineConnectorComponent extends AbstractConnector<THREE.Line> implements OnDestroy {
 
   @Input()
   materialColor = 0xffffff;
