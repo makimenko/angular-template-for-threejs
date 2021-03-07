@@ -58,10 +58,13 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#lineFragShader" title="projects/atft/src/lib/object/connector/line-connector.component.ts"><b>lineFragShader</b>&nbsp;&nbsp;&nbsp;(projects/.../line-connector.component.ts)</a>
+                            <a href="#ENTIRE_SCENE_LAYER" title="projects/atft/src/lib/renderer/bloom.service.ts"><b>ENTIRE_SCENE_LAYER</b>&nbsp;&nbsp;&nbsp;(projects/.../bloom.service.ts)</a>
                         </li>
                         <li>
-                            <a href="#lineVertShader" title="projects/atft/src/lib/object/connector/line-connector.component.ts"><b>lineVertShader</b>&nbsp;&nbsp;&nbsp;(projects/.../line-connector.component.ts)</a>
+                            <a href="#fragmentShader" title="projects/atft/src/lib/renderer/bloom.service.ts"><b>fragmentShader</b>&nbsp;&nbsp;&nbsp;(projects/.../bloom.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#modelPath" title="projects/atft/src/lib/actor/data-center/server/user-actor.component.ts"><b>modelPath</b>&nbsp;&nbsp;&nbsp;(projects/.../user-actor.component.ts)</a>
                         </li>
                         <li>
                             <a href="#REPLACE_SYMBOL" title="projects/atft/src/lib/object/loader/services/icon.service.ts"><b>REPLACE_SYMBOL</b>&nbsp;&nbsp;&nbsp;(projects/.../icon.service.ts)</a>
@@ -72,6 +75,9 @@
                         <li>
                             <a href="#SVGLoader" title="projects/atft/src/lib/threejs-fork/SVGLoader.ts"><b>SVGLoader</b>&nbsp;&nbsp;&nbsp;(projects/.../SVGLoader.ts)</a>
                         </li>
+                        <li>
+                            <a href="#vertexShader" title="projects/atft/src/lib/renderer/bloom.service.ts"><b>vertexShader</b>&nbsp;&nbsp;&nbsp;(projects/.../bloom.service.ts)</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
@@ -79,42 +85,29 @@
     </table>
 </section>
 
-    <h3>projects/atft/src/lib/object/connector/line-connector.component.ts</h3>
+    <h3>projects/atft/src/lib/renderer/bloom.service.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="lineFragShader"></a>
+                        <a name="ENTIRE_SCENE_LAYER"></a>
                         <span class="name">
                             <b>
-                            lineFragShader</b>
-                            <a href="#lineFragShader"><span class="icon ion-ios-link"></span></a>
+                            ENTIRE_SCENE_LAYER</b>
+                            <a href="#ENTIRE_SCENE_LAYER"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x60;
-  uniform vec3 diffuse;
-  uniform float opacity;
-  uniform float time; // added time uniform
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
-  uniform float dashSize;
-  uniform float gapSize;
-  varying float vLineDistance;
-
-  void main() {
-		float totalSize &#x3D; dashSize + gapSize;
-		float modulo &#x3D; mod( vLineDistance + time, totalSize ); // time added to vLineDistance
-
-    if ( modulo &gt; dashSize ) {
-      discard;
-    }
-
-    gl_FragColor &#x3D; vec4( diffuse, opacity );
-  }
-  &#x60;</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
                         </td>
                     </tr>
 
@@ -125,26 +118,79 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="lineVertShader"></a>
+                        <a name="fragmentShader"></a>
                         <span class="name">
                             <b>
-                            lineVertShader</b>
-                            <a href="#lineVertShader"><span class="icon ion-ios-link"></span></a>
+                            fragmentShader</b>
+                            <a href="#fragmentShader"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>&#x60;
-  attribute float lineDistance;
-  varying float vLineDistance;
-
+  uniform sampler2D baseTexture;
+  uniform sampler2D bloomTexture;
+  varying vec2 vUv;
   void main() {
-    vLineDistance &#x3D; lineDistance;
-    vec4 mvPosition &#x3D; modelViewMatrix * vec4( position, 1.0 );
-    gl_Position &#x3D; projectionMatrix * mvPosition;
-  }
-  &#x60;</code>
+    gl_FragColor &#x3D; ( texture2D( baseTexture, vUv ) + vec4( 1.0 ) * texture2D( bloomTexture, vUv ) );
+  }&#x60;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="vertexShader"></a>
+                        <span class="name">
+                            <b>
+                            vertexShader</b>
+                            <a href="#vertexShader"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x60;
+  varying vec2 vUv;
+  void main() {
+    vUv &#x3D; uv;
+    gl_Position &#x3D; projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+  }&#x60;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>projects/atft/src/lib/actor/data-center/server/user-actor.component.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modelPath"></a>
+                        <span class="name">
+                            <b>
+                            modelPath</b>
+                            <a href="#modelPath"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/Human&#x27;</code>
                         </td>
                     </tr>
 

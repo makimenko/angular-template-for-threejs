@@ -145,13 +145,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftDataCenterActorModule.html" data-type="entity-link">AtftDataCenterActorModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftDataCenterActorModule-6a294df374d523cd697366ea9372c987"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-6a294df374d523cd697366ea9372c987"' }>
+                                            'data-target="#components-links-module-AtftDataCenterActorModule-147e1ae4225baf4261e1116db8305478"' : 'data-target="#xs-components-links-module-AtftDataCenterActorModule-147e1ae4225baf4261e1116db8305478"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-6a294df374d523cd697366ea9372c987"' :
-                                            'id="xs-components-links-module-AtftDataCenterActorModule-6a294df374d523cd697366ea9372c987"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftDataCenterActorModule-147e1ae4225baf4261e1116db8305478"' :
+                                            'id="xs-components-links-module-AtftDataCenterActorModule-147e1ae4225baf4261e1116db8305478"' }>
                                             <li class="link">
                                                 <a href="components/DagreCompositionComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DagreCompositionComponent</a>
@@ -197,11 +197,30 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ServerStandActorComponent</a>
                                             </li>
                                             <li class="link">
+                                                <a href="components/UserActorComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">UserActorComponent</a>
+                                            </li>
+                                            <li class="link">
                                                 <a href="components/WorkstationActorComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">WorkstationActorComponent</a>
                                             </li>
                                         </ul>
                                     </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-AtftDataCenterActorModule-147e1ae4225baf4261e1116db8305478"' : 'data-target="#xs-injectables-links-module-AtftDataCenterActorModule-147e1ae4225baf4261e1116db8305478"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftDataCenterActorModule-147e1ae4225baf4261e1116db8305478"' :
+                                        'id="xs-injectables-links-module-AtftDataCenterActorModule-147e1ae4225baf4261e1116db8305478"' }>
+                                        <li class="link">
+                                            <a href="injectables/ActorRepositoryService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ActorRepositoryService</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/AtftEffectModule.html" data-type="entity-link">AtftEffectModule</a>
@@ -387,13 +406,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftObjectModule.html" data-type="entity-link">AtftObjectModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' : 'data-target="#xs-components-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' }>
+                                            'data-target="#components-links-module-AtftObjectModule-942283967657bb745891189dd5581600"' : 'data-target="#xs-components-links-module-AtftObjectModule-942283967657bb745891189dd5581600"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' :
-                                            'id="xs-components-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftObjectModule-942283967657bb745891189dd5581600"' :
+                                            'id="xs-components-links-module-AtftObjectModule-942283967657bb745891189dd5581600"' }>
                                             <li class="link">
                                                 <a href="components/ContentProjectionComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ContentProjectionComponent</a>
@@ -406,13 +425,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' : 'data-target="#xs-injectables-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' }>
+                                        'data-target="#injectables-links-module-AtftObjectModule-942283967657bb745891189dd5581600"' : 'data-target="#xs-injectables-links-module-AtftObjectModule-942283967657bb745891189dd5581600"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' :
-                                        'id="xs-injectables-links-module-AtftObjectModule-5cf98ccfb1ac652f3637b00aab425cf0"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftObjectModule-942283967657bb745891189dd5581600"' :
+                                        'id="xs-injectables-links-module-AtftObjectModule-942283967657bb745891189dd5581600"' }>
                                         <li class="link">
                                             <a href="injectables/FontService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>FontService</a>
@@ -420,6 +439,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <li class="link">
                                             <a href="injectables/IconService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>IconService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/ObjLoaderService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ObjLoaderService</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/SvgLoaderService.html"
@@ -495,13 +518,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftRendererModule.html" data-type="entity-link">AtftRendererModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftRendererModule-55de6574f17affcd8897305977418009"' : 'data-target="#xs-components-links-module-AtftRendererModule-55de6574f17affcd8897305977418009"' }>
+                                            'data-target="#components-links-module-AtftRendererModule-2ab144977c323d6d253c12221e49d4ed"' : 'data-target="#xs-components-links-module-AtftRendererModule-2ab144977c323d6d253c12221e49d4ed"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftRendererModule-55de6574f17affcd8897305977418009"' :
-                                            'id="xs-components-links-module-AtftRendererModule-55de6574f17affcd8897305977418009"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftRendererModule-2ab144977c323d6d253c12221e49d4ed"' :
+                                            'id="xs-components-links-module-AtftRendererModule-2ab144977c323d6d253c12221e49d4ed"' }>
                                             <li class="link">
                                                 <a href="components/RendererCanvasComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">RendererCanvasComponent</a>
@@ -510,13 +533,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AtftRendererModule-55de6574f17affcd8897305977418009"' : 'data-target="#xs-injectables-links-module-AtftRendererModule-55de6574f17affcd8897305977418009"' }>
+                                        'data-target="#injectables-links-module-AtftRendererModule-2ab144977c323d6d253c12221e49d4ed"' : 'data-target="#xs-injectables-links-module-AtftRendererModule-2ab144977c323d6d253c12221e49d4ed"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftRendererModule-55de6574f17affcd8897305977418009"' :
-                                        'id="xs-injectables-links-module-AtftRendererModule-55de6574f17affcd8897305977418009"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftRendererModule-2ab144977c323d6d253c12221e49d4ed"' :
+                                        'id="xs-injectables-links-module-AtftRendererModule-2ab144977c323d6d253c12221e49d4ed"' }>
+                                        <li class="link">
+                                            <a href="injectables/BloomService.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>BloomService</a>
+                                        </li>
                                         <li class="link">
                                             <a href="injectables/RendererService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>RendererService</a>
@@ -625,6 +652,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="components/LoaderActorComponent.html" data-type="entity-link">LoaderActorComponent</a>
                             </li>
+                            <li class="link">
+                                <a href="components/UserActorComponent.html" data-type="entity-link">UserActorComponent</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="chapter">
@@ -655,10 +685,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
+                                    <a href="injectables/ActorRepositoryService.html" data-type="entity-link">ActorRepositoryService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/FontService.html" data-type="entity-link">FontService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/IconService.html" data-type="entity-link">IconService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ObjLoaderService.html" data-type="entity-link">ObjLoaderService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SvgLoaderService.html" data-type="entity-link">SvgLoaderService</a>

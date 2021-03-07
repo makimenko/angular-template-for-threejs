@@ -134,10 +134,6 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#loader">loader</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
                                 <a href="#mtlLoader">mtlLoader</a>
                             </li>
                         </ul>
@@ -209,7 +205,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>, objLoader: <a href="../injectables/ObjLoaderService.html">ObjLoaderService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -248,6 +244,18 @@
                                                   
                                                         <td>
                                                                     <code>AbstractObject3D&lt;any&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objLoader</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjLoaderService.html" target="_self" >ObjLoaderService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -375,8 +383,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">projects/atft/src/lib/object/loader/obj-loader.component.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">projects/atft/src/lib/object/loader/obj-loader.component.ts:51</a></div>
                 </td>
             </tr>
 
@@ -398,33 +406,6 @@
         <h3 id="inputs">
             Properties
         </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="loader"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            loader</b>
-                            <a href="#loader"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new OBJLoader()</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/atft/src/lib/object/loader/obj-loader.component.ts:22</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -524,14 +505,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import { MTLLoader } from &#x27;three/examples/jsm/loaders/MTLLoader&#x27;;
-import { OBJLoader } from &#x27;three/examples/jsm/loaders/OBJLoader&#x27;;
-import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
-import { provideParent } from &#x27;../../util&#x27;;
-import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
-import { AbstractModelLoader } from &#x27;./abstract-model-loader&#x27;;
+import {MTLLoader} from &#x27;three/examples/jsm/loaders/MTLLoader&#x27;;
+import {OBJLoader} from &#x27;three/examples/jsm/loaders/OBJLoader&#x27;;
+import {RendererService} from &#x27;../../renderer/renderer.service&#x27;;
+import {provideParent} from &#x27;../../util&#x27;;
+import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
+import {AbstractModelLoader} from &#x27;./abstract-model-loader&#x27;;
+import {ObjLoaderService} from &#x27;./services/obj-loader.service&#x27;;
 
 /**
  * Component for employing THREE.OBJLoader to load [Wavefront *.obj files][1].
@@ -545,7 +527,6 @@ import { AbstractModelLoader } from &#x27;./abstract-model-loader&#x27;;
 })
 export class ObjLoaderComponent extends AbstractModelLoader {
 
-  private loader &#x3D; new OBJLoader();
   private mtlLoader &#x3D; new MTLLoader();
 
   @Input()
@@ -568,38 +549,32 @@ export class ObjLoaderComponent extends AbstractModelLoader {
 
   constructor(
     protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D&lt;any&gt;
+    @SkipSelf() @Optional() protected parent: AbstractObject3D&lt;any&gt;,
+    protected objLoader: ObjLoaderService
   ) {
     super(rendererService, parent);
   }
 
   protected async loadLazyObject() {
     // Preloading step for the material
-    const preloadingStep &#x3D; new Promise&lt;void&gt;((resolve, reject) &#x3D;&gt; {
-      if (this.material &#x3D;&#x3D;&#x3D; undefined) {
-        // No preloading necessary
-        resolve();
-      } else {
+    if (this.material) {
+      const preloadingStep &#x3D; new Promise&lt;void&gt;((resolve, reject) &#x3D;&gt; {
         // TODO: If typings of mtlLoader are included in the Three.js NPM
         // package, remove this &#x27;any&#x27; cast.
         (this.mtlLoader as any).setResourcePath(this.resourcePath);
 
         this.mtlLoader.load(this.material, materialCreator &#x3D;&gt; {
           materialCreator.preload();
-          this.loader.setMaterials(materialCreator);
+          this.objLoader.setMaterials(materialCreator);
           resolve();
         }, undefined, reject);
-      }
-    });
-
-    // Await preloading and load final model
-    return preloadingStep.then(() &#x3D;&gt; {
-      return new Promise&lt;THREE.Object3D&gt;((resolve, reject) &#x3D;&gt; {
-        this.loader.load(this.model, model &#x3D;&gt; {
-          resolve(model);
-        }, undefined, reject);
       });
-    });
+      // Await preloading and load final model
+      await preloadingStep;
+    }
+
+    const obj &#x3D; await this.objLoader.load(this.model);
+    return obj.clone();
   }
 }
 </code></pre>
@@ -633,7 +608,7 @@ export class ObjLoaderComponent extends AbstractModelLoader {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
-    var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
+    var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'UserActorComponent', 'selector': 'atft-user-actor'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'ObjLoaderComponent'};
 </script>
