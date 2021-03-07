@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { provideParent } from '../../../util';
-import { AbstractServerActor } from './abstract-server-actor';
+import {Component, Input} from '@angular/core';
+import {provideParent} from '../../../util';
+import {AbstractServerActor} from './abstract-server-actor';
 
 @Component({
   selector: 'atft-workstation-actor',
@@ -14,8 +14,13 @@ import { AbstractServerActor } from './abstract-server-actor';
         </atft-box-mesh>
         <atft-box-mesh height="12.25" width="21" depth="1" [materialColor]="color" material="phong"
                        [rotateX]="(90 | deg2rad)" translateZ="7">
-          <atft-video-mesh height="11.25" width="20" translateZ="0.6" [videoSrc]="videoSrc">
+
+          <atft-video-mesh *ngIf="videoSrc" height="11.25" width="20" translateZ="0.6" [videoSrc]="videoSrc">
           </atft-video-mesh>
+          <atft-box-mesh *ngIf="!videoSrc" height="11.25" width="20" depth="0" translateZ="0.6" materialColor="0xffffff"
+                         [depthWrite]="false" >
+          </atft-box-mesh>
+
         </atft-box-mesh>
       </atft-empty>
 
@@ -31,6 +36,6 @@ import { AbstractServerActor } from './abstract-server-actor';
 export class WorkstationActorComponent extends AbstractServerActor {
 
   @Input()
-  videoSrc;
+  videoSrc = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/videos/ui/retro_futuristic_ui_360p.mp4';
 
 }
