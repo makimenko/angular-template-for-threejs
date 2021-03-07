@@ -11,10 +11,7 @@ const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angu
     <atft-empty name="server-box">
 
       <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (click)="onClick()">
-        <atft-obj-loader
-          model="${modelPath}/Human.obj"
-
-          resourcePath="${modelPath}/">
+        <atft-obj-loader model="${modelPath}/Human.obj" resourcePath="${modelPath}/">
         </atft-obj-loader>
       </atft-empty>
 
@@ -29,6 +26,5 @@ const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angu
   `
 })
 export class UserActorComponent extends AbstractServerActor {
-// material="${modelPath}/Human.mtl"
 
 }
