@@ -53,7 +53,7 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
         <atft-server-icon-actor icon="g:AppEngine" label="Google Cloud Icons"></atft-server-icon-actor>
       </atft-dagre-node>
       <atft-dagre-node name="g2">
-        <atft-server-icon-actor icon="g:cloud-load-balancing" label="Google Cloud Icons"></atft-server-icon-actor>
+        <atft-server-icon-actor icon="g:Stackdriver" label="Google Cloud Icons"></atft-server-icon-actor>
       </atft-dagre-node>
       <atft-dagre-node name="g3">
         <atft-server-icon-actor icon="g:persistent-disk" label="Google Cloud Icons"></atft-server-icon-actor>

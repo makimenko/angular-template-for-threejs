@@ -4,7 +4,7 @@ import {AbstractObject3D} from '../abstract-object-3d';
 import {Subscription} from 'rxjs';
 
 @Directive()
-export abstract class AbstractConnector extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
+export abstract class AbstractConnector<T extends THREE.Object3D> extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
 
   @Input()
   source: AbstractObject3D<THREE.Object3D>;
@@ -33,22 +33,6 @@ export abstract class AbstractConnector extends AbstractObject3D<THREE.Object3D>
     });
   }
 
-  protected getLineGeometry(): THREE.BufferGeometry {
-    if (!this.source || !this.target) {
-      throw new Error('AbstractConnector: source or target inputs are missing!');
-    }
-
-    const source = this.source.getObject().position;
-    const target = this.target.getObject().position;
-
-    const points = [];
-    points.push(new THREE.Vector3(source.x, source.y, source.z));
-    points.push(new THREE.Vector3(target.x, target.y, target.z));
-
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
-    return geometry;
-  }
-
   public ngOnDestroy() {
     super.ngOnDestroy();
 
@@ -56,11 +40,10 @@ export abstract class AbstractConnector extends AbstractObject3D<THREE.Object3D>
     this.targetSub?.unsubscribe();
   }
 
-
   /**
    * Create line mesh
    */
-  abstract createLineMesh(): THREE.Line;
+  abstract createLineMesh(): T;
 
   /**
    * If at least one line end (source or target object)  changed, then line geoetry should be updated as well

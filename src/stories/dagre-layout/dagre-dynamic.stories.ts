@@ -15,6 +15,10 @@ const yaml = `compositions:
     label: Backend
     border: frame
 nodes:
+  - name: user
+    type: user
+  - name: workstation
+    type: workstation
   - name: spa
     type: compact
     icon: connected_tv
@@ -29,6 +33,10 @@ nodes:
     label: MongoDB
     composition: data
 edges:
+  - from: user
+    to: workstation
+  - from: workstation
+    to: spa
   - from: spa
     to: api
     type: sequence

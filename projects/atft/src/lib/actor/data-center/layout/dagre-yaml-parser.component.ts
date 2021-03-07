@@ -13,14 +13,14 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import * as yaml from 'yaml';
-import { AbstractEmptyDirective, AbstractObject3D } from '../../../object';
-import { RendererService } from '../../../renderer';
-import { provideParent } from '../../../util';
-import { ServerBarrelActorComponent, ServerCompactActorComponent, ServerIconActorComponent, ServerStandActorComponent } from '../server';
-import { DagreCompositionComponent } from './dagre-composition.component';
-import { DagreEdgeComponent } from './dagre-edge.component';
-import { Composition, Edge, GraphModel, Node } from './dagre-model';
-import { DagreNodeComponent } from './dagre-node.component';
+import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
+import {RendererService} from '../../../renderer';
+import {provideParent} from '../../../util';
+import {DagreCompositionComponent} from './dagre-composition.component';
+import {DagreEdgeComponent} from './dagre-edge.component';
+import {Composition, Edge, GraphModel, Node} from './dagre-model';
+import {DagreNodeComponent} from './dagre-node.component';
+import {ActorRepositoryService} from '../service';
 
 
 function onlyUnique(value, index, self) {
@@ -39,14 +39,15 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
 
   @Output() status = new EventEmitter<boolean>();
 
-  @ViewChild('container', { read: ViewContainerRef }) container;
+  @ViewChild('container', {read: ViewContainerRef}) container;
 
   private instances = [];
 
   constructor(
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
-    protected resolver: ComponentFactoryResolver
+    protected resolver: ComponentFactoryResolver,
+    protected actorRepository: ActorRepositoryService
   ) {
     super(rendererService, parent);
   }
@@ -90,16 +91,8 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     }
   }
 
-  protected getNodeComponent(type: string) {
-    if (type === 'compact') {
-      return this.resolver.resolveComponentFactory(ServerCompactActorComponent);
-    } else if (type === 'barrel') {
-      return this.resolver.resolveComponentFactory(ServerBarrelActorComponent);
-    } else if (type === 'icon') {
-      return this.resolver.resolveComponentFactory(ServerIconActorComponent);
-    } else {
-      return this.resolver.resolveComponentFactory(ServerStandActorComponent);
-    }
+  protected getNodeComponent(id: string) {
+    return this.actorRepository.getComponentFactory(id);
   }
 
   protected createNode(node: Node) {
