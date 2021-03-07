@@ -13,7 +13,7 @@ import {AbstractServerActor} from './abstract-server-actor';
         <atft-box-mesh height="10" width="10" depth="0.5" material="phong" [materialColor]="color" [translateZ]="0.5">
         </atft-box-mesh>
         <atft-box-mesh height="12.25" width="21" depth="1" [materialColor]="color" material="phong"
-                       [rotateX]="(90 | deg2rad)" translateZ="7">
+                       [rotateX]="(80 | deg2rad)" translateZ="7">
 
           <atft-video-mesh *ngIf="videoSrc" height="11.25" width="20" translateZ="0.6" [videoSrc]="videoSrc">
           </atft-video-mesh>
