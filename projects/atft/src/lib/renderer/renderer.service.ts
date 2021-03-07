@@ -20,7 +20,7 @@ export class RendererService implements OnDestroy {
 
   constructor(
     private statsService: StatsService,
-    //TODO: private bloom: BloomService
+    // TODO: private bloom: BloomService
   ) {
 
   }
@@ -84,14 +84,13 @@ export class RendererService implements OnDestroy {
     this.render();
   }
 
-
   /*
   protected bloomInit() {
     if (!this.bloom.initialized && this.scene && this.scene.getObject() && this.camera && this.camera.camera) {
       this.bloom.init(this.webGlRenderer, this.scene.getObject(), this.camera.camera);
     }
-  }*/
-
+  }
+  */
 
   public resize(canvas: HTMLCanvasElement, size: string) {
     canvas.style.width = size;

@@ -3,6 +3,7 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {ObjLoaderComponent} from './obj-loader.component';
 import {AtftLoaderModule} from './atft-loader.module';
 import {StatsService} from '../../stats';
+import {ObjLoaderService} from './services';
 
 describe('loader', () => {
   describe('ObjLoaderComponent', () => {
@@ -16,7 +17,8 @@ describe('loader', () => {
         ],
         providers: [
           StatsService,
-          RendererService
+          RendererService,
+          ObjLoaderService
         ]
       });
       fixture = TestBed.createComponent(ObjLoaderComponent);
