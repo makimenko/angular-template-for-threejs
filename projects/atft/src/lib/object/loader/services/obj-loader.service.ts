@@ -13,7 +13,7 @@ export class ObjLoaderService extends AbstractCacheService<THREE.Object3D> {
   private loader = new OBJLoader();
 
   protected getValue(key: string): Promise<THREE.Object3D> {
-    console.log('ObjLoaderService.getValue');
+    // console.log('ObjLoaderService.getValue');
     return new Promise<THREE.Object3D>((resolve, reject) => {
       this.loader.load(key, model => {
         resolve(model);

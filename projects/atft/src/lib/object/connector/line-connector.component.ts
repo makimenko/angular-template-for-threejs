@@ -62,7 +62,8 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
       dashOffset: 0,
       gapSize: this.gapSize,
       opacity: this.opacity,
-      transparent: this.opacity < 1
+      transparent: this.opacity < 1,
+      depthWrite: false
     });
     this.matLine.resolution.set(window.innerWidth, window.innerHeight);
     if (!this.solid) {
@@ -82,6 +83,7 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
 
   updateLineGeometry(): void {
     const positions = this.getPositions();
+    this.line.geometry.dispose();
     this.line.geometry.setPositions(positions);
     this.line.computeLineDistances();
   }
