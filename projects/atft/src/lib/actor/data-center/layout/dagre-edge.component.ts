@@ -105,7 +105,12 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
 
   protected appendLineEnds(lineObject: THREE.Object3D) {
     // 1. Init Material
-    const material = new THREE.MeshBasicMaterial({color: appliedColor(this.materialColor)});
+    const material = new THREE.MeshBasicMaterial({
+      color: appliedColor(this.materialColor),
+      opacity: this.opacity,
+      transparent: this.opacity < 1,
+      depthWrite: false
+    });
 
     // 2. Create start
     const startGeometry = this.getConnectorEndGeometry(this.startType);

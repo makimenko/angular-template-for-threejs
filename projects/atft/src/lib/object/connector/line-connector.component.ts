@@ -60,7 +60,9 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
       dashed: !this.solid,
       dashSize: this.dashSize,
       dashOffset: 0,
-      gapSize: this.gapSize
+      gapSize: this.gapSize,
+      opacity: this.opacity,
+      transparent: this.opacity < 1
     });
     this.matLine.resolution.set(window.innerWidth, window.innerHeight);
     if (!this.solid) {
