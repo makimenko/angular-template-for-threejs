@@ -1,12 +1,12 @@
-import { Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf } from '@angular/core';
+import {Component, Injector, Input, OnDestroy, OnInit, Optional, SkipSelf} from '@angular/core';
 import * as dagre from 'dagre';
-import { Subscription } from 'rxjs';
+import {Subscription} from 'rxjs';
 import * as THREE from 'three';
-import { AnimationService } from '../../../animation';
-import { AbstractObject3D, LineConnectorComponent } from '../../../object';
-import { RendererService } from '../../../renderer';
-import { appliedColor, provideParent } from '../../../util';
-import { DagreLayoutComponent } from './dagre-layout.component';
+import {AnimationService} from '../../../animation';
+import {AbstractObject3D, LineConnectorComponent} from '../../../object';
+import {RendererService} from '../../../renderer';
+import {appliedColor, provideParent} from '../../../util';
+import {DagreLayoutComponent} from './dagre-layout.component';
 
 export enum LineEndType {
   none = 'none',
@@ -98,7 +98,6 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
 
   protected newObject3DInstance(): THREE.Object3D {
     const lineObject = super.newObject3DInstance();
-
     // console.log('DagreEdgeComponent.newObject3DInstance');
     this.appendLineEnds(lineObject);
     return lineObject;
@@ -106,7 +105,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
 
   protected appendLineEnds(lineObject: THREE.Object3D) {
     // 1. Init Material
-    const material = new THREE.MeshBasicMaterial({ color: appliedColor(this.materialColor) });
+    const material = new THREE.MeshBasicMaterial({color: appliedColor(this.materialColor)});
 
     // 2. Create start
     const startGeometry = this.getConnectorEndGeometry(this.startType);
@@ -131,7 +130,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
       case LineEndType.arrow:
         const shape = new THREE.Shape();
 
-        shape.moveTo(0, 0);
+        shape.moveTo(0, -0.5);
         shape.lineTo(1, 2);
         shape.lineTo(0, 1.7);
         shape.lineTo(-1, 2);
@@ -144,20 +143,6 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
         return undefined;
     }
 
-  }
-
-  protected getLineGeometry(): THREE.BufferGeometry {
-    // console.log('DagreEdgeComponent.getLineGeometry');
-    if (this.source || this.target) {
-      console.warn('DagreEdgeComponent.getLineGeometry source/target inputs ignored. Please use from/to instead');
-    }
-    if (!this.from || !this.to) {
-      throw new Error('DagreEdgeComponent: from or to inputs are missing!');
-    }
-    // console.log('DagreCompositionComponent.getLineGeometry', this.positions);
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(this.positions, 3));
-    return geometry;
   }
 
 
@@ -240,6 +225,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     });
   }
 
+
   private updateEnds(positions: number[]) {
     const p = this.positions;
     if (p?.length >= 9) {
@@ -270,6 +256,15 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
         endPoint.z || 0
       );
     }
+  }
+
+  protected getPositions(): number[] {
+    if (this.positions) {
+      return this.positions;
+    } else {
+      return [0, 0, 0, 0, 0, 0];
+    }
+
   }
 
 }

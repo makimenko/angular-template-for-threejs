@@ -33,29 +33,12 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
     });
   }
 
-  protected getLineGeometry(): THREE.BufferGeometry {
-    if (!this.source || !this.target) {
-      throw new Error('AbstractConnector: source or target inputs are missing!');
-    }
-
-    const source = this.source.getObject().position;
-    const target = this.target.getObject().position;
-
-    const points = [];
-    points.push(new THREE.Vector3(source.x, source.y, source.z));
-    points.push(new THREE.Vector3(target.x, target.y, target.z));
-
-    const geometry = new THREE.BufferGeometry().setFromPoints(points);
-    return geometry;
-  }
-
   public ngOnDestroy() {
     super.ngOnDestroy();
 
     this.sourceSub?.unsubscribe();
     this.targetSub?.unsubscribe();
   }
-
 
   /**
    * Create line mesh
