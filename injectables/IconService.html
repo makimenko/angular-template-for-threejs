@@ -60,6 +60,12 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../injectables/AbstractAssetService.html" target="_self" >AbstractAssetService</a></code>
+            </p>
 
 
             <section>
@@ -75,7 +81,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Protected</span>
+                                <a href="#defaultProvider">defaultProvider</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Abstract</span>
                                 <a href="#defaultProvider">defaultProvider</a>
                             </li>
                             <li>
@@ -95,15 +104,36 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#getIconSource">getIconSource</a>
+                                <a href="#defaultIfNotFound">defaultIfNotFound</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#getIconSourceByNamespace">getIconSourceByNamespace</a>
+                                <a href="#getFinalResult">getFinalResult</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
+                                <a href="#init">init</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#defaultIfNotFound">defaultIfNotFound</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#getFinalResult">getFinalResult</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getSource">getSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getSourceByNamespace">getSourceByNamespace</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Abstract</span>
                                 <a href="#init">init</a>
                             </li>
                             <li>
@@ -126,24 +156,6 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:19</a></div>
-                            </td>
-                        </tr>
-
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -154,28 +166,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getIconSource"></a>
+                    <a name="defaultIfNotFound"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Public</span>
-                            getIconSource
+                            defaultIfNotFound
                         </b>
-                        <a href="#getIconSource"><span class="icon ion-ios-link"></span></a>
+                        <a href="#defaultIfNotFound"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getIconSource(icon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>defaultIfNotFound(icon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:49</a></div>
                 </td>
             </tr>
 
@@ -226,28 +236,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getIconSourceByNamespace"></a>
+                    <a name="getFinalResult"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Public</span>
-                            getIconSourceByNamespace
+                            getFinalResult
                         </b>
-                        <a href="#getIconSourceByNamespace"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getFinalResult"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getIconSourceByNamespace(namespace: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, icon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getFinalResult(finalUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, provider: <a href="../interfaces/IconSource.html">IconSource</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:58</a></div>
                 </td>
             </tr>
 
@@ -267,7 +275,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>namespace</td>
+                                    <td>finalUrl</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -279,9 +287,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>icon</td>
+                                    <td>provider</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../interfaces/IconSource.html" target="_self" >IconSource</a></code>
                                     </td>
 
                                     <td>
@@ -330,8 +338,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:16</a></div>
                 </td>
             </tr>
 
@@ -341,6 +349,392 @@
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultIfNotFound"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Abstract</span>
+                            defaultIfNotFound
+                        </b>
+                        <a href="#defaultIfNotFound"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>defaultIfNotFound(icon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AbstractAssetService.html" target="_self" >AbstractAssetService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AbstractAssetService.html#source" target="_self" >AbstractAssetService:57</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>icon</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFinalResult"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Abstract</span>
+                            getFinalResult
+                        </b>
+                        <a href="#getFinalResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFinalResult(finalUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, provider: T)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AbstractAssetService.html" target="_self" >AbstractAssetService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AbstractAssetService.html#source" target="_self" >AbstractAssetService:55</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>finalUrl</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>provider</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSource"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getSource
+                        </b>
+                        <a href="#getSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSource(icon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AbstractAssetService.html" target="_self" >AbstractAssetService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AbstractAssetService.html#source" target="_self" >AbstractAssetService:30</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>icon</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSourceByNamespace"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getSourceByNamespace
+                        </b>
+                        <a href="#getSourceByNamespace"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSourceByNamespace(namespace: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, icon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AbstractAssetService.html" target="_self" >AbstractAssetService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AbstractAssetService.html#source" target="_self" >AbstractAssetService:43</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>namespace</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>icon</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="init"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Abstract</span>
+                            init
+                        </b>
+                        <a href="#init"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>init()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AbstractAssetService.html" target="_self" >AbstractAssetService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AbstractAssetService.html#source" target="_self" >AbstractAssetService:20</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                 </td>
@@ -364,15 +758,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>registerProvider(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, source: <a href="../interfaces/IconSource.html">IconSource</a>)</code>
+                    <code>registerProvider(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, source: T)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:59</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AbstractAssetService.html" target="_self" >AbstractAssetService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AbstractAssetService.html#source" target="_self" >AbstractAssetService:22</a></code>
+</div>
                 </td>
             </tr>
 
@@ -406,7 +806,7 @@
                                 <tr>
                                     <td>source</td>
                                     <td>
-                                                <code><a href="../interfaces/IconSource.html" target="_self" >IconSource</a></code>
+                                            <code>T</code>
                                     </td>
 
                                     <td>
@@ -455,8 +855,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:63</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AbstractAssetService.html" target="_self" >AbstractAssetService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AbstractAssetService.html#source" target="_self" >AbstractAssetService:26</a></code>
+</div>
                 </td>
             </tr>
 
@@ -516,7 +922,6 @@
                         <a name="defaultProvider"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Protected</span>
                             defaultProvider</b>
                             <a href="#defaultProvider"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -535,7 +940,36 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultProvider"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Abstract</span>
+                            defaultProvider</b>
+                            <a href="#defaultProvider"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../injectables/AbstractAssetService.html" target="_self" >AbstractAssetService</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../injectables/AbstractAssetService.html#source" target="_self" >AbstractAssetService:14</a></code>
+</div>
                             </td>
                         </tr>
 
@@ -557,7 +991,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/IconSource.html" target="_self" >Map&lt;string | IconSource&gt;</a></code>
+                            <i>Type : </i>    <code>Map&lt;string | T&gt;</code>
 
                         </td>
                     </tr>
@@ -566,9 +1000,16 @@
                             <i>Default value : </i><code>new Map()</code>
                         </td>
                     </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../injectables/AbstractAssetService.html" target="_self" >AbstractAssetService</a></code>
+</div>
+                                </td>
+                            </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/loader/services/icon.service.ts:18</a></div>
+                                    <div class="io-line">Defined in         <code><a href="../injectables/AbstractAssetService.html#source" target="_self" >AbstractAssetService:13</a></code>
+</div>
                             </td>
                         </tr>
 
@@ -582,38 +1023,29 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {AbstractAssetService, BaseAssetSource} from &#x27;./abstract-asset.service&#x27;;
 
-const SEPARATOR &#x3D; &#x27;:&#x27;;
-const REPLACE_SYMBOL &#x3D; &#x27;?&#x27;;
 
-export interface IconSource {
-  url: string;
+export interface IconSource extends BaseAssetSource {
   allowColorOverride: boolean;
   isCCW: boolean;
   noHoles: boolean;
 }
 
-@Injectable({
-  providedIn: &#x27;root&#x27;
-})
-export class IconService {
+@Injectable()
+export class IconService extends AbstractAssetService&lt;IconSource&gt; {
 
-  protected providers: Map&lt;string, IconSource&gt; &#x3D; new Map();
-  protected defaultProvider &#x3D; &#x27;md&#x27;;
-
-  constructor() {
-    this.init();
-  }
+  defaultProvider &#x3D; &#x27;md&#x27;;
 
   protected init() {
-    this.registerProvider(&#x27;a&#x27;, {
-      url: &#x27;assets/svg/?.svg&#x27;,
+    this.registerProvider(this.defaultProvider, {
+      url: &#x27;https://raw.githubusercontent.com/material-icons/material-icons/master/svg/?/baseline.svg&#x27;,
       allowColorOverride: true,
       isCCW: false,
       noHoles: false
     });
-    this.registerProvider(&#x27;md&#x27;, {
-      url: &#x27;https://raw.githubusercontent.com/material-icons/material-icons/master/svg/?/baseline.svg&#x27;,
+    this.registerProvider(&#x27;a&#x27;, {
+      url: &#x27;assets/svg/?.svg&#x27;,
       allowColorOverride: true,
       isCCW: false,
       noHoles: false
@@ -636,49 +1068,18 @@ export class IconService {
       isCCW: false,
       noHoles: true
     });
-
   }
 
-  public registerProvider(key: string, source: IconSource) {
-    this.providers.set(key, source);
+  defaultIfNotFound(icon: string): IconSource {
+    return {
+      url: icon,
+      allowColorOverride: true,
+      isCCW: false,
+      noHoles: false
+    };
   }
 
-  public setDefaultProvider(key: string) {
-    this.defaultProvider &#x3D; key;
-  }
-
-  public getIconSource(icon: string): IconSource {
-    // console.log(&#x27;IconService.getIconSource&#x27;, icon);
-    if (icon) {
-      if (icon.indexOf(SEPARATOR) &gt; 0) {
-        const args &#x3D; icon.split(SEPARATOR);
-        return this.getIconSourceByNamespace(args[0], args[1]);
-      } else {
-        return this.getIconSourceByNamespace(this.defaultProvider, icon);
-      }
-    } else {
-      return {
-        url: icon,
-        allowColorOverride: true,
-        isCCW: false,
-        noHoles: false
-      };
-    }
-  }
-
-  public getIconSourceByNamespace(namespace: string, icon: string): IconSource {
-    // console.log(&#x27;IconService.getUrlByNamespace&#x27;, namespace + &#x27;, &#x27; + icon);
-    const provider &#x3D; this.providers.get(namespace);
-    if (!provider) {
-      console.warn(&#x27;Icon provider not found&#x27;, provider);
-      return {
-        url: icon,
-        allowColorOverride: true,
-        isCCW: false,
-        noHoles: false
-      };
-    }
-    const finalUrl &#x3D; provider.url.replace(REPLACE_SYMBOL, icon);
+  getFinalResult(finalUrl: string, provider: IconSource): IconSource {
     // console.log(&#x27;IconService.getUrlByNamespace url&#x27;, svgUrl);
     return {
       url: finalUrl,

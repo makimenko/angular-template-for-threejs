@@ -396,7 +396,7 @@ import {
   ServerBarrelActorComponent,
   ServerCompactActorComponent,
   ServerIconActorComponent,
-  ServerStandActorComponent, UserActorComponent,
+  ServerStandActorComponent, ModelActorComponent,
   WorkstationActorComponent
 } from &#x27;../server&#x27;;
 
@@ -415,7 +415,7 @@ export class ActorRepositoryService {
     this.register(&#x27;barrel&#x27;, ServerBarrelActorComponent);
     this.register(&#x27;icon&#x27;, ServerIconActorComponent);
     this.register(&#x27;workstation&#x27;, WorkstationActorComponent);
-    this.register(&#x27;user&#x27;, UserActorComponent);
+    this.register(&#x27;model&#x27;, ModelActorComponent);
   }
 
   public register(id: string, component: Type&lt;any&gt;): void {
