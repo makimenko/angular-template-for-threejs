@@ -29,7 +29,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   @Input()
   set icon(icon: string) {
     // console.log('SVGLoaderComponent.icon', icon);
-    const iconProvider = this.iconService.getIconSource(icon);
+    const iconProvider = this.iconService.getSource(icon);
     this.model = iconProvider.url;
     this.isCCW = iconProvider.isCCW;
     this.noHoles = iconProvider.noHoles;

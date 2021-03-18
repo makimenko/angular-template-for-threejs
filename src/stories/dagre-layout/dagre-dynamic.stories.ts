@@ -16,7 +16,7 @@ const yaml = `compositions:
     border: frame
 nodes:
   - name: user
-    type: user
+    model: user
   - name: workstation
     type: workstation
   - name: spa

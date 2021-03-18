@@ -1,7 +1,7 @@
 import {RendererService} from '../../renderer/renderer.service';
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {AtftLoaderModule} from './atft-loader.module';
-import { SvgLoaderService } from './services';
+import {IconService, SvgLoaderService} from './services';
 import {SVGLoaderComponent} from './svg-loader.component';
 import {StatsService} from '../../stats';
 
@@ -18,7 +18,8 @@ describe('loader', () => {
         providers: [
           StatsService,
           RendererService,
-          SvgLoaderService
+          SvgLoaderService,
+          IconService
         ]
       });
       fixture = TestBed.createComponent(SVGLoaderComponent);

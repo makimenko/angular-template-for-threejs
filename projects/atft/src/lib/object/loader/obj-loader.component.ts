@@ -7,6 +7,7 @@ import {provideParent} from '../../util';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractModelLoader} from './abstract-model-loader';
 import {ObjLoaderService} from './services/obj-loader.service';
+import {IconService} from './services';
 
 /**
  * Component for employing THREE.OBJLoader to load [Wavefront *.obj files][1].

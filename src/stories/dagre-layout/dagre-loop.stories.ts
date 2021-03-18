@@ -11,7 +11,7 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
   template: worldSceneWrapper(`
     <atft-dagre-layout>
       <atft-dagre-node *ngFor="let x of fakeArray(numDatabases)" composition="data">
-        <atft-user-actor label="db"></atft-user-actor>
+        <atft-model-actor model="fingerprint" label="db"></atft-model-actor>
       </atft-dagre-node>
 
       <atft-dagre-composition name="data" label="Data"></atft-dagre-composition>
