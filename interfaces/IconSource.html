@@ -212,7 +212,7 @@ export class IconService extends AbstractAssetService&lt;IconSource&gt; {
   defaultProvider &#x3D; &#x27;md&#x27;;
 
   protected init() {
-    this.registerProvider(this.defaultProvider, {
+    this.registerProvider(&#x27;md&#x27;, {
       url: &#x27;https://raw.githubusercontent.com/material-icons/material-icons/master/svg/?/baseline.svg&#x27;,
       allowColorOverride: true,
       isCCW: false,
