@@ -52,7 +52,7 @@ export abstract class AbstractAssetService<T extends BaseAssetSource> {
     return this.getFinalResult(finalUrl, provider);
   }
 
-  public abstract getFinalResult(finalUrl:string, provider: T): T;
+  public abstract getFinalResult(finalUrl: string, provider: T): T;
 
   public abstract defaultIfNotFound(icon: string): T;
 

@@ -14,14 +14,14 @@ export class IconService extends AbstractAssetService<IconSource> {
   defaultProvider = 'md';
 
   protected init() {
-    this.registerProvider('a', {
-      url: 'assets/svg/?.svg',
+    this.registerProvider(this.defaultProvider, {
+      url: 'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/?/baseline.svg',
       allowColorOverride: true,
       isCCW: false,
       noHoles: false
     });
-    this.registerProvider('md', {
-      url: 'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/?/baseline.svg',
+    this.registerProvider('a', {
+      url: 'assets/svg/?.svg',
       allowColorOverride: true,
       isCCW: false,
       noHoles: false

@@ -2,28 +2,24 @@ import {Injectable} from '@angular/core';
 import {AbstractAssetService, BaseAssetSource} from './abstract-asset.service';
 
 
-export interface ModelSource extends BaseAssetSource {
-
-}
-
 @Injectable()
-export class ModelService extends AbstractAssetService<ModelSource> {
+export class ModelService extends AbstractAssetService<BaseAssetSource> {
 
   defaultProvider = '3d';
 
   protected init() {
-    this.registerProvider('3d', {
+    this.registerProvider(this.defaultProvider, {
       url: 'https://raw.githubusercontent.com/makimenko/files/master/actor-models/?.obj'
     });
   }
 
-  defaultIfNotFound(icon: string): ModelSource {
+  defaultIfNotFound(icon: string): BaseAssetSource {
     return {
       url: icon
     };
   }
 
-  getFinalResult(finalUrl: string, provider: ModelSource): ModelSource {
+  getFinalResult(finalUrl: string, provider: BaseAssetSource): BaseAssetSource {
     return {
       url: finalUrl
     };
