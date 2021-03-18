@@ -103,12 +103,12 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     nodeRef.instance.composition = node.composition;
     this.instances.push(nodeRef);
 
-    const serverFactory = this.getNodeComponent(node.type);
+    const serverFactory = this.getNodeComponent((node.model ? 'model' : node.type));
     const serverRef = nodeRef.instance.container.createComponent(serverFactory);
     serverRef.instance.name = node.name;
     serverRef.instance.label = (node.label ? node.label : node.name);
     serverRef.instance.icon = node.icon;
-    serverRef.instance.svgNoHoles = true;
+    serverRef.instance.model = node.model;
 
     this.instances.push(serverRef);
   }

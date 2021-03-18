@@ -1,26 +1,17 @@
 import {Injectable} from '@angular/core';
+import {AbstractAssetService, BaseAssetSource} from './abstract-asset.service';
 
-const SEPARATOR = ':';
-const REPLACE_SYMBOL = '?';
 
-export interface IconSource {
-  url: string;
+export interface IconSource extends BaseAssetSource {
   allowColorOverride: boolean;
   isCCW: boolean;
   noHoles: boolean;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
-export class IconService {
+@Injectable()
+export class IconService extends AbstractAssetService<IconSource> {
 
-  protected providers: Map<string, IconSource> = new Map();
-  protected defaultProvider = 'md';
-
-  constructor() {
-    this.init();
-  }
+  defaultProvider = 'md';
 
   protected init() {
     this.registerProvider('a', {
@@ -53,49 +44,18 @@ export class IconService {
       isCCW: false,
       noHoles: true
     });
-
   }
 
-  public registerProvider(key: string, source: IconSource) {
-    this.providers.set(key, source);
+  defaultIfNotFound(icon: string): IconSource {
+    return {
+      url: icon,
+      allowColorOverride: true,
+      isCCW: false,
+      noHoles: false
+    };
   }
 
-  public setDefaultProvider(key: string) {
-    this.defaultProvider = key;
-  }
-
-  public getIconSource(icon: string): IconSource {
-    // console.log('IconService.getIconSource', icon);
-    if (icon) {
-      if (icon.indexOf(SEPARATOR) > 0) {
-        const args = icon.split(SEPARATOR);
-        return this.getIconSourceByNamespace(args[0], args[1]);
-      } else {
-        return this.getIconSourceByNamespace(this.defaultProvider, icon);
-      }
-    } else {
-      return {
-        url: icon,
-        allowColorOverride: true,
-        isCCW: false,
-        noHoles: false
-      };
-    }
-  }
-
-  public getIconSourceByNamespace(namespace: string, icon: string): IconSource {
-    // console.log('IconService.getUrlByNamespace', namespace + ', ' + icon);
-    const provider = this.providers.get(namespace);
-    if (!provider) {
-      console.warn('Icon provider not found', provider);
-      return {
-        url: icon,
-        allowColorOverride: true,
-        isCCW: false,
-        noHoles: false
-      };
-    }
-    const finalUrl = provider.url.replace(REPLACE_SYMBOL, icon);
+  getFinalResult(finalUrl: string, provider: IconSource): IconSource {
     // console.log('IconService.getUrlByNamespace url', svgUrl);
     return {
       url: finalUrl,

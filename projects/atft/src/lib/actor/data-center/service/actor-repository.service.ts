@@ -3,7 +3,7 @@ import {
   ServerBarrelActorComponent,
   ServerCompactActorComponent,
   ServerIconActorComponent,
-  ServerStandActorComponent, UserActorComponent,
+  ServerStandActorComponent, ModelActorComponent,
   WorkstationActorComponent
 } from '../server';
 
@@ -22,7 +22,7 @@ export class ActorRepositoryService {
     this.register('barrel', ServerBarrelActorComponent);
     this.register('icon', ServerIconActorComponent);
     this.register('workstation', WorkstationActorComponent);
-    this.register('user', UserActorComponent);
+    this.register('model', ModelActorComponent);
   }
 
   public register(id: string, component: Type<any>): void {
