@@ -14,7 +14,7 @@ export class IconService extends AbstractAssetService<IconSource> {
   defaultProvider = 'md';
 
   protected init() {
-    this.registerProvider(this.defaultProvider, {
+    this.registerProvider('md', {
       url: 'https://raw.githubusercontent.com/material-icons/material-icons/master/svg/?/baseline.svg',
       allowColorOverride: true,
       isCCW: false,

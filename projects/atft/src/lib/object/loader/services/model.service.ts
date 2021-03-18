@@ -8,7 +8,7 @@ export class ModelService extends AbstractAssetService<BaseAssetSource> {
   defaultProvider = '3d';
 
   protected init() {
-    this.registerProvider(this.defaultProvider, {
+    this.registerProvider('3d', {
       url: 'https://raw.githubusercontent.com/makimenko/files/master/actor-models/?.obj'
     });
   }
