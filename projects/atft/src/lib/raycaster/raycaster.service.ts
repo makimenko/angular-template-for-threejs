@@ -6,7 +6,7 @@ import {RaycasterEvent} from './raycaster-event';
 
 interface NearestIntersection {
   object: THREE.Object3D;
-  face: THREE.Face;
+  face: THREE.Face3;
 }
 
 @Injectable()
