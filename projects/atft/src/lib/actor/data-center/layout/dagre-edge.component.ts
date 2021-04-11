@@ -127,7 +127,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     }
   }
 
-  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry {
+  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry | THREE.Geometry {
     switch (type) {
       case LineEndType.circle:
         return new THREE.CircleGeometry(0.7, 16);
