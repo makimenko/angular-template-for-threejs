@@ -2195,7 +2195,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
       color: appliedColor(this.materialColor),
       opacity: this.opacity,
       transparent: this.opacity &lt; 1,
-      depthWrite: false
+      depthWrite: true
     });
 
     // 2. Create start
@@ -2307,7 +2307,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
         edge.points.forEach(p &#x3D;&gt; {
           if (!Number.isNaN(p.x) &amp;&amp; !Number.isNaN(p.y)) {
             // console.log(&#x27;x&#x3D;&#x27; + p.x + &#x27;, y&#x3D;&#x27; + p.y);
-            this.positions.push(p.x, p.y, 0);
+            this.positions.push(p.x, p.y, 0.1);
           }
         });
         this.updateEnds(this.positions);

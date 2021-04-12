@@ -937,7 +937,7 @@ export class LineConnectorComponent extends AbstractConnector&lt;Line2&gt; imple
       gapSize: this.gapSize,
       opacity: this.opacity,
       transparent: this.opacity &lt; 1,
-      depthWrite: false
+      depthWrite: true
     });
     this.matLine.resolution.set(window.innerWidth, window.innerHeight);
     if (!this.solid) {
