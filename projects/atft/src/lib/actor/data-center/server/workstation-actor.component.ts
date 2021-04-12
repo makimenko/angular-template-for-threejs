@@ -18,7 +18,7 @@ import {AbstractServerActor} from './abstract-server-actor';
           <atft-video-mesh *ngIf="videoSrc" height="11.25" width="20" translateZ="0.6" [videoSrc]="videoSrc">
           </atft-video-mesh>
           <atft-box-mesh *ngIf="!videoSrc" height="11.25" width="20" depth="0" translateZ="0.6" materialColor="0xffffff"
-                         [depthWrite]="false" >
+                         [depthWrite]="true" >
           </atft-box-mesh>
 
         </atft-box-mesh>
