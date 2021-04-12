@@ -1,6 +1,6 @@
 {
   "name": "atft",
-  "version": "1.4.16",
+  "version": "1.4.19",
   "description": "Ready-to-use Angular components for Three.js, see https://makimenko.github.io/angular-template-for-threejs/.",
   "keywords": [
     "threejs",
@@ -33,9 +33,6 @@
     }
   ],
   "peerDependencies": {
-    "@angular/common": "^11.2.7",
-    "@angular/core": "^11.2.7",
-    "three": "^0.126.1"
   },
   "dependencies": {
     "tslib": "^2.0.0"

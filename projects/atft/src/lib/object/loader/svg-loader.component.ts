@@ -48,7 +48,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   material = 'basic';
 
   @Input()
-  depthWrite = false;
+  depthWrite = true;
 
   @Input()
   maxX: number;
@@ -91,6 +91,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
         group.add(mesh);
       }
     }
+
 
     if (this.maxX || this.maxY) {
       scaleToFit(group, new THREE.Vector3(this.maxX, this.maxY, 0));
