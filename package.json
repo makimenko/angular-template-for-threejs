@@ -52,6 +52,7 @@
     "@types/jasmine": "^3.6.3",
     "@types/jasminewd2": "^2.0.8",
     "@types/node": "^13.13.41",
+    "@types/three": "^0.127.1",
     "@types/webgl2": "0.0.6",
     "babel-loader": "^8.2.2",
     "codecov": "^3.8.1",
