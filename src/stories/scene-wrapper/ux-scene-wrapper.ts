@@ -10,11 +10,11 @@ export const uxSceneWrapper = (content: string) => `
       </atft-orthographic-camera>
 
       <atft-scene name="scene" background="0xFFFFFF">
-        <atft-ambient-light color="0xFFFFFF" intensity="0.4"></atft-ambient-light>
+        <atft-ambient-light color="0xFFFFFF" [intensity]="0.4"></atft-ambient-light>
 
-        <atft-point-light intensity="0.5" distance="1000" translateX=90 translateY=90
-                          translateZ=90></atft-point-light>
-        <atft-point-light intensity="0.8" distance="1000" [translateX]="-60" [translateY]="-60"
+        <atft-point-light [intensity]="0.5" [distance]="1000" [translateX]=90 [translateY]=90
+                          [translateZ]=90></atft-point-light>
+        <atft-point-light [intensity]="0.8" [distance]="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
         ${content}

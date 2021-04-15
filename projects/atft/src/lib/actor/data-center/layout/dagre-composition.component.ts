@@ -14,7 +14,7 @@ import {Subscription} from 'rxjs';
                      [depthWrite]="false"
                      (mouseEnter)="onSelected()"
                      (mouseExit)="onDeselected()">
-      <atft-text-mesh [centered]="true" [text]="label" size="3" [translateY]="translateLabelY"
+      <atft-text-mesh [centered]="true" [text]="label" [size]="3" [translateY]="translateLabelY"
                       materialColor="0xE0E0E0">
       </atft-text-mesh>
     </atft-plane-mesh>
@@ -22,7 +22,7 @@ import {Subscription} from 'rxjs';
     <atft-frame-mesh *ngIf="border=='frame'" [sizeX]="width" [sizeY]="height" [thickness]="2" [materialColor]="color"
                      [depthWrite]="false"
                      atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()">
-      <atft-text-mesh [centered]="true" [text]="label" size="3" [translateY]="translateLabelY"
+      <atft-text-mesh [centered]="true" [text]="label" [size]="3" [translateY]="translateLabelY"
                       materialColor="0xE0E0E0">
       </atft-text-mesh>
     </atft-frame-mesh>
@@ -56,7 +56,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
 
   @Input() composition: string;
 
-  public color = 0xA0A0A0;
+  public color = '0xA0A0A0';
   public translateLabelY: number;
   protected dagreLayout: DagreLayoutComponent;
   protected graphUpdated: Subscription;
@@ -79,15 +79,15 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
   }
 
   public onSelected() {
-    this.color = 0xA4A4A4;
+    this.color = '0xA4A4A4';
   }
 
   public onDeselected() {
-    this.color = 0xA0A0A0;
+    this.color = '0xA0A0A0';
   }
 
   public onClick() {
-    this.color = 0xA0A0A0;
+    this.color = '0xA0A0A0';
   }
 
   public ngOnInit() {

@@ -15,11 +15,11 @@ import {Shape} from 'three';
 export class SVGLoaderComponent extends AbstractModelLoader {
 
   @Input()
-  get overrideMaterialColor(): number {
+  get overrideMaterialColor(): string {
     return this._overrideMaterialColor;
   }
 
-  set overrideMaterialColor(value: number) {
+  set overrideMaterialColor(value: string) {
     this._overrideMaterialColor = value;
     if (this.object) {
       this.startLoading();
@@ -41,7 +41,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   get icon(): string {
     return this.model;
   }
-  private _overrideMaterialColor: number = undefined;
+  private _overrideMaterialColor: string = undefined;
 
 
   @Input()

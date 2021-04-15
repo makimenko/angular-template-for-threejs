@@ -1,8 +1,9 @@
-import {AfterViewInit, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
+import {AfterViewInit, Directive, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
 import {RendererService} from '../../renderer/renderer.service';
 import {EffectComposerComponent} from './effect-composer.component';
 import {Pass} from 'three/examples/jsm/postprocessing/Pass';
 
+@Directive()
 export abstract class AbstractComposeEffect<T extends Pass> implements AfterViewInit, OnDestroy, OnChanges {
 
   protected pass: T[] = [];

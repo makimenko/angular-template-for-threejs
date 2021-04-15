@@ -8,7 +8,7 @@ import {Subscription} from 'rxjs';
 @Directive({selector: '[atft-dashed-draw]'})
 export class DashedDrawDirective implements AfterViewInit, OnDestroy {
 
-  @Input() dashColor = 0xFF0000;
+  @Input() dashColor = '0xFF0000';
   @Input() dashIncrement = 10;
   @Input() initialOpacity;
   @Input() targetOpacity;

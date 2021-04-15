@@ -11,7 +11,7 @@ import { AbstractObject3D } from '../abstract-object-3d';
 })
 export class AmbientLightComponent extends AbstractObject3D<THREE.AmbientLight> {
 
-  @Input() color = 0xFFFFFF;
+  @Input() color = '0xFFFFFF';
   @Input() intensity = 0.8;
 
   constructor(

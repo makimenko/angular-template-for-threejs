@@ -12,8 +12,8 @@ import { AbstractObject3D } from '../abstract-object-3d';
 })
 export class HemisphereLightComponent extends AbstractObject3D<THREE.HemisphereLight> {
 
-  @Input() skyColor = 0xffffff;
-  @Input() groundColor = 0x444444;
+  @Input() skyColor = '0xffffff';
+  @Input() groundColor = '0x444444';
   @Input() intensity = 1;
 
   constructor(
@@ -28,7 +28,7 @@ export class HemisphereLightComponent extends AbstractObject3D<THREE.HemisphereL
     const light = new THREE.HemisphereLight(
       appliedColor(this.skyColor),
       appliedColor(this.groundColor),
-      appliedColor(this.intensity)
+      this.intensity
     );
 
     return light;

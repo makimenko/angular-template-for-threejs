@@ -23,7 +23,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
   animate = false;
 
   @Input()
-  materialColor = 0x5DADE2;
+  materialColor = '0x5DADE2';
 
   @Input()
   minDelay = 5;

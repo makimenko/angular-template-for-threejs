@@ -22,24 +22,24 @@ export abstract class AbstractServerActor extends AbstractEmptyDirective {
   @Input()
   icon: string;
 
-  color = 0xffffff;
+  color = '0xffffff';
 
   @Input()
   showFrame = true;
 
   public onSelected() {
     // console.log('ServerActorComponent.onSelected');
-    this.color = 0xfff0f0;
+    this.color = '0xfff0f0';
   }
 
   public onDeselected() {
     // console.log('ServerActorComponent.onDeselected');
-    this.color = 0xffffff;
+    this.color = '0xffffff';
   }
 
   public onClick() {
     console.log('ServerActorComponent.onClick');
-    this.color = 0xffa0a0;
+    this.color = '0xffa0a0';
     this.actorClick.emit();
   }
 

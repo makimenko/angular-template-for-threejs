@@ -18,7 +18,7 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
   animate = true;
 
   @Input()
-  materialColor = 0x5DADE2;
+  materialColor = '0x5DADE2';
 
   private ring1: THREE.Mesh;
   private ring2: THREE.Mesh;

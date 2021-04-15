@@ -10,7 +10,7 @@ import {appliedColor} from '../util';
 })
 export class FogComponent implements AfterViewInit, OnDestroy, OnChanges {
 
-  @Input() color = 0x0000AA;
+  @Input() color = '0x0000AA';
   @Input() near = 10;
   @Input() far = 100;
 

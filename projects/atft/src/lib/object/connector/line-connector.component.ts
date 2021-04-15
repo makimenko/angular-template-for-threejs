@@ -22,7 +22,7 @@ export enum LineType {
 })
 export class LineConnectorComponent extends AbstractConnector<Line2> implements OnDestroy {
 
-  @Input() materialColor = 0xffffff;
+  @Input() materialColor = '0xffffff';
   @Input() solid = false;
   @Input() lineWidth = 2;
   @Input() dashSize = 3;

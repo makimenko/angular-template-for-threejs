@@ -15,11 +15,11 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple compon
   <atft-renderer-canvas>
     <atft-perspective-camera
       [fov]=60 [near]=1 [far]=1100
-      positionX=20 positionY=50 positionZ=50>
+      positionX=20 [positionY]=50 [positionZ]=50>
     </atft-perspective-camera>
     <atft-scene>
-      <atft-axes-helper size=200></atft-axes-helper>
-      <atft-grid-helper size=100 divisions=10></atft-grid-helper>
+      <atft-axes-helper [size]=200></atft-axes-helper>
+      <atft-grid-helper [size]=100 [divisions]=10></atft-grid-helper>
     </atft-scene>
   </atft-renderer-canvas>
 </atft-orbit-controls>
@@ -62,11 +62,11 @@ Click below to see the demo in a web browser:<br>
       <atft-renderer-canvas #mainRenderer>
         <atft-perspective-camera
           [fov]=60 [near]=1 [far]=1100
-          positionX=20 positionY=50 positionZ=50>
+          positionX=20 [positionY]=50 [positionZ]=50>
         </atft-perspective-camera>
         <atft-scene>
-          <atft-axes-helper size=200></atft-axes-helper>
-          <atft-grid-helper size=100 divisions=10></atft-grid-helper>
+          <atft-axes-helper [size]=200></atft-axes-helper>
+          <atft-grid-helper [size]=100 [divisions]=10></atft-grid-helper>
         </atft-scene>
       </atft-renderer-canvas>
     </atft-orbit-controls>

@@ -11,7 +11,7 @@ import { AbstractObject3D } from '../abstract-object-3d';
 })
 export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
 
-  @Input() color = 0xffffff;
+  @Input() color = '0xFFFFFF';
   @Input() intensity = 1;
   @Input() distance = 500;
   @Input() castShadow = false;

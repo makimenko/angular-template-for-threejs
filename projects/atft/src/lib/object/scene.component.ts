@@ -12,7 +12,7 @@ import {AbstractObject3D} from './abstract-object-3d';
 })
 export class SceneComponent extends AbstractObject3D<THREE.Scene> implements OnChanges {
 
-  @Input() background = 0xffffff;
+  @Input() background = '0xffffff';
 
   constructor(
     protected rendererService: RendererService,

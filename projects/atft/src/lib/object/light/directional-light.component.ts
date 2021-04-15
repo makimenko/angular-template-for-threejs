@@ -12,7 +12,7 @@ import { AbstractObject3D } from '../abstract-object-3d';
 })
 export class DirectionalLightComponent extends AbstractObject3D<THREE.DirectionalLight> {
 
-  @Input() color = 0xffffff;
+  @Input() color = '0xFFFFFF';
   @Input() intensity = 1;
   // by default, target is 0,0,0
   @Input() target = new THREE.Object3D();

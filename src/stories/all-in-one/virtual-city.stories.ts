@@ -20,31 +20,31 @@ and real in truly immersive ways.`;
 @Component({
   template: `
     <atft-renderer-canvas>
-      <atft-perspective-camera #cam [zAxisUp]="true" positionX=0 positionY=50 [positionZ]=z>
+      <atft-perspective-camera #cam [zAxisUp]="true" positionX=0 [positionY]=50 [positionZ]=z>
       </atft-perspective-camera>
 
       <!-- Foreground -->
       <atft-scene name="scene" background="0x000000">
 
-        <atft-ambient-light color="0xFFFFFF" intensity="0.9"></atft-ambient-light>
+        <atft-ambient-light color="0xFFFFFF" [intensity]="0.9"></atft-ambient-light>
 
-        <atft-point-light intensity="0.1" distance="1000" translateX=90 translateY=90
-                          translateZ=90></atft-point-light>
-        <atft-point-light intensity="0.1" distance="1000" [translateX]="-60" [translateY]="-60"
+        <atft-point-light [intensity]="0.1" [distance]="1000" [translateX]=90 [translateY]=90
+                          [translateZ]=90></atft-point-light>
+        <atft-point-light [intensity]="0.1" [distance]="1000" [translateX]="-60" [translateY]="-60"
                           [translateZ]="50"></atft-point-light>
 
-        <atft-text-actor text="Introducing Angular Template for Three.js" translateX="-200" translateY="50" translateZ="-50"
+        <atft-text-actor text="Introducing Angular Template for Three.js" [translateX]="-200" [translateY]="50" [translateZ]="-50"
                          [animate]="false" [minDelay]="5" [maxDelay]="5" [materialColor]="colorA200"
                          [scaleX]="0.5" [scaleY]="0.5"
                          atft-dashed-draw [dashColor]="colorA200" [dashIncrement]="5">
         </atft-text-actor>
 
-        <atft-text-actor text="Hello, virtual city!" translateX="100" translateY="5" [translateZ]="-100"
+        <atft-text-actor text="Hello, virtual city!" [translateX]="100" [translateY]="5" [translateZ]="-100"
                          [animate]="false" [minDelay]="10" [maxDelay]="10" [materialColor]="colorA200"
                          atft-dashed-draw [dashColor]="colorA200" [dashIncrement]="5">
         </atft-text-actor>
 
-        <atft-text-actor text="${longText}" translateX="-50" [translateY]="100" [translateZ]="-50"
+        <atft-text-actor text="${longText}" [translateX]="-50" [translateY]="100" [translateZ]="-50"
                          [animate]="false" [minDelay]="10" [maxDelay]="10" [materialColor]="colorA200"
                          [scaleX]="0.3" [scaleY]="0.3" [dashIncrement]="50"
                          atft-dashed-draw [dashColor]="colorA200">
@@ -83,7 +83,7 @@ class StorybookFlyComponent implements AfterViewInit, OnDestroy {
 
   // z = 600 - 200
 
-  colorA200 = 0x9FA8DA;
+  colorA200 = '0x9FA8DA';
 
   constructor(private animationService: AnimationService) {
   }

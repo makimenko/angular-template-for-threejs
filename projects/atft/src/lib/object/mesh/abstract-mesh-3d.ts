@@ -10,7 +10,7 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> implemen
   material: string;
 
   @Input()
-  materialColor = 0x5DADE2;
+  materialColor = '0x5DADE2';
 
   @Input()
   castShadow = true;

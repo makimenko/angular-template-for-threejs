@@ -10,10 +10,10 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 @Component({
   template: axesSceneWrapper(`
   <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
-    #a translateY="50" translateX="-10" [translateZ]="translateZ">
+    #a [translateY]="50" [translateX]="-10" [translateZ]="translateZ">
   </atft-sphere-mesh>
   <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
-    #b translateY="-20" translateX="-30" translateZ="+10">
+    #b [translateY]="-20" [translateX]="-30" [translateZ]="+10">
   </atft-sphere-mesh>
 
   <atft-line-connector [source]="a" [target]="b" materialColor="0xff0000"></atft-line-connector>
@@ -27,10 +27,10 @@ class StorybookLineComponent {
 @Component({
   template: axesSceneWrapper(`
   <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
-    #a translateY="50" translateX="-10" [translateZ]="translateZ">
+    #a [translateY]="50" [translateX]="-10" [translateZ]="translateZ">
   </atft-sphere-mesh>
   <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x00ff00"
-    #b translateY="-50" translateX="10" translateZ="+10">
+    #b [translateY]="-50" [translateX]="10" [translateZ]="+10">
   </atft-sphere-mesh>
 
   <atft-line-connector [source]="a" [target]="b" materialColor="0xff0000" [animated]="true" >
@@ -51,10 +51,10 @@ class StorybookLineAnimationComponent {
   </atft-effect-composer>
 
   <atft-sphere-mesh [radius]="0.5" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x0000ff"
-    #a translateY="50" translateX="-10" [translateZ]="translateZ">
+    #a [translateY]="50" [translateX]="-10" [translateZ]="translateZ">
   </atft-sphere-mesh>
   <atft-sphere-mesh [radius]="0.5" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="0x0000ff"
-    #b translateY="-50" translateX="10" translateZ="5">
+    #b [translateY]="-50" [translateX]="10" [translateZ]="5">
   </atft-sphere-mesh>
 
   <atft-line-connector [source]="a" [target]="b" materialColor="0x0000ff" [animated]="true" >
