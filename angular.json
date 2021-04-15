@@ -32,7 +32,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "dagre",
+              "yaml"
+            ]
           },
           "configurations": {
             "production": {
@@ -131,7 +135,7 @@
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/atft/tsconfig.lib.json",
-            "project": "projects/atft/ng-package.json"
+            "project": "projects/atft/ng-package.json",
           }
         },
         "test": {
