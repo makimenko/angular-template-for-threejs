@@ -92,6 +92,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
       }
     }
 
+
     if (this.maxX || this.maxY) {
       scaleToFit(group, new THREE.Vector3(this.maxX, this.maxY, 0));
     }

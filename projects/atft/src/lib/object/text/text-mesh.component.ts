@@ -80,7 +80,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   receiveShadow = true;
 
   @Input()
-  depthWrite = false;
+  depthWrite = true;
 
   @Input()
   centered = true;
