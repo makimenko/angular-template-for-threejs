@@ -54,7 +54,7 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
     geometry.setPositions(positions);
 
     this.matLine = new LineMaterial({
-      color: appliedColor(this.materialColor),
+      color: parseInt(this.materialColor, 16),
       linewidth: this.lineWidth,
       vertexColors: false,
       dashed: !this.solid,

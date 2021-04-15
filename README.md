@@ -45,7 +45,7 @@ Click below to see the demo in a web browser:<br>
 ## Usage in your Angular project
 
 1. Set up an Angular project and install dependencies:  
-   `npm i three atft --save`
+   `npm i three dagre atft --save`
 2. Import library into your module:
    ```typescript
    import { AtftModule } from 'atft';
