@@ -1,8 +1,8 @@
-import {Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf} from '@angular/core';
+import { Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf } from '@angular/core';
 import * as THREE from 'three';
-import {RendererService} from '../renderer/renderer.service';
-import {provideParent} from '../util';
-import {AbstractObject3D} from './abstract-object-3d';
+import { RendererService } from '../renderer/renderer.service';
+import { provideParent } from '../util';
+import { AbstractObject3D } from './abstract-object-3d';
 
 @Component({
   selector: 'atft-scene',
@@ -11,7 +11,7 @@ import {AbstractObject3D} from './abstract-object-3d';
 })
 export class SceneComponent extends AbstractObject3D<THREE.Scene> implements OnChanges {
 
-  @Input() background = '#ffffff';
+  @Input() background: number | string = '#ffffff';
 
   constructor(
     protected rendererService: RendererService,
