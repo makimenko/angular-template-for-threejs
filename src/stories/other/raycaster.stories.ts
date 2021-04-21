@@ -19,21 +19,21 @@ import { worldSceneWrapper } from '../scene-wrapper/world-scene-wrapper';
 })
 class StorybookRaycasterGroupComponent {
 
-  color = '0x00ff00';
+  color: string | number = '#00ff00';
 
   mouseEnter() {
     console.log('mouseEnter');
-    this.color = '0x0000ff';
+    this.color = '#0000ff';
   }
 
   mouseExit() {
     console.log('mouseExit');
-    this.color = '0x00ff00';
+    this.color = '#00ff00';
   }
 
   click() {
     console.log('click');
-    this.color = '0xFF0000';
+    this.color = '#FF0000';
   }
 
 }

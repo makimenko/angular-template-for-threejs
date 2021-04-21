@@ -46,7 +46,7 @@ class StorybookWrapperComponent extends ContentProjectionComponent {
   template: `
     <app-storybook-wrapper>
       <atft-cylinder-mesh [radiusTop]="2" [radiusBottom]="3" [height]="10" [radialSegments]="36" [heightSegments]="1"
-                          material="lamb" materialColor="0xff0000" [translateZ]="10">
+                          material="lamb" materialColor="#ff0000" [translateZ]="10">
       </atft-cylinder-mesh>
     </app-storybook-wrapper>
   `

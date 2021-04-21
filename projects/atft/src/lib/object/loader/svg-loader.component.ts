@@ -1,6 +1,6 @@
 import {Component, Input, Optional, SkipSelf} from '@angular/core';
 import {RendererService} from '../../renderer/renderer.service';
-import {appliedColor, appliedMaterial, fixCenter, provideParent, scaleToFit} from '../../util';
+import {appliedMaterial, fixCenter, provideParent, scaleToFit} from '../../util';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractModelLoader} from './abstract-model-loader';
 import {IconService, SvgLoaderService} from './services';
@@ -81,7 +81,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
     const group = new THREE.Group();
 
     for (const path of paths) {
-      const color = (this._overrideMaterialColor ? appliedColor(this._overrideMaterialColor) : path.color);
+      const color = (this._overrideMaterialColor ? this._overrideMaterialColor : path.color);
       const material = appliedMaterial(color, this.material, this.depthWrite);
       const shapes: Shape[] = path.toShapes(this.isCCW, this.noHoles);
 

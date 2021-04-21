@@ -17,9 +17,9 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   @Input()
   material = 'basic';
 
-  private _materialColor = '0xDADADA';
+  private _materialColor: string | number = '#DADADA';
   @Input()
-  set materialColor(materialColor: string) {
+  set materialColor(materialColor: string | number) {
     this._materialColor = materialColor;
     if (this.object) {
       // console.log('TextMeshComponent.set materialColor', materialColor + ' / ' + this.name);

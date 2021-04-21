@@ -1,7 +1,7 @@
 import { Component, Input, Optional, SkipSelf } from '@angular/core';
 import * as THREE from 'three';
 import { RendererService } from '../../renderer/renderer.service';
-import { appliedColor, provideParent } from '../../util';
+import { provideParent } from '../../util';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 @Component({
@@ -11,7 +11,7 @@ import { AbstractObject3D } from '../abstract-object-3d';
 })
 export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
 
-  @Input() color = '0xFFFFFF';
+  @Input() color: string | number = '#FFFFFF';
   @Input() intensity = 1;
   @Input() distance = 500;
   @Input() castShadow = false;
@@ -24,7 +24,7 @@ export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
   }
 
   protected newObject3DInstance() {
-    const light = new THREE.PointLight(appliedColor(this.color), this.intensity, this.distance);
+    const light = new THREE.PointLight(this.color, this.intensity, this.distance);
 
     if (this.castShadow === true) {
       light.castShadow = this.castShadow;

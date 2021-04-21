@@ -26,7 +26,7 @@ and real in truly immersive ways.`;
       <!-- Foreground -->
       <atft-scene name="scene" background="0x000000">
 
-        <atft-ambient-light color="0xFFFFFF" [intensity]="0.9"></atft-ambient-light>
+        <atft-ambient-light color="#FFFFFF" [intensity]="0.9"></atft-ambient-light>
 
         <atft-point-light [intensity]="0.1" [distance]="1000" [translateX]=90 [translateY]=90
                           [translateZ]=90></atft-point-light>
@@ -56,14 +56,14 @@ and real in truly immersive ways.`;
           resourcePath="${modelPath}/">
         </atft-obj-loader>
 
-        <atft-obj-loader atft-dashed-draw dashColor="0x303030" [dashIncrement]="150" [initialOpacity]="0.2"
+        <atft-obj-loader atft-dashed-draw dashColor="#303030" [dashIncrement]="150" [initialOpacity]="0.2"
                          model="${modelPath}/SampleArea/Zone.obj"
                          material="${modelPath}/SampleArea/Zone.mtl"
                          resourcePath="${modelPath}/">
         </atft-obj-loader>
 
         <atft-obj-loader *ngFor="let item of [].constructor(5); let i = index"
-                         atft-dashed-draw dashColor="0x303030" [dashIncrement]="20+(5*i)" [initialOpacity]="0.2"
+                         atft-dashed-draw dashColor="#303030" [dashIncrement]="20+(5*i)" [initialOpacity]="0.2"
                          model="${modelPath}/SampleArea/House{{i+1}}.obj"
                          material="${modelPath}/SampleArea/House{{i+1}}.mtl"
                          resourcePath="${modelPath}/">
@@ -83,7 +83,7 @@ class StorybookFlyComponent implements AfterViewInit, OnDestroy {
 
   // z = 600 - 200
 
-  colorA200 = '0x9FA8DA';
+  colorA200 = '#9FA8DA';
 
   constructor(private animationService: AnimationService) {
   }

@@ -2,7 +2,6 @@ import {Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf} from '@a
 import * as THREE from 'three';
 import {RendererService} from '../renderer/renderer.service';
 import {provideParent} from '../util';
-import {appliedColor} from '../util/applied-color';
 import {AbstractObject3D} from './abstract-object-3d';
 
 @Component({
@@ -12,7 +11,7 @@ import {AbstractObject3D} from './abstract-object-3d';
 })
 export class SceneComponent extends AbstractObject3D<THREE.Scene> implements OnChanges {
 
-  @Input() background = '0xffffff';
+  @Input() background = '#ffffff';
 
   constructor(
     protected rendererService: RendererService,
@@ -25,7 +24,7 @@ export class SceneComponent extends AbstractObject3D<THREE.Scene> implements OnC
 
   protected newObject3DInstance(): THREE.Scene {
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(appliedColor(this.background));
+    scene.background = new THREE.Color(this.background);
     return scene;
   }
 
@@ -42,7 +41,7 @@ export class SceneComponent extends AbstractObject3D<THREE.Scene> implements OnC
     let modified = false;
 
     if (['background'].some(propName => propName in changes)) {
-      this.getObject().background = new THREE.Color(appliedColor(this.background));
+      this.getObject().background = new THREE.Color(this.background);
       modified = true;
     }
 

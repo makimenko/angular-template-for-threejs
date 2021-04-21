@@ -47,7 +47,7 @@ abstract class AbstractCameraRotation implements OnDestroy {
   </atft-empty>
   <atft-empty #b [translateY]="-50" [translateX]="(-i)+50" [translateZ]="5-i">
   </atft-empty>
-  <atft-line-connector [source]="a" [target]="b" materialColor="0xff0000" [animated]="true" transparent="false">
+  <atft-line-connector [source]="a" [target]="b" materialColor="#ff0000" [animated]="true" transparent="false">
   </atft-line-connector>
   </div>
   `)
@@ -80,7 +80,7 @@ class StorybookGridPerformanceComponent extends AbstractCameraRotation {
   <div *ngFor="let item of [].constructor(iterations); let x = index">
     <div *ngFor="let item of [].constructor(iterations); let y = index">
         <atft-empty [translateX]="(x*offset)-translate" [translateY]="(y*offset)-translate">
-            <atft-box-mesh [height]="size" [width]="size" [depth]="size" materialColor="0xdadaff">
+            <atft-box-mesh [height]="size" [width]="size" [depth]="size" materialColor="#dadaff">
             </atft-box-mesh>
         </atft-empty>
     </div>
@@ -107,7 +107,7 @@ class StorybookMeshPerformanceComponent extends AbstractCameraRotation {
   <div *ngFor="let item of [].constructor(iterations); let x = index">
     <div *ngFor="let item of [].constructor(iterations); let y = index">
         <atft-empty [translateX]="(x*offset)-translate" [translateY]="(y*offset)-translate">
-            <atft-plane-mesh [height]="size" [width]="size" materialColor="0xdadaff">
+            <atft-plane-mesh [height]="size" [width]="size" materialColor="#dadaff">
             </atft-plane-mesh>
         </atft-empty>
     </div>

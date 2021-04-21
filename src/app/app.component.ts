@@ -16,6 +16,8 @@ export class AppComponent {
 
   public cameraPositionX = 20.0;
 
+  public someColor = 0x0000ff;
+
   public mouseEnter() {
     console.log('mouseEnter');
   }

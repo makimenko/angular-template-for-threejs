@@ -2,7 +2,6 @@ import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SimpleC
 import {RendererService} from '../renderer/renderer.service';
 import {SceneComponent} from '../object';
 import * as THREE from 'three';
-import {appliedColor} from '../util';
 
 @Component({
   selector: 'atft-fog',
@@ -10,7 +9,7 @@ import {appliedColor} from '../util';
 })
 export class FogComponent implements AfterViewInit, OnDestroy, OnChanges {
 
-  @Input() color = '0x0000AA';
+  @Input() color: string | number = '#0000AA';
   @Input() near = 10;
   @Input() far = 100;
 
@@ -36,7 +35,7 @@ export class FogComponent implements AfterViewInit, OnDestroy, OnChanges {
 
   protected enableFog() {
     // console.log('enableFog');
-    this.scene.fog = new THREE.Fog(appliedColor(this.color), this.near, this.far);
+    this.scene.fog = new THREE.Fog(this.color, this.near, this.far);
     this.rendererService.render();
   }
 

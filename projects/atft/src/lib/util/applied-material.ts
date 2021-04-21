@@ -1,6 +1,4 @@
 import * as THREE from 'three';
-import {appliedColor} from './applied-color';
-
 
 /**
  * Creates material
@@ -9,10 +7,10 @@ import {appliedColor} from './applied-color';
  * @param materialName material label as string
  * @param depthWrite enable depth write
  */
-export function appliedMaterial(materialColor: string | THREE.Color, materialName?: string, depthWrite?: boolean): THREE.Material {
+export function appliedMaterial(materialColor: string | number | THREE.Color, materialName?: string, depthWrite?: boolean): THREE.Material {
 
   const props = {
-    color: (materialColor instanceof THREE.Color ? materialColor : appliedColor(materialColor)),
+    color: (materialColor instanceof THREE.Color ? materialColor : new THREE.Color(materialColor)),
     side: THREE.DoubleSide,
     depthWrite: (depthWrite !== undefined ? depthWrite : true)
   };

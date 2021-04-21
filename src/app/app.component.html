@@ -1,18 +1,18 @@
-<atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
+<atft-orbit-controls [rotateSpeed]="1" [zoomSpeed]='1.2'>
   <atft-renderer-canvas>
 
-    <atft-perspective-camera [fov]=60 [near]=1 [far]=1100 [positionX]=cameraPositionX [positionY]=50 [positionZ]=50
+    <atft-perspective-camera [fov]="60" [near]="1" [far]="1100" [positionX]="cameraPositionX" [positionY]="50" [positionZ]="50"
       atft-raycaster-camera atft-raycaster-enable>
     </atft-perspective-camera>
 
     <atft-scene>
-      <atft-axes-helper [size]=200></atft-axes-helper>
-      <atft-grid-helper [size]=100 [divisions]=10></atft-grid-helper>
+      <atft-axes-helper [size]="200"></atft-axes-helper>
+      <atft-grid-helper [size]="100" [divisions]="10"></atft-grid-helper>
 
-      <atft-point-light color="0xffffff" [intensity]="0.9" [distance]="1000" [translateX]=50 [translateY]=50
+      <atft-point-light color="#ffffff" [intensity]="0.9" [distance]="1000" [translateX]="50" [translateY]="50"
         [translateZ]=50>
       </atft-point-light>
-      <atft-point-light color="0xffffff" [intensity]="0.1" [distance]="1000" [translateX]=-50 [translateY]=50
+      <atft-point-light color="#ffffff" [intensity]="0.1" [distance]="1000" [translateX]="-50" [translateY]="50"
         [translateZ]=20>
       </atft-point-light>
 
@@ -27,16 +27,16 @@
         </atft-object-loader>
       </div>
 
-      <atft-empty [translateZ]=-50>
+      <atft-empty [translateZ]="-50">
         <atft-sphere-mesh atft-raycaster-group (mouseEnter)="mouseEnter()" (mouseExit)="mouseExit()" (click)="click()"
-          [radius]="4" [widthSegments]="20" [hightSegments]="20" material="phong" materialColor="0xff0000"
+          [radius]="4" [widthSegments]="20" [hightSegments]="20" material="phong" materialColor="#ff0000"
           [translateX]=10 [translateY]=5 [translateZ]="20">
         </atft-sphere-mesh>
         <atft-cylinder-mesh [radiusTop]="2" [radiusBottom]="3" [height]="10" [radialSegments]="36" [heightSegments]="1"
-          material="lamb" materialColor="0x00ff00" [translateY]="5" [translateZ]="10">
+          material="lamb" materialColor="#00ff00" [translateY]="5" [translateZ]="10">
         </atft-cylinder-mesh>
         <atft-torus-mesh [radius]="5" [tube]="2" [radialSegments]="16" [tubularSegments]="100" [arc]="6.28"
-          material="lamb" materialColor="0x0000ff" [rotateX]="1.6" [translateX]="-10" [translateY]="2"
+          material="lamb" [materialColor]="someColor" [rotateX]="1.6" [translateX]="-10" [translateY]="2"
           [translateZ]="-5">
         </atft-torus-mesh>
       </atft-empty>

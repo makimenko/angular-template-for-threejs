@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SkipSelf} from '@angular/core';
-import {appliedMaterial, provideParent} from '../../../util';
-import {EmptyComponent} from '../../../object/helper';
-import {AnimationService} from '../../../animation';
-import {RendererService} from '../../../renderer';
-import {AbstractObject3D} from '../../../object';
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SkipSelf } from '@angular/core';
+import { appliedMaterial, provideParent } from '../../../util';
+import { EmptyComponent } from '../../../object/helper';
+import { AnimationService } from '../../../animation';
+import { RendererService } from '../../../renderer';
+import { AbstractObject3D } from '../../../object';
 import * as THREE from 'three';
-import {Subscription} from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'atft-loader-actor',
@@ -18,7 +18,7 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
   animate = true;
 
   @Input()
-  materialColor = '0x5DADE2';
+  materialColor: string | number = '#5DADE2';
 
   private ring1: THREE.Mesh;
   private ring2: THREE.Mesh;

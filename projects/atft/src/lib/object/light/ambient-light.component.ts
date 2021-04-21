@@ -1,7 +1,7 @@
 import { Component, Input, Optional, SkipSelf } from '@angular/core';
 import * as THREE from 'three';
 import { RendererService } from '../../renderer/renderer.service';
-import { appliedColor, provideParent } from '../../util';
+import { provideParent } from '../../util';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 @Component({
@@ -11,7 +11,7 @@ import { AbstractObject3D } from '../abstract-object-3d';
 })
 export class AmbientLightComponent extends AbstractObject3D<THREE.AmbientLight> {
 
-  @Input() color = '0xFFFFFF';
+  @Input() color: string | number = '#FFFFFF';
   @Input() intensity = 0.8;
 
   constructor(
@@ -22,7 +22,7 @@ export class AmbientLightComponent extends AbstractObject3D<THREE.AmbientLight> 
   }
 
   protected newObject3DInstance() {
-    const light = new THREE.AmbientLight(appliedColor(this.color));
+    const light = new THREE.AmbientLight(this.color);
     light.intensity = this.intensity;
     return light;
   }

@@ -11,7 +11,7 @@ import { provideParent } from '../../../util';
     <atft-plane-mesh atft-raycaster-group [width]="width" [height]="height" [materialColor]="color" (mouseEnter)="onSelected()"
                      (mouseExit)="onDeselected()">
       <atft-text-mesh [centered]="true" [text]="label" [size]="5" [translateX]="translateLabelX" [rotateZ]="(90 | deg2rad)"
-                      materialColor="0xE0E0E0">
+                      materialColor="#E0E0E0">
       </atft-text-mesh>
     </atft-plane-mesh>
   `
@@ -37,20 +37,20 @@ export class LayerActorComponent extends AbstractEmptyDirective {
   @Output() selected = new EventEmitter<void>();
   @Output() deselected = new EventEmitter<void>();
 
-  color = '0xA0A0A0';
+  color: string | number = '#A0A0A0';
 
   translateLabelX: number;
 
   public onSelected() {
-    this.color = '0xA4A4A4';
+    this.color = '#A4A4A4';
   }
 
   public onDeselected() {
-    this.color = '0xA0A0A0';
+    this.color = '#A0A0A0';
   }
 
   public onClick() {
-    this.color = '0xA0A0A0';
+    this.color = '#A0A0A0';
   }
 
 }

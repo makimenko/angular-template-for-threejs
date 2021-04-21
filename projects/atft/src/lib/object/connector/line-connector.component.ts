@@ -1,14 +1,14 @@
-import {Component, Input, OnDestroy, Optional, SkipSelf} from '@angular/core';
-import {Subscription} from 'rxjs';
+import { Component, Input, OnDestroy, Optional, SkipSelf } from '@angular/core';
+import { Subscription } from 'rxjs';
 import * as THREE from 'three';
-import {AnimationService} from '../../animation';
-import {RendererService} from '../../renderer/renderer.service';
-import {appliedColor, provideParent} from '../../util';
-import {AbstractObject3D} from '../abstract-object-3d';
-import {AbstractConnector} from './abstract-connector';
-import {Line2} from 'three/examples/jsm/lines/Line2';
-import {LineGeometry} from 'three/examples/jsm/lines/LineGeometry';
-import {LineMaterial} from 'three/examples/jsm/lines/LineMaterial';
+import { AnimationService } from '../../animation';
+import { RendererService } from '../../renderer/renderer.service';
+import { provideParent } from '../../util';
+import { AbstractObject3D } from '../abstract-object-3d';
+import { AbstractConnector } from './abstract-connector';
+import { Line2 } from 'three/examples/jsm/lines/Line2';
+import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry';
+import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial';
 
 export enum LineType {
   dashed = 'dash',
@@ -22,7 +22,7 @@ export enum LineType {
 })
 export class LineConnectorComponent extends AbstractConnector<Line2> implements OnDestroy {
 
-  @Input() materialColor = '0xffffff';
+  @Input() materialColor: string | number = '#ffffff';
   @Input() solid = false;
   @Input() lineWidth = 2;
   @Input() dashSize = 3;
@@ -39,7 +39,6 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
   protected line: Line2;
   private matLine: LineMaterial;
 
-
   constructor(
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
@@ -54,7 +53,9 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
     geometry.setPositions(positions);
 
     this.matLine = new LineMaterial({
-      color: parseInt(this.materialColor, 16),
+      // wrong type in three@types def color?: number;
+      // color: parseInt(Number(this.materialColor).toString(), 10),
+      color: Number(this.materialColor),
       linewidth: this.lineWidth,
       vertexColors: false,
       dashed: !this.solid,

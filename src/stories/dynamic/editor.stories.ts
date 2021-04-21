@@ -13,11 +13,11 @@ import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
                                 atft-raycaster-camera atft-raycaster-enable>
       </atft-orthographic-camera>
       <atft-scene name="scene" background="0xa0a0a0">
-        <atft-fog color="0xa0a0a0" near="80" far="500"></atft-fog>
-        <atft-plane-mesh name="ground" [height]="2000" [width]="2000" materialColor="0x999999" [depthWrite]="true" [castShadow]="false"
+        <atft-fog color="#a0a0a0" near="80" far="500"></atft-fog>
+        <atft-plane-mesh name="ground" [height]="2000" [width]="2000" materialColor="#999999" [depthWrite]="true" [castShadow]="false"
                          [receiveShadow]="true" heightSegments="10" widthSegments="10" [translateZ]="-0.1">
         </atft-plane-mesh>
-        <atft-hemisphere-light name="hemi-light" skyColor="0xffffff" groundColor="0xffffff" [intensity]="0.5"
+        <atft-hemisphere-light name="hemi-light" skyColor="#ffffff" groundColor="#ffffff" [intensity]="0.5"
                                [translateX]="-20" [translateY]="-20" [translateZ]="100">
         </atft-hemisphere-light>
         <atft-point-light name="point-light" [intensity]="0.2" [translateX]="-50" [translateY]="-50" [translateZ]="50"

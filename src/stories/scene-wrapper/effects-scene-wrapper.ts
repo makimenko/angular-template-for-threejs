@@ -18,7 +18,7 @@ export const effectsSceneWrapper = (content: string) => `
                             [translateZ]="50"></atft-point-light>
 
           <atft-box-mesh *ngFor="let item of [].constructor(20); let i = index"
-                [height]="10" [width]="10" [depth]="10" material="phong" materialColor="0x1111ff"
+                [height]="10" [width]="10" [depth]="10" material="phong" materialColor="#1111ff"
                 [translateX]="(i*15)-150"></atft-box-mesh>
 
 

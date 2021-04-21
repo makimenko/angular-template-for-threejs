@@ -50,7 +50,7 @@ class StorybookSVGLoaderComponent {
 @Component({
   template: axesSceneWrapper(`
     <atft-svg-loader model="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/web_asset/outline.svg"
-    overrideMaterialColor="0xff0000">
+    overrideMaterialColor="#ff0000">
     </atft-svg-loader>
   `)
 })

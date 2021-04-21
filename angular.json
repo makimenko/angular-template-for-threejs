@@ -135,7 +135,7 @@
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/atft/tsconfig.lib.json",
-            "project": "projects/atft/ng-package.json",
+            "project": "projects/atft/ng-package.json"
           }
         },
         "test": {

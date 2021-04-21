@@ -2,13 +2,12 @@ import {AfterViewInit, Directive, Input, OnDestroy} from '@angular/core';
 import {AbstractObject3D} from '../object/abstract-object-3d';
 import * as THREE from 'three';
 import {AnimationService} from '../animation/animation.service';
-import {appliedColor} from '../util';
 import {Subscription} from 'rxjs';
 
 @Directive({selector: '[atft-dashed-draw]'})
 export class DashedDrawDirective implements AfterViewInit, OnDestroy {
 
-  @Input() dashColor = '0xFF0000';
+  @Input() dashColor: string | number = '#FF0000';
   @Input() dashIncrement = 10;
   @Input() initialOpacity;
   @Input() targetOpacity;
@@ -43,7 +42,7 @@ export class DashedDrawDirective implements AfterViewInit, OnDestroy {
         // console.log('DashedDrawDirective.ngAfterViewInit: child', findMesh);
 
         const edgesGeom = new THREE.EdgesGeometry(findMesh.geometry, 8);
-        this.edges = new THREE.LineSegments(edgesGeom, new THREE.LineDashedMaterial({color: appliedColor(this.dashColor)}));
+        this.edges = new THREE.LineSegments(edgesGeom, new THREE.LineDashedMaterial({color: this.dashColor}));
         this.edges.computeLineDistances();
         this.edges.material.dashSize = 0;
         this.edges.material.gapSize = this.edges.geometry.attributes
