@@ -26,7 +26,6 @@
       "atft/*": [
         "dist/atft/*"
       ],
-
       /* Fix for core-js@3.2.1 which no longer features 'core-js/es7/reflect'.
          However, that file is still tried to be imported by Angular somewhere.
 
@@ -35,5 +34,10 @@
         "node_modules/core-js/proposals/reflect-metadata"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "preserveWhitespaces": true,
+    "strictTemplates": true
   }
 }

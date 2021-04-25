@@ -7,7 +7,7 @@ import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 
 @Component({
   template: axesSceneWrapper(`
-  <atft-box-mesh height="10" width="10" depth="10" [translateX]="translateX" [materialColor]="materialColor"></atft-box-mesh>
+  <atft-box-mesh [height]="10" [width]="10" [depth]="10" [translateX]="translateX" [materialColor]="materialColor"></atft-box-mesh>
   `)
 })
 class StorybookBoxMeshComponent {
@@ -77,7 +77,7 @@ class StorybookFrameMeshComponent {
 
 @Component({
   template: axesSceneWrapper(`
-  <atft-plane-mesh height="10" [width]="width" [translateX]="translateX" [materialColor]="materialColor"></atft-plane-mesh>
+  <atft-plane-mesh [height]="10" [width]="width" [translateX]="translateX" [materialColor]="materialColor"></atft-plane-mesh>
   `)
 })
 class StorybookPlaneMeshComponent {

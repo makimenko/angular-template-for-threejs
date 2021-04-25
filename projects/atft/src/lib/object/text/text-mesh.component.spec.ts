@@ -38,7 +38,7 @@ describe('text', () => {
 
     it('color', () => {
       fixture.detectChanges();
-      expect(component.materialColor).toBe(0xDADADA);
+      expect(component.materialColor).toBe('#DADADA');
     });
 
   });

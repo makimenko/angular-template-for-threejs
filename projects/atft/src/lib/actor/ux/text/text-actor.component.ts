@@ -23,7 +23,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
   animate = false;
 
   @Input()
-  materialColor = 0x5DADE2;
+  materialColor: string | number = '#5DADE2';
 
   @Input()
   minDelay = 5;
@@ -34,7 +34,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
   subscribed = false;
 
   private currentDelay: number;
-  private currentText: string;
+  public currentText: string;
   private currentPos = 0;
   private maxPos = 0;
   private i = 0;

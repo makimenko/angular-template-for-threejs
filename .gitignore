@@ -42,3 +42,5 @@ Thumbs.db
 
 # Other
 /.nyc_output
+
+/storybook-static

@@ -32,6 +32,11 @@ describe('utils', () => {
       expect(material.constructor).toBe(THREE.MeshPhongMaterial);
     });
 
+    it('Color hex string', () => {
+      const material = appliedMaterial('#ff0000');
+      expect(material.constructor).toBe(THREE.MeshPhongMaterial);
+      expect(material.depthWrite).toBeTruthy();
+    });
 
   });
 

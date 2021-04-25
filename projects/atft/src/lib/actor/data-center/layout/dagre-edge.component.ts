@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import {AnimationService} from '../../../animation';
 import {AbstractObject3D, LineConnectorComponent} from '../../../object';
 import {RendererService} from '../../../renderer';
-import {appliedColor, provideParent} from '../../../util';
+import {provideParent} from '../../../util';
 import {DagreLayoutComponent} from './dagre-layout.component';
 
 export enum LineEndType {
@@ -106,7 +106,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
   protected appendLineEnds(lineObject: THREE.Object3D) {
     // 1. Init Material
     const material = new THREE.MeshBasicMaterial({
-      color: appliedColor(this.materialColor),
+      color: this.materialColor,
       opacity: this.opacity,
       transparent: this.opacity < 1,
       depthWrite: true
@@ -127,7 +127,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     }
   }
 
-  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry | THREE.Geometry {
+  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry {
     switch (type) {
       case LineEndType.circle:
         return new THREE.CircleGeometry(0.7, 16);

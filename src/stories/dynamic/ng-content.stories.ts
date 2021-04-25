@@ -15,12 +15,12 @@ import {ContentProjectionComponent} from '../../../projects/atft/src/lib/object/
   template: `
     <atft-orbit-controls rotateSpeed=1 zoomSpeed=1.2>
       <atft-renderer-canvas>
-        <atft-perspective-camera positionX=10 positionY=50 positionZ=50></atft-perspective-camera>
+        <atft-perspective-camera positionX=10 [positionY]=50 [positionZ]=50></atft-perspective-camera>
         <atft-scene #contentProjection>
-          <atft-axes-helper size=200></atft-axes-helper>
-          <atft-grid-helper size=100 divisions=10></atft-grid-helper>
-          <atft-point-light intensity="0.9" distance="1000" translateX=50 translateY=50
-                            translateZ=50></atft-point-light>
+          <atft-axes-helper [size]=200></atft-axes-helper>
+          <atft-grid-helper [size]=100 [divisions]=10></atft-grid-helper>
+          <atft-point-light [intensity]="0.9" [distance]="1000" [translateX]=50 [translateY]=50
+                            [translateZ]=50></atft-point-light>
           <!-- Why it's not working? -->
           <ng-content></ng-content>
         </atft-scene>
@@ -46,7 +46,7 @@ class StorybookWrapperComponent extends ContentProjectionComponent {
   template: `
     <app-storybook-wrapper>
       <atft-cylinder-mesh [radiusTop]="2" [radiusBottom]="3" [height]="10" [radialSegments]="36" [heightSegments]="1"
-                          material="lamb" materialColor="0xff0000" [translateZ]="10">
+                          material="lamb" materialColor="#ff0000" [translateZ]="10">
       </atft-cylinder-mesh>
     </app-storybook-wrapper>
   `

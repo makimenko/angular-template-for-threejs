@@ -8,7 +8,7 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
 @Component({
   template: effectsSceneWrapper(`
     <atft-effect-composer *ngIf="enable">
-        <atft-fog [near]="near" [far]="far" [color]="color"></atft-fog>
+        <atft-fog [near]="near" [far]="far" color="color"></atft-fog>
     </atft-effect-composer>
   `)
 })
