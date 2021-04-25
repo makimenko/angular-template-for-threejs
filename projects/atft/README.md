@@ -1,5 +1,5 @@
 [![GitHub repo](https://img.shields.io/github/stars/makimenko/angular-template-for-threejs?label=GitHub&style=social)](https://github.com/makimenko/angular-template-for-threejs) 
-[![CI build status](https://github.com/makimenko/angular-template-for-threejs/workflows/CI/badge.svg?branch=master)](https://github.com/makimenko/angular-template-for-threejs/actions?query=workflow%3ACI+branch%3Amaster)
+![CI build status](https://github.com/makimenko/angular-template-for-threejs/workflows/CI/badge.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/makimenko/angular-template-for-threejs/badge.svg)](https://snyk.io/test/github/makimenko/angular-template-for-threejs)
 [![Code coverage by codecov.io](https://codecov.io/gh/makimenko/angular-template-for-threejs/branch/master/graph/badge.svg)](https://codecov.io/gh/makimenko/angular-template-for-threejs)
 [![npm version](https://badge.fury.io/js/atft.svg)](https://badge.fury.io/js/atft)
@@ -15,11 +15,11 @@ Leverage [Three.js](https://threejs.org) in your Angular app using simple compon
   <atft-renderer-canvas>
     <atft-perspective-camera
       [fov]=60 [near]=1 [far]=1100
-      positionX=20 positionY=50 positionZ=50>
+      positionX=20 [positionY]=50 [positionZ]=50>
     </atft-perspective-camera>
     <atft-scene>
-      <atft-axes-helper size=200></atft-axes-helper>
-      <atft-grid-helper size=100 divisions=10></atft-grid-helper>
+      <atft-axes-helper [size]=200></atft-axes-helper>
+      <atft-grid-helper [size]=100 [divisions]=10></atft-grid-helper>
     </atft-scene>
   </atft-renderer-canvas>
 </atft-orbit-controls>
@@ -45,7 +45,7 @@ Click below to see the demo in a web browser:<br>
 ## Usage in your Angular project
 
 1. Set up an Angular project and install dependencies:  
-   `npm i three three.meshline atft --save`
+   `npm i three dagre atft --save`
 2. Import library into your module:
    ```typescript
    import { AtftModule } from 'atft';
@@ -62,11 +62,11 @@ Click below to see the demo in a web browser:<br>
       <atft-renderer-canvas #mainRenderer>
         <atft-perspective-camera
           [fov]=60 [near]=1 [far]=1100
-          positionX=20 positionY=50 positionZ=50>
+          [positionX]=20 [positionY]=50 [positionZ]=50>
         </atft-perspective-camera>
         <atft-scene>
-          <atft-axes-helper size=200></atft-axes-helper>
-          <atft-grid-helper size=100 divisions=10></atft-grid-helper>
+          <atft-axes-helper [size]=200></atft-axes-helper>
+          <atft-grid-helper [size]=100 [divisions]=10></atft-grid-helper>
         </atft-scene>
       </atft-renderer-canvas>
     </atft-orbit-controls>
@@ -97,10 +97,28 @@ Sample [vect](https://github.com/makimenko/vect) project, which is based on atft
 
 ## Development
 
-See development related information on Git Hub repo:  
-<https://github.com/makimenko/angular-template-for-threejs>
+### Build Library
 
-## Contributors
+1. `git clone https://github.com/makimenko/angular-template-for-threejs.git`
+2. `npm install`
+3. `ng build atft`<br>
+
+### Run Tests
+
+- `npm test`
+
+### Run Storybook
+
+Run and watch locally: `npm run storybook`
+
+Our storybook config is in [`./storybook`](./.storybook) and our stories in [`./src/stories`](./src/stories).
+See the official [Storybook.js documentation](https://storybook.js.org) for more information.
+
+### API Documentation
+
+For mode details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
+
+### Contributors
 
 - [<img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek](https://github.com/ComFreek)
 - [<img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> makimenko](https://github.com/makimenko)

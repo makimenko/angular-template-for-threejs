@@ -28,7 +28,7 @@ describe('mesh', () => {
 
     it('material properly initialized', () => {
       component.material = 'phong';
-      component.materialColor = 0xff0000;
+      component.materialColor = '#ff0000';
       component.depthWrite = true;
       fixture.detectChanges();
 
@@ -41,13 +41,13 @@ describe('mesh', () => {
 
     it('material changed via ngOnChanges', () => {
       component.material = 'phong';
-      component.materialColor = 0xff0000;
+      component.materialColor = '#ff0000';
       component.depthWrite = true;
       fixture.detectChanges();
 
       // Make sure that material could be changed at runtime:
       component.material = 'lamb';
-      component.materialColor = 0x00ff00;
+      component.materialColor = '#00ff00';
       component.depthWrite = false;
       component.ngOnChanges({
         materialColor: new SimpleChange('', component.materialColor, true),

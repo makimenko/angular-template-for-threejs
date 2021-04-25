@@ -17,9 +17,9 @@ import {AbstractObject3D} from '../../../projects/atft/src/lib/object';
   template: worldSceneWrapper(`
     <atft-empty name="main">
       <atft-empty name="selector">
-        <atft-box-mesh name="box1" atft-raycaster-group (click)="chooseFirst()" height="20" width="20" depth="20" translateZ="10">
+        <atft-box-mesh name="box1" atft-raycaster-group (click)="chooseFirst()" [height]="20" [width]="20" [depth]="20" [translateZ]="10">
         </atft-box-mesh>
-        <atft-box-mesh name="box2" atft-raycaster-group (click)="chooseSecond()" height="20" width="20" depth="20" translateZ="10" translateX="30">
+        <atft-box-mesh name="box2" atft-raycaster-group (click)="chooseSecond()" [height]="20" [width]="20" [depth]="20" [translateZ]="10" [translateX]="30">
         </atft-box-mesh>
       </atft-empty>
       <router-outlet></router-outlet>
@@ -47,7 +47,7 @@ class MainComponent {
   selector: 'app-first-page',
   providers: [provideParent(FirstPageComponent)],
   template: `
-    <atft-box-mesh name="first-box" height="10" width="10" depth="10" translateZ="30">
+    <atft-box-mesh name="first-box" [height]="10" [width]="10" [depth]="10" [translateZ]="30">
     </atft-box-mesh>
   `
 })
@@ -67,7 +67,7 @@ class FirstPageComponent extends EmptyComponent {
   selector: 'app-second-page',
   providers: [provideParent(SecondPageComponent)],
   template: `
-    <atft-box-mesh name="second-box" height="10" width="10" depth="10" translateZ="30" translateX="30">
+    <atft-box-mesh name="second-box" [height]="10" [width]="10" [depth]="10" [translateZ]="30" [translateX]="30">
     </atft-box-mesh>
   `
 })

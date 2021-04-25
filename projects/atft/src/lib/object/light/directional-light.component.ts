@@ -2,7 +2,6 @@ import { Component, Input, Optional, SkipSelf } from '@angular/core';
 import * as THREE from 'three';
 import { RendererService } from '../../renderer/renderer.service';
 import { provideParent } from '../../util';
-import { appliedColor } from '../../util/applied-color';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 @Component({
@@ -12,7 +11,7 @@ import { AbstractObject3D } from '../abstract-object-3d';
 })
 export class DirectionalLightComponent extends AbstractObject3D<THREE.DirectionalLight> {
 
-  @Input() color = 0xffffff;
+  @Input() color: string | number = '#FFFFFF';
   @Input() intensity = 1;
   // by default, target is 0,0,0
   @Input() target = new THREE.Object3D();
@@ -28,7 +27,7 @@ export class DirectionalLightComponent extends AbstractObject3D<THREE.Directiona
   protected newObject3DInstance() {
 
     const light = new THREE.DirectionalLight(
-      appliedColor(this.color),
+      this.color,
       this.intensity
     );
 

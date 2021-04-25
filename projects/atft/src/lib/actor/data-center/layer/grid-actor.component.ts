@@ -34,7 +34,7 @@ export class GridActorComponent extends AbstractEmptyDirective {
   @Output() gridClick = new EventEmitter<THREE.BufferAttribute>();
 
 
-  color = 0xA0A0A0;
+  color: string | number = '#A0A0A0';
 
   translateLabelX: number;
 

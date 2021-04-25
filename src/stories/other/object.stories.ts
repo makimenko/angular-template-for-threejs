@@ -15,13 +15,13 @@ import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
         [rotateZ]="rotateZ"
     >
       <atft-cylinder-mesh [radiusTop]="2.0" [radiusBottom]="7.0" [height]="10" [radialSegments]="36" [heightSegments]="1"
-                          [material]="material" materialColor="0x00ff00">
+                          [material]="material" materialColor="#00ff00">
       </atft-cylinder-mesh>
       <atft-torus-mesh [radius]="10" [tube]="1" [radialSegments]="16" [tubularSegments]="100" material="phong"
-            materialColor="0x0000ff">
+            materialColor="#0000ff">
       </atft-torus-mesh>
             <atft-torus-mesh [radius]="10" [tube]="1" [radialSegments]="16" [tubularSegments]="100" material="phong"
-            materialColor="0xff0000" [rotateX]="90 | deg2rad">
+            materialColor="#ff0000" [rotateX]="90 | deg2rad">
       </atft-torus-mesh>
     </atft-empty>
   `)

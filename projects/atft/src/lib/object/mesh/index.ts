@@ -1,4 +1,5 @@
 export * from './atft-mesh.module';
+export * from './abstract-mesh-3d';
 export * from './cylinder-mesh.component';
 export * from './sphere-mesh.component';
 export * from './torus-mesh.component';

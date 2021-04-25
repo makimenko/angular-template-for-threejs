@@ -2,7 +2,6 @@ import { Component, Input, Optional, SkipSelf } from '@angular/core';
 import * as THREE from 'three';
 import { RendererService } from '../../renderer/renderer.service';
 import { provideParent } from '../../util';
-import { appliedColor } from '../../util/applied-color';
 import { AbstractObject3D } from '../abstract-object-3d';
 
 @Component({
@@ -12,8 +11,8 @@ import { AbstractObject3D } from '../abstract-object-3d';
 })
 export class HemisphereLightComponent extends AbstractObject3D<THREE.HemisphereLight> {
 
-  @Input() skyColor = 0xffffff;
-  @Input() groundColor = 0x444444;
+  @Input() skyColor: string | number = '#ffffff';
+  @Input() groundColor: string | number = '#444444';
   @Input() intensity = 1;
 
   constructor(
@@ -26,9 +25,9 @@ export class HemisphereLightComponent extends AbstractObject3D<THREE.HemisphereL
   protected newObject3DInstance() {
 
     const light = new THREE.HemisphereLight(
-      appliedColor(this.skyColor),
-      appliedColor(this.groundColor),
-      appliedColor(this.intensity)
+      this.skyColor,
+      this.groundColor,
+      this.intensity
     );
 
     return light;

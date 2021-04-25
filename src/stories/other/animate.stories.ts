@@ -13,7 +13,7 @@ import {Subscription} from 'rxjs';
 
 @Component({
   template: axesSceneWrapper(`
-  <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff">
+  <atft-box-mesh [height]="10" [width]="10" [depth]="10" material="phong" materialColor="#ffffff">
   </atft-box-mesh>
   `)
 })
@@ -51,7 +51,7 @@ class StorybookLoopComponent implements AfterViewInit, OnDestroy {
 
 @Component({
   template: axesSceneWrapper(`
-  <atft-box-mesh height="10" width="10" depth="10" material="phong" materialColor="0xffffff">
+  <atft-box-mesh [height]="10" [width]="10" [depth]="10" material="phong" materialColor="#ffffff">
   </atft-box-mesh>
   `)
 })
@@ -100,7 +100,7 @@ class StorybookMixerComponent implements AfterViewInit, OnDestroy {
   <div *ngFor="let item of [].constructor(10); let x = index">
     <div *ngFor="let item of [].constructor(10); let y = index">
         <atft-empty [translateX]="(x*10.3)-50" [translateY]="(y*10.3)-50" [translateZ]="5">
-            <atft-box-mesh height="10" [width]="10" depth="0.2" materialColor="0xdadaff"
+            <atft-box-mesh [height]="10" [width]="10" [depth]="0.2" materialColor="#dadaff"
             atft-raycaster-group (mouseEnter)="mouseEnter($event)" (mouseExit)="mouseExit($event)"
             [name]="'obj'+x+'_'+y">
             </atft-box-mesh>

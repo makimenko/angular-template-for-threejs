@@ -14,7 +14,7 @@ const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angu
               model="${modelPath}/SampleArchitecture.obj"
               material="${modelPath}/SampleArchitecture.mtl"
               resourcePath="${modelPath}/"
-              translateX="-60" translateY="-40" translateZ="0.5">
+              [translateX]="-60" [translateY]="-40" [translateZ]="0.5">
           >
       </atft-obj-loader>
   `)
@@ -36,10 +36,10 @@ class StorybookObjectLoaderComponent {
 
 @Component({
   template: axesSceneWrapper(`
-      <atft-svg-loader model="./assets/svg/worldwide.svg" maxX="15" maxY="15">
+      <atft-svg-loader model="./assets/svg/worldwide.svg" [maxX]="15" [maxY]="15">
       </atft-svg-loader>
       <atft-svg-loader [model]="model" [overrideMaterialColor]="overrideMaterialColor"
-        maxX="10" maxY="10"  translateZ="2">
+        [maxX]="10" [maxY]="10"  [translateZ]="2">
       </atft-svg-loader>
   `)
 })
@@ -50,7 +50,7 @@ class StorybookSVGLoaderComponent {
 @Component({
   template: axesSceneWrapper(`
     <atft-svg-loader model="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/web_asset/outline.svg"
-    overrideMaterialColor="0xff0000">
+    overrideMaterialColor="#ff0000">
     </atft-svg-loader>
   `)
 })
