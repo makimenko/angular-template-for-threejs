@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
 import {Subscription} from 'rxjs';
 import * as THREE from 'three';
 import {AnimationService} from '../../animation';
@@ -20,9 +20,9 @@ export enum LineType {
   providers: [provideParent(LineConnectorComponent)],
   template: '<ng-content></ng-content>'
 })
-export class LineConnectorComponent extends AbstractConnector<Line2> implements OnDestroy {
+export class LineConnectorComponent extends AbstractConnector<Line2> implements OnDestroy, OnChanges {
 
-  @Input() materialColor: number = 0xFFFFFF;
+  @Input() materialColor = 0xFFFFFF;
   @Input() solid = false;
   @Input() lineWidth = 2;
   @Input() dashSize = 3;
