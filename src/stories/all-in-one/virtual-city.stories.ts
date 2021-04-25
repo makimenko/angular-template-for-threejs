@@ -24,7 +24,7 @@ and real in truly immersive ways.`;
       </atft-perspective-camera>
 
       <!-- Foreground -->
-      <atft-scene name="scene" background="0x000000">
+      <atft-scene name="scene" background="#000000">
 
         <atft-ambient-light color="#FFFFFF" [intensity]="0.9"></atft-ambient-light>
 

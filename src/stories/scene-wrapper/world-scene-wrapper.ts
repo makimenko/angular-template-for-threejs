@@ -10,8 +10,8 @@ export const worldSceneWrapper = (content: string) => `
           <atft-perspective-camera [zAxisUp]="true" positionX=40 [positionY]=-100
                 [positionZ]=50 atft-raycaster-camera atft-raycaster-enable>
           </atft-perspective-camera>
-          <atft-scene name="scene" background="0xa0a0a0">
-          <atft-fog color="#a0a0a0" near="80" far="500"></atft-fog>
+          <atft-scene name="scene" background="#a0a0a0">
+          <atft-fog color="#a0a0a0" [near]="80" [far]="500"></atft-fog>
           <atft-plane-mesh name="ground" [height]="2000" [width]="2000" materialColor="#999999" [depthWrite]="true" [castShadow]="false"
             [receiveShadow]="true" heightSegments="10" widthSegments="10" [translateZ]="-0.1">
             </atft-plane-mesh>

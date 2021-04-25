@@ -95,12 +95,12 @@ export default {
     })
   ],
   args: {
-    materialColor: '0x00ff00',
+    materialColor: '#00ff00',
     translateX: 0,
     width: 10
   },
   argTypes: {
-    materialColor: {control: {type: 'select', options: ['0xff0000', '0x00ff00', '0x0000ff']}},
+    materialColor: {control: {type: 'color'}},
     translateX: {control: {type: 'range', min: -50, max: 50, step: 1}}
   }
 };

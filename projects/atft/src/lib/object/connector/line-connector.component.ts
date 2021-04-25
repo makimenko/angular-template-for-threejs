@@ -1,14 +1,14 @@
-import { Component, Input, OnDestroy, Optional, SkipSelf } from '@angular/core';
-import { Subscription } from 'rxjs';
+import {Component, Input, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
+import {Subscription} from 'rxjs';
 import * as THREE from 'three';
-import { AnimationService } from '../../animation';
-import { RendererService } from '../../renderer/renderer.service';
-import { provideParent } from '../../util';
-import { AbstractObject3D } from '../abstract-object-3d';
-import { AbstractConnector } from './abstract-connector';
-import { Line2 } from 'three/examples/jsm/lines/Line2';
-import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry';
-import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial';
+import {AnimationService} from '../../animation';
+import {RendererService} from '../../renderer/renderer.service';
+import {provideParent} from '../../util';
+import {AbstractObject3D} from '../abstract-object-3d';
+import {AbstractConnector} from './abstract-connector';
+import {Line2} from 'three/examples/jsm/lines/Line2';
+import {LineGeometry} from 'three/examples/jsm/lines/LineGeometry';
+import {LineMaterial} from 'three/examples/jsm/lines/LineMaterial';
 
 export enum LineType {
   dashed = 'dash',
@@ -22,7 +22,7 @@ export enum LineType {
 })
 export class LineConnectorComponent extends AbstractConnector<Line2> implements OnDestroy {
 
-  @Input() materialColor: string | number = '#ffffff';
+  @Input() materialColor: number = 0xFFFFFF;
   @Input() solid = false;
   @Input() lineWidth = 2;
   @Input() dashSize = 3;
@@ -55,7 +55,7 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
     this.matLine = new LineMaterial({
       // wrong type in three@types def color?: number;
       // color: parseInt(Number(this.materialColor).toString(), 10),
-      color: Number(this.materialColor),
+      color: this.materialColor,
       linewidth: this.lineWidth,
       vertexColors: false,
       dashed: !this.solid,
@@ -121,6 +121,29 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
       material.dashOffset = -1 * this.time * this.timeScale;
       this.line.computeLineDistances();
     }
+  }
+
+
+  public ngOnChanges(changes: SimpleChanges) {
+    if (!this.object) {
+      return;
+    }
+    super.ngOnChanges(changes);
+
+    let modified = false;
+
+    if (['materialColor'].some(propName => propName in changes)) {
+      console.log('Changed color to', this.materialColor);
+      this.line.material.color = new THREE.Color(this.materialColor);
+      this.line.material.needsUpdate = true;
+      modified = true;
+    }
+
+    if (modified) {
+      this.changed.emit();
+      this.rendererService.render();
+    }
+
   }
 
 }

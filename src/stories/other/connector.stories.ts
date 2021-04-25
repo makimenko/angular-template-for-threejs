@@ -16,10 +16,12 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
     #b [translateY]="-20" [translateX]="-30" [translateZ]="+10">
   </atft-sphere-mesh>
 
-  <atft-line-connector [source]="a" [target]="b" materialColor="#ff0000"></atft-line-connector>
+  <atft-line-connector [source]="a" [target]="b" [materialColor]="lineColor"></atft-line-connector>
   `)
 })
 class StorybookLineComponent {
+
+  lineColor: number;
 
 }
 
@@ -80,10 +82,12 @@ export default {
     })
   ],
   args: {
-    translateZ: 5
+    translateZ: 5,
+    lineColor: '#ff0000'
   },
   argTypes: {
-    translateZ: {control: {type: 'range', min: -100, max: 100, step: 1}}
+    translateZ: {control: {type: 'range', min: -100, max: 100, step: 1}},
+    lineColor: {control: {type: 'color'}}
   }
 };
 
