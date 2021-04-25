@@ -331,7 +331,13 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0x5DADE2</code>
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#5DADE2&#x27;</code>
                     </td>
                 </tr>
                         <tr>
@@ -868,14 +874,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
-import {appliedMaterial, provideParent} from &#x27;../../../util&#x27;;
-import {EmptyComponent} from &#x27;../../../object/helper&#x27;;
-import {AnimationService} from &#x27;../../../animation&#x27;;
-import {RendererService} from &#x27;../../../renderer&#x27;;
-import {AbstractObject3D} from &#x27;../../../object&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
+import { appliedMaterial, provideParent } from &#x27;../../../util&#x27;;
+import { EmptyComponent } from &#x27;../../../object/helper&#x27;;
+import { AnimationService } from &#x27;../../../animation&#x27;;
+import { RendererService } from &#x27;../../../renderer&#x27;;
+import { AbstractObject3D } from &#x27;../../../object&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import {Subscription} from &#x27;rxjs&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
 
 @Component({
   selector: &#x27;atft-loader-actor&#x27;,
@@ -888,7 +894,7 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
   animate &#x3D; true;
 
   @Input()
-  materialColor &#x3D; 0x5DADE2;
+  materialColor: string | number &#x3D; &#x27;#5DADE2&#x27;;
 
   private ring1: THREE.Mesh;
   private ring2: THREE.Mesh;

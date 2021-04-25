@@ -423,7 +423,13 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0xffffff</code>
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#ffffff&#x27;</code>
                     </td>
                 </tr>
                         <tr>
@@ -506,8 +512,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="113"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:113</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:114</a></div>
                 </td>
             </tr>
 
@@ -547,8 +553,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:50</a></div>
                 </td>
             </tr>
 
@@ -588,8 +594,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:92</a></div>
                 </td>
             </tr>
 
@@ -627,8 +633,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="106"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:106</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:107</a></div>
                 </td>
             </tr>
 
@@ -666,8 +672,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:85</a></div>
                 </td>
             </tr>
 
@@ -872,17 +878,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnDestroy, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
-import {Subscription} from &#x27;rxjs&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnDestroy, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import {AnimationService} from &#x27;../../animation&#x27;;
-import {RendererService} from &#x27;../../renderer/renderer.service&#x27;;
-import {appliedColor, provideParent} from &#x27;../../util&#x27;;
-import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
-import {AbstractConnector} from &#x27;./abstract-connector&#x27;;
-import {Line2} from &#x27;three/examples/jsm/lines/Line2&#x27;;
-import {LineGeometry} from &#x27;three/examples/jsm/lines/LineGeometry&#x27;;
-import {LineMaterial} from &#x27;three/examples/jsm/lines/LineMaterial&#x27;;
+import { AnimationService } from &#x27;../../animation&#x27;;
+import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
+import { provideParent } from &#x27;../../util&#x27;;
+import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
+import { AbstractConnector } from &#x27;./abstract-connector&#x27;;
+import { Line2 } from &#x27;three/examples/jsm/lines/Line2&#x27;;
+import { LineGeometry } from &#x27;three/examples/jsm/lines/LineGeometry&#x27;;
+import { LineMaterial } from &#x27;three/examples/jsm/lines/LineMaterial&#x27;;
 
 export enum LineType {
   dashed &#x3D; &#x27;dash&#x27;,
@@ -896,7 +902,7 @@ export enum LineType {
 })
 export class LineConnectorComponent extends AbstractConnector&lt;Line2&gt; implements OnDestroy {
 
-  @Input() materialColor &#x3D; 0xffffff;
+  @Input() materialColor: string | number &#x3D; &#x27;#ffffff&#x27;;
   @Input() solid &#x3D; false;
   @Input() lineWidth &#x3D; 2;
   @Input() dashSize &#x3D; 3;
@@ -913,7 +919,6 @@ export class LineConnectorComponent extends AbstractConnector&lt;Line2&gt; imple
   protected line: Line2;
   private matLine: LineMaterial;
 
-
   constructor(
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D&lt;any&gt;,
@@ -928,7 +933,9 @@ export class LineConnectorComponent extends AbstractConnector&lt;Line2&gt; imple
     geometry.setPositions(positions);
 
     this.matLine &#x3D; new LineMaterial({
-      color: appliedColor(this.materialColor),
+      // wrong type in three@types def color?: number;
+      // color: parseInt(Number(this.materialColor).toString(), 10),
+      color: Number(this.materialColor),
       linewidth: this.lineWidth,
       vertexColors: false,
       dashed: !this.solid,

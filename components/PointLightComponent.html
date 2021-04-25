@@ -258,7 +258,13 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0xffffff</code>
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#FFFFFF&#x27;</code>
                     </td>
                 </tr>
                         <tr>
@@ -367,7 +373,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Optional, SkipSelf } from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
 import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
-import { appliedColor, provideParent } from &#x27;../../util&#x27;;
+import { provideParent } from &#x27;../../util&#x27;;
 import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
 
 @Component({
@@ -377,7 +383,7 @@ import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
 })
 export class PointLightComponent extends AbstractObject3D&lt;THREE.PointLight&gt; {
 
-  @Input() color &#x3D; 0xffffff;
+  @Input() color: string | number &#x3D; &#x27;#FFFFFF&#x27;;
   @Input() intensity &#x3D; 1;
   @Input() distance &#x3D; 500;
   @Input() castShadow &#x3D; false;
@@ -390,7 +396,7 @@ export class PointLightComponent extends AbstractObject3D&lt;THREE.PointLight&gt
   }
 
   protected newObject3DInstance() {
-    const light &#x3D; new THREE.PointLight(appliedColor(this.color), this.intensity, this.distance);
+    const light &#x3D; new THREE.PointLight(this.color, this.intensity, this.distance);
 
     if (this.castShadow &#x3D;&#x3D;&#x3D; true) {
       light.castShadow &#x3D; this.castShadow;

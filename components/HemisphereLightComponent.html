@@ -173,7 +173,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/object/light/hemisphere-light.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/object/light/hemisphere-light.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -235,12 +235,18 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0x444444</code>
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#444444&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/object/light/hemisphere-light.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/light/hemisphere-light.component.ts:15</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -260,7 +266,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/object/light/hemisphere-light.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/object/light/hemisphere-light.component.ts:16</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -275,12 +281,18 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0xffffff</code>
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#ffffff&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/light/hemisphere-light.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/object/light/hemisphere-light.component.ts:14</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -318,8 +330,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">projects/atft/src/lib/object/light/hemisphere-light.component.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">projects/atft/src/lib/object/light/hemisphere-light.component.ts:25</a></div>
                 </td>
             </tr>
 
@@ -345,7 +357,6 @@
 import * as THREE from &#x27;three&#x27;;
 import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
 import { provideParent } from &#x27;../../util&#x27;;
-import { appliedColor } from &#x27;../../util/applied-color&#x27;;
 import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
 
 @Component({
@@ -355,8 +366,8 @@ import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
 })
 export class HemisphereLightComponent extends AbstractObject3D&lt;THREE.HemisphereLight&gt; {
 
-  @Input() skyColor &#x3D; 0xffffff;
-  @Input() groundColor &#x3D; 0x444444;
+  @Input() skyColor: string | number &#x3D; &#x27;#ffffff&#x27;;
+  @Input() groundColor: string | number &#x3D; &#x27;#444444&#x27;;
   @Input() intensity &#x3D; 1;
 
   constructor(
@@ -369,9 +380,9 @@ export class HemisphereLightComponent extends AbstractObject3D&lt;THREE.Hemisphe
   protected newObject3DInstance() {
 
     const light &#x3D; new THREE.HemisphereLight(
-      appliedColor(this.skyColor),
-      appliedColor(this.groundColor),
-      appliedColor(this.intensity)
+      this.skyColor,
+      this.groundColor,
+      this.intensity
     );
 
     return light;

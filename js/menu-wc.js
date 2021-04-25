@@ -673,9 +673,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/AbstractCacheService.html" data-type="entity-link">AbstractCacheService</a>
                             </li>
                             <li class="link">
-                                <a href="classes/AbstractComposeEffect.html" data-type="entity-link">AbstractComposeEffect</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/DagreUtils.html" data-type="entity-link">DagreUtils</a>
                             </li>
                         </ul>

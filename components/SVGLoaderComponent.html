@@ -473,7 +473,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </td>
                 </tr>
@@ -556,7 +556,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </td>
                     </tr>
@@ -592,7 +592,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>overrideMaterialColor(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code></span>
+                        <span class="accessor"><b>set</b><code>overrideMaterialColor(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
                     </td>
                 </tr>
                             <tr>
@@ -618,7 +618,7 @@
                                                             <td>value</td>
                                                     
                                                             <td>
-                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                             </td>
                                                     
                                                         <td>
@@ -715,7 +715,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, Optional, SkipSelf} from &#x27;@angular/core&#x27;;
 import {RendererService} from &#x27;../../renderer/renderer.service&#x27;;
-import {appliedColor, appliedMaterial, fixCenter, provideParent, scaleToFit} from &#x27;../../util&#x27;;
+import {appliedMaterial, fixCenter, provideParent, scaleToFit} from &#x27;../../util&#x27;;
 import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
 import {AbstractModelLoader} from &#x27;./abstract-model-loader&#x27;;
 import {IconService, SvgLoaderService} from &#x27;./services&#x27;;
@@ -730,11 +730,11 @@ import {Shape} from &#x27;three&#x27;;
 export class SVGLoaderComponent extends AbstractModelLoader {
 
   @Input()
-  get overrideMaterialColor(): number {
+  get overrideMaterialColor(): string {
     return this._overrideMaterialColor;
   }
 
-  set overrideMaterialColor(value: number) {
+  set overrideMaterialColor(value: string) {
     this._overrideMaterialColor &#x3D; value;
     if (this.object) {
       this.startLoading();
@@ -756,7 +756,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   get icon(): string {
     return this.model;
   }
-  private _overrideMaterialColor: number &#x3D; undefined;
+  private _overrideMaterialColor: string &#x3D; undefined;
 
 
   @Input()
@@ -796,7 +796,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
     const group &#x3D; new THREE.Group();
 
     for (const path of paths) {
-      const color &#x3D; (this._overrideMaterialColor ? appliedColor(this._overrideMaterialColor) : path.color);
+      const color &#x3D; (this._overrideMaterialColor ? this._overrideMaterialColor : path.color);
       const material &#x3D; appliedMaterial(color, this.material, this.depthWrite);
       const shapes: Shape[] &#x3D; path.toShapes(this.isCCW, this.noHoles);
 

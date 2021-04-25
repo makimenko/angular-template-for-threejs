@@ -148,7 +148,7 @@
                                 <a href="#currentPos">currentPos</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                 <a href="#currentText">currentText</a>
                             </li>
                             <li>
@@ -349,7 +349,13 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0x5DADE2</code>
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#5DADE2&#x27;</code>
                     </td>
                 </tr>
                         <tr>
@@ -932,7 +938,7 @@
                         <a name="currentText"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
+                                <span class="modifier">Public</span>
                             currentText</b>
                             <a href="#currentText"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -1076,7 +1082,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
   animate &#x3D; false;
 
   @Input()
-  materialColor &#x3D; 0x5DADE2;
+  materialColor: string | number &#x3D; &#x27;#5DADE2&#x27;;
 
   @Input()
   minDelay &#x3D; 5;
@@ -1087,7 +1093,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
   subscribed &#x3D; false;
 
   private currentDelay: number;
-  private currentText: string;
+  public currentText: string;
   private currentPos &#x3D; 0;
   private maxPos &#x3D; 0;
   private i &#x3D; 0;

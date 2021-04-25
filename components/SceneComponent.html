@@ -181,7 +181,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -243,12 +243,18 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0xffffff</code>
+                        <i>Type : </i>    <code>number | string</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#ffffff&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:14</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -286,8 +292,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:25</a></div>
                 </td>
             </tr>
 
@@ -327,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:35</a></div>
                 </td>
             </tr>
 
@@ -399,8 +405,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">projects/atft/src/lib/object/scene.component.ts:31</a></div>
                 </td>
             </tr>
 
@@ -422,12 +428,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf } from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import {RendererService} from &#x27;../renderer/renderer.service&#x27;;
-import {provideParent} from &#x27;../util&#x27;;
-import {appliedColor} from &#x27;../util/applied-color&#x27;;
-import {AbstractObject3D} from &#x27;./abstract-object-3d&#x27;;
+import { RendererService } from &#x27;../renderer/renderer.service&#x27;;
+import { provideParent } from &#x27;../util&#x27;;
+import { AbstractObject3D } from &#x27;./abstract-object-3d&#x27;;
 
 @Component({
   selector: &#x27;atft-scene&#x27;,
@@ -436,7 +441,7 @@ import {AbstractObject3D} from &#x27;./abstract-object-3d&#x27;;
 })
 export class SceneComponent extends AbstractObject3D&lt;THREE.Scene&gt; implements OnChanges {
 
-  @Input() background &#x3D; 0xffffff;
+  @Input() background: number | string &#x3D; &#x27;#ffffff&#x27;;
 
   constructor(
     protected rendererService: RendererService,
@@ -449,7 +454,7 @@ export class SceneComponent extends AbstractObject3D&lt;THREE.Scene&gt; implemen
 
   protected newObject3DInstance(): THREE.Scene {
     const scene &#x3D; new THREE.Scene();
-    scene.background &#x3D; new THREE.Color(appliedColor(this.background));
+    scene.background &#x3D; new THREE.Color(this.background);
     return scene;
   }
 
@@ -466,7 +471,7 @@ export class SceneComponent extends AbstractObject3D&lt;THREE.Scene&gt; implemen
     let modified &#x3D; false;
 
     if ([&#x27;background&#x27;].some(propName &#x3D;&gt; propName in changes)) {
-      this.getObject().background &#x3D; new THREE.Color(appliedColor(this.background));
+      this.getObject().background &#x3D; new THREE.Color(this.background);
       modified &#x3D; true;
     }
 

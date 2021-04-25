@@ -176,7 +176,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -243,7 +243,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:18</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -258,12 +258,18 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0xffffff</code>
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#FFFFFF&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:14</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -283,7 +289,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:15</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -303,7 +309,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:17</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -341,8 +347,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">projects/atft/src/lib/object/light/directional-light.component.ts:27</a></div>
                 </td>
             </tr>
 
@@ -368,7 +374,6 @@
 import * as THREE from &#x27;three&#x27;;
 import { RendererService } from &#x27;../../renderer/renderer.service&#x27;;
 import { provideParent } from &#x27;../../util&#x27;;
-import { appliedColor } from &#x27;../../util/applied-color&#x27;;
 import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
 
 @Component({
@@ -378,7 +383,7 @@ import { AbstractObject3D } from &#x27;../abstract-object-3d&#x27;;
 })
 export class DirectionalLightComponent extends AbstractObject3D&lt;THREE.DirectionalLight&gt; {
 
-  @Input() color &#x3D; 0xffffff;
+  @Input() color: string | number &#x3D; &#x27;#FFFFFF&#x27;;
   @Input() intensity &#x3D; 1;
   // by default, target is 0,0,0
   @Input() target &#x3D; new THREE.Object3D();
@@ -394,7 +399,7 @@ export class DirectionalLightComponent extends AbstractObject3D&lt;THREE.Directi
   protected newObject3DInstance() {
 
     const light &#x3D; new THREE.DirectionalLight(
-      appliedColor(this.color),
+      this.color,
       this.intensity
     );
 

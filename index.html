@@ -42,11 +42,11 @@
   &lt;atft-renderer-canvas&gt;
     &lt;atft-perspective-camera
       [fov]=60 [near]=1 [far]=1100
-      positionX=20 positionY=50 positionZ=50&gt;
+      positionX=20 [positionY]=50 [positionZ]=50&gt;
     &lt;/atft-perspective-camera&gt;
     &lt;atft-scene&gt;
-      &lt;atft-axes-helper size=200&gt;&lt;/atft-axes-helper&gt;
-      &lt;atft-grid-helper size=100 divisions=10&gt;&lt;/atft-grid-helper&gt;
+      &lt;atft-axes-helper [size]=200&gt;&lt;/atft-axes-helper&gt;
+      &lt;atft-grid-helper [size]=100 [divisions]=10&gt;&lt;/atft-grid-helper&gt;
     &lt;/atft-scene&gt;
   &lt;/atft-renderer-canvas&gt;
 &lt;/atft-orbit-controls&gt;</code></pre></div><h2 id="storybook">Storybook</h2>
@@ -67,7 +67,7 @@
 </ul>
 <h2 id="usage-in-your-angular-project">Usage in your Angular project</h2>
 <ol>
-<li><p>Set up an Angular project and install dependencies:<br><code>npm i three three.meshline atft --save</code></p>
+<li><p>Set up an Angular project and install dependencies:<br><code>npm i three dagre atft --save</code></p>
 </li>
 <li><p>Import library into your module:</p>
 <div><pre class="line-numbers"><code class="language-typescript">import { AtftModule } from &#39;atft&#39;;
@@ -82,11 +82,11 @@
    &lt;atft-renderer-canvas #mainRenderer&gt;
      &lt;atft-perspective-camera
        [fov]=60 [near]=1 [far]=1100
-       positionX=20 positionY=50 positionZ=50&gt;
+       [positionX]=20 [positionY]=50 [positionZ]=50&gt;
      &lt;/atft-perspective-camera&gt;
      &lt;atft-scene&gt;
-       &lt;atft-axes-helper size=200&gt;&lt;/atft-axes-helper&gt;
-       &lt;atft-grid-helper size=100 divisions=10&gt;&lt;/atft-grid-helper&gt;
+       &lt;atft-axes-helper [size]=200&gt;&lt;/atft-axes-helper&gt;
+       &lt;atft-grid-helper [size]=100 [divisions]=10&gt;&lt;/atft-grid-helper&gt;
      &lt;/atft-scene&gt;
    &lt;/atft-renderer-canvas&gt;
  &lt;/atft-orbit-controls&gt;</code></pre></div></li>

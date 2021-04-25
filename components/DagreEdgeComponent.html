@@ -675,7 +675,13 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>0xffffff</code>
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#ffffff&#x27;</code>
                     </td>
                 </tr>
                             <tr>
@@ -930,7 +936,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>THREE.BufferGeometry | THREE.Geometry</code>
+                        <b>Returns : </b>    <code>THREE.BufferGeometry</code>
 
                     </div>
                     <div class="io-description">
@@ -1452,7 +1458,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:113</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:114</a></code>
 </div>
                 </td>
             </tr>
@@ -1499,7 +1505,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:51</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:50</a></code>
 </div>
                 </td>
             </tr>
@@ -1546,7 +1552,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:91</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:92</a></code>
 </div>
                 </td>
             </tr>
@@ -1591,7 +1597,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:106</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:107</a></code>
 </div>
                 </td>
             </tr>
@@ -1636,7 +1642,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:84</a></code>
+                        <div class="io-line">Defined in         <code><a href="../components/LineConnectorComponent.html#source" target="_self" >LineConnectorComponent:85</a></code>
 </div>
                 </td>
             </tr>
@@ -2091,7 +2097,7 @@ import * as THREE from &#x27;three&#x27;;
 import {AnimationService} from &#x27;../../../animation&#x27;;
 import {AbstractObject3D, LineConnectorComponent} from &#x27;../../../object&#x27;;
 import {RendererService} from &#x27;../../../renderer&#x27;;
-import {appliedColor, provideParent} from &#x27;../../../util&#x27;;
+import {provideParent} from &#x27;../../../util&#x27;;
 import {DagreLayoutComponent} from &#x27;./dagre-layout.component&#x27;;
 
 export enum LineEndType {
@@ -2192,7 +2198,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
   protected appendLineEnds(lineObject: THREE.Object3D) {
     // 1. Init Material
     const material &#x3D; new THREE.MeshBasicMaterial({
-      color: appliedColor(this.materialColor),
+      color: this.materialColor,
       opacity: this.opacity,
       transparent: this.opacity &lt; 1,
       depthWrite: true
@@ -2213,7 +2219,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     }
   }
 
-  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry | THREE.Geometry {
+  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry {
     switch (type) {
       case LineEndType.circle:
         return new THREE.CircleGeometry(0.7, 16);
