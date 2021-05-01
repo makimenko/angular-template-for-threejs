@@ -331,13 +331,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftLoaderModule.html" data-type="entity-link">AtftLoaderModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AtftLoaderModule-793aa217b31a288a859f2002ce7fddec"' : 'data-target="#xs-components-links-module-AtftLoaderModule-793aa217b31a288a859f2002ce7fddec"' }>
+                                            'data-target="#components-links-module-AtftLoaderModule-93c12b0572f785d9e134ae879482163c"' : 'data-target="#xs-components-links-module-AtftLoaderModule-93c12b0572f785d9e134ae879482163c"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftLoaderModule-793aa217b31a288a859f2002ce7fddec"' :
-                                            'id="xs-components-links-module-AtftLoaderModule-793aa217b31a288a859f2002ce7fddec"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftLoaderModule-93c12b0572f785d9e134ae879482163c"' :
+                                            'id="xs-components-links-module-AtftLoaderModule-93c12b0572f785d9e134ae879482163c"' }>
                                             <li class="link">
                                                 <a href="components/ObjLoaderComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ObjLoaderComponent</a>
@@ -349,6 +349,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="components/SVGLoaderComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">SVGLoaderComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/StlLoaderComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">StlLoaderComponent</a>
                                             </li>
                                         </ul>
                                     </li>
