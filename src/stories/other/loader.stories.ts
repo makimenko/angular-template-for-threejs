@@ -87,6 +87,18 @@ class StorybookDifferentSVGLoaderComponent {
 
 }
 
+@Component({
+  template: axesSceneWrapper(`
+    <atft-stl-loader
+        model="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/Stl/Menger_sponge_sample.stl"
+        materialColor="#AAFFAA"
+    >
+    </atft-stl-loader>
+  `)
+})
+class StorybookStlLoaderComponent {
+}
+
 export default {
   title: 'Other/Loader',
   decorators: [
@@ -120,6 +132,11 @@ export const ExternalSvgLoader = (args) => ({
 
 export const DifferentSvgLoader = (args) => ({
   component: StorybookDifferentSVGLoaderComponent,
+  props: args
+});
+
+export const StlLoader = (args) => ({
+  component: StorybookStlLoaderComponent,
   props: args
 });
 
