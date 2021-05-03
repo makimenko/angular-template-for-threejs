@@ -5,7 +5,7 @@ import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractModelLoader} from './abstract-model-loader';
 import {IconService, SvgLoaderService} from './services';
 import * as THREE from 'three';
-import {Shape} from 'three';
+
 
 @Component({
   selector: 'atft-svg-loader',
@@ -83,7 +83,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
     for (const path of paths) {
       const color = (this._overrideMaterialColor ? this._overrideMaterialColor : path.color);
       const material = appliedMaterial(color, this.material, this.depthWrite);
-      const shapes: Shape[] = path.toShapes(this.isCCW, this.noHoles);
+      const shapes: THREE.Shape[] = path.toShapes(this.isCCW, this.noHoles);
 
       for (const shape of shapes) {
         const geometry = new THREE.ShapeBufferGeometry(shape);
