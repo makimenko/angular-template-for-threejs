@@ -679,6 +679,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="classes/DagreUtils.html" data-type="entity-link">DagreUtils</a>
                             </li>
+                            <li class="link">
+                                <a href="classes/SVGLoader.html" data-type="entity-link">SVGLoader</a>
+                            </li>
                         </ul>
                     </li>
                         <li class="chapter">

@@ -84,7 +84,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/SVGLoaderComponent.html" target="_self" >provideParent(SVGLoaderComponent)</a></code>
+                                <code><a href="../classes/SVGLoader.html" target="_self" >provideParent(SVGLoaderComponent)</a></code>
                 </td>
             </tr>
 
@@ -720,7 +720,7 @@ import {AbstractObject3D} from &#x27;../abstract-object-3d&#x27;;
 import {AbstractModelLoader} from &#x27;./abstract-model-loader&#x27;;
 import {IconService, SvgLoaderService} from &#x27;./services&#x27;;
 import * as THREE from &#x27;three&#x27;;
-import {Shape} from &#x27;three&#x27;;
+
 
 @Component({
   selector: &#x27;atft-svg-loader&#x27;,
@@ -798,7 +798,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
     for (const path of paths) {
       const color &#x3D; (this._overrideMaterialColor ? this._overrideMaterialColor : path.color);
       const material &#x3D; appliedMaterial(color, this.material, this.depthWrite);
-      const shapes: Shape[] &#x3D; path.toShapes(this.isCCW, this.noHoles);
+      const shapes: THREE.Shape[] &#x3D; path.toShapes(this.isCCW, this.noHoles);
 
       for (const shape of shapes) {
         const geometry &#x3D; new THREE.ShapeBufferGeometry(shape);
