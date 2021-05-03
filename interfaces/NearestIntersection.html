@@ -240,7 +240,7 @@ export class RaycasterService implements OnDestroy {
     if (!this.isReady()) {
       return;
     }
-    event.preventDefault();
+    // #373: removed: event.preventDefault();
     const i &#x3D; this.getFirstIntersectedGroup(event.layerX, event.layerY);
     if (!this.selected || this.selected !&#x3D;&#x3D; i.object) {
       if (this.selected) {
@@ -259,7 +259,7 @@ export class RaycasterService implements OnDestroy {
     if (!this.isReady(true)) {
       return;
     }
-    event.preventDefault();
+    // #373: removed: event.preventDefault();
     const i &#x3D; this.getFirstIntersectedGroup(event.layerX, event.layerY);
     if (i &amp;&amp; i.object) {
       i.object.dispatchEvent({type: RaycasterEvent.click, face: i.face});
@@ -271,7 +271,7 @@ export class RaycasterService implements OnDestroy {
     if (!this.isReady()) {
       return;
     }
-    event.preventDefault();
+    // #373: removed: event.preventDefault();
     const i &#x3D; this.getFirstIntersectedGroup(event.touches[0].clientX, event.touches[0].clientY);
     if (i &amp;&amp; i.object) {
       i.object.dispatchEvent({type: RaycasterEvent.click, face: i.face});
