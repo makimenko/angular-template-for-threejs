@@ -12,7 +12,8 @@
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 6006 --ci",
     "build-storybook": "build-storybook",
-    "snyk-protect": "snyk protect"
+    "snyk-protect": "snyk protect",
+    "release": "cd ./projects/atft && standard-version"
   },
   "private": true,
   "dependencies": {
@@ -67,6 +68,7 @@
     "ng-packagr": "^11.1.4",
     "protractor": "~7.0.0",
     "puppeteer": "^2.1.1",
+    "standard-version": "^9.3.0",
     "ts-node": "^8.10.2",
     "tsickle": "^0.39.1",
     "tslib": "^2.1.0",
