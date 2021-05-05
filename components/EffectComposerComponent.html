@@ -807,7 +807,7 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy, OnChan
   }
 
   public initComposer() {
-    if (!this.composer) {
+    if (!this.composer &amp;&amp; this.rendererService.getWebGlRenderer()) {
       // console.log(&#x27;EffectComposerComponent.initComposer&#x27;);
       this.composer &#x3D; new EffectComposer(this.rendererService.getWebGlRenderer());
       this.composer.renderToScreen &#x3D; this.renderToScreen;

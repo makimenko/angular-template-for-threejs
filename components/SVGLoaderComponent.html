@@ -142,7 +142,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
                                 <a href="#loadLazyObject">loadLazyObject</a>
                             </li>
@@ -500,7 +500,7 @@
                     <a name="loadLazyObject"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Protected</span>
+                            <span class="modifier">Public</span>
                             <span class="modifier">Async</span>
                             loadLazyObject
                         </b>
@@ -789,7 +789,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
     super(rendererService, parent);
   }
 
-  protected async loadLazyObject(): Promise&lt;THREE.Object3D&gt; {
+  public async loadLazyObject(): Promise&lt;THREE.Object3D&gt; {
     // console.log(&#x27;SVGLoaderComponent.loadLazyObject&#x27;, this.model);
 
     const paths &#x3D; await this.svgLoader.load(this.model);

@@ -380,8 +380,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="144"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:144</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:146</a></div>
                 </td>
             </tr>
 
@@ -452,8 +452,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:117</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:119</a></div>
                 </td>
             </tr>
 
@@ -524,8 +524,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:98</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:100</a></div>
                 </td>
             </tr>
 
@@ -596,8 +596,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="134"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:134</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:136</a></div>
                 </td>
             </tr>
 
@@ -637,8 +637,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:96</a></div>
                 </td>
             </tr>
 
@@ -986,22 +986,24 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
 
   public parseAndCreate() {
     // console.log(&#x27;DagreYamlParserComponent.parseAndCreate&#x27;);
-    try {
-      this.destroyAll();
-      const model: GraphModel &#x3D; yaml.parse(this.yaml);
+    if (this.yaml) {
+      try {
+        this.destroyAll();
+        const model: GraphModel &#x3D; yaml.parse(this.yaml);
 
-      // console.log(&#x27;DagreYamlParserComponent.parseAndCreate yaml&#x27;, model);
-      if (model &amp;&amp; model.nodes &amp;&amp; model.nodes.length &gt; 0) {
+        // console.log(&#x27;DagreYamlParserComponent.parseAndCreate yaml&#x27;, model);
+        if (model &amp;&amp; model.nodes &amp;&amp; model.nodes.length &gt; 0) {
 
-        model.compositions?.forEach(i &#x3D;&gt; this.createComposition(i));
-        model.nodes?.forEach(i &#x3D;&gt; this.createNode(i));
-        model.edges?.forEach(i &#x3D;&gt; this.createEdge(i));
+          model.compositions?.forEach(i &#x3D;&gt; this.createComposition(i));
+          model.nodes?.forEach(i &#x3D;&gt; this.createNode(i));
+          model.edges?.forEach(i &#x3D;&gt; this.createEdge(i));
+        }
+        this.status.emit(true);
+      } catch (e) {
+        console.warn(&#x27;DagreYamlParserComponent.parseAndCreate failed&#x27;, e);
+        this.status.emit(false);
+        throw e;
       }
-      this.status.emit(true);
-    } catch (e) {
-      console.warn(&#x27;DagreYamlParserComponent.parseAndCreate failed&#x27;, e);
-      this.status.emit(false);
-      throw e;
     }
   }
 
