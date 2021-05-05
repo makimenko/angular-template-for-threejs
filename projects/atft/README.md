@@ -1,4 +1,4 @@
-[![GitHub repo](https://img.shields.io/github/stars/makimenko/angular-template-for-threejs?label=GitHub&style=social)](https://github.com/makimenko/angular-template-for-threejs) 
+[![GitHub repo](https://img.shields.io/github/stars/makimenko/angular-template-for-threejs?label=GitHub&style=social)](https://github.com/makimenko/angular-template-for-threejs)
 ![CI build status](https://github.com/makimenko/angular-template-for-threejs/workflows/CI/badge.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/makimenko/angular-template-for-threejs/badge.svg)](https://snyk.io/test/github/makimenko/angular-template-for-threejs)
 [![Code coverage by codecov.io](https://codecov.io/gh/makimenko/angular-template-for-threejs/branch/master/graph/badge.svg)](https://codecov.io/gh/makimenko/angular-template-for-threejs)
@@ -101,7 +101,7 @@ Sample [vect](https://github.com/makimenko/vect) project, which is based on atft
 
 1. `git clone https://github.com/makimenko/angular-template-for-threejs.git`
 2. `npm install`
-3. `ng build atft`<br>
+3. `ng build atft`
 
 ### Run Tests
 
@@ -117,6 +117,15 @@ See the official [Storybook.js documentation](https://storybook.js.org) for more
 ### API Documentation
 
 For mode details see [API documentation](https://makimenko.github.io/angular-template-for-threejs)
+
+### Release and Changelog
+- Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+- See [standard-version](https://github.com/conventional-changelog/standard-version) guidelines for release and changelog update.
+
+To automatically generate changelog and bump `atft` version:
+```
+npm run release
+```
 
 ### Contributors
 
