@@ -74,7 +74,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
     super(rendererService, parent);
   }
 
-  protected async loadLazyObject(): Promise<THREE.Object3D> {
+  public async loadLazyObject(): Promise<THREE.Object3D> {
     // console.log('SVGLoaderComponent.loadLazyObject', this.model);
 
     const paths = await this.svgLoader.load(this.model);
