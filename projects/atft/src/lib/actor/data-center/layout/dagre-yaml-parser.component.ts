@@ -72,22 +72,24 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
 
   public parseAndCreate() {
     // console.log('DagreYamlParserComponent.parseAndCreate');
-    try {
-      this.destroyAll();
-      const model: GraphModel = yaml.parse(this.yaml);
+    if (this.yaml) {
+      try {
+        this.destroyAll();
+        const model: GraphModel = yaml.parse(this.yaml);
 
-      // console.log('DagreYamlParserComponent.parseAndCreate yaml', model);
-      if (model && model.nodes && model.nodes.length > 0) {
+        // console.log('DagreYamlParserComponent.parseAndCreate yaml', model);
+        if (model && model.nodes && model.nodes.length > 0) {
 
-        model.compositions?.forEach(i => this.createComposition(i));
-        model.nodes?.forEach(i => this.createNode(i));
-        model.edges?.forEach(i => this.createEdge(i));
+          model.compositions?.forEach(i => this.createComposition(i));
+          model.nodes?.forEach(i => this.createNode(i));
+          model.edges?.forEach(i => this.createEdge(i));
+        }
+        this.status.emit(true);
+      } catch (e) {
+        console.warn('DagreYamlParserComponent.parseAndCreate failed', e);
+        this.status.emit(false);
+        throw e;
       }
-      this.status.emit(true);
-    } catch (e) {
-      console.warn('DagreYamlParserComponent.parseAndCreate failed', e);
-      this.status.emit(false);
-      throw e;
     }
   }
 

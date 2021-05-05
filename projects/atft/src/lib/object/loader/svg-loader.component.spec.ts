@@ -1,70 +1,52 @@
 import {RendererService} from '../../renderer/renderer.service';
-import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {IconService, SvgLoaderService} from './services';
 import {SVGLoaderComponent} from './svg-loader.component';
 import {StatsService} from '../../stats';
-import {Component, DebugElement, ViewChild} from '@angular/core';
-import {PerspectiveCameraComponent} from '../../camera';
-import {AnimationService} from '../../animation';
-import {RaycasterService} from '../../raycaster';
-import {SceneComponent} from '../scene.component';
-import {RendererCanvasComponent} from '../../renderer';
-import {By} from 'protractor';
-
-
-@Component({
-  selector: 'atft-mock',
-  template: `
-    <atft-renderer-canvas>
-      <atft-perspective-camera [fov]=60 [near]=1 [far]=1100></atft-perspective-camera>
-      <atft-svg-loader icon="a:sitemap-solid" overrideMaterialColor="#ff0000">
-      </atft-svg-loader>
-      <atft-scene></atft-scene>
-    </atft-renderer-canvas>
-  `
-})
-class MockParentComponent {
-  @ViewChild(SVGLoaderComponent) child: SVGLoaderComponent;
-}
+import {ShapePath} from 'three';
 
 describe('loader', () => {
 
   describe('SVGLoaderComponent', () => {
-    let parentComponent: MockParentComponent;
-    let fixture: ComponentFixture<MockParentComponent>;
+    let component: SVGLoaderComponent;
+    let fixture: ComponentFixture<SVGLoaderComponent>;
+    let svgLoaderService: SvgLoaderService;
 
     beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
-          PerspectiveCameraComponent,
-          SceneComponent,
-          SVGLoaderComponent,
-          MockParentComponent,
-          RendererCanvasComponent
+          SVGLoaderComponent
         ],
         providers: [
           StatsService,
           RendererService,
-          AnimationService,
-          RaycasterService,
           SvgLoaderService,
           IconService
-        ],
-        schemas: []
-      }).compileComponents();
-      fixture = TestBed.createComponent(MockParentComponent);
-      parentComponent = fixture.componentInstance;
-      fixture.detectChanges();
+        ]
+      });
+      svgLoaderService = TestBed.inject(SvgLoaderService);
+      fixture = TestBed.createComponent(SVGLoaderComponent);
+      return TestBed.compileComponents();
     }));
 
-    it('init', waitForAsync( () => {
-      expect(parentComponent).toBeTruthy();
+    it('load', ((done) => {
+      component = fixture.componentInstance;
+      component.icon = 'a:sitemap-solid';
+      component.overrideMaterialColor = '#ff0000';
       fixture.detectChanges();
 
-      const childComponent = parentComponent.child;
-      expect(childComponent).toBeTruthy();
-      expect(childComponent.icon).toBe('assets/svg/sitemap-solid.svg');
-      expect(childComponent.overrideMaterialColor).toBe('#ff0000');
+      const mockData = [new ShapePath()];
+      const spy = spyOn(svgLoaderService, 'load').and.returnValue(Promise.resolve(mockData));
+      component.ngOnInit();
+
+      spy.calls.mostRecent().returnValue.then(() => {
+        fixture.detectChanges();
+        expect(component).toBeTruthy();
+        expect(component.icon).toBe('assets/svg/sitemap-solid.svg');
+        expect(component.overrideMaterialColor).toBe('#ff0000');
+        done();
+      });
+
     }));
 
   });
