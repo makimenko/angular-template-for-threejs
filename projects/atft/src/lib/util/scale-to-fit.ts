@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {calculateSize} from './calculate-size';
 
-export function scaleToFit(group: THREE.Object3D, max: THREE.Vector3) {
+export function scaleToFit(group: THREE.Object3D, max: THREE.Vector3): void {
   const box = calculateSize(group);
 
   const scaleX = max.x / box.x;

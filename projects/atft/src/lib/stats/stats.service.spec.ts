@@ -31,6 +31,7 @@ describe('stats', () => {
 
     it('event', () => {
       const stats = new StatsService();
+      stats.toggle();
 
       const beforeCount = document.body.childElementCount;
 

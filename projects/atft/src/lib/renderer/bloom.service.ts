@@ -5,7 +5,6 @@ import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass';
 import {UnrealBloomPass} from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';
 import {ShaderPass} from 'three/examples/jsm/postprocessing/ShaderPass';
-import {SMAAPass} from 'three/examples/jsm/postprocessing/SMAAPass';
 import {FXAAShader} from 'three/examples/jsm/shaders/FXAAShader';
 
 
@@ -38,9 +37,6 @@ export class BloomService {
   private bloomComposer: EffectComposer;
   public initialized = false;
   protected scene: THREE.Scene;
-
-  constructor() {
-  }
 
   public init(renderer: WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) {
     if (renderer && scene && camera) {
@@ -78,7 +74,7 @@ export class BloomService {
       );
       finalPass.needsSwap = true;
 
-      const smaaPass = new SMAAPass(window.innerWidth, window.innerHeight);
+      // const smaaPass = new SMAAPass(window.innerWidth, window.innerHeight);
 
       this.finalComposer = new EffectComposer(renderer);
       this.finalComposer.addPass(renderScene);

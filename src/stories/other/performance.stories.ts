@@ -1,4 +1,4 @@
-import {moduleMetadata, storiesOf} from '@storybook/angular';
+import {moduleMetadata} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {Component, OnDestroy, ViewChild} from '@angular/core';

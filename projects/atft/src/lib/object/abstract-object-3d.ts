@@ -152,7 +152,9 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   protected afterInit() {
+    // Base abstract class
   }
 
   public removeChild(object: AbstractObject3D<any>): void {

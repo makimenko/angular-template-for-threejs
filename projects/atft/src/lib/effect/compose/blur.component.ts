@@ -26,6 +26,7 @@ export class BlurComponent extends AbstractComposeEffect<ShaderPass> {
     this.pass.push(new ShaderPass(HorizontalBlurShader));
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyChanges(changes: SimpleChanges) {
     // TODO: implement changes
     return false;

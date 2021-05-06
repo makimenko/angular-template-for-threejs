@@ -18,7 +18,7 @@ import {
   Vector3
 } from 'three';
 
-/* tslint:disable */
+/* eslint-disable */
 class SVGLoader extends Loader {
 
   defaultDPI = 90; // MA:

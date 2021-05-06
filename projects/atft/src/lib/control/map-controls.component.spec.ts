@@ -50,6 +50,7 @@ describe('controls', () => {
 
     it('no camera', () => {
       expect(fixture.detectChanges).toThrow();
+      expect(component).toBeTruthy();
     });
   });
 

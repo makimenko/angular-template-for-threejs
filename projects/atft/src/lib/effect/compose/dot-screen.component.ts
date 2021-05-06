@@ -24,6 +24,7 @@ export class DotScreenComponent extends AbstractComposeEffect<ShaderPass> {
     this.pass.push(new ShaderPass(DotScreenShader));
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   applyChanges(changes: SimpleChanges): boolean {
     // TODO: Implement
     return false;

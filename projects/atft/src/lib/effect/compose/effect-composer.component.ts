@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnChanges, OnDestroy, Optional, SimpleChanges, SkipSelf} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, Optional, SkipSelf} from '@angular/core';
 import {RendererService} from '../../renderer/renderer.service';
 import {SceneComponent} from '../../object';
 import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';
@@ -9,7 +9,7 @@ import {Pass} from 'three/examples/jsm/postprocessing/Pass';
   selector: 'atft-effect-composer',
   template: ''
 })
-export class EffectComposerComponent implements AfterViewInit, OnDestroy, OnChanges {
+export class EffectComposerComponent implements AfterViewInit, OnDestroy {
 
   @Input() renderToScreen = true;
   @Input() sceneBackgroundTarget: SceneComponent;
@@ -33,10 +33,6 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy, OnChan
     this.rendererService.setComposer(null);
     this.composer = null;
     this.rendererService.render();
-  }
-
-  public ngOnChanges(changes: SimpleChanges) {
-
   }
 
   public initComposer() {

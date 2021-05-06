@@ -24,11 +24,11 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
   }
 
   private watchObjects() {
-    this.sourceSub = this.source.changed.subscribe(item => {
+    this.sourceSub = this.source.changed.subscribe(() => {
       this.updateLineGeometry();
     });
 
-    this.targetSub = this.target.changed.subscribe(item => {
+    this.targetSub = this.target.changed.subscribe(() => {
       this.updateLineGeometry();
     });
   }
