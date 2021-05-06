@@ -1,5 +1,4 @@
-import {Component, Directive, Optional, SkipSelf, ViewChild} from '@angular/core';
-import * as THREE from 'three';
+import {Component, Optional, SkipSelf, ViewChild} from '@angular/core';
 import {EmptyComponent} from './helper/empty.component';
 import {AbstractObject3D} from './abstract-object-3d';
 import {RendererService} from '../renderer/renderer.service';

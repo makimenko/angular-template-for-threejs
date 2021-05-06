@@ -45,6 +45,8 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
   protected widthSegments = 1;
   protected heightSegments = 1;
   protected animation: Subscription;
+  protected videoPlaybackStarted = false;
+  protected playbackError = false;
 
   constructor(
     protected rendererService: RendererService,
@@ -81,7 +83,9 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
     return material;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   protected animate() {
+    // AnimationService will trigger animate() on all subscribers, then executes render() which is required for Video update.
   }
 
   ngAfterViewInit() {
@@ -94,7 +98,11 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
       this.video.load();
       this.video.addEventListener('canplay', () => {
         if (this.video) {
-          this.video.play();
+          this.video.play().then(() => {
+            this.videoPlaybackStarted = true;
+          }, () => {
+            this.playbackError = true;
+          });
         }
       });
     }

@@ -44,6 +44,7 @@ export class RendererCanvasComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public onResize(event: Event) {
     this.resetCanvas();
   }

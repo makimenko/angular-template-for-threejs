@@ -1,7 +1,7 @@
 import {Component, Input, Optional, SkipSelf} from '@angular/core';
 import {provideParent} from '../../../util';
 import {AbstractServerActor} from './abstract-server-actor';
-import {AbstractObject3D, IconService, ModelService} from '../../../object';
+import {AbstractObject3D, ModelService} from '../../../object';
 import {RendererService} from '../../../renderer';
 
 @Component({

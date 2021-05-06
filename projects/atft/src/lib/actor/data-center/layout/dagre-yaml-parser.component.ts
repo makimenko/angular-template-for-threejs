@@ -23,9 +23,11 @@ import {DagreNodeComponent} from './dagre-node.component';
 import {ActorRepositoryService} from '../service';
 
 
+/*
 function onlyUnique(value, index, self) {
   return self.indexOf(value) === index;
 }
+*/
 
 @Component({
   selector: 'atft-dagre-yaml-parser',

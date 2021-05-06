@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AbstractEmptyDirective } from '../../../object';
-import { EmptyComponent } from '../../../object/helper';
 import { provideParent } from '../../../util';
 
 

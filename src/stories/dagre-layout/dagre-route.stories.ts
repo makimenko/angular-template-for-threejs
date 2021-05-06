@@ -41,12 +41,12 @@ class StorybookRouterMainComponent {
 
   public showSpaDetails() {
     console.log('*****************************');
-    this.router.navigate(['spaDetails']);
+    void this.router.navigate(['spaDetails']);
   }
 
   public showApiDetails() {
     console.log('*****************************');
-    this.router.navigate(['apiDetails']);
+    void this.router.navigate(['apiDetails']);
   }
 
 

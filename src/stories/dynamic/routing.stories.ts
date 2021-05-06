@@ -33,12 +33,12 @@ class MainComponent {
 
   public chooseFirst() {
     console.log('Choose first');
-    this.router.navigate(['first']);
+    void this.router.navigate(['first']);
   }
 
   public chooseSecond() {
     console.log('Choose second');
-    this.router.navigate(['second']);
+    void this.router.navigate(['second']);
   }
 
 }

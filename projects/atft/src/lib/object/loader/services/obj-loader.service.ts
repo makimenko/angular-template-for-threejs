@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ShapePath} from 'three';
 import {AbstractCacheService} from './abstract-cache.service';
-import {SVGLoader} from '../../../threejs-fork/SVGLoader';
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader';
 import * as THREE from 'three';
 import {MTLLoader} from 'three/examples/jsm/loaders/MTLLoader';

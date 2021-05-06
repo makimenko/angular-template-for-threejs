@@ -1,4 +1,4 @@
-import {Component, ElementRef, Optional, SkipSelf, ViewChild} from '@angular/core';
+import {Component, Optional, SkipSelf} from '@angular/core';
 import {moduleMetadata} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';

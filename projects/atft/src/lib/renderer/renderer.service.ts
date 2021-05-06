@@ -1,14 +1,13 @@
-import {Injectable, OnDestroy} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {SceneComponent} from '../object/scene.component';
 import {AbstractCamera} from '../camera/abstract-camera';
 import * as THREE from 'three';
 import {StatsService} from '../stats/stats.service';
 import {EffectComposerComponent} from '../effect';
-import {BloomService} from './bloom.service';
 
 
 @Injectable()
-export class RendererService implements OnDestroy {
+export class RendererService {
 
   private init = false;
   private scene: SceneComponent;
@@ -24,11 +23,6 @@ export class RendererService implements OnDestroy {
   ) {
 
   }
-
-  ngOnDestroy() {
-
-  }
-
 
   public setScene(scene: SceneComponent) {
     this.scene = scene;

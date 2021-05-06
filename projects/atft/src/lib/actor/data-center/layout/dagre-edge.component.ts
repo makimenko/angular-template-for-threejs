@@ -133,16 +133,14 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
         return new THREE.CircleGeometry(0.7, 16);
         break;
       case LineEndType.arrow:
+        // eslint-disable-next-line no-case-declarations
         const shape = new THREE.Shape();
-
         shape.moveTo(0, -0.5);
         shape.lineTo(1, 2);
         shape.lineTo(0, 1.7);
         shape.lineTo(-1, 2);
 
-        const geometry = new THREE.ShapeBufferGeometry(shape);
-
-        return geometry;
+        return new THREE.ShapeBufferGeometry(shape);
         break;
       default:
         return undefined;
@@ -224,14 +222,14 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
             this.positions.push(p.x, p.y, 0.1);
           }
         });
-        this.updateEnds(this.positions);
+        this.updateEnds();
         this.updateLineGeometry();
       }
     });
   }
 
 
-  private updateEnds(positions: number[]) {
+  private updateEnds() {
     const p = this.positions;
     if (p?.length >= 9) {
       // Beginning / Start of the line

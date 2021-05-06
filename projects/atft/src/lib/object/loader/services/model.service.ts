@@ -19,6 +19,7 @@ export class ModelService extends AbstractAssetService<BaseAssetSource> {
     };
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   getFinalResult(finalUrl: string, provider: BaseAssetSource): BaseAssetSource {
     return {
       url: finalUrl

@@ -111,7 +111,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
     }
   }
 
-  private randomInt(min, max): number {
+  private randomInt(min: number, max: number): number {
     return Math.round(Math.random() * (max - min) + min);
   }
 

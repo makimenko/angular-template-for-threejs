@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {EmptyComponent} from '../../../object/helper';
 import {provideParent} from '../../../util';
 import { AbstractEmptyDirective, GridMeshComponent } from '../../../object';
 import * as THREE from 'three';

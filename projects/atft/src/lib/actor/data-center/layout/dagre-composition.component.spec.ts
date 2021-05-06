@@ -14,7 +14,6 @@ import {
 
 import {ActorRepositoryService} from '../service';
 import {RaycasterService} from '../../../raycaster';
-import {EdgeType} from './dagre-edge.component';
 import {DagreLayoutComponent} from './dagre-layout.component';
 import {DagreCompositionComponent} from './dagre-composition.component';
 
