@@ -12,6 +12,7 @@
   ],
   "license": "MIT",
   "homepage": "https://makimenko.github.io/angular-template-for-threejs/",
+  "funding": "https://github.com/sponsors/makimenko",
   "repository": {
     "type": "git",
     "url": "https://github.com/makimenko/angular-template-for-threejs.git",
