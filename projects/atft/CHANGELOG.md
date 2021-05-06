@@ -2,141 +2,120 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.4.23](https://github.com/makimenko/angular-template-for-threejs/compare/v0.1.0...v1.4.23) (2021-05-05)
 
-
-### Bug Fixes
+### [1.4.23](https://github.com/makimenko/angular-template-for-threejs/compare/1.4.22...v1.4.23) (2021-05-05)
 
 * introduce conventional commits and standard-release ([9ef6fec](https://github.com/makimenko/angular-template-for-threejs/commit/9ef6feca750eafaee3ed80128ff15c41344798b5))
 * package.json & package-lock.json to reduce vulnerabilities ([b2a5568](https://github.com/makimenko/angular-template-for-threejs/commit/b2a5568389cd97706fd724489806a12fa60fccec))
 * switch to karma-coverage ([#385](https://github.com/makimenko/angular-template-for-threejs/issues/385)) ([89730ac](https://github.com/makimenko/angular-template-for-threejs/commit/89730ac467642cd74cdf52882bab49396c1d8f2a))
-* switch to karma-coverage ([#385](https://github.com/makimenko/angular-template-for-threejs/issues/385)) ([42f98d7](https://github.com/makimenko/angular-template-for-threejs/commit/42f98d723627025e31f3ffc47ffb487f4b9c5b12))
+* Improve code coverage (new unittests added)
 * upgrade core-js from 3.10.1 to 3.11.0 ([74cd04b](https://github.com/makimenko/angular-template-for-threejs/commit/74cd04b31624cd255d854c0df6340c888c6b334d))
-* upgrade core-js from 3.11.0 to 3.11.1 ([230149a](https://github.com/makimenko/angular-template-for-threejs/commit/230149a6f08bc4a99db6d5643082a7de6177df9e))
-* upgrade core-js from 3.6.5 to 3.7.0 ([83b6a08](https://github.com/makimenko/angular-template-for-threejs/commit/83b6a086a5b4e573c9ccc0ee845743c76bb13717))
-* upgrade core-js from 3.8.3 to 3.10.1 ([491abf6](https://github.com/makimenko/angular-template-for-threejs/commit/491abf624ebc3892e5d0e3d9b9116cab3630b1af))
-* upgrade multiple dependencies with Snyk ([3a9bb26](https://github.com/makimenko/angular-template-for-threejs/commit/3a9bb26e23a1eb1543a42a91e363a1a24b54386e))
-* upgrade multiple dependencies with Snyk ([ebe5448](https://github.com/makimenko/angular-template-for-threejs/commit/ebe544878ec8b6ef26ff5898ce239118f94fc290))
-* upgrade multiple dependencies with Snyk ([1aad94a](https://github.com/makimenko/angular-template-for-threejs/commit/1aad94a1f71ccafa28dc8b6099bdeec2458f6827))
-* upgrade multiple dependencies with Snyk ([df156a7](https://github.com/makimenko/angular-template-for-threejs/commit/df156a7cc5ff4ebe26bd55502b713e1b703623f5))
-* upgrade multiple dependencies with Snyk ([93c5a6e](https://github.com/makimenko/angular-template-for-threejs/commit/93c5a6e54b90a216de473ac35da9cd442c4ee8a1))
-* upgrade multiple dependencies with Snyk ([07cb4be](https://github.com/makimenko/angular-template-for-threejs/commit/07cb4be75f4e22403dd7b651f30c159a690eb059))
-* upgrade multiple dependencies with Snyk ([5d1bff1](https://github.com/makimenko/angular-template-for-threejs/commit/5d1bff1f7c335ccaff69859c51316a75d53b669f))
-* upgrade multiple dependencies with Snyk ([bf6b3a6](https://github.com/makimenko/angular-template-for-threejs/commit/bf6b3a6f3b85bafa3032569c6315dcd418fae562))
-* upgrade rxjs from 6.6.6 to 6.6.7 ([e371405](https://github.com/makimenko/angular-template-for-threejs/commit/e371405b27b606dcabb49fde653dc5a8819174c3))
-* upgrade snyk from 1.437.2 to 1.437.3 ([d0eeaeb](https://github.com/makimenko/angular-template-for-threejs/commit/d0eeaebf7fa66c8a63e9fb7c4dc1a5dd97ae6216))
-* upgrade snyk from 1.518.0 to 1.573.0 ([d89b6a2](https://github.com/makimenko/angular-template-for-threejs/commit/d89b6a2e084130dfb252e9c3815e560d92434bd4))
 * **build:** types ([9384cb0](https://github.com/makimenko/angular-template-for-threejs/commit/9384cb0fce9b0abb3ab69835f1d2128b13f856d8))
-* package.json, package-lock.json & .snyk to reduce vulnerabilities ([a72229e](https://github.com/makimenko/angular-template-for-threejs/commit/a72229ee33a1c25f64173a868c1517de83ae5762))
-* package.json, package-lock.json & .snyk to reduce vulnerabilities ([10a62aa](https://github.com/makimenko/angular-template-for-threejs/commit/10a62aa83657a247f35ca51b5d0e94bb72c22eb4))
-* package.json, package-lock.json & .snyk to reduce vulnerabilities ([391a600](https://github.com/makimenko/angular-template-for-threejs/commit/391a6008eef829b8f2f5e37f471219f439e7c57e))
-* package.json, package-lock.json & .snyk to reduce vulnerabilities ([7ba25d7](https://github.com/makimenko/angular-template-for-threejs/commit/7ba25d73ccd0370394f988de4d7861dffdd40add))
-* package.json, package-lock.json & .snyk to reduce vulnerabilities ([0baeee4](https://github.com/makimenko/angular-template-for-threejs/commit/0baeee4f7fc01f7365411c1fe9ec0909a223aa06))
-* package.json, package-lock.json & .snyk to reduce vulnerabilities ([f744da3](https://github.com/makimenko/angular-template-for-threejs/commit/f744da3fb299d0d4d8e52505524b6301b2a69e7c))
-* upgrade core-js from 3.6.4 to 3.6.5 ([#219](https://github.com/makimenko/angular-template-for-threejs/issues/219)) ([2f17f78](https://github.com/makimenko/angular-template-for-threejs/commit/2f17f783c5d6f1a54156cdf4df815f6528ce52f4))
-* upgrade multiple dependencies with Snyk ([365e36d](https://github.com/makimenko/angular-template-for-threejs/commit/365e36d597ee697521383a66bf5080023aaaa013))
-* upgrade multiple dependencies with Snyk ([208ad4d](https://github.com/makimenko/angular-template-for-threejs/commit/208ad4d1fe9dc299c5b2e49f62c7637070c54e01))
-* upgrade multiple dependencies with Snyk ([4f9b35f](https://github.com/makimenko/angular-template-for-threejs/commit/4f9b35fd4a236f28a8bf00fb4cb73d291301c5f3))
-* upgrade multiple dependencies with Snyk ([f489867](https://github.com/makimenko/angular-template-for-threejs/commit/f489867c9a713660d61c761a13c5ed5c619d1ca6))
-* upgrade multiple dependencies with Snyk ([85eabf0](https://github.com/makimenko/angular-template-for-threejs/commit/85eabf045b28cb6e5efa3fbd82b45c0162a88a6a))
-* upgrade multiple dependencies with Snyk ([9639448](https://github.com/makimenko/angular-template-for-threejs/commit/9639448d01125e6e14f3232a66b6f86c7742bf76))
-* upgrade multiple dependencies with Snyk ([40dba1a](https://github.com/makimenko/angular-template-for-threejs/commit/40dba1acafa1dcf0e7c40bb1d562ecfafb669db1))
-* upgrade multiple dependencies with Snyk ([429c216](https://github.com/makimenko/angular-template-for-threejs/commit/429c21660a4f0d685f9927fee4d0abb2cc988194))
-* upgrade multiple dependencies with Snyk ([d4ddda0](https://github.com/makimenko/angular-template-for-threejs/commit/d4ddda0bd016a7e2e3a9f450fadf87498c0a3880))
-* upgrade multiple dependencies with Snyk ([f837234](https://github.com/makimenko/angular-template-for-threejs/commit/f837234aea07a4e243aea00a3d47ec809065ce75))
-* upgrade multiple dependencies with Snyk ([2578ee7](https://github.com/makimenko/angular-template-for-threejs/commit/2578ee78ac98a3e51df0eab75af5e34bc6af3e50))
-* upgrade multiple dependencies with Snyk ([5b26e9a](https://github.com/makimenko/angular-template-for-threejs/commit/5b26e9aed1c2c31e6e6c4a356d58d8eaa4af007f))
-* upgrade multiple dependencies with Snyk ([7eee315](https://github.com/makimenko/angular-template-for-threejs/commit/7eee315bffd6411754bb989b0878750383ae3d59))
-* upgrade multiple dependencies with Snyk ([b5eb216](https://github.com/makimenko/angular-template-for-threejs/commit/b5eb216094425da60a4c6712071c429b51268c74))
-* upgrade multiple dependencies with Snyk ([2e09bc5](https://github.com/makimenko/angular-template-for-threejs/commit/2e09bc5ee5844d71554534bf1777c33317bbf589))
-* upgrade multiple dependencies with Snyk ([26a63e7](https://github.com/makimenko/angular-template-for-threejs/commit/26a63e7f22eeb8ec45dbb606f29176c28bcce5f0))
-* upgrade multiple dependencies with Snyk ([cc28596](https://github.com/makimenko/angular-template-for-threejs/commit/cc2859638a9d1b0b857639adb06ed104508d18e3))
-* upgrade multiple dependencies with Snyk ([6b802b7](https://github.com/makimenko/angular-template-for-threejs/commit/6b802b7cd2aef766fa786328e86875bdcc900d3c))
-* upgrade multiple dependencies with Snyk ([#215](https://github.com/makimenko/angular-template-for-threejs/issues/215)) ([a59885c](https://github.com/makimenko/angular-template-for-threejs/commit/a59885c6c4557e21edda169d9e3d2fb1842440c5))
-* upgrade multiple dependencies with Snyk ([#248](https://github.com/makimenko/angular-template-for-threejs/issues/248)) ([0328c76](https://github.com/makimenko/angular-template-for-threejs/commit/0328c76972867b420e8484b26e292194baacda03))
-* upgrade rxjs from 6.5.4 to 6.5.5 ([#213](https://github.com/makimenko/angular-template-for-threejs/issues/213)) ([2b2f83f](https://github.com/makimenko/angular-template-for-threejs/commit/2b2f83fb28d0b1aea195afcce0be60dce7da129e))
-* upgrade rxjs from 6.5.5 to 6.6.0 ([8659f68](https://github.com/makimenko/angular-template-for-threejs/commit/8659f68b82f733f9fb0193ea42cbcdb9b4dcf45a))
-* upgrade rxjs from 6.6.0 to 6.6.2 ([498c4b9](https://github.com/makimenko/angular-template-for-threejs/commit/498c4b9d625af5461f2c9ad4f91f0270216991d7))
-* upgrade rxjs from 6.6.2 to 6.6.3 ([da45f1a](https://github.com/makimenko/angular-template-for-threejs/commit/da45f1a58085db5b0fbfac611d7b3c312e829008))
-* upgrade snyk from 1.316.1 to 1.316.2 ([d7a460a](https://github.com/makimenko/angular-template-for-threejs/commit/d7a460adcf7d5e4ea157e6139e26405f9618997b))
-* upgrade snyk from 1.316.1 to 1.316.2 ([8bba717](https://github.com/makimenko/angular-template-for-threejs/commit/8bba717f464dd66a735cbc85200e69ca26f9a15e))
-* upgrade snyk from 1.316.2 to 1.317.0 ([69c43dd](https://github.com/makimenko/angular-template-for-threejs/commit/69c43dd343ee1a7e49fd5c6108b7de1ec587d280))
-* upgrade snyk from 1.316.2 to 1.317.0 ([9013a80](https://github.com/makimenko/angular-template-for-threejs/commit/9013a8023691bc69e59410454452102e7b6c31c1))
-* upgrade snyk from 1.317.0 to 1.319.0 ([4e230f9](https://github.com/makimenko/angular-template-for-threejs/commit/4e230f91f771878d8c8dc01dde4543953ee8cc29))
-* upgrade snyk from 1.317.0 to 1.319.0 ([2bdd756](https://github.com/makimenko/angular-template-for-threejs/commit/2bdd75677c51e75b10316d1304c8d2e4f55b9cde))
-* upgrade snyk from 1.319.2 to 1.320.2 ([99588a7](https://github.com/makimenko/angular-template-for-threejs/commit/99588a762e0edfe0305c8087da59e03966d427b0))
-* upgrade snyk from 1.319.2 to 1.320.2 ([73fe7b4](https://github.com/makimenko/angular-template-for-threejs/commit/73fe7b437f0cbd62c8b20c262cf59f6cf72197c2))
-* upgrade snyk from 1.320.2 to 1.320.3 ([07e0b84](https://github.com/makimenko/angular-template-for-threejs/commit/07e0b84d02844201b75c06e56978ea701f276991))
-* upgrade snyk from 1.320.2 to 1.320.3 ([2fef94d](https://github.com/makimenko/angular-template-for-threejs/commit/2fef94dc437593d6ceef8561a3da60baff375dc0))
-* upgrade snyk from 1.320.3 to 1.321.0 ([c7124c2](https://github.com/makimenko/angular-template-for-threejs/commit/c7124c23ae84b42d3704d03aeafe8ceb528b36e7))
-* upgrade snyk from 1.320.3 to 1.321.0 ([e77e781](https://github.com/makimenko/angular-template-for-threejs/commit/e77e78143d05e82de4b93e399510702c7e260abb))
-* upgrade snyk from 1.321.0 to 1.323.0 ([5500a8e](https://github.com/makimenko/angular-template-for-threejs/commit/5500a8e870b5f2872725227cbce7b43e8a32d43f))
-* upgrade snyk from 1.321.0 to 1.323.0 ([618f3b6](https://github.com/makimenko/angular-template-for-threejs/commit/618f3b621756a6eca73369b39ef5a3a40d6dbe1e))
-* upgrade snyk from 1.323.0 to 1.323.2 ([26d882d](https://github.com/makimenko/angular-template-for-threejs/commit/26d882d68c863b429ab1ffcdcb4a3c1de3c1ee7c))
-* upgrade snyk from 1.323.0 to 1.323.2 ([4a77bbf](https://github.com/makimenko/angular-template-for-threejs/commit/4a77bbff0be0929fdfc151049d8d3d828dc207fb))
-* upgrade snyk from 1.323.2 to 1.327.0 ([aaa3edf](https://github.com/makimenko/angular-template-for-threejs/commit/aaa3edf42e5356be7224d12c2eca88ec8de7a2e6))
-* upgrade snyk from 1.323.2 to 1.327.0 ([5f478d4](https://github.com/makimenko/angular-template-for-threejs/commit/5f478d409f0ae66fbca849e9ff4b784488a70524))
-* upgrade snyk from 1.327.0 to 1.330.2 ([43a470b](https://github.com/makimenko/angular-template-for-threejs/commit/43a470b391a66ded6cebeb23b437db7eeed6b1a2))
-* upgrade snyk from 1.330.2 to 1.333.0 ([b6e9c69](https://github.com/makimenko/angular-template-for-threejs/commit/b6e9c69dcacf83540ca3ef07270f83326e82bb42))
-* upgrade snyk from 1.333.0 to 1.334.0 ([d9443b6](https://github.com/makimenko/angular-template-for-threejs/commit/d9443b67154a47819b84226b0f82e2cfd6bd433a))
-* upgrade snyk from 1.334.0 to 1.335.0 ([081803d](https://github.com/makimenko/angular-template-for-threejs/commit/081803d5dc5c8260849d92956ebeada5c5fd3281))
-* upgrade snyk from 1.335.0 to 1.336.0 ([#247](https://github.com/makimenko/angular-template-for-threejs/issues/247)) ([761a216](https://github.com/makimenko/angular-template-for-threejs/commit/761a2169b4fb4649dc549fca8e626bb6952b56cd))
-* upgrade snyk from 1.336.0 to 1.337.0 ([#249](https://github.com/makimenko/angular-template-for-threejs/issues/249)) ([f33c6e7](https://github.com/makimenko/angular-template-for-threejs/commit/f33c6e7c39c918640b72e5df7d1f9a04d964ab70))
-* upgrade snyk from 1.337.0 to 1.339.0 ([20feae9](https://github.com/makimenko/angular-template-for-threejs/commit/20feae9a056e74ca1a0f50e87650975d3fd1cb80))
-* upgrade snyk from 1.339.0 to 1.339.1 ([0074aac](https://github.com/makimenko/angular-template-for-threejs/commit/0074aacc95bc20c75415ae5258c977a96526caeb))
-* upgrade snyk from 1.339.1 to 1.339.2 ([6229a06](https://github.com/makimenko/angular-template-for-threejs/commit/6229a06382e8272db7470ae2ae872d7af72c3227))
-* upgrade snyk from 1.339.2 to 1.339.3 ([ddd6ca0](https://github.com/makimenko/angular-template-for-threejs/commit/ddd6ca099c47dfb8db25cc7e4488fad04e7fda4d))
-* upgrade snyk from 1.339.3 to 1.341.1 ([bae156d](https://github.com/makimenko/angular-template-for-threejs/commit/bae156de1cb2f6d7a7d6cf4c70333cf81121f589))
-* upgrade snyk from 1.341.1 to 1.342.2 ([8f36018](https://github.com/makimenko/angular-template-for-threejs/commit/8f360184a6e0b3fe53c99bff17dbfe83a0e50a4a))
-* upgrade snyk from 1.342.2 to 1.348.1 ([88d856e](https://github.com/makimenko/angular-template-for-threejs/commit/88d856e00de53b69292091b98dd3aa6e081ec4c7))
-* upgrade snyk from 1.348.1 to 1.348.2 ([54d21ce](https://github.com/makimenko/angular-template-for-threejs/commit/54d21ceba2d6e83dd9191bedbf2693022e4b231e))
-* upgrade snyk from 1.348.2 to 1.349.0 ([1673dee](https://github.com/makimenko/angular-template-for-threejs/commit/1673dee6afa94562dfaf91e73454fa998e2a11b5))
-* upgrade snyk from 1.349.0 to 1.352.1 ([2cb7f3e](https://github.com/makimenko/angular-template-for-threejs/commit/2cb7f3e8420f8bec29695a681bfbbe17da4ef981))
-* upgrade snyk from 1.352.1 to 1.355.0 ([79ecea6](https://github.com/makimenko/angular-template-for-threejs/commit/79ecea6eb79652c23689446182896770130e2bd5))
-* upgrade snyk from 1.355.0 to 1.360.0 ([bc61238](https://github.com/makimenko/angular-template-for-threejs/commit/bc61238586ebcfabfdc04f635e28c5525a0665ae))
-* upgrade snyk from 1.360.0 to 1.361.3 ([b37db5b](https://github.com/makimenko/angular-template-for-threejs/commit/b37db5b922f704b5c1d469ff044444454ada2ce0))
-* upgrade snyk from 1.361.3 to 1.362.0 ([a33951f](https://github.com/makimenko/angular-template-for-threejs/commit/a33951f3cb81e3cead6ef30b9e515b805907ea01))
-* upgrade snyk from 1.362.0 to 1.362.1 ([40b5277](https://github.com/makimenko/angular-template-for-threejs/commit/40b52774245a3c41cb703fd774fafcd2a86d8e37))
-* upgrade snyk from 1.362.1 to 1.364.2 ([c917123](https://github.com/makimenko/angular-template-for-threejs/commit/c9171233dedcb615eee2f83e4c40f530f0c06e49))
-* upgrade snyk from 1.364.2 to 1.369.2 ([c6c3d9a](https://github.com/makimenko/angular-template-for-threejs/commit/c6c3d9a49b034f4a9293b5709cf75a54f227a10f))
-* upgrade snyk from 1.369.2 to 1.369.3 ([d0a6c53](https://github.com/makimenko/angular-template-for-threejs/commit/d0a6c53e8279761dc349903642c7361bded023b1))
-* upgrade snyk from 1.369.3 to 1.370.1 ([e0d1fb0](https://github.com/makimenko/angular-template-for-threejs/commit/e0d1fb04f2d29a1f1bd3ea0562011f10427683ec))
-* upgrade snyk from 1.370.1 to 1.372.0 ([33302d8](https://github.com/makimenko/angular-template-for-threejs/commit/33302d84961ad9c53fdfb7e92e18ba3e2cdd190c))
-* upgrade snyk from 1.372.0 to 1.373.0 ([a671f16](https://github.com/makimenko/angular-template-for-threejs/commit/a671f16d7f5c978785c814d35408ec40df876ec3))
-* upgrade snyk from 1.373.0 to 1.373.1 ([93e1951](https://github.com/makimenko/angular-template-for-threejs/commit/93e195100e993b454d22d99c1cc2a3267a6a03a0))
-* upgrade snyk from 1.395.0 to 1.398.0 ([c63e760](https://github.com/makimenko/angular-template-for-threejs/commit/c63e76042feca2a1d5176dcf1e9c5cc8df8f2b27))
-* upgrade snyk from 1.398.0 to 1.398.1 ([46bbfd5](https://github.com/makimenko/angular-template-for-threejs/commit/46bbfd5ba90ed8ec791c34e2f7b0b62d92a5cf09))
-* upgrade snyk from 1.398.1 to 1.400.0 ([f23c500](https://github.com/makimenko/angular-template-for-threejs/commit/f23c500115528df72693c49204be9968c3aa95e1))
-* upgrade snyk from 1.400.0 to 1.406.0 ([3e860e0](https://github.com/makimenko/angular-template-for-threejs/commit/3e860e01befa27a6582f58529ec55bf7f30a0261))
-* upgrade snyk from 1.406.0 to 1.411.0 ([a0bcc89](https://github.com/makimenko/angular-template-for-threejs/commit/a0bcc8941a74bc1fec4022a39d72826537792457))
-* upgrade snyk from 1.434.0 to 1.437.2 ([c9ee65c](https://github.com/makimenko/angular-template-for-threejs/commit/c9ee65ce066bb4ea0fbb34a0f588ef1a17b60df3))
-* upgrade snyk from 1.437.3 to 1.437.4 ([c280a2d](https://github.com/makimenko/angular-template-for-threejs/commit/c280a2d12a00f4fac01b18180e66b66a8e97b166))
-* upgrade three from 0.115.0 to 0.116.0 ([17e4b65](https://github.com/makimenko/angular-template-for-threejs/commit/17e4b656973f2868461f9e9c037421101a3972ca))
-* upgrade three from 0.115.0 to 0.116.0 ([0fbe804](https://github.com/makimenko/angular-template-for-threejs/commit/0fbe8040d237217d41fb80fd3449fd8e1f186f72))
-* upgrade three from 0.116.0 to 0.116.1 ([0a21116](https://github.com/makimenko/angular-template-for-threejs/commit/0a2111655cff4823a613ed77d424c2b4c8289da5))
-* upgrade three from 0.116.0 to 0.116.1 ([2888c45](https://github.com/makimenko/angular-template-for-threejs/commit/2888c45d88dc20f13e9b46070bb7010d05b6347e))
-* upgrade three from 0.116.1 to 0.117.0 ([0d94298](https://github.com/makimenko/angular-template-for-threejs/commit/0d94298ad508ceffc3e8c693dfc62cd730fdf53b))
-* upgrade three from 0.117.0 to 0.117.1 ([c6d980f](https://github.com/makimenko/angular-template-for-threejs/commit/c6d980faaefdb09cbf04e9bee8430fc1ca8cb0e5))
-* upgrade three from 0.117.1 to 0.118.1 ([1c0044d](https://github.com/makimenko/angular-template-for-threejs/commit/1c0044d16d5a296fd82e7d7f82c47fb2ecd53d05))
-* upgrade three from 0.118.1 to 0.118.3 ([b46e268](https://github.com/makimenko/angular-template-for-threejs/commit/b46e268c2889510c923a29ab45c5a1d9f64b4e14))
-* upgrade three from 0.118.3 to 0.119.0 ([39d81f4](https://github.com/makimenko/angular-template-for-threejs/commit/39d81f40f72230ce834705ce9417d7f59587e9a5))
-* upgrade three from 0.119.0 to 0.119.1 ([ce8ab75](https://github.com/makimenko/angular-template-for-threejs/commit/ce8ab75891b407e7b58ea01713b656b1af4d0e7b))
-* upgrade three from 0.119.1 to 0.120.0 ([e0dcd10](https://github.com/makimenko/angular-template-for-threejs/commit/e0dcd101218ad1d18dd60d552dad3b5454ea99fa))
-* upgrade three from 0.120.1 to 0.121.1 ([9df2eea](https://github.com/makimenko/angular-template-for-threejs/commit/9df2eeaf42d169e90046eb19964b34e141078229))
-* upgrade three from 0.121.1 to 0.122.0 ([4bd70c5](https://github.com/makimenko/angular-template-for-threejs/commit/4bd70c5a2ca8941029584a5bd78624e33340cd25))
-* upgrade three from 0.123.0 to 0.124.0 ([910f5a9](https://github.com/makimenko/angular-template-for-threejs/commit/910f5a9f822655a429a393bfeebd9ab7c305e623))
-* upgrade three.meshline from 1.2.0 to 1.2.1 ([3e80dc2](https://github.com/makimenko/angular-template-for-threejs/commit/3e80dc2c8942d9312214764c4dc29c361fdcecb4))
-* upgrade yaml from 1.10.0 to 1.10.2 ([ccbfec4](https://github.com/makimenko/angular-template-for-threejs/commit/ccbfec477f0fd052f3d36a817de909d10b8d7f59))
-* upgrade zone.js from 0.10.2 to 0.10.3 ([#214](https://github.com/makimenko/angular-template-for-threejs/issues/214)) ([76e445c](https://github.com/makimenko/angular-template-for-threejs/commit/76e445cbd10eb37d6d37bb78a2e332c900abc6e1))
-* upgrade zone.js from 0.10.3 to 0.11.3 ([b77be4f](https://github.com/makimenko/angular-template-for-threejs/commit/b77be4fc271bd9312f72715df71395651cf89883))
-* upgrade zone.js from 0.11.1 to 0.11.2 ([97c0259](https://github.com/makimenko/angular-template-for-threejs/commit/97c0259713145c5a1dce70f85160e2686e317bce))
-* upgrade zone.js from 0.11.2 to 0.11.3 ([f21bd6a](https://github.com/makimenko/angular-template-for-threejs/commit/f21bd6a20542c4369ea1f50670d26ec67e001a72))
-* **action:** meet peer dependencies in installation [no ci] ([#192](https://github.com/makimenko/angular-template-for-threejs/issues/192)) ([cbb14bc](https://github.com/makimenko/angular-template-for-threejs/commit/cbb14bc076db4e815e6cbb229368389b1ed3435a))
-* **action:** publish command was in wrong dir ([#191](https://github.com/makimenko/angular-template-for-threejs/issues/191)) ([d975201](https://github.com/makimenko/angular-template-for-threejs/commit/d975201f553e550ead65adbf4a10054bb032289a))
-* **package:** update three to version 0.104.0 ([4f40b2d](https://github.com/makimenko/angular-template-for-threejs/commit/4f40b2d95688c4d3b71a475b208dbb8603795335))
-* **package:** update three to version 0.105.0 ([33f2889](https://github.com/makimenko/angular-template-for-threejs/commit/33f28898bdc3b0a864f3fff138b22a54fdbe91c1))
-* **package:** update three to version 0.106.1 ([db91b83](https://github.com/makimenko/angular-template-for-threejs/commit/db91b833d57a9a5d726c1f4ed7e4fb4b25f48d43)), closes [#56](https://github.com/makimenko/angular-template-for-threejs/issues/56)
-* **package:** update three to version 0.108.0 ([8df5c7b](https://github.com/makimenko/angular-template-for-threejs/commit/8df5c7b7e7170959577849a4e1a6d3660f4451a1))
-* **package:** update three to version 0.109.0 ([8460095](https://github.com/makimenko/angular-template-for-threejs/commit/8460095287a670e4269146062f3a65f837dd5952))
-* **test:** polyfill removed core-js file ([8550e1e](https://github.com/makimenko/angular-template-for-threejs/commit/8550e1e73b8681464f9db57c2c37a88304c393e3)), closes [#21](https://github.com/makimenko/angular-template-for-threejs/issues/21)
-* **test:** prevent dispose on uninitialized object ([fccd314](https://github.com/makimenko/angular-template-for-threejs/commit/fccd314a76cc7e97f06c38508471877d0203a56d)), closes [/travis-ci.com/makimenko/angular-template-for-threejs/builds/123340587#L576](https://github.com/makimenko//travis-ci.com/makimenko/angular-template-for-threejs/builds/123340587/issues/L576)
+
+### [1.4.22](https://github.com/makimenko/angular-template-for-threejs/compare/1.4.21...1.4.22) (2021-05-03)
+
+- Upgraded atft:0.128.0
+- Fixed raycaster bugs
+
+### [1.4.21](https://github.com/makimenko/angular-template-for-threejs/compare/1.4.15...1.4.21) (2021-05-01)
+
+- Improvements for [vect project](https://github.com/makimenko/vect)
+- STL loader
+- threejs upgrade
+- strict types
+- various bug fixes
+
+### [1.4.15](https://github.com/makimenko/angular-template-for-threejs/compare/1.4.10...1.4.15) (2021-03-18)
+
+- Upgrade three 0.126.1
+- ModelActorComponent (model: user)
+- AbstractSourceService, ModelService
+- Bug fix: AbstractAssetService default provider
+
+### [1.4.10](https://github.com/makimenko/angular-template-for-threejs/compare/1.4.0...1.4.10) (2021-03-02)
+
+- Various enhancements of ATFT library for [Vect](https://github.com/makimenko/vect) project
+- update three.js to 0.125
+- Remove three meshline (unsupported project, failing with new three.js). Replace to LineConnector component.
+- IconService (Material Design Icons, Microsoft Azure Icons, AWS Icons, Google Cloid Icons)
+- Dagre Layout, Node, Edge, Composition
+- Performance optimizations
+
+### [1.4.0](https://github.com/makimenko/angular-template-for-threejs/compare/1.3.4...1.4.0) (2021-02-12)
+
+- technical improvements
+
+### [1.3.4](https://github.com/makimenko/angular-template-for-threejs/compare/1.3.3...1.3.4) (2020-09-21)
+
+- Dependency upgrade (including typescript, compiler, angular, storybook)
+- Disable Ivy compiler
+
+### [1.3.3](https://github.com/makimenko/angular-template-for-threejs/compare/1.3.2...1.3.3) (2020-09-16)
+
+- Disable Ivy compiler
+- Verify release pipeline workflow (workflows/publish-on-npm.yml)
+- Dependency upgrade (including typescript, compiler)
+
+### [1.3.2](https://github.com/makimenko/angular-template-for-threejs/compare/1.3.1...1.3.2) (2020-09-16)
+
+- Verify release pipeline workflow (workflows/publish-on-npm.yml)
+- Dependency upgrade (including typescript, compiler)
+- Fix library dist folder
+
+### [1.3.1](https://github.com/makimenko/angular-template-for-threejs/compare/1.3.0...1.3.1) (2020-09-16)
+
+- Verify release pipeline workflow (workflows/publish-on-npm.yml)
+- Dependency upgrade (including typescript, compiler)
+
+### [1.3.0](https://github.com/makimenko/angular-template-for-threejs/compare/1.2.0...1.3.0) (2020-09-16)
+
+- Verify release pipeline workflow (workflows/publish-on-npm.yml)
+- Dependency upgrade (including typescript, compiler)
+
+### [1.2.0](https://github.com/makimenko/angular-template-for-threejs/compare/1.1.0...1.2.0) (2019-10-31)
+
+- Support multiple renderers: CSS3DRenderer and WebGlRenderer
+- New components
+  - AbstractCss3dMesh
+  - Css3dVideoMeshComponent
+  - WorkstationActorComponent
+- Adjusted "Actors" storybook
+
+### [1.1.0](https://github.com/makimenko/angular-template-for-threejs/compare/1.0.2...1.1.0) (2019-09-27)
+
+- New interactivity features
+  - RaycasterService - allows to find objects intersections on mouse move/down. Emit object event.
+  - new directives: atft-raycaster-camera, atft-raycaster-enable, atft-raycaster-group
+- Performance optimizations:
+  - RendererService - is responsible for the scene rendering. By default injected into all objects.
+  - atft-raycaster-group - allows to group multiple hierarchical objects and emit event only on parent object (where directive is defined)
+- New animation features:
+  - AnimationService - is responsible for the animation frame preparation (emit animation event to all objects) and as last step - request rendering (emit render event for RendererService)
+- Data Center Actor module
+- Multiple new demo stories in storybook
+
+### [1.0.2](https://github.com/makimenko/angular-template-for-threejs/compare/0.1.0...1.0.2) (2019-09-08)
+
+* Introduced [Storybook](https://storybook.js.org) for isolated component development
+* Switched from Angular directives to components
+* New features: shadow, direct light, connector, plane, box meshes
+* Abstractions
+* Multiple demo scenes
+
+
+### [0.1.0](https://github.com/makimenko/angular-template-for-threejs/compare/v0.0.3...0.1.0) (2019-04-25)
+* Same as the [previous release](https://github.com/makimenko/angular-template-for-threejs/releases/tag/v0.0.3), but fixes #39, so that consumers of atft can actually use its API without warnings.
+
+### [0.0.2](https://github.com/makimenko/angular-template-for-threejs/compare/v0.0.2...v0.0.3) (2019-04-10)
+
+* atft library published on [NPM](https://www.npmjs.com/package/atft)
+
+### [0.0.2](https://github.com/makimenko/angular-template-for-threejs/compare/v0.0.1...v0.0.2) (2019-04-10)
+
+* Application and Three.js Components in a single project (as Monolith).
+
+### [0.0.1](https://github.com/makimenko/angular-template-for-threejs/tree/v0.0.1) (2019-03-14)
+
+* Initial version
+* Integration with Travis-CI and Greenkeeper.
+
