@@ -182,8 +182,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">projects/atft/src/lib/object/loader/services/abstract-cache.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">projects/atft/src/lib/object/loader/services/abstract-cache.service.ts:18</a></div>
                 </td>
             </tr>
 
@@ -319,13 +319,11 @@
 
   public async load(key: string): Promise&lt;V&gt; {
     const cacheHit &#x3D; this.cache.get(key);
-    if (cacheHit) {
+    if (await cacheHit) {
       // console.log(&#x27;AbstractCacheService.cacheHit&#x27;, key);
       return cacheHit;
     } else {
       // console.log(&#x27;AbstractCacheService.cacheMiss&#x27;, key);
-      const j: any &#x3D; key;
-
       const cacheMiss &#x3D; this.getValue(key);
       this.cache.set(key, cacheMiss);
       return cacheMiss;
