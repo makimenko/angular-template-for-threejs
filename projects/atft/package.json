@@ -38,5 +38,21 @@
   },
   "engines": {
     "node": "*"
+  },
+  "standard-version": {
+    "scripts": {
+      "changelog": true
+    },
+    "types": [
+      {"type": "feat", "section": "Features"},
+      {"type": "fix", "section":  "Bug Fixes"},
+      {"type": "chore", "hidden": true},
+      {"type": "docs", "hidden": true},
+      {"type": "style", "hidden": true},
+      {"type": "refactor", "section": "Refactoring"},
+      {"type": "perf", "section": "Perforamnce Improvements"},
+      {"type": "test", "section": "Build & CI"},
+      {"type": "build", "section": "Build & CI"}
+    ]
   }
 }
