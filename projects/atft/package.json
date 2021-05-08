@@ -50,6 +50,7 @@
       {"type": "chore", "hidden": true},
       {"type": "docs", "hidden": true},
       {"type": "style", "hidden": true},
+      {"type": "minor", "hidden": true},
       {"type": "refactor", "section": "Refactoring"},
       {"type": "perf", "section": "Perforamnce Improvements"},
       {"type": "test", "section": "Build & CI"},
