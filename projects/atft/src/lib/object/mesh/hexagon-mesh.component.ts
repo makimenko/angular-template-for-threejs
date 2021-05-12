@@ -1,9 +1,28 @@
-import {Component, OnChanges, Optional, SkipSelf} from '@angular/core';
+import {Component, Input, OnChanges, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
 import {RendererService} from '../../renderer/renderer.service';
-import {provideParent} from '../../util';
+import {fixCenter, provideParent} from '../../util';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractMesh} from './abstract-mesh-3d';
+
+function offset(arr: number[], x: number, y: number): number[] {
+  const result = [...arr];
+  result[0] += x;
+  result[1] += y;
+  return result;
+}
+
+function offset2(arr: number[], offset: number[]): number[] {
+  const result = [...arr];
+  result[0] += offset[0];
+  result[1] += offset[1];
+  return result;
+}
+
+interface Hex {
+  q: number;
+  r: number;
+}
 
 @Component({
   selector: 'atft-hexagon-mesh',
@@ -12,11 +31,12 @@ import {AbstractMesh} from './abstract-mesh-3d';
 })
 export class HaxagonMeshComponent extends AbstractMesh implements OnChanges {
 
+  @Input() cellSize = 10;
+  @Input() gap = 1.04;
+  @Input() len = 7;
 
-  cellSize = 10;
-  cellShape;
-  cellGeo;
-  cellShapeGeo;
+  protected cellWidth = this.cellSize * 2 + 5;
+  protected cellLength = (Math.sqrt(3) * 0.5) * this.cellWidth + 5;
 
   constructor(
     protected rendererService: RendererService,
@@ -26,42 +46,72 @@ export class HaxagonMeshComponent extends AbstractMesh implements OnChanges {
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-    const geometry = this.createHex();
+    const parent = new THREE.Mesh();
+
+    const geometry = this.getGeometry();
     const material = this.getMaterial();
     const mesh = new THREE.Mesh(geometry, material);
     this.applyShadowProps(mesh);
-    return mesh;
+    fixCenter(mesh);
+
+    parent.add(mesh);
+
+    return parent;
   }
 
 
-  protected createHex(): THREE.ShapeGeometry {
-// create base shape used for building geometry
-    var i, verts = [];
-    // create the skeleton of the hex
-    for (i = 0; i < 6; i++) {
-      verts.push(this.createVertex(i));
-    }
-    // copy the verts into a shape for the geometry to use
-    this.cellShape = new THREE.Shape();
-    this.cellShape.moveTo(verts[0].x, verts[0].y);
-    for (i = 1; i < 6; i++) {
-      this.cellShape.lineTo(verts[i].x, verts[i].y);
-    }
-    this.cellShape.lineTo(verts[0].x, verts[0].y);
-    this.cellShape.autoClose = true;
+  protected getGeometry(): THREE.BufferGeometry {
+    const geometry = new THREE.BufferGeometry();
 
-    this.cellGeo = new THREE.BufferGeometry();
-    this.cellGeo.vertices = verts;
-    this.cellGeo.verticesNeedUpdate = true;
+    const faces = [];
+    const vertices = [];
 
-    this.cellShapeGeo = new THREE.ShapeGeometry(this.cellShape);
-    return this.cellShapeGeo;
+    for (let i = 0; i < 6; i++) {
+      // Geometry of single hexagon shape
+      vertices.push(this.createVertex(i));
+    }
+
+    // Excellent explanation:
+    // https://www.redblobgames.com/grids/hexagons/#map-storage
+    const mid = Math.floor(this.len / 2);
+    let q = 0, r = 0;
+    for (q = 0; q < this.len; q++) {
+      for (r = 0; r <= this.len; r++) {
+        // r=3:
+        const skip = (q + r < mid) || (q + r > mid * 3 + 1);
+        if (!skip) {
+          const offset = this.cellToPixel({q, r});
+          faces.push(...offset2(vertices[0], offset), ...offset2(vertices[1], offset), ...offset2(vertices[2], offset));
+          faces.push(...offset2(vertices[0], offset), ...offset2(vertices[2], offset), ...offset2(vertices[3], offset));
+          faces.push(...offset2(vertices[0], offset), ...offset2(vertices[3], offset), ...offset2(vertices[4], offset));
+          faces.push(...offset2(vertices[0], offset), ...offset2(vertices[4], offset), ...offset2(vertices[5], offset));
+        }
+      }
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(faces), 3));
+    geometry.computeBoundingBox();
+    geometry.computeVertexNormals();
+
+    return geometry;
   }
 
   protected createVertex(i) {
     const TAU = Math.PI * 2;
     const angle = (TAU / 6) * i;
-    return new THREE.Vector3((this.cellSize * Math.cos(angle)), (this.cellSize * Math.sin(angle)), 0);
+    return [this.cellSize * Math.sin(angle), this.cellSize * Math.cos(angle), 0];
+  }
+
+  protected cellToPixel(cell: Hex): number[] {
+    const vert = [];
+
+    var x = this.cellSize * (Math.sqrt(3) * cell.q + Math.sqrt(3) / 2 * cell.r) * this.gap;
+    var y = this.cellSize * (3. / 2 * cell.r) * this.gap;
+    vert.push(x);
+    vert.push(y);
+    vert.push(0);
+
+    return vert;
   }
 
 

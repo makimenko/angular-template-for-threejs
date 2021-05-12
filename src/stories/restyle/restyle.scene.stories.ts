@@ -22,6 +22,7 @@ const modelPath = 'assets/model/Restyle';
 -->
 
 
+
      <atft-rounded-box-mesh materialColor="#000000" [width]="20" [height]="20" [depth]="10" translateZ="0" radius0="0.9"
      [roughness]="0.1" [metalness]="0.5"
      ></atft-rounded-box-mesh>
