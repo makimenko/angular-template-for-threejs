@@ -84,6 +84,14 @@ class StorybookPlaneMeshComponent {
 
 }
 
+@Component({
+  template: axesSceneWrapper(`
+  <atft-hexagon-mesh [translateX]="translateX" [materialColor]="materialColor"></atft-hexagon-mesh>
+  `)
+})
+class StorybookHexagonMeshComponent {
+
+}
 
 export default {
   title: 'Other/Mesh',
@@ -132,6 +140,11 @@ export const Frame = (args) => ({
 
 export const Text = (args) => ({
   component: StorybookTextMeshComponent,
+  props: args
+});
+
+export const Hexagon = (args) => ({
+  component: StorybookHexagonMeshComponent,
   props: args
 });
 

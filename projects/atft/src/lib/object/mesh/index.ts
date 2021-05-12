@@ -8,3 +8,5 @@ export * from './plane-mesh.component';
 export * from './frame-mesh.component';
 export * from './grid-mesh.component';
 export * from './video-mesh.component';
+export * from './rounded-box-mesh.component';
+export * from './hexagon-mesh.component';
