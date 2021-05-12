@@ -5,7 +5,6 @@ import * as THREE from 'three';
 import {StatsService} from '../stats/stats.service';
 import {EffectComposerComponent} from '../effect';
 
-
 @Injectable()
 export class RendererService {
 
@@ -18,8 +17,7 @@ export class RendererService {
   private composer: EffectComposerComponent;
 
   constructor(
-    private statsService: StatsService,
-    // TODO: private bloom: BloomService
+    private statsService: StatsService
   ) {
 
   }
@@ -34,10 +32,17 @@ export class RendererService {
   }
 
   public render() {
-    // TODO: this.bloomInit();
     if (this.init && this.scene && this.scene.getObject() && this.camera && this.camera.camera) {
-      // TODO: this.bloom.render();
-      // console.log('render');
+      // this.bloomInit();
+
+      // Env Map:
+      // let background = this.scene.background;
+
+
+      // Bloom:
+      // this.bloom.render();
+
+      // console.log('RendererService.render', this.composer);
       if (this.composer) {
         this.composer.render();
         if (!this.composer.renderToScreen) {
@@ -46,6 +51,7 @@ export class RendererService {
       } else {
         this.webGlRenderer.render(this.scene.getObject(), this.camera.camera);
       }
+
       this.statsService.update();
     }
   }
@@ -74,17 +80,11 @@ export class RendererService {
     // ------------------------------ END
 
     this.updateChildCamerasAspectRatio(canvas);
+
     this.init = true;
     this.render();
   }
 
-  /*
-  protected bloomInit() {
-    if (!this.bloom.initialized && this.scene && this.scene.getObject() && this.camera && this.camera.camera) {
-      this.bloom.init(this.webGlRenderer, this.scene.getObject(), this.camera.camera);
-    }
-  }
-  */
 
   public resize(canvas: HTMLCanvasElement, size: string) {
     canvas.style.width = size;

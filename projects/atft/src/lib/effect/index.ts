@@ -5,3 +5,4 @@ export * from './compose/dof.component';
 export * from './compose/dot-screen.component';
 export * from './compose/effect-composer.component';
 export * from './compose/blur.component';
+export * from './compose/bloom-effect.component';

@@ -6,6 +6,7 @@ import {DofComponent} from './compose/dof.component';
 import {DotScreenComponent} from './compose/dot-screen.component';
 import {EffectComposerComponent} from './compose/effect-composer.component';
 import {BlurComponent} from './compose/blur.component';
+import {BloomEffectComponent} from './compose/bloom-effect.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {BlurComponent} from './compose/blur.component';
     DofComponent,
     DotScreenComponent,
     EffectComposerComponent,
-    BlurComponent
+    BlurComponent,
+    BloomEffectComponent
   ],
   exports: [
     DashedDrawDirective,
@@ -26,7 +28,8 @@ import {BlurComponent} from './compose/blur.component';
     DofComponent,
     DotScreenComponent,
     EffectComposerComponent,
-    BlurComponent
+    BlurComponent,
+    BloomEffectComponent
   ]
 })
 export class AtftEffectModule {
