@@ -40,7 +40,7 @@ export class SceneComponent extends AbstractObject3D<THREE.Scene> implements OnC
     } else {
       scene.background = new THREE.Color(this.background);
     }
-    console.log('scene.background', scene.background);
+    // console.log('scene.background', scene.background);
     return scene;
   }
 

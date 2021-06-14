@@ -19,8 +19,7 @@ export class EnvMapService {
   }
 
   public load(envMapPath: string) {
-    console.log('EnvMapService.load');
-
+    // console.log('EnvMapService.load');
     const pmremGenerator = new THREE.PMREMGenerator(this.rendererService.getWebGlRenderer());
     pmremGenerator.compileEquirectangularShader();
 

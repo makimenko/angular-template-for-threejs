@@ -1,5 +1,5 @@
-import {Directive, EventEmitter, Input, Output} from '@angular/core';
-import {AbstractEmptyDirective} from '../../../object';
+import {Directive, EventEmitter, Input, Optional, Output, SkipSelf} from '@angular/core';
+import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
 
 @Directive()
 export abstract class AbstractServerActor extends AbstractEmptyDirective {

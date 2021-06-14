@@ -57,7 +57,7 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy {
 
   public initComposer() {
     if (!this.composer && this.rendererService.getWebGlRenderer()) {
-      console.log('EffectComposerComponent.initComposer', (this.bloomComponent));
+      // console.log('EffectComposerComponent.initComposer', (this.bloomComponent));
       if (this.bloomComponent) {
         this.bloomComponent.init();
       } else {
@@ -114,7 +114,7 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy {
   }
 
   public registerBloomEffect(bloomComponent: BloomEffectComponent) {
-    console.log('BloomEffectComponent.constructor');
+    // console.log('BloomEffectComponent.registerBloomEffect');
     if (this.bloomComponent) {
       console.warn("Only one BloomEffectComponent is supported!");
     } else {

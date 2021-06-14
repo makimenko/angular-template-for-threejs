@@ -67,7 +67,7 @@ export class BloomEffectComponent {
       const scene = this.rendererService.getScene().getObject();
 
       if (renderer && scene && camera) {
-        console.log('BloomEffectComponent.init');
+        // console.log('BloomEffectComponent.init');
         this.scene = scene;
 
         this.bloomLayer.set(this.bloomLayerId);
@@ -89,8 +89,8 @@ export class BloomEffectComponent {
 
         this.fxaaPass = new ShaderPass(FXAAShader);
         this.onResize();
+        // this.fxaaPass.renderToScreen = true;
         this.bloomComposer.addPass(this.fxaaPass);
-
 
 
         const finalPass = new ShaderPass(
@@ -112,8 +112,8 @@ export class BloomEffectComponent {
         this.finalComposer.addPass(renderScene);
         this.finalComposer.addPass(finalPass);
         this.finalComposer.addPass(this.fxaaPass);
-        const smaaPass = new SMAAPass(window.innerWidth, window.innerHeight);
-        this.finalComposer.addPass(smaaPass);
+        //const smaaPass = new SMAAPass(window.innerWidth, window.innerHeight);
+        //this.finalComposer.addPass(smaaPass);
 
         this.initialized = true;
 
@@ -127,9 +127,9 @@ export class BloomEffectComponent {
   @HostListener('window:resize', ['$event'])
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public onResize(event?: Event) {
-    // console.log('BloomEffectComponent.updateResolution');
+    console.log('BloomEffectComponent.updateResolution');
     if (this.fxaaPass) {
-      const pixelRatio = this.rendererService.getWebGlRenderer().getPixelRatio();
+      const pixelRatio = window.devicePixelRatio; //this.rendererService.getWebGlRenderer().getPixelRatio();
       this.fxaaPass.material.uniforms['resolution'].value.x = 1 / (window.innerWidth * pixelRatio);
       this.fxaaPass.material.uniforms['resolution'].value.y = 1 / (window.innerHeight * pixelRatio);
     }
@@ -137,7 +137,7 @@ export class BloomEffectComponent {
 
   public render() {
     if (this.initialized) {
-      console.log('BloomEffectComponent.render');
+      // console.log('BloomEffectComponent.render');
       this.scene.traverse(i => {
         this.darkenNonBloomed(i);
       });

@@ -9,7 +9,7 @@ import {Subscription} from 'rxjs';
 @Component({
   selector: 'atft-dagre-node',
   providers: [provideParent(DagreNodeComponent)],
-  template: '<template #container></template><ng-content></ng-content>'
+  template: '<template #container><ng-content></ng-content></template>'
 })
 export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit, OnDestroy {
 

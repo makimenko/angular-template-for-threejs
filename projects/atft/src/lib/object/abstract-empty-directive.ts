@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import {Directive, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
 import { AbstractObject3D } from './abstract-object-3d';
 
