@@ -6,6 +6,7 @@ import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractMesh} from './abstract-mesh-3d';
 import {AnimationService} from '../../animation';
 import {Subscription} from 'rxjs';
+import {EnvMapService} from '../../renderer';
 
 @Component({
   selector: 'atft-video-mesh',
@@ -51,9 +52,10 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
   constructor(
     protected rendererService: RendererService,
     @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected envMap: EnvMapService,
     protected animationService: AnimationService
   ) {
-    super(rendererService, parent);
+    super(rendererService, parent, envMap);
   }
 
   protected newObject3DInstance(): THREE.Mesh {

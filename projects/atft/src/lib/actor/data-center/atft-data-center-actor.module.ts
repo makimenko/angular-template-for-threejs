@@ -11,6 +11,7 @@ import {GridActorComponent} from './layer/grid-actor.component';
 import {DagreCompositionComponent, DagreEdgeComponent, DagreLayoutComponent, DagreNodeComponent, DagreYamlParserComponent} from './layout';
 import {ActorRepositoryService} from './service';
 import {ModelActorComponent} from './server';
+import {ThemeComponent} from './theme';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import {ModelActorComponent} from './server';
     DagreCompositionComponent,
     DagreNodeComponent,
     DagreYamlParserComponent,
-    ModelActorComponent
+    ModelActorComponent,
+    ThemeComponent
   ],
   exports: [
     LayerActorComponent,
@@ -45,7 +47,8 @@ import {ModelActorComponent} from './server';
     DagreCompositionComponent,
     DagreNodeComponent,
     DagreYamlParserComponent,
-    ModelActorComponent
+    ModelActorComponent,
+    ThemeComponent
   ],
   entryComponents: [
     ServerStandActorComponent,

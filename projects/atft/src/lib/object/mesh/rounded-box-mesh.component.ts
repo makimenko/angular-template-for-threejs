@@ -4,10 +4,7 @@ import {RendererService} from '../../renderer/renderer.service';
 import {provideParent} from '../../util';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractMesh} from './abstract-mesh-3d';
-import {BoxMeshComponent} from './box-mesh.component';
 import {EnvMapService} from '../../renderer';
-import {Subscription} from 'rxjs';
-import {Texture} from 'three/src/textures/Texture';
 
 @Component({
   selector: 'atft-rounded-box-mesh',
@@ -40,42 +37,10 @@ export class RoundedBoxMeshComponent extends AbstractMesh {
   @Input()
   smoothness = 16;
 
-  @Input()
-  roughness = 0.05;
-
-  @Input()
-  metalness = 0.9;
-
-  @Input()
-  envMapIntensity = 1;
-
-
-  protected envMapLoaded: Subscription;
-
-  constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
-    protected envMap: EnvMapService
-  ) {
-    super(rendererService, parent);
-
-    this.updateEnvMap = this.updateEnvMap.bind(this);
-    this.envMapLoaded = envMap.envMapLoaded.subscribe((envMap) => this.updateEnvMap(envMap));
-
-  }
-
   protected newObject3DInstance() {
     // console.log('BoxMeshComponent.newObject3DInstance');
     const geometry = this.createBoxWithRoundedEdges(this.width, this.height, this.depth, this.radius0, this.smoothness);
-    // const material = this.getMaterial();
-
-    const material = new THREE.MeshStandardMaterial({
-      color: this.materialColor,
-      roughness: this.roughness,
-      metalness: this.metalness,
-      envMapIntensity: this.envMapIntensity
-    });
-
+    const material = this.getMaterial();
     const mesh = new THREE.Mesh(geometry, material);
     this.applyShadowProps(mesh);
     return mesh;
@@ -104,14 +69,5 @@ export class RoundedBoxMeshComponent extends AbstractMesh {
     return geometry;
   }
 
-
-  protected updateEnvMap(envMap: Texture) {
-    const mat = this.getObject().material;
-    if (mat instanceof THREE.MeshStandardMaterial) {
-      mat.envMap = envMap;
-      mat.needsUpdate = true;
-      this.rendererService.render();
-    }
-  }
 
 }

@@ -16,13 +16,6 @@ export class SphereMeshComponent extends AbstractMesh {
   @Input() widthSegments: number;
   @Input() hightSegments: number;
 
-  constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
-  ) {
-    super(rendererService, parent);
-  }
-
   protected newObject3DInstance(): THREE.Mesh {
     // console.log('SphereMeshComponent.newObject3DInstance');
     const geometry = new THREE.SphereGeometry(this.radius, this.widthSegments, this.hightSegments);

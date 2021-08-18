@@ -1,8 +1,6 @@
 import {Component, Input, OnChanges, Optional, SimpleChanges, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
-import {RendererService} from '../../renderer/renderer.service';
 import {provideParent} from '../../util';
-import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractMesh} from './abstract-mesh-3d';
 
 @Component({
@@ -36,12 +34,6 @@ export class PlaneMeshComponent extends AbstractMesh implements OnChanges {
   @Input()
   heightSegments = 1;
 
-  constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
-  ) {
-    super(rendererService, parent);
-  }
 
   protected newObject3DInstance(): THREE.Mesh {
     const geometry = new THREE.PlaneBufferGeometry(this.width, this.height, this.widthSegments, this.heightSegments);

@@ -32,12 +32,6 @@ export class TorusMeshComponent extends AbstractMesh {
   @Input()
   arc: number = Math.PI * 2;
 
-  constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
-  ) {
-    super(rendererService, parent);
-  }
 
   protected newObject3DInstance(): THREE.Mesh {
     this.radius *= 1;

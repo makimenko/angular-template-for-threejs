@@ -85,6 +85,15 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   @Input()
   centered = true;
 
+  @Input()
+  roughness = 0.05;
+
+  @Input()
+  metalness = 0.9;
+
+  @Input()
+  envMapIntensity = 1;
+
   protected fontCache: THREE.Font;
 
   constructor(
@@ -96,7 +105,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   }
 
   public getMaterial(): THREE.Material {
-    return appliedMaterial(this.materialColor, this.material, this.depthWrite);
+    return appliedMaterial(this.materialColor, this.material, this.depthWrite, this.roughness, this.envMapIntensity);
   }
 
   protected async loadLazyObject(): Promise<THREE.Object3D> {

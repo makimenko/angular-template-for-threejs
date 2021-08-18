@@ -127,7 +127,7 @@ export class BloomEffectComponent {
   @HostListener('window:resize', ['$event'])
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public onResize(event?: Event) {
-    console.log('BloomEffectComponent.updateResolution');
+    // console.log('BloomEffectComponent.updateResolution');
     if (this.fxaaPass) {
       const pixelRatio = window.devicePixelRatio; //this.rendererService.getWebGlRenderer().getPixelRatio();
       this.fxaaPass.material.uniforms['resolution'].value.x = 1 / (window.innerWidth * pixelRatio);

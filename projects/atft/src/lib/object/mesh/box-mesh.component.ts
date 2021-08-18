@@ -48,13 +48,6 @@ export class BoxMeshComponent extends AbstractMesh {
   @Input()
   depthSegments = 1;
 
-  constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
-  ) {
-    super(rendererService, parent);
-  }
-
   protected newObject3DInstance() {
     // console.log('BoxMeshComponent.newObject3DInstance');
     const geometry = new THREE.BoxBufferGeometry(this.width, this.height, this.depth,

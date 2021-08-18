@@ -1,8 +1,6 @@
 import {Component, Input, OnChanges, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
-import {RendererService} from '../../renderer/renderer.service';
 import {fixCenter, provideParent} from '../../util';
-import {AbstractObject3D} from '../abstract-object-3d';
 import {AbstractMesh} from './abstract-mesh-3d';
 
 function offset(arr: number[], x: number, y: number): number[] {
@@ -38,12 +36,6 @@ export class HaxagonMeshComponent extends AbstractMesh implements OnChanges {
   protected cellWidth = this.cellSize * 2 + 5;
   protected cellLength = (Math.sqrt(3) * 0.5) * this.cellWidth + 5;
 
-  constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
-  ) {
-    super(rendererService, parent);
-  }
 
   protected newObject3DInstance(): THREE.Mesh {
     const parent = new THREE.Mesh();

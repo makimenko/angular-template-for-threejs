@@ -21,13 +21,6 @@ export class FrameMeshComponent extends AbstractMesh implements OnChanges {
   @Input()
   sizeY = 20;
 
-  constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
-  ) {
-    super(rendererService, parent);
-  }
-
   protected getGeometry(): THREE.ShapeBufferGeometry {
     const halfX = this.sizeX / 2.0;
     const halfY = this.sizeY / 2.0;

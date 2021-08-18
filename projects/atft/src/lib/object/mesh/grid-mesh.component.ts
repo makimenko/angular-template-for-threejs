@@ -26,12 +26,6 @@ export class GridMeshComponent extends AbstractMesh {
 
   // private translate = (this.iterations * this.offset) / 2;
 
-  constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
-  ) {
-    super(rendererService, parent);
-  }
 
   protected newObject3DInstance(): THREE.Mesh {
     const geometry = new THREE.BufferGeometry();

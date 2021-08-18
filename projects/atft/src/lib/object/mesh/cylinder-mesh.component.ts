@@ -29,14 +29,6 @@ export class CylinderMeshComponent extends AbstractMesh {
   @Input()
   thetaLength = 2 * Math.PI;
 
-  constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
-  ) {
-    super(rendererService, parent);
-    // console.log('CylinderMeshComponent.constructor', parentScene);
-  }
-
   protected newObject3DInstance(): THREE.Mesh {
     // console.log('CylinderMeshComponent.newObject3DInstance');
     const geometry = new THREE.CylinderGeometry(this.radiusTop, this.radiusBottom, this.height, this.radialSegments, this.heightSegments,
