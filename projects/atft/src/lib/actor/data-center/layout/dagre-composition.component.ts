@@ -10,7 +10,7 @@ import {Subscription} from 'rxjs';
   selector: 'atft-dagre-composition',
   providers: [provideParent(DagreCompositionComponent)],
   template: `
-    <atft-plane-mesh *ngIf="border!='frame'" atft-raycaster-group [width]="width" [height]="height" [materialColor]="color"
+    <atft-plane-mesh *ngIf="border!=='frame'" atft-raycaster-group [width]="width" [height]="height" [materialColor]="color"
                      [depthWrite]="true"
                      (mouseEnter)="onSelected()"
                      (mouseExit)="onDeselected()">
@@ -19,7 +19,7 @@ import {Subscription} from 'rxjs';
       </atft-text-mesh>
     </atft-plane-mesh>
 
-    <atft-frame-mesh *ngIf="border=='frame'" [sizeX]="width" [sizeY]="height" [thickness]="2" [materialColor]="color"
+    <atft-frame-mesh *ngIf="border==='frame'" [sizeX]="width" [sizeY]="height" [thickness]="2" [materialColor]="color"
                      [depthWrite]="true"
                      atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()">
       <atft-text-mesh [centered]="true" [text]="label" [size]="3" [translateY]="translateLabelY"
