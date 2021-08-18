@@ -28,7 +28,7 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
    * Abstract method for lazy loading
    *
    */
-  protected abstract async loadLazyObject(): Promise<THREE.Object3D>;
+  protected abstract loadLazyObject(): Promise<THREE.Object3D>;
 
   protected afterInit() {
     super.afterInit();
