@@ -6,6 +6,7 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
 
 
 @Component({
+  selector: 'app-storybook',
   template: effectsSceneWrapper(`
     <atft-effect-composer *ngIf="enable">
     <atft-dot-screen *ngIf="enable" ></atft-dot-screen>

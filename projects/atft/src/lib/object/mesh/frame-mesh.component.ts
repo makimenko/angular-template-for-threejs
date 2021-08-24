@@ -29,27 +29,36 @@ export class FrameMeshComponent extends AbstractMesh implements OnChanges {
   }
 
   protected getGeometry(): THREE.ShapeBufferGeometry {
-    const halfX = this.sizeX / 2.0;
-    const halfY = this.sizeY / 2.0;
-    const t = this.thickness;
+    console.log('FrameMeshComponent.getGeometry', this.sizeX, this.sizeY, this.thickness);
 
-    const shape = new THREE.Shape();
+    // TODO: How to handle empty props?
+    if (this.sizeX && this.sizeY && this.thickness) {
+      console.log('FrameMeshComponent.getGeometry: do');
+      const halfX = this.sizeX / 2.0;
+      const halfY = this.sizeY / 2.0;
+      const t = this.thickness;
 
-    shape.moveTo(-halfX, halfY);
-    shape.lineTo(-halfX - t, halfY + t);
-    shape.lineTo(halfX + t, halfY + t);
-    shape.lineTo(halfX + t, -halfY - t);
-    shape.lineTo(-halfX - t, -halfY - t);
-    shape.lineTo(-halfX - t, halfY + t);
+      const shape = new THREE.Shape();
 
-    shape.lineTo(-halfX, halfY);
-    shape.lineTo(-halfX, -halfY);
-    shape.lineTo(halfX, -halfY);
-    shape.lineTo(halfX, halfY);
-    shape.lineTo(-halfX, halfY);
+      shape.moveTo(-halfX, halfY);
+      shape.lineTo(-halfX - t, halfY + t);
+      shape.lineTo(halfX + t, halfY + t);
 
-    const geometry = new THREE.ShapeBufferGeometry(shape);
-    return geometry;
+      shape.lineTo(halfX + t, -halfY - t);
+      shape.lineTo(-halfX - t, -halfY - t);
+      shape.lineTo(-halfX - t, halfY + t);
+
+      shape.lineTo(-halfX, halfY);
+      shape.lineTo(-halfX, -halfY);
+      shape.lineTo(halfX, -halfY);
+      shape.lineTo(halfX, halfY);
+      shape.lineTo(-halfX, halfY);
+
+      const geometry = new THREE.ShapeBufferGeometry(shape);
+      return geometry;
+    } else {
+      return new THREE.ShapeBufferGeometry(new THREE.Shape());
+    }
   }
 
   protected newObject3DInstance(): THREE.Mesh {

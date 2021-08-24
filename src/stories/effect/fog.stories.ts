@@ -6,6 +6,7 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
 
 
 @Component({
+  selector: 'app-storybook',
   template: effectsSceneWrapper(`
     <atft-effect-composer *ngIf="enable">
         <atft-fog [near]="near" [far]="far" color="color"></atft-fog>

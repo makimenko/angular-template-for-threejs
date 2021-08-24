@@ -5,6 +5,7 @@ import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
   <atft-plane-mesh *ngFor="let item of [].constructor(10); let i = index"
     [height]="24.5" [width]="42" materialColor="#ffffff" material="phong"

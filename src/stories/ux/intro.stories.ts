@@ -9,6 +9,7 @@ import {Subscription} from 'rxjs';
 
 
 @Component({
+  selector: 'app-storybook',
   template: `
     <atft-renderer-canvas>
       <atft-orthographic-camera [positionX]=0 [positionY]=0 [positionZ]="100" [zoom]="4">

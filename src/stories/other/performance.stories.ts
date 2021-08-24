@@ -41,6 +41,7 @@ abstract class AbstractCameraRotation implements OnDestroy {
 
 
 @Component({
+  selector: 'app-storybook',
   template: performanceSceneWrapper(`
 <div *ngFor="let item of [].constructor(200); let i = index">
   <atft-empty #a [translateY]="50" [translateX]="(-i*2)+50" [translateZ]="5+i">
@@ -62,6 +63,7 @@ class StorybookConnectorPerformanceComponent extends AbstractCameraRotation {
 
 
 @Component({
+  selector: 'app-storybook',
   template: performanceSceneWrapper(`
   <atft-grid-mesh [size]="5" [iterationsX]="50" [iterationsY]="50" [offset]="1.05"></atft-grid-mesh>
   `)
@@ -76,6 +78,7 @@ class StorybookGridPerformanceComponent extends AbstractCameraRotation {
 
 
 @Component({
+  selector: 'app-storybook',
   template: performanceSceneWrapper(`
   <div *ngFor="let item of [].constructor(iterations); let x = index">
     <div *ngFor="let item of [].constructor(iterations); let y = index">
@@ -103,6 +106,7 @@ class StorybookMeshPerformanceComponent extends AbstractCameraRotation {
 
 
 @Component({
+  selector: 'app-storybook',
   template: performanceSceneWrapper(`
   <div *ngFor="let item of [].constructor(iterations); let x = index">
     <div *ngFor="let item of [].constructor(iterations); let y = index">

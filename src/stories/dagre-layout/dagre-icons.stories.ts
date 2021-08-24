@@ -8,6 +8,7 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
     <atft-dagre-layout>
 
@@ -86,6 +87,7 @@ class StorybookIconsComponent {
 
 export default {
   title: 'Dagre Layout/Icons',
+  component: StorybookIconsComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -98,7 +100,6 @@ export default {
 
 
 export const Icons = (args) => ({
-  component: StorybookIconsComponent,
   props: args
 });
 

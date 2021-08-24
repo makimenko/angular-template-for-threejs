@@ -8,6 +8,7 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
 <atft-empty [translateZ]="0.5" [translateY]="-40">
 

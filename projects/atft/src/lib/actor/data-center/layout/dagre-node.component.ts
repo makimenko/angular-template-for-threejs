@@ -28,6 +28,7 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
     protected injector: Injector
   ) {
     super(rendererService, parent);
+    // console.log('DagreNodeComponent.constructor');
 
     this.dagreLayout = this.injector.get<DagreLayoutComponent>(DagreLayoutComponent);
     if (!this.dagreLayout) {
@@ -44,8 +45,8 @@ export class DagreNodeComponent extends AbstractEmptyDirective implements OnInit
   }
 
   protected addNode() {
+    // console.log('DagreNodeComponent.addNode', this.name);
     if (this.dagreLayout && this.dagreLayout.getGraphModel()) {
-      // console.log('DagreNodeComponent.addNode', this.name);
 
       // Register as layout children
       this.dagreLayout.getChildren().push(this);

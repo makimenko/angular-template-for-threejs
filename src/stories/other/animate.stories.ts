@@ -12,6 +12,7 @@ import {Subscription} from 'rxjs';
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
   <atft-box-mesh [height]="10" [width]="10" [depth]="10" material="phong" materialColor="#ffffff">
   </atft-box-mesh>
@@ -50,6 +51,7 @@ class StorybookLoopComponent implements AfterViewInit, OnDestroy {
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
   <atft-box-mesh [height]="10" [width]="10" [depth]="10" material="phong" materialColor="#ffffff">
   </atft-box-mesh>
@@ -96,6 +98,7 @@ class StorybookMixerComponent implements AfterViewInit, OnDestroy {
 
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
   <div *ngFor="let item of [].constructor(10); let x = index">
     <div *ngFor="let item of [].constructor(10); let y = index">

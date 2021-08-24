@@ -8,6 +8,7 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
     <atft-dagre-layout [align]="align" [rankdir]="rankdir" [ranker]="ranker"
       [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
@@ -46,6 +47,7 @@ class StorybookDagreComponent {
 }
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
     <atft-dagre-layout [align]="align" [rankdir]="rankdir" [ranker]="ranker"
       [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"

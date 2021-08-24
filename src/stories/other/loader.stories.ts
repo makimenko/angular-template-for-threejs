@@ -9,6 +9,7 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/SampleArchitecture';
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
       <atft-obj-loader
               model="${modelPath}/SampleArchitecture.obj"
@@ -24,6 +25,7 @@ class StorybookObjLoaderComponent {
 }
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
       <atft-object-loader  model="assets/model/Server.json">
       </atft-object-loader>
@@ -35,6 +37,7 @@ class StorybookObjectLoaderComponent {
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
       <atft-svg-loader model="./assets/svg/worldwide.svg" [maxX]="15" [maxY]="15">
       </atft-svg-loader>
@@ -48,6 +51,7 @@ class StorybookSVGLoaderComponent {
 }
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
     <atft-svg-loader model="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/web_asset/outline.svg"
     overrideMaterialColor="#ff0000">
@@ -59,6 +63,7 @@ class StorybookExternalSVGLoaderComponent {
 }
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
 <atft-empty>
     <atft-svg-loader model="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/web_asset/outline.svg">
@@ -88,6 +93,7 @@ class StorybookDifferentSVGLoaderComponent {
 }
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
     <atft-stl-loader
         model="https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/Stl/Menger_sponge_sample.stl"

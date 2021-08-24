@@ -6,6 +6,7 @@ import { worldSceneWrapper } from '../scene-wrapper/world-scene-wrapper';
 
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
     <atft-empty atft-raycaster-group name="root-empty" (mouseEnter)="mouseEnter()" (mouseExit)="mouseExit()" (click)="click()">
       <atft-box-mesh name="parent-box" [height]="10" [width]="10" [depth]="10" [materialColor]="color" [translateZ]="10">

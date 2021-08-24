@@ -68,7 +68,7 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
 
 
   public layout() {
-    // console.log('DagreLayoutComponent.layout');
+    console.log('DagreLayoutComponent.layout');
     this.graphModel.layout = {
       align: this.align,
       rankdir: this.rankdir,
@@ -86,9 +86,8 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
     this.rendererService.render();
   }
 
-
   protected syncGraphContainer(g: dagre.graphlib.Graph) {
-    // console.log('DagreLayoutComponent.syncGraphContainer');
+    console.log('DagreLayoutComponent.syncGraphContainer');
     if (this.object && this.centered) {
       this.translateX = -(g.graph().width / 2);
       this.translateY = -(g.graph().height / 2);
@@ -99,7 +98,7 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
 
   public ngOnChanges(changes: SimpleChanges) {
     super.ngOnChanges(changes);
-    // console.log('DagreLayoutComponent.ngOnChanges', this.name);
+    console.log('DagreLayoutComponent.ngOnChanges', this.name);
     if (!this.object) {
       return;
     }
