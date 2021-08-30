@@ -1,6 +1,6 @@
 {
   "name": "atft",
-  "version": "1.4.23",
+  "version": "1.5.0",
   "description": "Ready-to-use Angular components for Three.js, see https://makimenko.github.io/angular-template-for-threejs/.",
   "keywords": [
     "threejs",
@@ -45,16 +45,46 @@
       "changelog": true
     },
     "types": [
-      {"type": "feat", "section": "Features"},
-      {"type": "fix", "section":  "Bug Fixes"},
-      {"type": "chore", "hidden": true},
-      {"type": "docs", "hidden": true},
-      {"type": "style", "hidden": true},
-      {"type": "minor", "hidden": true},
-      {"type": "refactor", "section": "Refactoring"},
-      {"type": "perf", "section": "Perforamnce Improvements"},
-      {"type": "test", "section": "Build & CI"},
-      {"type": "build", "section": "Build & CI"}
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "hidden": true
+      },
+      {
+        "type": "docs",
+        "hidden": true
+      },
+      {
+        "type": "style",
+        "hidden": true
+      },
+      {
+        "type": "minor",
+        "hidden": true
+      },
+      {
+        "type": "refactor",
+        "section": "Refactoring"
+      },
+      {
+        "type": "perf",
+        "section": "Perforamnce Improvements"
+      },
+      {
+        "type": "test",
+        "section": "Build & CI"
+      },
+      {
+        "type": "build",
+        "section": "Build & CI"
+      }
     ]
   }
 }

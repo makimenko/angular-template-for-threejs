@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/makimenko/angular-template-for-threejs/compare/v1.4.23...v1.5.0) (2021-08-30)
+
+
+### Features
+
+* Upgrade three:0.131.3, angular:12.2.2, sb:6.4 ([#400](https://github.com/makimenko/angular-template-for-threejs/issues/400)) ([b5e07ad](https://github.com/makimenko/angular-template-for-threejs/commit/b5e07ad1f24b492ad448b859d5557155d1f312d2))
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([#397](https://github.com/makimenko/angular-template-for-threejs/issues/397)) ([d6f2e59](https://github.com/makimenko/angular-template-for-threejs/commit/d6f2e59f38a0d93f47503f9d1a3d80b1b9a291fb))
+* upgrade tslib from 2.2.0 to 2.3.0 ([#395](https://github.com/makimenko/angular-template-for-threejs/issues/395)) ([2abf694](https://github.com/makimenko/angular-template-for-threejs/commit/2abf694907e2f86b1bd55c774849d6eb763ecd1e))
+
+
+### Build & CI
+
+* resolve issue with conflicting namespaces ([8e57378](https://github.com/makimenko/angular-template-for-threejs/commit/8e57378fa7b76c7db4449f5ab2d3020db943d949))
+* switch from TSLint to ESLint ([#369](https://github.com/makimenko/angular-template-for-threejs/issues/369)) and fix new findings. ([7b95561](https://github.com/makimenko/angular-template-for-threejs/commit/7b95561093a8079bb7b0b2451448e6d9d89a4a24))
 
 ### [1.4.23](https://github.com/makimenko/angular-template-for-threejs/compare/1.4.22...v1.4.23) (2021-05-05)
 
