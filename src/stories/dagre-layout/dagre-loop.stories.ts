@@ -8,6 +8,7 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
     <atft-dagre-layout>
       <atft-dagre-node *ngFor="let x of fakeArray(numDatabases)" composition="data">
@@ -37,6 +38,7 @@ class StorybookLoopComponent {
 // ======================================================================
 export default {
   title: 'Dagre Layout/Loop',
+  component: StorybookLoopComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -53,7 +55,6 @@ export default {
 
 
 export const Loop = (args) => ({
-  component: StorybookLoopComponent,
   props: args
 });
 

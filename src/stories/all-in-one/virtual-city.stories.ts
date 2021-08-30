@@ -18,6 +18,7 @@ and an utterly unique medium for experiencing cities both imagined
 and real in truly immersive ways.`;
 
 @Component({
+  selector: 'app-storybook',
   template: `
     <atft-renderer-canvas>
       <atft-perspective-camera #cam [zAxisUp]="true" positionX=0 [positionY]=50 [positionZ]=z>
@@ -122,6 +123,7 @@ class StorybookFlyComponent implements AfterViewInit, OnDestroy {
 
 export default {
   title: 'All-in-One/Virtual City',
+  component: StorybookFlyComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -135,6 +137,5 @@ export default {
 };
 
 export const VirtualCity = (args) => ({
-  component: StorybookFlyComponent,
   props: args
 });

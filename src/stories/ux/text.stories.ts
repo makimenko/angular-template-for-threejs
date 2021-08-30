@@ -7,6 +7,7 @@ import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
 
 
 @Component({
+  selector: 'app-storybook',
   template: uxSceneWrapper(`
     <atft-text-actor [text]="label" [animate]="animate" [minDelay]="minDelay" [maxDelay]="maxDelay">
     </atft-text-actor>

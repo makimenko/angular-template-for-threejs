@@ -7,6 +7,7 @@ import {uxSceneWrapper} from '../scene-wrapper/ux-scene-wrapper';
 
 
 @Component({
+  selector: 'app-storybook',
   template: uxSceneWrapper(`
     <atft-loader-actor></atft-loader-actor>
   `)

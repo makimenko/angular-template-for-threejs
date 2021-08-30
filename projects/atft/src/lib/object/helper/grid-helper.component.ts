@@ -9,7 +9,7 @@ import { AbstractObject3D } from '../abstract-object-3d';
   providers: [provideParent(GridHelperComponent)],
   template: '<ng-content></ng-content>'
 })
-export class GridHelperComponent extends AbstractObject3D<THREE.AxesHelper> {
+export class GridHelperComponent extends AbstractObject3D<THREE.GridHelper> {
 
   @Input() size: number;
   @Input() divisions: number;
@@ -21,7 +21,7 @@ export class GridHelperComponent extends AbstractObject3D<THREE.AxesHelper> {
     super(rendererService, parent);
   }
 
-  protected newObject3DInstance(): THREE.AxesHelper {
+  protected newObject3DInstance(): THREE.GridHelper {
     // console.log('GridHelperComponent.newObject3DInstance');
     return new THREE.GridHelper(this.size, this.divisions);
   }

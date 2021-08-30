@@ -15,6 +15,7 @@ import {APP_BASE_HREF} from '@angular/common';
 
 // ======================================================================
 @Component({
+  // selector: 'app-storybook',
   template: worldSceneWrapper(`
     <atft-dagre-layout>
         <atft-dagre-node name="spa">
@@ -161,6 +162,7 @@ class StoryModule {
 // ======================================================================
 export default {
   title: 'Dagre Layout/Router Sample',
+  component: StorybookRouterMainComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -173,7 +175,6 @@ export default {
 };
 
 export const RouterSample = (args) => ({
-  component: StorybookRouterMainComponent,
   props: args
 });
 

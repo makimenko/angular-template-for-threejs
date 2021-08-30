@@ -8,6 +8,7 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
 <atft-empty [translateZ]="0.5" [translateY]="-40">
 
@@ -106,6 +107,7 @@ class StorybookInfrastructureComponent {
 
 export default {
   title: 'All-in-One/Infrastructure',
+  component: StorybookInfrastructureComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -121,14 +123,15 @@ export default {
   argTypes: {
     icon: {
       description: 'Please choose SVG file from assets',
+      options: [
+        'a:idea',
+        'a:upload',
+        'a:grid-world',
+        'md:alarm_on',
+        'alarm_off'
+      ],
       control: {
-        type: 'select', options: [
-          'a:idea',
-          'a:upload',
-          'a:grid-world',
-          'md:alarm_on',
-          'alarm_off'
-        ]
+        type: 'select'
       }
     },
     label: {
@@ -140,6 +143,5 @@ export default {
 
 
 export const Infrastructure = (args) => ({
-  component: StorybookInfrastructureComponent,
   props: args
 });

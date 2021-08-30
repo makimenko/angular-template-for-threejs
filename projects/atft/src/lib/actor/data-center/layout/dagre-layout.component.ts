@@ -18,6 +18,14 @@ import {provideParent} from '../../../util';
 import {DagreUtils} from './dagre-utils';
 import {GraphModel} from './dagre-model';
 
+const DEFAULT_ALIGN = 'DL';
+const DEFAULT_RANKDIR = 'BT';
+const DEFAULT_SEP = 15;
+const DEFAULT_EDGESEP = 1;
+const DEFAULT_NODESEP = 15;
+const DEFAULT_RANKSEP = 15;
+const DEFAULT_MARGIN = 0;
+const DEFAULT_RANKER = 'network-simplex';
 
 @Component({
   selector: 'atft-dagre-layout',
@@ -27,14 +35,14 @@ import {GraphModel} from './dagre-model';
 })
 export class DagreLayoutComponent extends AbstractEmptyDirective implements AfterViewInit, OnChanges, OnDestroy, AfterContentInit {
 
-  @Input() align = 'DL';
-  @Input() rankdir = 'BT';
-  @Input() nodesep = 15;
-  @Input() edgesep = 1;
-  @Input() ranksep = 15;
-  @Input() marginx = 0;
-  @Input() marginy = 0;
-  @Input() ranker = 'network-simplex';
+  @Input() align = DEFAULT_ALIGN;
+  @Input() rankdir = DEFAULT_RANKDIR;
+  @Input() nodesep = DEFAULT_SEP;
+  @Input() edgesep = DEFAULT_EDGESEP;
+  @Input() ranksep = DEFAULT_SEP;
+  @Input() marginx = DEFAULT_MARGIN;
+  @Input() marginy = DEFAULT_MARGIN;
+  @Input() ranker = DEFAULT_RANKER;
 
   @Input() centered = true;
 
@@ -70,14 +78,14 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
   public layout() {
     // console.log('DagreLayoutComponent.layout');
     this.graphModel.layout = {
-      align: this.align,
-      rankdir: this.rankdir,
-      nodesep: this.nodesep,
-      edgesep: this.edgesep,
-      ranksep: this.ranksep,
-      marginx: this.marginx,
-      marginy: this.marginy,
-      ranker: this.ranker
+      align: this.align ?? DEFAULT_ALIGN,
+      rankdir: this.rankdir ?? DEFAULT_RANKDIR,
+      nodesep: this.nodesep ?? DEFAULT_NODESEP,
+      edgesep: this.edgesep ?? DEFAULT_EDGESEP,
+      ranksep: this.ranksep ?? DEFAULT_RANKSEP,
+      marginx: this.marginx ?? DEFAULT_MARGIN,
+      marginy: this.marginy ?? DEFAULT_MARGIN,
+      ranker: this.ranker ?? DEFAULT_RANKER
     };
     this.graph = DagreUtils.modelToGraph(this.graphModel);
     // console.log('DagreLayoutComponent.layout: graph', this.graph);
@@ -85,7 +93,6 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
     this.updated.emit();
     this.rendererService.render();
   }
-
 
   protected syncGraphContainer(g: dagre.graphlib.Graph) {
     // console.log('DagreLayoutComponent.syncGraphContainer');

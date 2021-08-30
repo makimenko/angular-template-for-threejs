@@ -6,6 +6,7 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
 
 
 @Component({
+  selector: 'app-storybook',
   template: effectsSceneWrapper(`
     <atft-effect-composer *ngIf="enable">
     <atft-dot-screen *ngIf="enable" ></atft-dot-screen>
@@ -27,20 +28,20 @@ export default {
   ],
   args: {
     enable: true,
-    background: '0xFFFFFF'
+    background: '#FFFFFF'
   },
   argTypes: {
     enable: {control: {type: 'boolean'}},
     background: {
+      options: [
+        '#FFFFFF',
+        '#DDDDDD',
+        '#AA0000',
+        '#00AA00',
+        '#0000AA'
+      ],
       control: {
-        type: 'select',
-        options: [
-          '0xFFFFFF',
-          '0xDDDDDD',
-          '0xAA0000',
-          '0x00AA00',
-          '0x0000AA'
-        ]
+        type: 'color'
       }
     },
   }

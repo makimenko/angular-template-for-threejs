@@ -5,6 +5,7 @@ import {Component} from '@angular/core';
 import {performanceSceneWrapper} from '../scene-wrapper/performance-scene-wrapper';
 
 @Component({
+  selector: 'app-storybook',
   template: performanceSceneWrapper(`
     <atft-text-mesh
         atft-dashed-draw materialColor="#00EE00" dashColor="#00FF00"

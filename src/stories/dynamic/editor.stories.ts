@@ -7,6 +7,7 @@ import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 
 
 @Component({
+  selector: 'app-storybook',
   template: `
     <atft-renderer-canvas>
       <atft-orthographic-camera [zAxisUp]="true" [positionX]=50 [positionY]=-50 [positionZ]=50 [zoom]="8"
@@ -70,6 +71,7 @@ class StorybookEditorComponent {
 
 export default {
   title: 'Dynamic/Editor',
+  component: StorybookEditorComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -107,6 +109,5 @@ export default {
 
 
 export const Editor = (args) => ({
-  component: StorybookEditorComponent,
   props: args
 });

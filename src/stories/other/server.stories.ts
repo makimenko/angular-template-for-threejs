@@ -6,6 +6,7 @@ import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
 
     <atft-server-stand-actor atft-raycaster-group (mouseEnter)="mouseEnter()" label="AA"

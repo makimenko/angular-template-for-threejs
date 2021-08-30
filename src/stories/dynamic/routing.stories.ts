@@ -13,7 +13,7 @@ import {AbstractObject3D} from '../../../projects/atft/src/lib/object';
 
 
 @Component({
-  selector: 'app-main',
+  //selector: 'app-main',
   template: worldSceneWrapper(`
     <atft-empty name="main">
       <atft-empty name="selector">
@@ -119,6 +119,7 @@ class StoryModule {
 // ======================================================================
 export default {
   title: 'Dynamic/Routing',
+  component: MainComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -130,6 +131,5 @@ export default {
 };
 
 export const Routing = (args) => ({
-  component: MainComponent,
   props: args
 });

@@ -29,15 +29,18 @@ export class FrameMeshComponent extends AbstractMesh implements OnChanges {
   }
 
   protected getGeometry(): THREE.ShapeBufferGeometry {
-    const halfX = this.sizeX / 2.0;
-    const halfY = this.sizeY / 2.0;
-    const t = this.thickness;
+    // console.log('FrameMeshComponent.getGeometry', this.sizeX, this.sizeY, this.thickness);
+
+    const halfX = (this.sizeX ?? 1) / 2.0;
+    const halfY = (this.sizeY ?? 1) / 2.0;
+    const t = this.thickness ?? 1;
 
     const shape = new THREE.Shape();
 
     shape.moveTo(-halfX, halfY);
     shape.lineTo(-halfX - t, halfY + t);
     shape.lineTo(halfX + t, halfY + t);
+
     shape.lineTo(halfX + t, -halfY - t);
     shape.lineTo(-halfX - t, -halfY - t);
     shape.lineTo(-halfX - t, halfY + t);
@@ -53,7 +56,6 @@ export class FrameMeshComponent extends AbstractMesh implements OnChanges {
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-
     const material = this.getMaterial();
     const mesh = new THREE.Mesh(this.getGeometry(), material);
 

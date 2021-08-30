@@ -50,6 +50,7 @@ edges:
 `;
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
     <atft-dagre-layout>
       <atft-dagre-yaml-parser [yaml]="yaml" svgLocation="https://raw.githubusercontent.com/material-icons/material-icons/master/svg/">
@@ -69,6 +70,7 @@ class StorybookLoopComponent {
 // ======================================================================
 export default {
   title: 'Dagre Layout/Dynamic',
+  component: StorybookLoopComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -85,7 +87,6 @@ export default {
 
 
 export const Dynamic = (args) => ({
-  component: StorybookLoopComponent,
   props: args
 });
 

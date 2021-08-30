@@ -6,6 +6,7 @@ import {axesSceneWrapper} from '../scene-wrapper/axes-scene-wrapper';
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
   <atft-box-mesh [height]="10" [width]="10" [depth]="10" [translateX]="translateX" [materialColor]="materialColor"></atft-box-mesh>
   `)
@@ -16,7 +17,7 @@ class StorybookBoxMeshComponent {
 
 
 @Component({
-  selector: 'app-storybook-cylinder-mesh',
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
       <atft-cylinder-mesh [radiusTop]="2.0" [radiusBottom]="7.0" [height]="10" [radialSegments]="36" [heightSegments]="1"
                           [translateX]="translateX" [materialColor]="materialColor">
@@ -29,6 +30,7 @@ class StorybookCylinderMeshComponent {
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
       <atft-sphere-mesh [radius]="4" [widthSegments]="20" [hightSegments]="20" [translateX]="translateX" [materialColor]="materialColor">
       </atft-sphere-mesh>
@@ -41,6 +43,7 @@ class StorybookSphereMeshComponent {
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
   <atft-text-mesh [text]="text" [rotateZ]="(90 | deg2rad)" [translateX]="translateX" [materialColor]="materialColor"
       [bevelEnabled]="true" curveSegments="20" [centered]="true">
@@ -52,6 +55,7 @@ class StorybookTextMeshComponent {
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
   <atft-torus-mesh [radius]="5" [tube]="2" [radialSegments]="16" [tubularSegments]="100" [arc]="6.28" [translateX]="translateX"
         [materialColor]="materialColor">
@@ -64,9 +68,10 @@ class StorybookTorusMeshComponent {
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
-  <atft-frame-mesh [thickness]="2" [sizeX]="width" [sizeY]="width" [translateZ]="0.5" [translateX]="translateX"
-    [materialColor]="materialColor">
+  <atft-frame-mesh [thickness]="1" [sizeX]="15" [sizeY]="width" [translateZ]="0.5" [translateX]="translateX"
+    [materialColor]="materialColor" material="basic" [depthWrite]="true">
   </atft-frame-mesh>
   `)
 })
@@ -76,6 +81,7 @@ class StorybookFrameMeshComponent {
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
   <atft-plane-mesh [height]="10" [width]="width" [translateX]="translateX" [materialColor]="materialColor"></atft-plane-mesh>
   `)

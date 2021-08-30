@@ -5,6 +5,7 @@ import { AtftModule } from '../../../projects/atft/src/lib/atft.module';
 import { axesSceneWrapper } from '../scene-wrapper/axes-scene-wrapper';
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
       <atft-empty name="emptyObj">
         <div>

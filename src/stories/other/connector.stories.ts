@@ -8,6 +8,7 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
   <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="#00ff00"
     #a [translateY]="50" [translateX]="-10" [translateZ]="translateZ">
@@ -27,6 +28,7 @@ class StorybookLineComponent {
 
 
 @Component({
+  selector: 'app-storybook',
   template: axesSceneWrapper(`
   <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="#00ff00"
     #a [translateY]="50" [translateX]="-10" [translateZ]="translateZ">
@@ -48,6 +50,7 @@ class StorybookLineAnimationComponent {
 }
 
 @Component({
+  selector: 'app-storybook',
   template: worldSceneWrapper(`
   <atft-effect-composer>
   </atft-effect-composer>
