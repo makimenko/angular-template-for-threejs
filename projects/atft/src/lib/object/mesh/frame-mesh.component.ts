@@ -29,40 +29,33 @@ export class FrameMeshComponent extends AbstractMesh implements OnChanges {
   }
 
   protected getGeometry(): THREE.ShapeBufferGeometry {
-    console.log('FrameMeshComponent.getGeometry', this.sizeX, this.sizeY, this.thickness);
+    // console.log('FrameMeshComponent.getGeometry', this.sizeX, this.sizeY, this.thickness);
 
-    // TODO: How to handle empty props?
-    if (this.sizeX && this.sizeY && this.thickness) {
-      console.log('FrameMeshComponent.getGeometry: do');
-      const halfX = this.sizeX / 2.0;
-      const halfY = this.sizeY / 2.0;
-      const t = this.thickness;
+    const halfX = (this.sizeX ?? 1) / 2.0;
+    const halfY = (this.sizeY ?? 1) / 2.0;
+    const t = this.thickness ?? 1;
 
-      const shape = new THREE.Shape();
+    const shape = new THREE.Shape();
 
-      shape.moveTo(-halfX, halfY);
-      shape.lineTo(-halfX - t, halfY + t);
-      shape.lineTo(halfX + t, halfY + t);
+    shape.moveTo(-halfX, halfY);
+    shape.lineTo(-halfX - t, halfY + t);
+    shape.lineTo(halfX + t, halfY + t);
 
-      shape.lineTo(halfX + t, -halfY - t);
-      shape.lineTo(-halfX - t, -halfY - t);
-      shape.lineTo(-halfX - t, halfY + t);
+    shape.lineTo(halfX + t, -halfY - t);
+    shape.lineTo(-halfX - t, -halfY - t);
+    shape.lineTo(-halfX - t, halfY + t);
 
-      shape.lineTo(-halfX, halfY);
-      shape.lineTo(-halfX, -halfY);
-      shape.lineTo(halfX, -halfY);
-      shape.lineTo(halfX, halfY);
-      shape.lineTo(-halfX, halfY);
+    shape.lineTo(-halfX, halfY);
+    shape.lineTo(-halfX, -halfY);
+    shape.lineTo(halfX, -halfY);
+    shape.lineTo(halfX, halfY);
+    shape.lineTo(-halfX, halfY);
 
-      const geometry = new THREE.ShapeBufferGeometry(shape);
-      return geometry;
-    } else {
-      return new THREE.ShapeBufferGeometry(new THREE.Shape());
-    }
+    const geometry = new THREE.ShapeBufferGeometry(shape);
+    return geometry;
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-
     const material = this.getMaterial();
     const mesh = new THREE.Mesh(this.getGeometry(), material);
 
