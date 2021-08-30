@@ -46,51 +46,6 @@ class StorybookDagreComponent {
 
 }
 
-@Component({
-  selector: 'app-storybook',
-  template: worldSceneWrapper(`
-    <atft-dagre-layout [align]="align" [rankdir]="rankdir" [ranker]="ranker"
-      [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
-      [marginx]="marginx" [marginy]="marginy">
-
-      <atft-dagre-composition name="presentation" label="Presentation tier"></atft-dagre-composition>
-      <atft-dagre-composition name="application" label="Application tier"></atft-dagre-composition>
-      <atft-dagre-composition name="data" label="Data tier" border="frame"></atft-dagre-composition>
-
-      <atft-dagre-node name="spa" composition="presentation">
-        <atft-server-compact-actor label="spa"></atft-server-compact-actor>
-      </atft-dagre-node>
-
-      <atft-dagre-node name="api" composition="application">
-        <atft-server-stand-actor label="api" icon="video_settings"
-        ></atft-server-stand-actor>
-      </atft-dagre-node>
-
-      <atft-dagre-node name="db1" composition="data">
-        <atft-server-barrel-actor label="PostgreSQL"></atft-server-barrel-actor>
-      </atft-dagre-node>
-
-      <atft-dagre-node name="db2" composition="data">
-        <atft-server-barrel-actor label="MongoDB"></atft-server-barrel-actor>
-      </atft-dagre-node>
-
-      <atft-dagre-edge from="spa" to="api"></atft-dagre-edge>
-      <atft-dagre-edge from="api" to="db1"></atft-dagre-edge>
-      <atft-dagre-edge from="api" to="db2"></atft-dagre-edge>
-
-    </atft-dagre-layout>
-
-`)
-})
-class StorybookDagreCompositionComponent {
-
-  constructor(private animationService: AnimationService) {
-    this.animationService.start();
-  }
-
-}
-
-
 export default {
   title: 'Dagre Layout/Simple',
   component: StorybookDagreComponent,
