@@ -33,8 +33,8 @@ export default {
   ],
   args: {
     enable: true,
-    background: '0xDDDDDD',
-    color: '0xDDDDDD',
+    background: '#FFFFFF',
+    color: '#DDDDDD',
     near: 10,
     far: 200
   },
@@ -42,26 +42,26 @@ export default {
     enable: {control: {type: 'boolean'}},
     background: {
       control: {
-        type: 'select',
         options: [
-          '0xFFFFFF',
-          '0xDDDDDD',
-          '0xAA0000',
-          '0x00AA00',
-          '0x0000AA'
-        ]
+          '#FFFFFF',
+          '#DDDDDD',
+          '#AA0000',
+          '#00AA00',
+          '#0000AA'
+        ],
+        type: 'color'
       }
     },
     color: {
       control: {
-        type: 'select',
         options: [
-          '0xFFFFFF',
-          '0xDDDDDD',
-          '0xAA0000',
-          '0x00AA00',
-          '0x0000AA'
-        ]
+          '#FFFFFF',
+          '#DDDDDD',
+          '#AA0000',
+          '#00AA00',
+          '#0000AA'
+        ],
+        type: 'color'
       }
     },
     near: {control: {type: 'number', min: 1, max: 1000}},

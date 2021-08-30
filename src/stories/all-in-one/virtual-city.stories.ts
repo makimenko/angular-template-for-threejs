@@ -123,6 +123,7 @@ class StorybookFlyComponent implements AfterViewInit, OnDestroy {
 
 export default {
   title: 'All-in-One/Virtual City',
+  component: StorybookFlyComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -136,6 +137,5 @@ export default {
 };
 
 export const VirtualCity = (args) => ({
-  component: StorybookFlyComponent,
   props: args
 });

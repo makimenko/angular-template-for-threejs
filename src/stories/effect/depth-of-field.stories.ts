@@ -29,7 +29,7 @@ export default {
   ],
   args: {
     enable: true,
-    background: '0xFFFFFF',
+    background: '#FFFFFF',
     focus: 10.0,
     aperture: 0.0001,
     maxblur: 0.005
@@ -37,15 +37,15 @@ export default {
   argTypes: {
     enable: {control: {type: 'boolean'}},
     background: {
+      options: [
+        '#FFFFF',
+        '#DDDDDD',
+        '#AA0000',
+        '#00AA00',
+        '#0000AA'
+      ],
       control: {
-        type: 'select',
-        options: [
-          '0xFFFFFF',
-          '0xDDDDDD',
-          '0xAA0000',
-          '0x00AA00',
-          '0x0000AA'
-        ]
+        type: 'color'
       }
     },
     focus: {control: {type: 'range', min: 1, max: 3000, step: 10}},

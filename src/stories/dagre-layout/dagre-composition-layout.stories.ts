@@ -6,46 +6,6 @@ import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
 
-
-@Component({
-  selector: 'app-storybook',
-  template: worldSceneWrapper(`
-    <atft-dagre-layout [align]="align" [rankdir]="rankdir" [ranker]="ranker"
-      [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
-      [marginx]="marginx" [marginy]="marginy">
-
-      <atft-dagre-node name="spa" >
-        <atft-server-compact-actor label="SPA"></atft-server-compact-actor>
-      </atft-dagre-node>
-      <atft-dagre-node name="api" >
-        <atft-server-stand-actor label="API"></atft-server-stand-actor>
-      </atft-dagre-node>
-      <atft-dagre-node name="kv">
-        <atft-server-compact-actor label="Key Vault"></atft-server-compact-actor>
-      </atft-dagre-node>
-      <atft-dagre-node name="db1">
-        <atft-server-barrel-actor  label="PostgreSQL"></atft-server-barrel-actor>
-      </atft-dagre-node>
-      <atft-dagre-node name="db2">
-        <atft-server-barrel-actor  label="MongoDB"></atft-server-barrel-actor>
-      </atft-dagre-node>
-
-      <atft-dagre-edge from="spa" to="api"></atft-dagre-edge>
-      <atft-dagre-edge from="api" to="db1"></atft-dagre-edge>
-      <atft-dagre-edge from="api" to="db2"></atft-dagre-edge>
-      <atft-dagre-edge from="api" to="kv"></atft-dagre-edge>
-
-    </atft-dagre-layout>
-`)
-})
-class StorybookDagreComponent {
-
-  constructor(private animationService: AnimationService) {
-    this.animationService.start();
-  }
-
-}
-
 @Component({
   selector: 'app-storybook',
   template: worldSceneWrapper(`
@@ -92,7 +52,8 @@ class StorybookDagreCompositionComponent {
 
 
 export default {
-  title: 'Dagre Layout/Sample',
+  title: 'Dagre Layout/Composition',
+  component: StorybookDagreCompositionComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -148,14 +109,7 @@ export default {
 };
 
 
-export const Simple = (args) => ({
-  component: StorybookDagreComponent,
-  props: args
-});
-
-
 export const Composition = (args) => ({
-  component: StorybookDagreCompositionComponent,
   props: args
 });
 

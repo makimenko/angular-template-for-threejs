@@ -71,6 +71,7 @@ class StorybookEditorComponent {
 
 export default {
   title: 'Dynamic/Editor',
+  component: StorybookEditorComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -108,6 +109,5 @@ export default {
 
 
 export const Editor = (args) => ({
-  component: StorybookEditorComponent,
   props: args
 });
