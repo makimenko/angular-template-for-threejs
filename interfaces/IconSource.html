@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>IconSource</li>
+  <li
+  >
+  IconSource</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
         <p class="comment">
             <code>projects/atft/src/lib/object/loader/services/icon.service.ts</code>
         </p>
+
 
 
             <p class="comment">
@@ -85,13 +89,22 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#allowColorOverride">allowColorOverride</a>
+                                        <a href="#allowColorOverride" 
+>
+                                            allowColorOverride
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#isCCW">isCCW</a>
+                                        <a href="#isCCW" 
+>
+                                            isCCW
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#noHoles">noHoles</a>
+                                        <a href="#noHoles" 
+>
+                                            noHoles
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -109,7 +122,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="allowColorOverride"></a>
-                                        <span class="name"><b>allowColorOverride</b><a href="#allowColorOverride"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>allowColorOverride</b>
+                                            <a href="#allowColorOverride">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -138,7 +155,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="isCCW"></a>
-                                        <span class="name"><b>isCCW</b><a href="#isCCW"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>isCCW</b>
+                                            <a href="#isCCW">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -167,7 +188,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="noHoles"></a>
-                                        <span class="name"><b>noHoles</b><a href="#noHoles"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>noHoles</b>
+                                            <a href="#noHoles">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -298,9 +323,9 @@ export class IconService extends AbstractAssetService&lt;IconSource&gt; {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

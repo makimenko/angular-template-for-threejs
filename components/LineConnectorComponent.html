@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>LineConnectorComponent</li>
+  <li
+  >
+  LineConnectorComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,11 +62,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>AbstractConnector</code>
+                <code><a href="../directives/AbstractConnector.html" target="_self" >AbstractConnector</a></code>
     </p>
 
     <p class="comment">
@@ -134,27 +138,35 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#animation">animation</a>
+                                <a href="#animation" >animation</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#clock">clock</a>
+                                <a href="#clock" >clock</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#line">line</a>
+                                <a href="#line" >line</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#matLine">matLine</a>
+                                <a href="#matLine" >matLine</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#time">time</a>
+                                <a href="#time" >time</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#timeScale">timeScale</a>
+                                <a href="#timeScale" >timeScale</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#sourceSub" >sourceSub</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#targetSub" >targetSub</a>
                             </li>
                         </ul>
                     </td>
@@ -170,25 +182,33 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#animate">animate</a>
+                                <a href="#animate" >animate</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#createLineMesh">createLineMesh</a>
+                                <a href="#createLineMesh" >createLineMesh</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#getPositions">getPositions</a>
+                                <a href="#getPositions" >getPositions</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#ngOnChanges">ngOnChanges</a>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
                             </li>
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
-                                <a href="#updateLineGeometry">updateLineGeometry</a>
+                                <a href="#updateLineGeometry" >updateLineGeometry</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#newObject3DInstance" >newObject3DInstance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#watchObjects" >watchObjects</a>
                             </li>
                         </ul>
                     </td>
@@ -203,28 +223,34 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#animated">animated</a>
+                                <a href="#animated" >animated</a>
                             </li>
                             <li>
-                                <a href="#dashSize">dashSize</a>
+                                <a href="#dashSize" >dashSize</a>
                             </li>
                             <li>
-                                <a href="#gapSize">gapSize</a>
+                                <a href="#gapSize" >gapSize</a>
                             </li>
                             <li>
-                                <a href="#lineType">lineType</a>
+                                <a href="#lineType" >lineType</a>
                             </li>
                             <li>
-                                <a href="#lineWidth">lineWidth</a>
+                                <a href="#lineWidth" >lineWidth</a>
                             </li>
                             <li>
-                                <a href="#materialColor">materialColor</a>
+                                <a href="#materialColor" >materialColor</a>
                             </li>
                             <li>
-                                <a href="#opacity">opacity</a>
+                                <a href="#opacity" >opacity</a>
                             </li>
                             <li>
-                                <a href="#solid">solid</a>
+                                <a href="#solid" >solid</a>
+                            </li>
+                            <li>
+                                <a href="#source" >source</a>
+                            </li>
+                            <li>
+                                <a href="#target" >target</a>
                             </li>
                         </ul>
                     </td>
@@ -243,7 +269,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>, animationService: <a href="../injectables/AnimationService.html">AnimationService</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html" target="_self">RendererService</a>, parent: <a href="../directives/AbstractObject3D.html" target="_self">AbstractObject3D&lt;any&gt;</a>, animationService: <a href="../injectables/AnimationService.html" target="_self">AnimationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -281,7 +307,7 @@
                                                         <td>parent</td>
                                                   
                                                         <td>
-                                                                    <code>AbstractObject3D&lt;any&gt;</code>
+                                                                        <code><a href="../directives/AbstractObject3D.html" target="_self" >AbstractObject3D&lt;any&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -322,6 +348,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
@@ -342,6 +374,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>3</code>
                     </td>
                 </tr>
@@ -358,6 +396,12 @@
                     <td class="col-md-4">
                         <a name="gapSize"></a>
                         <b>gapSize</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -408,6 +452,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>2</code>
                     </td>
                 </tr>
@@ -424,6 +474,12 @@
                     <td class="col-md-4">
                         <a name="materialColor"></a>
                         <b>materialColor</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -448,6 +504,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>1</code>
                     </td>
                 </tr>
@@ -468,12 +530,74 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:26</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="source"></a>
+                        <b>source</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../directives/AbstractObject3D.html" target="_self" >AbstractObject3D&lt;THREE.Object3D&gt;</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractConnector.html" target="_self" >AbstractConnector</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/AbstractConnector.html#source" target="_self" >AbstractConnector:10</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="target"></a>
+                        <b>target</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../directives/AbstractObject3D.html" target="_self" >AbstractObject3D&lt;THREE.Object3D&gt;</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractConnector.html" target="_self" >AbstractConnector</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/AbstractConnector.html#source" target="_self" >AbstractConnector:13</a></code>
+</div>
                             </td>
                         </tr>
             </tbody>
@@ -493,10 +617,8 @@
                 <td class="col-md-4">
                     <a name="animate"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            animate
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>animate</b></span>
                         <a href="#animate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -534,10 +656,8 @@
                 <td class="col-md-4">
                     <a name="createLineMesh"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            createLineMesh
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>createLineMesh</b></span>
                         <a href="#createLineMesh"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -552,8 +672,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:50</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractConnector.html" target="_self" >AbstractConnector</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractConnector.html#source" target="_self" >AbstractConnector:50</a></code>
+</div>
                 </td>
             </tr>
 
@@ -575,10 +701,8 @@
                 <td class="col-md-4">
                     <a name="getPositions"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            getPositions
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>getPositions</b></span>
                         <a href="#getPositions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -616,10 +740,8 @@
                 <td class="col-md-4">
                     <a name="ngOnChanges"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            ngOnChanges
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>ngOnChanges</b></span>
                         <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -688,9 +810,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            ngOnDestroy
-                        </b>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -704,8 +824,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="107"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:107</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractConnector.html" target="_self" >AbstractConnector</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractConnector.html#source" target="_self" >AbstractConnector:107</a></code>
+</div>
                 </td>
             </tr>
 
@@ -727,9 +853,7 @@
                 <td class="col-md-4">
                     <a name="updateLineGeometry"></a>
                     <span class="name">
-                        <b>
-                            updateLineGeometry
-                        </b>
+                        <span ><b>updateLineGeometry</b></span>
                         <a href="#updateLineGeometry"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -743,8 +867,104 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:85</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractConnector.html" target="_self" >AbstractConnector</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractConnector.html#source" target="_self" >AbstractConnector:85</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newObject3DInstance"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>newObject3DInstance</b></span>
+                        <a href="#newObject3DInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newObject3DInstance()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractConnector.html" target="_self" >AbstractConnector</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractConnector.html#source" target="_self" >AbstractConnector:18</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>THREE.Object3D</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="watchObjects"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>watchObjects</b></span>
+                        <a href="#watchObjects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>watchObjects()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractConnector.html" target="_self" >AbstractConnector</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractConnector.html#source" target="_self" >AbstractConnector:26</a></code>
+</div>
                 </td>
             </tr>
 
@@ -763,186 +983,248 @@
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="animation"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>animation</b></span>
+                        <a href="#animation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="animation"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            animation</b>
-                            <a href="#animation"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Subscription</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:34</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:34</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clock"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>clock</b></span>
+                        <a href="#clock"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="clock"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            clock</b>
-                            <a href="#clock"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new THREE.Clock()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new THREE.Clock()</code>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:37</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:37</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="line"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>line</b></span>
+                        <a href="#line"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="line"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            line</b>
-                            <a href="#line"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Line2</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Line2</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:39</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:39</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matLine"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>matLine</b></span>
+                        <a href="#matLine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="matLine"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            matLine</b>
-                            <a href="#matLine"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>LineMaterial</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>LineMaterial</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:40</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:40</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="time"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>time</b></span>
+                        <a href="#time"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="time"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            time</b>
-                            <a href="#time"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:35</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>0</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:35</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="timeScale"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>timeScale</b></span>
+                        <a href="#timeScale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="timeScale"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            timeScale</b>
-                            <a href="#timeScale"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>5</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:36</a></div>
+                        </td>
+                    </tr>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>5</code>
-                        </td>
-                    </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sourceSub"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>sourceSub</b></span>
+                        <a href="#sourceSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/atft/src/lib/object/connector/line-connector.component.ts:36</a></div>
+                                <div class="io-line">Inherited from         <code><a href="../directives/AbstractConnector.html" target="_self" >AbstractConnector</a></code>
+</div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/AbstractConnector.html#source" target="_self" >AbstractConnector:15</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="targetSub"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>targetSub</b></span>
+                        <a href="#targetSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/AbstractConnector.html" target="_self" >AbstractConnector</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/AbstractConnector.html#source" target="_self" >AbstractConnector:16</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -1130,7 +1412,7 @@ export class LineConnectorComponent extends AbstractConnector&lt;Line2&gt; imple
 <script>
         var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
     var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ModelActorComponent', 'selector': 'atft-model-actor'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'StlLoaderComponent', 'selector': 'atft-stl-loader'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
-    var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
+    var DIRECTIVES = [{'name': 'AbstractCamera', 'selector': ''},{'name': 'AbstractComposeEffect', 'selector': ''},{'name': 'AbstractConnector', 'selector': ''},{'name': 'AbstractEmptyDirective', 'selector': ''},{'name': 'AbstractLazyObject3D', 'selector': ''},{'name': 'AbstractMesh', 'selector': ''},{'name': 'AbstractModelLoader', 'selector': ''},{'name': 'AbstractObject3D', 'selector': ''},{'name': 'AbstractOrbitControls', 'selector': ''},{'name': 'AbstractServerActor', 'selector': ''},{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'LineConnectorComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -1172,9 +1454,9 @@ export class LineConnectorComponent extends AbstractConnector&lt;Line2&gt; imple
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

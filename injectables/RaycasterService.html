@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>RaycasterService</li>
+  <li >RaycasterService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -76,27 +78,27 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#camera">camera</a>
+                                <a href="#camera" >camera</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#enabled">enabled</a>
+                                <a href="#enabled" >enabled</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#groups">groups</a>
+                                <a href="#groups" >groups</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#paused">paused</a>
+                                <a href="#paused" >paused</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#raycaster">raycaster</a>
+                                <a href="#raycaster" >raycaster</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#selected">selected</a>
+                                <a href="#selected" >selected</a>
                             </li>
                         </ul>
                     </td>
@@ -112,58 +114,58 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#addGroup">addGroup</a>
+                                <a href="#addGroup" >addGroup</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#disable">disable</a>
+                                <a href="#disable" >disable</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#enable">enable</a>
+                                <a href="#enable" >enable</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#getFirstIntersectedGroup">getFirstIntersectedGroup</a>
+                                <a href="#getFirstIntersectedGroup" >getFirstIntersectedGroup</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#isReady">isReady</a>
+                                <a href="#isReady" >isReady</a>
                             </li>
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#onClick">onClick</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#onMouseMove">onMouseMove</a>
+                                <a href="#onClick" >onClick</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#onTouchStart">onTouchStart</a>
+                                <a href="#onMouseMove" >onMouseMove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onTouchStart" >onTouchStart</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#pause">pause</a>
+                                <a href="#pause" >pause</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#resume">resume</a>
+                                <a href="#resume" >resume</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#setCamera">setCamera</a>
+                                <a href="#setCamera" >setCamera</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#subscribe">subscribe</a>
+                                <a href="#subscribe" >subscribe</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#unsubscribe">unsubscribe</a>
+                                <a href="#unsubscribe" >unsubscribe</a>
                             </li>
                         </ul>
                     </td>
@@ -182,7 +184,7 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#isEnabled">isEnabled</a>
+                                    <a href="#isEnabled" >isEnabled</a>
                                 </li>
                             </ul>
                         </td>
@@ -221,10 +223,8 @@
                 <td class="col-md-4">
                     <a name="addGroup"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            addGroup
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>addGroup</b></span>
                         <a href="#addGroup"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -232,7 +232,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>addGroup(group: AbstractObject3D<any>)</code>
+                    <code>addGroup(group: <a href="../directives/AbstractObject3D.html" target="_self">AbstractObject3D&lt;any&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -262,7 +262,7 @@
                                 <tr>
                                     <td>group</td>
                                     <td>
-                                            <code>AbstractObject3D&lt;any&gt;</code>
+                                                <code><a href="../directives/AbstractObject3D.html" target="_self" >AbstractObject3D&lt;any&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -293,10 +293,8 @@
                 <td class="col-md-4">
                     <a name="disable"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            disable
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>disable</b></span>
                         <a href="#disable"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -334,10 +332,8 @@
                 <td class="col-md-4">
                     <a name="enable"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            enable
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>enable</b></span>
                         <a href="#enable"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -375,10 +371,8 @@
                 <td class="col-md-4">
                     <a name="getFirstIntersectedGroup"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            getFirstIntersectedGroup
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>getFirstIntersectedGroup</b></span>
                         <a href="#getFirstIntersectedGroup"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -452,10 +446,8 @@
                 <td class="col-md-4">
                     <a name="isReady"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            isReady
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>isReady</b></span>
                         <a href="#isReady"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -524,9 +516,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            ngOnDestroy
-                        </b>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -563,10 +553,8 @@
                 <td class="col-md-4">
                     <a name="onClick"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onClick
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onClick</b></span>
                         <a href="#onClick"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -631,10 +619,8 @@
                 <td class="col-md-4">
                     <a name="onMouseMove"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onMouseMove
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onMouseMove</b></span>
                         <a href="#onMouseMove"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -699,10 +685,8 @@
                 <td class="col-md-4">
                     <a name="onTouchStart"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onTouchStart
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onTouchStart</b></span>
                         <a href="#onTouchStart"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -771,10 +755,8 @@
                 <td class="col-md-4">
                     <a name="pause"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            pause
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>pause</b></span>
                         <a href="#pause"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -812,10 +794,8 @@
                 <td class="col-md-4">
                     <a name="resume"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            resume
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>resume</b></span>
                         <a href="#resume"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -853,10 +833,8 @@
                 <td class="col-md-4">
                     <a name="setCamera"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            setCamera
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>setCamera</b></span>
                         <a href="#setCamera"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -864,7 +842,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>setCamera(camera: AbstractCamera<any>)</code>
+                    <code>setCamera(camera: <a href="../directives/AbstractCamera.html" target="_self">AbstractCamera&lt;any&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -894,7 +872,7 @@
                                 <tr>
                                     <td>camera</td>
                                     <td>
-                                            <code>AbstractCamera&lt;any&gt;</code>
+                                                <code><a href="../directives/AbstractCamera.html" target="_self" >AbstractCamera&lt;any&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -925,10 +903,8 @@
                 <td class="col-md-4">
                     <a name="subscribe"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            subscribe
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>subscribe</b></span>
                         <a href="#subscribe"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -966,10 +942,8 @@
                 <td class="col-md-4">
                     <a name="unsubscribe"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            unsubscribe
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>unsubscribe</b></span>
                         <a href="#unsubscribe"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1004,179 +978,173 @@
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="camera"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>camera</b></span>
+                        <a href="#camera"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="camera"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            camera</b>
-                            <a href="#camera"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../directives/AbstractCamera.html" target="_self" >AbstractCamera&lt;any&gt;</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>AbstractCamera&lt;any&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:18</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:18</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enabled"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>enabled</b></span>
+                        <a href="#enabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="enabled"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            enabled</b>
-                            <a href="#enabled"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:17</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:17</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="groups"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>groups</b></span>
+                        <a href="#groups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="groups"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            groups</b>
-                            <a href="#groups"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../directives/AbstractObject3D.html" target="_self" >Array&lt;AbstractObject3D&lt;any&gt;&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Array&lt;AbstractObject3D&lt;any&gt;&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:19</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:19</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paused"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>paused</b></span>
+                        <a href="#paused"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="paused"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            paused</b>
-                            <a href="#paused"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:20</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:20</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="raycaster"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>raycaster</b></span>
+                        <a href="#raycaster"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="raycaster"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            raycaster</b>
-                            <a href="#raycaster"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new THREE.Raycaster()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new THREE.Raycaster()</code>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:15</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:15</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>selected</b></span>
+                        <a href="#selected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="selected"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            selected</b>
-                            <a href="#selected"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>THREE.Object3D</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>THREE.Object3D</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:16</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/raycaster/raycaster.service.ts:16</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
             <section>
@@ -1413,9 +1381,9 @@ export class RaycasterService implements OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

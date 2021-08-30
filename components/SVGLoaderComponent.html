@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>SVGLoaderComponent</li>
+  <li
+  >
+  SVGLoaderComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,11 +62,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>AbstractModelLoader</code>
+                <code><a href="../directives/AbstractModelLoader.html" target="_self" >AbstractModelLoader</a></code>
     </p>
 
 
@@ -127,7 +131,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_overrideMaterialColor">_overrideMaterialColor</a>
+                                <a href="#_overrideMaterialColor" >_overrideMaterialColor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_model" >_model</a>
                             </li>
                         </ul>
                     </td>
@@ -144,7 +152,7 @@
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#loadLazyObject">loadLazyObject</a>
+                                <a href="#loadLazyObject" >loadLazyObject</a>
                             </li>
                         </ul>
                     </td>
@@ -159,31 +167,34 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#centered">centered</a>
+                                <a href="#centered" >centered</a>
                             </li>
                             <li>
-                                <a href="#depthWrite">depthWrite</a>
+                                <a href="#depthWrite" >depthWrite</a>
                             </li>
                             <li>
-                                <a href="#icon">icon</a>
+                                <a href="#icon" >icon</a>
                             </li>
                             <li>
-                                <a href="#isCCW">isCCW</a>
+                                <a href="#isCCW" >isCCW</a>
                             </li>
                             <li>
-                                <a href="#material">material</a>
+                                <a href="#material" >material</a>
                             </li>
                             <li>
-                                <a href="#maxX">maxX</a>
+                                <a href="#maxX" >maxX</a>
                             </li>
                             <li>
-                                <a href="#maxY">maxY</a>
+                                <a href="#maxY" >maxY</a>
                             </li>
                             <li>
-                                <a href="#noHoles">noHoles</a>
+                                <a href="#noHoles" >noHoles</a>
                             </li>
                             <li>
-                                <a href="#overrideMaterialColor">overrideMaterialColor</a>
+                                <a href="#overrideMaterialColor" >overrideMaterialColor</a>
+                            </li>
+                            <li>
+                                <a href="#model" >model</a>
                             </li>
                         </ul>
                     </td>
@@ -201,10 +212,10 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#overrideMaterialColor">overrideMaterialColor</a>
+                                    <a href="#overrideMaterialColor" >overrideMaterialColor</a>
                                 </li>
                                 <li>
-                                    <a href="#icon">icon</a>
+                                    <a href="#icon" >icon</a>
                                 </li>
                             </ul>
                         </td>
@@ -219,7 +230,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>, svgLoader: <a href="../injectables/SvgLoaderService.html">SvgLoaderService</a>, iconService: <a href="../injectables/IconService.html">IconService</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html" target="_self">RendererService</a>, parent: <a href="../directives/AbstractObject3D.html" target="_self">AbstractObject3D&lt;any&gt;</a>, svgLoader: <a href="../injectables/SvgLoaderService.html" target="_self">SvgLoaderService</a>, iconService: <a href="../injectables/IconService.html" target="_self">IconService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -257,7 +268,7 @@
                                                         <td>parent</td>
                                                   
                                                         <td>
-                                                                    <code>AbstractObject3D&lt;any&gt;</code>
+                                                                        <code><a href="../directives/AbstractObject3D.html" target="_self" >AbstractObject3D&lt;any&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -310,6 +321,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
@@ -326,6 +343,12 @@
                     <td class="col-md-4">
                         <a name="depthWrite"></a>
                         <b>depthWrite</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -371,6 +394,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
@@ -387,6 +416,12 @@
                     <td class="col-md-4">
                         <a name="material"></a>
                         <b>material</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -453,6 +488,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
@@ -484,6 +525,43 @@
                         </tr>
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="model"></a>
+                        <b>model</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractModelLoader.html" target="_self" >AbstractModelLoader</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/AbstractModelLoader.html#source" target="_self" >AbstractModelLoader:21</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The model data source (usually a URI).
+Settings this property only hides the previous model upon successful
+loading of the new one. This especially means that if the new data source
+is invalid, the old model will <em>not</em> be removed from the scene.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 </section>
 
 
@@ -499,11 +577,9 @@
                 <td class="col-md-4">
                     <a name="loadLazyObject"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            <span class="modifier">Async</span>
-                            loadLazyObject
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>loadLazyObject</b></span>
                         <a href="#loadLazyObject"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -538,42 +614,75 @@
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_overrideMaterialColor"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_overrideMaterialColor</b></span>
+                        <a href="#_overrideMaterialColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_overrideMaterialColor"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _overrideMaterialColor</b>
-                            <a href="#_overrideMaterialColor"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>undefined</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:44</a></div>
+                        </td>
+                    </tr>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>undefined</code>
-                        </td>
-                    </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_model"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>_model</b></span>
+                        <a href="#_model"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:44</a></div>
+                                <div class="io-line">Inherited from         <code><a href="../directives/AbstractModelLoader.html" target="_self" >AbstractModelLoader</a></code>
+</div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/AbstractModelLoader.html#source" target="_self" >AbstractModelLoader:12</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     <section>
@@ -589,6 +698,16 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>overrideMaterialColor()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/object/loader/svg-loader.component.ts:18</a></div>
+                                </td>
+                            </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -852,7 +971,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
 <script>
         var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
     var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ModelActorComponent', 'selector': 'atft-model-actor'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'StlLoaderComponent', 'selector': 'atft-stl-loader'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
-    var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
+    var DIRECTIVES = [{'name': 'AbstractCamera', 'selector': ''},{'name': 'AbstractComposeEffect', 'selector': ''},{'name': 'AbstractConnector', 'selector': ''},{'name': 'AbstractEmptyDirective', 'selector': ''},{'name': 'AbstractLazyObject3D', 'selector': ''},{'name': 'AbstractMesh', 'selector': ''},{'name': 'AbstractModelLoader', 'selector': ''},{'name': 'AbstractObject3D', 'selector': ''},{'name': 'AbstractOrbitControls', 'selector': ''},{'name': 'AbstractServerActor', 'selector': ''},{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'SVGLoaderComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -894,9 +1013,9 @@ export class SVGLoaderComponent extends AbstractModelLoader {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

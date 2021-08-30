@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>CylinderMeshComponent</li>
+  <li
+  >
+  CylinderMeshComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,11 +62,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>AbstractMesh</code>
+                <code><a href="../directives/AbstractMesh.html" target="_self" >AbstractMesh</a></code>
     </p>
 
 
@@ -128,7 +132,23 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#newObject3DInstance">newObject3DInstance</a>
+                                <a href="#newObject3DInstance" >newObject3DInstance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#applyMaterial" >applyMaterial</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#applyShadowProps" >applyShadowProps</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#getMaterial" >getMaterial</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
                             </li>
                         </ul>
                     </td>
@@ -143,28 +163,43 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#height">height</a>
+                                <a href="#height" >height</a>
                             </li>
                             <li>
-                                <a href="#heightSegments">heightSegments</a>
+                                <a href="#heightSegments" >heightSegments</a>
                             </li>
                             <li>
-                                <a href="#openEnded">openEnded</a>
+                                <a href="#openEnded" >openEnded</a>
                             </li>
                             <li>
-                                <a href="#radialSegments">radialSegments</a>
+                                <a href="#radialSegments" >radialSegments</a>
                             </li>
                             <li>
-                                <a href="#radiusBottom">radiusBottom</a>
+                                <a href="#radiusBottom" >radiusBottom</a>
                             </li>
                             <li>
-                                <a href="#radiusTop">radiusTop</a>
+                                <a href="#radiusTop" >radiusTop</a>
                             </li>
                             <li>
-                                <a href="#thetaLength">thetaLength</a>
+                                <a href="#thetaLength" >thetaLength</a>
                             </li>
                             <li>
-                                <a href="#thetaStart">thetaStart</a>
+                                <a href="#thetaStart" >thetaStart</a>
+                            </li>
+                            <li>
+                                <a href="#castShadow" >castShadow</a>
+                            </li>
+                            <li>
+                                <a href="#depthWrite" >depthWrite</a>
+                            </li>
+                            <li>
+                                <a href="#material" >material</a>
+                            </li>
+                            <li>
+                                <a href="#materialColor" >materialColor</a>
+                            </li>
+                            <li>
+                                <a href="#receiveShadow" >receiveShadow</a>
                             </li>
                         </ul>
                     </td>
@@ -183,7 +218,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html" target="_self">RendererService</a>, parent: <a href="../directives/AbstractObject3D.html" target="_self">AbstractObject3D&lt;any&gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -221,7 +256,7 @@
                                                         <td>parent</td>
                                                   
                                                         <td>
-                                                                    <code>AbstractObject3D&lt;any&gt;</code>
+                                                                        <code><a href="../directives/AbstractObject3D.html" target="_self" >AbstractObject3D&lt;any&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -250,6 +285,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>1.0</code>
                     </td>
                 </tr>
@@ -266,6 +307,12 @@
                     <td class="col-md-4">
                         <a name="heightSegments"></a>
                         <b>heightSegments</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -290,6 +337,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
@@ -306,6 +359,12 @@
                     <td class="col-md-4">
                         <a name="radialSegments"></a>
                         <b>radialSegments</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -330,6 +389,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>1.0</code>
                     </td>
                 </tr>
@@ -346,6 +411,12 @@
                     <td class="col-md-4">
                         <a name="radiusTop"></a>
                         <b>radiusTop</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -370,6 +441,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>2 * Math.PI</code>
                     </td>
                 </tr>
@@ -390,12 +467,178 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>0.0</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/atft/src/lib/object/mesh/cylinder-mesh.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="castShadow"></a>
+                        <b>castShadow</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractMesh.html" target="_self" >AbstractMesh</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/AbstractMesh.html#source" target="_self" >AbstractMesh:16</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="depthWrite"></a>
+                        <b>depthWrite</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractMesh.html" target="_self" >AbstractMesh</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/AbstractMesh.html#source" target="_self" >AbstractMesh:22</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="material"></a>
+                        <b>material</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractMesh.html" target="_self" >AbstractMesh</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/AbstractMesh.html#source" target="_self" >AbstractMesh:10</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="materialColor"></a>
+                        <b>materialColor</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#5DADE2&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractMesh.html" target="_self" >AbstractMesh</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/AbstractMesh.html#source" target="_self" >AbstractMesh:13</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="receiveShadow"></a>
+                        <b>receiveShadow</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractMesh.html" target="_self" >AbstractMesh</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/AbstractMesh.html#source" target="_self" >AbstractMesh:19</a></code>
+</div>
                             </td>
                         </tr>
             </tbody>
@@ -415,10 +658,8 @@
                 <td class="col-md-4">
                     <a name="newObject3DInstance"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            newObject3DInstance
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>newObject3DInstance</b></span>
                         <a href="#newObject3DInstance"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -445,6 +686,248 @@
                     <div class="io-description">
                         <b>Returns : </b>    <code>THREE.Mesh</code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyMaterial"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>applyMaterial</b></span>
+                        <a href="#applyMaterial"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyMaterial()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractMesh.html" target="_self" >AbstractMesh</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractMesh.html#source" target="_self" >AbstractMesh:50</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyShadowProps"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>applyShadowProps</b></span>
+                        <a href="#applyShadowProps"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyShadowProps(mesh: THREE.Mesh)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractMesh.html" target="_self" >AbstractMesh</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractMesh.html#source" target="_self" >AbstractMesh:28</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>mesh</td>
+                                    <td>
+                                            <code>THREE.Mesh</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMaterial"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>getMaterial</b></span>
+                        <a href="#getMaterial"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getMaterial()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractMesh.html" target="_self" >AbstractMesh</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractMesh.html#source" target="_self" >AbstractMesh:24</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>THREE.Material</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractMesh.html" target="_self" >AbstractMesh</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractMesh.html#source" target="_self" >AbstractMesh:33</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -538,7 +1021,7 @@ export class CylinderMeshComponent extends AbstractMesh {
 <script>
         var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
     var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ModelActorComponent', 'selector': 'atft-model-actor'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'StlLoaderComponent', 'selector': 'atft-stl-loader'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
-    var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
+    var DIRECTIVES = [{'name': 'AbstractCamera', 'selector': ''},{'name': 'AbstractComposeEffect', 'selector': ''},{'name': 'AbstractConnector', 'selector': ''},{'name': 'AbstractEmptyDirective', 'selector': ''},{'name': 'AbstractLazyObject3D', 'selector': ''},{'name': 'AbstractMesh', 'selector': ''},{'name': 'AbstractModelLoader', 'selector': ''},{'name': 'AbstractObject3D', 'selector': ''},{'name': 'AbstractOrbitControls', 'selector': ''},{'name': 'AbstractServerActor', 'selector': ''},{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'CylinderMeshComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -580,9 +1063,9 @@ export class CylinderMeshComponent extends AbstractMesh {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

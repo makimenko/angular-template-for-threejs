@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>AnimationService</li>
+  <li >AnimationService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,6 +59,7 @@
         <p class="comment">
             <code>projects/atft/src/lib/animation/animation.service.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -84,11 +86,11 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Readonly</span>
-                                <a href="#animate">animate</a>
+                                <a href="#animate" >animate</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#enabled">enabled</a>
+                                <a href="#enabled" >enabled</a>
                             </li>
                         </ul>
                     </td>
@@ -104,15 +106,15 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#animationStep">animationStep</a>
+                                <a href="#animationStep" >animationStep</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#start">start</a>
+                                <a href="#start" >start</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#stop">stop</a>
+                                <a href="#stop" >stop</a>
                             </li>
                         </ul>
                     </td>
@@ -132,7 +134,7 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html" target="_self">RendererService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -186,10 +188,8 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
                 <td class="col-md-4">
                     <a name="animationStep"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            animationStep
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>animationStep</b></span>
                         <a href="#animationStep"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -227,10 +227,8 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
                 <td class="col-md-4">
                     <a name="start"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            start
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>start</b></span>
                         <a href="#start"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -270,10 +268,8 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
                 <td class="col-md-4">
                     <a name="stop"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            stop
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>stop</b></span>
                         <a href="#stop"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -310,70 +306,68 @@ NOTE: this service is for the performance optimization: requestAnimationFrame an
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="animate"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>animate</b></span>
+                        <a href="#animate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="animate"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Readonly</span>
-                            animate</b>
-                            <a href="#animate"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new EventEmitter&lt;void&gt;()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new EventEmitter&lt;void&gt;()</code>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:16</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:16</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Subscribe for animationService frame creation (change position and etc.)
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Subscribe for animationService frame creation (change position and etc.)
 Avoid render() execution, it&#39;s called only once when all components updated animationService frame.</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enabled"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>enabled</b></span>
+                        <a href="#enabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="enabled"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            enabled</b>
-                            <a href="#enabled"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:18</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/animation/animation.service.ts:18</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -480,9 +474,9 @@ export class AnimationService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

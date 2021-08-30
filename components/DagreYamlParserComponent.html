@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>DagreYamlParserComponent</li>
+  <li
+  >
+  DagreYamlParserComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,11 +62,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>AbstractEmptyDirective</code>
+                <code><a href="../directives/AbstractEmptyDirective.html" target="_self" >AbstractEmptyDirective</a></code>
     </p>
 
     <p class="comment">
@@ -133,11 +137,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#container">container</a>
+                                <a href="#container" >container</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#instances">instances</a>
+                                <a href="#instances" >instances</a>
                             </li>
                         </ul>
                     </td>
@@ -153,34 +157,38 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#createComposition">createComposition</a>
+                                <a href="#createComposition" >createComposition</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#createEdge">createEdge</a>
+                                <a href="#createEdge" >createEdge</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#createNode">createNode</a>
+                                <a href="#createNode" >createNode</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#destroyAll">destroyAll</a>
+                                <a href="#destroyAll" >destroyAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#getNodeComponent">getNodeComponent</a>
+                                <a href="#getNodeComponent" >getNodeComponent</a>
                             </li>
                             <li>
-                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#ngOnChanges">ngOnChanges</a>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#parseAndCreate">parseAndCreate</a>
+                                <a href="#parseAndCreate" >parseAndCreate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#newObject3DInstance" >newObject3DInstance</a>
                             </li>
                         </ul>
                     </td>
@@ -195,7 +203,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#yaml">yaml</a>
+                                <a href="#yaml" >yaml</a>
                             </li>
                         </ul>
                     </td>
@@ -210,7 +218,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#status">status</a>
+                                <a href="#status" >status</a>
                             </li>
                         </ul>
                     </td>
@@ -228,7 +236,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>, resolver: <a href="https://angular.io/api/core/ComponentFactoryResolver" target="_blank">ComponentFactoryResolver</a>, actorRepository: <a href="../injectables/ActorRepositoryService.html">ActorRepositoryService</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html" target="_self">RendererService</a>, parent: <a href="../directives/AbstractObject3D.html" target="_self">AbstractObject3D&lt;any&gt;</a>, resolver: <a href="https://angular.io/api/core/ComponentFactoryResolver" target="_blank">ComponentFactoryResolver</a>, actorRepository: <a href="../injectables/ActorRepositoryService.html" target="_self">ActorRepositoryService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -266,7 +274,7 @@
                                                         <td>parent</td>
                                                   
                                                         <td>
-                                                                    <code>AbstractObject3D&lt;any&gt;</code>
+                                                                        <code><a href="../directives/AbstractObject3D.html" target="_self" >AbstractObject3D&lt;any&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -317,6 +325,12 @@
                         <b>yaml</b>
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:40</a></div>
@@ -362,10 +376,8 @@
                 <td class="col-md-4">
                     <a name="createComposition"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            createComposition
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>createComposition</b></span>
                         <a href="#createComposition"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -373,7 +385,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createComposition(composition: <a href="../interfaces/Composition.html">Composition</a>)</code>
+                    <code>createComposition(composition: <a href="../interfaces/Composition.html" target="_self">Composition</a>)</code>
                 </td>
             </tr>
 
@@ -434,10 +446,8 @@
                 <td class="col-md-4">
                     <a name="createEdge"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            createEdge
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>createEdge</b></span>
                         <a href="#createEdge"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -445,7 +455,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createEdge(edge: <a href="../interfaces/Edge.html">Edge</a>)</code>
+                    <code>createEdge(edge: <a href="../interfaces/Edge.html" target="_self">Edge</a>)</code>
                 </td>
             </tr>
 
@@ -506,10 +516,8 @@
                 <td class="col-md-4">
                     <a name="createNode"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            createNode
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>createNode</b></span>
                         <a href="#createNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -517,7 +525,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createNode(node: <a href="../interfaces/Node.html">Node</a>)</code>
+                    <code>createNode(node: <a href="../interfaces/Node.html" target="_self">Node</a>)</code>
                 </td>
             </tr>
 
@@ -578,10 +586,8 @@
                 <td class="col-md-4">
                     <a name="destroyAll"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            destroyAll
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>destroyAll</b></span>
                         <a href="#destroyAll"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -619,10 +625,8 @@
                 <td class="col-md-4">
                     <a name="getNodeComponent"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            getNodeComponent
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>getNodeComponent</b></span>
                         <a href="#getNodeComponent"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -691,9 +695,7 @@
                 <td class="col-md-4">
                     <a name="ngAfterViewInit"></a>
                     <span class="name">
-                        <b>
-                            ngAfterViewInit
-                        </b>
+                        <span ><b>ngAfterViewInit</b></span>
                         <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -730,10 +732,8 @@
                 <td class="col-md-4">
                     <a name="ngOnChanges"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            ngOnChanges
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>ngOnChanges</b></span>
                         <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -802,10 +802,8 @@
                 <td class="col-md-4">
                     <a name="parseAndCreate"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            parseAndCreate
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>parseAndCreate</b></span>
                         <a href="#parseAndCreate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -837,75 +835,118 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newObject3DInstance"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>newObject3DInstance</b></span>
+                        <a href="#newObject3DInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newObject3DInstance()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractEmptyDirective.html" target="_self" >AbstractEmptyDirective</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractEmptyDirective.html#source" target="_self" >AbstractEmptyDirective:8</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>THREE.Object3D</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="container"></a>
+                    <span class="name">
+                        <span ><b>container</b></span>
+                        <a href="#container"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="container"></a>
-                        <span class="name">
-                            <b>
-                            container</b>
-                            <a href="#container"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;container&#x27;, {read: ViewContainerRef})<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ViewChild(&#x27;container&#x27;, {read: ViewContainerRef})<br />
-                            </code>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:44</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:44</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="instances"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>instances</b></span>
+                        <a href="#instances"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="instances"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            instances</b>
-                            <a href="#instances"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>[]</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:46</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-yaml-parser.component.ts:46</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -1104,7 +1145,7 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
 <script>
         var COMPONENT_TEMPLATE = '<div><template #container></template></div>'
     var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ModelActorComponent', 'selector': 'atft-model-actor'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'StlLoaderComponent', 'selector': 'atft-stl-loader'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
-    var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
+    var DIRECTIVES = [{'name': 'AbstractCamera', 'selector': ''},{'name': 'AbstractComposeEffect', 'selector': ''},{'name': 'AbstractConnector', 'selector': ''},{'name': 'AbstractEmptyDirective', 'selector': ''},{'name': 'AbstractLazyObject3D', 'selector': ''},{'name': 'AbstractMesh', 'selector': ''},{'name': 'AbstractModelLoader', 'selector': ''},{'name': 'AbstractObject3D', 'selector': ''},{'name': 'AbstractOrbitControls', 'selector': ''},{'name': 'AbstractServerActor', 'selector': ''},{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'DagreYamlParserComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -1146,9 +1187,9 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

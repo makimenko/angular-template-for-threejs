@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>DagreCompositionComponent</li>
+  <li
+  >
+  DagreCompositionComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,11 +62,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>AbstractEmptyDirective</code>
+                <code><a href="../directives/AbstractEmptyDirective.html" target="_self" >AbstractEmptyDirective</a></code>
     </p>
 
     <p class="comment">
@@ -105,7 +109,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;atft-plane-mesh *ngIf&#x3D;&quot;border!&#x3D;&#x27;frame&#x27;&quot; atft-raycaster-group [width]&#x3D;&quot;width&quot; [height]&#x3D;&quot;height&quot; [materialColor]&#x3D;&quot;color&quot;
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;atft-plane-mesh *ngIf&#x3D;&quot;border!&#x3D;&#x3D;&#x27;frame&#x27;&quot; atft-raycaster-group [width]&#x3D;&quot;width&quot; [height]&#x3D;&quot;height&quot; [materialColor]&#x3D;&quot;color&quot;
                  [depthWrite]&#x3D;&quot;true&quot;
                  (mouseEnter)&#x3D;&quot;onSelected()&quot;
                  (mouseExit)&#x3D;&quot;onDeselected()&quot;&gt;
@@ -114,7 +118,7 @@
   &lt;/atft-text-mesh&gt;
 &lt;/atft-plane-mesh&gt;
 
-&lt;atft-frame-mesh *ngIf&#x3D;&quot;border&#x3D;&#x3D;&#x27;frame&#x27;&quot; [sizeX]&#x3D;&quot;width&quot; [sizeY]&#x3D;&quot;height&quot; [thickness]&#x3D;&quot;2&quot; [materialColor]&#x3D;&quot;color&quot;
+&lt;atft-frame-mesh *ngIf&#x3D;&quot;border&#x3D;&#x3D;&#x3D;&#x27;frame&#x27;&quot; [sizeX]&#x3D;&quot;width&quot; [sizeY]&#x3D;&quot;height&quot; [thickness]&#x3D;&quot;2&quot; [materialColor]&#x3D;&quot;color&quot;
                  [depthWrite]&#x3D;&quot;true&quot;
                  atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot;&gt;
   &lt;atft-text-mesh [centered]&#x3D;&quot;true&quot; [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;3&quot; [translateY]&#x3D;&quot;translateLabelY&quot;
@@ -151,23 +155,23 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_height">_height</a>
+                                <a href="#_height" >_height</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#color">color</a>
+                                <a href="#color" >color</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#dagreLayout">dagreLayout</a>
+                                <a href="#dagreLayout" >dagreLayout</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#graphUpdated">graphUpdated</a>
+                                <a href="#graphUpdated" >graphUpdated</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#translateLabelY">translateLabelY</a>
+                                <a href="#translateLabelY" >translateLabelY</a>
                             </li>
                         </ul>
                     </td>
@@ -183,38 +187,42 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#addNode">addNode</a>
+                                <a href="#addNode" >addNode</a>
                             </li>
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#onClick">onClick</a>
+                                <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#onDeselected">onDeselected</a>
+                                <a href="#onClick" >onClick</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#onSelected">onSelected</a>
+                                <a href="#onDeselected" >onDeselected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onSelected" >onSelected</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#removeNode">removeNode</a>
+                                <a href="#removeNode" >removeNode</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#syncGraph">syncGraph</a>
+                                <a href="#syncGraph" >syncGraph</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#syncGraphNodes">syncGraphNodes</a>
+                                <a href="#syncGraphNodes" >syncGraphNodes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#newObject3DInstance" >newObject3DInstance</a>
                             </li>
                         </ul>
                     </td>
@@ -229,19 +237,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#border">border</a>
+                                <a href="#border" >border</a>
                             </li>
                             <li>
-                                <a href="#composition">composition</a>
+                                <a href="#composition" >composition</a>
                             </li>
                             <li>
-                                <a href="#height">height</a>
+                                <a href="#height" >height</a>
                             </li>
                             <li>
-                                <a href="#label">label</a>
+                                <a href="#label" >label</a>
                             </li>
                             <li>
-                                <a href="#width">width</a>
+                                <a href="#width" >width</a>
                             </li>
                         </ul>
                     </td>
@@ -256,13 +264,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#deselected">deselected</a>
+                                <a href="#deselected" >deselected</a>
                             </li>
                             <li>
-                                <a href="#render">render</a>
+                                <a href="#render" >render</a>
                             </li>
                             <li>
-                                <a href="#selected">selected</a>
+                                <a href="#selected" >selected</a>
                             </li>
                         </ul>
                     </td>
@@ -279,7 +287,7 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#height">height</a>
+                                    <a href="#height" >height</a>
                                 </li>
                             </ul>
                         </td>
@@ -294,7 +302,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, cdRef: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html" target="_self">RendererService</a>, parent: <a href="../directives/AbstractObject3D.html" target="_self">AbstractObject3D&lt;any&gt;</a>, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, cdRef: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -332,7 +340,7 @@
                                                         <td>parent</td>
                                                   
                                                         <td>
-                                                                    <code>AbstractObject3D&lt;any&gt;</code>
+                                                                        <code><a href="../directives/AbstractObject3D.html" target="_self" >AbstractObject3D&lt;any&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -381,6 +389,12 @@
                     <td class="col-md-4">
                         <a name="border"></a>
                         <b>border</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -559,10 +573,8 @@
                 <td class="col-md-4">
                     <a name="addNode"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            addNode
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>addNode</b></span>
                         <a href="#addNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -600,9 +612,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            ngOnDestroy
-                        </b>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -639,10 +649,8 @@
                 <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            ngOnInit
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>ngOnInit</b></span>
                         <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -680,10 +688,8 @@
                 <td class="col-md-4">
                     <a name="onClick"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            onClick
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>onClick</b></span>
                         <a href="#onClick"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -721,10 +727,8 @@
                 <td class="col-md-4">
                     <a name="onDeselected"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            onDeselected
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>onDeselected</b></span>
                         <a href="#onDeselected"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -762,10 +766,8 @@
                 <td class="col-md-4">
                     <a name="onSelected"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            onSelected
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>onSelected</b></span>
                         <a href="#onSelected"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -803,10 +805,8 @@
                 <td class="col-md-4">
                     <a name="removeNode"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            removeNode
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>removeNode</b></span>
                         <a href="#removeNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -844,10 +844,8 @@
                 <td class="col-md-4">
                     <a name="syncGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            syncGraph
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>syncGraph</b></span>
                         <a href="#syncGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -885,10 +883,8 @@
                 <td class="col-md-4">
                     <a name="syncGraphNodes"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            syncGraphNodes
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>syncGraphNodes</b></span>
                         <a href="#syncGraphNodes"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -951,157 +947,197 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newObject3DInstance"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>newObject3DInstance</b></span>
+                        <a href="#newObject3DInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newObject3DInstance()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractEmptyDirective.html" target="_self" >AbstractEmptyDirective</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractEmptyDirective.html#source" target="_self" >AbstractEmptyDirective:8</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>THREE.Object3D</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_height"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_height</b></span>
+                        <a href="#_height"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_height"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _height</b>
-                            <a href="#_height"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-composition.component.ts:38</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-composition.component.ts:38</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="color"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>color</b></span>
+                        <a href="#color"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="color"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            color</b>
-                            <a href="#color"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#A0A0A0&#x27;</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>string | number</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-composition.component.ts:59</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;#A0A0A0&#x27;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-composition.component.ts:59</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dagreLayout"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>dagreLayout</b></span>
+                        <a href="#dagreLayout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="dagreLayout"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            dagreLayout</b>
-                            <a href="#dagreLayout"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../components/DagreLayoutComponent.html" target="_self" >DagreLayoutComponent</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../components/DagreLayoutComponent.html" target="_self" >DagreLayoutComponent</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-composition.component.ts:61</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-composition.component.ts:61</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphUpdated"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>graphUpdated</b></span>
+                        <a href="#graphUpdated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="graphUpdated"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            graphUpdated</b>
-                            <a href="#graphUpdated"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Subscription</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-composition.component.ts:62</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-composition.component.ts:62</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translateLabelY"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>translateLabelY</b></span>
+                        <a href="#translateLabelY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="translateLabelY"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            translateLabelY</b>
-                            <a href="#translateLabelY"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-composition.component.ts:60</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/atft/src/lib/actor/data-center/layout/dagre-composition.component.ts:60</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     <section>
@@ -1194,7 +1230,7 @@ import {Subscription} from &#x27;rxjs&#x27;;
   selector: &#x27;atft-dagre-composition&#x27;,
   providers: [provideParent(DagreCompositionComponent)],
   template: &#x60;
-    &lt;atft-plane-mesh *ngIf&#x3D;&quot;border!&#x3D;&#x27;frame&#x27;&quot; atft-raycaster-group [width]&#x3D;&quot;width&quot; [height]&#x3D;&quot;height&quot; [materialColor]&#x3D;&quot;color&quot;
+    &lt;atft-plane-mesh *ngIf&#x3D;&quot;border!&#x3D;&#x3D;&#x27;frame&#x27;&quot; atft-raycaster-group [width]&#x3D;&quot;width&quot; [height]&#x3D;&quot;height&quot; [materialColor]&#x3D;&quot;color&quot;
                      [depthWrite]&#x3D;&quot;true&quot;
                      (mouseEnter)&#x3D;&quot;onSelected()&quot;
                      (mouseExit)&#x3D;&quot;onDeselected()&quot;&gt;
@@ -1203,7 +1239,7 @@ import {Subscription} from &#x27;rxjs&#x27;;
       &lt;/atft-text-mesh&gt;
     &lt;/atft-plane-mesh&gt;
 
-    &lt;atft-frame-mesh *ngIf&#x3D;&quot;border&#x3D;&#x3D;&#x27;frame&#x27;&quot; [sizeX]&#x3D;&quot;width&quot; [sizeY]&#x3D;&quot;height&quot; [thickness]&#x3D;&quot;2&quot; [materialColor]&#x3D;&quot;color&quot;
+    &lt;atft-frame-mesh *ngIf&#x3D;&quot;border&#x3D;&#x3D;&#x3D;&#x27;frame&#x27;&quot; [sizeX]&#x3D;&quot;width&quot; [sizeY]&#x3D;&quot;height&quot; [thickness]&#x3D;&quot;2&quot; [materialColor]&#x3D;&quot;color&quot;
                      [depthWrite]&#x3D;&quot;true&quot;
                      atft-raycaster-group (mouseEnter)&#x3D;&quot;onSelected()&quot; (mouseExit)&#x3D;&quot;onDeselected()&quot;&gt;
       &lt;atft-text-mesh [centered]&#x3D;&quot;true&quot; [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;3&quot; [translateY]&#x3D;&quot;translateLabelY&quot;
@@ -1381,9 +1417,9 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><atft-plane-mesh *ngIf="border!=\'frame\'" atft-raycaster-group [width]="width" [height]="height" [materialColor]="color"                 [depthWrite]="true"                 (mouseEnter)="onSelected()"                 (mouseExit)="onDeselected()">  <atft-text-mesh [centered]="true" [text]="label" [size]="3" [translateY]="translateLabelY"                  materialColor="#E0E0E0">  </atft-text-mesh></atft-plane-mesh><atft-frame-mesh *ngIf="border==\'frame\'" [sizeX]="width" [sizeY]="height" [thickness]="2" [materialColor]="color"                 [depthWrite]="true"                 atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()">  <atft-text-mesh [centered]="true" [text]="label" [size]="3" [translateY]="translateLabelY"                  materialColor="#E0E0E0">  </atft-text-mesh></atft-frame-mesh></div>'
+        var COMPONENT_TEMPLATE = '<div><atft-plane-mesh *ngIf="border!==\'frame\'" atft-raycaster-group [width]="width" [height]="height" [materialColor]="color"                 [depthWrite]="true"                 (mouseEnter)="onSelected()"                 (mouseExit)="onDeselected()">  <atft-text-mesh [centered]="true" [text]="label" [size]="3" [translateY]="translateLabelY"                  materialColor="#E0E0E0">  </atft-text-mesh></atft-plane-mesh><atft-frame-mesh *ngIf="border===\'frame\'" [sizeX]="width" [sizeY]="height" [thickness]="2" [materialColor]="color"                 [depthWrite]="true"                 atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()">  <atft-text-mesh [centered]="true" [text]="label" [size]="3" [translateY]="translateLabelY"                  materialColor="#E0E0E0">  </atft-text-mesh></atft-frame-mesh></div>'
     var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ModelActorComponent', 'selector': 'atft-model-actor'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'StlLoaderComponent', 'selector': 'atft-stl-loader'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
-    var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
+    var DIRECTIVES = [{'name': 'AbstractCamera', 'selector': ''},{'name': 'AbstractComposeEffect', 'selector': ''},{'name': 'AbstractConnector', 'selector': ''},{'name': 'AbstractEmptyDirective', 'selector': ''},{'name': 'AbstractLazyObject3D', 'selector': ''},{'name': 'AbstractMesh', 'selector': ''},{'name': 'AbstractModelLoader', 'selector': ''},{'name': 'AbstractObject3D', 'selector': ''},{'name': 'AbstractOrbitControls', 'selector': ''},{'name': 'AbstractServerActor', 'selector': ''},{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'DagreCompositionComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -1425,9 +1461,9 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

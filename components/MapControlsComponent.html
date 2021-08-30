@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>MapControlsComponent</li>
+  <li
+  >
+  MapControlsComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,11 +65,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>AbstractOrbitControls</code>
+                <code><a href="../directives/AbstractOrbitControls.html" target="_self" >AbstractOrbitControls</a></code>
     </p>
 
     <p class="comment">
@@ -135,7 +139,17 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#animation">animation</a>
+                                <a href="#animation" >animation</a>
+                            </li>
+                            <li>
+                                <a href="#childCameras" >childCameras</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#controls" >controls</a>
+                            </li>
+                            <li>
+                                <a href="#webGlRenderer" >webGlRenderer</a>
                             </li>
                         </ul>
                     </td>
@@ -150,18 +164,25 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnChanges">ngOnChanges</a>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
                             </li>
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#reset">reset</a>
+                                <a href="#reset" >reset</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#setUpControls">setUpControls</a>
+                                <a href="#setUpControls" >setUpControls</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#configureListeners" >configureListeners</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
                             </li>
                         </ul>
                     </td>
@@ -176,43 +197,46 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#autoRotate">autoRotate</a>
+                                <a href="#autoRotate" >autoRotate</a>
                             </li>
                             <li>
-                                <a href="#autoRotateSpeed">autoRotateSpeed</a>
+                                <a href="#autoRotateSpeed" >autoRotateSpeed</a>
                             </li>
                             <li>
-                                <a href="#dampingFactor">dampingFactor</a>
+                                <a href="#dampingFactor" >dampingFactor</a>
                             </li>
                             <li>
-                                <a href="#enableDamping">enableDamping</a>
+                                <a href="#enableDamping" >enableDamping</a>
                             </li>
                             <li>
-                                <a href="#maxDistance">maxDistance</a>
+                                <a href="#maxDistance" >maxDistance</a>
                             </li>
                             <li>
-                                <a href="#maxPolarAngle">maxPolarAngle</a>
+                                <a href="#maxPolarAngle" >maxPolarAngle</a>
                             </li>
                             <li>
-                                <a href="#maxZoom">maxZoom</a>
+                                <a href="#maxZoom" >maxZoom</a>
                             </li>
                             <li>
-                                <a href="#minDistance">minDistance</a>
+                                <a href="#minDistance" >minDistance</a>
                             </li>
                             <li>
-                                <a href="#minZoom">minZoom</a>
+                                <a href="#minZoom" >minZoom</a>
                             </li>
                             <li>
-                                <a href="#panSpeed">panSpeed</a>
+                                <a href="#panSpeed" >panSpeed</a>
                             </li>
                             <li>
-                                <a href="#rotateSpeed">rotateSpeed</a>
+                                <a href="#rotateSpeed" >rotateSpeed</a>
                             </li>
                             <li>
-                                <a href="#screenSpacePanning">screenSpacePanning</a>
+                                <a href="#screenSpacePanning" >screenSpacePanning</a>
                             </li>
                             <li>
-                                <a href="#zoomSpeed">zoomSpeed</a>
+                                <a href="#zoomSpeed" >zoomSpeed</a>
+                            </li>
+                            <li>
+                                <a href="#listeningControlElement" >listeningControlElement</a>
                             </li>
                         </ul>
                     </td>
@@ -231,7 +255,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, raycasterService: <a href="../injectables/RaycasterService.html">RaycasterService</a>, animationService: <a href="../injectables/AnimationService.html">AnimationService</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html" target="_self">RendererService</a>, raycasterService: <a href="../injectables/RaycasterService.html" target="_self">RaycasterService</a>, animationService: <a href="../injectables/AnimationService.html" target="_self">AnimationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -310,6 +334,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
@@ -326,6 +356,12 @@
                     <td class="col-md-4">
                         <a name="autoRotateSpeed"></a>
                         <b>autoRotateSpeed</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -350,6 +386,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>0.1</code>
                     </td>
                 </tr>
@@ -370,6 +412,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
@@ -386,6 +434,12 @@
                     <td class="col-md-4">
                         <a name="maxDistance"></a>
                         <b>maxDistance</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -436,6 +490,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>Infinity</code>
                     </td>
                 </tr>
@@ -452,6 +512,12 @@
                     <td class="col-md-4">
                         <a name="minDistance"></a>
                         <b>minDistance</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -476,6 +542,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>0</code>
                     </td>
                 </tr>
@@ -492,6 +564,12 @@
                     <td class="col-md-4">
                         <a name="panSpeed"></a>
                         <b>panSpeed</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -516,6 +594,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>1.0</code>
                     </td>
                 </tr>
@@ -532,6 +616,12 @@
                     <td class="col-md-4">
                         <a name="screenSpacePanning"></a>
                         <b>screenSpacePanning</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -556,6 +646,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>1.2</code>
                     </td>
                 </tr>
@@ -564,6 +660,42 @@
                                     <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/atft/src/lib/control/map-controls.component.ts:18</a></div>
                             </td>
                         </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listeningControlElement"></a>
+                        <b>listeningControlElement</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractOrbitControls.html" target="_self" >AbstractOrbitControls</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/AbstractOrbitControls.html#source" target="_self" >AbstractOrbitControls:22</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The element on whose native element the orbit control will listen for mouse events.</p>
+<p>Note that keyboard events are still listened for on the global window object, this is
+a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10315">https://github.com/mrdoob/three.js/pull/10315</a></p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -581,9 +713,7 @@
                 <td class="col-md-4">
                     <a name="ngOnChanges"></a>
                     <span class="name">
-                        <b>
-                            ngOnChanges
-                        </b>
+                        <span ><b>ngOnChanges</b></span>
                         <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -597,8 +727,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">projects/atft/src/lib/control/map-controls.component.ts:41</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractOrbitControls.html" target="_self" >AbstractOrbitControls</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractOrbitControls.html#source" target="_self" >AbstractOrbitControls:41</a></code>
+</div>
                 </td>
             </tr>
 
@@ -651,9 +787,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            ngOnDestroy
-                        </b>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -667,8 +801,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="96"
-                            class="link-to-prism">projects/atft/src/lib/control/map-controls.component.ts:96</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractOrbitControls.html" target="_self" >AbstractOrbitControls</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractOrbitControls.html#source" target="_self" >AbstractOrbitControls:96</a></code>
+</div>
                 </td>
             </tr>
 
@@ -690,10 +830,8 @@
                 <td class="col-md-4">
                     <a name="reset"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            reset
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>reset</b></span>
                         <a href="#reset"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -731,10 +869,8 @@
                 <td class="col-md-4">
                     <a name="setUpControls"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            setUpControls
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>setUpControls</b></span>
                         <a href="#setUpControls"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -749,8 +885,102 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">projects/atft/src/lib/control/map-controls.component.ts:56</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractOrbitControls.html" target="_self" >AbstractOrbitControls</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractOrbitControls.html#source" target="_self" >AbstractOrbitControls:56</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configureListeners"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>configureListeners</b></span>
+                        <a href="#configureListeners"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>configureListeners()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractOrbitControls.html" target="_self" >AbstractOrbitControls</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractOrbitControls.html#source" target="_self" >AbstractOrbitControls:58</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractOrbitControls.html" target="_self" >AbstractOrbitControls</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractOrbitControls.html#source" target="_self" >AbstractOrbitControls:74</a></code>
+</div>
                 </td>
             </tr>
 
@@ -769,37 +999,154 @@
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="animation"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>animation</b></span>
+                        <a href="#animation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="animation"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            animation</b>
-                            <a href="#animation"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Subscription</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/atft/src/lib/control/map-controls.component.ts:31</a></div>
                         </td>
                     </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="childCameras"></a>
+                    <span class="name">
+                        <span ><b>childCameras</b></span>
+                        <a href="#childCameras"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../directives/AbstractCamera.html" target="_self" >QueryList&lt;AbstractCamera&lt;THREE.Camera&gt;&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ContentChildren(AbstractCamera, {descendants: true})<br />
+                        </code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/atft/src/lib/control/map-controls.component.ts:31</a></div>
+                                <div class="io-line">Inherited from         <code><a href="../directives/AbstractOrbitControls.html" target="_self" >AbstractOrbitControls</a></code>
+</div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/AbstractOrbitControls.html#source" target="_self" >AbstractOrbitControls:13</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controls"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>controls</b></span>
+                        <a href="#controls"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>T</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/AbstractOrbitControls.html" target="_self" >AbstractOrbitControls</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/AbstractOrbitControls.html#source" target="_self" >AbstractOrbitControls:24</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="webGlRenderer"></a>
+                    <span class="name">
+                        <span ><b>webGlRenderer</b></span>
+                        <a href="#webGlRenderer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/RendererCanvasComponent.html" target="_self" >RendererCanvasComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ContentChild(RendererCanvasComponent, {static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/AbstractOrbitControls.html" target="_self" >AbstractOrbitControls</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/AbstractOrbitControls.html#source" target="_self" >AbstractOrbitControls:14</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -954,7 +1301,7 @@ export class MapControlsComponent extends AbstractOrbitControls&lt;OrbitControls
 <script>
         var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
     var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ModelActorComponent', 'selector': 'atft-model-actor'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'StlLoaderComponent', 'selector': 'atft-stl-loader'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
-    var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
+    var DIRECTIVES = [{'name': 'AbstractCamera', 'selector': ''},{'name': 'AbstractComposeEffect', 'selector': ''},{'name': 'AbstractConnector', 'selector': ''},{'name': 'AbstractEmptyDirective', 'selector': ''},{'name': 'AbstractLazyObject3D', 'selector': ''},{'name': 'AbstractMesh', 'selector': ''},{'name': 'AbstractModelLoader', 'selector': ''},{'name': 'AbstractObject3D', 'selector': ''},{'name': 'AbstractOrbitControls', 'selector': ''},{'name': 'AbstractServerActor', 'selector': ''},{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'MapControlsComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -996,9 +1343,9 @@ export class MapControlsComponent extends AbstractOrbitControls&lt;OrbitControls
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>GraphModel</li>
+  <li
+  >
+  GraphModel</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,6 +69,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -80,19 +84,31 @@
                             <ul class="index-list">
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#compositions">compositions</a>
+                                        <a href="#compositions" 
+>
+                                            compositions
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#edges">edges</a>
+                                        <a href="#edges" 
+>
+                                            edges
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#layout">layout</a>
+                                        <a href="#layout" 
+>
+                                            layout
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#nodes">nodes</a>
+                                        <a href="#nodes" 
+>
+                                            nodes
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -110,7 +126,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="compositions"></a>
-                                        <span class="name"><b>compositions</b><a href="#compositions"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>compositions</b>
+                                            <a href="#compositions">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -144,7 +164,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="edges"></a>
-                                        <span class="name"><b>edges</b><a href="#edges"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>edges</b>
+                                            <a href="#edges">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -178,7 +202,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="layout"></a>
-                                        <span class="name"><b>layout</b><a href="#layout"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>layout</b>
+                                            <a href="#layout">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -212,7 +240,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="nodes"></a>
-                                        <span class="name"><b>nodes</b><a href="#nodes"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>nodes</b>
+                                            <a href="#nodes">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -310,9 +342,9 @@ export interface GraphModel {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

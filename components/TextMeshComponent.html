@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>TextMeshComponent</li>
+  <li
+  >
+  TextMeshComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,11 +62,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>AbstractLazyObject3D</code>
+                <code><a href="../directives/AbstractLazyObject3D.html" target="_self" >AbstractLazyObject3D</a></code>
     </p>
 
 
@@ -127,15 +131,23 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_materialColor">_materialColor</a>
+                                <a href="#_materialColor" >_materialColor</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_text">_text</a>
+                                <a href="#_text" >_text</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#fontCache">fontCache</a>
+                                <a href="#fontCache" >fontCache</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#lazyObject" >lazyObject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#parentInitialized" >parentInitialized</a>
                             </li>
                         </ul>
                     </td>
@@ -151,16 +163,31 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#getMaterial">getMaterial</a>
+                                <a href="#getMaterial" >getMaterial</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#getTextMesh">getTextMesh</a>
+                                <a href="#getTextMesh" >getTextMesh</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
                                     <span class="modifier">Async</span>
-                                <a href="#loadLazyObject">loadLazyObject</a>
+                                <a href="#loadLazyObject" >loadLazyObject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#afterInit" >afterInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#newObject3DInstance" >newObject3DInstance</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#startLoading" >startLoading</a>
                             </li>
                         </ul>
                     </td>
@@ -175,52 +202,52 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#bevelEnabled">bevelEnabled</a>
+                                <a href="#bevelEnabled" >bevelEnabled</a>
                             </li>
                             <li>
-                                <a href="#bevelOffset">bevelOffset</a>
+                                <a href="#bevelOffset" >bevelOffset</a>
                             </li>
                             <li>
-                                <a href="#bevelSegments">bevelSegments</a>
+                                <a href="#bevelSegments" >bevelSegments</a>
                             </li>
                             <li>
-                                <a href="#bevelSize">bevelSize</a>
+                                <a href="#bevelSize" >bevelSize</a>
                             </li>
                             <li>
-                                <a href="#bevelThickness">bevelThickness</a>
+                                <a href="#bevelThickness" >bevelThickness</a>
                             </li>
                             <li>
-                                <a href="#castShadow">castShadow</a>
+                                <a href="#castShadow" >castShadow</a>
                             </li>
                             <li>
-                                <a href="#centered">centered</a>
+                                <a href="#centered" >centered</a>
                             </li>
                             <li>
-                                <a href="#curveSegments">curveSegments</a>
+                                <a href="#curveSegments" >curveSegments</a>
                             </li>
                             <li>
-                                <a href="#depthWrite">depthWrite</a>
+                                <a href="#depthWrite" >depthWrite</a>
                             </li>
                             <li>
-                                <a href="#fontUrl">fontUrl</a>
+                                <a href="#fontUrl" >fontUrl</a>
                             </li>
                             <li>
-                                <a href="#height">height</a>
+                                <a href="#height" >height</a>
                             </li>
                             <li>
-                                <a href="#material">material</a>
+                                <a href="#material" >material</a>
                             </li>
                             <li>
-                                <a href="#materialColor">materialColor</a>
+                                <a href="#materialColor" >materialColor</a>
                             </li>
                             <li>
-                                <a href="#receiveShadow">receiveShadow</a>
+                                <a href="#receiveShadow" >receiveShadow</a>
                             </li>
                             <li>
-                                <a href="#size">size</a>
+                                <a href="#size" >size</a>
                             </li>
                             <li>
-                                <a href="#text">text</a>
+                                <a href="#text" >text</a>
                             </li>
                         </ul>
                     </td>
@@ -238,10 +265,10 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#materialColor">materialColor</a>
+                                    <a href="#materialColor" >materialColor</a>
                                 </li>
                                 <li>
-                                    <a href="#text">text</a>
+                                    <a href="#text" >text</a>
                                 </li>
                             </ul>
                         </td>
@@ -256,7 +283,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rendererService: <a href="../injectables/RendererService.html">RendererService</a>, parent: AbstractObject3D<any>, font: <a href="../injectables/FontService.html">FontService</a>)</code>
+<code>constructor(rendererService: <a href="../injectables/RendererService.html" target="_self">RendererService</a>, parent: <a href="../directives/AbstractObject3D.html" target="_self">AbstractObject3D&lt;any&gt;</a>, font: <a href="../injectables/FontService.html" target="_self">FontService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -294,7 +321,7 @@
                                                         <td>parent</td>
                                                   
                                                         <td>
-                                                                    <code>AbstractObject3D&lt;any&gt;</code>
+                                                                        <code><a href="../directives/AbstractObject3D.html" target="_self" >AbstractObject3D&lt;any&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -335,6 +362,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
@@ -351,6 +384,12 @@
                     <td class="col-md-4">
                         <a name="bevelOffset"></a>
                         <b>bevelOffset</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -375,6 +414,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>1</code>
                     </td>
                 </tr>
@@ -391,6 +436,12 @@
                     <td class="col-md-4">
                         <a name="bevelSize"></a>
                         <b>bevelSize</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -415,6 +466,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>0.1</code>
                     </td>
                 </tr>
@@ -431,6 +488,12 @@
                     <td class="col-md-4">
                         <a name="castShadow"></a>
                         <b>castShadow</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -455,6 +518,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
@@ -471,6 +540,12 @@
                     <td class="col-md-4">
                         <a name="curveSegments"></a>
                         <b>curveSegments</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -495,6 +570,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
@@ -511,6 +592,12 @@
                     <td class="col-md-4">
                         <a name="fontUrl"></a>
                         <b>fontUrl</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -535,6 +622,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>0.3</code>
                     </td>
                 </tr>
@@ -551,6 +644,12 @@
                     <td class="col-md-4">
                         <a name="material"></a>
                         <b>material</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -590,6 +689,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
@@ -606,6 +711,12 @@
                     <td class="col-md-4">
                         <a name="size"></a>
                         <b>size</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -656,10 +767,8 @@
                 <td class="col-md-4">
                     <a name="getMaterial"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            getMaterial
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>getMaterial</b></span>
                         <a href="#getMaterial"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -697,10 +806,8 @@
                 <td class="col-md-4">
                     <a name="getTextMesh"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            getTextMesh
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>getTextMesh</b></span>
                         <a href="#getTextMesh"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -769,11 +876,9 @@
                 <td class="col-md-4">
                     <a name="loadLazyObject"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            <span class="modifier">Async</span>
-                            loadLazyObject
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>loadLazyObject</b></span>
                         <a href="#loadLazyObject"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -788,8 +893,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">projects/atft/src/lib/object/text/text-mesh.component.ts:102</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractLazyObject3D.html" target="_self" >AbstractLazyObject3D</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractLazyObject3D.html#source" target="_self" >AbstractLazyObject3D:102</a></code>
+</div>
                 </td>
             </tr>
 
@@ -805,106 +916,364 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="afterInit"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>afterInit</b></span>
+                        <a href="#afterInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>afterInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractLazyObject3D.html" target="_self" >AbstractLazyObject3D</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractLazyObject3D.html#source" target="_self" >AbstractLazyObject3D:33</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newObject3DInstance"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>newObject3DInstance</b></span>
+                        <a href="#newObject3DInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newObject3DInstance()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractLazyObject3D.html" target="_self" >AbstractLazyObject3D</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractLazyObject3D.html#source" target="_self" >AbstractLazyObject3D:68</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>THREE.Object3D</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractLazyObject3D.html" target="_self" >AbstractLazyObject3D</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractLazyObject3D.html#source" target="_self" >AbstractLazyObject3D:62</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startLoading"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>startLoading</b></span>
+                        <a href="#startLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>startLoading()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/AbstractLazyObject3D.html" target="_self" >AbstractLazyObject3D</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/AbstractLazyObject3D.html#source" target="_self" >AbstractLazyObject3D:39</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_materialColor"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_materialColor</b></span>
+                        <a href="#_materialColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_materialColor"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _materialColor</b>
-                            <a href="#_materialColor"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>string | number</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#DADADA&#x27;</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>string | number</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/atft/src/lib/object/text/text-mesh.component.ts:20</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;#DADADA&#x27;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/atft/src/lib/object/text/text-mesh.component.ts:20</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_text"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_text</b></span>
+                        <a href="#_text"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_text"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _text</b>
-                            <a href="#_text"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Text&#x27;</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/atft/src/lib/object/text/text-mesh.component.ts:34</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;Text&#x27;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/atft/src/lib/object/text/text-mesh.component.ts:34</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fontCache"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>fontCache</b></span>
+                        <a href="#fontCache"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="fontCache"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            fontCache</b>
-                            <a href="#fontCache"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>THREE.Font</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>THREE.Font</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">projects/atft/src/lib/object/text/text-mesh.component.ts:88</a></div>
                         </td>
                     </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lazyObject"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>lazyObject</b></span>
+                        <a href="#lazyObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>THREE.Object3D | undefined</code>
+
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">projects/atft/src/lib/object/text/text-mesh.component.ts:88</a></div>
+                                <div class="io-line">Inherited from         <code><a href="../directives/AbstractLazyObject3D.html" target="_self" >AbstractLazyObject3D</a></code>
+</div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/AbstractLazyObject3D.html#source" target="_self" >AbstractLazyObject3D:24</a></code>
+</div>
+                        </td>
+                    </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This is reference to lazy loaded Object3D (async after init)</p>
+</div>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parentInitialized"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>parentInitialized</b></span>
+                        <a href="#parentInitialized"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/AbstractLazyObject3D.html" target="_self" >AbstractLazyObject3D</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/AbstractLazyObject3D.html#source" target="_self" >AbstractLazyObject3D:19</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag to signal whether the parentScene class instance AbstractObject3D called the
+overwritten method <a href="../directives/AbstractModelLoader.html#afterInit">AbstractModelLoader</a> yet.</p>
+<p>Unless that method was called, no methods and properties of <a href="../directives/AbstractObject3D.html">AbstractObject3D</a>
+may be safely accessed, especially <a href="../directives/AbstractObject3D.html#addChild">AbstractObject3D</a> and
+<a href="AbstractObject3D.renderer">AbstractObject3D.renderer</a>.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
 </section>
 
     <section>
@@ -933,7 +1302,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>materialColor(materialColor)</code></span>
+                        <span class="accessor"><b>set</b><code>materialColor(materialColor: string | number)</code></span>
                     </td>
                 </tr>
                             <tr>
@@ -950,6 +1319,7 @@
                                             <thead>
                                                 <tr>
                                                     <td>Name</td>
+                                                        <td>Type</td>
                                                     <td>Optional</td>
                                                 </tr>
                                             </thead>
@@ -957,6 +1327,9 @@
                                                     <tr>
                                                             <td>materialColor</td>
                                                     
+                                                            <td>
+                                                                        <code>string | number</code>
+                                                            </td>
                                                     
                                                         <td>
                                                                 No
@@ -1223,7 +1596,7 @@ export class TextMeshComponent extends AbstractLazyObject3D {
 <script>
         var COMPONENT_TEMPLATE = '<div><ng-content></ng-content></div>'
     var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ModelActorComponent', 'selector': 'atft-model-actor'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'StlLoaderComponent', 'selector': 'atft-stl-loader'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
-    var DIRECTIVES = [{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
+    var DIRECTIVES = [{'name': 'AbstractCamera', 'selector': ''},{'name': 'AbstractComposeEffect', 'selector': ''},{'name': 'AbstractConnector', 'selector': ''},{'name': 'AbstractEmptyDirective', 'selector': ''},{'name': 'AbstractLazyObject3D', 'selector': ''},{'name': 'AbstractMesh', 'selector': ''},{'name': 'AbstractModelLoader', 'selector': ''},{'name': 'AbstractObject3D', 'selector': ''},{'name': 'AbstractOrbitControls', 'selector': ''},{'name': 'AbstractServerActor', 'selector': ''},{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'TextMeshComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -1265,9 +1638,9 @@ export class TextMeshComponent extends AbstractLazyObject3D {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

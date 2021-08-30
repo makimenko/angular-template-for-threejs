@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>ObjLoaderService</li>
+  <li >ObjLoaderService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,6 +59,7 @@
         <p class="comment">
             <code>projects/atft/src/lib/object/loader/services/obj-loader.service.ts</code>
         </p>
+
 
 
             <p class="comment">
@@ -82,11 +84,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#loader">loader</a>
+                                <a href="#loader" >loader</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#cache">cache</a>
+                                <a href="#cache" >cache</a>
                             </li>
                         </ul>
                     </td>
@@ -102,21 +104,16 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#getValue">getValue</a>
+                                <a href="#getValue" >getValue</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#setMaterials">setMaterials</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                    <span class="modifier">Abstract</span>
-                                <a href="#getValue">getValue</a>
+                                <a href="#setMaterials" >setMaterials</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#load">load</a>
+                                <a href="#load" >load</a>
                             </li>
                         </ul>
                     </td>
@@ -142,10 +139,8 @@
                 <td class="col-md-4">
                     <a name="getValue"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            getValue
-                        </b>
+                        <span class="modifier">Protected</span>
+                        <span ><b>getValue</b></span>
                         <a href="#getValue"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -160,8 +155,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">projects/atft/src/lib/object/loader/services/obj-loader.service.ts:13</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../classes/AbstractCacheService.html" target="_self" >AbstractCacheService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/AbstractCacheService.html#source" target="_self" >AbstractCacheService:13</a></code>
+</div>
                 </td>
             </tr>
 
@@ -214,10 +215,8 @@
                 <td class="col-md-4">
                     <a name="setMaterials"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            setMaterials
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>setMaterials</b></span>
                         <a href="#setMaterials"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -284,92 +283,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getValue"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Protected</span>
-                            <span class="modifier">Abstract</span>
-                            getValue
-                        </b>
-                        <a href="#getValue"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getValue(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/AbstractCacheService.html" target="_self" >AbstractCacheService</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/AbstractCacheService.html#source" target="_self" >AbstractCacheService:18</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>key</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;V&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="load"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            <span class="modifier">Async</span>
-                            load
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>load</b></span>
                         <a href="#load"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -441,70 +359,68 @@
 </section>
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="loader"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            loader</b>
-                            <a href="#loader"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new OBJLoader()</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new OBJLoader()</code>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/atft/src/lib/object/loader/services/obj-loader.service.ts:11</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/atft/src/lib/object/loader/services/obj-loader.service.ts:11</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cache"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>cache</b></span>
+                        <a href="#cache"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="cache"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            cache</b>
-                            <a href="#cache"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new Map&lt;string, Promise&lt;V&gt;&gt;()</code>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new Map&lt;string, Promise&lt;V&gt;&gt;()</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../classes/AbstractCacheService.html" target="_self" >AbstractCacheService</a></code>
-</div>
-                                </td>
-                            </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/AbstractCacheService.html#source" target="_self" >AbstractCacheService:3</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/AbstractCacheService.html" target="_self" >AbstractCacheService</a></code>
 </div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/AbstractCacheService.html#source" target="_self" >AbstractCacheService:3</a></code>
+</div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -576,9 +492,9 @@ export class ObjLoaderService extends AbstractCacheService&lt;THREE.Object3D&gt;
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
