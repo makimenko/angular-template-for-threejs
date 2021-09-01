@@ -45,8 +45,11 @@ Click below to see the demo in a web browser:<br>
 ## Usage in your Angular project
 
 1. Set up an Angular project and install dependencies:  
-   `npm i three dagre atft --save`
-2. Import library into your module:
+   ```
+   npm i three dagre atft --save
+   npm i @types/dagre @types/three --save-dev
+   ```
+3. Import library into your module:
    ```typescript
    import { AtftModule } from 'atft';
    ...
@@ -56,7 +59,7 @@ Click below to see the demo in a web browser:<br>
      ]
     ...
    ```
-3. Use atft library components in `src/app.component.html`:
+4. Use atft library components in `src/app.component.html`:
     ```html
     <atft-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2>
       <atft-renderer-canvas #mainRenderer>
@@ -71,7 +74,7 @@ Click below to see the demo in a web browser:<br>
       </atft-renderer-canvas>
     </atft-orbit-controls>
     ```
-4. (optionally) if you want to fit 3D scene canvas into entire screen (horizontally and vertically):
+5. (optionally) if you want to fit 3D scene canvas into entire screen (horizontally and vertically):
 
    in `src/styles.css`:
    ```css
