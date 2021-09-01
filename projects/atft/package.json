@@ -33,7 +33,11 @@
       "url": "https://github.com/ComFreek"
     }
   ],
-  "peerDependencies": {},
+  "peerDependencies": {
+    "@angular/common": "^12.2.2",
+    "@angular/core": "^12.2.2",
+    "three": "^0.131.3"
+  },
   "dependencies": {
     "tslib": "^2.3.0"
   },
