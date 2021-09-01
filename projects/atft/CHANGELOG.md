@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/makimenko/angular-template-for-threejs/compare/v1.5.0...v1.5.1) (2021-09-01)
+
+
+### Bug Fixes
+
+* Add peer dependencies ([5b2c01e](https://github.com/makimenko/angular-template-for-threejs/commit/5b2c01ed4fb05b175c2b2c21ed2effb9d6255662))
+
 ## [1.5.0](https://github.com/makimenko/angular-template-for-threejs/compare/v1.4.23...v1.5.0) (2021-08-30)
 
 
