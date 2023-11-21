@@ -117,6 +117,11 @@
             "browserTarget": "angular-template-for-threejs:build",
             "compodoc": false,
             "outputDir": "dist/storybook/angular-template-for-threejs"
+          },
+          "configurations": {
+            "production": {
+              "outputDir": "./dist/gh-pages-deploy/storybook"
+            }
           }
         },
         "lint": {
