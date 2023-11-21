@@ -1,24 +1,11 @@
 {
-  "extends": "../src/tsconfig.app.json",
+  "extends": "../tsconfig.app.json",
   "compilerOptions": {
-    "types": [
-      "node",
-      "webgl2"
-    ],
-    "typeRoots": [
-      "../src/typings.d.ts"
-    ]
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
   },
-  "exclude": [
-    "../src/test.ts",
-    "../src/**/*.spec.ts",
-    "../projects/**/*.spec.ts"
-  ],
-  "include": [
-    "../src/**/*",
-    "../projects/**/*"
-  ],
-  "files": [
-    "../src/typings.d.ts"
-  ]
+  "exclude": ["../src/test.ts", "../src/**/*.spec.ts"],
+  "include": ["../src/**/*", "./preview.ts"],
+  "files": ["./typings.d.ts"]
 }

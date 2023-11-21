@@ -6,7 +6,11 @@ export abstract class AbstractCacheService<V> {
     const cacheHit = this.cache.get(key);
     if (await cacheHit) {
       // console.log('AbstractCacheService.cacheHit', key);
-      return cacheHit;
+      if (cacheHit) {
+        return cacheHit;
+      } else {
+        return Promise.reject("Failed to get value from cache")
+      }
     } else {
       // console.log('AbstractCacheService.cacheMiss', key);
       const cacheMiss = this.getValue(key);

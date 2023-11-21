@@ -56,7 +56,7 @@ export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
     });
   }
 
-  private onMouseEnter(event) {
+  private onMouseEnter(event : any) {
     // console.log('RaycasterGroupDirective.onMouseEnter', event);
     this.mouseEnter.emit({
       component: this.host,
@@ -64,7 +64,7 @@ export class RaycasterGroupDirective implements AfterViewInit, OnDestroy {
     });
   }
 
-  private onClick(event) {
+  private onClick(event : any) {
     // console.log('onClick', event);
     this.click.emit({
       component: this.host,

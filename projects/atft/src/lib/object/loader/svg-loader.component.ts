@@ -15,11 +15,11 @@ import * as THREE from 'three';
 export class SVGLoaderComponent extends AbstractModelLoader {
 
   @Input()
-  get overrideMaterialColor(): string {
+  get overrideMaterialColor(): string | undefined {
     return this._overrideMaterialColor;
   }
 
-  set overrideMaterialColor(value: string) {
+  set overrideMaterialColor(value: string | undefined) {
     this._overrideMaterialColor = value;
     if (this.object) {
       this.startLoading();
@@ -41,7 +41,7 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   get icon(): string {
     return this.model;
   }
-  private _overrideMaterialColor: string = undefined;
+  private _overrideMaterialColor: string | undefined = undefined;
 
 
   @Input()
@@ -51,10 +51,10 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   depthWrite = true;
 
   @Input()
-  maxX: number;
+  maxX!: number;
 
   @Input()
-  maxY: number;
+  maxY!: number;
 
   @Input()
   centered = true;
@@ -66,8 +66,8 @@ export class SVGLoaderComponent extends AbstractModelLoader {
   noHoles = false;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
     protected svgLoader: SvgLoaderService,
     protected iconService: IconService
   ) {
@@ -83,10 +83,10 @@ export class SVGLoaderComponent extends AbstractModelLoader {
     for (const path of paths) {
       const color = (this._overrideMaterialColor ? this._overrideMaterialColor : path.color);
       const material = appliedMaterial(color, this.material, this.depthWrite);
-      const shapes: THREE.Shape[] = path.toShapes(this.isCCW, this.noHoles);
+      const shapes: THREE.Shape[] = path.toShapes(this.isCCW/*, this.noHoles*/);
 
       for (const shape of shapes) {
-        const geometry = new THREE.ShapeBufferGeometry(shape);
+        const geometry = new THREE.ShapeGeometry(shape);
         const mesh = new THREE.Mesh(geometry, material);
         group.add(mesh);
       }

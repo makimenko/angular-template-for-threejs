@@ -20,7 +20,8 @@ import {RaycasterEmitEvent} from '../../../raycaster';
 })
 export class GridActorComponent extends AbstractEmptyDirective {
 
-  @ViewChild('grid', {static: true}) grid: GridMeshComponent;
+  @ViewChild('grid', {static: true})
+  grid!: GridMeshComponent;
 
   @Input() size = 5;
   @Input() iterationsX = 20;
@@ -34,8 +35,6 @@ export class GridActorComponent extends AbstractEmptyDirective {
 
 
   color: string | number = '#A0A0A0';
-
-  translateLabelX: number;
 
   public onMouseEnter(event: RaycasterEmitEvent) {
     // console.log('selected', event);
@@ -54,7 +53,7 @@ export class GridActorComponent extends AbstractEmptyDirective {
     }
   }
 
-  protected getLinePosition(event: RaycasterEmitEvent): THREE.BufferAttribute {
+  protected getLinePosition(event: RaycasterEmitEvent): THREE.BufferAttribute | null {
     if (event.face) {
       // console.log('Finding coordinates for face', event.face);
 
@@ -66,7 +65,7 @@ export class GridActorComponent extends AbstractEmptyDirective {
       geometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(4 * 3), 3));
       const line = new THREE.Line(geometry, new THREE.LineBasicMaterial({color: 0xffffff, transparent: true}));
 
-      const linePosition: any = line.geometry.attributes.position;
+      const linePosition: any = line.geometry.attributes['position'];
 
       // console.log('Looking geometry positions', meshPosition);
       linePosition.copyAt(0, meshPosition, event.face.a);

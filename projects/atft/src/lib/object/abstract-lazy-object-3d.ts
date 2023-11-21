@@ -30,7 +30,7 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
    */
   protected abstract loadLazyObject(): Promise<THREE.Object3D>;
 
-  protected afterInit() {
+  protected override afterInit() {
     super.afterInit();
     this.parentInitialized = true;
     this.startLoading();
@@ -59,7 +59,7 @@ export abstract class AbstractLazyObject3D extends AbstractObject3D<THREE.Object
     });
   }
 
-  ngOnDestroy(): void {
+  override ngOnDestroy(): void {
     if (this.lazyObject) {
       super.getObject().remove(this.lazyObject);
     }

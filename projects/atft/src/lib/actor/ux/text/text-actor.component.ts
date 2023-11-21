@@ -17,7 +17,7 @@ import {Subscription} from 'rxjs';
 export class TextActorComponent extends EmptyComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   @Input()
-  text: string;
+  text!: string;
 
   @Input()
   animate = false;
@@ -33,22 +33,22 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
 
   subscribed = false;
 
-  private currentDelay: number;
-  public currentText: string;
+  private currentDelay!: number;
+  public currentText!: string;
   private currentPos = 0;
   private maxPos = 0;
   private i = 0;
-  protected animation: Subscription;
+  protected animation!: Subscription;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
     protected animationService: AnimationService
   ) {
     super(rendererService, parent);
   }
 
-  public ngAfterViewInit() {
+  public override ngAfterViewInit() {
     super.ngAfterViewInit();
     // console.log('TextActorComponent.ngAfterViewInit');
     this.updateText();
@@ -77,7 +77,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
     }
   }
 
-  public ngOnDestroy() {
+  public override ngOnDestroy() {
     // console.log('TextActorComponent.ngOnDestroy');
     super.ngOnDestroy();
     this.done();
@@ -116,7 +116,7 @@ export class TextActorComponent extends EmptyComponent implements AfterViewInit,
   }
 
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public override ngOnChanges(changes: SimpleChanges) {
     // console.log('AbstractObject3D.ngOnChanges', this.name);
     if (!this.object) {
       return;

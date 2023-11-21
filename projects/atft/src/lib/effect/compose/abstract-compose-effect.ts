@@ -51,7 +51,7 @@ export abstract class AbstractComposeEffect<T extends Pass> implements AfterView
     }
   }
 
-  abstract initPasses();
+  abstract initPasses() : void;
 
   abstract applyChanges(changes: SimpleChanges): boolean;
 

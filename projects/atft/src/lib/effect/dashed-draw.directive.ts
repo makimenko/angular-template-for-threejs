@@ -9,14 +9,14 @@ export class DashedDrawDirective implements AfterViewInit, OnDestroy {
 
   @Input() dashColor: string | number = '#FF0000';
   @Input() dashIncrement = 10;
-  @Input() initialOpacity;
-  @Input() targetOpacity;
+  @Input() initialOpacity! : number;
+  @Input() targetOpacity! : number;
   @Input() hideDash = false; // hide dash lines at the end of animation
 
   private edges: any;
-  private material: THREE.Material;
+  private material!: THREE.Material;
   private stop = false;
-  protected animation: Subscription;
+  protected animation!: Subscription;
 
   constructor(
     private host: AbstractObject3D<any>,
@@ -48,12 +48,14 @@ export class DashedDrawDirective implements AfterViewInit, OnDestroy {
         this.edges.material.gapSize = this.edges.geometry.attributes
           .lineDistance.array[this.edges.geometry.attributes.lineDistance.count - 1];
         this.material = findMesh.material as THREE.Material;
-        // console.log('DashedDrawDirective.tryToFindGeometry original material', this.material);
+        console.log('DashedDrawDirective.tryToFindGeometry original material', this.material);
 
         if (this.initialOpacity >= 0.0) {
           // console.log('initialOpacity', this.initialOpacity);
           if (!this.material.transparent) {
             this.material.transparent = true;
+            this.material.depthWrite = true;
+            this.material.needsUpdate = true;
           }
           this.material.opacity = this.initialOpacity;
         }

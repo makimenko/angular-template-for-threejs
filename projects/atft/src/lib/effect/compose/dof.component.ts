@@ -15,8 +15,8 @@ export class DofComponent extends AbstractComposeEffect<BokehPass> {
   @Input() maxblur = 0.01;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected composer: EffectComposerComponent
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override composer: EffectComposerComponent
   ) {
     super(rendererService, composer);
   }
@@ -27,18 +27,21 @@ export class DofComponent extends AbstractComposeEffect<BokehPass> {
     if (this.pass[0]) {
       if (['focus'].some(propName => propName in changes)) {
         // console.log('change focus', this.focus);
+        // @ts-ignore
         this.pass[0].uniforms['focus'].value = this.focus;
         modified = true;
       }
 
       if (['aperture'].some(propName => propName in changes)) {
         // console.log('change aperture', this.aperture);
+        // @ts-ignore
         this.pass[0].uniforms['aperture'].value = this.aperture;
         modified = true;
       }
 
       if (['maxblur'].some(propName => propName in changes)) {
         // console.log('change maxblur');
+        // @ts-ignore
         this.pass[0].uniforms['maxblur'].value = this.maxblur;
         modified = true;
       }
@@ -52,8 +55,7 @@ export class DofComponent extends AbstractComposeEffect<BokehPass> {
         focus: this.focus,
         aperture: this.aperture,
         maxblur: this.maxblur,
-        width: window.innerWidth,
-        height: window.innerHeight
+        aspect :  window.innerWidth / window.innerHeight
       })
     );
   }

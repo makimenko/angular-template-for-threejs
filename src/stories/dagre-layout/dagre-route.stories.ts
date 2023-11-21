@@ -1,5 +1,5 @@
 import {Component, NgModule, Optional, SkipSelf} from '@angular/core';
-import {moduleMetadata} from '@storybook/angular';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
@@ -9,8 +9,7 @@ import {provideParent} from '../../../projects/atft/src/lib/util';
 import {AbstractObject3D, EmptyComponent} from '../../../projects/atft/src/lib/object';
 import {RendererService} from '../../../projects/atft/src/lib/renderer';
 import {Router, RouterModule, Routes} from '@angular/router';
-import {BrowserModule} from '@angular/platform-browser';
-import {APP_BASE_HREF} from '@angular/common';
+import {APP_BASE_HREF, CommonModule} from '@angular/common';
 
 
 // ======================================================================
@@ -67,8 +66,8 @@ class StorybookRouterMainComponent {
 class SpaDetailsPageComponent extends EmptyComponent {
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
     console.log('SpaDetailsPageComponent.constructor', parent);
@@ -94,8 +93,8 @@ class SpaDetailsPageComponent extends EmptyComponent {
 class ApiDetailsPageComponent extends EmptyComponent {
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
     console.log('ApiDetailsPageComponent.constructor', parent);
@@ -114,8 +113,8 @@ class ApiDetailsPageComponent extends EmptyComponent {
 class NoDetailsPageComponent extends EmptyComponent {
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
     console.log('NoDetailsPageComponent.constructor', parent);
@@ -125,15 +124,16 @@ class NoDetailsPageComponent extends EmptyComponent {
 
 // ======================================================================
 const routes: Routes = [
-  {path: '', redirectTo: '/noDetails', pathMatch: 'full'}, // redirect to `first-component`
+  {path: '', redirectTo: '/spaDetails', pathMatch: 'full'}, // redirect to `first-component`
   {path: 'noDetails', component: NoDetailsPageComponent},
   {path: 'spaDetails', component: SpaDetailsPageComponent},
   {path: 'apiDetails', component: ApiDetailsPageComponent},
-  {path: '**', redirectTo: 'noDetails'},
+  {path: '**', redirectTo: 'spaDetails'},
 ];
 
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 class StoryRoutingModule {
@@ -147,7 +147,7 @@ class StoryRoutingModule {
     NoDetailsPageComponent
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
     StoryRoutingModule,
     AtftModule,
     AtftDataCenterActorModule
@@ -160,8 +160,9 @@ class StoryModule {
 
 
 // ======================================================================
-export default {
-  title: 'Dagre Layout/Router Sample',
+
+const meta: Meta<StorybookRouterMainComponent> = {
+  title: 'Dagre Layout/Route',
   component: StorybookRouterMainComponent,
   decorators: [
     moduleMetadata({
@@ -174,7 +175,11 @@ export default {
   ]
 };
 
-export const RouterSample = (args) => ({
-  props: args
-});
+
+export default meta;
+type Story = StoryObj<StorybookRouterMainComponent>;
+
+export const Route: Story = {
+  args: {}
+};
 

@@ -11,6 +11,7 @@ export class SvgLoaderService extends AbstractCacheService<ShapePath[]> {
     // console.log('SvgLoaderService.getValue');
     return new Promise((resolve, reject) => {
       const loader = new SVGLoader();
+      // @ts-ignore
       loader.load(key, data => {
           resolve(data.paths);
         },

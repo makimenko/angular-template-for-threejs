@@ -13,9 +13,7 @@ export class DagreUtils {
       multigraph: true
     });
 
-    g.setGraph(
-      this.getLayout(model)
-    );
+    g.setGraph(this.getLayout(model))
 
     g.setDefaultEdgeLabel(function () {
       return {};
@@ -24,12 +22,13 @@ export class DagreUtils {
     this.updateGraph(g, model);
 
     // console.log('DagreUtils.layout model', model);
-    // console.log('DagreUtils.layout', g);
+    // console.log('DagreUtils.layout g', g);
     dagre.layout(g);
+    // console.log('DagreUtils.layout result (g.nodes())', g.nodes());
     return g;
   }
 
-  public static updateBaseInfo(g: dagre.graphlib.Graph, baseInfo: Array<BaseInfo>) {
+  public static updateBaseInfo(g: dagre.graphlib.Graph, baseInfo: Array<BaseInfo> | undefined ) {
     if (baseInfo) {
       baseInfo.forEach((node: Node) => {
         g.setNode(node.name, {label: node.label, width: 18, height: 18});
@@ -49,13 +48,13 @@ export class DagreUtils {
   }
 
   public static updateGraph(g: dagre.graphlib.Graph, model: GraphModel) {
-    this.updateBaseInfo(g, model.compositions);
-    this.updateBaseInfo(g, model.nodes);
-    this.updateEdges(g, model);
+      this.updateBaseInfo(g, model.compositions);
+      this.updateBaseInfo(g, model.nodes);
+      this.updateEdges(g, model);
   }
 
-  public static getLayout(model: GraphModel): dagre.GraphLabel {
-    const layout: dagre.GraphLabel = model.layout;
+  public static getLayout(model: GraphModel): any {
+    const layout: dagre.GraphLabel | undefined = model.layout;
     return layout;
   }
 

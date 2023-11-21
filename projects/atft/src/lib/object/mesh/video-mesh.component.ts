@@ -27,7 +27,7 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
   height = 1.0;
 
   @Input()
-  videoSrc;
+  videoSrc!: string;
 
   @Input()
   type = 'video/mp4';
@@ -44,20 +44,20 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
   protected video = document.createElement('video');
   protected widthSegments = 1;
   protected heightSegments = 1;
-  protected animation: Subscription;
+  protected animation!: Subscription;
   protected videoPlaybackStarted = false;
   protected playbackError = false;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
     protected animationService: AnimationService
   ) {
     super(rendererService, parent);
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-    const geometry = new THREE.PlaneBufferGeometry(this.width, this.height, this.widthSegments, this.heightSegments);
+    const geometry = new THREE.PlaneGeometry(this.width, this.height, this.widthSegments, this.heightSegments);
     const material = this.getMaterial();
     const mesh = new THREE.Mesh(geometry, material);
     this.applyShadowProps(mesh);
@@ -65,7 +65,7 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
     return mesh;
   }
 
-  protected getMaterial() {
+  protected override getMaterial() {
     // console.log('VideoMeshComponent.initVideo');
 
     const source = document.createElement('source');
@@ -88,7 +88,7 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
     // AnimationService will trigger animate() on all subscribers, then executes render() which is required for Video update.
   }
 
-  ngAfterViewInit() {
+  override ngAfterViewInit() {
     super.ngAfterViewInit();
     if (this.autoplay) {
       this.animationService.start();
@@ -108,7 +108,7 @@ export class VideoMeshComponent extends AbstractMesh implements AfterViewInit, O
     }
   }
 
-  ngOnDestroy(): void {
+  override ngOnDestroy(): void {
     if (this.video) {
       this.animation?.unsubscribe();
       this.video.pause();

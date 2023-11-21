@@ -37,29 +37,29 @@ function onlyUnique(value, index, self) {
 })
 export class DagreYamlParserComponent extends AbstractEmptyDirective implements OnChanges, AfterViewInit {
 
-  @Input() yaml;
+  @Input() yaml! : string;
 
   @Output() status = new EventEmitter<boolean>();
 
-  @ViewChild('container', {read: ViewContainerRef}) container;
+  @ViewChild('container', {read: ViewContainerRef}) container : any;
 
-  private instances = [];
+  private instances: any[] = [];
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
     protected resolver: ComponentFactoryResolver,
     protected actorRepository: ActorRepositoryService
   ) {
     super(rendererService, parent);
   }
 
-  ngAfterViewInit() {
+  override ngAfterViewInit() {
     super.ngAfterViewInit();
     this.parseAndCreate();
   }
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public override ngOnChanges(changes: SimpleChanges) {
     super.ngOnChanges(changes);
     // console.log('DagreYamlParserComponent.ngOnChanges', this.name);
 
@@ -95,7 +95,7 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     }
   }
 
-  protected getNodeComponent(id: string) {
+  protected getNodeComponent(id: string | undefined) {
     return this.actorRepository.getComponentFactory(id);
   }
 
@@ -107,7 +107,8 @@ export class DagreYamlParserComponent extends AbstractEmptyDirective implements 
     nodeRef.instance.composition = node.composition;
     this.instances.push(nodeRef);
 
-    const serverFactory = this.getNodeComponent((node.model ? 'model' : node.type));
+    const id = (node.model ? 'model' : node.type);
+    const serverFactory = this.getNodeComponent(id);
     const serverRef = nodeRef.instance.container.createComponent(serverFactory);
     serverRef.instance.name = node.name;
     serverRef.instance.label = (node.label ? node.label : node.name);

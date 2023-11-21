@@ -1,4 +1,4 @@
-import {moduleMetadata} from '@storybook/angular';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {Component} from '@angular/core';
@@ -33,19 +33,26 @@ class StorybookDashedDrawComponent {
 
 }
 
-export default {
-  title: 'Effect/Dashed Draw',
+
+const meta: Meta<StorybookDashedDrawComponent> = {
+  title: 'Effects/Dashed Draw',
+  component: StorybookDashedDrawComponent,
   decorators: [
     moduleMetadata({
       imports: [
         AtftModule
       ]
     })
-  ]
+  ],
 };
 
 
-export const DashedDraw = (args) => ({
-  component: StorybookDashedDrawComponent,
-  props: args
-});
+export default meta;
+type Story = StoryObj<StorybookDashedDrawComponent>;
+
+export const DashedDraw: Story = {
+};
+
+
+
+

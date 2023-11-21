@@ -6,6 +6,8 @@ import {fixCenter} from '../../util/fix-center';
 import {AbstractLazyObject3D} from '../abstract-lazy-object-3d';
 import {AbstractObject3D} from '../abstract-object-3d';
 import {FontService} from '../loader/services/font.service';
+import {Font} from "three/examples/jsm/loaders/FontLoader.js";
+import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry";
 
 @Component({
   selector: 'atft-text-mesh',
@@ -85,11 +87,9 @@ export class TextMeshComponent extends AbstractLazyObject3D {
   @Input()
   centered = true;
 
-  protected fontCache: THREE.Font;
-
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
     protected font: FontService
   ) {
     super(rendererService, parent);
@@ -107,10 +107,10 @@ export class TextMeshComponent extends AbstractLazyObject3D {
     return this.getTextMesh(font);
   }
 
-  protected getTextMesh(font: THREE.Font): THREE.Mesh {
+  protected getTextMesh(font: Font): THREE.Mesh {
     // console.log('TextMeshComponent.getTextMesh', this.text + ' / ' + this.name);
     if (this.text) {
-      const geometry = new THREE.TextGeometry(this.text, {
+      const geometry = new TextGeometry(this.text, {
         font: font,
         size: this.size,
         height: this.height,

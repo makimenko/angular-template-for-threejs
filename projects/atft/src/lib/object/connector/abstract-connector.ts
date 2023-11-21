@@ -7,13 +7,13 @@ import {Subscription} from 'rxjs';
 export abstract class AbstractConnector<T extends THREE.Object3D> extends AbstractObject3D<THREE.Object3D> implements OnDestroy {
 
   @Input()
-  source: AbstractObject3D<THREE.Object3D>;
+  source!: AbstractObject3D<THREE.Object3D>;
 
   @Input()
-  target: AbstractObject3D<THREE.Object3D>;
+  target!: AbstractObject3D<THREE.Object3D>;
 
-  protected sourceSub: Subscription;
-  protected targetSub: Subscription;
+  protected sourceSub!: Subscription;
+  protected targetSub!: Subscription;
 
   protected newObject3DInstance(): THREE.Object3D {
     const line = this.createLineMesh();
@@ -33,7 +33,7 @@ export abstract class AbstractConnector<T extends THREE.Object3D> extends Abstra
     });
   }
 
-  public ngOnDestroy() {
+  public override ngOnDestroy() {
     super.ngOnDestroy();
 
     this.sourceSub?.unsubscribe();

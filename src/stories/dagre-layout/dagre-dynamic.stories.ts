@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {moduleMetadata} from '@storybook/angular';
+import {Component, Input} from '@angular/core';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
@@ -60,6 +60,8 @@ edges:
 })
 class StorybookLoopComponent {
 
+  @Input() yaml!: string;
+
   constructor(private animationService: AnimationService) {
     this.animationService.start();
   }
@@ -67,9 +69,9 @@ class StorybookLoopComponent {
 
 }
 
-// ======================================================================
-export default {
-  title: 'Dagre Layout/Dynamic',
+
+const meta: Meta<StorybookLoopComponent> = {
+  title: 'Dagre Layout/Dynamic YAML',
   component: StorybookLoopComponent,
   decorators: [
     moduleMetadata({
@@ -78,16 +80,19 @@ export default {
         AtftDataCenterActorModule
       ]
     })
-  ],
-  args: {
-    yaml: yaml
-  }
-
+  ]
 };
 
 
-export const Dynamic = (args) => ({
-  props: args
-});
+export default meta;
+type Story = StoryObj<StorybookLoopComponent>;
+
+export const DynamicYAML: Story = {
+  args: {
+    yaml: yaml
+  }
+};
+
+
 
 

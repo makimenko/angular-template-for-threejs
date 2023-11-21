@@ -14,7 +14,7 @@ export class OrthographicCameraComponent extends AbstractCamera<THREE.Orthograph
   @Input() zoom = 4;
 
   constructor(
-    protected rendererService: RendererService
+    protected override rendererService: RendererService
   ) {
     super(rendererService);
   }
@@ -33,7 +33,7 @@ export class OrthographicCameraComponent extends AbstractCamera<THREE.Orthograph
     this.updateZoom();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  override ngOnChanges(changes: SimpleChanges): void {
     if (!this.camera) {
       return;
     }

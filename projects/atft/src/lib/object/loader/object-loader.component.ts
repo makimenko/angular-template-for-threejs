@@ -15,8 +15,8 @@ export class ObjectLoaderComponent extends AbstractModelLoader {
   private loader = new THREE.ObjectLoader();
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }

@@ -21,16 +21,16 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
   /**
    * Rotation in Euler angles (radians) with order X, Y, Z.
    */
-  @Input() rotateX: number;
-  @Input() rotateY: number;
-  @Input() rotateZ: number;
+  @Input() rotateX!: number;
+  @Input() rotateY!: number;
+  @Input() rotateZ!: number;
 
   /**
    * Translate the geometry. This is typically done as a one time operation, and not during a loop.
    */
-  @Input() translateX: number;
-  @Input() translateY: number;
-  @Input() translateZ: number;
+  @Input() translateX!: number;
+  @Input() translateY!: number;
+  @Input() translateZ!: number;
 
 
   @Input() scaleX = 1;
@@ -45,7 +45,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
 
   protected childlren: Array<AbstractObject3D<any>> = [];
 
-  protected object: T;
+  protected object!: T;
 
   constructor(
     protected rendererService: RendererService,
@@ -189,7 +189,7 @@ export abstract class AbstractObject3D<T extends THREE.Object3D> implements Afte
     return res;
   }
 
-  protected recursionByName(currentNode: AbstractObject3D<any>, name) {
+  protected recursionByName(currentNode: AbstractObject3D<any>, name:string) {
     if (currentNode.object && currentNode.name === name) {
       return currentNode;
     }

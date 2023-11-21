@@ -1,10 +1,11 @@
 import {Component, Input, OnChanges, OnDestroy, SimpleChanges} from '@angular/core';
-import {MapControls, OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import {RendererService} from '../renderer/renderer.service';
 import {AnimationService} from '../animation/animation.service';
 import {RaycasterService} from '../raycaster/raycaster.service';
 import {AbstractOrbitControls} from './abstract-orbit-controls';
 import {Subscription} from 'rxjs';
+import {MapControls} from "three/examples/jsm/controls/MapControls";
 
 @Component({
   selector: 'atft-map-controls',
@@ -28,17 +29,17 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
   @Input() minZoom = 0;
   @Input() maxZoom = Infinity;
 
-  protected animation: Subscription;
+  protected animation!: Subscription;
 
   constructor(
-    protected rendererService: RendererService,
-    protected raycasterService: RaycasterService,
+    protected override rendererService: RendererService,
+    protected override raycasterService: RaycasterService,
     protected animationService: AnimationService
   ) {
     super(rendererService, raycasterService);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  override ngOnChanges(changes: SimpleChanges) {
     if (!this.controls) {
       return;
     }
@@ -93,7 +94,7 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
     this.rendererService.render();
   }
 
-  ngOnDestroy() {
+  override ngOnDestroy() {
     super.ngOnDestroy();
     this.animation?.unsubscribe();
   }

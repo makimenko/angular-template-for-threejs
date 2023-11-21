@@ -5,15 +5,15 @@ import {RendererService} from '../renderer/renderer.service';
 @Directive()
 export abstract class AbstractCamera<T extends THREE.Camera> implements OnInit, OnChanges {
 
-  camera: T;
+  camera!: T;
 
-  @Input() positionX: number;
-  @Input() positionY: number;
-  @Input() positionZ: number;
+  @Input() positionX!: number;
+  @Input() positionY!: number;
+  @Input() positionZ!: number;
 
   @Input() zAxisUp = false;
 
-  @Input() layer: number;
+  @Input() layer!: number;
 
   constructor(
     protected rendererService: RendererService
@@ -40,7 +40,7 @@ export abstract class AbstractCamera<T extends THREE.Camera> implements OnInit, 
 
   protected abstract createCamera(): void;
 
-  public abstract updateAspectRatio(aspect: number);
+  public abstract updateAspectRatio(aspect: number) : void;
 
   ngOnChanges(changes: SimpleChanges): void {
     let mustRerender = false;

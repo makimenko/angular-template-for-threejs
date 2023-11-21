@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {moduleMetadata} from '@storybook/angular';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
@@ -30,13 +30,15 @@ class StorybookLoopComponent {
   fakeArray(length: number): Array<any> {
     if (length >= 0) {
       return new Array(length);
+    } else {
+      return []
     }
   }
 
 }
 
-// ======================================================================
-export default {
+
+const meta: Meta<StorybookLoopComponent> = {
   title: 'Dagre Layout/Loop',
   component: StorybookLoopComponent,
   decorators: [
@@ -46,16 +48,17 @@ export default {
         AtftDataCenterActorModule
       ]
     })
-  ],
-  args: {
-    numDatabases: 0
-  }
-
+  ]
 };
 
 
-export const Loop = (args) => ({
-  props: args
-});
+export default meta;
+type Story = StoryObj<StorybookLoopComponent>;
+
+export const Loop: Story = {
+  args: {
+    numDatabases: 0
+  }
+};
 
 

@@ -13,7 +13,7 @@ export class FogComponent implements AfterViewInit, OnDestroy, OnChanges {
   @Input() near = 10;
   @Input() far = 100;
 
-  protected scene: THREE.Scene;
+  protected scene!: THREE.Scene;
 
   constructor(
     protected rendererService: RendererService,
@@ -41,7 +41,7 @@ export class FogComponent implements AfterViewInit, OnDestroy, OnChanges {
 
   protected disableFog() {
     // console.log('disableFog');
-    this.scene.fog = undefined;
+    this.scene.fog = null;
     this.rendererService.render();
   }
 

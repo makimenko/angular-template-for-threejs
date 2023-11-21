@@ -1,4 +1,4 @@
-import {moduleMetadata} from '@storybook/angular';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {AfterViewInit, Component, OnDestroy, ViewChild} from '@angular/core';
@@ -47,10 +47,10 @@ import {Subscription} from 'rxjs';
 class StorybookIntroComponent implements AfterViewInit, OnDestroy {
 
 
-  @ViewChild(EmptyComponent) box;
+  @ViewChild(EmptyComponent) box : any;
 
   k = 0;
-  protected animation: Subscription;
+  protected animation!: Subscription;
 
   constructor(private animationService: AnimationService) {
   }
@@ -71,8 +71,11 @@ class StorybookIntroComponent implements AfterViewInit, OnDestroy {
 
 }
 
-export default {
-  title: 'UX / Intro',
+
+
+const meta: Meta<StorybookIntroComponent> = {
+  title: 'UX/Intro',
+  component: StorybookIntroComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -81,11 +84,14 @@ export default {
       ]
     })
   ],
-  args: {},
-  argTypes: {}
 };
 
-export const Intro = (args) => ({
-  component: StorybookIntroComponent,
-  props: args
-});
+
+export default meta;
+type Story = StoryObj<StorybookIntroComponent>;
+
+export const Intro: Story = {
+};
+
+
+

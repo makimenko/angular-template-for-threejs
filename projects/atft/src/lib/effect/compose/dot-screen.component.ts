@@ -14,8 +14,8 @@ export class DotScreenComponent extends AbstractComposeEffect<ShaderPass> {
   @Input() scale = 4;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected composer: EffectComposerComponent
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override composer: EffectComposerComponent
   ) {
     super(rendererService, composer);
   }

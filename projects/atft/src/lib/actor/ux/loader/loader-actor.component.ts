@@ -20,23 +20,23 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
   @Input()
   materialColor: string | number = '#5DADE2';
 
-  private ring1: THREE.Mesh;
-  private ring2: THREE.Mesh;
-  private ring3: THREE.Mesh;
+  private ring1!: THREE.Mesh;
+  private ring2!: THREE.Mesh;
+  private ring3!: THREE.Mesh;
 
   private subscribed = false;
   private i = 0;
-  protected animation: Subscription;
+  protected animation!: Subscription;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
     protected animationService: AnimationService
   ) {
     super(rendererService, parent);
   }
 
-  public ngAfterViewInit() {
+  public override ngAfterViewInit() {
     super.ngAfterViewInit();
     // console.log('LoaderActorComponent.ngAfterViewInit');
     this.init();
@@ -78,7 +78,7 @@ export class LoaderActorComponent extends EmptyComponent implements AfterViewIni
     }
   }
 
-  public ngOnDestroy() {
+  public override ngOnDestroy() {
     // console.log('LoaderActorComponent.ngOnDestroy');
     super.ngOnDestroy();
     this.stop();

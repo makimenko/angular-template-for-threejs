@@ -1,4 +1,16 @@
-import {ChangeDetectorRef, Component, EventEmitter, Injector, Input, OnDestroy, OnInit, Optional, Output, SkipSelf} from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Injector,
+  Input,
+  OnDestroy,
+  OnInit,
+  Optional,
+  Output,
+  SkipSelf,
+  ViewRef
+} from '@angular/core';
 import * as dagre from 'dagre';
 import {AbstractEmptyDirective, AbstractObject3D} from '../../../object';
 import {RendererService} from '../../../renderer';
@@ -31,17 +43,18 @@ import {Subscription} from 'rxjs';
 })
 export class DagreCompositionComponent extends AbstractEmptyDirective implements OnInit, OnDestroy {
 
-  @Input() label: string;
+  @Input() label!: string;
 
   @Input() border = 'plane';
 
-  private _height: number;
+  private _height!: number;
+
   @Input()
   set height(height: number) {
     this._height = height;
     this.translateLabelY = this._height / 2 - 3;
-    if (!this.cdRef['destroyed']) {
-      this.cdRef.detectChanges();
+    if (!(this.cdRef as ViewRef).destroyed) {
+      this.cdRef.detectChanges()
     }
   }
 
@@ -49,21 +62,21 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
     return this._height;
   }
 
-  @Input() width: number;
+  @Input() width!: number;
   @Output() render = new EventEmitter<void>();
   @Output() selected = new EventEmitter<void>();
   @Output() deselected = new EventEmitter<void>();
 
-  @Input() composition: string;
+  @Input() composition!: string;
 
   public color: string | number = '#A0A0A0';
-  public translateLabelY: number;
+  public translateLabelY = 0;
   protected dagreLayout: DagreLayoutComponent;
   protected graphUpdated: Subscription;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
     protected injector: Injector,
     private cdRef: ChangeDetectorRef
   ) {
@@ -90,7 +103,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
     this.color = '#A0A0A0';
   }
 
-  public ngOnInit() {
+  public override ngOnInit() {
     super.ngOnInit();
     this.addNode();
   }
@@ -104,7 +117,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
       this.dagreLayout.getChildren().push(this);
 
       // Create Graph Node
-      this.dagreLayout.getGraphModel().nodes.push({
+      this.dagreLayout.getGraphModel().nodes?.push({
         name: this.name,
         label: this.label,
         composition: this.composition
@@ -116,7 +129,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
   }
 
 
-  ngOnDestroy() {
+  override ngOnDestroy() {
     super.ngOnDestroy();
     this.removeNode();
   }
@@ -133,7 +146,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
       this.dagreLayout.removeChildByName(this.name);
 
       // Remove from model
-      this.dagreLayout.getGraphModel().nodes = this.dagreLayout.getGraphModel().nodes.filter(i => i.name !== this.name);
+      this.dagreLayout.getGraphModel().nodes = this.dagreLayout.getGraphModel().nodes?.filter(i => i.name !== this.name);
 
       // Update Graph Layout
       this.dagreLayout.refreshLayout();

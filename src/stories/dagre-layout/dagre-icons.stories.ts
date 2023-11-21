@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {moduleMetadata} from '@storybook/angular';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
@@ -85,7 +85,9 @@ class StorybookIconsComponent {
 
 }
 
-export default {
+
+
+const meta: Meta<StorybookIconsComponent> = {
   title: 'Dagre Layout/Icons',
   component: StorybookIconsComponent,
   decorators: [
@@ -99,7 +101,18 @@ export default {
 };
 
 
-export const Icons = (args) => ({
-  props: args
-});
+export default meta;
+type Story = StoryObj<StorybookIconsComponent>;
+
+export const Icons: Story = {
+  args: {
+  }
+};
+
+
+
+
+
+
+
 

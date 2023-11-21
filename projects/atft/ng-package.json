@@ -2,29 +2,6 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/atft",
   "lib": {
-    "entryFile": "src/public_api.ts", 
-    "umdModuleIds": {
-      "yaml": "yaml",
-      "dagre": "dagre",
-      "uuid": "uuid",
-      "three": "THREE",
-      "three/examples/jsm/libs/stats.module.js": "Stats",
-      "three/examples/jsm/lines/Line2": "Line2",
-      "three/examples/jsm/lines/LineGeometry": "LineGeometry",
-      "three/examples/jsm/lines/LineMaterial": "LineMaterial",
-      "three/examples/jsm/loaders/MTLLoader": "MTLLoader",
-      "three/examples/jsm/loaders/OBJLoader": "OBJLoader",
-      "three/examples/jsm/controls/OrbitControls": "OrbitControls",
-      "three/examples/jsm/postprocessing/RenderPass": "RenderPass",
-      "three/examples/jsm/postprocessing/UnrealBloomPass": "UnrealBloomPass",
-      "three/examples/jsm/postprocessing/EffectComposer": "EffectComposer",
-      "three/examples/jsm/postprocessing/ShaderPass": "ShaderPass",
-      "three/examples/jsm/postprocessing/SMAAPass": "SMAAPass",
-      "three/examples/jsm/shaders/FXAAShader": "FXAAShader",
-      "three/examples/jsm/postprocessing/BokehPass": "BokehPass",
-      "three/examples/jsm/shaders/DotScreenShader": "DotScreenShader",
-      "three/examples/jsm/shaders/VerticalBlurShader": "VerticalBlurShader",
-      "three/examples/jsm/shaders/HorizontalBlurShader": "HorizontalBlurShader"
-    }
+    "entryFile": "src/public_api.ts"
   }
 }

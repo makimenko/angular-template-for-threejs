@@ -10,12 +10,12 @@ import {EffectComposerComponent} from '../effect';
 export class RendererService {
 
   private init = false;
-  private scene: SceneComponent;
-  private camera: AbstractCamera<any>;
-  private webGlRenderer: THREE.WebGLRenderer;
-  private aspect: number;
+  private scene!: SceneComponent;
+  private camera!: AbstractCamera<any>;
+  private webGlRenderer!: THREE.WebGLRenderer;
+  private aspect!: number;
 
-  private composer: EffectComposerComponent;
+  private composer?: EffectComposerComponent;
 
   constructor(
     private statsService: StatsService,
@@ -50,7 +50,7 @@ export class RendererService {
     }
   }
 
-  public initialize(canvas: HTMLCanvasElement, preserveDrawingBuffer) {
+  public initialize(canvas: HTMLCanvasElement, preserveDrawingBuffer : boolean) {
     // console.log('RendererComponent.initialize');
     this.webGlRenderer = new THREE.WebGLRenderer({
       canvas: canvas,
@@ -58,6 +58,7 @@ export class RendererService {
       alpha: true,
       preserveDrawingBuffer: preserveDrawingBuffer
     });
+    this.webGlRenderer.useLegacyLights = true; //TODO: fix
     this.webGlRenderer.setPixelRatio(window.devicePixelRatio);
     this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, true);
 
@@ -99,16 +100,16 @@ export class RendererService {
     this.render();
   }
 
-  private calculateAspectRatio(canvas: HTMLCanvasElement) {
+  private updateAspectRatio(canvas: HTMLCanvasElement): void  {
     const height = canvas.clientHeight;
     if (height === 0) {
-      return 0;
+      return;
     }
     this.aspect = canvas.clientWidth / canvas.clientHeight;
   }
 
   private updateChildCamerasAspectRatio(canvas: HTMLCanvasElement) {
-    this.calculateAspectRatio(canvas);
+    this.updateAspectRatio(canvas);
     if (this.camera) {
       this.camera.updateAspectRatio(this.aspect);
     }
@@ -126,7 +127,7 @@ export class RendererService {
     return this.webGlRenderer;
   }
 
-  public setComposer(composer: EffectComposerComponent) {
+  public setComposer(composer: EffectComposerComponent | undefined) {
     this.composer = composer;
   }
 

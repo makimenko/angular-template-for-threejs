@@ -33,10 +33,10 @@ export class BloomService {
   protected materials: Array<THREE.Material> = [];
   protected darkMaterial = new THREE.MeshBasicMaterial({color: 'black'});
   protected bloomLayer = new THREE.Layers();
-  private finalComposer: EffectComposer;
-  private bloomComposer: EffectComposer;
+  private finalComposer!: EffectComposer;
+  private bloomComposer!: EffectComposer;
   public initialized = false;
-  protected scene: THREE.Scene;
+  protected scene!: THREE.Scene;
 
   public init(renderer: WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) {
     if (renderer && scene && camera) {
@@ -106,16 +106,17 @@ export class BloomService {
   }
 
 
-  protected darkenNonBloomed(obj): void {
+  protected darkenNonBloomed(obj : any): void {
     if (this.initialized && obj.isMesh && this.bloomLayer.test(obj.layers) === false) {
       // console.log('darkenNonBloomed');
+      // @ts-ignore
       this.materials[obj.uuid] = obj.material;
       obj.material = this.darkMaterial;
 
     }
   }
 
-  protected restoreMaterial(obj): void {
+  protected restoreMaterial(obj : any): void {
     if (this.initialized && obj.isMesh && this.materials[obj.uuid]) {
       obj.material = this.materials[obj.uuid];
       delete this.materials[obj.uuid];

@@ -7,7 +7,7 @@
     "3d",
     "angular",
     "typescript",
-    "angular10",
+    "angular16",
     "components"
   ],
   "license": "MIT",
@@ -34,9 +34,9 @@
     }
   ],
   "peerDependencies": {
-    "@angular/common": "^12.2.2",
-    "@angular/core": "^12.2.2",
-    "three": "^0.131.3"
+    "@angular/common": "^16.2.0",
+    "@angular/core": "^16.2.0",
+    "three": "^0.158.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
@@ -90,5 +90,6 @@
         "section": "Build & CI"
       }
     ]
-  }
+  },
+  "sideEffects": false
 }

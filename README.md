@@ -1,4 +1,4 @@
-[![GitHub repo](https://img.shields.io/github/stars/makimenko/angular-template-for-threejs?label=GitHub&style=social)](https://github.com/makimenko/angular-template-for-threejs) 
+[![GitHub repo](https://img.shields.io/github/stars/makimenko/angular-template-for-threejs?label=GitHub&style=social)](https://github.com/makimenko/angular-template-for-threejs)
 ![CI build status](https://github.com/makimenko/angular-template-for-threejs/workflows/CI/badge.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/makimenko/angular-template-for-threejs/badge.svg)](https://snyk.io/test/github/makimenko/angular-template-for-threejs)
 [![Code coverage by codecov.io](https://codecov.io/gh/makimenko/angular-template-for-threejs/branch/master/graph/badge.svg)](https://codecov.io/gh/makimenko/angular-template-for-threejs)
@@ -44,7 +44,7 @@ Click below to see the demo in a web browser:<br>
 
 ## Usage in your Angular project
 
-1. Set up an Angular project and install dependencies:  
+1. Set up an Angular project and install dependencies:
    ```
    npm i three dagre atft --save
    npm i @types/dagre @types/three --save-dev
@@ -125,7 +125,7 @@ For mode details see [API documentation](https://makimenko.github.io/angular-tem
 - Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 - See [standard-version](https://github.com/conventional-changelog/standard-version) guidelines for release and changelog update.
 
-To automatically generate changelog and bump `atft` version: 
+To automatically generate changelog and bump `atft` version:
 ```
 npm run release
 ```
@@ -134,6 +134,5 @@ npm run release
 
 - [<img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek](https://github.com/ComFreek)
 - [<img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> makimenko](https://github.com/makimenko)
-- Supported by [JetBrains](https://www.jetbrains.com/?from=AngularThreejsTemplateForDummies)
 
 _Feel free to join us! Just submit your ideas via pull-requests :)_ 

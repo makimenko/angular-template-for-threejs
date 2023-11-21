@@ -7,7 +7,7 @@ import {appliedMaterial} from '../../util';
 export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> implements OnChanges {
 
   @Input()
-  material: string;
+  material!: string;
 
   @Input()
   materialColor: string | number = '#5DADE2';
@@ -30,7 +30,7 @@ export abstract class AbstractMesh extends AbstractObject3D<THREE.Mesh> implemen
     mesh.receiveShadow = this.receiveShadow;
   }
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public override ngOnChanges(changes: SimpleChanges) {
     super.ngOnChanges(changes);
     if (!this.getObject()) {
       return;

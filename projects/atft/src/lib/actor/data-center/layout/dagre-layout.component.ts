@@ -49,11 +49,11 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
   @Output() updated = new EventEmitter<void>();
 
   protected graphModel: GraphModel;
-  protected graph: dagre.graphlib.Graph;
+  protected graph!: dagre.graphlib.Graph;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
 
@@ -65,7 +65,7 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
     };
   }
 
-  ngAfterViewInit() {
+  override ngAfterViewInit() {
     super.ngAfterViewInit();
 
   }
@@ -88,23 +88,30 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
       ranker: this.ranker ?? DEFAULT_RANKER
     };
     this.graph = DagreUtils.modelToGraph(this.graphModel);
+    // console.log('DagreLayoutComponent.layout: graphModel', this.graphModel);
     // console.log('DagreLayoutComponent.layout: graph', this.graph);
-    this.syncGraphContainer(this.graph);
+    // console.log('DagreLayoutComponent.layout: graph.nodes()', this.graph.nodes());
+    if (this.graph) {
+      this.syncGraphContainer(this.graph);
+    }
     this.updated.emit();
     this.rendererService.render();
   }
 
   protected syncGraphContainer(g: dagre.graphlib.Graph) {
     // console.log('DagreLayoutComponent.syncGraphContainer');
-    if (this.object && this.centered) {
-      this.translateX = -(g.graph().width / 2);
-      this.translateY = -(g.graph().height / 2);
+    const heigh = g.graph().height;
+    const width = g.graph().width;
+
+    if (this.object && this.centered && width && heigh) {
+      this.translateX = -(width / 2);
+      this.translateY = -(heigh / 2);
       this.applyTranslation();
     }
   }
 
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public override ngOnChanges(changes: SimpleChanges) {
     super.ngOnChanges(changes);
     // console.log('DagreLayoutComponent.ngOnChanges', this.name);
     if (!this.object) {
@@ -124,11 +131,11 @@ export class DagreLayoutComponent extends AbstractEmptyDirective implements Afte
 
   }
 
-  ngOnDestroy() {
-    super.ngOnDestroy();
-    this.graph = undefined;
-    this.graphModel = undefined;
-  }
+  // override ngOnDestroy() {
+  //   super.ngOnDestroy();
+  //   // this.graph = undefined;
+  //   // this.graphModel = undefined;
+  // }
 
   public getGraphModel() {
     return this.graphModel;

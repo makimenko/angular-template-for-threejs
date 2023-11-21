@@ -1,3 +1,5 @@
+// @ts-nocheck
+// TODO: check if original is OK now
 /**
  * Temporary fork of Three.js example.
  * Waiting for fix of https://github.com/mrdoob/three.js/issues/21330

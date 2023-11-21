@@ -12,9 +12,10 @@ import {
 export class ActorRepositoryService {
 
   protected list = new Map<string, Type<any>>();
-  protected defaultId: string;
+  protected defaultId!: string;
 
   constructor(
+    //TODO: https://stackoverflow.com/questions/70946038/replace-deprecated-angular-componentfactoryresolver-componentfactory
     protected resolver: ComponentFactoryResolver
   ) {
     this.register('stand', ServerStandActorComponent);
@@ -33,11 +34,18 @@ export class ActorRepositoryService {
     this.list.set(id, component);
   }
 
-  public getComponentFactory(id: string): ComponentFactory<any> {
-    const comp = this.list.get(id ?? this.defaultId);
-    const result = this.resolver.resolveComponentFactory(comp);
-    return result;
+  public getComponentFactory(id: string | undefined): ComponentFactory<any> | undefined {
+    const requestId :string = id ? id : this.defaultId
+    // console.log('ActorRepositoryService.getComponentFactory requestId:', requestId);
+    const comp = this.list.get(requestId);
+    if (comp) {
+      const result = this.resolver.resolveComponentFactory(comp);
+      // console.log('ActorRepositoryService.getComponentFactory result', result);
+      return result;
+    } else {
+      // console.log('ActorRepositoryService.getComponentFactory undefined result');
+      return undefined;
+    }
   }
-
 
 }

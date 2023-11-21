@@ -22,13 +22,13 @@ export class FrameMeshComponent extends AbstractMesh implements OnChanges {
   sizeY = 20;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }
 
-  protected getGeometry(): THREE.ShapeBufferGeometry {
+  protected getGeometry(): THREE.ShapeGeometry {
     // console.log('FrameMeshComponent.getGeometry', this.sizeX, this.sizeY, this.thickness);
 
     const halfX = (this.sizeX ?? 1) / 2.0;
@@ -51,7 +51,7 @@ export class FrameMeshComponent extends AbstractMesh implements OnChanges {
     shape.lineTo(halfX, halfY);
     shape.lineTo(-halfX, halfY);
 
-    const geometry = new THREE.ShapeBufferGeometry(shape);
+    const geometry = new THREE.ShapeGeometry(shape);
     return geometry;
   }
 
@@ -64,7 +64,7 @@ export class FrameMeshComponent extends AbstractMesh implements OnChanges {
   }
 
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public override ngOnChanges(changes: SimpleChanges) {
     // console.log('FrameMeshComponent.ngOnChanges', this.name);
     if (!this.object) {
       return;
@@ -77,8 +77,8 @@ export class FrameMeshComponent extends AbstractMesh implements OnChanges {
       if (this.getObject() instanceof THREE.Mesh) {
         const mesh: THREE.Mesh = this.getObject();
 
-        if (mesh.geometry instanceof THREE.ShapeBufferGeometry) {
-          const currentGeometry: THREE.ShapeBufferGeometry = mesh.geometry;
+        if (mesh.geometry instanceof THREE.ShapeGeometry) {
+          const currentGeometry: THREE.ShapeGeometry = mesh.geometry;
           const newGeometry = this.getGeometry();
           currentGeometry.attributes = newGeometry.attributes;
         }
