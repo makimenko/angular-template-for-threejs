@@ -9,11 +9,11 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">angular-template-for-threejs documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -36,22 +36,29 @@
 
 
 
+
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li >DashedDrawDirective</li>
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >DashedDrawDirective</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -61,18 +68,19 @@
 
 
 
+
             <p class="comment">
                 <h3>Implements</h3>
             </p>
             <p class="comment">
-                            <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
-                            <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                        <code>AfterViewInit</code>
+                        <code>OnDestroy</code>
             </p>
 
 
-        <section>
+        <section data-compodoc="block-metadata">
             <h3>Metadata</h3>
-            <table class="table table-sm table-hover">
+            <table class="table table-sm table-hover metadata">
                 <tbody>
 
                     <tr>
@@ -80,11 +88,14 @@
                         <td class="col-md-9"><code>[atft-dashed-draw]</code></td>
                     </tr>
 
+
+
+
                 </tbody>
             </table>
         </section>
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -176,7 +187,7 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -237,7 +248,7 @@
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -327,7 +338,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                     </td>
                 </tr>
@@ -348,7 +359,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                     </td>
                 </tr>
@@ -363,7 +374,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -374,7 +385,7 @@
                 <td class="col-md-4">
                     <a name="animate"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
+                            <span class="modifier">Private</span>
                         <span ><b>animate</b></span>
                         <a href="#animate"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -382,27 +393,27 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>animate()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">projects/atft/src/lib/effect/dashed-draw.directive.ts:67</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">projects/atft/src/lib/effect/dashed-draw.directive.ts:69</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -425,21 +436,21 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">projects/atft/src/lib/effect/dashed-draw.directive.ts:27</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">projects/atft/src/lib/effect/dashed-draw.directive.ts:27</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -462,21 +473,21 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">projects/atft/src/lib/effect/dashed-draw.directive.ts:92</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">projects/atft/src/lib/effect/dashed-draw.directive.ts:94</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -487,7 +498,7 @@
                 <td class="col-md-4">
                     <a name="tryToFindGeometry"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
+                            <span class="modifier">Private</span>
                         <span ><b>tryToFindGeometry</b></span>
                         <a href="#tryToFindGeometry"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -495,33 +506,33 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>tryToFindGeometry()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">projects/atft/src/lib/effect/dashed-draw.directive.ts:36</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">projects/atft/src/lib/effect/dashed-draw.directive.ts:36</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -639,7 +650,7 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewInit, Directive, Input, OnDestroy} from &#x27;@angular/core&#x27;;
 import {AbstractObject3D} from &#x27;../object/abstract-object-3d&#x27;;
 import * as THREE from &#x27;three&#x27;;
@@ -651,14 +662,14 @@ export class DashedDrawDirective implements AfterViewInit, OnDestroy {
 
   @Input() dashColor: string | number &#x3D; &#x27;#FF0000&#x27;;
   @Input() dashIncrement &#x3D; 10;
-  @Input() initialOpacity;
-  @Input() targetOpacity;
+  @Input() initialOpacity! : number;
+  @Input() targetOpacity! : number;
   @Input() hideDash &#x3D; false; // hide dash lines at the end of animation
 
   private edges: any;
-  private material: THREE.Material;
+  private material!: THREE.Material;
   private stop &#x3D; false;
-  protected animation: Subscription;
+  protected animation!: Subscription;
 
   constructor(
     private host: AbstractObject3D&lt;any&gt;,
@@ -690,12 +701,14 @@ export class DashedDrawDirective implements AfterViewInit, OnDestroy {
         this.edges.material.gapSize &#x3D; this.edges.geometry.attributes
           .lineDistance.array[this.edges.geometry.attributes.lineDistance.count - 1];
         this.material &#x3D; findMesh.material as THREE.Material;
-        // console.log(&#x27;DashedDrawDirective.tryToFindGeometry original material&#x27;, this.material);
+        console.log(&#x27;DashedDrawDirective.tryToFindGeometry original material&#x27;, this.material);
 
         if (this.initialOpacity &gt;&#x3D; 0.0) {
           // console.log(&#x27;initialOpacity&#x27;, this.initialOpacity);
           if (!this.material.transparent) {
             this.material.transparent &#x3D; true;
+            this.material.depthWrite &#x3D; true;
+            this.material.needsUpdate &#x3D; true;
           }
           this.material.opacity &#x3D; this.initialOpacity;
         }
@@ -748,14 +761,15 @@ export class DashedDrawDirective implements AfterViewInit, OnDestroy {
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -767,6 +781,15 @@ export class DashedDrawDirective implements AfterViewInit, OnDestroy {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
@@ -776,8 +799,8 @@ export class DashedDrawDirective implements AfterViewInit, OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       
-       <script type="module" src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/menu-wc.js" defer></script>
        <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>

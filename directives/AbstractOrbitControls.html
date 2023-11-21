@@ -9,11 +9,11 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">angular-template-for-threejs documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -36,22 +36,29 @@
 
 
 
+
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li >AbstractOrbitControls</li>
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >AbstractOrbitControls</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -61,18 +68,19 @@
 
 
 
+
             <p class="comment">
                 <h3>Implements</h3>
             </p>
             <p class="comment">
-                            <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
-                            <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
-                            <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                        <code>AfterViewInit</code>
+                        <code>OnChanges</code>
+                        <code>OnDestroy</code>
             </p>
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -85,6 +93,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#childCameras" >childCameras</a>
                             </li>
                             <li>
@@ -92,6 +101,7 @@
                                 <a href="#controls" >controls</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#webGlRenderer" >webGlRenderer</a>
                             </li>
                         </ul>
@@ -150,7 +160,7 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -211,7 +221,7 @@
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -223,7 +233,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                        <i>Type : </i>    <code>ElementRef</code>
 
                     </td>
                 </tr>
@@ -246,7 +256,7 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
 
 
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -257,7 +267,7 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
                 <td class="col-md-4">
                     <a name="configureListeners"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
+                            <span class="modifier">Private</span>
                         <span ><b>configureListeners</b></span>
                         <a href="#configureListeners"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -265,27 +275,27 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>configureListeners()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:58</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:58</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -308,21 +318,21 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:74</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:74</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -340,57 +350,56 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+<code>ngOnChanges(changes: SimpleChanges)</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:33</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:33</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>changes</td>
-                                    <td>
-                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -413,21 +422,21 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:49</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:49</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -438,8 +447,8 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
                 <td class="col-md-4">
                     <a name="setUpControls"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
-                        <span class="modifier">Abstract</span>
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Abstract</span>
                         <span ><b>setUpControls</b></span>
                         <a href="#setUpControls"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -447,33 +456,33 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>setUpControls()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:55</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:55</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -484,6 +493,7 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
                 <td class="col-md-4">
                     <a name="childCameras"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>childCameras</b></span>
                         <a href="#childCameras"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -546,6 +556,7 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
                 <td class="col-md-4">
                     <a name="webGlRenderer"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>webGlRenderer</b></span>
                         <a href="#webGlRenderer"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -581,7 +592,7 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, ContentChild, ContentChildren, ElementRef, Input, OnChanges, OnDestroy, QueryList, SimpleChanges, Directive } from &#x27;@angular/core&#x27;;
 import * as THREE from &#x27;three&#x27;;
 import {OrbitControls} from &#x27;three/examples/jsm/controls/OrbitControls&#x27;;
@@ -594,8 +605,8 @@ import {RendererCanvasComponent} from &#x27;../renderer/renderer-canvas.componen
 @Directive()
 export abstract class AbstractOrbitControls&lt;T extends OrbitControls&gt; implements AfterViewInit, OnChanges, OnDestroy {
 
-  @ContentChildren(AbstractCamera, {descendants: true}) childCameras: QueryList&lt;AbstractCamera&lt;THREE.Camera&gt;&gt;;
-  @ContentChild(RendererCanvasComponent, {static: false}) webGlRenderer: RendererCanvasComponent;
+  @ContentChildren(AbstractCamera, {descendants: true}) childCameras!: QueryList&lt;AbstractCamera&lt;THREE.Camera&gt;&gt;;
+  @ContentChild(RendererCanvasComponent, {static: false}) webGlRenderer!: RendererCanvasComponent;
   /**
    * The element on whose native element the orbit control will listen for mouse events.
    *
@@ -603,9 +614,9 @@ export abstract class AbstractOrbitControls&lt;T extends OrbitControls&gt; imple
    * a known issue from Three.js: https://github.com/mrdoob/three.js/pull/10315
    */
   @Input()
-  public listeningControlElement: ElementRef;
+  public listeningControlElement!: ElementRef;
 
-  protected controls: T;
+  protected controls!: T;
 
   constructor(
     protected rendererService: RendererService,
@@ -636,7 +647,7 @@ export abstract class AbstractOrbitControls&lt;T extends OrbitControls&gt; imple
     }
   }
 
-  protected abstract setUpControls();
+  protected abstract setUpControls() : void;
 
 
   private configureListeners() {
@@ -682,14 +693,15 @@ export abstract class AbstractOrbitControls&lt;T extends OrbitControls&gt; imple
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -701,6 +713,15 @@ export abstract class AbstractOrbitControls&lt;T extends OrbitControls&gt; imple
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
@@ -710,8 +731,8 @@ export abstract class AbstractOrbitControls&lt;T extends OrbitControls&gt; imple
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       
-       <script type="module" src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/menu-wc.js" defer></script>
        <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
