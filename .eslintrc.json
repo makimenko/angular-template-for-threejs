@@ -32,7 +32,8 @@
         "@typescript-eslint/unbound-method": 0,
         "@angular-eslint/no-output-native": 0,
         "@typescript-eslint/no-unused-vars": 2,
-        "@typescript-eslint/ban-ts-comment": 0
+        "@typescript-eslint/ban-ts-comment": 0,
+        "storybook/context-in-play-function": 0
       }
     },
     {
