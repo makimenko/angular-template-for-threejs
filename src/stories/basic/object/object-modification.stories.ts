@@ -28,12 +28,12 @@ import {AtftModule} from '../../../../projects/atft/src/lib/atft.module';
 })
 class StorybookObjectModificationComponent {
   material = 'phong';
-  translateX: number = 0;
-  translateY: number = 0;
-  translateZ: number = 0;
-  rotateX: number = 0;
-  rotateY: number = 0;
-  rotateZ: number = 0;
+  translateX = 0;
+  translateY = 0;
+  translateZ = 0;
+  rotateX = 0;
+  rotateY = 0;
+  rotateZ = 0;
 }
 
 

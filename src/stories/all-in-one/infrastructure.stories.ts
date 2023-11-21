@@ -4,7 +4,9 @@ import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
 import {worldSceneWrapper} from "../scene-wrapper/world-scene-wrapper";
-import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
+import {
+  AtftDataCenterActorModule
+} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
 
 @Component({
   selector: 'app-storybook',

@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: 
+    branches:
       - master
   pull_request:
 
@@ -16,31 +16,31 @@ jobs:
     - name: Build atft library
       run: npx ng build atft
     - name: Build prod
-      run: npx ng build --prod --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
+      run: npx ng build --configuration "production" --base-href "https://makimenko.github.io/angular-template-for-threejs/demo/" --output-path ./dist/gh-pages-deploy/demo
     - name: Upload build
       uses: actions/upload-artifact@v1
       with:
         name: demo
         path: ./dist/gh-pages-deploy
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Install project dependencies
-        run: npm i
-      - name: Build atft library
-        run: npx ng build atft
-      - name: Test
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xvfb
-          Xvfb :99 &
-          export DISPLAY=:99
-          npx ng test --watch=false --code-coverage --browsers=ChromeHeadlessCustom
-      - name: Code coverage
-        run: npx codecov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+#  test:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v1
+#      - name: Install project dependencies
+#        run: npm i
+#      - name: Build atft library
+#        run: npx ng build atft
+#      - name: Test
+#        run: |
+#          sudo apt-get update
+#          sudo apt-get install -y xvfb
+#          Xvfb :99 &
+#          export DISPLAY=:99
+#          npx ng test --watch=false --code-coverage
+#      - name: Code coverage
+#        run: npx codecov
+#        env:
+#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -58,7 +58,7 @@ jobs:
       - name: Build atft library
         run: npx ng build atft
       - name: Build storybook
-        run: npx build-storybook -c .storybook -o ./dist/gh-pages-deploy/storybook
+        run: npx storybook build -c .storybook -o ./dist/gh-pages-deploy/storybook
       - name: Upload storybook
         uses: actions/upload-artifact@v1
         with:

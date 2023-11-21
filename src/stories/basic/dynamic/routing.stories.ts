@@ -3,14 +3,12 @@ import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../../projects/atft/src/lib/atft.module';
 import {Router, RouterModule, Routes} from '@angular/router';
-import {BrowserModule} from '@angular/platform-browser';
 import {APP_BASE_HREF, CommonModule} from '@angular/common';
 import {worldSceneWrapper} from '../../scene-wrapper/world-scene-wrapper';
 import {EmptyComponent} from '../../../../projects/atft/src/lib/object/helper';
 import {provideParent} from '../../../../projects/atft/src/lib/util';
 import {RendererService} from '../../../../projects/atft/src/lib/renderer';
 import {AbstractObject3D} from '../../../../projects/atft/src/lib/object';
-import {AtftDataCenterActorModule} from "../../../../projects/atft/src/lib/actor/data-center";
 
 
 @Component({

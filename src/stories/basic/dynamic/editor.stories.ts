@@ -1,10 +1,11 @@
 import {Component, ComponentFactoryResolver, ViewChild, ViewContainerRef} from '@angular/core';
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import {AtftDataCenterActorModule, ServerStandActorComponent} from '../../../../projects/atft/src/lib/actor/data-center';
+import {
+  AtftDataCenterActorModule,
+  ServerStandActorComponent
+} from '../../../../projects/atft/src/lib/actor/data-center';
 import {AtftModule} from '../../../../projects/atft/src/lib/atft.module';
-
-
 
 
 @Component({

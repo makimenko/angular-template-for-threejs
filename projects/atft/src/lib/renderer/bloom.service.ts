@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import * as THREE from 'three';
-import {Mesh, Object3D, WebGLRenderer} from 'three';
+import {WebGLRenderer} from 'three';
 import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass';
 import {UnrealBloomPass} from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';

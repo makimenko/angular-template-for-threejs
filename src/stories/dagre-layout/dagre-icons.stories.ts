@@ -5,7 +5,6 @@ import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/da
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 import {AnimationService} from '../../../projects/atft/src/lib/animation';
-import {axesSceneWrapper} from "../scene-wrapper/axes-scene-wrapper";
 
 
 @Component({

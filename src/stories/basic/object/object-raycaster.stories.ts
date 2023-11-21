@@ -1,6 +1,5 @@
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {Component} from "@angular/core";
-import {axesSceneWrapper} from "../../scene-wrapper/axes-scene-wrapper";
 import {AtftModule} from '../../../../projects/atft/src/lib/atft.module';
 import {worldSceneWrapper} from "../../scene-wrapper/world-scene-wrapper";
 

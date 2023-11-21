@@ -6,7 +6,6 @@ import {AnimationService} from '../../../projects/atft/src/lib/animation';
 import {EmptyComponent} from '../../../projects/atft/src/lib/object/helper';
 import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
 import {Subscription} from 'rxjs';
-import {AtftDataCenterActorModule} from "../../../projects/atft/src/lib/actor/data-center";
 
 
 @Component({

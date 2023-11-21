@@ -3,7 +3,6 @@ import * as THREE from 'three';
 import { RendererService } from '../renderer/renderer.service';
 import { provideParent } from '../util';
 import { AbstractObject3D } from './abstract-object-3d';
-import {Object3D} from "three";
 
 @Component({
   selector: 'atft-scene',

@@ -10,7 +10,6 @@ import {AbstractObject3D, EmptyComponent} from '../../../projects/atft/src/lib/o
 import {RendererService} from '../../../projects/atft/src/lib/renderer';
 import {Router, RouterModule, Routes} from '@angular/router';
 import {APP_BASE_HREF, CommonModule} from '@angular/common';
-import {RouterTestingModule} from "@angular/router/testing";
 
 
 // ======================================================================

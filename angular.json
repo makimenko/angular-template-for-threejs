@@ -118,6 +118,16 @@
             "compodoc": false,
             "outputDir": "dist/storybook/angular-template-for-threejs"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "eslintConfig": ".eslintrc.json",
+            "lintFilePatterns": [
+              "./src/**/*.ts",
+              "./src/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -168,6 +178,16 @@
             "browserTarget": "atft:build",
             "compodoc": false,
             "outputDir": "dist/storybook/atft"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "eslintConfig": ".eslintrc.json",
+            "lintFilePatterns": [
+              "./projects/atft/**/*.ts",
+              "./projects/atft/**/*.html"
+            ]
           }
         }
       }

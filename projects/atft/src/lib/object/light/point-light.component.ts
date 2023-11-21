@@ -1,4 +1,4 @@
-import { Component, Input, Optional, SkipSelf } from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, Optional, SkipSelf} from '@angular/core';
 import * as THREE from 'three';
 import { RendererService } from '../../renderer/renderer.service';
 import { provideParent } from '../../util';
@@ -9,7 +9,7 @@ import { AbstractObject3D } from '../abstract-object-3d';
   providers: [provideParent(PointLightComponent)],
   template: '<ng-content></ng-content>'
 })
-export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
+export class PointLightComponent extends AbstractObject3D<THREE.PointLight> implements OnInit, AfterViewInit {
 
   @Input() color: string | number = '#FFFFFF';
   @Input() intensity = 1;

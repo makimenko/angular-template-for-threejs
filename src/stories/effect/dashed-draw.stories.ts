@@ -3,7 +3,6 @@ import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {Component} from '@angular/core';
 import {performanceSceneWrapper} from '../scene-wrapper/performance-scene-wrapper';
-import {AtftDataCenterActorModule} from "../../../projects/atft/src/lib/actor/data-center";
 
 @Component({
   selector: 'app-storybook',

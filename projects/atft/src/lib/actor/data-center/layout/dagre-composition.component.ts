@@ -70,7 +70,7 @@ export class DagreCompositionComponent extends AbstractEmptyDirective implements
   @Input() composition!: string;
 
   public color: string | number = '#A0A0A0';
-  public translateLabelY: number = 0;
+  public translateLabelY = 0;
   protected dagreLayout: DagreLayoutComponent;
   protected graphUpdated: Subscription;
 

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
-import { AtftModule } from '../../../../projects/atft/src/lib/atft.module';
-import { axesSceneWrapper } from '../../scene-wrapper/axes-scene-wrapper';
+import {AtftModule} from '../../../../projects/atft/src/lib/atft.module';
+import {axesSceneWrapper} from '../../scene-wrapper/axes-scene-wrapper';
 import {AtftDataCenterActorModule} from "../../../../projects/atft/src/lib/actor/data-center";
 
 @Component({

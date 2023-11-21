@@ -164,7 +164,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
 
       // Create Graph edge:
       if (this.from && this.to) {
-        let number = this.dagreLayout.getGraphModel().edges?.push({
+        this.dagreLayout.getGraphModel().edges?.push({
           name: this.name,
           from: this.from,
           to: this.to

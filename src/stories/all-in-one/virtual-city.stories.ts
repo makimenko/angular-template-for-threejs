@@ -1,9 +1,11 @@
-import {AfterViewInit, Component, Input, OnDestroy, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, ViewChild} from '@angular/core';
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
-import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
+import {
+  AtftDataCenterActorModule
+} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
 import {Subscription} from "rxjs";
 import {PerspectiveCameraComponent} from '../../../projects/atft/src/lib/camera/perspective-camera.component';
 import * as THREE from 'three';
