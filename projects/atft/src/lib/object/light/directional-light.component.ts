@@ -18,8 +18,8 @@ export class DirectionalLightComponent extends AbstractObject3D<THREE.Directiona
   @Input() castShadow = true;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }

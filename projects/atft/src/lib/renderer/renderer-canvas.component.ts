@@ -9,7 +9,7 @@ import {RendererService} from './renderer.service';
 export class RendererCanvasComponent implements OnInit {
 
   @ViewChild('canvas', {static: true})
-  private canvasRef: ElementRef;
+  private canvasRef!: ElementRef;
 
   @Input() preserveDrawingBuffer = false;
 

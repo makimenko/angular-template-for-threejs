@@ -16,7 +16,7 @@ export class StlLoaderComponent extends AbstractModelLoader {
   private loader = new STLLoader();
 
   @Input()
-  material: string;
+  material!: string;
 
   @Input()
   materialColor: string | number = '#FFFFFF';
@@ -25,8 +25,8 @@ export class StlLoaderComponent extends AbstractModelLoader {
   depthWrite = true;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }

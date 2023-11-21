@@ -11,12 +11,12 @@ import { AbstractCamera } from './abstract-camera';
 })
 export class PerspectiveCameraComponent extends AbstractCamera<THREE.PerspectiveCamera> {
 
-  @Input() fov: number;
-  @Input() near: number;
-  @Input() far: number;
+  @Input() fov!: number;
+  @Input() near!: number;
+  @Input() far!: number;
 
   constructor(
-    protected rendererService: RendererService
+    protected override rendererService: RendererService
   ) {
     super(rendererService);
   }

@@ -15,8 +15,8 @@ export class AmbientLightComponent extends AbstractObject3D<THREE.AmbientLight> 
   @Input() intensity = 0.8;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }

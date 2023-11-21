@@ -12,13 +12,13 @@ import { AbstractMesh } from './abstract-mesh-3d';
 })
 export class SphereMeshComponent extends AbstractMesh {
 
-  @Input() radius: number;
-  @Input() widthSegments: number;
-  @Input() hightSegments: number;
+  @Input() radius!: number;
+  @Input() widthSegments!: number;
+  @Input() hightSegments!: number;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }

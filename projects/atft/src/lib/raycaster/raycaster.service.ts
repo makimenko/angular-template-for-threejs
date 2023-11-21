@@ -13,9 +13,9 @@ interface NearestIntersection {
 export class RaycasterService implements OnDestroy {
 
   private raycaster = new THREE.Raycaster();
-  private selected: THREE.Object3D;
+  private selected?: THREE.Object3D;
   private enabled = false;
-  private camera: AbstractCamera<any>;
+  private camera!: AbstractCamera<any>;
   private groups: Array<AbstractObject3D<any>> = [];
   private paused = false;
 
@@ -76,32 +76,35 @@ export class RaycasterService implements OnDestroy {
     this.groups.push(group);
   }
 
-  private onMouseMove(event) {
+  private onMouseMove(event: any) {
     if (!this.isReady()) {
       return;
     }
     // #373: removed: event.preventDefault();
     const i = this.getFirstIntersectedGroup(event.layerX, event.layerY);
-    if (!this.selected || this.selected !== i.object) {
+    if ((i && (!this.selected || this.selected !== i.object)) || !i) {
       if (this.selected) {
+        // @ts-ignore
         this.selected.dispatchEvent({type: RaycasterEvent.mouseExit});
-        this.selected = null;
+        this.selected = undefined;
       }
       if (i && i.object) {
         this.selected = i.object;
+        // @ts-ignore
         this.selected.dispatchEvent({type: RaycasterEvent.mouseEnter, face: i.face});
       }
     }
 
   }
 
-  private onClick(event) {
+  private onClick(event : any) {
     if (!this.isReady(true)) {
       return;
     }
     // #373: removed: event.preventDefault();
     const i = this.getFirstIntersectedGroup(event.layerX, event.layerY);
     if (i && i.object) {
+      // @ts-ignore
       i.object.dispatchEvent({type: RaycasterEvent.click, face: i.face});
     }
   }
@@ -114,6 +117,7 @@ export class RaycasterService implements OnDestroy {
     // #373: removed: event.preventDefault();
     const i = this.getFirstIntersectedGroup(event.touches[0].clientX, event.touches[0].clientY);
     if (i && i.object) {
+      // @ts-ignore
       i.object.dispatchEvent({type: RaycasterEvent.click, face: i.face});
     }
   }
@@ -127,22 +131,24 @@ export class RaycasterService implements OnDestroy {
       && this.groups.length > 0;
   }
 
-  private getFirstIntersectedGroup(x, y): NearestIntersection {
+  private getFirstIntersectedGroup(x : number, y : number): NearestIntersection | undefined {
     x = (x / window.innerWidth) * 2 - 1;
     y = -(y / window.innerHeight) * 2 + 1;
-    const mouseVector = new THREE.Vector3(x, y, 0.5);
+    const mouseVector = new THREE.Vector2(x, y/*, 0.5*/);
     this.raycaster.setFromCamera(mouseVector, this.camera.camera);
-    let face;
+    let face!: THREE.Face;
 
     // loop across all groups. Try to find the group with nearest distance.
-    let nearestIntersection: THREE.Intersection;
-    let nearestGroup: THREE.Object3D;
+    let nearestIntersection!: THREE.Intersection;
+    let nearestGroup!: THREE.Object3D;
     for (let k = 0; k < this.groups.length; k++) {
       const i = this.groups[k].getObject();
       const intersection = this.raycaster.intersectObject(i, true);
       if (intersection.length > 0 && (!nearestIntersection || nearestIntersection.distance > intersection[0].distance)) {
         nearestIntersection = intersection[0];
-        face = nearestIntersection.face;
+        if (nearestIntersection.face) {
+          face = nearestIntersection.face;
+        }
         nearestGroup = i;
       }
     }
@@ -154,10 +160,7 @@ export class RaycasterService implements OnDestroy {
         face: face
       };
     } else {
-      return {
-        object: null,
-        face: null
-      };
+      return undefined;
     }
   }
 

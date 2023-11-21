@@ -11,13 +11,13 @@ export interface BaseAssetSource {
 export abstract class AbstractAssetService<T extends BaseAssetSource> {
 
   protected providers: Map<string, T> = new Map();
-  abstract defaultProvider;
+  abstract defaultProvider: string;
 
   constructor() {
     this.init();
   }
 
-  protected abstract init();
+  protected abstract init(): void;
 
   public registerProvider(key: string, source: T) {
     this.providers.set(key, source);

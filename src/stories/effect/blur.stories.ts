@@ -1,8 +1,9 @@
-import {moduleMetadata} from '@storybook/angular';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
+import {AtftDataCenterActorModule} from "../../../projects/atft/src/lib/actor/data-center";
 
 
 @Component({
@@ -13,23 +14,27 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
     </atft-effect-composer>
   `)
 })
-class StorybookDotScreenComponent {
+class StorybookBlurComponent {
+  @Input()
+  enable = true;
 
+  @Input()
+  background : any;
 }
 
-export default {
-  title: 'Effect/Blur',
+
+
+const meta: Meta<StorybookBlurComponent> = {
+  title: 'Effects/Blur',
+  component: StorybookBlurComponent,
   decorators: [
     moduleMetadata({
       imports: [
-        AtftModule
+        AtftModule,
+        AtftDataCenterActorModule
       ]
     })
   ],
-  args: {
-    enable: true,
-    background: '#FFFFFF',
-  },
   argTypes: {
     enable: {control: {type: 'boolean'}},
     background: {
@@ -47,7 +52,14 @@ export default {
   }
 };
 
-export const Blur = (args) => ({
-  component: StorybookDotScreenComponent,
-  props: args
-});
+
+export default meta;
+type Story = StoryObj<StorybookBlurComponent>;
+
+export const Blur: Story = {
+  args: {
+    enable : true,
+    background : '#FFFFFF'
+  },
+};
+

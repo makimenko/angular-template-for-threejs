@@ -11,16 +11,16 @@ import {provideParent} from '../util';
 })
 export class ContentProjectionComponent extends EmptyComponent {
 
-  @ViewChild('contentProjection') contentProjection: AbstractObject3D<any>;
+  @ViewChild('contentProjection') contentProjection!: AbstractObject3D<any>;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }
 
-  addChild(object: AbstractObject3D<any>) {
+  override addChild(object: AbstractObject3D<any>) {
     if (this.contentProjection) {
       this.contentProjection.addChild(object);
     } else {

@@ -16,8 +16,8 @@ export class OrbitControlsComponent extends AbstractOrbitControls<OrbitControls>
   @Input() zoomSpeed = 1.2;
 
   constructor(
-    protected rendererService: RendererService,
-    protected raycasterService: RaycasterService
+    protected override rendererService: RendererService,
+    protected override raycasterService: RaycasterService
   ) {
     super(rendererService, raycasterService);
   }
@@ -31,7 +31,7 @@ export class OrbitControlsComponent extends AbstractOrbitControls<OrbitControls>
     this.controls.zoomSpeed = this.zoomSpeed;
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  override ngOnChanges(changes: SimpleChanges) {
     if (!this.controls) {
       return;
     }

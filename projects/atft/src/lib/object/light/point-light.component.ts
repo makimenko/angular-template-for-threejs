@@ -17,8 +17,8 @@ export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
   @Input() castShadow = false;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }
@@ -26,6 +26,8 @@ export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
   protected newObject3DInstance() {
     const light = new THREE.PointLight(this.color, this.intensity, this.distance);
 
+    // light.power = 1600 ;
+    // console.info("PointLightComponent.newObject3DInstance", this)
     if (this.castShadow === true) {
       light.castShadow = this.castShadow;
       // TODO: props
@@ -40,4 +42,13 @@ export class PointLightComponent extends AbstractObject3D<THREE.PointLight> {
     return light;
   }
 
+  public override ngOnInit(): void {
+    // console.info("PointLightComponent.ngOnInit", this)
+    super.ngOnInit();
+  }
+
+  public override ngAfterViewInit(): void {
+    // console.info("PointLightComponent.ngAfterViewInit", this)
+    super.ngAfterViewInit();
+  }
 }

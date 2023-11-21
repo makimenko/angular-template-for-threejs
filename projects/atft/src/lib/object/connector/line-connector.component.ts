@@ -31,17 +31,17 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
   @Input() lineType: LineType = LineType.dashed;
 
   @Input() animated = true;
-  protected animation: Subscription;
+  protected animation!: Subscription;
   protected time = 0;
   protected timeScale = 5;
   protected clock = new THREE.Clock();
 
-  protected line: Line2;
-  private matLine: LineMaterial;
+  protected line!: Line2;
+  private matLine!: LineMaterial;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
     protected animationService: AnimationService,
   ) {
     super(rendererService, parent);
@@ -68,7 +68,7 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
     });
     this.matLine.resolution.set(window.innerWidth, window.innerHeight);
     if (!this.solid) {
-      this.matLine.defines.USE_DASH = '';
+      this.matLine.defines['USE_DASH'] = '';
     }
 
     this.line = new Line2(geometry, this.matLine);
@@ -104,7 +104,7 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
   }
 
 
-  ngOnDestroy() {
+  override ngOnDestroy() {
     super.ngOnDestroy();
     if (this.animation) {
       this.animation.unsubscribe();
@@ -124,7 +124,7 @@ export class LineConnectorComponent extends AbstractConnector<Line2> implements 
   }
 
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public override ngOnChanges(changes: SimpleChanges) {
     if (!this.object) {
       return;
     }

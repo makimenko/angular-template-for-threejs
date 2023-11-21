@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {moduleMetadata} from '@storybook/angular';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {uxSceneWrapper} from '../scene-wrapper/ux-scene-wrapper';
@@ -15,16 +15,19 @@ import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
 })
 class StorybookTextComponent {
 
-  label: string;
-  animate: boolean;
-  minDelay: number;
-  maxDelay: number;
+  label!: string;
+  animate!: boolean;
+  minDelay!: number;
+  maxDelay!: number;
 
 }
 
 
-export default {
-  title: 'UX / Text',
+
+
+const meta: Meta<StorybookTextComponent> = {
+  title: 'UX/Text',
+  component: StorybookTextComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -33,12 +36,6 @@ export default {
       ]
     })
   ],
-  args: {
-    animate: true,
-    label: 'Hello, welcome to the world of animationService!',
-    minDelay: 5,
-    maxDelay: 20
-  },
   argTypes: {
     animate: {
       description: 'Enable animated text?',
@@ -56,7 +53,16 @@ export default {
 };
 
 
-export const Animate = (args) => ({
-  component: StorybookTextComponent,
-  props: args
-});
+export default meta;
+type Story = StoryObj<StorybookTextComponent>;
+
+export const Text: Story = {
+  args: {
+    animate: true,
+    label: 'Hello, welcome to the world of animationService!',
+    minDelay: 5,
+    maxDelay: 20
+  },
+};
+
+

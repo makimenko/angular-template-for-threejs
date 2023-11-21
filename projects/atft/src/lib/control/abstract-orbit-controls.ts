@@ -10,8 +10,8 @@ import {RendererCanvasComponent} from '../renderer/renderer-canvas.component';
 @Directive()
 export abstract class AbstractOrbitControls<T extends OrbitControls> implements AfterViewInit, OnChanges, OnDestroy {
 
-  @ContentChildren(AbstractCamera, {descendants: true}) childCameras: QueryList<AbstractCamera<THREE.Camera>>;
-  @ContentChild(RendererCanvasComponent, {static: false}) webGlRenderer: RendererCanvasComponent;
+  @ContentChildren(AbstractCamera, {descendants: true}) childCameras!: QueryList<AbstractCamera<THREE.Camera>>;
+  @ContentChild(RendererCanvasComponent, {static: false}) webGlRenderer!: RendererCanvasComponent;
   /**
    * The element on whose native element the orbit control will listen for mouse events.
    *
@@ -19,9 +19,9 @@ export abstract class AbstractOrbitControls<T extends OrbitControls> implements 
    * a known issue from Three.js: https://github.com/mrdoob/three.js/pull/10315
    */
   @Input()
-  public listeningControlElement: ElementRef;
+  public listeningControlElement!: ElementRef;
 
-  protected controls: T;
+  protected controls!: T;
 
   constructor(
     protected rendererService: RendererService,
@@ -52,7 +52,7 @@ export abstract class AbstractOrbitControls<T extends OrbitControls> implements 
     }
   }
 
-  protected abstract setUpControls();
+  protected abstract setUpControls() : void;
 
 
   private configureListeners() {

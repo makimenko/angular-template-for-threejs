@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { RendererService } from '../renderer/renderer.service';
 import { provideParent } from '../util';
 import { AbstractObject3D } from './abstract-object-3d';
+import {Object3D} from "three";
 
 @Component({
   selector: 'atft-scene',
@@ -14,8 +15,8 @@ export class SceneComponent extends AbstractObject3D<THREE.Scene> implements OnC
   @Input() background: number | string = '#ffffff';
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
     // TODO: directive?
@@ -28,11 +29,11 @@ export class SceneComponent extends AbstractObject3D<THREE.Scene> implements OnC
     return scene;
   }
 
-  public updateParent() {
+  public override updateParent() {
     // No Parent for scene. Skip: super.updateParent();
   }
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public override ngOnChanges(changes: SimpleChanges) {
     super.ngOnChanges(changes);
     if (!this.object) {
       return;
@@ -50,6 +51,5 @@ export class SceneComponent extends AbstractObject3D<THREE.Scene> implements OnC
     }
 
   }
-
 
 }

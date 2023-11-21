@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {moduleMetadata} from '@storybook/angular';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
 import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
@@ -16,9 +16,9 @@ class StorybookTextComponent {
 
 }
 
-
-export default {
-  title: 'UX / Loader',
+const meta: Meta<StorybookTextComponent> = {
+  title: 'UX/Loader',
+  component: StorybookTextComponent,
   decorators: [
     moduleMetadata({
       imports: [
@@ -27,12 +27,13 @@ export default {
       ]
     })
   ],
-  args: {},
-  argTypes: {}
 };
 
 
-export const Loader1 = (args) => ({
-  component: StorybookTextComponent,
-  props: args
-});
+export default meta;
+type Story = StoryObj<StorybookTextComponent>;
+
+export const Loader: Story = {
+};
+
+

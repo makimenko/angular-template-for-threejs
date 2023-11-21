@@ -1,43 +1,44 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "atft": [
+        "dist/atft"
+      ]
+    },
     "baseUrl": "./",
-    "importHelpers": true,
-    "module": "es2020",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "target": "es2015",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
     "typeRoots": [
       "node_modules/@types",
       "./src/typings.d.ts"
     ],
     "lib": [
-      "es2017",
+      "ES2022",
       "dom"
-    ],
-    "paths": {
-      "atft": [
-        "dist/atft"
-      ],
-      "atft/*": [
-        "dist/atft/*"
-      ],
-      /* Fix for core-js@3.2.1 which no longer features 'core-js/es7/reflect'.
-         However, that file is still tried to be imported by Angular somewhere.
-
-         Fix from https://github.com/zloirock/core-js/issues/412#issuecomment-452649583 */
-      "core-js/es7/reflect": [
-        "node_modules/core-js/proposals/reflect-metadata"
-      ]
-    }
+    ]
   },
   "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
     "fullTemplateTypeCheck": true,
     "preserveWhitespaces": true,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
     "strictTemplates": true
   }
 }

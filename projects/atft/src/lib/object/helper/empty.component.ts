@@ -12,8 +12,8 @@ import { AbstractObject3D } from '../abstract-object-3d';
 export class EmptyComponent extends AbstractObject3D<THREE.Object3D> implements AfterViewInit {
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }

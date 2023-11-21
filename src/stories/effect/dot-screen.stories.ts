@@ -1,8 +1,9 @@
-import {moduleMetadata} from '@storybook/angular';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
+import {AtftDataCenterActorModule} from "../../../projects/atft/src/lib/actor/data-center";
 
 
 @Component({
@@ -15,21 +16,27 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
 })
 class StorybookDotScreenComponent {
 
+  @Input()
+  enable = true;
+
+  @Input()
+  background : any;
+
 }
 
-export default {
-  title: 'Effect/Dot Screen',
+
+
+const meta: Meta<StorybookDotScreenComponent> = {
+  title: 'Effects/Dot Screen',
+  component: StorybookDotScreenComponent,
   decorators: [
     moduleMetadata({
       imports: [
-        AtftModule
+        AtftModule,
+        AtftDataCenterActorModule
       ]
     })
   ],
-  args: {
-    enable: true,
-    background: '#FFFFFF'
-  },
   argTypes: {
     enable: {control: {type: 'boolean'}},
     background: {
@@ -47,7 +54,15 @@ export default {
   }
 };
 
-export const DotScreen = (args) => ({
-  component: StorybookDotScreenComponent,
-  props: args
-});
+
+export default meta;
+type Story = StoryObj<StorybookDotScreenComponent>;
+
+export const DotScreen: Story = {
+  args: {
+    enable: true,
+    background: '#FFFFFF'
+  },
+};
+
+

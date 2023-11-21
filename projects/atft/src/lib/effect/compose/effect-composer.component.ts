@@ -12,9 +12,9 @@ import {Pass} from 'three/examples/jsm/postprocessing/Pass';
 export class EffectComposerComponent implements AfterViewInit, OnDestroy {
 
   @Input() renderToScreen = true;
-  @Input() sceneBackgroundTarget: SceneComponent;
+  @Input() sceneBackgroundTarget!: SceneComponent;
 
-  protected composer: EffectComposer;
+  protected composer?: EffectComposer;
 
   constructor(
     protected rendererService: RendererService,
@@ -30,8 +30,8 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     // console.log('EffectComposerComponent.ngOnDestroy');
-    this.rendererService.setComposer(null);
-    this.composer = null;
+    this.rendererService.setComposer(undefined);
+    this.composer = undefined;
     this.rendererService.render();
   }
 
@@ -55,7 +55,7 @@ export class EffectComposerComponent implements AfterViewInit, OnDestroy {
   public addPass(pass: Pass) {
     // console.log('EffectComposerComponent.addPass', pass);
     this.initComposer();
-    this.composer.addPass(pass);
+    this.composer?.addPass(pass);
   }
 
   public removePass(pass: Pass) {

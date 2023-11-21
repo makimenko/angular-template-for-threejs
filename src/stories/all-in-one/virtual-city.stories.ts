@@ -1,12 +1,13 @@
-import {moduleMetadata} from '@storybook/angular';
+import {AfterViewInit, Component, Input, OnDestroy, ViewChild} from '@angular/core';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {AfterViewInit, Component, OnDestroy, ViewChild} from '@angular/core';
-import {AnimationService} from '../../../projects/atft/src/lib/animation';
-import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
+import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
+import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
+import {Subscription} from "rxjs";
+import {PerspectiveCameraComponent} from '../../../projects/atft/src/lib/camera/perspective-camera.component';
 import * as THREE from 'three';
-import {PerspectiveCameraComponent} from 'atft';
-import {Subscription} from 'rxjs';
+import {UxActorModule} from '../../../projects/atft/src/lib/actor/ux';
 
 const modelPath = 'https://raw.githubusercontent.com/makimenko/files/master/angular-template-for-threejs/model/';
 // const modelPath = '/assets/model';
@@ -58,6 +59,7 @@ and real in truly immersive ways.`;
         </atft-obj-loader>
 
         <atft-obj-loader atft-dashed-draw dashColor="#303030" [dashIncrement]="150" [initialOpacity]="0.2"
+                         [targetOpacity]="0.2"
                          model="${modelPath}/SampleArea/Zone.obj"
                          material="${modelPath}/SampleArea/Zone.mtl"
                          resourcePath="${modelPath}/">
@@ -65,6 +67,7 @@ and real in truly immersive ways.`;
 
         <atft-obj-loader *ngFor="let item of [].constructor(5); let i = index"
                          atft-dashed-draw dashColor="#303030" [dashIncrement]="20+(5*i)" [initialOpacity]="0.2"
+                         [targetOpacity]="0.2"
                          model="${modelPath}/SampleArea/House{{i+1}}.obj"
                          material="${modelPath}/SampleArea/House{{i+1}}.mtl"
                          resourcePath="${modelPath}/">
@@ -75,12 +78,12 @@ and real in truly immersive ways.`;
 })
 class StorybookFlyComponent implements AfterViewInit, OnDestroy {
 
-  @ViewChild('cam') cameraComponent: PerspectiveCameraComponent;
+  @ViewChild('cam') cameraComponent!: PerspectiveCameraComponent;
 
-  private mixer: THREE.AnimationMixer;
+  private mixer!: THREE.AnimationMixer;
   private clock = new THREE.Clock();
-  private camera: THREE.Camera;
-  protected animation: Subscription;
+  private camera!: THREE.Camera;
+  protected animation!: Subscription;
 
   // z = 600 - 200
 
@@ -121,21 +124,28 @@ class StorybookFlyComponent implements AfterViewInit, OnDestroy {
 
 }
 
-export default {
-  title: 'All-in-One/Virtual City',
+
+const meta: Meta<StorybookFlyComponent> = {
+  title: 'All In One/Virtual City',
   component: StorybookFlyComponent,
   decorators: [
     moduleMetadata({
       imports: [
         AtftModule,
+        AtftDataCenterActorModule,
         UxActorModule
       ]
     })
   ],
-  args: {},
-  argTypes: {}
+  argTypes: {
+  }
 };
 
-export const VirtualCity = (args) => ({
-  props: args
-});
+
+export default meta;
+type Story = StoryObj<StorybookFlyComponent>;
+
+export const Sample: Story = {
+  args: {
+  },
+};

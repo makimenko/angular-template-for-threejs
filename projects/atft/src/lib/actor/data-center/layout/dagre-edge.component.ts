@@ -28,8 +28,8 @@ export enum EdgeType {
 })
 export class DagreEdgeComponent extends LineConnectorComponent implements OnInit, OnDestroy {
 
-  @Input() from: string;
-  @Input() to: string;
+  @Input() from!: string;
+  @Input() to!: string;
   @Input() startType: LineEndType = LineEndType.circle;
   @Input() endType: LineEndType = LineEndType.arrow;
 
@@ -75,16 +75,16 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     }
   }
 
-  protected lineStart: THREE.Mesh;
-  protected lineEnd: THREE.Mesh;
-  protected positions: Array<number>;
+  protected lineStart!: THREE.Mesh;
+  protected lineEnd!: THREE.Mesh;
+  protected positions!: Array<number>;
   protected dagreLayout: DagreLayoutComponent;
   protected graphUpdated: Subscription;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
-    protected animationService: AnimationService,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
+    protected override animationService: AnimationService,
     protected injector: Injector
   ) {
     super(rendererService, parent, animationService);
@@ -96,7 +96,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     this.graphUpdated = this.dagreLayout.updated.subscribe(this.syncGraph);
   }
 
-  protected newObject3DInstance(): THREE.Object3D {
+  protected override newObject3DInstance(): THREE.Object3D {
     const lineObject = super.newObject3DInstance();
     // console.log('DagreEdgeComponent.newObject3DInstance');
     this.appendLineEnds(lineObject);
@@ -127,7 +127,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     }
   }
 
-  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry {
+  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry | undefined {
     switch (type) {
       case LineEndType.circle:
         return new THREE.CircleGeometry(0.7, 16);
@@ -140,7 +140,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
         shape.lineTo(0, 1.7);
         shape.lineTo(-1, 2);
 
-        return new THREE.ShapeBufferGeometry(shape);
+        return new THREE.ShapeGeometry(shape);
         break;
       default:
         return undefined;
@@ -149,7 +149,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
   }
 
 
-  ngOnInit() {
+  override ngOnInit() {
     super.ngOnInit();
     this.addEdge();
   }
@@ -164,7 +164,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
 
       // Create Graph edge:
       if (this.from && this.to) {
-        this.dagreLayout.getGraphModel().edges.push({
+        let number = this.dagreLayout.getGraphModel().edges?.push({
           name: this.name,
           from: this.from,
           to: this.to
@@ -178,7 +178,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     }
   }
 
-  ngOnDestroy() {
+  override ngOnDestroy() {
     super.ngOnDestroy();
     this.removeEdge();
   }
@@ -194,7 +194,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
       this.dagreLayout.removeChildByName(this.name);
 
       // Remove from model
-      this.dagreLayout.getGraphModel().edges = this.dagreLayout.getGraphModel().edges.filter(i => i.name !== this.name);
+      this.dagreLayout.getGraphModel().edges = this.dagreLayout.getGraphModel().edges?.filter(i => i.name !== this.name);
 
       // Update Graph Layout
       this.dagreLayout.refreshLayout();
@@ -213,7 +213,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     g.edges().forEach((e) => {
       const edge: dagre.GraphEdge = g.edge(e);
       // console.log('DagreEdgeComponent.syncGraphEdges: edge', edge);
-      if (edge.name === this.name) {
+      if (edge["name"] === this.name) {
         this.positions = [];
         // console.log('DagreEdgeComponent.syncGraphEdges: edge.points', edge.points);
         edge.points.forEach(p => {
@@ -261,13 +261,12 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     }
   }
 
-  protected getPositions(): number[] {
+  protected override getPositions(): number[] {
     if (this.positions) {
       return this.positions;
     } else {
       return [0, 0, 0, 0, 0, 0];
     }
-
   }
 
 }

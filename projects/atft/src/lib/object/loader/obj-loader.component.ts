@@ -21,7 +21,7 @@ export class ObjLoaderComponent extends AbstractModelLoader {
   private mtlLoader = new MTLLoader();
 
   @Input()
-  material: string;
+  material!: string;
 
   /**
    * Path relative to which resources and textures within the loaded obj file are loaded.
@@ -36,11 +36,11 @@ export class ObjLoaderComponent extends AbstractModelLoader {
    * Path relative to which resources and textures within the loaded obj file are loaded.
    */
   @Input()
-  resourcePath: string;
+  resourcePath!: string;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
     protected objLoader: ObjLoaderService
   ) {
     super(rendererService, parent);

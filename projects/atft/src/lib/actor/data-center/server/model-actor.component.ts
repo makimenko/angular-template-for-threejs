@@ -37,11 +37,11 @@ export class ModelActorComponent extends AbstractServerActor {
     return this.model;
   }
 
-  public modelPath: string;
+  public modelPath!: string;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>,
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>,
     protected modelService: ModelService
   ) {
     super(rendererService, parent);

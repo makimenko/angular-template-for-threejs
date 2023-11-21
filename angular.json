@@ -7,15 +7,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "angular-template-for-threejs": {
-      "root": "",
-      "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,8 +23,11 @@
             "outputPath": "dist/angular-template-for-threejs",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -32,41 +35,46 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "allowedCommonJsDependencies": [
-              "dagre",
-              "yaml"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
+              "budgets": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "angular-template-for-threejs:build"
-          },
           "configurations": {
             "production": {
               "browserTarget": "angular-template-for-threejs:build:production"
+            },
+            "development": {
+              "browserTarget": "angular-template-for-threejs:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -77,76 +85,92 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "styles": [],
-            "scripts": [],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
-            ]
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
           "options": {
-            "eslintConfig": ".eslintrc.json",
-            "lintFilePatterns": [
-              "./src/**/*.ts",
-              "./src/**/*.html"
-            ]
+            "configDir": ".storybook",
+            "browserTarget": "angular-template-for-threejs:build",
+            "compodoc": false,
+            "port": 6006
           }
-        }
-      }
-    },
-    "angular-template-for-threejs-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-template-for-threejs:serve"
+            "configDir": ".storybook",
+            "browserTarget": "angular-template-for-threejs:build",
+            "compodoc": false,
+            "outputDir": "dist/storybook/angular-template-for-threejs"
           }
         }
       }
     },
     "atft": {
+      "projectType": "library",
       "root": "projects/atft",
       "sourceRoot": "projects/atft/src",
-      "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/atft/tsconfig.lib.json",
             "project": "projects/atft/ng-package.json"
-          }
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/atft/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/atft/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/atft/src/test.ts",
             "tsConfig": "projects/atft/tsconfig.spec.json",
-            "karmaConfig": "projects/atft/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
           "options": {
-            "eslintConfig": "./projects/atft/.eslintrc.json",
-            "lintFilePatterns": [
-              "./projects/atft/**/*.ts",
-              "./projects/atft/**/*.html"
-            ]
+            "configDir": "projects/atft/.storybook",
+            "browserTarget": "atft:build",
+            "compodoc": false,
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/atft/.storybook",
+            "browserTarget": "atft:build",
+            "compodoc": false,
+            "outputDir": "dist/storybook/atft"
           }
         }
       }
     }
-  },
-  "defaultProject": "angular-template-for-threejs"
+  }
 }

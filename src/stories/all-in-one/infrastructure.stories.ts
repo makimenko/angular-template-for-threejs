@@ -1,11 +1,10 @@
-import {Component} from '@angular/core';
-import {moduleMetadata} from '@storybook/angular';
-import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
-import {AnimationService} from '.././../../projects/atft/src/lib/animation/animation.service';
+import {Component, Input} from '@angular/core';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
-
+import {AnimationService} from '../../../projects/atft/src/lib/animation/animation.service';
+import {worldSceneWrapper} from "../scene-wrapper/world-scene-wrapper";
+import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center/atft-data-center-actor.module';
 
 @Component({
   selector: 'app-storybook',
@@ -94,8 +93,8 @@ import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
 })
 class StorybookInfrastructureComponent {
 
-  icon: string;
-  label: string;
+  @Input() icon!: string;
+  @Input() label!: string;
 
   animationIncrement = -0.002;
 
@@ -105,8 +104,9 @@ class StorybookInfrastructureComponent {
 
 }
 
-export default {
-  title: 'All-in-One/Infrastructure',
+
+const meta: Meta<StorybookInfrastructureComponent> = {
+  title: 'All In One/Infrastructure',
   component: StorybookInfrastructureComponent,
   decorators: [
     moduleMetadata({
@@ -116,10 +116,6 @@ export default {
       ]
     })
   ],
-  args: {
-    icon: 'a:idea',
-    label: 'Workstation'
-  },
   argTypes: {
     icon: {
       description: 'Please choose SVG file from assets',
@@ -142,6 +138,12 @@ export default {
 };
 
 
-export const Infrastructure = (args) => ({
-  props: args
-});
+export default meta;
+type Story = StoryObj<StorybookInfrastructureComponent>;
+
+export const Sample: Story = {
+  args: {
+    icon: 'a:idea',
+    label: 'Workstation'
+  },
+};

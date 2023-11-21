@@ -16,7 +16,8 @@ import { provideParent } from '../../../util';
   `
 })
 export class LayerActorComponent extends AbstractEmptyDirective {
-  @Input() label: string;
+  @Input()
+  label!: string;
 
   @Input()
   set width(width: number) {
@@ -28,9 +29,10 @@ export class LayerActorComponent extends AbstractEmptyDirective {
     return this._width;
   }
 
-  private _width: number;
+  protected _width!: number;
 
-  @Input() height: number;
+  @Input()
+  height!: number;
 
   @Output() render = new EventEmitter<void>();
   @Output() selected = new EventEmitter<void>();
@@ -38,7 +40,7 @@ export class LayerActorComponent extends AbstractEmptyDirective {
 
   color: string | number = '#A0A0A0';
 
-  translateLabelX: number;
+  translateLabelX!: number;
 
   public onSelected() {
     this.color = '#A4A4A4';

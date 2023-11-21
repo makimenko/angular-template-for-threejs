@@ -134,6 +134,5 @@ npm run release
 
 - [<img src="https://avatars0.githubusercontent.com/u/1827709?s=20"> ComFreek](https://github.com/ComFreek)
 - [<img src="https://avatars1.githubusercontent.com/u/11466819?s=20"> makimenko](https://github.com/makimenko)
-- Supported by [JetBrains](https://www.jetbrains.com/?from=AngularThreejsTemplateForDummies)
 
 _Feel free to join us! Just submit your ideas via pull-requests :)_ 

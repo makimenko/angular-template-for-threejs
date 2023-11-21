@@ -1,8 +1,9 @@
-import {moduleMetadata} from '@storybook/angular';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
+import {AtftDataCenterActorModule} from "../../../projects/atft/src/lib/actor/data-center";
 
 
 @Component({
@@ -15,25 +16,35 @@ import {effectsSceneWrapper} from '../scene-wrapper/effects-scene-wrapper';
 })
 class StorybookDofComponent {
 
+  @Input()
+  enable = true;
+
+  @Input()
+  background : any;
+
+  @Input()
+  focus? : number;
+
+  @Input()
+  aperture? : number;
+
+  @Input()
+  maxblur? : number;
 
 }
 
-export default {
-  title: 'Effect/Depth Of Field',
+
+const meta: Meta<StorybookDofComponent> = {
+  title: 'Effects/Depth Of Field',
+  component: StorybookDofComponent,
   decorators: [
     moduleMetadata({
       imports: [
-        AtftModule
+        AtftModule,
+        AtftDataCenterActorModule
       ]
     })
   ],
-  args: {
-    enable: true,
-    background: '#FFFFFF',
-    focus: 10.0,
-    aperture: 0.0001,
-    maxblur: 0.005
-  },
   argTypes: {
     enable: {control: {type: 'boolean'}},
     background: {
@@ -54,7 +65,38 @@ export default {
   }
 };
 
-export const DepthOfField = (args) => ({
-  component: StorybookDofComponent,
-  props: args
-});
+
+export default meta;
+type Story = StoryObj<StorybookDofComponent>;
+
+export const Sample: Story = {
+  args: {
+    enable : true,
+    background : '#FFFFFF',
+    focus: 10.0,
+    aperture: 0.0001,
+    maxblur: 0.005
+  },
+};
+
+export const Sample2: Story = {
+  args: {
+    enable : true,
+    background : '#FFFFFF',
+    focus: 1,
+    aperture: 0.00002,
+    maxblur: 0.037
+  },
+};
+
+export const Sample3: Story = {
+  args: {
+    enable : true,
+    background : '#dad3d3',
+    focus: 300,
+    aperture: 0.00001,
+    maxblur: 0.05
+  },
+};
+
+

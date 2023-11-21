@@ -37,14 +37,14 @@ export class PlaneMeshComponent extends AbstractMesh implements OnChanges {
   heightSegments = 1;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }
 
   protected newObject3DInstance(): THREE.Mesh {
-    const geometry = new THREE.PlaneBufferGeometry(this.width, this.height, this.widthSegments, this.heightSegments);
+    const geometry = new THREE.PlaneGeometry(this.width, this.height, this.widthSegments, this.heightSegments);
     const material = this.getMaterial();
     const mesh = new THREE.Mesh(geometry, material);
     this.applyShadowProps(mesh);
@@ -52,7 +52,7 @@ export class PlaneMeshComponent extends AbstractMesh implements OnChanges {
   }
 
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public override ngOnChanges(changes: SimpleChanges) {
     // console.log('AbstractObject3D.ngOnChanges', this.name);
     if (!this.object) {
       return;
@@ -65,9 +65,9 @@ export class PlaneMeshComponent extends AbstractMesh implements OnChanges {
       if (this.getObject() instanceof THREE.Mesh) {
         const mesh: THREE.Mesh = this.getObject();
 
-        if (mesh.geometry instanceof THREE.PlaneBufferGeometry) {
-          const currentGeometry: THREE.PlaneBufferGeometry = mesh.geometry;
-          const newGeometry = new THREE.PlaneBufferGeometry(this.width, this.height, this.widthSegments, this.heightSegments);
+        if (mesh.geometry instanceof THREE.PlaneGeometry) {
+          const currentGeometry: THREE.PlaneGeometry = mesh.geometry;
+          const newGeometry = new THREE.PlaneGeometry(this.width, this.height, this.widthSegments, this.heightSegments);
           currentGeometry.attributes = newGeometry.attributes;
         }
       }

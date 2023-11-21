@@ -47,17 +47,6 @@ import {ModelActorComponent} from './server';
     DagreYamlParserComponent,
     ModelActorComponent
   ],
-  entryComponents: [
-    ServerStandActorComponent,
-    ServerBarrelActorComponent,
-    ServerCompactActorComponent,
-    ServerIconActorComponent,
-    WorkstationActorComponent,
-    ModelActorComponent,
-    DagreNodeComponent,
-    DagreEdgeComponent,
-    DagreCompositionComponent
-  ],
   providers: [
     ActorRepositoryService
   ]

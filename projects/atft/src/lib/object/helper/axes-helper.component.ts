@@ -14,8 +14,8 @@ export class AxesHelperComponent extends AbstractObject3D<THREE.AxesHelper> {
   @Input() size = 50;
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected parent: AbstractObject3D<any>
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override parent: AbstractObject3D<any>
   ) {
     super(rendererService, parent);
   }

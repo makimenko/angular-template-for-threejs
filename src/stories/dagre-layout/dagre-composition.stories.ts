@@ -1,0 +1,134 @@
+import {Component} from '@angular/core';
+import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
+import {AtftDataCenterActorModule} from '../../../projects/atft/src/lib/actor/data-center';
+// NOTE: Do direct import instead of library (allows to watch component and easy to develop)
+import {AtftModule} from '../../../projects/atft/src/lib/atft.module';
+import {worldSceneWrapper} from '../scene-wrapper/world-scene-wrapper';
+import {AnimationService} from '../../../projects/atft/src/lib/animation';
+
+@Component({
+  selector: 'app-storybook',
+  template: worldSceneWrapper(`
+    <atft-dagre-layout [align]="align" [rankdir]="rankdir" [ranker]="ranker"
+      [nodesep]="nodesep" [edgesep]="edgesep" [ranksep]="ranksep"
+      [marginx]="marginx" [marginy]="marginy">
+
+      <atft-dagre-composition name="presentation" label="Presentation tier"></atft-dagre-composition>
+      <atft-dagre-composition name="application" label="Application tier"></atft-dagre-composition>
+      <atft-dagre-composition name="data" label="Data tier" border="frame"></atft-dagre-composition>
+
+      <atft-dagre-node name="spa" composition="presentation">
+        <atft-server-compact-actor label="spa"></atft-server-compact-actor>
+      </atft-dagre-node>
+
+      <atft-dagre-node name="api" composition="application">
+        <atft-server-stand-actor label="api" icon="video_settings"
+        ></atft-server-stand-actor>
+      </atft-dagre-node>
+
+      <atft-dagre-node name="db1" composition="data">
+        <atft-server-barrel-actor label="PostgreSQL"></atft-server-barrel-actor>
+      </atft-dagre-node>
+
+      <atft-dagre-node name="db2" composition="data">
+        <atft-server-barrel-actor label="MongoDB"></atft-server-barrel-actor>
+      </atft-dagre-node>
+
+      <atft-dagre-edge from="spa" to="api"></atft-dagre-edge>
+      <atft-dagre-edge from="api" to="db1"></atft-dagre-edge>
+      <atft-dagre-edge from="api" to="db2"></atft-dagre-edge>
+
+    </atft-dagre-layout>
+
+`)
+})
+class StorybookDagreCompositionComponent {
+
+  constructor(private animationService: AnimationService) {
+    this.animationService.start();
+  }
+
+}
+
+
+
+const meta: Meta<StorybookDagreCompositionComponent> = {
+  title: 'Dagre Layout/Composition',
+  component: StorybookDagreCompositionComponent,
+  decorators: [
+    moduleMetadata({
+      imports: [
+        AtftModule,
+        AtftDataCenterActorModule
+      ]
+    })
+  ],
+  argTypes: {
+    align: {
+      description: 'Alignment for rank nodes. Can be UL, UR, DL, or DR, where U = up, D = down, L = left, and R = right.',
+      options: [
+        'UL',
+        'UR',
+        'DL',
+        'DR'
+      ],
+      control: {
+        type: 'select'
+      }
+    },
+    rankdir: {
+      description: 'Direction for rank nodes. Can be TB, BT, LR, or RL, where V = top, B = bottom, L = left, and R = right.',
+      options: [
+        'TB',
+        'BT',
+        'LR',
+        'RL'
+      ],
+      control: {
+        type: 'select',
+      }
+    },
+    ranker: {
+      description: 'Type of algorithm to assigns a rank to each node in the input graph. Possible values: network-simplex, tight-tree or longest-path',
+      options: [
+        'network-simplex',
+        'tight-tree',
+        'longest-path'
+      ],
+      control: {
+        type: 'select'
+      }
+    },
+  }
+};
+
+
+export default meta;
+type Story = StoryObj<StorybookDagreCompositionComponent>;
+
+export const Sample: Story = {
+  args: {
+    align: 'DR',
+    rankdir: 'TB',
+    nodesep: 20,
+    edgesep: 1,
+    ranksep: 20,
+    marginx: 0,
+    marginy: 0,
+    ranker: 'network-simplex'
+  },
+};
+
+export const Sample2: Story = {
+  args: {
+    align: 'UL',
+    rankdir: 'LR',
+    nodesep: 40,
+    edgesep: 1,
+    ranksep: 20,
+    marginx: 0,
+    marginy: 0,
+    ranker: 'network-simplex'
+  },
+};
+

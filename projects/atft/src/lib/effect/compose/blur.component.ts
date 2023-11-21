@@ -13,8 +13,8 @@ import {AbstractComposeEffect} from './abstract-compose-effect';
 export class BlurComponent extends AbstractComposeEffect<ShaderPass> {
 
   constructor(
-    protected rendererService: RendererService,
-    @SkipSelf() @Optional() protected composer: EffectComposerComponent
+    protected override rendererService: RendererService,
+    @SkipSelf() @Optional() protected override composer: EffectComposerComponent
   ) {
     super(rendererService, composer);
   }

@@ -5,7 +5,7 @@ import {AbstractEmptyDirective} from '../../../object';
 export abstract class AbstractServerActor extends AbstractEmptyDirective {
 
   @Input()
-  label: string;
+  label!: string;
 
   @Output()
   render = new EventEmitter<void>();
@@ -20,7 +20,7 @@ export abstract class AbstractServerActor extends AbstractEmptyDirective {
   actorClick = new EventEmitter<void>();
 
   @Input()
-  icon: string;
+  icon?: string;
 
   color: string | number = '#ffffff';
 
