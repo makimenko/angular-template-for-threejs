@@ -25,7 +25,7 @@ describe('loader', () => {
 
     it('load', waitForAsync(() => {
       component = fixture.componentInstance;
-      component.model = 'x';
+      component.model = '/assets/model/Server.json';
       fixture.detectChanges();
 
       expect(component).toBeTruthy();

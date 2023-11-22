@@ -29,7 +29,7 @@ describe('loader', () => {
 
     it('load', (() => {
       component = fixture.componentInstance;
-      component.model = 'x';
+      component.model = '/assets/model/Menger_sponge_sample.stl';
       component.materialColor = '#ff0000';
       fixture.detectChanges();
       component.ngOnInit();

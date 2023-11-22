@@ -27,8 +27,8 @@ describe('loader', () => {
 
     it('load', waitForAsync(() => {
       component = fixture.componentInstance;
-      component.model = 'x';
-      component.material = 'x';
+      component.model = '/assets/model/smiley/smiley.obj';
+      component.material = '/assets/model/smiley/smiley.mtl';
       fixture.detectChanges();
       expect(component).toBeTruthy();
       fixture.detectChanges();

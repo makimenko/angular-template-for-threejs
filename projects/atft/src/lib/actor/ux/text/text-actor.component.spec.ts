@@ -31,7 +31,7 @@ describe('ux', () => {
 
     it('init', () => {
       component = fixture.componentInstance;
-      component.text = 'x';
+      component.text = 'Sample Text';
       component.currentText = '';
       component.animate = true;
       component.materialColor = '#ff0000';
