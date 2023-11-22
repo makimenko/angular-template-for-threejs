@@ -5,7 +5,7 @@ import Stats from 'three/examples/jsm/libs/stats.module.js';
 @Injectable()
 export class StatsService implements OnDestroy {
 
-  private stats!: Stats;
+  private stats?: Stats;
 
   constructor() {
     document.body.addEventListener('keydown', event => {
@@ -36,6 +36,9 @@ export class StatsService implements OnDestroy {
   public remove() {
     if (this.stats) {
       this.stats.dom.remove();
+      // @ts-ignore
+      this.stats.dom = undefined;
+      this.stats = undefined;
     }
   }
 
