@@ -85,6 +85,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
                                 <a href="#stats" >stats</a>
                             </li>
                         </ul>
@@ -213,8 +214,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="42"
-                                    class="link-to-prism">projects/atft/src/lib/stats/stats.service.ts:42</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">projects/atft/src/lib/stats/stats.service.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -360,6 +361,7 @@
                     <a name="stats"></a>
                     <span class="name">
                             <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
                         <span ><b>stats</b></span>
                         <a href="#stats"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -393,7 +395,7 @@ import Stats from &#x27;three/examples/jsm/libs/stats.module.js&#x27;;
 @Injectable()
 export class StatsService implements OnDestroy {
 
-  private stats!: Stats;
+  private stats?: Stats;
 
   constructor() {
     document.body.addEventListener(&#x27;keydown&#x27;, event &#x3D;&gt; {
@@ -424,6 +426,9 @@ export class StatsService implements OnDestroy {
   public remove() {
     if (this.stats) {
       this.stats.dom.remove();
+      // @ts-ignore
+      this.stats.dom &#x3D; undefined;
+      this.stats &#x3D; undefined;
     }
   }
 
