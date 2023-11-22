@@ -46,7 +46,7 @@ Click below to see the demo in a web browser:<br>
 
 1. Set up an Angular project and install dependencies:
    ```
-   npm i three dagre atft --save
+   npm i three dagre atft yaml --save
    npm i @types/dagre @types/three --save-dev
    ```
 2. Import library into your module:
