@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.3](https://github.com/makimenko/angular-template-for-threejs/compare/v1.5.2...v1.5.3) (2023-11-29)
+
+
+### Bug Fixes
+
+* upgrade @compodoc/compodoc from 1.1.22 to 1.1.23 ([#441](https://github.com/makimenko/angular-template-for-threejs/issues/441)) ([e131ea2](https://github.com/makimenko/angular-template-for-threejs/commit/e131ea24f99e7af202ea44b9bdd3293e93cb6680))
+
 ### [1.5.2](https://github.com/makimenko/angular-template-for-threejs/compare/v1.5.1...v1.5.2) (2023-11-22)
 
 
