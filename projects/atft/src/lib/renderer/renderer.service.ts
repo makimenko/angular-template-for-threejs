@@ -58,7 +58,6 @@ export class RendererService {
       alpha: true,
       preserveDrawingBuffer: preserveDrawingBuffer
     });
-    this.webGlRenderer.useLegacyLights = true; //TODO: fix
     this.webGlRenderer.setPixelRatio(window.devicePixelRatio);
     this.webGlRenderer.setSize(canvas.clientWidth, canvas.clientHeight, true);
 
