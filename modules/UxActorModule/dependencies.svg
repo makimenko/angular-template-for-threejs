@@ -24,10 +24,6 @@
 <title>cluster_UxActorModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="24.5,-70 24.5,-268 471.5,-268 471.5,-70 24.5,-70"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_UxActorModule_exports</title>
-<polygon fill="none" stroke="black" points="82.5,-208 82.5,-260 414.5,-260 414.5,-208 82.5,-208"/>
-</g>
 <g id="clust5" class="cluster">
 <title>cluster_UxActorModule_imports</title>
 <polygon fill="none" stroke="black" points="365.5,-78 365.5,-130 463.5,-130 463.5,-78 365.5,-78"/>
@@ -35,6 +31,10 @@
 <g id="clust2" class="cluster">
 <title>cluster_UxActorModule_declarations</title>
 <polygon fill="none" stroke="black" points="32.5,-78 32.5,-130 357.5,-130 357.5,-78 32.5,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_UxActorModule_exports</title>
+<polygon fill="none" stroke="black" points="82.5,-208 82.5,-260 414.5,-260 414.5,-208 82.5,-208"/>
 </g>
 <!-- LoaderActorComponent -->
 <g id="node1" class="node">
