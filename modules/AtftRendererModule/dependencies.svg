@@ -26,69 +26,69 @@
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_AtftRendererModule_exports</title>
-<polygon fill="none" stroke="black" points="200,-208 200,-260 394,-260 394,-208 200,-208"/>
-</g>
-<g id="clust7" class="cluster">
-<title>cluster_AtftRendererModule_providers</title>
-<polygon fill="none" stroke="black" points="214,-78 214,-130 531,-130 531,-78 214,-78"/>
+<polygon fill="none" stroke="black" points="162,-208 162,-260 356,-260 356,-208 162,-208"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_AtftRendererModule_declarations</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 206,-130 206,-78 16,-78"/>
+<polygon fill="none" stroke="black" points="341,-78 341,-130 531,-130 531,-78 341,-78"/>
+</g>
+<g id="clust7" class="cluster">
+<title>cluster_AtftRendererModule_providers</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 333,-130 333,-78 16,-78"/>
 </g>
 <!-- RendererCanvasComponent -->
 <g id="node1" class="node">
 <title>RendererCanvasComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="197.84,-122 24.16,-122 24.16,-86 197.84,-86 197.84,-122"/>
-<text text-anchor="middle" x="111" y="-99.8" font-family="Times,serif" font-size="14.00">RendererCanvasComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="522.84,-122 349.16,-122 349.16,-86 522.84,-86 522.84,-122"/>
+<text text-anchor="middle" x="436" y="-99.8" font-family="Times,serif" font-size="14.00">RendererCanvasComponent</text>
 </g>
 <!-- AtftRendererModule -->
 <g id="node2" class="node">
 <title>AtftRendererModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="363.9,-187 360.9,-191 339.9,-191 336.9,-187 230.1,-187 230.1,-151 363.9,-151 363.9,-187"/>
-<text text-anchor="middle" x="297" y="-164.8" font-family="Times,serif" font-size="14.00">AtftRendererModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="325.9,-187 322.9,-191 301.9,-191 298.9,-187 192.1,-187 192.1,-151 325.9,-151 325.9,-187"/>
+<text text-anchor="middle" x="259" y="-164.8" font-family="Times,serif" font-size="14.00">AtftRendererModule</text>
 </g>
 <!-- RendererCanvasComponent&#45;&gt;AtftRendererModule -->
 <g id="edge1" class="edge">
 <title>RendererCanvasComponent&#45;&gt;AtftRendererModule</title>
-<path fill="none" stroke="black" d="M111,-122.11C111,-141.34 111,-169 111,-169 111,-169 220.11,-169 220.11,-169"/>
-<polygon fill="black" stroke="black" points="220.11,-172.5 230.11,-169 220.11,-165.5 220.11,-172.5"/>
+<path fill="none" stroke="black" d="M436,-122.11C436,-141.34 436,-169 436,-169 436,-169 335.92,-169 335.92,-169"/>
+<polygon fill="black" stroke="black" points="335.92,-165.5 325.92,-169 335.92,-172.5 335.92,-165.5"/>
 </g>
 <!-- RendererCanvasComponent  -->
 <g id="node3" class="node">
 <title>RendererCanvasComponent </title>
-<polygon fill="#fb8072" stroke="black" points="385.84,-252 208.16,-252 208.16,-216 385.84,-216 385.84,-252"/>
-<text text-anchor="middle" x="297" y="-229.8" font-family="Times,serif" font-size="14.00">RendererCanvasComponent </text>
+<polygon fill="#fb8072" stroke="black" points="347.84,-252 170.16,-252 170.16,-216 347.84,-216 347.84,-252"/>
+<text text-anchor="middle" x="259" y="-229.8" font-family="Times,serif" font-size="14.00">RendererCanvasComponent </text>
 </g>
 <!-- AtftRendererModule&#45;&gt;RendererCanvasComponent  -->
 <g id="edge2" class="edge">
 <title>AtftRendererModule&#45;&gt;RendererCanvasComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M297,-187.11C297,-187.11 297,-205.99 297,-205.99"/>
-<polygon fill="black" stroke="black" points="293.5,-205.99 297,-215.99 300.5,-205.99 293.5,-205.99"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M259,-187.11C259,-187.11 259,-205.99 259,-205.99"/>
+<polygon fill="black" stroke="black" points="255.5,-205.99 259,-215.99 262.5,-205.99 255.5,-205.99"/>
 </g>
 <!-- BloomService -->
 <g id="node4" class="node">
 <title>BloomService</title>
-<ellipse fill="#fdb462" stroke="black" cx="457" cy="-104" rx="66.07" ry="18"/>
-<text text-anchor="middle" x="457" y="-99.8" font-family="Times,serif" font-size="14.00">BloomService</text>
+<ellipse fill="#fdb462" stroke="black" cx="259" cy="-104" rx="66.07" ry="18"/>
+<text text-anchor="middle" x="259" y="-99.8" font-family="Times,serif" font-size="14.00">BloomService</text>
 </g>
 <!-- BloomService&#45;&gt;AtftRendererModule -->
 <g id="edge3" class="edge">
 <title>BloomService&#45;&gt;AtftRendererModule</title>
-<path fill="none" stroke="black" d="M457,-122.11C457,-141.34 457,-169 457,-169 457,-169 373.93,-169 373.93,-169"/>
-<polygon fill="black" stroke="black" points="373.93,-165.5 363.93,-169 373.93,-172.5 373.93,-165.5"/>
+<path fill="none" stroke="black" d="M259,-122.11C259,-122.11 259,-140.99 259,-140.99"/>
+<polygon fill="black" stroke="black" points="255.5,-140.99 259,-150.99 262.5,-140.99 255.5,-140.99"/>
 </g>
 <!-- RendererService -->
 <g id="node5" class="node">
 <title>RendererService</title>
-<ellipse fill="#fdb462" stroke="black" cx="297" cy="-104" rx="75.26" ry="18"/>
-<text text-anchor="middle" x="297" y="-99.8" font-family="Times,serif" font-size="14.00">RendererService</text>
+<ellipse fill="#fdb462" stroke="black" cx="99" cy="-104" rx="75.26" ry="18"/>
+<text text-anchor="middle" x="99" y="-99.8" font-family="Times,serif" font-size="14.00">RendererService</text>
 </g>
 <!-- RendererService&#45;&gt;AtftRendererModule -->
 <g id="edge4" class="edge">
 <title>RendererService&#45;&gt;AtftRendererModule</title>
-<path fill="none" stroke="black" d="M297,-122.11C297,-122.11 297,-140.99 297,-140.99"/>
-<polygon fill="black" stroke="black" points="293.5,-140.99 297,-150.99 300.5,-140.99 293.5,-140.99"/>
+<path fill="none" stroke="black" d="M96.97,-122.11C96.97,-141.34 96.97,-169 96.97,-169 96.97,-169 182.16,-169 182.16,-169"/>
+<polygon fill="black" stroke="black" points="182.16,-172.5 192.16,-169 182.16,-165.5 182.16,-172.5"/>
 </g>
 </g>
 </svg>

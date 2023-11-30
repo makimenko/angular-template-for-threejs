@@ -1064,7 +1064,7 @@ class SVGLoader extends Loader {
 
       if ( path ) {
 
-        if ( style.fill !&#x3D;&#x3D; undefined &amp;&amp; style.fill !&#x3D;&#x3D; &#x27;none&#x27; ) {
+        if ( style.fill !&#x3D;&#x3D; undefined &amp;&amp; style.fill !&#x3D;&#x3D; &#x27;none&#x27; &amp;&amp; style.fill!&#x3D;&#x27;currentColor&#x27;) {
 
           path.color.setStyle( style.fill );
 

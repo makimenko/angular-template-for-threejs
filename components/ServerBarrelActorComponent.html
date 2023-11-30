@@ -181,7 +181,7 @@
   &lt;/atft-empty&gt;
 
   &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; [height]&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot;
-                  [material]&#x3D;&quot;&#x27;basic&#x27;&quot; [materialColor]&#x3D;&quot;&#x27;0xDADADA&#x27;&quot; [translateY]&#x3D;&quot;-11&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
+                  [material]&#x3D;&quot;&#x27;basic&#x27;&quot; [materialColor]&#x3D;&quot;textColor&quot; [translateY]&#x3D;&quot;-11&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
   &lt;/atft-text-mesh&gt;
   &lt;atft-frame-mesh *ngIf&#x3D;&quot;showFrame&quot; [thickness]&#x3D;&quot;1&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.1&quot; material&#x3D;&quot;basic&quot;
                    [materialColor]&#x3D;&quot;color&quot;&gt;
@@ -214,6 +214,9 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#textColor" >textColor</a>
+                            </li>
                             <li>
                                 <a href="#color" >color</a>
                             </li>
@@ -2098,6 +2101,37 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="textColor"></a>
+                    <span class="name">
+                        <span ><b>textColor</b></span>
+                        <a href="#textColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;#DADADA&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/atft/src/lib/actor/data-center/server/server-barrel-actor.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="color"></a>
                     <span class="name">
                         <span ><b>color</b></span>
@@ -2234,7 +2268,7 @@ import { AbstractServerActor } from &#x27;./abstract-server-actor&#x27;;
       &lt;/atft-empty&gt;
 
       &lt;atft-text-mesh [text]&#x3D;&quot;label&quot; [size]&#x3D;&quot;2&quot; [bevelEnabled]&#x3D;&quot;false&quot; [height]&#x3D;&quot;0&quot; [centered]&#x3D;&quot;true&quot;
-                      [material]&#x3D;&quot;&#x27;basic&#x27;&quot; [materialColor]&#x3D;&quot;&#x27;0xDADADA&#x27;&quot; [translateY]&#x3D;&quot;-11&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
+                      [material]&#x3D;&quot;&#x27;basic&#x27;&quot; [materialColor]&#x3D;&quot;textColor&quot; [translateY]&#x3D;&quot;-11&quot; [translateZ]&#x3D;&quot;0.2&quot;&gt;
       &lt;/atft-text-mesh&gt;
       &lt;atft-frame-mesh *ngIf&#x3D;&quot;showFrame&quot; [thickness]&#x3D;&quot;1&quot; [sizeX]&#x3D;&quot;15&quot; [sizeY]&#x3D;&quot;15&quot; [translateZ]&#x3D;&quot;0.1&quot; material&#x3D;&quot;basic&quot;
                        [materialColor]&#x3D;&quot;color&quot;&gt;
@@ -2243,6 +2277,8 @@ import { AbstractServerActor } from &#x27;./abstract-server-actor&#x27;;
   &#x60;
 })
 export class ServerBarrelActorComponent extends AbstractServerActor {
+
+  textColor &#x3D; &#x27;#DADADA&#x27;;
 
 }
 </code></pre>
@@ -2275,7 +2311,7 @@ export class ServerBarrelActorComponent extends AbstractServerActor {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><atft-empty name="server-box">  <!-- TODO: template? -->  <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (click)="onClick()">    <atft-svg-loader *ngIf="icon" [icon]="icon" overrideMaterialColor="#ffffff"                     material="basic" [maxX]="6" [maxY]="6" [translateZ]="13.1" [rotateZ]="(180 | deg2rad)" [rotateY]="(180 | deg2rad)">    </atft-svg-loader>    <atft-cylinder-mesh *ngFor="let z of [2, 6.5, 11]"                        [height]="4" [radiusTop]="6" [radiusBottom]="6" [radialSegments]="30" [openEnded]="false"                        material="phong" [materialColor]="color" [translateZ]="z" [rotateX]="(90 | deg2rad)">    </atft-cylinder-mesh>  </atft-empty>  <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" [height]="0" [centered]="true"                  [material]="\'basic\'" [materialColor]="\'0xDADADA\'" [translateY]="-11" [translateZ]="0.2">  </atft-text-mesh>  <atft-frame-mesh *ngIf="showFrame" [thickness]="1" [sizeX]="15" [sizeY]="15" [translateZ]="0.1" material="basic"                   [materialColor]="color">  </atft-frame-mesh></atft-empty></div>'
+        var COMPONENT_TEMPLATE = '<div><atft-empty name="server-box">  <!-- TODO: template? -->  <atft-empty atft-raycaster-group (mouseEnter)="onSelected()" (mouseExit)="onDeselected()" (click)="onClick()">    <atft-svg-loader *ngIf="icon" [icon]="icon" overrideMaterialColor="#ffffff"                     material="basic" [maxX]="6" [maxY]="6" [translateZ]="13.1" [rotateZ]="(180 | deg2rad)" [rotateY]="(180 | deg2rad)">    </atft-svg-loader>    <atft-cylinder-mesh *ngFor="let z of [2, 6.5, 11]"                        [height]="4" [radiusTop]="6" [radiusBottom]="6" [radialSegments]="30" [openEnded]="false"                        material="phong" [materialColor]="color" [translateZ]="z" [rotateX]="(90 | deg2rad)">    </atft-cylinder-mesh>  </atft-empty>  <atft-text-mesh [text]="label" [size]="2" [bevelEnabled]="false" [height]="0" [centered]="true"                  [material]="\'basic\'" [materialColor]="textColor" [translateY]="-11" [translateZ]="0.2">  </atft-text-mesh>  <atft-frame-mesh *ngIf="showFrame" [thickness]="1" [sizeX]="15" [sizeY]="15" [translateZ]="0.1" material="basic"                   [materialColor]="color">  </atft-frame-mesh></atft-empty></div>'
     var COMPONENTS = [{'name': 'AmbientLightComponent', 'selector': 'atft-ambient-light'},{'name': 'AxesHelperComponent', 'selector': 'atft-axes-helper'},{'name': 'BlurComponent', 'selector': 'atft-blur'},{'name': 'BoxMeshComponent', 'selector': 'atft-box-mesh'},{'name': 'ContentProjectionComponent', 'selector': 'atft-content-projection'},{'name': 'CylinderMeshComponent', 'selector': 'atft-cylinder-mesh'},{'name': 'DagreCompositionComponent', 'selector': 'atft-dagre-composition'},{'name': 'DagreEdgeComponent', 'selector': 'atft-dagre-edge'},{'name': 'DagreLayoutComponent', 'selector': 'atft-dagre-layout'},{'name': 'DagreNodeComponent', 'selector': 'atft-dagre-node'},{'name': 'DagreYamlParserComponent', 'selector': 'atft-dagre-yaml-parser'},{'name': 'DirectionalLightComponent', 'selector': 'atft-directional-light'},{'name': 'DofComponent', 'selector': 'atft-dof'},{'name': 'DotScreenComponent', 'selector': 'atft-dot-screen'},{'name': 'EffectComposerComponent', 'selector': 'atft-effect-composer'},{'name': 'EmptyComponent', 'selector': 'atft-empty'},{'name': 'FogComponent', 'selector': 'atft-fog'},{'name': 'FrameMeshComponent', 'selector': 'atft-frame-mesh'},{'name': 'GridActorComponent', 'selector': 'atft-grid-actor'},{'name': 'GridHelperComponent', 'selector': 'atft-grid-helper'},{'name': 'GridMeshComponent', 'selector': 'atft-grid-mesh'},{'name': 'HemisphereLightComponent', 'selector': 'atft-hemisphere-light'},{'name': 'LayerActorComponent', 'selector': 'atft-layer-actor'},{'name': 'LineConnectorComponent', 'selector': 'atft-line-connector'},{'name': 'LoaderActorComponent', 'selector': 'atft-loader-actor'},{'name': 'MapControlsComponent', 'selector': 'atft-map-controls'},{'name': 'ModelActorComponent', 'selector': 'atft-model-actor'},{'name': 'ObjectLoaderComponent', 'selector': 'atft-object-loader'},{'name': 'ObjLoaderComponent', 'selector': 'atft-obj-loader'},{'name': 'OrbitControlsComponent', 'selector': 'atft-orbit-controls'},{'name': 'OrthographicCameraComponent', 'selector': 'atft-orthographic-camera'},{'name': 'PerspectiveCameraComponent', 'selector': 'atft-perspective-camera'},{'name': 'PlaneMeshComponent', 'selector': 'atft-plane-mesh'},{'name': 'PointLightComponent', 'selector': 'atft-point-light'},{'name': 'RendererCanvasComponent', 'selector': 'atft-renderer-canvas'},{'name': 'SceneComponent', 'selector': 'atft-scene'},{'name': 'ServerBarrelActorComponent', 'selector': 'atft-server-barrel-actor'},{'name': 'ServerCompactActorComponent', 'selector': 'atft-server-compact-actor'},{'name': 'ServerIconActorComponent', 'selector': 'atft-server-icon-actor'},{'name': 'ServerStandActorComponent', 'selector': 'atft-server-stand-actor'},{'name': 'SphereMeshComponent', 'selector': 'atft-sphere-mesh'},{'name': 'StlLoaderComponent', 'selector': 'atft-stl-loader'},{'name': 'SVGLoaderComponent', 'selector': 'atft-svg-loader'},{'name': 'TextActorComponent', 'selector': 'atft-text-actor'},{'name': 'TextMeshComponent', 'selector': 'atft-text-mesh'},{'name': 'TorusMeshComponent', 'selector': 'atft-torus-mesh'},{'name': 'VideoMeshComponent', 'selector': 'atft-video-mesh'},{'name': 'WorkstationActorComponent', 'selector': 'atft-workstation-actor'}];
     var DIRECTIVES = [{'name': 'AbstractCamera', 'selector': ''},{'name': 'AbstractComposeEffect', 'selector': ''},{'name': 'AbstractConnector', 'selector': ''},{'name': 'AbstractEmptyDirective', 'selector': ''},{'name': 'AbstractLazyObject3D', 'selector': ''},{'name': 'AbstractMesh', 'selector': ''},{'name': 'AbstractModelLoader', 'selector': ''},{'name': 'AbstractObject3D', 'selector': ''},{'name': 'AbstractOrbitControls', 'selector': ''},{'name': 'AbstractServerActor', 'selector': ''},{'name': 'DashedDrawDirective', 'selector': '[atft-dashed-draw]'},{'name': 'RaycasterCameraDirective', 'selector': '[atft-raycaster-camera]'},{'name': 'RaycasterEnableDirective', 'selector': '[atft-raycaster-enable]'},{'name': 'RaycasterGroupDirective', 'selector': '[atft-raycaster-group]'},{'name': 'StatsAutoShowDirective', 'selector': '[atft-stats-auto-show]'}];
     var ACTUAL_COMPONENT = {'name': 'ServerBarrelActorComponent'};
