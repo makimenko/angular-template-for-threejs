@@ -12,9 +12,9 @@ export const effectsSceneWrapper = (content: string) => `
           <atft-scene name="scene" [background]="background">
           ${content}
 
-          <atft-point-light [intensity]="0.5" [distance]="1000" [translateX]=90 [translateY]=90
+          <atft-point-light [intensity]="30000" [distance]="1000" [translateX]=90 [translateY]=90
                             [translateZ]=90></atft-point-light>
-          <atft-point-light [intensity]="0.8" [distance]="1000" [translateX]="-60" [translateY]="-60"
+          <atft-point-light [intensity]="20000" [distance]="1000" [translateX]="-60" [translateY]="-60"
                             [translateZ]="50"></atft-point-light>
 
           <atft-box-mesh *ngFor="let item of [].constructor(20); let i = index"
