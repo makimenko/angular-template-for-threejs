@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.4](https://github.com/makimenko/angular-template-for-threejs/compare/v1.5.3...v1.5.4) (2023-11-30)
+
+
+### Bug Fixes
+
+* adjust light intensity ([8469aa9](https://github.com/makimenko/angular-template-for-threejs/commit/8469aa9c26e0566eb22f7566c42a31ddb27c4d2f))
+* barrel text color warning ([c99a457](https://github.com/makimenko/angular-template-for-threejs/commit/c99a4575811ea84119138bd0ce3d8144fb2edfcb))
+* gitignore ([6daf35b](https://github.com/makimenko/angular-template-for-threejs/commit/6daf35b36eea1fdf9237f9780236daca4ea25741))
+* SVG loader currentColor warning ([a4bdc4f](https://github.com/makimenko/angular-template-for-threejs/commit/a4bdc4f546a954d499cc359c26110955ba5fcf8c))
+* useLegacyLights = false ([2ff328c](https://github.com/makimenko/angular-template-for-threejs/commit/2ff328cc549903935b87b379ab36b287d7dcd912))
+
 ### [1.5.3](https://github.com/makimenko/angular-template-for-threejs/compare/v1.5.2...v1.5.3) (2023-11-29)
 
 
