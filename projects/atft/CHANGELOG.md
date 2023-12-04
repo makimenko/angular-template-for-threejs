@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/makimenko/angular-template-for-threejs/compare/v1.6.0...v1.6.1) (2023-12-04)
+
+
+### Bug Fixes
+
+* three peerDependencies ([4c52caa](https://github.com/makimenko/angular-template-for-threejs/commit/4c52caa385c0b702fcc5fca466914ae53fed9dbd))
+
 ## [1.6.0](https://github.com/makimenko/angular-template-for-threejs/compare/v1.5.4...v1.6.0) (2023-12-04)
 
 
