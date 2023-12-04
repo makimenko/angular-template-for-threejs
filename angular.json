@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-template-for-threejs:build:production"
+              "buildTarget": "angular-template-for-threejs:build:production"
             },
             "development": {
-              "browserTarget": "angular-template-for-threejs:build:development"
+              "buildTarget": "angular-template-for-threejs:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-template-for-threejs:build"
+            "buildTarget": "angular-template-for-threejs:build"
           }
         },
         "test": {

@@ -34,8 +34,8 @@
     }
   ],
   "peerDependencies": {
-    "@angular/common": "^16.2.0",
-    "@angular/core": "^16.2.0",
+    "@angular/common": "^17.0.5",
+    "@angular/core": "^17.0.5",
     "three": "^0.158.0"
   },
   "dependencies": {

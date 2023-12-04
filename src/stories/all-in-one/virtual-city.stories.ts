@@ -147,7 +147,7 @@ const meta: Meta<StorybookFlyComponent> = {
 export default meta;
 type Story = StoryObj<StorybookFlyComponent>;
 
-export const Sample: Story = {
+export const VirtualCity: Story = {
   args: {
   },
 };

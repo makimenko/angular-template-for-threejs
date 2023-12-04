@@ -143,7 +143,7 @@ const meta: Meta<StorybookInfrastructureComponent> = {
 export default meta;
 type Story = StoryObj<StorybookInfrastructureComponent>;
 
-export const Sample: Story = {
+export const Infrastructure: Story = {
   args: {
     icon: 'a:idea',
     label: 'Workstation'
