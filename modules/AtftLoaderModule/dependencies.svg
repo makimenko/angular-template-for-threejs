@@ -24,13 +24,13 @@
 <title>cluster_AtftLoaderModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 694,-268 694,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_AtftLoaderModule_declarations</title>
-<polygon fill="none" stroke="black" points="24,-78 24,-130 680,-130 680,-78 24,-78"/>
-</g>
 <g id="clust8" class="cluster">
 <title>cluster_AtftLoaderModule_exports</title>
 <polygon fill="none" stroke="black" points="16,-208 16,-260 686,-260 686,-208 16,-208"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_AtftLoaderModule_declarations</title>
+<polygon fill="none" stroke="black" points="24,-78 24,-130 680,-130 680,-78 24,-78"/>
 </g>
 <!-- ObjLoaderComponent -->
 <g id="node1" class="node">

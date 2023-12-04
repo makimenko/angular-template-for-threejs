@@ -24,23 +24,23 @@
 <title>cluster_AtftRaycasterModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 744,-268 744,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_AtftRaycasterModule_declarations</title>
-<polygon fill="none" stroke="black" points="196,-78 196,-130 736,-130 736,-78 196,-78"/>
-</g>
-<g id="clust9" class="cluster">
-<title>cluster_AtftRaycasterModule_providers</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 188,-130 188,-78 16,-78"/>
-</g>
 <g id="clust7" class="cluster">
 <title>cluster_AtftRaycasterModule_exports</title>
 <polygon fill="none" stroke="black" points="101,-208 101,-260 651,-260 651,-208 101,-208"/>
 </g>
+<g id="clust9" class="cluster">
+<title>cluster_AtftRaycasterModule_providers</title>
+<polygon fill="none" stroke="black" points="564,-78 564,-130 736,-130 736,-78 564,-78"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_AtftRaycasterModule_declarations</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 556,-130 556,-78 16,-78"/>
+</g>
 <!-- RaycasterCameraDirective -->
 <g id="node1" class="node">
 <title>RaycasterCameraDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="728.31,-122 561.69,-122 561.69,-86 728.31,-86 728.31,-122"/>
-<text text-anchor="middle" x="645" y="-99.8" font-family="Times,serif" font-size="14.00">RaycasterCameraDirective</text>
+<polygon fill="#ffffb3" stroke="black" points="548.31,-122 381.69,-122 381.69,-86 548.31,-86 548.31,-122"/>
+<text text-anchor="middle" x="465" y="-99.8" font-family="Times,serif" font-size="14.00">RaycasterCameraDirective</text>
 </g>
 <!-- AtftRaycasterModule -->
 <g id="node4" class="node">
@@ -51,32 +51,32 @@
 <!-- RaycasterCameraDirective&#45;&gt;AtftRaycasterModule -->
 <g id="edge1" class="edge">
 <title>RaycasterCameraDirective&#45;&gt;AtftRaycasterModule</title>
-<path fill="none" stroke="black" d="M602.38,-122.02C602.38,-139.37 602.38,-163 602.38,-163 602.38,-163 450.81,-163 450.81,-163"/>
-<polygon fill="black" stroke="black" points="450.81,-159.5 440.81,-163 450.81,-166.5 450.81,-159.5"/>
+<path fill="none" stroke="black" d="M411.12,-122.11C411.12,-122.11 411.12,-140.99 411.12,-140.99"/>
+<polygon fill="black" stroke="black" points="407.62,-140.99 411.12,-150.99 414.62,-140.99 407.62,-140.99"/>
 </g>
 <!-- RaycasterEnableDirective -->
 <g id="node2" class="node">
 <title>RaycasterEnableDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="544.15,-122 381.85,-122 381.85,-86 544.15,-86 544.15,-122"/>
-<text text-anchor="middle" x="463" y="-99.8" font-family="Times,serif" font-size="14.00">RaycasterEnableDirective</text>
+<polygon fill="#ffffb3" stroke="black" points="364.15,-122 201.85,-122 201.85,-86 364.15,-86 364.15,-122"/>
+<text text-anchor="middle" x="283" y="-99.8" font-family="Times,serif" font-size="14.00">RaycasterEnableDirective</text>
 </g>
 <!-- RaycasterEnableDirective&#45;&gt;AtftRaycasterModule -->
 <g id="edge2" class="edge">
 <title>RaycasterEnableDirective&#45;&gt;AtftRaycasterModule</title>
-<path fill="none" stroke="black" d="M411.29,-122.11C411.29,-122.11 411.29,-140.99 411.29,-140.99"/>
-<polygon fill="black" stroke="black" points="407.79,-140.99 411.29,-150.99 414.79,-140.99 407.79,-140.99"/>
+<path fill="none" stroke="black" d="M333.71,-122.11C333.71,-122.11 333.71,-140.99 333.71,-140.99"/>
+<polygon fill="black" stroke="black" points="330.21,-140.99 333.71,-150.99 337.21,-140.99 330.21,-140.99"/>
 </g>
 <!-- RaycasterGroupDirective -->
 <g id="node3" class="node">
 <title>RaycasterGroupDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="363.54,-122 204.46,-122 204.46,-86 363.54,-86 363.54,-122"/>
-<text text-anchor="middle" x="284" y="-99.8" font-family="Times,serif" font-size="14.00">RaycasterGroupDirective</text>
+<polygon fill="#ffffb3" stroke="black" points="183.54,-122 24.46,-122 24.46,-86 183.54,-86 183.54,-122"/>
+<text text-anchor="middle" x="104" y="-99.8" font-family="Times,serif" font-size="14.00">RaycasterGroupDirective</text>
 </g>
 <!-- RaycasterGroupDirective&#45;&gt;AtftRaycasterModule -->
 <g id="edge3" class="edge">
 <title>RaycasterGroupDirective&#45;&gt;AtftRaycasterModule</title>
-<path fill="none" stroke="black" d="M333.44,-122.11C333.44,-122.11 333.44,-140.99 333.44,-140.99"/>
-<polygon fill="black" stroke="black" points="329.94,-140.99 333.44,-150.99 336.94,-140.99 329.94,-140.99"/>
+<path fill="none" stroke="black" d="M146.12,-122.02C146.12,-139.37 146.12,-163 146.12,-163 146.12,-163 293.31,-163 293.31,-163"/>
+<polygon fill="black" stroke="black" points="293.31,-166.5 303.31,-163 293.31,-159.5 293.31,-166.5"/>
 </g>
 <!-- RaycasterCameraDirective  -->
 <g id="node5" class="node">
@@ -87,8 +87,8 @@
 <!-- AtftRaycasterModule&#45;&gt;RaycasterCameraDirective  -->
 <g id="edge4" class="edge">
 <title>AtftRaycasterModule&#45;&gt;RaycasterCameraDirective </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M441.03,-175C474.88,-175 508.46,-175 508.46,-175 508.46,-175 508.46,-205.98 508.46,-205.98"/>
-<polygon fill="black" stroke="black" points="504.96,-205.98 508.46,-215.98 511.96,-205.98 504.96,-205.98"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M440.91,-175C475.7,-175 510.62,-175 510.62,-175 510.62,-175 510.62,-205.98 510.62,-205.98"/>
+<polygon fill="black" stroke="black" points="507.13,-205.98 510.62,-215.98 514.13,-205.98 507.13,-205.98"/>
 </g>
 <!-- RaycasterEnableDirective  -->
 <g id="node6" class="node">
@@ -111,20 +111,20 @@
 <!-- AtftRaycasterModule&#45;&gt;RaycasterGroupDirective  -->
 <g id="edge6" class="edge">
 <title>AtftRaycasterModule&#45;&gt;RaycasterGroupDirective </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M302.97,-175C270.11,-175 237.88,-175 237.88,-175 237.88,-175 237.88,-205.98 237.88,-205.98"/>
-<polygon fill="black" stroke="black" points="234.38,-205.98 237.88,-215.98 241.38,-205.98 234.38,-205.98"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M303.11,-175C269.66,-175 236.6,-175 236.6,-175 236.6,-175 236.6,-205.98 236.6,-205.98"/>
+<polygon fill="black" stroke="black" points="233.1,-205.98 236.6,-215.98 240.1,-205.98 233.1,-205.98"/>
 </g>
 <!-- RaycasterService -->
 <g id="node8" class="node">
 <title>RaycasterService</title>
-<ellipse fill="#fdb462" stroke="black" cx="102" cy="-104" rx="78.12" ry="18"/>
-<text text-anchor="middle" x="102" y="-99.8" font-family="Times,serif" font-size="14.00">RaycasterService</text>
+<ellipse fill="#fdb462" stroke="black" cx="650" cy="-104" rx="78.12" ry="18"/>
+<text text-anchor="middle" x="650" y="-99.8" font-family="Times,serif" font-size="14.00">RaycasterService</text>
 </g>
 <!-- RaycasterService&#45;&gt;AtftRaycasterModule -->
 <g id="edge7" class="edge">
 <title>RaycasterService&#45;&gt;AtftRaycasterModule</title>
-<path fill="none" stroke="black" d="M144.4,-119.19C144.4,-136.68 144.4,-163 144.4,-163 144.4,-163 293.09,-163 293.09,-163"/>
-<polygon fill="black" stroke="black" points="293.09,-166.5 303.09,-163 293.09,-159.5 293.09,-166.5"/>
+<path fill="none" stroke="black" d="M607.55,-119.19C607.55,-136.68 607.55,-163 607.55,-163 607.55,-163 450.76,-163 450.76,-163"/>
+<polygon fill="black" stroke="black" points="450.76,-159.5 440.76,-163 450.76,-166.5 450.76,-159.5"/>
 </g>
 </g>
 </svg>
