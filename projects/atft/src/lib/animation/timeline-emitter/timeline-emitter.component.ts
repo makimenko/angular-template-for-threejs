@@ -18,8 +18,7 @@ import {EmitStepComponent} from "./emit-step.component";
 export class TimelineEmitterComponent implements AfterViewInit, OnDestroy, OnChanges, OnInit {
 
   @ContentChildren(EmitStepComponent, {descendants: true}) emitSteps!: QueryList<EmitStepComponent>;
-  @Input() autostart = true;
-
+  @Input() autostart = false;
 
   constructor() {
     console.log('TimelineEmitterComponent.constructor');

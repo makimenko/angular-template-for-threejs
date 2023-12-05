@@ -1,4 +1,4 @@
-import {Component, Input, Optional, SkipSelf} from '@angular/core';
+import {Component, EventEmitter, Input, Optional, Output, SkipSelf} from '@angular/core';
 
 import * as THREE from 'three';
 import {RendererService} from '../../renderer/renderer.service';
@@ -19,6 +19,9 @@ export class AudioLoaderComponent extends AbstractModelLoader {
   @Input() url!: string;
   @Input() volume = 0.5;
   @Input() loop = false;
+  @Input() autostart = true;
+
+  @Output() ready = new EventEmitter();
 
   constructor(
     protected override rendererService: RendererService,
@@ -49,9 +52,11 @@ export class AudioLoaderComponent extends AbstractModelLoader {
     this.sound.setLoop(this.loop);
     this.sound.setVolume(this.volume);
     this.sound.autoplay = false;
-    //NOTE: interaction with user must happen before this component initialization
-    // three.module.js:46880 The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://goo.gl/7K7WLu
-    this.play();
+    if (this.autostart) {
+      //NOTE: interaction with user must happen before this component initialization
+      // three.module.js:46880 The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://goo.gl/7K7WLu
+      this.play();
+    }
   }
 
   public override ngOnDestroy(): void {
