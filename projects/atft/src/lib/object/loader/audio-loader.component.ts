@@ -19,7 +19,7 @@ export class AudioLoaderComponent extends AbstractModelLoader {
   @Input() url!: string;
   @Input() volume = 0.5;
   @Input() loop = false;
-  @Input() autostart = true;
+  @Input() autoplay = true;
 
   @Output() ready = new EventEmitter();
 
@@ -51,12 +51,13 @@ export class AudioLoaderComponent extends AbstractModelLoader {
     this.sound.setBuffer(buffer);
     this.sound.setLoop(this.loop);
     this.sound.setVolume(this.volume);
-    this.sound.autoplay = false;
-    if (this.autostart) {
+    this.sound.autoplay = this.autoplay;
+    if (this.autoplay) {
       //NOTE: interaction with user must happen before this component initialization
       // three.module.js:46880 The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://goo.gl/7K7WLu
       this.play();
     }
+    this.ready.emit();
   }
 
   public override ngOnDestroy(): void {

@@ -41,7 +41,6 @@ export class TimelineEmitterComponent implements AfterViewInit, OnDestroy, OnCha
 
   ngOnInit(): void {
     console.log('TimelineEmitterComponent.ngOnInit', this.emitSteps);
-
   }
 
   public start() {
