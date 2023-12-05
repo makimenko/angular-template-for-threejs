@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.4](https://github.com/makimenko/angular-template-for-threejs/compare/v1.6.3...v1.6.4) (2023-12-05)
+
+
+### Bug Fixes
+
+* audio loader event emitter ([dec7182](https://github.com/makimenko/angular-template-for-threejs/commit/dec7182b8a501a2f21a1d5f1425202591c4f519d))
+
 ### [1.6.3](https://github.com/makimenko/angular-template-for-threejs/compare/v1.6.2...v1.6.3) (2023-12-05)
 
 
