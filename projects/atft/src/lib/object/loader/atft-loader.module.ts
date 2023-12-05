@@ -4,6 +4,7 @@ import {ObjectLoaderComponent} from './object-loader.component';
 import {ObjLoaderComponent} from './obj-loader.component';
 import {SVGLoaderComponent} from './svg-loader.component';
 import {StlLoaderComponent} from './stl-loader.component';
+import {AudioLoaderComponent} from "./audio-loader.component";
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import {StlLoaderComponent} from './stl-loader.component';
     ObjectLoaderComponent,
     SVGLoaderComponent,
     StlLoaderComponent,
+    AudioLoaderComponent
   ],
   imports: [
     CommonModule
@@ -21,6 +23,7 @@ import {StlLoaderComponent} from './stl-loader.component';
     ObjectLoaderComponent,
     SVGLoaderComponent,
     StlLoaderComponent,
+    AudioLoaderComponent
   ]
 })
 export class AtftLoaderModule {
