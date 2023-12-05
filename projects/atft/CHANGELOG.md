@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.2](https://github.com/makimenko/angular-template-for-threejs/compare/v1.6.1...v1.6.2) (2023-12-05)
+
+
+### Bug Fixes
+
+* atft-timeline-emitter and atft-audio-loader ([25a926e](https://github.com/makimenko/angular-template-for-threejs/commit/25a926ea05f4c616f4605ff11e411eba16f8e9f9))
+
 ### [1.6.1](https://github.com/makimenko/angular-template-for-threejs/compare/v1.6.0...v1.6.1) (2023-12-04)
 
 
