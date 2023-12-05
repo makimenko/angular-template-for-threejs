@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3](https://github.com/makimenko/angular-template-for-threejs/compare/v1.6.2...v1.6.3) (2023-12-05)
+
+
+### Bug Fixes
+
+* ready() event for timeline ([6ade4e4](https://github.com/makimenko/angular-template-for-threejs/commit/6ade4e4b5fb7b225e996992183b42fd733d85409))
+
 ### [1.6.2](https://github.com/makimenko/angular-template-for-threejs/compare/v1.6.1...v1.6.2) (2023-12-05)
 
 
