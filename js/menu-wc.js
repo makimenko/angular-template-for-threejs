@@ -67,15 +67,32 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
                                 <a href="modules/AtftAnimationModule.html" data-type="entity-link" >AtftAnimationModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-AtftAnimationModule-48027f5daf6f681e84144b2e814b2626a4ebe4368241013aa9babd0014232db00b0a39e3c4b682846182e0d6c9dea1707f5bddc2d15979bcf5b46dc1dd0d96e2"' : 'data-bs-target="#xs-components-links-module-AtftAnimationModule-48027f5daf6f681e84144b2e814b2626a4ebe4368241013aa9babd0014232db00b0a39e3c4b682846182e0d6c9dea1707f5bddc2d15979bcf5b46dc1dd0d96e2"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftAnimationModule-48027f5daf6f681e84144b2e814b2626a4ebe4368241013aa9babd0014232db00b0a39e3c4b682846182e0d6c9dea1707f5bddc2d15979bcf5b46dc1dd0d96e2"' :
+                                            'id="xs-components-links-module-AtftAnimationModule-48027f5daf6f681e84144b2e814b2626a4ebe4368241013aa9babd0014232db00b0a39e3c4b682846182e0d6c9dea1707f5bddc2d15979bcf5b46dc1dd0d96e2"' }>
+                                            <li class="link">
+                                                <a href="components/EmitStepComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >EmitStepComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/TimelineEmitterComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TimelineEmitterComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                        'data-bs-target="#injectables-links-module-AtftAnimationModule-5f73e1568caa8b4a57c6d26dca9f9315587deb48d972c8d39a65b778829974dd11a700d36493e47a8e73ac914bab10554f87204de2efdfa2005abf95cd44766a"' : 'data-bs-target="#xs-injectables-links-module-AtftAnimationModule-5f73e1568caa8b4a57c6d26dca9f9315587deb48d972c8d39a65b778829974dd11a700d36493e47a8e73ac914bab10554f87204de2efdfa2005abf95cd44766a"' }>
+                                        'data-bs-target="#injectables-links-module-AtftAnimationModule-48027f5daf6f681e84144b2e814b2626a4ebe4368241013aa9babd0014232db00b0a39e3c4b682846182e0d6c9dea1707f5bddc2d15979bcf5b46dc1dd0d96e2"' : 'data-bs-target="#xs-injectables-links-module-AtftAnimationModule-48027f5daf6f681e84144b2e814b2626a4ebe4368241013aa9babd0014232db00b0a39e3c4b682846182e0d6c9dea1707f5bddc2d15979bcf5b46dc1dd0d96e2"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftAnimationModule-5f73e1568caa8b4a57c6d26dca9f9315587deb48d972c8d39a65b778829974dd11a700d36493e47a8e73ac914bab10554f87204de2efdfa2005abf95cd44766a"' :
-                                        'id="xs-injectables-links-module-AtftAnimationModule-5f73e1568caa8b4a57c6d26dca9f9315587deb48d972c8d39a65b778829974dd11a700d36493e47a8e73ac914bab10554f87204de2efdfa2005abf95cd44766a"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AtftAnimationModule-48027f5daf6f681e84144b2e814b2626a4ebe4368241013aa9babd0014232db00b0a39e3c4b682846182e0d6c9dea1707f5bddc2d15979bcf5b46dc1dd0d96e2"' :
+                                        'id="xs-injectables-links-module-AtftAnimationModule-48027f5daf6f681e84144b2e814b2626a4ebe4368241013aa9babd0014232db00b0a39e3c4b682846182e0d6c9dea1707f5bddc2d15979bcf5b46dc1dd0d96e2"' }>
                                         <li class="link">
                                             <a href="injectables/AnimationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AnimationService</a>
                                         </li>
@@ -302,13 +319,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AtftLoaderModule.html" data-type="entity-link" >AtftLoaderModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-AtftLoaderModule-e1b7808c054ff7d07b5f44a8d9d5853dcccabd6f03f9e84f65995dc3233052ee9994f1667b930785fc095fdefded08ea4e7496b416a52bbd5d61fc572656e410"' : 'data-bs-target="#xs-components-links-module-AtftLoaderModule-e1b7808c054ff7d07b5f44a8d9d5853dcccabd6f03f9e84f65995dc3233052ee9994f1667b930785fc095fdefded08ea4e7496b416a52bbd5d61fc572656e410"' }>
+                                            'data-bs-target="#components-links-module-AtftLoaderModule-9996e35976f3afbe949a595215acef4e568eef9f60b8ad251bcd4c12e96d7db34fde046d1eca51fbf587cd2425903f0f4f33fd5e473c4a7e25020ad7296b5524"' : 'data-bs-target="#xs-components-links-module-AtftLoaderModule-9996e35976f3afbe949a595215acef4e568eef9f60b8ad251bcd4c12e96d7db34fde046d1eca51fbf587cd2425903f0f4f33fd5e473c4a7e25020ad7296b5524"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftLoaderModule-e1b7808c054ff7d07b5f44a8d9d5853dcccabd6f03f9e84f65995dc3233052ee9994f1667b930785fc095fdefded08ea4e7496b416a52bbd5d61fc572656e410"' :
-                                            'id="xs-components-links-module-AtftLoaderModule-e1b7808c054ff7d07b5f44a8d9d5853dcccabd6f03f9e84f65995dc3233052ee9994f1667b930785fc095fdefded08ea4e7496b416a52bbd5d61fc572656e410"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AtftLoaderModule-9996e35976f3afbe949a595215acef4e568eef9f60b8ad251bcd4c12e96d7db34fde046d1eca51fbf587cd2425903f0f4f33fd5e473c4a7e25020ad7296b5524"' :
+                                            'id="xs-components-links-module-AtftLoaderModule-9996e35976f3afbe949a595215acef4e568eef9f60b8ad251bcd4c12e96d7db34fde046d1eca51fbf587cd2425903f0f4f33fd5e473c4a7e25020ad7296b5524"' }>
+                                            <li class="link">
+                                                <a href="components/AudioLoaderComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AudioLoaderComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/ObjLoaderComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ObjLoaderComponent</a>
                                             </li>
@@ -596,10 +616,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/DagreYamlParserComponent.html" data-type="entity-link" >DagreYamlParserComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/EmitStepComponent.html" data-type="entity-link" >EmitStepComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/LoaderActorComponent.html" data-type="entity-link" >LoaderActorComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/ModelActorComponent.html" data-type="entity-link" >ModelActorComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/TimelineEmitterComponent.html" data-type="entity-link" >TimelineEmitterComponent</a>
                             </li>
                         </ul>
                     </li>
