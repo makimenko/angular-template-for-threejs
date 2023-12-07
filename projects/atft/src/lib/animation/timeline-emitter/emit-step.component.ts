@@ -34,7 +34,7 @@ export class EmitStepComponent implements AfterViewInit, OnDestroy, OnChanges {
   }
 
   public ngOnChanges(changes: SimpleChanges) {
-    console.log('EmitStepComponent.ngOnChanges');
+    console.log('EmitStepComponent.ngOnChanges', changes);
   }
 
 }

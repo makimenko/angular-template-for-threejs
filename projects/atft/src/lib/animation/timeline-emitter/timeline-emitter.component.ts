@@ -36,7 +36,7 @@ export class TimelineEmitterComponent implements AfterViewInit, OnDestroy, OnCha
   }
 
   public ngOnChanges(changes: SimpleChanges) {
-    console.log('TimelineEmitterComponent.ngOnChanges');
+    console.log('TimelineEmitterComponent.ngOnChanges', changes);
   }
 
   ngOnInit(): void {

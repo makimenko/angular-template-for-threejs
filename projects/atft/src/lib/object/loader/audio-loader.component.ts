@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Optional, Output, SkipSelf} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, Optional, Output, SkipSelf} from '@angular/core';
 
 import * as THREE from 'three';
 import {RendererService} from '../../renderer/renderer.service';
@@ -11,7 +11,7 @@ import {AbstractModelLoader} from './abstract-model-loader';
   providers: [provideParent(AudioLoaderComponent)],
   template: '<ng-content></ng-content>'
 })
-export class AudioLoaderComponent extends AbstractModelLoader {
+export class AudioLoaderComponent extends AbstractModelLoader implements OnDestroy {
   private loader = new THREE.AudioLoader();
   private listener = new THREE.AudioListener();
   private sound = new THREE.Audio(this.listener);

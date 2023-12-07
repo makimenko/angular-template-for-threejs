@@ -2,7 +2,6 @@ import {Component, Input} from '@angular/core';
 import {Meta, moduleMetadata, StoryObj} from '@storybook/angular';
 // NOTE: Do direct import instead of library (allows to watch component and easy to develop)
 import {AtftModule} from '../../../../projects/atft/src/lib/atft.module';
-import {worldSceneWrapper} from "../../scene-wrapper/world-scene-wrapper";
 import {axesSceneWrapper} from "../../scene-wrapper/axes-scene-wrapper";
 
 
@@ -19,8 +18,8 @@ import {axesSceneWrapper} from "../../scene-wrapper/axes-scene-wrapper";
   `)
 })
 class TimelineEmitterStoryComponent {
-  visibleOne = false;
-  visibleTwo = false;
+  @Input() visibleOne = false;
+  @Input() visibleTwo = false;
 }
 
 
