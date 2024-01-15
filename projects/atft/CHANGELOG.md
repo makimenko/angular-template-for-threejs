@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.5](https://github.com/makimenko/angular-template-for-threejs/compare/v1.6.4...v1.6.5) (2024-01-15)
+
+
+### Bug Fixes
+
+* Add reset() method to AbstractOrbitControls [#446](https://github.com/makimenko/angular-template-for-threejs/issues/446) ([426a23c](https://github.com/makimenko/angular-template-for-threejs/commit/426a23c91efac993fe62782915dd0e4f96f68cf0))
+* linting ([4b3af4f](https://github.com/makimenko/angular-template-for-threejs/commit/4b3af4f55e4faf1c34172a6d0ba31e841f35dee6))
+* Typo in hightSegments property [#447](https://github.com/makimenko/angular-template-for-threejs/issues/447) ([214eb87](https://github.com/makimenko/angular-template-for-threejs/commit/214eb87860a5ed6d5a6d3d64720931a9c6cae5df))
+* Upgrade to threejs 0.160 ([343f023](https://github.com/makimenko/angular-template-for-threejs/commit/343f023245207f814ea2ebf43887c6ddc4362468))
+
 ### [1.6.4](https://github.com/makimenko/angular-template-for-threejs/compare/v1.6.3...v1.6.4) (2023-12-05)
 
 
