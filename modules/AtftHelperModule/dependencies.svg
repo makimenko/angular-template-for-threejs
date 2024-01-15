@@ -24,13 +24,13 @@
 <title>cluster_AtftHelperModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 498,-268 498,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_AtftHelperModule_declarations</title>
-<polygon fill="none" stroke="black" points="20,-78 20,-130 484,-130 484,-78 20,-78"/>
-</g>
 <g id="clust7" class="cluster">
 <title>cluster_AtftHelperModule_exports</title>
 <polygon fill="none" stroke="black" points="16,-208 16,-260 490,-260 490,-208 16,-208"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_AtftHelperModule_declarations</title>
+<polygon fill="none" stroke="black" points="20,-78 20,-130 484,-130 484,-78 20,-78"/>
 </g>
 <!-- AxesHelperComponent -->
 <g id="node1" class="node">

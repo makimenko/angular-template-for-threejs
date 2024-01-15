@@ -1552,7 +1552,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getConnectorEndGeometry(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>getConnectorEndGeometry(type: <a href="../undefineds/LineEndType.html" target="_self">LineEndType</a>)</code>
                 </td>
             </tr>
 
@@ -1583,7 +1583,7 @@
                                         <tr>
                                                 <td>type</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            <code><a href="../miscellaneous/enumerations.html#LineEndType" target="_self" >LineEndType</a></code>
                                             </td>
 
                                             <td>
@@ -3762,7 +3762,7 @@ export class DagreEdgeComponent extends LineConnectorComponent implements OnInit
     }
   }
 
-  protected getConnectorEndGeometry(type: string): THREE.BufferGeometry | undefined {
+  protected getConnectorEndGeometry(type: LineEndType): THREE.BufferGeometry | undefined {
     switch (type) {
       case LineEndType.circle:
         return new THREE.CircleGeometry(0.7, 16);

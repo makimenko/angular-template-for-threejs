@@ -188,6 +188,10 @@
                                 <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#reset" >reset</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Protected</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#setUpControls" >setUpControls</a>
@@ -503,6 +507,45 @@ a known issue from Three.js: <a href="https://github.com/mrdoob/three.js/pull/10
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="reset"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>reset</b></span>
+                        <a href="#reset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reset()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">projects/atft/src/lib/control/abstract-orbit-controls.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="setUpControls"></a>
                     <span class="name">
                             <span class="modifier">Protected</span>
@@ -736,6 +779,10 @@ export abstract class AbstractOrbitControls&lt;T extends OrbitControls&gt; imple
     this.setUpControls();
     this.configureListeners();
     this.rendererService.render();
+  }
+
+  public reset(): void {
+    this.controls.reset();
   }
 
 }
