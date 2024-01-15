@@ -16,7 +16,7 @@ import {performanceSceneWrapper} from '../scene-wrapper/performance-scene-wrappe
     <atft-sphere-mesh
         atft-dashed-draw materialColor="#0000FF" dashColor="#0000FF"
         [targetOpacity]="0.1"
-        [radius]="10" [hightSegments]="10" [widthSegments]="10"
+        [radius]="10" [heightSegments]="10" [widthSegments]="10"
         [translateY]="20"
     ></atft-sphere-mesh>
 

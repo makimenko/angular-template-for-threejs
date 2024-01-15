@@ -14,7 +14,7 @@ export class SphereMeshComponent extends AbstractMesh {
 
   @Input() radius!: number;
   @Input() widthSegments!: number;
-  @Input() hightSegments!: number;
+  @Input() heightSegments!: number;
 
   constructor(
     protected override rendererService: RendererService,
@@ -25,7 +25,7 @@ export class SphereMeshComponent extends AbstractMesh {
 
   protected newObject3DInstance(): THREE.Mesh {
     // console.log('SphereMeshComponent.newObject3DInstance');
-    const geometry = new THREE.SphereGeometry(this.radius, this.widthSegments, this.hightSegments);
+    const geometry = new THREE.SphereGeometry(this.radius, this.widthSegments, this.heightSegments);
     const material = this.getMaterial();
     const mesh = new THREE.Mesh(geometry, material);
     this.applyShadowProps(mesh);

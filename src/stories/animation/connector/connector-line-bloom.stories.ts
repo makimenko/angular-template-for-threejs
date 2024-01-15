@@ -11,10 +11,10 @@ import {worldSceneWrapper} from "../../scene-wrapper/world-scene-wrapper";
   <atft-effect-composer>
   </atft-effect-composer>
 
-  <atft-sphere-mesh [radius]="0.5" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="#0000ff"
+  <atft-sphere-mesh [radius]="0.5" [widthSegments]="10" [heightSegments]="20" material="lamb" materialColor="#0000ff"
     #a [translateY]="50" [translateX]="-10" [translateZ]="translateZ">
   </atft-sphere-mesh>
-  <atft-sphere-mesh [radius]="0.5" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="#0000ff"
+  <atft-sphere-mesh [radius]="0.5" [widthSegments]="10" [heightSegments]="20" material="lamb" materialColor="#0000ff"
     #b [translateY]="-50" [translateX]="10" [translateZ]="5">
   </atft-sphere-mesh>
 

@@ -8,10 +8,10 @@ import {axesSceneWrapper} from '../../scene-wrapper/axes-scene-wrapper';
 @Component({
   selector: 'app-storybook',
   template: axesSceneWrapper(`
-  <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="#00ff00"
+  <atft-sphere-mesh [radius]="2" [widthSegments]="10" [heightSegments]="20" material="lamb" materialColor="#00ff00"
     #a [translateY]="50" [translateX]="-10" [translateZ]="translateZ">
   </atft-sphere-mesh>
-  <atft-sphere-mesh [radius]="2" [widthSegments]="10" [hightSegments]="20" material="lamb" materialColor="#00ff00"
+  <atft-sphere-mesh [radius]="2" [widthSegments]="10" [heightSegments]="20" material="lamb" materialColor="#00ff00"
     #b [translateY]="-20" [translateX]="-30" [translateZ]="0">
   </atft-sphere-mesh>
 
