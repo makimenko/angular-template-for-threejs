@@ -45,5 +45,4 @@ export class OrbitControlsComponent extends AbstractOrbitControls<OrbitControls>
     }
   }
 
-
 }

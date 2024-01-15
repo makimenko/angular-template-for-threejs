@@ -99,8 +99,5 @@ export class MapControlsComponent extends AbstractOrbitControls<OrbitControls> i
     this.animation?.unsubscribe();
   }
 
-  public reset(): void {
-    this.controls.reset();
-  }
 
 }

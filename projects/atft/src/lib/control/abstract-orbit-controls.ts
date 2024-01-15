@@ -85,4 +85,8 @@ export abstract class AbstractOrbitControls<T extends OrbitControls> implements 
     this.rendererService.render();
   }
 
+  public reset(): void {
+    this.controls.reset();
+  }
+
 }
